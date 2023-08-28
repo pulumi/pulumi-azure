@@ -448,9 +448,6 @@ namespace Pulumi.Azure.Compute
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("upgradeMode")]
         public Output<string?> UpgradeMode { get; private set; } = null!;
 
@@ -937,9 +934,6 @@ namespace Pulumi.Azure.Compute
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
-        /// <summary>
-        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
 
@@ -1401,9 +1395,6 @@ namespace Pulumi.Azure.Compute
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
 
-        /// <summary>
-        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
 

@@ -27,6 +27,8 @@ type WorkspaceCustomerManagedKey struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
 	// The ID of the Databricks Workspace..
+	//
+	// Deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -69,6 +71,8 @@ type workspaceCustomerManagedKeyState struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The ID of the Databricks Workspace..
+	//
+	// Deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -76,6 +80,8 @@ type WorkspaceCustomerManagedKeyState struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// The ID of the Databricks Workspace..
+	//
+	// Deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -87,6 +93,8 @@ type workspaceCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// The ID of the Databricks Workspace..
+	//
+	// Deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -95,6 +103,8 @@ type WorkspaceCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault.
 	KeyVaultKeyId pulumi.StringInput
 	// The ID of the Databricks Workspace..
+	//
+	// Deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -191,6 +201,8 @@ func (o WorkspaceCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
 }
 
 // The ID of the Databricks Workspace..
+//
+// Deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.
 func (o WorkspaceCustomerManagedKeyOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

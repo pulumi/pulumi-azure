@@ -136,6 +136,8 @@ type Group struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy pulumi.StringPtrOutput `pulumi:"restartPolicy"`
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
 	SubnetIds pulumi.StringPtrOutput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
@@ -229,6 +231,8 @@ type groupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy *string `pulumi:"restartPolicy"`
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
 	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
@@ -284,6 +288,8 @@ type GroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy pulumi.StringPtrInput
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput
 	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
 	SubnetIds pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -339,6 +345,8 @@ type groupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy *string `pulumi:"restartPolicy"`
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
 	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
 	SubnetIds *string `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
@@ -391,6 +399,8 @@ type GroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy pulumi.StringPtrInput
+	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput
 	// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
 	SubnetIds pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -587,6 +597,11 @@ func (o GroupOutput) ResourceGroupName() pulumi.StringOutput {
 // Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 func (o GroupOutput) RestartPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.RestartPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+func (o GroupOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // The subnet resource IDs for a container group. Changing this forces a new resource to be created.

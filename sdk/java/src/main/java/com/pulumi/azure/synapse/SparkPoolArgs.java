@@ -188,14 +188,14 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      * 
      */
     @Import(name="nodeSizeFamily", required=true)
     private Output<String> nodeSizeFamily;
 
     /**
-     * @return The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * @return The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      * 
      */
     public Output<String> nodeSizeFamily() {
@@ -581,7 +581,7 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+         * @param nodeSizeFamily The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
          * 
          * @return builder
          * 

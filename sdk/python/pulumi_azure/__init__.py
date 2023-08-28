@@ -3086,6 +3086,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "databricks/workspaceRootDbfsCustomerManagedKey",
+  "fqn": "pulumi_azure.databricks",
+  "classes": {
+   "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey": "WorkspaceRootDbfsCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datadog/monitor",
   "fqn": "pulumi_azure.datadog",
   "classes": {

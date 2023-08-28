@@ -90,6 +90,8 @@ type Namespace struct {
 	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An `networkRuleSet` block as defined below.
+	NetworkRuleSet NamespaceNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to Changing this forces a new resource to be created.
@@ -170,6 +172,8 @@ type namespaceState struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `networkRuleSet` block as defined below.
+	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to Changing this forces a new resource to be created.
@@ -208,6 +212,8 @@ type NamespaceState struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `networkRuleSet` block as defined below.
+	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to Changing this forces a new resource to be created.
@@ -240,6 +246,8 @@ type namespaceArgs struct {
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `networkRuleSet` block as defined below.
+	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to Changing this forces a new resource to be created.
@@ -269,6 +277,8 @@ type NamespaceArgs struct {
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `networkRuleSet` block as defined below.
+	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to Changing this forces a new resource to be created.
@@ -427,6 +437,11 @@ func (o NamespaceOutput) MinimumTlsVersion() pulumi.StringOutput {
 // Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An `networkRuleSet` block as defined below.
+func (o NamespaceOutput) NetworkRuleSet() NamespaceNetworkRuleSetOutput {
+	return o.ApplyT(func(v *Namespace) NamespaceNetworkRuleSetOutput { return v.NetworkRuleSet }).(NamespaceNetworkRuleSetOutput)
 }
 
 // Is public network access enabled for the Service Bus Namespace? Defaults to `true`.

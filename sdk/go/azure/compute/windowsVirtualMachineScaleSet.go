@@ -251,8 +251,7 @@ type WindowsVirtualMachineScaleSet struct {
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	UniqueId    pulumi.StringOutput    `pulumi:"uniqueId"`
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -463,8 +462,7 @@ type windowsVirtualMachineScaleSetState struct {
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
-	UniqueId *string `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	UniqueId    *string `pulumi:"uniqueId"`
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -614,8 +612,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
 	// The Unique ID for this Windows Virtual Machine Scale Set.
-	UniqueId pulumi.StringPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	UniqueId    pulumi.StringPtrInput
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -767,8 +764,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *WindowsVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-	Timezone *string `pulumi:"timezone"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	Timezone    *string `pulumi:"timezone"`
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -917,8 +913,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	// A `terminationNotification` block as defined below.
 	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationPtrInput
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-	Timezone pulumi.StringPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	Timezone    pulumi.StringPtrInput
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -1350,7 +1345,6 @@ func (o WindowsVirtualMachineScaleSetOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }
 
-// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }

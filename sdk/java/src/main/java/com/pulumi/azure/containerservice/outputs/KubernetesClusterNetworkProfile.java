@@ -31,7 +31,7 @@ public final class KubernetesClusterNetworkProfile {
     @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     private @Nullable String dockerBridgeCidr;
     /**
-     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
      * 
      * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
      * 
@@ -145,7 +145,7 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.dockerBridgeCidr);
     }
     /**
-     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
      * 
      * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
      * 

@@ -8,6 +8,7 @@ import com.pulumi.azure.eventhub.NamespaceArgs;
 import com.pulumi.azure.eventhub.inputs.NamespaceState;
 import com.pulumi.azure.eventhub.outputs.NamespaceCustomerManagedKey;
 import com.pulumi.azure.eventhub.outputs.NamespaceIdentity;
+import com.pulumi.azure.eventhub.outputs.NamespaceNetworkRuleSet;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -244,6 +245,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * An `network_rule_set` block as defined below.
+     * 
+     */
+    @Export(name="networkRuleSet", refs={NamespaceNetworkRuleSet.class}, tree="[0]")
+    private Output<NamespaceNetworkRuleSet> networkRuleSet;
+
+    /**
+     * @return An `network_rule_set` block as defined below.
+     * 
+     */
+    public Output<NamespaceNetworkRuleSet> networkRuleSet() {
+        return this.networkRuleSet;
     }
     /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.

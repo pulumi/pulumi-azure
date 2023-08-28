@@ -516,6 +516,7 @@
         "databricks/virtualNetworkPeering.ts",
         "databricks/workspace.ts",
         "databricks/workspaceCustomerManagedKey.ts",
+        "databricks/workspaceRootDbfsCustomerManagedKey.ts",
         "datadog/index.ts",
         "datadog/monitor.ts",
         "datadog/monitorSsoConfiguration.ts",

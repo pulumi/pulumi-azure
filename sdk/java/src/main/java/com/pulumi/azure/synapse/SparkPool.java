@@ -190,14 +190,14 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
         return this.nodeSize;
     }
     /**
-     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      * 
      */
     @Export(name="nodeSizeFamily", refs={String.class}, tree="[0]")
     private Output<String> nodeSizeFamily;
 
     /**
-     * @return The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * @return The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      * 
      */
     public Output<String> nodeSizeFamily() {

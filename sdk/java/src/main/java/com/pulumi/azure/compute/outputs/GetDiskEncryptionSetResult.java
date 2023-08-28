@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.compute.outputs;
 
+import com.pulumi.azure.compute.outputs.GetDiskEncryptionSetIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,6 +23,11 @@ public final class GetDiskEncryptionSetResult {
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    private List<GetDiskEncryptionSetIdentity> identities;
     /**
      * @return The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
      * 
@@ -53,6 +60,13 @@ public final class GetDiskEncryptionSetResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public List<GetDiskEncryptionSetIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
@@ -93,6 +107,7 @@ public final class GetDiskEncryptionSetResult {
     public static final class Builder {
         private Boolean autoKeyRotationEnabled;
         private String id;
+        private List<GetDiskEncryptionSetIdentity> identities;
         private String keyVaultKeyUrl;
         private String location;
         private String name;
@@ -103,6 +118,7 @@ public final class GetDiskEncryptionSetResult {
     	      Objects.requireNonNull(defaults);
     	      this.autoKeyRotationEnabled = defaults.autoKeyRotationEnabled;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.keyVaultKeyUrl = defaults.keyVaultKeyUrl;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -119,6 +135,14 @@ public final class GetDiskEncryptionSetResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetDiskEncryptionSetIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetDiskEncryptionSetIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder keyVaultKeyUrl(String keyVaultKeyUrl) {
@@ -149,6 +173,7 @@ public final class GetDiskEncryptionSetResult {
             final var o = new GetDiskEncryptionSetResult();
             o.autoKeyRotationEnabled = autoKeyRotationEnabled;
             o.id = id;
+            o.identities = identities;
             o.keyVaultKeyUrl = keyVaultKeyUrl;
             o.location = location;
             o.name = name;

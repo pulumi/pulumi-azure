@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        

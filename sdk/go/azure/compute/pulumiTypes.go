@@ -27681,6 +27681,130 @@ func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput) Index
 	}).(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput)
 }
 
+type GetDiskEncryptionSetIdentity struct {
+	// A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The (Client) ID of the Service Principal.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Disk Encryption Set.
+	Type string `pulumi:"type"`
+}
+
+// GetDiskEncryptionSetIdentityInput is an input type that accepts GetDiskEncryptionSetIdentityArgs and GetDiskEncryptionSetIdentityOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSetIdentityInput` via:
+//
+//	GetDiskEncryptionSetIdentityArgs{...}
+type GetDiskEncryptionSetIdentityInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSetIdentityOutput() GetDiskEncryptionSetIdentityOutput
+	ToGetDiskEncryptionSetIdentityOutputWithContext(context.Context) GetDiskEncryptionSetIdentityOutput
+}
+
+type GetDiskEncryptionSetIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The (Client) ID of the Service Principal.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Disk Encryption Set.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDiskEncryptionSetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSetIdentity)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSetIdentityArgs) ToGetDiskEncryptionSetIdentityOutput() GetDiskEncryptionSetIdentityOutput {
+	return i.ToGetDiskEncryptionSetIdentityOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSetIdentityArgs) ToGetDiskEncryptionSetIdentityOutputWithContext(ctx context.Context) GetDiskEncryptionSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSetIdentityOutput)
+}
+
+// GetDiskEncryptionSetIdentityArrayInput is an input type that accepts GetDiskEncryptionSetIdentityArray and GetDiskEncryptionSetIdentityArrayOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSetIdentityArrayInput` via:
+//
+//	GetDiskEncryptionSetIdentityArray{ GetDiskEncryptionSetIdentityArgs{...} }
+type GetDiskEncryptionSetIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSetIdentityArrayOutput() GetDiskEncryptionSetIdentityArrayOutput
+	ToGetDiskEncryptionSetIdentityArrayOutputWithContext(context.Context) GetDiskEncryptionSetIdentityArrayOutput
+}
+
+type GetDiskEncryptionSetIdentityArray []GetDiskEncryptionSetIdentityInput
+
+func (GetDiskEncryptionSetIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSetIdentity)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSetIdentityArray) ToGetDiskEncryptionSetIdentityArrayOutput() GetDiskEncryptionSetIdentityArrayOutput {
+	return i.ToGetDiskEncryptionSetIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSetIdentityArray) ToGetDiskEncryptionSetIdentityArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSetIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSetIdentityArrayOutput)
+}
+
+type GetDiskEncryptionSetIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSetIdentity)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSetIdentityOutput) ToGetDiskEncryptionSetIdentityOutput() GetDiskEncryptionSetIdentityOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSetIdentityOutput) ToGetDiskEncryptionSetIdentityOutputWithContext(ctx context.Context) GetDiskEncryptionSetIdentityOutput {
+	return o
+}
+
+// A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
+func (o GetDiskEncryptionSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The (Client) ID of the Service Principal.
+func (o GetDiskEncryptionSetIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+func (o GetDiskEncryptionSetIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Disk Encryption Set.
+func (o GetDiskEncryptionSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDiskEncryptionSetIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSetIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSetIdentity)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSetIdentityArrayOutput) ToGetDiskEncryptionSetIdentityArrayOutput() GetDiskEncryptionSetIdentityArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSetIdentityArrayOutput) ToGetDiskEncryptionSetIdentityArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSetIdentityArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSetIdentityArrayOutput) Index(i pulumi.IntInput) GetDiskEncryptionSetIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDiskEncryptionSetIdentity {
+		return vs[0].([]GetDiskEncryptionSetIdentity)[vs[1].(int)]
+	}).(GetDiskEncryptionSetIdentityOutput)
+}
+
 type GetImageDataDisk struct {
 	// the URI in Azure storage of the blob used to create the image.
 	BlobUri string `pulumi:"blobUri"`
@@ -31705,6 +31829,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput)(nil)).Elem(), GetConfidentialLedgerAzureadBasedServicePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipalInput)(nil)).Elem(), GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput)(nil)).Elem(), GetConfidentialLedgerCertificateBasedSecurityPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSetIdentityInput)(nil)).Elem(), GetDiskEncryptionSetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSetIdentityArrayInput)(nil)).Elem(), GetDiskEncryptionSetIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskInput)(nil)).Elem(), GetImageDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskArrayInput)(nil)).Elem(), GetImageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOsDiskInput)(nil)).Elem(), GetImageOsDiskArgs{})
@@ -32095,6 +32221,8 @@ func init() {
 	pulumi.RegisterOutputType(GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput{})
 	pulumi.RegisterOutputType(GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSetIdentityOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSetIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOsDiskOutput{})

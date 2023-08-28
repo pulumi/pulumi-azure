@@ -30,6 +30,7 @@ namespace Pulumi.Azure.Cdn
     ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", new()

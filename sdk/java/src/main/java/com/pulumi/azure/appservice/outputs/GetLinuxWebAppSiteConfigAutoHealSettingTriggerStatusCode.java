@@ -39,7 +39,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    private Integer win32Status;
+    private Integer win32StatusCode;
 
     private GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode() {}
     /**
@@ -81,8 +81,8 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    public Integer win32Status() {
-        return this.win32Status;
+    public Integer win32StatusCode() {
+        return this.win32StatusCode;
     }
 
     public static Builder builder() {
@@ -99,7 +99,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
         private String path;
         private String statusCodeRange;
         private Integer subStatus;
-        private Integer win32Status;
+        private Integer win32StatusCode;
         public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,7 +108,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
     	      this.path = defaults.path;
     	      this.statusCodeRange = defaults.statusCodeRange;
     	      this.subStatus = defaults.subStatus;
-    	      this.win32Status = defaults.win32Status;
+    	      this.win32StatusCode = defaults.win32StatusCode;
         }
 
         @CustomType.Setter
@@ -137,8 +137,8 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
             return this;
         }
         @CustomType.Setter
-        public Builder win32Status(Integer win32Status) {
-            this.win32Status = Objects.requireNonNull(win32Status);
+        public Builder win32StatusCode(Integer win32StatusCode) {
+            this.win32StatusCode = Objects.requireNonNull(win32StatusCode);
             return this;
         }
         public GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode build() {
@@ -148,7 +148,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
             o.path = path;
             o.statusCodeRange = statusCodeRange;
             o.subStatus = subStatus;
-            o.win32Status = win32Status;
+            o.win32StatusCode = win32StatusCode;
             return o;
         }
     }

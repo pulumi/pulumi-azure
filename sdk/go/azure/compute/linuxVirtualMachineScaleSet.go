@@ -259,8 +259,7 @@ type LinuxVirtualMachineScaleSet struct {
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
-	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	UniqueId    pulumi.StringOutput    `pulumi:"uniqueId"`
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -469,8 +468,7 @@ type linuxVirtualMachineScaleSetState struct {
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
-	UniqueId *string `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	UniqueId    *string `pulumi:"uniqueId"`
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -624,8 +622,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Unique ID for this Linux Virtual Machine Scale Set.
-	UniqueId pulumi.StringPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	UniqueId    pulumi.StringPtrInput
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -782,8 +779,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-	UpgradeMode *string `pulumi:"upgradeMode"`
+	UpgradeMode             *string                                             `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -936,8 +932,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-	UpgradeMode pulumi.StringPtrInput
+	UpgradeMode             pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -1362,7 +1357,6 @@ func (o LinuxVirtualMachineScaleSetOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }
 
-// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }

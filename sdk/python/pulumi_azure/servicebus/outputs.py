@@ -8,10 +8,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'NamespaceCustomerManagedKey',
     'NamespaceIdentity',
+    'NamespaceNetworkRuleSet',
     'NamespaceNetworkRuleSetNetworkRule',
     'SubscriptionClientScopedSubscription',
     'SubscriptionRuleCorrelationFilter',
@@ -156,6 +158,98 @@ class NamespaceIdentity(dict):
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class NamespaceNetworkRuleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "networkRules":
+            suggest = "network_rules"
+        elif key == "publicNetworkAccessEnabled":
+            suggest = "public_network_access_enabled"
+        elif key == "trustedServicesAllowed":
+            suggest = "trusted_services_allowed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespaceNetworkRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespaceNetworkRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespaceNetworkRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence[str]] = None,
+                 network_rules: Optional[Sequence['outputs.NamespaceNetworkRuleSetNetworkRule']] = None,
+                 public_network_access_enabled: Optional[bool] = None,
+                 trusted_services_allowed: Optional[bool] = None):
+        """
+        :param str default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        :param Sequence['NamespaceNetworkRuleSetNetworkRuleArgs'] network_rules: One or more `network_rules` blocks as defined below.
+        :param bool public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        :param bool trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+        """
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if network_rules is not None:
+            pulumi.set(__self__, "network_rules", network_rules)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if trusted_services_allowed is not None:
+            pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence[str]]:
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="networkRules")
+    def network_rules(self) -> Optional[Sequence['outputs.NamespaceNetworkRuleSetNetworkRule']]:
+        """
+        One or more `network_rules` blocks as defined below.
+        """
+        return pulumi.get(self, "network_rules")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        """
+        Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="trustedServicesAllowed")
+    def trusted_services_allowed(self) -> Optional[bool]:
+        """
+        Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+        """
+        return pulumi.get(self, "trusted_services_allowed")
 
 
 @pulumi.output_type

@@ -14,36 +14,6 @@ import (
 
 // Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.NewFrontdoorCustomDomainAssociation(ctx, "example", &cdn.FrontdoorCustomDomainAssociationArgs{
-//				CdnFrontdoorCustomDomainId: pulumi.Any(azurerm_cdn_frontdoor_custom_domain.Contoso.Id),
-//				CdnFrontdoorRouteIds: pulumi.StringArray{
-//					azurerm_cdn_frontdoor_route.Contoso.Id,
-//					azurerm_cdn_frontdoor_route.Fabrikam.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

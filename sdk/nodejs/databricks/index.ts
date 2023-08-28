@@ -35,6 +35,11 @@ export type WorkspaceCustomerManagedKey = import("./workspaceCustomerManagedKey"
 export const WorkspaceCustomerManagedKey: typeof import("./workspaceCustomerManagedKey").WorkspaceCustomerManagedKey = null as any;
 utilities.lazyLoad(exports, ["WorkspaceCustomerManagedKey"], () => require("./workspaceCustomerManagedKey"));
 
+export { WorkspaceRootDbfsCustomerManagedKeyArgs, WorkspaceRootDbfsCustomerManagedKeyState } from "./workspaceRootDbfsCustomerManagedKey";
+export type WorkspaceRootDbfsCustomerManagedKey = import("./workspaceRootDbfsCustomerManagedKey").WorkspaceRootDbfsCustomerManagedKey;
+export const WorkspaceRootDbfsCustomerManagedKey: typeof import("./workspaceRootDbfsCustomerManagedKey").WorkspaceRootDbfsCustomerManagedKey = null as any;
+utilities.lazyLoad(exports, ["WorkspaceRootDbfsCustomerManagedKey"], () => require("./workspaceRootDbfsCustomerManagedKey"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -48,6 +53,8 @@ const _module = {
                 return new Workspace(name, <any>undefined, { urn })
             case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
                 return new WorkspaceCustomerManagedKey(name, <any>undefined, { urn })
+            case "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey":
+                return new WorkspaceRootDbfsCustomerManagedKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -57,3 +64,4 @@ pulumi.runtime.registerResourceModule("azure", "databricks/accessConnector", _mo
 pulumi.runtime.registerResourceModule("azure", "databricks/virtualNetworkPeering", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspaceCustomerManagedKey", _module)
+pulumi.runtime.registerResourceModule("azure", "databricks/workspaceRootDbfsCustomerManagedKey", _module)

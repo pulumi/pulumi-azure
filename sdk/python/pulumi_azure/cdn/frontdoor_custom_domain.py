@@ -253,7 +253,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=azurerm_resource_group["test"]["name"])
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
             resource_group_name=example_resource_group.name,
             sku_name="Standard_AzureFrontDoor")
@@ -319,7 +319,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=azurerm_resource_group["test"]["name"])
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
             resource_group_name=example_resource_group.name,
             sku_name="Standard_AzureFrontDoor")

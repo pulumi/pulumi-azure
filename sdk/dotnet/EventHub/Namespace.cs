@@ -126,6 +126,12 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// An `network_rule_set` block as defined below.
+        /// </summary>
+        [Output("networkRuleSet")]
+        public Output<Outputs.NamespaceNetworkRuleSet> NetworkRuleSet { get; private set; } = null!;
+
+        /// <summary>
         /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
@@ -250,6 +256,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `network_rule_set` block as defined below.
+        /// </summary>
+        [Input("networkRuleSet")]
+        public Input<Inputs.NamespaceNetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
         /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
@@ -407,6 +419,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `network_rule_set` block as defined below.
+        /// </summary>
+        [Input("networkRuleSet")]
+        public Input<Inputs.NamespaceNetworkRuleSetGetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
         /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.

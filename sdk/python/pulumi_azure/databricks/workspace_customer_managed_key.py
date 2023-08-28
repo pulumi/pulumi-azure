@@ -22,6 +22,9 @@ class WorkspaceCustomerManagedKeyArgs:
         :param pulumi.Input[str] workspace_id: The ID of the Databricks Workspace..
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if workspace_id is not None:
+            warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
+            pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""")
         pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
@@ -42,6 +45,9 @@ class WorkspaceCustomerManagedKeyArgs:
         """
         The ID of the Databricks Workspace..
         """
+        warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
+        pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""")
+
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -61,6 +67,9 @@ class _WorkspaceCustomerManagedKeyState:
         """
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if workspace_id is not None:
+            warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
+            pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""")
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -82,6 +91,9 @@ class _WorkspaceCustomerManagedKeyState:
         """
         The ID of the Databricks Workspace..
         """
+        warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
+        pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""")
+
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -155,6 +167,9 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+            if workspace_id is not None and not opts.urn:
+                warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
+                pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""")
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
@@ -202,5 +217,8 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
         """
         The ID of the Databricks Workspace..
         """
+        warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
+        pulumi.log.warn("""workspace_id is deprecated: this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""")
+
         return pulumi.get(self, "workspace_id")
 

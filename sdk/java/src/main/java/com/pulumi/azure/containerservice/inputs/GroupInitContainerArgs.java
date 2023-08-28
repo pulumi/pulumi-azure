@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.GroupInitContainerSecurityArgs;
 import com.pulumi.azure.containerservice.inputs.GroupInitContainerVolumeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -94,6 +95,21 @@ public final class GroupInitContainerArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="securities")
+    private @Nullable Output<List<GroupInitContainerSecurityArgs>> securities;
+
+    /**
+     * @return The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<GroupInitContainerSecurityArgs>>> securities() {
+        return Optional.ofNullable(this.securities);
+    }
+
+    /**
      * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
      * 
      */
@@ -116,6 +132,7 @@ public final class GroupInitContainerArgs extends com.pulumi.resources.ResourceA
         this.image = $.image;
         this.name = $.name;
         this.secureEnvironmentVariables = $.secureEnvironmentVariables;
+        this.securities = $.securities;
         this.volumes = $.volumes;
     }
 
@@ -250,6 +267,37 @@ public final class GroupInitContainerArgs extends com.pulumi.resources.ResourceA
          */
         public Builder secureEnvironmentVariables(Map<String,String> secureEnvironmentVariables) {
             return secureEnvironmentVariables(Output.of(secureEnvironmentVariables));
+        }
+
+        /**
+         * @param securities The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securities(@Nullable Output<List<GroupInitContainerSecurityArgs>> securities) {
+            $.securities = securities;
+            return this;
+        }
+
+        /**
+         * @param securities The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securities(List<GroupInitContainerSecurityArgs> securities) {
+            return securities(Output.of(securities));
+        }
+
+        /**
+         * @param securities The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securities(GroupInitContainerSecurityArgs... securities) {
+            return securities(List.of(securities));
         }
 
         /**

@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> NodeSize { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        /// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         /// </summary>
         [Output("nodeSizeFamily")]
         public Output<string> NodeSizeFamily { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string> NodeSize { get; set; } = null!;
 
         /// <summary>
-        /// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        /// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         /// </summary>
         [Input("nodeSizeFamily", required: true)]
         public Input<string> NodeSizeFamily { get; set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? NodeSize { get; set; }
 
         /// <summary>
-        /// The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        /// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         /// </summary>
         [Input("nodeSizeFamily")]
         public Input<string>? NodeSizeFamily { get; set; }

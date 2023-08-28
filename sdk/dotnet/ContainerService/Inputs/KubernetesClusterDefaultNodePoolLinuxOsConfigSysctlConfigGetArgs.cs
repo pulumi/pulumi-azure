@@ -85,7 +85,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? NetCoreWmemMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("netIpv4IpLocalPortRangeMax")]
         public Input<int>? NetIpv4IpLocalPortRangeMax { get; set; }
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? NetIpv4TcpFinTimeout { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("netIpv4TcpKeepaliveIntvl")]
         public Input<int>? NetIpv4TcpKeepaliveIntvl { get; set; }
@@ -157,13 +157,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? NetIpv4TcpTwReuse { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("netNetfilterNfConntrackBuckets")]
         public Input<int>? NetNetfilterNfConntrackBuckets { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("netNetfilterNfConntrackMax")]
         public Input<int>? NetNetfilterNfConntrackMax { get; set; }

@@ -21,9 +21,10 @@ import * as utilities from "../utilities";
  * const frontdoor = azuread.getServicePrincipal({
  *     displayName: "Microsoft.Azure.Cdn",
  * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     softDeleteRetentionDays: 7,
@@ -52,16 +53,20 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
- *     keyVaultId: azurerm_key_vault.test.id,
+ *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
  *         contents: Buffer.from(fs.readFileSync("my-certificate.pfx"), 'binary').toString('base64'),
  *     },
  * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Standard_AzureFrontDoor",
+ * });
  * const exampleFrontdoorSecret = new azure.cdn.FrontdoorSecret("exampleFrontdoorSecret", {
- *     cdnFrontdoorProfileId: azurerm_cdn_frontdoor_profile.test.id,
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     secret: {
  *         customerCertificates: [{
- *             keyVaultCertificateId: azurerm_key_vault_certificate.test.id,
+ *             keyVaultCertificateId: exampleCertificate.id,
  *         }],
  *     },
  * });

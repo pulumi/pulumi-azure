@@ -114,6 +114,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * An `networkRuleSet` block as defined below.
+     */
+    public readonly networkRuleSet!: pulumi.Output<outputs.eventhub.NamespaceNetworkRuleSet>;
+    /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -163,6 +167,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
@@ -183,6 +188,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -254,6 +260,10 @@ export interface NamespaceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * An `networkRuleSet` block as defined below.
+     */
+    networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet>;
+    /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
@@ -308,6 +318,10 @@ export interface NamespaceArgs {
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An `networkRuleSet` block as defined below.
+     */
+    networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet>;
     /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */

@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.cdn.FrontdoorCustomDomainAssociation("example", {
- *     cdnFrontdoorCustomDomainId: azurerm_cdn_frontdoor_custom_domain.contoso.id,
- *     cdnFrontdoorRouteIds: [
- *         azurerm_cdn_frontdoor_route.contoso.id,
- *         azurerm_cdn_frontdoor_route.fabrikam.id,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

@@ -17720,14 +17720,14 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[int]] = None):
+                 win32_status_code: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status_code: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -17736,8 +17736,8 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
             pulumi.set(__self__, "path", path)
         if sub_status is not None:
             pulumi.set(__self__, "sub_status", sub_status)
-        if win32_status is not None:
-            pulumi.set(__self__, "win32_status", win32_status)
+        if win32_status_code is not None:
+            pulumi.set(__self__, "win32_status_code", win32_status_code)
 
     @property
     @pulumi.getter
@@ -17800,16 +17800,16 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "sub_status", value)
 
     @property
-    @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="win32StatusCode")
+    def win32_status_code(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
-        return pulumi.get(self, "win32_status")
+        return pulumi.get(self, "win32_status_code")
 
-    @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "win32_status", value)
+    @win32_status_code.setter
+    def win32_status_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "win32_status_code", value)
 
 
 @pulumi.input_type
@@ -22111,14 +22111,14 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[int]] = None):
+                 win32_status_code: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status_code: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -22127,8 +22127,8 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
             pulumi.set(__self__, "path", path)
         if sub_status is not None:
             pulumi.set(__self__, "sub_status", sub_status)
-        if win32_status is not None:
-            pulumi.set(__self__, "win32_status", win32_status)
+        if win32_status_code is not None:
+            pulumi.set(__self__, "win32_status_code", win32_status_code)
 
     @property
     @pulumi.getter
@@ -22191,16 +22191,16 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "sub_status", value)
 
     @property
-    @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="win32StatusCode")
+    def win32_status_code(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
-        return pulumi.get(self, "win32_status")
+        return pulumi.get(self, "win32_status_code")
 
-    @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "win32_status", value)
+    @win32_status_code.setter
+    def win32_status_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "win32_status_code", value)
 
 
 @pulumi.input_type
@@ -36968,14 +36968,14 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[int]] = None):
+                 win32_status_code: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status_code: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -36984,8 +36984,8 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
             pulumi.set(__self__, "path", path)
         if sub_status is not None:
             pulumi.set(__self__, "sub_status", sub_status)
-        if win32_status is not None:
-            pulumi.set(__self__, "win32_status", win32_status)
+        if win32_status_code is not None:
+            pulumi.set(__self__, "win32_status_code", win32_status_code)
 
     @property
     @pulumi.getter
@@ -37048,16 +37048,16 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "sub_status", value)
 
     @property
-    @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="win32StatusCode")
+    def win32_status_code(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
-        return pulumi.get(self, "win32_status")
+        return pulumi.get(self, "win32_status_code")
 
-    @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "win32_status", value)
+    @win32_status_code.setter
+    def win32_status_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "win32_status_code", value)
 
 
 @pulumi.input_type
@@ -41614,14 +41614,14 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
                  status_code_range: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
-                 win32_status: Optional[pulumi.Input[int]] = None):
+                 win32_status_code: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] count: The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] status_code_range: The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
         :param pulumi.Input[str] path: The path to which this rule status code applies.
         :param pulumi.Input[int] sub_status: The Request Sub Status of the Status Code.
-        :param pulumi.Input[int] win32_status: The Win32 Status Code of the Request.
+        :param pulumi.Input[int] win32_status_code: The Win32 Status Code of the Request.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
@@ -41630,8 +41630,8 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
             pulumi.set(__self__, "path", path)
         if sub_status is not None:
             pulumi.set(__self__, "sub_status", sub_status)
-        if win32_status is not None:
-            pulumi.set(__self__, "win32_status", win32_status)
+        if win32_status_code is not None:
+            pulumi.set(__self__, "win32_status_code", win32_status_code)
 
     @property
     @pulumi.getter
@@ -41694,16 +41694,16 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "sub_status", value)
 
     @property
-    @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="win32StatusCode")
+    def win32_status_code(self) -> Optional[pulumi.Input[int]]:
         """
         The Win32 Status Code of the Request.
         """
-        return pulumi.get(self, "win32_status")
+        return pulumi.get(self, "win32_status_code")
 
-    @win32_status.setter
-    def win32_status(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "win32_status", value)
+    @win32_status_code.setter
+    def win32_status_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "win32_status_code", value)
 
 
 @pulumi.input_type

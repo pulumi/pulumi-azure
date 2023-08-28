@@ -345,9 +345,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
      *
-     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+     * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
+     *
+     * @deprecated `public_network_access_enabled` is currently not functional and is not be passed to the API
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -845,9 +847,11 @@ export interface KubernetesClusterState {
      */
     privateFqdn?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
      *
-     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+     * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
+     *
+     * @deprecated `public_network_access_enabled` is currently not functional and is not be passed to the API
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -1145,9 +1149,11 @@ export interface KubernetesClusterArgs {
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
      *
-     * > **Note:** When `publicNetworkAccessEnabled` is set to `true`, `0.0.0.0/0` must be added to `authorizedIpRanges` in the `apiServerAccessProfile` block.
+     * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
+     *
+     * @deprecated `public_network_access_enabled` is currently not functional and is not be passed to the API
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

@@ -888,17 +888,9 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         return Optional.ofNullable(this.timezone);
     }
 
-    /**
-     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="upgradeMode")
     private @Nullable Output<String> upgradeMode;
 
-    /**
-     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> upgradeMode() {
         return Optional.ofNullable(this.upgradeMode);
     }
@@ -2295,23 +2287,11 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
             return timezone(Output.of(timezone));
         }
 
-        /**
-         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder upgradeMode(@Nullable Output<String> upgradeMode) {
             $.upgradeMode = upgradeMode;
             return this;
         }
 
-        /**
-         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder upgradeMode(String upgradeMode) {
             return upgradeMode(Output.of(upgradeMode));
         }

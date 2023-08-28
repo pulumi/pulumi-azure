@@ -1574,6 +1574,8 @@ type GroupContainer struct {
 	ReadinessProbe *GroupContainerReadinessProbe `pulumi:"readinessProbe"`
 	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables map[string]string `pulumi:"secureEnvironmentVariables"`
+	// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+	Securities []GroupContainerSecurity `pulumi:"securities"`
 	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 	Volumes []GroupContainerVolume `pulumi:"volumes"`
 }
@@ -1620,6 +1622,8 @@ type GroupContainerArgs struct {
 	ReadinessProbe GroupContainerReadinessProbePtrInput `pulumi:"readinessProbe"`
 	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
+	// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+	Securities GroupContainerSecurityArrayInput `pulumi:"securities"`
 	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 	Volumes GroupContainerVolumeArrayInput `pulumi:"volumes"`
 }
@@ -1745,6 +1749,11 @@ func (o GroupContainerOutput) ReadinessProbe() GroupContainerReadinessProbePtrOu
 // A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) SecureEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+func (o GroupContainerOutput) Securities() GroupContainerSecurityArrayOutput {
+	return o.ApplyT(func(v GroupContainer) []GroupContainerSecurity { return v.Securities }).(GroupContainerSecurityArrayOutput)
 }
 
 // The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
@@ -2944,6 +2953,109 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerReadinessProbeHttpGet {
 		return vs[0].([]GroupContainerReadinessProbeHttpGet)[vs[1].(int)]
 	}).(GroupContainerReadinessProbeHttpGetOutput)
+}
+
+type GroupContainerSecurity struct {
+	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	PrivilegeEnabled bool `pulumi:"privilegeEnabled"`
+}
+
+// GroupContainerSecurityInput is an input type that accepts GroupContainerSecurityArgs and GroupContainerSecurityOutput values.
+// You can construct a concrete instance of `GroupContainerSecurityInput` via:
+//
+//	GroupContainerSecurityArgs{...}
+type GroupContainerSecurityInput interface {
+	pulumi.Input
+
+	ToGroupContainerSecurityOutput() GroupContainerSecurityOutput
+	ToGroupContainerSecurityOutputWithContext(context.Context) GroupContainerSecurityOutput
+}
+
+type GroupContainerSecurityArgs struct {
+	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	PrivilegeEnabled pulumi.BoolInput `pulumi:"privilegeEnabled"`
+}
+
+func (GroupContainerSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupContainerSecurity)(nil)).Elem()
+}
+
+func (i GroupContainerSecurityArgs) ToGroupContainerSecurityOutput() GroupContainerSecurityOutput {
+	return i.ToGroupContainerSecurityOutputWithContext(context.Background())
+}
+
+func (i GroupContainerSecurityArgs) ToGroupContainerSecurityOutputWithContext(ctx context.Context) GroupContainerSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerSecurityOutput)
+}
+
+// GroupContainerSecurityArrayInput is an input type that accepts GroupContainerSecurityArray and GroupContainerSecurityArrayOutput values.
+// You can construct a concrete instance of `GroupContainerSecurityArrayInput` via:
+//
+//	GroupContainerSecurityArray{ GroupContainerSecurityArgs{...} }
+type GroupContainerSecurityArrayInput interface {
+	pulumi.Input
+
+	ToGroupContainerSecurityArrayOutput() GroupContainerSecurityArrayOutput
+	ToGroupContainerSecurityArrayOutputWithContext(context.Context) GroupContainerSecurityArrayOutput
+}
+
+type GroupContainerSecurityArray []GroupContainerSecurityInput
+
+func (GroupContainerSecurityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupContainerSecurity)(nil)).Elem()
+}
+
+func (i GroupContainerSecurityArray) ToGroupContainerSecurityArrayOutput() GroupContainerSecurityArrayOutput {
+	return i.ToGroupContainerSecurityArrayOutputWithContext(context.Background())
+}
+
+func (i GroupContainerSecurityArray) ToGroupContainerSecurityArrayOutputWithContext(ctx context.Context) GroupContainerSecurityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerSecurityArrayOutput)
+}
+
+type GroupContainerSecurityOutput struct{ *pulumi.OutputState }
+
+func (GroupContainerSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupContainerSecurity)(nil)).Elem()
+}
+
+func (o GroupContainerSecurityOutput) ToGroupContainerSecurityOutput() GroupContainerSecurityOutput {
+	return o
+}
+
+func (o GroupContainerSecurityOutput) ToGroupContainerSecurityOutputWithContext(ctx context.Context) GroupContainerSecurityOutput {
+	return o
+}
+
+// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+//
+// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+func (o GroupContainerSecurityOutput) PrivilegeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupContainerSecurity) bool { return v.PrivilegeEnabled }).(pulumi.BoolOutput)
+}
+
+type GroupContainerSecurityArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupContainerSecurityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupContainerSecurity)(nil)).Elem()
+}
+
+func (o GroupContainerSecurityArrayOutput) ToGroupContainerSecurityArrayOutput() GroupContainerSecurityArrayOutput {
+	return o
+}
+
+func (o GroupContainerSecurityArrayOutput) ToGroupContainerSecurityArrayOutputWithContext(ctx context.Context) GroupContainerSecurityArrayOutput {
+	return o
+}
+
+func (o GroupContainerSecurityArrayOutput) Index(i pulumi.IntInput) GroupContainerSecurityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerSecurity {
+		return vs[0].([]GroupContainerSecurity)[vs[1].(int)]
+	}).(GroupContainerSecurityOutput)
 }
 
 type GroupContainerVolume struct {
@@ -4279,6 +4391,8 @@ type GroupInitContainer struct {
 	Name string `pulumi:"name"`
 	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables map[string]string `pulumi:"secureEnvironmentVariables"`
+	// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+	Securities []GroupInitContainerSecurity `pulumi:"securities"`
 	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 	Volumes []GroupInitContainerVolume `pulumi:"volumes"`
 }
@@ -4305,6 +4419,8 @@ type GroupInitContainerArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
+	// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+	Securities GroupInitContainerSecurityArrayInput `pulumi:"securities"`
 	// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 	Volumes GroupInitContainerVolumeArrayInput `pulumi:"volumes"`
 }
@@ -4385,6 +4501,11 @@ func (o GroupInitContainerOutput) SecureEnvironmentVariables() pulumi.StringMapO
 	return o.ApplyT(func(v GroupInitContainer) map[string]string { return v.SecureEnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+func (o GroupInitContainerOutput) Securities() GroupInitContainerSecurityArrayOutput {
+	return o.ApplyT(func(v GroupInitContainer) []GroupInitContainerSecurity { return v.Securities }).(GroupInitContainerSecurityArrayOutput)
+}
+
 // The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
 func (o GroupInitContainerOutput) Volumes() GroupInitContainerVolumeArrayOutput {
 	return o.ApplyT(func(v GroupInitContainer) []GroupInitContainerVolume { return v.Volumes }).(GroupInitContainerVolumeArrayOutput)
@@ -4408,6 +4529,109 @@ func (o GroupInitContainerArrayOutput) Index(i pulumi.IntInput) GroupInitContain
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupInitContainer {
 		return vs[0].([]GroupInitContainer)[vs[1].(int)]
 	}).(GroupInitContainerOutput)
+}
+
+type GroupInitContainerSecurity struct {
+	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	PrivilegeEnabled bool `pulumi:"privilegeEnabled"`
+}
+
+// GroupInitContainerSecurityInput is an input type that accepts GroupInitContainerSecurityArgs and GroupInitContainerSecurityOutput values.
+// You can construct a concrete instance of `GroupInitContainerSecurityInput` via:
+//
+//	GroupInitContainerSecurityArgs{...}
+type GroupInitContainerSecurityInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerSecurityOutput() GroupInitContainerSecurityOutput
+	ToGroupInitContainerSecurityOutputWithContext(context.Context) GroupInitContainerSecurityOutput
+}
+
+type GroupInitContainerSecurityArgs struct {
+	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	PrivilegeEnabled pulumi.BoolInput `pulumi:"privilegeEnabled"`
+}
+
+func (GroupInitContainerSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainerSecurity)(nil)).Elem()
+}
+
+func (i GroupInitContainerSecurityArgs) ToGroupInitContainerSecurityOutput() GroupInitContainerSecurityOutput {
+	return i.ToGroupInitContainerSecurityOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerSecurityArgs) ToGroupInitContainerSecurityOutputWithContext(ctx context.Context) GroupInitContainerSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerSecurityOutput)
+}
+
+// GroupInitContainerSecurityArrayInput is an input type that accepts GroupInitContainerSecurityArray and GroupInitContainerSecurityArrayOutput values.
+// You can construct a concrete instance of `GroupInitContainerSecurityArrayInput` via:
+//
+//	GroupInitContainerSecurityArray{ GroupInitContainerSecurityArgs{...} }
+type GroupInitContainerSecurityArrayInput interface {
+	pulumi.Input
+
+	ToGroupInitContainerSecurityArrayOutput() GroupInitContainerSecurityArrayOutput
+	ToGroupInitContainerSecurityArrayOutputWithContext(context.Context) GroupInitContainerSecurityArrayOutput
+}
+
+type GroupInitContainerSecurityArray []GroupInitContainerSecurityInput
+
+func (GroupInitContainerSecurityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupInitContainerSecurity)(nil)).Elem()
+}
+
+func (i GroupInitContainerSecurityArray) ToGroupInitContainerSecurityArrayOutput() GroupInitContainerSecurityArrayOutput {
+	return i.ToGroupInitContainerSecurityArrayOutputWithContext(context.Background())
+}
+
+func (i GroupInitContainerSecurityArray) ToGroupInitContainerSecurityArrayOutputWithContext(ctx context.Context) GroupInitContainerSecurityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerSecurityArrayOutput)
+}
+
+type GroupInitContainerSecurityOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInitContainerSecurity)(nil)).Elem()
+}
+
+func (o GroupInitContainerSecurityOutput) ToGroupInitContainerSecurityOutput() GroupInitContainerSecurityOutput {
+	return o
+}
+
+func (o GroupInitContainerSecurityOutput) ToGroupInitContainerSecurityOutputWithContext(ctx context.Context) GroupInitContainerSecurityOutput {
+	return o
+}
+
+// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+//
+// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+func (o GroupInitContainerSecurityOutput) PrivilegeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupInitContainerSecurity) bool { return v.PrivilegeEnabled }).(pulumi.BoolOutput)
+}
+
+type GroupInitContainerSecurityArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupInitContainerSecurityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupInitContainerSecurity)(nil)).Elem()
+}
+
+func (o GroupInitContainerSecurityArrayOutput) ToGroupInitContainerSecurityArrayOutput() GroupInitContainerSecurityArrayOutput {
+	return o
+}
+
+func (o GroupInitContainerSecurityArrayOutput) ToGroupInitContainerSecurityArrayOutputWithContext(ctx context.Context) GroupInitContainerSecurityArrayOutput {
+	return o
+}
+
+func (o GroupInitContainerSecurityArrayOutput) Index(i pulumi.IntInput) GroupInitContainerSecurityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupInitContainerSecurity {
+		return vs[0].([]GroupInitContainerSecurity)[vs[1].(int)]
+	}).(GroupInitContainerSecurityOutput)
 }
 
 type GroupInitContainerVolume struct {
@@ -7676,7 +7900,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig struct {
 	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
 	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
 	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
-	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMax *int `pulumi:"netIpv4IpLocalPortRangeMax"`
 	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMin *int `pulumi:"netIpv4IpLocalPortRangeMin"`
@@ -7688,7 +7912,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
 	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
 	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
-	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveIntvl *int `pulumi:"netIpv4TcpKeepaliveIntvl"`
 	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
@@ -7700,9 +7924,9 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
 	// The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
-	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
@@ -7748,7 +7972,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
 	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
 	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
-	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMax pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMax"`
 	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMin pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMin"`
@@ -7760,7 +7984,7 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
 	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
 	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
-	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveIntvl"`
 	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
@@ -7772,9 +7996,9 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
 	// The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
-	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
@@ -7925,7 +8149,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCore
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		return v.NetIpv4IpLocalPortRangeMax
@@ -7965,7 +8189,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		return v.NetIpv4TcpKeepaliveIntvl
@@ -8005,14 +8229,14 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		return v.NetNetfilterNfConntrackBuckets
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		return v.NetNetfilterNfConntrackMax
@@ -8178,7 +8402,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetC
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -8238,7 +8462,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetI
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -8298,7 +8522,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetI
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -8308,7 +8532,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetN
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -12471,7 +12695,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 	//
 	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 	//
@@ -12543,7 +12767,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 	//
 	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 	//
@@ -12686,7 +12910,7 @@ func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringP
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 //
 // > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 //
@@ -12830,7 +13054,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 //
 // > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 //
@@ -13971,7 +14195,7 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfig struct {
 	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
 	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
 	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
-	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMax *int `pulumi:"netIpv4IpLocalPortRangeMax"`
 	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMin *int `pulumi:"netIpv4IpLocalPortRangeMin"`
@@ -13983,7 +14207,7 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
 	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
 	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
-	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveIntvl *int `pulumi:"netIpv4TcpKeepaliveIntvl"`
 	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
@@ -13995,9 +14219,9 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfig struct {
 	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
 	// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
 	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
-	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
@@ -14043,7 +14267,7 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
 	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
 	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
-	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMax pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMax"`
 	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
 	NetIpv4IpLocalPortRangeMin pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMin"`
@@ -14055,7 +14279,7 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
 	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
 	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
-	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveIntvl"`
 	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
 	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
@@ -14067,9 +14291,9 @@ type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs struct {
 	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
 	// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
 	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
-	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
-	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
 	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
 	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
@@ -14216,7 +14440,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreWmemMax
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4IpLocalPortRangeMax }).(pulumi.IntPtrOutput)
 }
@@ -14246,7 +14470,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpFinT
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpKeepaliveIntvl }).(pulumi.IntPtrOutput)
 }
@@ -14276,14 +14500,14 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpTwRe
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
 		return v.NetNetfilterNfConntrackBuckets
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
 }
@@ -14447,7 +14671,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreWmem
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -14507,7 +14731,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpF
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -14567,7 +14791,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpT
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -14577,7 +14801,7 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilte
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
 		if v == nil {
@@ -23913,6 +24137,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerReadinessProbePtrInput)(nil)).Elem(), GroupContainerReadinessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerReadinessProbeHttpGetInput)(nil)).Elem(), GroupContainerReadinessProbeHttpGetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerReadinessProbeHttpGetArrayInput)(nil)).Elem(), GroupContainerReadinessProbeHttpGetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerSecurityInput)(nil)).Elem(), GroupContainerSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerSecurityArrayInput)(nil)).Elem(), GroupContainerSecurityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerVolumeInput)(nil)).Elem(), GroupContainerVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerVolumeArrayInput)(nil)).Elem(), GroupContainerVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerVolumeGitRepoInput)(nil)).Elem(), GroupContainerVolumeGitRepoArgs{})
@@ -23931,6 +24157,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupImageRegistryCredentialArrayInput)(nil)).Elem(), GroupImageRegistryCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerInput)(nil)).Elem(), GroupInitContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerArrayInput)(nil)).Elem(), GroupInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerSecurityInput)(nil)).Elem(), GroupInitContainerSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerSecurityArrayInput)(nil)).Elem(), GroupInitContainerSecurityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeInput)(nil)).Elem(), GroupInitContainerVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeArrayInput)(nil)).Elem(), GroupInitContainerVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeGitRepoInput)(nil)).Elem(), GroupInitContainerVolumeGitRepoArgs{})
@@ -24171,6 +24399,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupContainerReadinessProbePtrOutput{})
 	pulumi.RegisterOutputType(GroupContainerReadinessProbeHttpGetOutput{})
 	pulumi.RegisterOutputType(GroupContainerReadinessProbeHttpGetArrayOutput{})
+	pulumi.RegisterOutputType(GroupContainerSecurityOutput{})
+	pulumi.RegisterOutputType(GroupContainerSecurityArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerVolumeOutput{})
 	pulumi.RegisterOutputType(GroupContainerVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerVolumeGitRepoOutput{})
@@ -24189,6 +24419,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupImageRegistryCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GroupInitContainerOutput{})
 	pulumi.RegisterOutputType(GroupInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerSecurityOutput{})
+	pulumi.RegisterOutputType(GroupInitContainerSecurityArrayOutput{})
 	pulumi.RegisterOutputType(GroupInitContainerVolumeOutput{})
 	pulumi.RegisterOutputType(GroupInitContainerVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GroupInitContainerVolumeGitRepoOutput{})

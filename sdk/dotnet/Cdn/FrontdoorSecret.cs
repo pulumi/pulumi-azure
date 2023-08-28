@@ -36,10 +36,15 @@ namespace Pulumi.Azure.Cdn
     ///         DisplayName = "Microsoft.Azure.Cdn",
     ///     });
     /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
     ///     {
-    ///         Location = azurerm_resource_group.Example.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         SoftDeleteRetentionDays = 7,
@@ -84,23 +89,29 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
     ///     {
-    ///         KeyVaultId = azurerm_key_vault.Test.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
     ///             Contents = ReadFileBase64("my-certificate.pfx"),
     ///         },
     ///     });
     /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
     ///     var exampleFrontdoorSecret = new Azure.Cdn.FrontdoorSecret("exampleFrontdoorSecret", new()
     ///     {
-    ///         CdnFrontdoorProfileId = azurerm_cdn_frontdoor_profile.Test.Id,
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         Secret = new Azure.Cdn.Inputs.FrontdoorSecretSecretArgs
     ///         {
     ///             CustomerCertificates = new[]
     ///             {
     ///                 new Azure.Cdn.Inputs.FrontdoorSecretSecretCustomerCertificateArgs
     ///                 {
-    ///                     KeyVaultCertificateId = azurerm_key_vault_certificate.Test.Id,
+    ///                     KeyVaultCertificateId = exampleCertificate.Id,
     ///                 },
     ///             },
     ///         },

@@ -72,6 +72,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? SecureEnvironmentVariables;
         /// <summary>
+        /// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GroupContainerSecurity> Securities;
+        /// <summary>
         /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupContainerVolume> Volumes;
@@ -106,6 +110,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? secureEnvironmentVariables,
 
+            ImmutableArray<Outputs.GroupContainerSecurity> securities,
+
             ImmutableArray<Outputs.GroupContainerVolume> volumes)
         {
             Commands = commands;
@@ -122,6 +128,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             Ports = ports;
             ReadinessProbe = readinessProbe;
             SecureEnvironmentVariables = secureEnvironmentVariables;
+            Securities = securities;
             Volumes = volumes;
         }
     }

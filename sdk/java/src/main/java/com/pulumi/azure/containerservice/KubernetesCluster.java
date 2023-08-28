@@ -1040,18 +1040,22 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.privateFqdn;
     }
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
      * 
-     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+     * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
+     * 
+     * @deprecated
+     * `public_network_access_enabled` is currently not functional and is not be passed to the API
      * 
      */
+    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
      * 
-     * &gt; **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+     * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

@@ -330,6 +330,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="sku")
+    private @Nullable Output<String> sku;
+
+    /**
+     * @return Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> sku() {
+        return Optional.ofNullable(this.sku);
+    }
+
+    /**
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      * 
      */
@@ -396,6 +411,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.osType = $.osType;
         this.resourceGroupName = $.resourceGroupName;
         this.restartPolicy = $.restartPolicy;
+        this.sku = $.sku;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.zones = $.zones;
@@ -878,6 +894,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restartPolicy(String restartPolicy) {
             return restartPolicy(Output.of(restartPolicy));
+        }
+
+        /**
+         * @param sku Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sku(@Nullable Output<String> sku) {
+            $.sku = sku;
+            return this;
+        }
+
+        /**
+         * @param sku Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sku(String sku) {
+            return sku(Output.of(sku));
         }
 
         /**

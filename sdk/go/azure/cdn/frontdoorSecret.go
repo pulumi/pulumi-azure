@@ -52,9 +52,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                pulumi.Any(azurerm_resource_group.Example.Location),
-//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -91,8 +97,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
-//				KeyVaultId: pulumi.Any(azurerm_key_vault.Test.Id),
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
 //					Contents: filebase64OrPanic("my-certificate.pfx"),
 //				},
@@ -100,12 +106,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = cdn.NewFrontdoorSecret(ctx, "exampleFrontdoorSecret", &cdn.FrontdoorSecretArgs{
-//				CdnFrontdoorProfileId: pulumi.Any(azurerm_cdn_frontdoor_profile.Test.Id),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				Secret: &cdn.FrontdoorSecretSecretArgs{
 //					CustomerCertificates: cdn.FrontdoorSecretSecretCustomerCertificateArray{
 //						&cdn.FrontdoorSecretSecretCustomerCertificateArgs{
-//							KeyVaultCertificateId: pulumi.Any(azurerm_key_vault_certificate.Test.Id),
+//							KeyVaultCertificateId: exampleCertificate.ID(),
 //						},
 //					},
 //				},

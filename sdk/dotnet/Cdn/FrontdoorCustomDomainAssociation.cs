@@ -12,29 +12,6 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Cdn.FrontdoorCustomDomainAssociation("example", new()
-    ///     {
-    ///         CdnFrontdoorCustomDomainId = azurerm_cdn_frontdoor_custom_domain.Contoso.Id,
-    ///         CdnFrontdoorRouteIds = new[]
-    ///         {
-    ///             azurerm_cdn_frontdoor_route.Contoso.Id,
-    ///             azurerm_cdn_frontdoor_route.Fabrikam.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

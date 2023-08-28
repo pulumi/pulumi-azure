@@ -203,6 +203,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> RestartPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnetIds")]
@@ -398,6 +404,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? RestartPolicy { get; set; }
 
         /// <summary>
+        /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
+        /// <summary>
         /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetIds")]
@@ -577,6 +589,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("restartPolicy")]
         public Input<string>? RestartPolicy { get; set; }
+
+        /// <summary>
+        /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         /// <summary>
         /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.

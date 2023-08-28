@@ -108,20 +108,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         """
         Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.cdn.FrontdoorCustomDomainAssociation("example",
-            cdn_frontdoor_custom_domain_id=azurerm_cdn_frontdoor_custom_domain["contoso"]["id"],
-            cdn_frontdoor_route_ids=[
-                azurerm_cdn_frontdoor_route["contoso"]["id"],
-                azurerm_cdn_frontdoor_route["fabrikam"]["id"],
-            ])
-        ```
-
         ## Import
 
         Front Door Custom Domain Associations can be imported using the `resource id`, e.g.
@@ -145,20 +131,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.cdn.FrontdoorCustomDomainAssociation("example",
-            cdn_frontdoor_custom_domain_id=azurerm_cdn_frontdoor_custom_domain["contoso"]["id"],
-            cdn_frontdoor_route_ids=[
-                azurerm_cdn_frontdoor_route["contoso"]["id"],
-                azurerm_cdn_frontdoor_route["fabrikam"]["id"],
-            ])
-        ```
 
         ## Import
 

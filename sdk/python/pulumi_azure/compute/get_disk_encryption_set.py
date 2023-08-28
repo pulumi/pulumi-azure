@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDiskEncryptionSetResult',
@@ -21,13 +22,16 @@ class GetDiskEncryptionSetResult:
     """
     A collection of values returned by getDiskEncryptionSet.
     """
-    def __init__(__self__, auto_key_rotation_enabled=None, id=None, key_vault_key_url=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, auto_key_rotation_enabled=None, id=None, identities=None, key_vault_key_url=None, location=None, name=None, resource_group_name=None, tags=None):
         if auto_key_rotation_enabled and not isinstance(auto_key_rotation_enabled, bool):
             raise TypeError("Expected argument 'auto_key_rotation_enabled' to be a bool")
         pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if key_vault_key_url and not isinstance(key_vault_key_url, str):
             raise TypeError("Expected argument 'key_vault_key_url' to be a str")
         pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
@@ -59,6 +63,14 @@ class GetDiskEncryptionSetResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetDiskEncryptionSetIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="keyVaultKeyUrl")
@@ -103,6 +115,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
         return GetDiskEncryptionSetResult(
             auto_key_rotation_enabled=self.auto_key_rotation_enabled,
             id=self.id,
+            identities=self.identities,
             key_vault_key_url=self.key_vault_key_url,
             location=self.location,
             name=self.name,
@@ -140,6 +153,7 @@ def get_disk_encryption_set(name: Optional[str] = None,
     return AwaitableGetDiskEncryptionSetResult(
         auto_key_rotation_enabled=pulumi.get(__ret__, 'auto_key_rotation_enabled'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         key_vault_key_url=pulumi.get(__ret__, 'key_vault_key_url'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),

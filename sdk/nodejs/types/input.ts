@@ -7843,7 +7843,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: pulumi.Input<number>;
+        win32StatusCode?: pulumi.Input<number>;
     }
 
     export interface LinuxWebAppSiteConfigCors {
@@ -9076,7 +9076,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: pulumi.Input<number>;
+        win32StatusCode?: pulumi.Input<number>;
     }
 
     export interface LinuxWebAppSlotSiteConfigCors {
@@ -13233,7 +13233,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: pulumi.Input<number>;
+        win32StatusCode?: pulumi.Input<number>;
     }
 
     export interface WindowsWebAppSiteConfigCors {
@@ -14531,7 +14531,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: pulumi.Input<number>;
+        win32StatusCode?: pulumi.Input<number>;
     }
 
     export interface WindowsWebAppSlotSiteConfigCors {
@@ -22604,6 +22604,10 @@ export namespace containerservice {
          */
         secureEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         */
+        securities?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainerSecurity>[]>;
+        /**
          * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
          */
         volumes?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainerVolume>[]>;
@@ -22742,6 +22746,15 @@ export namespace containerservice {
          * Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          */
         scheme?: pulumi.Input<string>;
+    }
+
+    export interface GroupContainerSecurity {
+        /**
+         * Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+         */
+        privilegeEnabled: pulumi.Input<boolean>;
     }
 
     export interface GroupContainerVolume {
@@ -22924,9 +22937,22 @@ export namespace containerservice {
          */
         secureEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         */
+        securities?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainerSecurity>[]>;
+        /**
          * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
          */
         volumes?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainerVolume>[]>;
+    }
+
+    export interface GroupInitContainerSecurity {
+        /**
+         * Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+         */
+        privilegeEnabled: pulumi.Input<boolean>;
     }
 
     export interface GroupInitContainerVolume {
@@ -23450,7 +23476,7 @@ export namespace containerservice {
          */
         netCoreWmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
          */
         netIpv4IpLocalPortRangeMax?: pulumi.Input<number>;
         /**
@@ -23474,7 +23500,7 @@ export namespace containerservice {
          */
         netIpv4TcpFinTimeout?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
          */
         netIpv4TcpKeepaliveIntvl?: pulumi.Input<number>;
         /**
@@ -23498,11 +23524,11 @@ export namespace containerservice {
          */
         netIpv4TcpTwReuse?: pulumi.Input<boolean>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackBuckets?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackMax?: pulumi.Input<number>;
         /**
@@ -23964,7 +23990,7 @@ export namespace containerservice {
          */
         dockerBridgeCidr?: pulumi.Input<string>;
         /**
-         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
          *
          * > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          *
@@ -24207,7 +24233,7 @@ export namespace containerservice {
          */
         netCoreWmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
          */
         netIpv4IpLocalPortRangeMax?: pulumi.Input<number>;
         /**
@@ -24231,7 +24257,7 @@ export namespace containerservice {
          */
         netIpv4TcpFinTimeout?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
          */
         netIpv4TcpKeepaliveIntvl?: pulumi.Input<number>;
         /**
@@ -24255,11 +24281,11 @@ export namespace containerservice {
          */
         netIpv4TcpTwReuse?: pulumi.Input<boolean>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackBuckets?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackMax?: pulumi.Input<number>;
         /**
@@ -30505,6 +30531,40 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface NamespaceNetworkRuleSet {
+        /**
+         * Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more `networkRules` blocks as defined below.
+         */
+        networkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSetNetworkRule>[]>;
+        /**
+         * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+         */
+        trustedServicesAllowed?: pulumi.Input<boolean>;
+    }
+
+    export interface NamespaceNetworkRuleSetNetworkRule {
+        /**
+         * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+        /**
+         * The Subnet ID which should be able to access this ServiceBus Namespace.
+         */
+        subnetId: pulumi.Input<string>;
     }
 
     export interface SubscriptionClientScopedSubscription {
@@ -47772,6 +47832,29 @@ export namespace servicebus {
          * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface NamespaceNetworkRuleSet {
+        /**
+         * Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more `networkRules` blocks as defined below.
+         */
+        networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
+        /**
+         * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+         */
+        trustedServicesAllowed?: pulumi.Input<boolean>;
     }
 
     export interface NamespaceNetworkRuleSetNetworkRule {

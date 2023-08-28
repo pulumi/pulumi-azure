@@ -197,14 +197,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="netIpv4IpLocalPortRangeMax")
     private @Nullable Output<Integer> netIpv4IpLocalPortRangeMax;
 
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> netIpv4IpLocalPortRangeMax() {
@@ -287,14 +287,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="netIpv4TcpKeepaliveIntvl")
     private @Nullable Output<Integer> netIpv4TcpKeepaliveIntvl;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpKeepaliveIntvl() {
@@ -377,14 +377,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+     * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="netNetfilterNfConntrackBuckets")
     private @Nullable Output<Integer> netNetfilterNfConntrackBuckets;
 
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> netNetfilterNfConntrackBuckets() {
@@ -392,14 +392,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+     * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="netNetfilterNfConntrackMax")
     private @Nullable Output<Integer> netNetfilterNfConntrackMax;
 
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> netNetfilterNfConntrackMax() {
@@ -756,7 +756,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1019,7 +1019,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1040,7 +1040,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
