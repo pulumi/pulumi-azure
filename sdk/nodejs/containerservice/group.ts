@@ -171,6 +171,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly restartPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
+    /**
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      */
     public readonly subnetIds!: pulumi.Output<string | undefined>;
@@ -215,6 +219,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["osType"] = state ? state.osType : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = state ? state.restartPolicy : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
@@ -246,6 +251,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
@@ -346,6 +352,10 @@ export interface GroupState {
      */
     restartPolicy?: pulumi.Input<string>;
     /**
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     */
+    sku?: pulumi.Input<string>;
+    /**
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      */
     subnetIds?: pulumi.Input<string>;
@@ -439,6 +449,10 @@ export interface GroupArgs {
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
     restartPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     */
+    sku?: pulumi.Input<string>;
     /**
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      */

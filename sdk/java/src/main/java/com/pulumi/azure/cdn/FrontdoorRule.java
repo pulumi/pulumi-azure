@@ -70,6 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint(&#34;exampleFrontdoorEndpoint&#34;, FrontdoorEndpointArgs.builder()        

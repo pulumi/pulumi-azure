@@ -95,15 +95,15 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs
      * The Win32 Status Code of the Request.
      * 
      */
-    @Import(name="win32Status")
-    private @Nullable Output<Integer> win32Status;
+    @Import(name="win32StatusCode")
+    private @Nullable Output<Integer> win32StatusCode;
 
     /**
      * @return The Win32 Status Code of the Request.
      * 
      */
-    public Optional<Output<Integer>> win32Status() {
-        return Optional.ofNullable(this.win32Status);
+    public Optional<Output<Integer>> win32StatusCode() {
+        return Optional.ofNullable(this.win32StatusCode);
     }
 
     private LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs() {}
@@ -114,7 +114,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs
         this.path = $.path;
         this.statusCodeRange = $.statusCodeRange;
         this.subStatus = $.subStatus;
-        this.win32Status = $.win32Status;
+        this.win32StatusCode = $.win32StatusCode;
     }
 
     public static Builder builder() {
@@ -241,24 +241,24 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs
         }
 
         /**
-         * @param win32Status The Win32 Status Code of the Request.
+         * @param win32StatusCode The Win32 Status Code of the Request.
          * 
          * @return builder
          * 
          */
-        public Builder win32Status(@Nullable Output<Integer> win32Status) {
-            $.win32Status = win32Status;
+        public Builder win32StatusCode(@Nullable Output<Integer> win32StatusCode) {
+            $.win32StatusCode = win32StatusCode;
             return this;
         }
 
         /**
-         * @param win32Status The Win32 Status Code of the Request.
+         * @param win32StatusCode The Win32 Status Code of the Request.
          * 
          * @return builder
          * 
          */
-        public Builder win32Status(Integer win32Status) {
-            return win32Status(Output.of(win32Status));
+        public Builder win32StatusCode(Integer win32StatusCode) {
+            return win32StatusCode(Output.of(win32StatusCode));
         }
 
         public LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs build() {

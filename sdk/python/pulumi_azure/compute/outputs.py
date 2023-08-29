@@ -178,6 +178,7 @@ __all__ = [
     'GetBastionHostIpConfigurationResult',
     'GetConfidentialLedgerAzureadBasedServicePrincipalResult',
     'GetConfidentialLedgerCertificateBasedSecurityPrincipalResult',
+    'GetDiskEncryptionSetIdentityResult',
     'GetImageDataDiskResult',
     'GetImageOsDiskResult',
     'GetImagesImageResult',
@@ -11366,6 +11367,57 @@ class GetConfidentialLedgerCertificateBasedSecurityPrincipalResult(dict):
         The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
         """
         return pulumi.get(self, "pem_public_key")
+
+
+@pulumi.output_type
+class GetDiskEncryptionSetIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
+        :param str principal_id: The (Client) ID of the Service Principal.
+        :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
+        :param str type: The type of Managed Service Identity that is configured on this Disk Encryption Set.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The (Client) ID of the Service Principal.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant the Service Principal is assigned in.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that is configured on this Disk Encryption Set.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

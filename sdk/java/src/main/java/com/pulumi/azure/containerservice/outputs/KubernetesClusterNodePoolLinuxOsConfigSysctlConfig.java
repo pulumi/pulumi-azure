@@ -73,7 +73,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
      */
     private @Nullable Integer netCoreWmemMax;
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer netIpv4IpLocalPortRangeMax;
@@ -103,7 +103,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
      */
     private @Nullable Integer netIpv4TcpFinTimeout;
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer netIpv4TcpKeepaliveIntvl;
@@ -133,12 +133,12 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
      */
     private @Nullable Boolean netIpv4TcpTwReuse;
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer netNetfilterNfConntrackBuckets;
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer netNetfilterNfConntrackMax;
@@ -244,7 +244,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
         return Optional.ofNullable(this.netCoreWmemMax);
     }
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> netIpv4IpLocalPortRangeMax() {
@@ -286,7 +286,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
         return Optional.ofNullable(this.netIpv4TcpFinTimeout);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> netIpv4TcpKeepaliveIntvl() {
@@ -328,14 +328,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
         return Optional.ofNullable(this.netIpv4TcpTwReuse);
     }
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> netNetfilterNfConntrackBuckets() {
         return Optional.ofNullable(this.netNetfilterNfConntrackBuckets);
     }
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> netNetfilterNfConntrackMax() {

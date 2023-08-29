@@ -17,39 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.cdn.FrontdoorCustomDomainAssociation;
- * import com.pulumi.azure.cdn.FrontdoorCustomDomainAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FrontdoorCustomDomainAssociation(&#34;example&#34;, FrontdoorCustomDomainAssociationArgs.builder()        
- *             .cdnFrontdoorCustomDomainId(azurerm_cdn_frontdoor_custom_domain.contoso().id())
- *             .cdnFrontdoorRouteIds(            
- *                 azurerm_cdn_frontdoor_route.contoso().id(),
- *                 azurerm_cdn_frontdoor_route.fabrikam().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

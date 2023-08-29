@@ -32,6 +32,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+ * import com.pulumi.azure.dns.Zone;
+ * import com.pulumi.azure.dns.ZoneArgs;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
@@ -56,6 +61,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy(&#34;exampleFrontdoorFirewallPolicy&#34;, FrontdoorFirewallPolicyArgs.builder()        
@@ -85,6 +91,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain(&#34;exampleFrontdoorCustomDomain&#34;, FrontdoorCustomDomainArgs.builder()        
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .dnsZoneId(exampleZone.id())
+ *             .hostName(&#34;contoso.fabrikam.com&#34;)
+ *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+ *                 .certificateType(&#34;ManagedCertificate&#34;)
+ *                 .minimumTlsVersion(&#34;TLS12&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy(&#34;exampleFrontdoorSecurityPolicy&#34;, FrontdoorSecurityPolicyArgs.builder()        
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
@@ -92,7 +112,7 @@ import javax.annotation.Nullable;
  *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
  *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
  *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
- *                             .cdnFrontdoorDomainId(azurerm_cdn_frontdoor_custom_domain.domain1().id())
+ *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
  *                             .build())
  *                         .patternsToMatch(&#34;/*&#34;)
  *                         .build())

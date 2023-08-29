@@ -132,6 +132,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDiskEncryptionSetIdentityResult> Identities;
+        /// <summary>
         /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         /// </summary>
         public readonly string KeyVaultKeyUrl;
@@ -152,6 +156,8 @@ namespace Pulumi.Azure.Compute
 
             string id,
 
+            ImmutableArray<Outputs.GetDiskEncryptionSetIdentityResult> identities,
+
             string keyVaultKeyUrl,
 
             string location,
@@ -164,6 +170,7 @@ namespace Pulumi.Azure.Compute
         {
             AutoKeyRotationEnabled = autoKeyRotationEnabled;
             Id = id;
+            Identities = identities;
             KeyVaultKeyUrl = keyVaultKeyUrl;
             Location = location;
             Name = name;

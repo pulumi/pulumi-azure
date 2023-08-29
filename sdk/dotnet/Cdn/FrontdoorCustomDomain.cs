@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()

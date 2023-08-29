@@ -170,9 +170,9 @@ class KubernetesClusterArgs:
                    opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
@@ -287,6 +287,9 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        if public_network_access_enabled is not None:
+            warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
+            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if role_based_access_control_enabled is not None:
@@ -898,10 +901,13 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
 
-        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+        !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
+        warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
+        pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
+
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1227,9 +1233,9 @@ class _KubernetesClusterState:
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -1365,6 +1371,9 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if private_fqdn is not None:
             pulumi.set(__self__, "private_fqdn", private_fqdn)
+        if public_network_access_enabled is not None:
+            warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
+            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -2086,10 +2095,13 @@ class _KubernetesClusterState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
 
-        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+        !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
+        warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
+        pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
+
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -2449,9 +2461,9 @@ class KubernetesCluster(pulumi.CustomResource):
                    opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -2651,6 +2663,9 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
             __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
+            if public_network_access_enabled is not None and not opts.urn:
+                warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
+                pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -2866,9 +2881,9 @@ class KubernetesCluster(pulumi.CustomResource):
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
                
-               > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+               !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -3446,10 +3461,13 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
 
-        > **Note:** When `public_network_access_enabled` is set to `true`, `0.0.0.0/0` must be added to `authorized_ip_ranges` in the `api_server_access_profile` block.
+        !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
+        warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
+        pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
+
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

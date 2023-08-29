@@ -1,4 +1,4 @@
-From 9ad2b91fc170a884fe548d6f1b525089d36ee3e3 Mon Sep 17 00:00:00 2001
+From 5b59dc9553c80a12004308209ab4b47df2c87c6c Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 7/9] Update-documentation
@@ -236,7 +236,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index 52194d26d1..38eaa4f94f 100644
+index 0f3f465ce6..061d3a67b0 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -249,7 +249,7 @@ index 52194d26d1..38eaa4f94f 100644
  ## Example Usage
  
  ```hcl
-@@ -216,19 +213,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -218,19 +215,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -464,7 +464,7 @@ index e4924a5439..ea46c447fa 100644
  }
  
 diff --git a/website/docs/r/api_management_api_policy.html.markdown b/website/docs/r/api_management_api_policy.html.markdown
-index 9f74d4d537..9c7706ffbe 100644
+index 820a09f089..d8d31e7ce2 100644
 --- a/website/docs/r/api_management_api_policy.html.markdown
 +++ b/website/docs/r/api_management_api_policy.html.markdown
 @@ -45,7 +45,7 @@ The following arguments are supported:
@@ -642,7 +642,7 @@ index ce521efb7a..c43da45129 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_policy.html.markdown b/website/docs/r/api_management_policy.html.markdown
-index 5abffbbe00..58189d4d42 100644
+index a5fb803301..0f3ab6a7e4 100644
 --- a/website/docs/r/api_management_policy.html.markdown
 +++ b/website/docs/r/api_management_policy.html.markdown
 @@ -52,7 +52,7 @@ The following arguments are supported:
@@ -931,7 +931,7 @@ index b16ea1322a..b268986569 100644
    thumbprint_algorithm = "SHA1"
  }
 diff --git a/website/docs/r/blueprint_assignment.html.markdown b/website/docs/r/blueprint_assignment.html.markdown
-index 14647f9894..19d310fc89 100644
+index 5e2f3d88c5..37255fae0a 100644
 --- a/website/docs/r/blueprint_assignment.html.markdown
 +++ b/website/docs/r/blueprint_assignment.html.markdown
 @@ -12,7 +12,7 @@ Manages a Blueprint Assignment resource
@@ -1133,7 +1133,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index 3646b65e1b..9c3ad848f5 100644
+index db1d29cc78..1fde4f0a90 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -14,7 +14,7 @@ Manages as an Azure Container Group instance.
@@ -1145,7 +1145,7 @@ index 3646b65e1b..9c3ad848f5 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -265,7 +265,7 @@ A `volume` block supports:
+@@ -271,7 +271,7 @@ A `volume` block supports:
  
  ~> **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
  
@@ -1652,7 +1652,7 @@ index 4a1d98e9ff..daedcc6700 100644
  ## Example Usage
  
 diff --git a/website/docs/r/disk_encryption_set.html.markdown b/website/docs/r/disk_encryption_set.html.markdown
-index b9c6bc4874..081e847753 100644
+index 744e5e6c2a..fd9a42539c 100644
 --- a/website/docs/r/disk_encryption_set.html.markdown
 +++ b/website/docs/r/disk_encryption_set.html.markdown
 @@ -10,6 +10,8 @@ description: |-
@@ -1951,7 +1951,7 @@ index d97d53b42d..d04a166153 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index f9cebfec3a..87b36c3b4a 100644
+index dd15afff6c..4a6f090219 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1971,7 +1971,7 @@ index f9cebfec3a..87b36c3b4a 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -388,7 +382,7 @@ A `default_node_pool` block supports the following:
+@@ -390,7 +384,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1980,7 +1980,7 @@ index f9cebfec3a..87b36c3b4a 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -444,7 +438,7 @@ A `default_node_pool` block supports the following:
+@@ -448,7 +442,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1989,7 +1989,7 @@ index f9cebfec3a..87b36c3b4a 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -470,7 +464,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -474,7 +468,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1998,7 +1998,7 @@ index f9cebfec3a..87b36c3b4a 100644
  
  If `enable_auto_scaling` is set to `false`, then the following fields can also be configured:
  
-@@ -693,8 +687,6 @@ A `network_profile` block supports the following:
+@@ -697,8 +691,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2007,7 +2007,7 @@ index f9cebfec3a..87b36c3b4a 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1027,19 +1019,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1033,19 +1025,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2028,7 +2028,7 @@ index f9cebfec3a..87b36c3b4a 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 021b9dc1d3..b64eba8c95 100644
+index 5cb8c426a9..0af3287ec6 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -2103,7 +2103,7 @@ index 84c2e77680..bea6b38897 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 436043cf87..c0e51c4f78 100644
+index 9b4f77bf0c..55809d5064 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -12,15 +12,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2133,7 +2133,7 @@ index 436043cf87..c0e51c4f78 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -348,20 +344,12 @@ An `extension` block supports the following:
+@@ -350,20 +346,12 @@ An `extension` block supports the following:
  
  -> **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -2290,7 +2290,7 @@ index 493de7b692..476f4a2a2f 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index 36cac8d4a6..2682d8125d 100644
+index 4a5511387c..0600716333 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -2304,7 +2304,7 @@ index 36cac8d4a6..2682d8125d 100644
  
  ```hcl
 diff --git a/website/docs/r/mssql_virtual_machine.html.markdown b/website/docs/r/mssql_virtual_machine.html.markdown
-index 161e89aa0c..e9689e4899 100644
+index fd3230644b..74310a2c00 100644
 --- a/website/docs/r/mssql_virtual_machine.html.markdown
 +++ b/website/docs/r/mssql_virtual_machine.html.markdown
 @@ -12,7 +12,7 @@ Manages a Microsoft SQL Virtual Machine
@@ -2349,7 +2349,7 @@ index e717ee3aee..cdef8e4c39 100644
 --> **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 +-> **Note:** This is a provider Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 diff --git a/website/docs/r/network_connection_monitor.html.markdown b/website/docs/r/network_connection_monitor.html.markdown
-index 6e82fa7760..678cbc003d 100644
+index b6af640b27..b3939a3f65 100644
 --- a/website/docs/r/network_connection_monitor.html.markdown
 +++ b/website/docs/r/network_connection_monitor.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -2690,7 +2690,7 @@ index c49de6a233..dd2916c58c 100644
  -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index 1441ebaf08..ae2a970df5 100644
+index 038095813d..27ee86236f 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {
@@ -2817,7 +2817,7 @@ index 6d9c021a59..194133d93b 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic.html.markdown b/website/docs/r/servicebus_topic.html.markdown
-index 06d5cd1c76..779c9813da 100644
+index 5116babc65..f188c85b27 100644
 --- a/website/docs/r/servicebus_topic.html.markdown
 +++ b/website/docs/r/servicebus_topic.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -3058,7 +3058,7 @@ index b5ef30c661..6b8afb87b3 100644
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
-index 248f2768c0..b5e2c1bd47 100644
+index 199b2e937b..8dafb1a997 100644
 --- a/website/docs/r/virtual_machine.html.markdown
 +++ b/website/docs/r/virtual_machine.html.markdown
 @@ -12,13 +12,13 @@ Manages a Virtual Machine.
@@ -3119,7 +3119,7 @@ index 248f2768c0..b5e2c1bd47 100644
  
  A `storage_data_disk` block supports the following:
 diff --git a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
-index 256e59f7fd..0333ddcac1 100644
+index 6062642f58..009abdbd11 100644
 --- a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 +++ b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 @@ -144,4 +144,4 @@ Virtual Machines Data Disk Attachments can be imported using the `resource id`,
@@ -3129,7 +3129,7 @@ index 256e59f7fd..0333ddcac1 100644
 --> **Please Note:** This is a Terraform Unique ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 +-> **Please Note:** This is a ID (specific to this provider) matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index 2f1b6e07da..fb1f7f91b7 100644
+index 680ff95696..515af64986 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
 @@ -10,12 +10,6 @@ description: |-
@@ -3208,7 +3208,7 @@ index d326f7879c..03d6b84909 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index e94d26bbb6..3b17a31535 100644
+index 6d9df3047f..dd33432003 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,15 @@ Manages a Windows Virtual Machine Scale Set.
@@ -3242,7 +3242,7 @@ index e94d26bbb6..3b17a31535 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -336,20 +334,12 @@ An `extension` block supports the following:
+@@ -338,20 +336,12 @@ An `extension` block supports the following:
  
  -> **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -3264,5 +3264,5 @@ index e94d26bbb6..3b17a31535 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.39.2 (Apple Git-143)
+2.41.0
 

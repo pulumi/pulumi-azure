@@ -381,6 +381,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restartPolicy);
     }
     /**
+     * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="sku", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sku;
+
+    /**
+     * @return Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> sku() {
+        return Codegen.optional(this.sku);
+    }
+    /**
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      * 
      */

@@ -10490,7 +10490,7 @@ type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode struct {
 	// The Request Sub Status of the Status Code.
 	SubStatus int `pulumi:"subStatus"`
 	// The Win32 Status Code of the Request.
-	Win32Status int `pulumi:"win32Status"`
+	Win32StatusCode int `pulumi:"win32StatusCode"`
 }
 
 // GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs and GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput values.
@@ -10516,7 +10516,7 @@ type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs struct {
 	// The Request Sub Status of the Status Code.
 	SubStatus pulumi.IntInput `pulumi:"subStatus"`
 	// The Win32 Status Code of the Request.
-	Win32Status pulumi.IntInput `pulumi:"win32Status"`
+	Win32StatusCode pulumi.IntInput `pulumi:"win32StatusCode"`
 }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ElementType() reflect.Type {
@@ -10596,8 +10596,8 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) SubSta
 }
 
 // The Win32 Status Code of the Request.
-func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Win32Status() pulumi.IntOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode) int { return v.Win32Status }).(pulumi.IntOutput)
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) Win32StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode) int { return v.Win32StatusCode }).(pulumi.IntOutput)
 }
 
 type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput struct{ *pulumi.OutputState }

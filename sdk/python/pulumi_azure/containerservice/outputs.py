@@ -26,6 +26,7 @@ __all__ = [
     'GroupContainerPort',
     'GroupContainerReadinessProbe',
     'GroupContainerReadinessProbeHttpGet',
+    'GroupContainerSecurity',
     'GroupContainerVolume',
     'GroupContainerVolumeGitRepo',
     'GroupDiagnostics',
@@ -35,6 +36,7 @@ __all__ = [
     'GroupIdentity',
     'GroupImageRegistryCredential',
     'GroupInitContainer',
+    'GroupInitContainerSecurity',
     'GroupInitContainerVolume',
     'GroupInitContainerVolumeGitRepo',
     'KubernetesClusterAciConnectorLinux',
@@ -947,6 +949,7 @@ class GroupContainer(dict):
                  ports: Optional[Sequence['outputs.GroupContainerPort']] = None,
                  readiness_probe: Optional['outputs.GroupContainerReadinessProbe'] = None,
                  secure_environment_variables: Optional[Mapping[str, str]] = None,
+                 securities: Optional[Sequence['outputs.GroupContainerSecurity']] = None,
                  volumes: Optional[Sequence['outputs.GroupContainerVolume']] = None):
         """
         :param float cpu: The required number of CPU cores of the containers. Changing this forces a new resource to be created.
@@ -965,6 +968,7 @@ class GroupContainer(dict):
         :param Sequence['GroupContainerPortArgs'] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         :param 'GroupContainerReadinessProbeArgs' readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        :param Sequence['GroupContainerSecurityArgs'] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
         :param Sequence['GroupContainerVolumeArgs'] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cpu", cpu)
@@ -991,6 +995,8 @@ class GroupContainer(dict):
             pulumi.set(__self__, "readiness_probe", readiness_probe)
         if secure_environment_variables is not None:
             pulumi.set(__self__, "secure_environment_variables", secure_environment_variables)
+        if securities is not None:
+            pulumi.set(__self__, "securities", securities)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -1107,6 +1113,14 @@ class GroupContainer(dict):
         A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secure_environment_variables")
+
+    @property
+    @pulumi.getter
+    def securities(self) -> Optional[Sequence['outputs.GroupContainerSecurity']]:
+        """
+        The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "securities")
 
     @property
     @pulumi.getter
@@ -1592,6 +1606,45 @@ class GroupContainerReadinessProbeHttpGet(dict):
         Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scheme")
+
+
+@pulumi.output_type
+class GroupContainerSecurity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privilegeEnabled":
+            suggest = "privilege_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainerSecurity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainerSecurity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainerSecurity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 privilege_enabled: bool):
+        """
+        :param bool privilege_enabled: Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+               
+               > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        """
+        pulumi.set(__self__, "privilege_enabled", privilege_enabled)
+
+    @property
+    @pulumi.getter(name="privilegeEnabled")
+    def privilege_enabled(self) -> bool:
+        """
+        Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+
+        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        """
+        return pulumi.get(self, "privilege_enabled")
 
 
 @pulumi.output_type
@@ -2178,6 +2231,7 @@ class GroupInitContainer(dict):
                  commands: Optional[Sequence[str]] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
                  secure_environment_variables: Optional[Mapping[str, str]] = None,
+                 securities: Optional[Sequence['outputs.GroupInitContainerSecurity']] = None,
                  volumes: Optional[Sequence['outputs.GroupInitContainerVolume']] = None):
         """
         :param str image: The container image name. Changing this forces a new resource to be created.
@@ -2185,6 +2239,7 @@ class GroupInitContainer(dict):
         :param Sequence[str] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
+        :param Sequence['GroupInitContainerSecurityArgs'] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
         :param Sequence['GroupInitContainerVolumeArgs'] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "image", image)
@@ -2195,6 +2250,8 @@ class GroupInitContainer(dict):
             pulumi.set(__self__, "environment_variables", environment_variables)
         if secure_environment_variables is not None:
             pulumi.set(__self__, "secure_environment_variables", secure_environment_variables)
+        if securities is not None:
+            pulumi.set(__self__, "securities", securities)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -2240,11 +2297,58 @@ class GroupInitContainer(dict):
 
     @property
     @pulumi.getter
+    def securities(self) -> Optional[Sequence['outputs.GroupInitContainerSecurity']]:
+        """
+        The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "securities")
+
+    @property
+    @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.GroupInitContainerVolume']]:
         """
         The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class GroupInitContainerSecurity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privilegeEnabled":
+            suggest = "privilege_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupInitContainerSecurity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupInitContainerSecurity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupInitContainerSecurity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 privilege_enabled: bool):
+        """
+        :param bool privilege_enabled: Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+               
+               > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        """
+        pulumi.set(__self__, "privilege_enabled", privilege_enabled)
+
+    @property
+    @pulumi.getter(name="privilegeEnabled")
+    def privilege_enabled(self) -> bool:
+        """
+        Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+
+        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        """
+        return pulumi.get(self, "privilege_enabled")
 
 
 @pulumi.output_type
@@ -4021,20 +4125,20 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
         :param int net_core_somaxconn: The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
         :param int net_core_wmem_default: The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
         :param int net_core_wmem_max: The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
-        :param int net_ipv4_ip_local_port_range_max: The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        :param int net_ipv4_ip_local_port_range_max: The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
         :param int net_ipv4_ip_local_port_range_min: The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
         :param int net_ipv4_neigh_default_gc_thresh1: The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
         :param int net_ipv4_neigh_default_gc_thresh2: The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
         :param int net_ipv4_neigh_default_gc_thresh3: The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_fin_timeout: The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
-        :param int net_ipv4_tcp_keepalive_intvl: The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        :param int net_ipv4_tcp_keepalive_intvl: The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_keepalive_probes: The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_keepalive_time: The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_max_syn_backlog: The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
         :param bool net_ipv4_tcp_tw_reuse: The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
-        :param int net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
-        :param int net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+        :param int net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+        :param int net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
         :param int vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
         :param int vm_swappiness: The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
         :param int vm_vfs_cache_pressure: The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
@@ -4198,7 +4302,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netIpv4IpLocalPortRangeMax")
     def net_ipv4_ip_local_port_range_max(self) -> Optional[int]:
         """
-        The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_ipv4_ip_local_port_range_max")
 
@@ -4246,7 +4350,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netIpv4TcpKeepaliveIntvl")
     def net_ipv4_tcp_keepalive_intvl(self) -> Optional[int]:
         """
-        The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_ipv4_tcp_keepalive_intvl")
 
@@ -4294,7 +4398,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netNetfilterNfConntrackBuckets")
     def net_netfilter_nf_conntrack_buckets(self) -> Optional[int]:
         """
-        The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
 
@@ -4302,7 +4406,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netNetfilterNfConntrackMax")
     def net_netfilter_nf_conntrack_max(self) -> Optional[int]:
         """
-        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_max")
 
@@ -6051,7 +6155,7 @@ class KubernetesClusterNetworkProfile(dict):
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
                
                > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param str ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+        :param str ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
                
                > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
                
@@ -6152,7 +6256,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="ebpfDataPlane")
     def ebpf_data_plane(self) -> Optional[str]:
         """
-        Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+        Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
 
         > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
 
@@ -6827,20 +6931,20 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
         :param int net_core_somaxconn: The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
         :param int net_core_wmem_default: The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
         :param int net_core_wmem_max: The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
-        :param int net_ipv4_ip_local_port_range_max: The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        :param int net_ipv4_ip_local_port_range_max: The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
         :param int net_ipv4_ip_local_port_range_min: The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
         :param int net_ipv4_neigh_default_gc_thresh1: The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
         :param int net_ipv4_neigh_default_gc_thresh2: The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
         :param int net_ipv4_neigh_default_gc_thresh3: The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_fin_timeout: The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
-        :param int net_ipv4_tcp_keepalive_intvl: The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        :param int net_ipv4_tcp_keepalive_intvl: The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_keepalive_probes: The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_keepalive_time: The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_max_syn_backlog: The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
         :param int net_ipv4_tcp_max_tw_buckets: The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
         :param bool net_ipv4_tcp_tw_reuse: Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
-        :param int net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
-        :param int net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+        :param int net_netfilter_nf_conntrack_buckets: The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+        :param int net_netfilter_nf_conntrack_max: The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
         :param int vm_max_map_count: The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
         :param int vm_swappiness: The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
         :param int vm_vfs_cache_pressure: The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
@@ -7004,7 +7108,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netIpv4IpLocalPortRangeMax")
     def net_ipv4_ip_local_port_range_max(self) -> Optional[int]:
         """
-        The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_ipv4_ip_local_port_range_max")
 
@@ -7052,7 +7156,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netIpv4TcpKeepaliveIntvl")
     def net_ipv4_tcp_keepalive_intvl(self) -> Optional[int]:
         """
-        The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+        The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_ipv4_tcp_keepalive_intvl")
 
@@ -7100,7 +7204,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netNetfilterNfConntrackBuckets")
     def net_netfilter_nf_conntrack_buckets(self) -> Optional[int]:
         """
-        The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+        The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_buckets")
 
@@ -7108,7 +7212,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
     @pulumi.getter(name="netNetfilterNfConntrackMax")
     def net_netfilter_nf_conntrack_max(self) -> Optional[int]:
         """
-        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+        The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "net_netfilter_nf_conntrack_max")
 

@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.azure.eventhub.inputs.NamespaceCustomerManagedKeyArgs;
 import com.pulumi.azure.eventhub.inputs.NamespaceIdentityArgs;
+import com.pulumi.azure.eventhub.inputs.NamespaceNetworkRuleSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -126,6 +127,21 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An `network_rule_set` block as defined below.
+     * 
+     */
+    @Import(name="networkRuleSet")
+    private @Nullable Output<NamespaceNetworkRuleSetArgs> networkRuleSet;
+
+    /**
+     * @return An `network_rule_set` block as defined below.
+     * 
+     */
+    public Optional<Output<NamespaceNetworkRuleSetArgs>> networkRuleSet() {
+        return Optional.ofNullable(this.networkRuleSet);
+    }
+
+    /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      * 
      */
@@ -212,6 +228,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
+        this.networkRuleSet = $.networkRuleSet;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
@@ -382,6 +399,27 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkRuleSet An `network_rule_set` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkRuleSet(@Nullable Output<NamespaceNetworkRuleSetArgs> networkRuleSet) {
+            $.networkRuleSet = networkRuleSet;
+            return this;
+        }
+
+        /**
+         * @param networkRuleSet An `network_rule_set` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkRuleSet(NamespaceNetworkRuleSetArgs networkRuleSet) {
+            return networkRuleSet(Output.of(networkRuleSet));
         }
 
         /**

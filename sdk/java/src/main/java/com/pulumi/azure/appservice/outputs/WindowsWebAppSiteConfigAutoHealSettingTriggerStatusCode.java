@@ -41,7 +41,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    private @Nullable Integer win32Status;
+    private @Nullable Integer win32StatusCode;
 
     private WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode() {}
     /**
@@ -83,8 +83,8 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The Win32 Status Code of the Request.
      * 
      */
-    public Optional<Integer> win32Status() {
-        return Optional.ofNullable(this.win32Status);
+    public Optional<Integer> win32StatusCode() {
+        return Optional.ofNullable(this.win32StatusCode);
     }
 
     public static Builder builder() {
@@ -101,7 +101,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
         private @Nullable String path;
         private String statusCodeRange;
         private @Nullable Integer subStatus;
-        private @Nullable Integer win32Status;
+        private @Nullable Integer win32StatusCode;
         public Builder() {}
         public Builder(WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode defaults) {
     	      Objects.requireNonNull(defaults);
@@ -110,7 +110,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
     	      this.path = defaults.path;
     	      this.statusCodeRange = defaults.statusCodeRange;
     	      this.subStatus = defaults.subStatus;
-    	      this.win32Status = defaults.win32Status;
+    	      this.win32StatusCode = defaults.win32StatusCode;
         }
 
         @CustomType.Setter
@@ -139,8 +139,8 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
             return this;
         }
         @CustomType.Setter
-        public Builder win32Status(@Nullable Integer win32Status) {
-            this.win32Status = win32Status;
+        public Builder win32StatusCode(@Nullable Integer win32StatusCode) {
+            this.win32StatusCode = win32StatusCode;
             return this;
         }
         public WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode build() {
@@ -150,7 +150,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
             o.path = path;
             o.statusCodeRange = statusCodeRange;
             o.subStatus = subStatus;
-            o.win32Status = win32Status;
+            o.win32StatusCode = win32StatusCode;
             return o;
         }
     }

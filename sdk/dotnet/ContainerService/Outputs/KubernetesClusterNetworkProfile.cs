@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? DockerBridgeCidr;
         /// <summary>
-        /// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+        /// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
         /// 
         /// &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
         /// 

@@ -164,7 +164,7 @@ class Policy(pulumi.CustomResource):
         API Management service Policys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policies/policy
+         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1
         ```
 
         :param str resource_name: The name of the resource.
@@ -212,7 +212,7 @@ class Policy(pulumi.CustomResource):
         API Management service Policys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policies/policy
+         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1
         ```
 
         :param str resource_name: The name of the resource.

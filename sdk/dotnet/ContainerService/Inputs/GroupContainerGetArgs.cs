@@ -126,6 +126,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
             }
         }
 
+        [Input("securities")]
+        private InputList<Inputs.GroupContainerSecurityGetArgs>? _securities;
+
+        /// <summary>
+        /// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.GroupContainerSecurityGetArgs> Securities
+        {
+            get => _securities ?? (_securities = new InputList<Inputs.GroupContainerSecurityGetArgs>());
+            set => _securities = value;
+        }
+
         [Input("volumes")]
         private InputList<Inputs.GroupContainerVolumeGetArgs>? _volumes;
 

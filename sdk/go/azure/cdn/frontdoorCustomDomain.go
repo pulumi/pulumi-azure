@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -90,7 +90,7 @@ export class SparkPool extends pulumi.CustomResource {
      */
     public readonly nodeSize!: pulumi.Output<string>;
     /**
-     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     public readonly nodeSizeFamily!: pulumi.Output<string>;
     /**
@@ -239,7 +239,7 @@ export interface SparkPoolState {
      */
     nodeSize?: pulumi.Input<string>;
     /**
-     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     nodeSizeFamily?: pulumi.Input<string>;
     /**
@@ -321,7 +321,7 @@ export interface SparkPoolArgs {
      */
     nodeSize: pulumi.Input<string>;
     /**
-     * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+     * The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
      */
     nodeSizeFamily: pulumi.Input<string>;
     /**

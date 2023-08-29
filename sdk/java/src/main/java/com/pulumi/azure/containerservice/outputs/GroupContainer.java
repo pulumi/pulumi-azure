@@ -8,6 +8,7 @@ import com.pulumi.azure.containerservice.outputs.GroupContainerGpuLimit;
 import com.pulumi.azure.containerservice.outputs.GroupContainerLivenessProbe;
 import com.pulumi.azure.containerservice.outputs.GroupContainerPort;
 import com.pulumi.azure.containerservice.outputs.GroupContainerReadinessProbe;
+import com.pulumi.azure.containerservice.outputs.GroupContainerSecurity;
 import com.pulumi.azure.containerservice.outputs.GroupContainerVolume;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Double;
@@ -92,6 +93,11 @@ public final class GroupContainer {
      * 
      */
     private @Nullable Map<String,String> secureEnvironmentVariables;
+    /**
+     * @return The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<GroupContainerSecurity> securities;
     /**
      * @return The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
      * 
@@ -200,6 +206,13 @@ public final class GroupContainer {
         return this.secureEnvironmentVariables == null ? Map.of() : this.secureEnvironmentVariables;
     }
     /**
+     * @return The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<GroupContainerSecurity> securities() {
+        return this.securities == null ? List.of() : this.securities;
+    }
+    /**
      * @return The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
      * 
      */
@@ -230,6 +243,7 @@ public final class GroupContainer {
         private @Nullable List<GroupContainerPort> ports;
         private @Nullable GroupContainerReadinessProbe readinessProbe;
         private @Nullable Map<String,String> secureEnvironmentVariables;
+        private @Nullable List<GroupContainerSecurity> securities;
         private @Nullable List<GroupContainerVolume> volumes;
         public Builder() {}
         public Builder(GroupContainer defaults) {
@@ -248,6 +262,7 @@ public final class GroupContainer {
     	      this.ports = defaults.ports;
     	      this.readinessProbe = defaults.readinessProbe;
     	      this.secureEnvironmentVariables = defaults.secureEnvironmentVariables;
+    	      this.securities = defaults.securities;
     	      this.volumes = defaults.volumes;
         }
 
@@ -328,6 +343,14 @@ public final class GroupContainer {
             return this;
         }
         @CustomType.Setter
+        public Builder securities(@Nullable List<GroupContainerSecurity> securities) {
+            this.securities = securities;
+            return this;
+        }
+        public Builder securities(GroupContainerSecurity... securities) {
+            return securities(List.of(securities));
+        }
+        @CustomType.Setter
         public Builder volumes(@Nullable List<GroupContainerVolume> volumes) {
             this.volumes = volumes;
             return this;
@@ -351,6 +374,7 @@ public final class GroupContainer {
             o.ports = ports;
             o.readinessProbe = readinessProbe;
             o.secureEnvironmentVariables = secureEnvironmentVariables;
+            o.securities = securities;
             o.volumes = volumes;
             return o;
         }

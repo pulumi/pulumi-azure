@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azuread.AzureadFunctions;
  * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.inputs.KeyVaultNetworkAclsArgs;
@@ -34,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.Certificate;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorSecret;
  * import com.pulumi.azure.cdn.FrontdoorSecretArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorSecretSecretArgs;
@@ -56,9 +60,13 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Microsoft.Azure.Cdn&#34;)
  *             .build());
  * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(azurerm_resource_group.example().location())
- *             .resourceGroupName(azurerm_resource_group.example().name())
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .softDeleteRetentionDays(7)
@@ -86,17 +94,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .keyVaultId(azurerm_key_vault.test().id())
+ *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
  *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;my-certificate.pfx&#34;))))
  *                 .build())
  *             .build());
  * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
+ *             .build());
+ * 
  *         var exampleFrontdoorSecret = new FrontdoorSecret(&#34;exampleFrontdoorSecret&#34;, FrontdoorSecretArgs.builder()        
- *             .cdnFrontdoorProfileId(azurerm_cdn_frontdoor_profile.test().id())
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .secret(FrontdoorSecretSecretArgs.builder()
  *                 .customerCertificates(FrontdoorSecretSecretCustomerCertificateArgs.builder()
- *                     .keyVaultCertificateId(azurerm_key_vault_certificate.test().id())
+ *                     .keyVaultCertificateId(exampleCertificate.id())
  *                     .build())
  *                 .build())
  *             .build());

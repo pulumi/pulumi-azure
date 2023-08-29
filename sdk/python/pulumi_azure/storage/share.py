@@ -25,7 +25,11 @@ class ShareArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Share resource.
-        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
+               
+               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               
+               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
@@ -54,7 +58,11 @@ class ShareArgs:
     @pulumi.getter
     def quota(self) -> pulumi.Input[int]:
         """
-        The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        The maximum size of the share, in gigabytes.
+
+        ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+
+        ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
 
@@ -162,7 +170,11 @@ class _ShareState:
                ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
+               
+               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               
+               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this File Share.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
@@ -254,7 +266,11 @@ class _ShareState:
     @pulumi.getter
     def quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        The maximum size of the share, in gigabytes.
+
+        ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+
+        ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
 
@@ -361,7 +377,11 @@ class Share(pulumi.CustomResource):
                ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
+               
+               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               
+               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         """
         ...
@@ -487,7 +507,11 @@ class Share(pulumi.CustomResource):
                ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
+               
+               ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+               
+               ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this File Share.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
@@ -555,7 +579,11 @@ class Share(pulumi.CustomResource):
     @pulumi.getter
     def quota(self) -> pulumi.Output[int]:
         """
-        The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
+        The maximum size of the share, in gigabytes.
+
+        ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
+
+        ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
 

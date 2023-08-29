@@ -64,6 +64,8 @@ type LookupDiskEncryptionSetResult struct {
 	AutoKeyRotationEnabled bool `pulumi:"autoKeyRotationEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities []GetDiskEncryptionSetIdentity `pulumi:"identities"`
 	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
 	KeyVaultKeyUrl string `pulumi:"keyVaultKeyUrl"`
 	// The location where the Disk Encryption Set exists.
@@ -122,6 +124,11 @@ func (o LookupDiskEncryptionSetResultOutput) AutoKeyRotationEnabled() pulumi.Boo
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDiskEncryptionSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDiskEncryptionSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o LookupDiskEncryptionSetResultOutput) Identities() GetDiskEncryptionSetIdentityArrayOutput {
+	return o.ApplyT(func(v LookupDiskEncryptionSetResult) []GetDiskEncryptionSetIdentity { return v.Identities }).(GetDiskEncryptionSetIdentityArrayOutput)
 }
 
 // The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.

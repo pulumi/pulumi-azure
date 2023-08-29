@@ -7369,7 +7369,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status: number;
+        win32StatusCode: number;
     }
 
     export interface GetLinuxWebAppSiteConfigCor {
@@ -9300,7 +9300,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status: number;
+        win32StatusCode: number;
     }
 
     export interface GetWindowsWebAppSiteConfigCor {
@@ -12786,7 +12786,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: number;
+        win32StatusCode?: number;
     }
 
     export interface LinuxWebAppSiteConfigCors {
@@ -14019,7 +14019,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: number;
+        win32StatusCode?: number;
     }
 
     export interface LinuxWebAppSlotSiteConfigCors {
@@ -18176,7 +18176,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: number;
+        win32StatusCode?: number;
     }
 
     export interface WindowsWebAppSiteConfigCors {
@@ -19474,7 +19474,7 @@ export namespace appservice {
         /**
          * The Win32 Status Code of the Request.
          */
-        win32Status?: number;
+        win32StatusCode?: number;
     }
 
     export interface WindowsWebAppSlotSiteConfigCors {
@@ -24431,6 +24431,25 @@ export namespace compute {
          * The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
          */
         pemPublicKey: string;
+    }
+
+    export interface GetDiskEncryptionSetIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
+         */
+        identityIds: string[];
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Disk Encryption Set.
+         */
+        type: string;
     }
 
     export interface GetImageDataDisk {
@@ -30334,6 +30353,10 @@ export namespace containerservice {
          */
         secureEnvironmentVariables?: {[key: string]: string};
         /**
+         * The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         */
+        securities?: outputs.containerservice.GroupContainerSecurity[];
+        /**
          * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
          */
         volumes?: outputs.containerservice.GroupContainerVolume[];
@@ -30472,6 +30495,15 @@ export namespace containerservice {
          * Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          */
         scheme?: string;
+    }
+
+    export interface GroupContainerSecurity {
+        /**
+         * Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+         */
+        privilegeEnabled: boolean;
     }
 
     export interface GroupContainerVolume {
@@ -30654,9 +30686,22 @@ export namespace containerservice {
          */
         secureEnvironmentVariables?: {[key: string]: string};
         /**
+         * The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+         */
+        securities?: outputs.containerservice.GroupInitContainerSecurity[];
+        /**
          * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
          */
         volumes?: outputs.containerservice.GroupInitContainerVolume[];
+    }
+
+    export interface GroupInitContainerSecurity {
+        /**
+         * Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+         */
+        privilegeEnabled: boolean;
     }
 
     export interface GroupInitContainerVolume {
@@ -31180,7 +31225,7 @@ export namespace containerservice {
          */
         netCoreWmemMax?: number;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
          */
         netIpv4IpLocalPortRangeMax?: number;
         /**
@@ -31204,7 +31249,7 @@ export namespace containerservice {
          */
         netIpv4TcpFinTimeout?: number;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
          */
         netIpv4TcpKeepaliveIntvl?: number;
         /**
@@ -31228,11 +31273,11 @@ export namespace containerservice {
          */
         netIpv4TcpTwReuse?: boolean;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackBuckets?: number;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackMax?: number;
         /**
@@ -31694,7 +31739,7 @@ export namespace containerservice {
          */
         dockerBridgeCidr: string;
         /**
-         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
          *
          * > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          *
@@ -31937,7 +31982,7 @@ export namespace containerservice {
          */
         netCoreWmemMax?: number;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
          */
         netIpv4IpLocalPortRangeMax?: number;
         /**
@@ -31961,7 +32006,7 @@ export namespace containerservice {
          */
         netIpv4TcpFinTimeout?: number;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
          */
         netIpv4TcpKeepaliveIntvl?: number;
         /**
@@ -31985,11 +32030,11 @@ export namespace containerservice {
          */
         netIpv4TcpTwReuse?: boolean;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackBuckets?: number;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
          */
         netNetfilterNfConntrackMax?: number;
         /**
@@ -38885,6 +38930,40 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
+    }
+
+    export interface NamespaceNetworkRuleSet {
+        /**
+         * Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         */
+        defaultAction?: string;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         */
+        ipRules?: string[];
+        /**
+         * One or more `networkRules` blocks as defined below.
+         */
+        networkRules?: outputs.eventhub.NamespaceNetworkRuleSetNetworkRule[];
+        /**
+         * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: boolean;
+        /**
+         * Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+         */
+        trustedServicesAllowed?: boolean;
+    }
+
+    export interface NamespaceNetworkRuleSetNetworkRule {
+        /**
+         * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: boolean;
+        /**
+         * The Subnet ID which should be able to access this ServiceBus Namespace.
+         */
+        subnetId: string;
     }
 
     export interface SubscriptionClientScopedSubscription {
@@ -59647,6 +59726,29 @@ export namespace servicebus {
          * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
+    }
+
+    export interface NamespaceNetworkRuleSet {
+        /**
+         * Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         */
+        defaultAction?: string;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         */
+        ipRules?: string[];
+        /**
+         * One or more `networkRules` blocks as defined below.
+         */
+        networkRules?: outputs.servicebus.NamespaceNetworkRuleSetNetworkRule[];
+        /**
+         * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: boolean;
+        /**
+         * Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+         */
+        trustedServicesAllowed?: boolean;
     }
 
     export interface NamespaceNetworkRuleSetNetworkRule {

@@ -161,9 +161,10 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         current = azure.core.get_client_config()
         frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
@@ -191,15 +192,18 @@ class FrontdoorSecret(pulumi.CustomResource):
                 ),
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=azurerm_key_vault["test"]["id"],
+            key_vault_id=example_key_vault.id,
             certificate=azure.keyvault.CertificateCertificateArgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
             ))
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
         example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
-            cdn_frontdoor_profile_id=azurerm_cdn_frontdoor_profile["test"]["id"],
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             secret=azure.cdn.FrontdoorSecretSecretArgs(
                 customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=azurerm_key_vault_certificate["test"]["id"],
+                    key_vault_certificate_id=example_certificate.id,
                 )],
             ))
         ```
@@ -237,9 +241,10 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         current = azure.core.get_client_config()
         frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
@@ -267,15 +272,18 @@ class FrontdoorSecret(pulumi.CustomResource):
                 ),
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
-            key_vault_id=azurerm_key_vault["test"]["id"],
+            key_vault_id=example_key_vault.id,
             certificate=azure.keyvault.CertificateCertificateArgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
             ))
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard_AzureFrontDoor")
         example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
-            cdn_frontdoor_profile_id=azurerm_cdn_frontdoor_profile["test"]["id"],
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             secret=azure.cdn.FrontdoorSecretSecretArgs(
                 customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=azurerm_key_vault_certificate["test"]["id"],
+                    key_vault_certificate_id=example_certificate.id,
                 )],
             ))
         ```

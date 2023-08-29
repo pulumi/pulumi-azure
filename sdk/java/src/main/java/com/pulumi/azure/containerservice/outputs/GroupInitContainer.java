@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.GroupInitContainerSecurity;
 import com.pulumi.azure.containerservice.outputs.GroupInitContainerVolume;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -38,6 +39,11 @@ public final class GroupInitContainer {
      * 
      */
     private @Nullable Map<String,String> secureEnvironmentVariables;
+    /**
+     * @return The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<GroupInitContainerSecurity> securities;
     /**
      * @return The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
      * 
@@ -81,6 +87,13 @@ public final class GroupInitContainer {
         return this.secureEnvironmentVariables == null ? Map.of() : this.secureEnvironmentVariables;
     }
     /**
+     * @return The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<GroupInitContainerSecurity> securities() {
+        return this.securities == null ? List.of() : this.securities;
+    }
+    /**
      * @return The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
      * 
      */
@@ -102,6 +115,7 @@ public final class GroupInitContainer {
         private String image;
         private String name;
         private @Nullable Map<String,String> secureEnvironmentVariables;
+        private @Nullable List<GroupInitContainerSecurity> securities;
         private @Nullable List<GroupInitContainerVolume> volumes;
         public Builder() {}
         public Builder(GroupInitContainer defaults) {
@@ -111,6 +125,7 @@ public final class GroupInitContainer {
     	      this.image = defaults.image;
     	      this.name = defaults.name;
     	      this.secureEnvironmentVariables = defaults.secureEnvironmentVariables;
+    	      this.securities = defaults.securities;
     	      this.volumes = defaults.volumes;
         }
 
@@ -143,6 +158,14 @@ public final class GroupInitContainer {
             return this;
         }
         @CustomType.Setter
+        public Builder securities(@Nullable List<GroupInitContainerSecurity> securities) {
+            this.securities = securities;
+            return this;
+        }
+        public Builder securities(GroupInitContainerSecurity... securities) {
+            return securities(List.of(securities));
+        }
+        @CustomType.Setter
         public Builder volumes(@Nullable List<GroupInitContainerVolume> volumes) {
             this.volumes = volumes;
             return this;
@@ -157,6 +180,7 @@ public final class GroupInitContainer {
             o.image = image;
             o.name = name;
             o.secureEnvironmentVariables = secureEnvironmentVariables;
+            o.securities = securities;
             o.volumes = volumes;
             return o;
         }

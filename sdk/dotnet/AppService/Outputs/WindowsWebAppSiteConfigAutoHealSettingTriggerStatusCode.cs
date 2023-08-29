@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Win32 Status Code of the Request.
         /// </summary>
-        public readonly int? Win32Status;
+        public readonly int? Win32StatusCode;
 
         [OutputConstructor]
         private WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(
@@ -50,14 +50,14 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int? subStatus,
 
-            int? win32Status)
+            int? win32StatusCode)
         {
             Count = count;
             Interval = interval;
             Path = path;
             StatusCodeRange = statusCodeRange;
             SubStatus = subStatus;
-            Win32Status = win32Status;
+            Win32StatusCode = win32StatusCode;
         }
     }
 }

@@ -38,7 +38,7 @@ class SparkPoolArgs:
         """
         The set of arguments for constructing a SparkPool resource.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
-        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input['SparkPoolAutoPauseArgs'] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
@@ -109,7 +109,7 @@ class SparkPoolArgs:
     @pulumi.getter(name="nodeSizeFamily")
     def node_size_family(self) -> pulumi.Input[str]:
         """
-        The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         """
         return pulumi.get(self, "node_size_family")
 
@@ -357,7 +357,7 @@ class _SparkPoolState:
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
-        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
         :param pulumi.Input['SparkPoolSparkConfigArgs'] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
@@ -541,7 +541,7 @@ class _SparkPoolState:
     @pulumi.getter(name="nodeSizeFamily")
     def node_size_family(self) -> Optional[pulumi.Input[str]]:
         """
-        The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         """
         return pulumi.get(self, "node_size_family")
 
@@ -683,7 +683,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
-        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
@@ -824,7 +824,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
-        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         :param pulumi.Input[bool] session_level_packages_enabled: Indicates whether session level packages are enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SparkPoolSparkConfigArgs']] spark_config: A `spark_config` block as defined below.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
@@ -950,7 +950,7 @@ class SparkPool(pulumi.CustomResource):
     @pulumi.getter(name="nodeSizeFamily")
     def node_size_family(self) -> pulumi.Output[str]:
         """
-        The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
+        The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         """
         return pulumi.get(self, "node_size_family")
 

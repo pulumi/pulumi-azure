@@ -273,7 +273,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         API Management API Operation Policy can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1/policies/policy
+         $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
 
         :param str resource_name: The name of the resource.
@@ -337,7 +337,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         API Management API Operation Policy can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1/policies/policy
+         $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
 
         :param str resource_name: The name of the resource.
