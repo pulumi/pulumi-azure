@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure/examples/v5
 
-go 1.20
+go 1.21
 
 replace github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 

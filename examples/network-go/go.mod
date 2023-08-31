@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure/examples/network-go
 
-go 1.20
+go 1.21
 
 require (
 	github.com/pulumi/pulumi-azure/sdk/v5 v5.45.0
