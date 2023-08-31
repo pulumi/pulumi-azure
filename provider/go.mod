@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure/provider/v5
 
-go 1.20
+go 1.21
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
