@@ -1,4 +1,4 @@
-From 5b59dc9553c80a12004308209ab4b47df2c87c6c Mon Sep 17 00:00:00 2001
+From 44e20f07f84489490879efa7cd24292845a0675d Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 7/9] Update-documentation
@@ -97,8 +97,8 @@ Subject: [PATCH 7/9] Update-documentation
  .../r/iothub_consumer_group.html.markdown     |   2 +-
  website/docs/r/key_vault.html.markdown        |  10 +-
  .../r/key_vault_access_policy.html.markdown   |   4 +-
- .../r/key_vault_certificate.html.markdown     |   4 +-
- website/docs/r/key_vault_secret.html.markdown |   5 -
+ .../r/key_vault_certificate.html.markdown     |   5 +-
+ website/docs/r/key_vault_secret.html.markdown |   3 +
  .../docs/r/kubernetes_cluster.html.markdown   |  29 +--
  ...kubernetes_cluster_node_pool.html.markdown |   8 +-
  .../r/lighthouse_definition.html.markdown     |   2 +-
@@ -162,7 +162,7 @@ Subject: [PATCH 7/9] Update-documentation
  website/docs/r/virtual_network.html.markdown  |   8 +-
  .../r/windows_virtual_machine.html.markdown   |   6 +-
  ...ws_virtual_machine_scale_set.html.markdown |  20 +-
- 158 files changed, 502 insertions(+), 392 deletions(-)
+ 158 files changed, 508 insertions(+), 385 deletions(-)
  create mode 100644 website/docs/r/azuread_service_principal_password.html.markdown
  create mode 100644 website/docs/r/connection_monitor.html.markdown
 
@@ -407,7 +407,7 @@ index 4cc96679d7..510129c9ff 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index 7237a8c21b..98e66a4a8d 100644
+index f26904cf1b..540273575c 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -1913,19 +1913,22 @@ index 3945175d50..d4045c9a05 100644
 --> **NOTE:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
 +-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index 513d19f56c..886dbc534d 100644
+index ffb3cbf0bc..9788b1e40a 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
-@@ -11,8 +11,6 @@ description: |-
+@@ -11,8 +11,11 @@ description: |-
  
  Manages a Key Vault Certificate.
  
--~> **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_certificates_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_certificates_on_destroy) for more information. 
--
++<<<<<<< HEAD
+ ~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_certificates_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_certificates_on_destroy) for more information. 
+ 
++=======
++>>>>>>> 8d78c87098 (Update-documentation)
  ## Example Usage (Importing a PFX)
  
  ~> **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
-@@ -103,7 +101,7 @@ resource "azurerm_key_vault_certificate" "example" {
+@@ -103,7 +106,7 @@ resource "azurerm_key_vault_certificate" "example" {
  }
  ```
  
@@ -1935,23 +1938,26 @@ index 513d19f56c..886dbc534d 100644
  ```hcl
  data "azurerm_client_config" "current" {}
 diff --git a/website/docs/r/key_vault_secret.html.markdown b/website/docs/r/key_vault_secret.html.markdown
-index d97d53b42d..d04a166153 100644
+index c6387f8e37..10ac1d0ad4 100644
 --- a/website/docs/r/key_vault_secret.html.markdown
 +++ b/website/docs/r/key_vault_secret.html.markdown
-@@ -11,11 +11,6 @@ description: |-
+@@ -11,11 +11,14 @@ description: |-
  
  Manages a Key Vault Secret.
  
--~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
--[Read more about sensitive data in state](/docs/state/sensitive-data.html).
--
--~> **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_secrets_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_secrets_on_destroy) for more information.
--
++<<<<<<< HEAD
+ ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+ [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ 
+ ~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_secrets_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_secrets_on_destroy) for more information.
+ 
++=======
++>>>>>>> 8d78c87098 (Update-documentation)
  ## Example Usage
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index dd15afff6c..4a6f090219 100644
+index 7fa6d0abc6..9216dba04d 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2690,7 +2696,7 @@ index c49de6a233..dd2916c58c 100644
  -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index 038095813d..27ee86236f 100644
+index 69765738c6..41f469e488 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {
@@ -2938,10 +2944,10 @@ index 461c8f5688..7a028b73f5 100644
  At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
  
 diff --git a/website/docs/r/subscription.html.markdown b/website/docs/r/subscription.html.markdown
-index 4bbafff3c7..74005275d6 100644
+index 90c527a40a..785001d398 100644
 --- a/website/docs/r/subscription.html.markdown
 +++ b/website/docs/r/subscription.html.markdown
-@@ -8,13 +8,13 @@ description: |-
+@@ -8,17 +8,17 @@ description: |-
  
  # azurerm_subscription
  
@@ -2954,12 +2960,16 @@ index 4bbafff3c7..74005275d6 100644
 -~> **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by Terraform then these will need to be removed before the Subscription can be destroyed.
 +~> **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by the provider then these will need to be removed before the Subscription can be destroyed.
  
--~> **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in Terraform only a single Alias is supported.
-+~> **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
+ ~> **Note:** This resource will automatically attempt to cancel a subscription when it is deleted. This behavior can be disabled in the provider `features` block by setting the `prevent_cancellation_on_destroy` field to `true` within the `subscription` block.
  
- ~> **NOTE:** When using this resource across tenants the `client_id` and `tenant_id` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details. 
+ ~> **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in Terraform only a single Alias is supported.
  
-@@ -79,7 +79,7 @@ The following arguments are supported:
+-~> **NOTE:** When using this resource across tenants the `client_id` and `tenant_id` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details. 
++~> **NOTE:** When using this resource across tenants the `client_id` and `tenant_id` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
+ 
+ ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
+ 
+@@ -81,7 +81,7 @@ The following arguments are supported:
  
  ---
  
@@ -2968,7 +2978,7 @@ index 4bbafff3c7..74005275d6 100644
  
  * `billing_scope_id` - (Optional) The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
  
-@@ -118,5 +118,5 @@ Subscriptions can be imported using the `resource id`, e.g.
+@@ -120,5 +120,5 @@ Subscriptions can be imported using the `resource id`, e.g.
  terraform import azurerm_subscription.example "/providers/Microsoft.Subscription/aliases/subscription1"
  ```
  
@@ -3264,5 +3274,5 @@ index 6d9df3047f..dd33432003 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.41.0
+2.39.1
 

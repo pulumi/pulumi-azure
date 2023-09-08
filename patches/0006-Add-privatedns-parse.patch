@@ -1,4 +1,4 @@
-From 7f7abafc9f0aae61eb5b47432328b199799060ae Mon Sep 17 00:00:00 2001
+From 423b0c94a5ac894ea27266089ede2ae6c2d49a1a Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 6/9] Add-privatedns-parse
@@ -1956,5 +1956,5 @@ index 0000000000..1f45b56b1b
 +	}
 +}
 -- 
-2.41.0
+2.39.1
 
