@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Blob Inventory Policy.
@@ -188,6 +189,12 @@ func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyOutput)
 }
 
+func (i *BlobInventoryPolicy) ToOutput(ctx context.Context) pulumix.Output[*BlobInventoryPolicy] {
+	return pulumix.Output[*BlobInventoryPolicy]{
+		OutputState: i.ToBlobInventoryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BlobInventoryPolicyArrayInput is an input type that accepts BlobInventoryPolicyArray and BlobInventoryPolicyArrayOutput values.
 // You can construct a concrete instance of `BlobInventoryPolicyArrayInput` via:
 //
@@ -211,6 +218,12 @@ func (i BlobInventoryPolicyArray) ToBlobInventoryPolicyArrayOutput() BlobInvento
 
 func (i BlobInventoryPolicyArray) ToBlobInventoryPolicyArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyArrayOutput)
+}
+
+func (i BlobInventoryPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*BlobInventoryPolicy] {
+	return pulumix.Output[[]*BlobInventoryPolicy]{
+		OutputState: i.ToBlobInventoryPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BlobInventoryPolicyMapInput is an input type that accepts BlobInventoryPolicyMap and BlobInventoryPolicyMapOutput values.
@@ -238,6 +251,12 @@ func (i BlobInventoryPolicyMap) ToBlobInventoryPolicyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyMapOutput)
 }
 
+func (i BlobInventoryPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BlobInventoryPolicy] {
+	return pulumix.Output[map[string]*BlobInventoryPolicy]{
+		OutputState: i.ToBlobInventoryPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BlobInventoryPolicyOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyOutput) ElementType() reflect.Type {
@@ -250,6 +269,12 @@ func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutput() BlobInventoryPo
 
 func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutputWithContext(ctx context.Context) BlobInventoryPolicyOutput {
 	return o
+}
+
+func (o BlobInventoryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*BlobInventoryPolicy] {
+	return pulumix.Output[*BlobInventoryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `rules` blocks as defined below.
@@ -276,6 +301,12 @@ func (o BlobInventoryPolicyArrayOutput) ToBlobInventoryPolicyArrayOutputWithCont
 	return o
 }
 
+func (o BlobInventoryPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BlobInventoryPolicy] {
+	return pulumix.Output[[]*BlobInventoryPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BlobInventoryPolicyArrayOutput) Index(i pulumi.IntInput) BlobInventoryPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BlobInventoryPolicy {
 		return vs[0].([]*BlobInventoryPolicy)[vs[1].(int)]
@@ -294,6 +325,12 @@ func (o BlobInventoryPolicyMapOutput) ToBlobInventoryPolicyMapOutput() BlobInven
 
 func (o BlobInventoryPolicyMapOutput) ToBlobInventoryPolicyMapOutputWithContext(ctx context.Context) BlobInventoryPolicyMapOutput {
 	return o
+}
+
+func (o BlobInventoryPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BlobInventoryPolicy] {
+	return pulumix.Output[map[string]*BlobInventoryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BlobInventoryPolicyMapOutput) MapIndex(k pulumi.StringInput) BlobInventoryPolicyOutput {

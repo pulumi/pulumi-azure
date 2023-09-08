@@ -20,6 +20,7 @@ __all__ = [
     'FeaturesLogAnalyticsWorkspace',
     'FeaturesManagedDisk',
     'FeaturesResourceGroup',
+    'FeaturesSubscription',
     'FeaturesTemplateDeployment',
     'FeaturesVirtualMachine',
     'FeaturesVirtualMachineScaleSet',
@@ -36,6 +37,7 @@ class Features(dict):
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
                  resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
+                 subscription: Optional['outputs.FeaturesSubscription'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
@@ -55,6 +57,8 @@ class Features(dict):
             pulumi.set(__self__, "managed_disk", managed_disk)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if subscription is not None:
+            pulumi.set(__self__, "subscription", subscription)
         if template_deployment is not None:
             pulumi.set(__self__, "template_deployment", template_deployment)
         if virtual_machine is not None:
@@ -101,6 +105,11 @@ class Features(dict):
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional['outputs.FeaturesResourceGroup']:
         return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter
+    def subscription(self) -> Optional['outputs.FeaturesSubscription']:
+        return pulumi.get(self, "subscription")
 
     @property
     @pulumi.getter(name="templateDeployment")
@@ -300,6 +309,19 @@ class FeaturesResourceGroup(dict):
     @pulumi.getter(name="preventDeletionIfContainsResources")
     def prevent_deletion_if_contains_resources(self) -> Optional[bool]:
         return pulumi.get(self, "prevent_deletion_if_contains_resources")
+
+
+@pulumi.output_type
+class FeaturesSubscription(dict):
+    def __init__(__self__, *,
+                 prevent_cancellation_on_destroy: Optional[bool] = None):
+        if prevent_cancellation_on_destroy is not None:
+            pulumi.set(__self__, "prevent_cancellation_on_destroy", prevent_cancellation_on_destroy)
+
+    @property
+    @pulumi.getter(name="preventCancellationOnDestroy")
+    def prevent_cancellation_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "prevent_cancellation_on_destroy")
 
 
 @pulumi.output_type

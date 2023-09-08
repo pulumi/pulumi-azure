@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an SQL Trigger.
@@ -212,6 +213,12 @@ func (i *SqlTrigger) ToSqlTriggerOutputWithContext(ctx context.Context) SqlTrigg
 	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerOutput)
 }
 
+func (i *SqlTrigger) ToOutput(ctx context.Context) pulumix.Output[*SqlTrigger] {
+	return pulumix.Output[*SqlTrigger]{
+		OutputState: i.ToSqlTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlTriggerArrayInput is an input type that accepts SqlTriggerArray and SqlTriggerArrayOutput values.
 // You can construct a concrete instance of `SqlTriggerArrayInput` via:
 //
@@ -235,6 +242,12 @@ func (i SqlTriggerArray) ToSqlTriggerArrayOutput() SqlTriggerArrayOutput {
 
 func (i SqlTriggerArray) ToSqlTriggerArrayOutputWithContext(ctx context.Context) SqlTriggerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerArrayOutput)
+}
+
+func (i SqlTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlTrigger] {
+	return pulumix.Output[[]*SqlTrigger]{
+		OutputState: i.ToSqlTriggerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlTriggerMapInput is an input type that accepts SqlTriggerMap and SqlTriggerMapOutput values.
@@ -262,6 +275,12 @@ func (i SqlTriggerMap) ToSqlTriggerMapOutputWithContext(ctx context.Context) Sql
 	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerMapOutput)
 }
 
+func (i SqlTriggerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlTrigger] {
+	return pulumix.Output[map[string]*SqlTrigger]{
+		OutputState: i.ToSqlTriggerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlTriggerOutput struct{ *pulumi.OutputState }
 
 func (SqlTriggerOutput) ElementType() reflect.Type {
@@ -274,6 +293,12 @@ func (o SqlTriggerOutput) ToSqlTriggerOutput() SqlTriggerOutput {
 
 func (o SqlTriggerOutput) ToSqlTriggerOutputWithContext(ctx context.Context) SqlTriggerOutput {
 	return o
+}
+
+func (o SqlTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlTrigger] {
+	return pulumix.Output[*SqlTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Body of the Trigger.
@@ -315,6 +340,12 @@ func (o SqlTriggerArrayOutput) ToSqlTriggerArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o SqlTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlTrigger] {
+	return pulumix.Output[[]*SqlTrigger]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlTriggerArrayOutput) Index(i pulumi.IntInput) SqlTriggerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlTrigger {
 		return vs[0].([]*SqlTrigger)[vs[1].(int)]
@@ -333,6 +364,12 @@ func (o SqlTriggerMapOutput) ToSqlTriggerMapOutput() SqlTriggerMapOutput {
 
 func (o SqlTriggerMapOutput) ToSqlTriggerMapOutputWithContext(ctx context.Context) SqlTriggerMapOutput {
 	return o
+}
+
+func (o SqlTriggerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlTrigger] {
+	return pulumix.Output[map[string]*SqlTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlTriggerMapOutput) MapIndex(k pulumi.StringInput) SqlTriggerOutput {

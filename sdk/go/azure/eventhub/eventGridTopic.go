@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EventGrid Topic
@@ -274,6 +275,12 @@ func (i *EventGridTopic) ToEventGridTopicOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicOutput)
 }
 
+func (i *EventGridTopic) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopic] {
+	return pulumix.Output[*EventGridTopic]{
+		OutputState: i.ToEventGridTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventGridTopicArrayInput is an input type that accepts EventGridTopicArray and EventGridTopicArrayOutput values.
 // You can construct a concrete instance of `EventGridTopicArrayInput` via:
 //
@@ -297,6 +304,12 @@ func (i EventGridTopicArray) ToEventGridTopicArrayOutput() EventGridTopicArrayOu
 
 func (i EventGridTopicArray) ToEventGridTopicArrayOutputWithContext(ctx context.Context) EventGridTopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicArrayOutput)
+}
+
+func (i EventGridTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventGridTopic] {
+	return pulumix.Output[[]*EventGridTopic]{
+		OutputState: i.ToEventGridTopicArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventGridTopicMapInput is an input type that accepts EventGridTopicMap and EventGridTopicMapOutput values.
@@ -324,6 +337,12 @@ func (i EventGridTopicMap) ToEventGridTopicMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicMapOutput)
 }
 
+func (i EventGridTopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventGridTopic] {
+	return pulumix.Output[map[string]*EventGridTopic]{
+		OutputState: i.ToEventGridTopicMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventGridTopicOutput struct{ *pulumi.OutputState }
 
 func (EventGridTopicOutput) ElementType() reflect.Type {
@@ -336,6 +355,12 @@ func (o EventGridTopicOutput) ToEventGridTopicOutput() EventGridTopicOutput {
 
 func (o EventGridTopicOutput) ToEventGridTopicOutputWithContext(ctx context.Context) EventGridTopicOutput {
 	return o
+}
+
+func (o EventGridTopicOutput) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopic] {
+	return pulumix.Output[*EventGridTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Endpoint associated with the EventGrid Topic.
@@ -424,6 +449,12 @@ func (o EventGridTopicArrayOutput) ToEventGridTopicArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o EventGridTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventGridTopic] {
+	return pulumix.Output[[]*EventGridTopic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventGridTopicArrayOutput) Index(i pulumi.IntInput) EventGridTopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventGridTopic {
 		return vs[0].([]*EventGridTopic)[vs[1].(int)]
@@ -442,6 +473,12 @@ func (o EventGridTopicMapOutput) ToEventGridTopicMapOutput() EventGridTopicMapOu
 
 func (o EventGridTopicMapOutput) ToEventGridTopicMapOutputWithContext(ctx context.Context) EventGridTopicMapOutput {
 	return o
+}
+
+func (o EventGridTopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventGridTopic] {
+	return pulumix.Output[map[string]*EventGridTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventGridTopicMapOutput) MapIndex(k pulumi.StringInput) EventGridTopicOutput {

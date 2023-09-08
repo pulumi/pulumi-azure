@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Storage Sync.
@@ -110,6 +111,12 @@ func (o LookupSyncResultOutput) ToLookupSyncResultOutput() LookupSyncResultOutpu
 
 func (o LookupSyncResultOutput) ToLookupSyncResultOutputWithContext(ctx context.Context) LookupSyncResultOutput {
 	return o
+}
+
+func (o LookupSyncResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSyncResult] {
+	return pulumix.Output[LookupSyncResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

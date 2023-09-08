@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type VirtualNetworkAppliance struct {
@@ -99,6 +100,12 @@ func (i *VirtualNetworkAppliance) ToVirtualNetworkApplianceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkApplianceOutput)
 }
 
+func (i *VirtualNetworkAppliance) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkAppliance] {
+	return pulumix.Output[*VirtualNetworkAppliance]{
+		OutputState: i.ToVirtualNetworkApplianceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNetworkApplianceArrayInput is an input type that accepts VirtualNetworkApplianceArray and VirtualNetworkApplianceArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkApplianceArrayInput` via:
 //
@@ -122,6 +129,12 @@ func (i VirtualNetworkApplianceArray) ToVirtualNetworkApplianceArrayOutput() Vir
 
 func (i VirtualNetworkApplianceArray) ToVirtualNetworkApplianceArrayOutputWithContext(ctx context.Context) VirtualNetworkApplianceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkApplianceArrayOutput)
+}
+
+func (i VirtualNetworkApplianceArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkAppliance] {
+	return pulumix.Output[[]*VirtualNetworkAppliance]{
+		OutputState: i.ToVirtualNetworkApplianceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNetworkApplianceMapInput is an input type that accepts VirtualNetworkApplianceMap and VirtualNetworkApplianceMapOutput values.
@@ -149,6 +162,12 @@ func (i VirtualNetworkApplianceMap) ToVirtualNetworkApplianceMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkApplianceMapOutput)
 }
 
+func (i VirtualNetworkApplianceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkAppliance] {
+	return pulumix.Output[map[string]*VirtualNetworkAppliance]{
+		OutputState: i.ToVirtualNetworkApplianceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNetworkApplianceOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkApplianceOutput) ElementType() reflect.Type {
@@ -161,6 +180,12 @@ func (o VirtualNetworkApplianceOutput) ToVirtualNetworkApplianceOutput() Virtual
 
 func (o VirtualNetworkApplianceOutput) ToVirtualNetworkApplianceOutputWithContext(ctx context.Context) VirtualNetworkApplianceOutput {
 	return o
+}
+
+func (o VirtualNetworkApplianceOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkAppliance] {
+	return pulumix.Output[*VirtualNetworkAppliance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkApplianceOutput) Name() pulumi.StringOutput {
@@ -185,6 +210,12 @@ func (o VirtualNetworkApplianceArrayOutput) ToVirtualNetworkApplianceArrayOutput
 	return o
 }
 
+func (o VirtualNetworkApplianceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkAppliance] {
+	return pulumix.Output[[]*VirtualNetworkAppliance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNetworkApplianceArrayOutput) Index(i pulumi.IntInput) VirtualNetworkApplianceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkAppliance {
 		return vs[0].([]*VirtualNetworkAppliance)[vs[1].(int)]
@@ -203,6 +234,12 @@ func (o VirtualNetworkApplianceMapOutput) ToVirtualNetworkApplianceMapOutput() V
 
 func (o VirtualNetworkApplianceMapOutput) ToVirtualNetworkApplianceMapOutputWithContext(ctx context.Context) VirtualNetworkApplianceMapOutput {
 	return o
+}
+
+func (o VirtualNetworkApplianceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkAppliance] {
+	return pulumix.Output[map[string]*VirtualNetworkAppliance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkApplianceMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkApplianceOutput {

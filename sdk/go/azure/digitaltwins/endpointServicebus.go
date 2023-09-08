@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Digital Twins Service Bus Endpoint.
@@ -237,6 +238,12 @@ func (i *EndpointServicebus) ToEndpointServicebusOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusOutput)
 }
 
+func (i *EndpointServicebus) ToOutput(ctx context.Context) pulumix.Output[*EndpointServicebus] {
+	return pulumix.Output[*EndpointServicebus]{
+		OutputState: i.ToEndpointServicebusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointServicebusArrayInput is an input type that accepts EndpointServicebusArray and EndpointServicebusArrayOutput values.
 // You can construct a concrete instance of `EndpointServicebusArrayInput` via:
 //
@@ -260,6 +267,12 @@ func (i EndpointServicebusArray) ToEndpointServicebusArrayOutput() EndpointServi
 
 func (i EndpointServicebusArray) ToEndpointServicebusArrayOutputWithContext(ctx context.Context) EndpointServicebusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusArrayOutput)
+}
+
+func (i EndpointServicebusArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointServicebus] {
+	return pulumix.Output[[]*EndpointServicebus]{
+		OutputState: i.ToEndpointServicebusArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointServicebusMapInput is an input type that accepts EndpointServicebusMap and EndpointServicebusMapOutput values.
@@ -287,6 +300,12 @@ func (i EndpointServicebusMap) ToEndpointServicebusMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusMapOutput)
 }
 
+func (i EndpointServicebusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointServicebus] {
+	return pulumix.Output[map[string]*EndpointServicebus]{
+		OutputState: i.ToEndpointServicebusMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointServicebusOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusOutput) ElementType() reflect.Type {
@@ -299,6 +318,12 @@ func (o EndpointServicebusOutput) ToEndpointServicebusOutput() EndpointServicebu
 
 func (o EndpointServicebusOutput) ToEndpointServicebusOutputWithContext(ctx context.Context) EndpointServicebusOutput {
 	return o
+}
+
+func (o EndpointServicebusOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointServicebus] {
+	return pulumix.Output[*EndpointServicebus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -340,6 +365,12 @@ func (o EndpointServicebusArrayOutput) ToEndpointServicebusArrayOutputWithContex
 	return o
 }
 
+func (o EndpointServicebusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointServicebus] {
+	return pulumix.Output[[]*EndpointServicebus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointServicebusArrayOutput) Index(i pulumi.IntInput) EndpointServicebusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointServicebus {
 		return vs[0].([]*EndpointServicebus)[vs[1].(int)]
@@ -358,6 +389,12 @@ func (o EndpointServicebusMapOutput) ToEndpointServicebusMapOutput() EndpointSer
 
 func (o EndpointServicebusMapOutput) ToEndpointServicebusMapOutputWithContext(ctx context.Context) EndpointServicebusMapOutput {
 	return o
+}
+
+func (o EndpointServicebusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointServicebus] {
+	return pulumix.Output[map[string]*EndpointServicebus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointServicebusMapOutput) MapIndex(k pulumi.StringInput) EndpointServicebusOutput {

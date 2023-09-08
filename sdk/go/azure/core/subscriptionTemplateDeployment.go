@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Subscription Template Deployment.
@@ -216,6 +217,12 @@ func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentOutput)
 }
 
+func (i *SubscriptionTemplateDeployment) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionTemplateDeployment] {
+	return pulumix.Output[*SubscriptionTemplateDeployment]{
+		OutputState: i.ToSubscriptionTemplateDeploymentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionTemplateDeploymentArrayInput is an input type that accepts SubscriptionTemplateDeploymentArray and SubscriptionTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `SubscriptionTemplateDeploymentArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i SubscriptionTemplateDeploymentArray) ToSubscriptionTemplateDeploymentArr
 
 func (i SubscriptionTemplateDeploymentArray) ToSubscriptionTemplateDeploymentArrayOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentArrayOutput)
+}
+
+func (i SubscriptionTemplateDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionTemplateDeployment] {
+	return pulumix.Output[[]*SubscriptionTemplateDeployment]{
+		OutputState: i.ToSubscriptionTemplateDeploymentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionTemplateDeploymentMapInput is an input type that accepts SubscriptionTemplateDeploymentMap and SubscriptionTemplateDeploymentMapOutput values.
@@ -266,6 +279,12 @@ func (i SubscriptionTemplateDeploymentMap) ToSubscriptionTemplateDeploymentMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTemplateDeploymentMapOutput)
 }
 
+func (i SubscriptionTemplateDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionTemplateDeployment] {
+	return pulumix.Output[map[string]*SubscriptionTemplateDeployment]{
+		OutputState: i.ToSubscriptionTemplateDeploymentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionTemplateDeploymentOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOu
 
 func (o SubscriptionTemplateDeploymentOutput) ToSubscriptionTemplateDeploymentOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentOutput {
 	return o
+}
+
+func (o SubscriptionTemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionTemplateDeployment] {
+	return pulumix.Output[*SubscriptionTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -334,6 +359,12 @@ func (o SubscriptionTemplateDeploymentArrayOutput) ToSubscriptionTemplateDeploym
 	return o
 }
 
+func (o SubscriptionTemplateDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionTemplateDeployment] {
+	return pulumix.Output[[]*SubscriptionTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) SubscriptionTemplateDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionTemplateDeployment {
 		return vs[0].([]*SubscriptionTemplateDeployment)[vs[1].(int)]
@@ -352,6 +383,12 @@ func (o SubscriptionTemplateDeploymentMapOutput) ToSubscriptionTemplateDeploymen
 
 func (o SubscriptionTemplateDeploymentMapOutput) ToSubscriptionTemplateDeploymentMapOutputWithContext(ctx context.Context) SubscriptionTemplateDeploymentMapOutput {
 	return o
+}
+
+func (o SubscriptionTemplateDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionTemplateDeployment] {
+	return pulumix.Output[map[string]*SubscriptionTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) SubscriptionTemplateDeploymentOutput {

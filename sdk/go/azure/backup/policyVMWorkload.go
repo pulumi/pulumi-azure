@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
@@ -242,6 +243,12 @@ func (i *PolicyVMWorkload) ToPolicyVMWorkloadOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadOutput)
 }
 
+func (i *PolicyVMWorkload) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkload] {
+	return pulumix.Output[*PolicyVMWorkload]{
+		OutputState: i.ToPolicyVMWorkloadOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyVMWorkloadArrayInput is an input type that accepts PolicyVMWorkloadArray and PolicyVMWorkloadArrayOutput values.
 // You can construct a concrete instance of `PolicyVMWorkloadArrayInput` via:
 //
@@ -265,6 +272,12 @@ func (i PolicyVMWorkloadArray) ToPolicyVMWorkloadArrayOutput() PolicyVMWorkloadA
 
 func (i PolicyVMWorkloadArray) ToPolicyVMWorkloadArrayOutputWithContext(ctx context.Context) PolicyVMWorkloadArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadArrayOutput)
+}
+
+func (i PolicyVMWorkloadArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyVMWorkload] {
+	return pulumix.Output[[]*PolicyVMWorkload]{
+		OutputState: i.ToPolicyVMWorkloadArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyVMWorkloadMapInput is an input type that accepts PolicyVMWorkloadMap and PolicyVMWorkloadMapOutput values.
@@ -292,6 +305,12 @@ func (i PolicyVMWorkloadMap) ToPolicyVMWorkloadMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadMapOutput)
 }
 
+func (i PolicyVMWorkloadMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyVMWorkload] {
+	return pulumix.Output[map[string]*PolicyVMWorkload]{
+		OutputState: i.ToPolicyVMWorkloadMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyVMWorkloadOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadOutput) ElementType() reflect.Type {
@@ -304,6 +323,12 @@ func (o PolicyVMWorkloadOutput) ToPolicyVMWorkloadOutput() PolicyVMWorkloadOutpu
 
 func (o PolicyVMWorkloadOutput) ToPolicyVMWorkloadOutputWithContext(ctx context.Context) PolicyVMWorkloadOutput {
 	return o
+}
+
+func (o PolicyVMWorkloadOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkload] {
+	return pulumix.Output[*PolicyVMWorkload]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
@@ -350,6 +375,12 @@ func (o PolicyVMWorkloadArrayOutput) ToPolicyVMWorkloadArrayOutputWithContext(ct
 	return o
 }
 
+func (o PolicyVMWorkloadArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyVMWorkload] {
+	return pulumix.Output[[]*PolicyVMWorkload]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyVMWorkloadArrayOutput) Index(i pulumi.IntInput) PolicyVMWorkloadOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyVMWorkload {
 		return vs[0].([]*PolicyVMWorkload)[vs[1].(int)]
@@ -368,6 +399,12 @@ func (o PolicyVMWorkloadMapOutput) ToPolicyVMWorkloadMapOutput() PolicyVMWorkloa
 
 func (o PolicyVMWorkloadMapOutput) ToPolicyVMWorkloadMapOutputWithContext(ctx context.Context) PolicyVMWorkloadMapOutput {
 	return o
+}
+
+func (o PolicyVMWorkloadMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyVMWorkload] {
+	return pulumix.Output[map[string]*PolicyVMWorkload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyVMWorkloadMapOutput) MapIndex(k pulumi.StringInput) PolicyVMWorkloadOutput {

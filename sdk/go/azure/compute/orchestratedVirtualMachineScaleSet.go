@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Orchestrated Virtual Machine Scale Set.
@@ -570,6 +571,12 @@ func (i *OrchestratedVirtualMachineScaleSet) ToOrchestratedVirtualMachineScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOutput)
 }
 
+func (i *OrchestratedVirtualMachineScaleSet) ToOutput(ctx context.Context) pulumix.Output[*OrchestratedVirtualMachineScaleSet] {
+	return pulumix.Output[*OrchestratedVirtualMachineScaleSet]{
+		OutputState: i.ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrchestratedVirtualMachineScaleSetArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetArray and OrchestratedVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetArrayInput` via:
 //
@@ -593,6 +600,12 @@ func (i OrchestratedVirtualMachineScaleSetArray) ToOrchestratedVirtualMachineSca
 
 func (i OrchestratedVirtualMachineScaleSetArray) ToOrchestratedVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetArrayOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrchestratedVirtualMachineScaleSet] {
+	return pulumix.Output[[]*OrchestratedVirtualMachineScaleSet]{
+		OutputState: i.ToOrchestratedVirtualMachineScaleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrchestratedVirtualMachineScaleSetMapInput is an input type that accepts OrchestratedVirtualMachineScaleSetMap and OrchestratedVirtualMachineScaleSetMapOutput values.
@@ -620,6 +633,12 @@ func (i OrchestratedVirtualMachineScaleSetMap) ToOrchestratedVirtualMachineScale
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetMapOutput)
 }
 
+func (i OrchestratedVirtualMachineScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet] {
+	return pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet]{
+		OutputState: i.ToOrchestratedVirtualMachineScaleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrchestratedVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (OrchestratedVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -632,6 +651,12 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineSc
 
 func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOutput {
 	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*OrchestratedVirtualMachineScaleSet] {
+	return pulumix.Output[*OrchestratedVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `additionalCapabilities` block as defined below.
@@ -865,6 +890,12 @@ func (o OrchestratedVirtualMachineScaleSetArrayOutput) ToOrchestratedVirtualMach
 	return o
 }
 
+func (o OrchestratedVirtualMachineScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrchestratedVirtualMachineScaleSet] {
+	return pulumix.Output[[]*OrchestratedVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrchestratedVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrchestratedVirtualMachineScaleSet {
 		return vs[0].([]*OrchestratedVirtualMachineScaleSet)[vs[1].(int)]
@@ -883,6 +914,12 @@ func (o OrchestratedVirtualMachineScaleSetMapOutput) ToOrchestratedVirtualMachin
 
 func (o OrchestratedVirtualMachineScaleSetMapOutput) ToOrchestratedVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetMapOutput {
 	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet] {
+	return pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrchestratedVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) OrchestratedVirtualMachineScaleSetOutput {

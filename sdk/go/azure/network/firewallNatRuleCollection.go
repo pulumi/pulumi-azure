@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a NAT Rule Collection within an Azure Firewall.
@@ -273,6 +274,12 @@ func (i *FirewallNatRuleCollection) ToFirewallNatRuleCollectionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionOutput)
 }
 
+func (i *FirewallNatRuleCollection) ToOutput(ctx context.Context) pulumix.Output[*FirewallNatRuleCollection] {
+	return pulumix.Output[*FirewallNatRuleCollection]{
+		OutputState: i.ToFirewallNatRuleCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallNatRuleCollectionArrayInput is an input type that accepts FirewallNatRuleCollectionArray and FirewallNatRuleCollectionArrayOutput values.
 // You can construct a concrete instance of `FirewallNatRuleCollectionArrayInput` via:
 //
@@ -296,6 +303,12 @@ func (i FirewallNatRuleCollectionArray) ToFirewallNatRuleCollectionArrayOutput()
 
 func (i FirewallNatRuleCollectionArray) ToFirewallNatRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallNatRuleCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionArrayOutput)
+}
+
+func (i FirewallNatRuleCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallNatRuleCollection] {
+	return pulumix.Output[[]*FirewallNatRuleCollection]{
+		OutputState: i.ToFirewallNatRuleCollectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FirewallNatRuleCollectionMapInput is an input type that accepts FirewallNatRuleCollectionMap and FirewallNatRuleCollectionMapOutput values.
@@ -323,6 +336,12 @@ func (i FirewallNatRuleCollectionMap) ToFirewallNatRuleCollectionMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNatRuleCollectionMapOutput)
 }
 
+func (i FirewallNatRuleCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallNatRuleCollection] {
+	return pulumix.Output[map[string]*FirewallNatRuleCollection]{
+		OutputState: i.ToFirewallNatRuleCollectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallNatRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (FirewallNatRuleCollectionOutput) ElementType() reflect.Type {
@@ -335,6 +354,12 @@ func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionOutput() Fir
 
 func (o FirewallNatRuleCollectionOutput) ToFirewallNatRuleCollectionOutputWithContext(ctx context.Context) FirewallNatRuleCollectionOutput {
 	return o
+}
+
+func (o FirewallNatRuleCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallNatRuleCollection] {
+	return pulumix.Output[*FirewallNatRuleCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
@@ -381,6 +406,12 @@ func (o FirewallNatRuleCollectionArrayOutput) ToFirewallNatRuleCollectionArrayOu
 	return o
 }
 
+func (o FirewallNatRuleCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallNatRuleCollection] {
+	return pulumix.Output[[]*FirewallNatRuleCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallNatRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallNatRuleCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallNatRuleCollection {
 		return vs[0].([]*FirewallNatRuleCollection)[vs[1].(int)]
@@ -399,6 +430,12 @@ func (o FirewallNatRuleCollectionMapOutput) ToFirewallNatRuleCollectionMapOutput
 
 func (o FirewallNatRuleCollectionMapOutput) ToFirewallNatRuleCollectionMapOutputWithContext(ctx context.Context) FirewallNatRuleCollectionMapOutput {
 	return o
+}
+
+func (o FirewallNatRuleCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallNatRuleCollection] {
+	return pulumix.Output[map[string]*FirewallNatRuleCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallNatRuleCollectionMapOutput) MapIndex(k pulumi.StringInput) FirewallNatRuleCollectionOutput {

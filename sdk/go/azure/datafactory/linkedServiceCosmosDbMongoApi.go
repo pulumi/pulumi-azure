@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using Mongo API.
@@ -261,6 +262,12 @@ func (i *LinkedServiceCosmosDbMongoApi) ToLinkedServiceCosmosDbMongoApiOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbMongoApiOutput)
 }
 
+func (i *LinkedServiceCosmosDbMongoApi) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceCosmosDbMongoApi] {
+	return pulumix.Output[*LinkedServiceCosmosDbMongoApi]{
+		OutputState: i.ToLinkedServiceCosmosDbMongoApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceCosmosDbMongoApiArrayInput is an input type that accepts LinkedServiceCosmosDbMongoApiArray and LinkedServiceCosmosDbMongoApiArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceCosmosDbMongoApiArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i LinkedServiceCosmosDbMongoApiArray) ToLinkedServiceCosmosDbMongoApiArray
 
 func (i LinkedServiceCosmosDbMongoApiArray) ToLinkedServiceCosmosDbMongoApiArrayOutputWithContext(ctx context.Context) LinkedServiceCosmosDbMongoApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbMongoApiArrayOutput)
+}
+
+func (i LinkedServiceCosmosDbMongoApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceCosmosDbMongoApi] {
+	return pulumix.Output[[]*LinkedServiceCosmosDbMongoApi]{
+		OutputState: i.ToLinkedServiceCosmosDbMongoApiArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceCosmosDbMongoApiMapInput is an input type that accepts LinkedServiceCosmosDbMongoApiMap and LinkedServiceCosmosDbMongoApiMapOutput values.
@@ -311,6 +324,12 @@ func (i LinkedServiceCosmosDbMongoApiMap) ToLinkedServiceCosmosDbMongoApiMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbMongoApiMapOutput)
 }
 
+func (i LinkedServiceCosmosDbMongoApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceCosmosDbMongoApi] {
+	return pulumix.Output[map[string]*LinkedServiceCosmosDbMongoApi]{
+		OutputState: i.ToLinkedServiceCosmosDbMongoApiMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceCosmosDbMongoApiOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceCosmosDbMongoApiOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o LinkedServiceCosmosDbMongoApiOutput) ToLinkedServiceCosmosDbMongoApiOutp
 
 func (o LinkedServiceCosmosDbMongoApiOutput) ToLinkedServiceCosmosDbMongoApiOutputWithContext(ctx context.Context) LinkedServiceCosmosDbMongoApiOutput {
 	return o
+}
+
+func (o LinkedServiceCosmosDbMongoApiOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceCosmosDbMongoApi] {
+	return pulumix.Output[*LinkedServiceCosmosDbMongoApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -391,6 +416,12 @@ func (o LinkedServiceCosmosDbMongoApiArrayOutput) ToLinkedServiceCosmosDbMongoAp
 	return o
 }
 
+func (o LinkedServiceCosmosDbMongoApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceCosmosDbMongoApi] {
+	return pulumix.Output[[]*LinkedServiceCosmosDbMongoApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceCosmosDbMongoApiArrayOutput) Index(i pulumi.IntInput) LinkedServiceCosmosDbMongoApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceCosmosDbMongoApi {
 		return vs[0].([]*LinkedServiceCosmosDbMongoApi)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o LinkedServiceCosmosDbMongoApiMapOutput) ToLinkedServiceCosmosDbMongoApiM
 
 func (o LinkedServiceCosmosDbMongoApiMapOutput) ToLinkedServiceCosmosDbMongoApiMapOutputWithContext(ctx context.Context) LinkedServiceCosmosDbMongoApiMapOutput {
 	return o
+}
+
+func (o LinkedServiceCosmosDbMongoApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceCosmosDbMongoApi] {
+	return pulumix.Output[map[string]*LinkedServiceCosmosDbMongoApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceCosmosDbMongoApiMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceCosmosDbMongoApiOutput {

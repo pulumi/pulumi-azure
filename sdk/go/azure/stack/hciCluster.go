@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Stack HCI Cluster.
@@ -230,6 +231,12 @@ func (i *HciCluster) ToHciClusterOutputWithContext(ctx context.Context) HciClust
 	return pulumi.ToOutputWithContext(ctx, i).(HciClusterOutput)
 }
 
+func (i *HciCluster) ToOutput(ctx context.Context) pulumix.Output[*HciCluster] {
+	return pulumix.Output[*HciCluster]{
+		OutputState: i.ToHciClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HciClusterArrayInput is an input type that accepts HciClusterArray and HciClusterArrayOutput values.
 // You can construct a concrete instance of `HciClusterArrayInput` via:
 //
@@ -253,6 +260,12 @@ func (i HciClusterArray) ToHciClusterArrayOutput() HciClusterArrayOutput {
 
 func (i HciClusterArray) ToHciClusterArrayOutputWithContext(ctx context.Context) HciClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HciClusterArrayOutput)
+}
+
+func (i HciClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*HciCluster] {
+	return pulumix.Output[[]*HciCluster]{
+		OutputState: i.ToHciClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HciClusterMapInput is an input type that accepts HciClusterMap and HciClusterMapOutput values.
@@ -280,6 +293,12 @@ func (i HciClusterMap) ToHciClusterMapOutputWithContext(ctx context.Context) Hci
 	return pulumi.ToOutputWithContext(ctx, i).(HciClusterMapOutput)
 }
 
+func (i HciClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HciCluster] {
+	return pulumix.Output[map[string]*HciCluster]{
+		OutputState: i.ToHciClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HciClusterOutput struct{ *pulumi.OutputState }
 
 func (HciClusterOutput) ElementType() reflect.Type {
@@ -292,6 +311,12 @@ func (o HciClusterOutput) ToHciClusterOutput() HciClusterOutput {
 
 func (o HciClusterOutput) ToHciClusterOutputWithContext(ctx context.Context) HciClusterOutput {
 	return o
+}
+
+func (o HciClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*HciCluster] {
+	return pulumix.Output[*HciCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
@@ -345,6 +370,12 @@ func (o HciClusterArrayOutput) ToHciClusterArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o HciClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HciCluster] {
+	return pulumix.Output[[]*HciCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HciClusterArrayOutput) Index(i pulumi.IntInput) HciClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HciCluster {
 		return vs[0].([]*HciCluster)[vs[1].(int)]
@@ -363,6 +394,12 @@ func (o HciClusterMapOutput) ToHciClusterMapOutput() HciClusterMapOutput {
 
 func (o HciClusterMapOutput) ToHciClusterMapOutputWithContext(ctx context.Context) HciClusterMapOutput {
 	return o
+}
+
+func (o HciClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HciCluster] {
+	return pulumix.Output[map[string]*HciCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HciClusterMapOutput) MapIndex(k pulumi.StringInput) HciClusterOutput {

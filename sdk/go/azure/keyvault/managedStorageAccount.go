@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Managed Storage Account.
@@ -363,6 +364,12 @@ func (i *ManagedStorageAccount) ToManagedStorageAccountOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountOutput)
 }
 
+func (i *ManagedStorageAccount) ToOutput(ctx context.Context) pulumix.Output[*ManagedStorageAccount] {
+	return pulumix.Output[*ManagedStorageAccount]{
+		OutputState: i.ToManagedStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedStorageAccountArrayInput is an input type that accepts ManagedStorageAccountArray and ManagedStorageAccountArrayOutput values.
 // You can construct a concrete instance of `ManagedStorageAccountArrayInput` via:
 //
@@ -386,6 +393,12 @@ func (i ManagedStorageAccountArray) ToManagedStorageAccountArrayOutput() Managed
 
 func (i ManagedStorageAccountArray) ToManagedStorageAccountArrayOutputWithContext(ctx context.Context) ManagedStorageAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountArrayOutput)
+}
+
+func (i ManagedStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedStorageAccount] {
+	return pulumix.Output[[]*ManagedStorageAccount]{
+		OutputState: i.ToManagedStorageAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedStorageAccountMapInput is an input type that accepts ManagedStorageAccountMap and ManagedStorageAccountMapOutput values.
@@ -413,6 +426,12 @@ func (i ManagedStorageAccountMap) ToManagedStorageAccountMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountMapOutput)
 }
 
+func (i ManagedStorageAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedStorageAccount] {
+	return pulumix.Output[map[string]*ManagedStorageAccount]{
+		OutputState: i.ToManagedStorageAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountOutput) ElementType() reflect.Type {
@@ -425,6 +444,12 @@ func (o ManagedStorageAccountOutput) ToManagedStorageAccountOutput() ManagedStor
 
 func (o ManagedStorageAccountOutput) ToManagedStorageAccountOutputWithContext(ctx context.Context) ManagedStorageAccountOutput {
 	return o
+}
+
+func (o ManagedStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedStorageAccount] {
+	return pulumix.Output[*ManagedStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
@@ -478,6 +503,12 @@ func (o ManagedStorageAccountArrayOutput) ToManagedStorageAccountArrayOutputWith
 	return o
 }
 
+func (o ManagedStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedStorageAccount] {
+	return pulumix.Output[[]*ManagedStorageAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedStorageAccountArrayOutput) Index(i pulumi.IntInput) ManagedStorageAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedStorageAccount {
 		return vs[0].([]*ManagedStorageAccount)[vs[1].(int)]
@@ -496,6 +527,12 @@ func (o ManagedStorageAccountMapOutput) ToManagedStorageAccountMapOutput() Manag
 
 func (o ManagedStorageAccountMapOutput) ToManagedStorageAccountMapOutputWithContext(ctx context.Context) ManagedStorageAccountMapOutput {
 	return o
+}
+
+func (o ManagedStorageAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedStorageAccount] {
+	return pulumix.Output[map[string]*ManagedStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedStorageAccountMapOutput) MapIndex(k pulumi.StringInput) ManagedStorageAccountOutput {

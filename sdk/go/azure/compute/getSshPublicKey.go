@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing SSH Public Key.
@@ -111,6 +112,12 @@ func (o LookupSshPublicKeyResultOutput) ToLookupSshPublicKeyResultOutput() Looku
 
 func (o LookupSshPublicKeyResultOutput) ToLookupSshPublicKeyResultOutputWithContext(ctx context.Context) LookupSshPublicKeyResultOutput {
 	return o
+}
+
+func (o LookupSshPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSshPublicKeyResult] {
+	return pulumix.Output[LookupSshPublicKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

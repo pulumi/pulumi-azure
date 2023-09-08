@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an iSCSI Target lun.
@@ -276,6 +277,12 @@ func (i *DiskPoolIscsiTargetLun) ToDiskPoolIscsiTargetLunOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolIscsiTargetLunOutput)
 }
 
+func (i *DiskPoolIscsiTargetLun) ToOutput(ctx context.Context) pulumix.Output[*DiskPoolIscsiTargetLun] {
+	return pulumix.Output[*DiskPoolIscsiTargetLun]{
+		OutputState: i.ToDiskPoolIscsiTargetLunOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiskPoolIscsiTargetLunArrayInput is an input type that accepts DiskPoolIscsiTargetLunArray and DiskPoolIscsiTargetLunArrayOutput values.
 // You can construct a concrete instance of `DiskPoolIscsiTargetLunArrayInput` via:
 //
@@ -299,6 +306,12 @@ func (i DiskPoolIscsiTargetLunArray) ToDiskPoolIscsiTargetLunArrayOutput() DiskP
 
 func (i DiskPoolIscsiTargetLunArray) ToDiskPoolIscsiTargetLunArrayOutputWithContext(ctx context.Context) DiskPoolIscsiTargetLunArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolIscsiTargetLunArrayOutput)
+}
+
+func (i DiskPoolIscsiTargetLunArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPoolIscsiTargetLun] {
+	return pulumix.Output[[]*DiskPoolIscsiTargetLun]{
+		OutputState: i.ToDiskPoolIscsiTargetLunArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DiskPoolIscsiTargetLunMapInput is an input type that accepts DiskPoolIscsiTargetLunMap and DiskPoolIscsiTargetLunMapOutput values.
@@ -326,6 +339,12 @@ func (i DiskPoolIscsiTargetLunMap) ToDiskPoolIscsiTargetLunMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolIscsiTargetLunMapOutput)
 }
 
+func (i DiskPoolIscsiTargetLunMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPoolIscsiTargetLun] {
+	return pulumix.Output[map[string]*DiskPoolIscsiTargetLun]{
+		OutputState: i.ToDiskPoolIscsiTargetLunMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiskPoolIscsiTargetLunOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolIscsiTargetLunOutput) ElementType() reflect.Type {
@@ -338,6 +357,12 @@ func (o DiskPoolIscsiTargetLunOutput) ToDiskPoolIscsiTargetLunOutput() DiskPoolI
 
 func (o DiskPoolIscsiTargetLunOutput) ToDiskPoolIscsiTargetLunOutputWithContext(ctx context.Context) DiskPoolIscsiTargetLunOutput {
 	return o
+}
+
+func (o DiskPoolIscsiTargetLunOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskPoolIscsiTargetLun] {
+	return pulumix.Output[*DiskPoolIscsiTargetLun]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the `compute.DiskPoolManagedDiskAttachment`. Changing this forces a new iSCSI Target LUN to be created.
@@ -374,6 +399,12 @@ func (o DiskPoolIscsiTargetLunArrayOutput) ToDiskPoolIscsiTargetLunArrayOutputWi
 	return o
 }
 
+func (o DiskPoolIscsiTargetLunArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPoolIscsiTargetLun] {
+	return pulumix.Output[[]*DiskPoolIscsiTargetLun]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DiskPoolIscsiTargetLunArrayOutput) Index(i pulumi.IntInput) DiskPoolIscsiTargetLunOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskPoolIscsiTargetLun {
 		return vs[0].([]*DiskPoolIscsiTargetLun)[vs[1].(int)]
@@ -392,6 +423,12 @@ func (o DiskPoolIscsiTargetLunMapOutput) ToDiskPoolIscsiTargetLunMapOutput() Dis
 
 func (o DiskPoolIscsiTargetLunMapOutput) ToDiskPoolIscsiTargetLunMapOutputWithContext(ctx context.Context) DiskPoolIscsiTargetLunMapOutput {
 	return o
+}
+
+func (o DiskPoolIscsiTargetLunMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPoolIscsiTargetLun] {
+	return pulumix.Output[map[string]*DiskPoolIscsiTargetLun]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiskPoolIscsiTargetLunMapOutput) MapIndex(k pulumi.StringInput) DiskPoolIscsiTargetLunOutput {

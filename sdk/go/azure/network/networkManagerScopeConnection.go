@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Scope Connection which may cross tenants.
@@ -227,6 +228,12 @@ func (i *NetworkManagerScopeConnection) ToNetworkManagerScopeConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerScopeConnectionOutput)
 }
 
+func (i *NetworkManagerScopeConnection) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerScopeConnection] {
+	return pulumix.Output[*NetworkManagerScopeConnection]{
+		OutputState: i.ToNetworkManagerScopeConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkManagerScopeConnectionArrayInput is an input type that accepts NetworkManagerScopeConnectionArray and NetworkManagerScopeConnectionArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerScopeConnectionArrayInput` via:
 //
@@ -250,6 +257,12 @@ func (i NetworkManagerScopeConnectionArray) ToNetworkManagerScopeConnectionArray
 
 func (i NetworkManagerScopeConnectionArray) ToNetworkManagerScopeConnectionArrayOutputWithContext(ctx context.Context) NetworkManagerScopeConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerScopeConnectionArrayOutput)
+}
+
+func (i NetworkManagerScopeConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerScopeConnection] {
+	return pulumix.Output[[]*NetworkManagerScopeConnection]{
+		OutputState: i.ToNetworkManagerScopeConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkManagerScopeConnectionMapInput is an input type that accepts NetworkManagerScopeConnectionMap and NetworkManagerScopeConnectionMapOutput values.
@@ -277,6 +290,12 @@ func (i NetworkManagerScopeConnectionMap) ToNetworkManagerScopeConnectionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerScopeConnectionMapOutput)
 }
 
+func (i NetworkManagerScopeConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerScopeConnection] {
+	return pulumix.Output[map[string]*NetworkManagerScopeConnection]{
+		OutputState: i.ToNetworkManagerScopeConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkManagerScopeConnectionOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerScopeConnectionOutput) ElementType() reflect.Type {
@@ -289,6 +308,12 @@ func (o NetworkManagerScopeConnectionOutput) ToNetworkManagerScopeConnectionOutp
 
 func (o NetworkManagerScopeConnectionOutput) ToNetworkManagerScopeConnectionOutputWithContext(ctx context.Context) NetworkManagerScopeConnectionOutput {
 	return o
+}
+
+func (o NetworkManagerScopeConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerScopeConnection] {
+	return pulumix.Output[*NetworkManagerScopeConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Connection state of the Network Manager Scope Connection.
@@ -335,6 +360,12 @@ func (o NetworkManagerScopeConnectionArrayOutput) ToNetworkManagerScopeConnectio
 	return o
 }
 
+func (o NetworkManagerScopeConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerScopeConnection] {
+	return pulumix.Output[[]*NetworkManagerScopeConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkManagerScopeConnectionArrayOutput) Index(i pulumi.IntInput) NetworkManagerScopeConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerScopeConnection {
 		return vs[0].([]*NetworkManagerScopeConnection)[vs[1].(int)]
@@ -353,6 +384,12 @@ func (o NetworkManagerScopeConnectionMapOutput) ToNetworkManagerScopeConnectionM
 
 func (o NetworkManagerScopeConnectionMapOutput) ToNetworkManagerScopeConnectionMapOutputWithContext(ctx context.Context) NetworkManagerScopeConnectionMapOutput {
 	return o
+}
+
+func (o NetworkManagerScopeConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerScopeConnection] {
+	return pulumix.Output[map[string]*NetworkManagerScopeConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkManagerScopeConnectionMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerScopeConnectionOutput {

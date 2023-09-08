@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Network Security Group with a Subnet within a Virtual Network.
@@ -197,6 +198,12 @@ func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAsso
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationOutput)
 }
 
+func (i *SubnetNetworkSecurityGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*SubnetNetworkSecurityGroupAssociation] {
+	return pulumix.Output[*SubnetNetworkSecurityGroupAssociation]{
+		OutputState: i.ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubnetNetworkSecurityGroupAssociationArrayInput is an input type that accepts SubnetNetworkSecurityGroupAssociationArray and SubnetNetworkSecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `SubnetNetworkSecurityGroupAssociationArrayInput` via:
 //
@@ -220,6 +227,12 @@ func (i SubnetNetworkSecurityGroupAssociationArray) ToSubnetNetworkSecurityGroup
 
 func (i SubnetNetworkSecurityGroupAssociationArray) ToSubnetNetworkSecurityGroupAssociationArrayOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationArrayOutput)
+}
+
+func (i SubnetNetworkSecurityGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetNetworkSecurityGroupAssociation] {
+	return pulumix.Output[[]*SubnetNetworkSecurityGroupAssociation]{
+		OutputState: i.ToSubnetNetworkSecurityGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubnetNetworkSecurityGroupAssociationMapInput is an input type that accepts SubnetNetworkSecurityGroupAssociationMap and SubnetNetworkSecurityGroupAssociationMapOutput values.
@@ -247,6 +260,12 @@ func (i SubnetNetworkSecurityGroupAssociationMap) ToSubnetNetworkSecurityGroupAs
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNetworkSecurityGroupAssociationMapOutput)
 }
 
+func (i SubnetNetworkSecurityGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetNetworkSecurityGroupAssociation] {
+	return pulumix.Output[map[string]*SubnetNetworkSecurityGroupAssociation]{
+		OutputState: i.ToSubnetNetworkSecurityGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubnetNetworkSecurityGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (SubnetNetworkSecurityGroupAssociationOutput) ElementType() reflect.Type {
@@ -259,6 +278,12 @@ func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGrou
 
 func (o SubnetNetworkSecurityGroupAssociationOutput) ToSubnetNetworkSecurityGroupAssociationOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationOutput {
 	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetNetworkSecurityGroupAssociation] {
+	return pulumix.Output[*SubnetNetworkSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -285,6 +310,12 @@ func (o SubnetNetworkSecurityGroupAssociationArrayOutput) ToSubnetNetworkSecurit
 	return o
 }
 
+func (o SubnetNetworkSecurityGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetNetworkSecurityGroupAssociation] {
+	return pulumix.Output[[]*SubnetNetworkSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubnetNetworkSecurityGroupAssociationArrayOutput) Index(i pulumi.IntInput) SubnetNetworkSecurityGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetNetworkSecurityGroupAssociation {
 		return vs[0].([]*SubnetNetworkSecurityGroupAssociation)[vs[1].(int)]
@@ -303,6 +334,12 @@ func (o SubnetNetworkSecurityGroupAssociationMapOutput) ToSubnetNetworkSecurityG
 
 func (o SubnetNetworkSecurityGroupAssociationMapOutput) ToSubnetNetworkSecurityGroupAssociationMapOutputWithContext(ctx context.Context) SubnetNetworkSecurityGroupAssociationMapOutput {
 	return o
+}
+
+func (o SubnetNetworkSecurityGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetNetworkSecurityGroupAssociation] {
+	return pulumix.Output[map[string]*SubnetNetworkSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubnetNetworkSecurityGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) SubnetNetworkSecurityGroupAssociationOutput {

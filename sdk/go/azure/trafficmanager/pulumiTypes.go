@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ProfileDnsConfigArgs) ToProfileDnsConfigOutput() ProfileDnsConfigOutput 
 
 func (i ProfileDnsConfigArgs) ToProfileDnsConfigOutputWithContext(ctx context.Context) ProfileDnsConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileDnsConfigOutput)
+}
+
+func (i ProfileDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileDnsConfig] {
+	return pulumix.Output[ProfileDnsConfig]{
+		OutputState: i.ToProfileDnsConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProfileDnsConfigArgs) ToProfileDnsConfigPtrOutput() ProfileDnsConfigPtrOutput {
@@ -91,6 +98,12 @@ func (i *profileDnsConfigPtrType) ToProfileDnsConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileDnsConfigPtrOutput)
 }
 
+func (i *profileDnsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProfileDnsConfig] {
+	return pulumix.Output[*ProfileDnsConfig]{
+		OutputState: i.ToProfileDnsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (ProfileDnsConfigOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutputWithContext(ctx conte
 	}).(ProfileDnsConfigPtrOutput)
 }
 
+func (o ProfileDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileDnsConfig] {
+	return pulumix.Output[ProfileDnsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
 func (o ProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
@@ -137,6 +156,12 @@ func (o ProfileDnsConfigPtrOutput) ToProfileDnsConfigPtrOutput() ProfileDnsConfi
 
 func (o ProfileDnsConfigPtrOutput) ToProfileDnsConfigPtrOutputWithContext(ctx context.Context) ProfileDnsConfigPtrOutput {
 	return o
+}
+
+func (o ProfileDnsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileDnsConfig] {
+	return pulumix.Output[*ProfileDnsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
@@ -230,6 +255,12 @@ func (i ProfileMonitorConfigArgs) ToProfileMonitorConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigOutput)
 }
 
+func (i ProfileMonitorConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileMonitorConfig] {
+	return pulumix.Output[ProfileMonitorConfig]{
+		OutputState: i.ToProfileMonitorConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProfileMonitorConfigArgs) ToProfileMonitorConfigPtrOutput() ProfileMonitorConfigPtrOutput {
 	return i.ToProfileMonitorConfigPtrOutputWithContext(context.Background())
 }
@@ -271,6 +302,12 @@ func (i *profileMonitorConfigPtrType) ToProfileMonitorConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigPtrOutput)
 }
 
+func (i *profileMonitorConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProfileMonitorConfig] {
+	return pulumix.Output[*ProfileMonitorConfig]{
+		OutputState: i.ToProfileMonitorConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileMonitorConfigOutput struct{ *pulumi.OutputState }
 
 func (ProfileMonitorConfigOutput) ElementType() reflect.Type {
@@ -293,6 +330,12 @@ func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileMonitorConfig) *ProfileMonitorConfig {
 		return &v
 	}).(ProfileMonitorConfigPtrOutput)
+}
+
+func (o ProfileMonitorConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileMonitorConfig] {
+	return pulumix.Output[ProfileMonitorConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `customHeader` blocks as defined below.
@@ -347,6 +390,12 @@ func (o ProfileMonitorConfigPtrOutput) ToProfileMonitorConfigPtrOutput() Profile
 
 func (o ProfileMonitorConfigPtrOutput) ToProfileMonitorConfigPtrOutputWithContext(ctx context.Context) ProfileMonitorConfigPtrOutput {
 	return o
+}
+
+func (o ProfileMonitorConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileMonitorConfig] {
+	return pulumix.Output[*ProfileMonitorConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
@@ -476,6 +525,12 @@ func (i ProfileMonitorConfigCustomHeaderArgs) ToProfileMonitorConfigCustomHeader
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigCustomHeaderOutput)
 }
 
+func (i ProfileMonitorConfigCustomHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileMonitorConfigCustomHeader] {
+	return pulumix.Output[ProfileMonitorConfigCustomHeader]{
+		OutputState: i.ToProfileMonitorConfigCustomHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileMonitorConfigCustomHeaderArrayInput is an input type that accepts ProfileMonitorConfigCustomHeaderArray and ProfileMonitorConfigCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `ProfileMonitorConfigCustomHeaderArrayInput` via:
 //
@@ -501,6 +556,12 @@ func (i ProfileMonitorConfigCustomHeaderArray) ToProfileMonitorConfigCustomHeade
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigCustomHeaderArrayOutput)
 }
 
+func (i ProfileMonitorConfigCustomHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfileMonitorConfigCustomHeader] {
+	return pulumix.Output[[]ProfileMonitorConfigCustomHeader]{
+		OutputState: i.ToProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileMonitorConfigCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (ProfileMonitorConfigCustomHeaderOutput) ElementType() reflect.Type {
@@ -513,6 +574,12 @@ func (o ProfileMonitorConfigCustomHeaderOutput) ToProfileMonitorConfigCustomHead
 
 func (o ProfileMonitorConfigCustomHeaderOutput) ToProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) ProfileMonitorConfigCustomHeaderOutput {
 	return o
+}
+
+func (o ProfileMonitorConfigCustomHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileMonitorConfigCustomHeader] {
+	return pulumix.Output[ProfileMonitorConfigCustomHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the custom header.
@@ -537,6 +604,12 @@ func (o ProfileMonitorConfigCustomHeaderArrayOutput) ToProfileMonitorConfigCusto
 
 func (o ProfileMonitorConfigCustomHeaderArrayOutput) ToProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) ProfileMonitorConfigCustomHeaderArrayOutput {
 	return o
+}
+
+func (o ProfileMonitorConfigCustomHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfileMonitorConfigCustomHeader] {
+	return pulumix.Output[[]ProfileMonitorConfigCustomHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileMonitorConfigCustomHeaderArrayOutput) Index(i pulumi.IntInput) ProfileMonitorConfigCustomHeaderOutput {

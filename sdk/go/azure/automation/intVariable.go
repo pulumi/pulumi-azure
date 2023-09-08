@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a integer variable in Azure Automation
@@ -206,6 +207,12 @@ func (i *IntVariable) ToIntVariableOutputWithContext(ctx context.Context) IntVar
 	return pulumi.ToOutputWithContext(ctx, i).(IntVariableOutput)
 }
 
+func (i *IntVariable) ToOutput(ctx context.Context) pulumix.Output[*IntVariable] {
+	return pulumix.Output[*IntVariable]{
+		OutputState: i.ToIntVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntVariableArrayInput is an input type that accepts IntVariableArray and IntVariableArrayOutput values.
 // You can construct a concrete instance of `IntVariableArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i IntVariableArray) ToIntVariableArrayOutput() IntVariableArrayOutput {
 
 func (i IntVariableArray) ToIntVariableArrayOutputWithContext(ctx context.Context) IntVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntVariableArrayOutput)
+}
+
+func (i IntVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntVariable] {
+	return pulumix.Output[[]*IntVariable]{
+		OutputState: i.ToIntVariableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntVariableMapInput is an input type that accepts IntVariableMap and IntVariableMapOutput values.
@@ -256,6 +269,12 @@ func (i IntVariableMap) ToIntVariableMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IntVariableMapOutput)
 }
 
+func (i IntVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntVariable] {
+	return pulumix.Output[map[string]*IntVariable]{
+		OutputState: i.ToIntVariableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntVariableOutput struct{ *pulumi.OutputState }
 
 func (IntVariableOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o IntVariableOutput) ToIntVariableOutput() IntVariableOutput {
 
 func (o IntVariableOutput) ToIntVariableOutputWithContext(ctx context.Context) IntVariableOutput {
 	return o
+}
+
+func (o IntVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*IntVariable] {
+	return pulumix.Output[*IntVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -314,6 +339,12 @@ func (o IntVariableArrayOutput) ToIntVariableArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o IntVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntVariable] {
+	return pulumix.Output[[]*IntVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntVariableArrayOutput) Index(i pulumi.IntInput) IntVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntVariable {
 		return vs[0].([]*IntVariable)[vs[1].(int)]
@@ -332,6 +363,12 @@ func (o IntVariableMapOutput) ToIntVariableMapOutput() IntVariableMapOutput {
 
 func (o IntVariableMapOutput) ToIntVariableMapOutputWithContext(ctx context.Context) IntVariableMapOutput {
 	return o
+}
+
+func (o IntVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntVariable] {
+	return pulumix.Output[map[string]*IntVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntVariableMapOutput) MapIndex(k pulumi.StringInput) IntVariableOutput {

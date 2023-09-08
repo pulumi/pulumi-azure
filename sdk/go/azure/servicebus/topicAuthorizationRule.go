@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
@@ -264,6 +265,12 @@ func (i *TopicAuthorizationRule) ToTopicAuthorizationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleOutput)
 }
 
+func (i *TopicAuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*TopicAuthorizationRule] {
+	return pulumix.Output[*TopicAuthorizationRule]{
+		OutputState: i.ToTopicAuthorizationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicAuthorizationRuleArrayInput is an input type that accepts TopicAuthorizationRuleArray and TopicAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `TopicAuthorizationRuleArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i TopicAuthorizationRuleArray) ToTopicAuthorizationRuleArrayOutput() Topic
 
 func (i TopicAuthorizationRuleArray) ToTopicAuthorizationRuleArrayOutputWithContext(ctx context.Context) TopicAuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleArrayOutput)
+}
+
+func (i TopicAuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicAuthorizationRule] {
+	return pulumix.Output[[]*TopicAuthorizationRule]{
+		OutputState: i.ToTopicAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicAuthorizationRuleMapInput is an input type that accepts TopicAuthorizationRuleMap and TopicAuthorizationRuleMapOutput values.
@@ -314,6 +327,12 @@ func (i TopicAuthorizationRuleMap) ToTopicAuthorizationRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleMapOutput)
 }
 
+func (i TopicAuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicAuthorizationRule] {
+	return pulumix.Output[map[string]*TopicAuthorizationRule]{
+		OutputState: i.ToTopicAuthorizationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutput() TopicAuth
 
 func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutputWithContext(ctx context.Context) TopicAuthorizationRuleOutput {
 	return o
+}
+
+func (o TopicAuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicAuthorizationRule] {
+	return pulumix.Output[*TopicAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -399,6 +424,12 @@ func (o TopicAuthorizationRuleArrayOutput) ToTopicAuthorizationRuleArrayOutputWi
 	return o
 }
 
+func (o TopicAuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicAuthorizationRule] {
+	return pulumix.Output[[]*TopicAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) TopicAuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicAuthorizationRule {
 		return vs[0].([]*TopicAuthorizationRule)[vs[1].(int)]
@@ -417,6 +448,12 @@ func (o TopicAuthorizationRuleMapOutput) ToTopicAuthorizationRuleMapOutput() Top
 
 func (o TopicAuthorizationRuleMapOutput) ToTopicAuthorizationRuleMapOutputWithContext(ctx context.Context) TopicAuthorizationRuleMapOutput {
 	return o
+}
+
+func (o TopicAuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicAuthorizationRule] {
+	return pulumix.Output[map[string]*TopicAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) TopicAuthorizationRuleOutput {

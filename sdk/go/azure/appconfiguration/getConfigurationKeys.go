@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing Azure App Configuration Keys.
@@ -114,6 +115,12 @@ func (o GetConfigurationKeysResultOutput) ToGetConfigurationKeysResultOutput() G
 
 func (o GetConfigurationKeysResultOutput) ToGetConfigurationKeysResultOutputWithContext(ctx context.Context) GetConfigurationKeysResultOutput {
 	return o
+}
+
+func (o GetConfigurationKeysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationKeysResult] {
+	return pulumix.Output[GetConfigurationKeysResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetConfigurationKeysResultOutput) ConfigurationStoreId() pulumi.StringOutput {

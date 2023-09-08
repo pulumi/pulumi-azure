@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Account Local User.
@@ -260,6 +261,12 @@ func (i *LocalUser) ToLocalUserOutputWithContext(ctx context.Context) LocalUserO
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserOutput)
 }
 
+func (i *LocalUser) ToOutput(ctx context.Context) pulumix.Output[*LocalUser] {
+	return pulumix.Output[*LocalUser]{
+		OutputState: i.ToLocalUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalUserArrayInput is an input type that accepts LocalUserArray and LocalUserArrayOutput values.
 // You can construct a concrete instance of `LocalUserArrayInput` via:
 //
@@ -283,6 +290,12 @@ func (i LocalUserArray) ToLocalUserArrayOutput() LocalUserArrayOutput {
 
 func (i LocalUserArray) ToLocalUserArrayOutputWithContext(ctx context.Context) LocalUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserArrayOutput)
+}
+
+func (i LocalUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalUser] {
+	return pulumix.Output[[]*LocalUser]{
+		OutputState: i.ToLocalUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalUserMapInput is an input type that accepts LocalUserMap and LocalUserMapOutput values.
@@ -310,6 +323,12 @@ func (i LocalUserMap) ToLocalUserMapOutputWithContext(ctx context.Context) Local
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserMapOutput)
 }
 
+func (i LocalUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalUser] {
+	return pulumix.Output[map[string]*LocalUser]{
+		OutputState: i.ToLocalUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalUserOutput struct{ *pulumi.OutputState }
 
 func (LocalUserOutput) ElementType() reflect.Type {
@@ -322,6 +341,12 @@ func (o LocalUserOutput) ToLocalUserOutput() LocalUserOutput {
 
 func (o LocalUserOutput) ToLocalUserOutputWithContext(ctx context.Context) LocalUserOutput {
 	return o
+}
+
+func (o LocalUserOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalUser] {
+	return pulumix.Output[*LocalUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The home directory of the Storage Account Local User.
@@ -383,6 +408,12 @@ func (o LocalUserArrayOutput) ToLocalUserArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LocalUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalUser] {
+	return pulumix.Output[[]*LocalUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalUserArrayOutput) Index(i pulumi.IntInput) LocalUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalUser {
 		return vs[0].([]*LocalUser)[vs[1].(int)]
@@ -401,6 +432,12 @@ func (o LocalUserMapOutput) ToLocalUserMapOutput() LocalUserMapOutput {
 
 func (o LocalUserMapOutput) ToLocalUserMapOutputWithContext(ctx context.Context) LocalUserMapOutput {
 	return o
+}
+
+func (o LocalUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalUser] {
+	return pulumix.Output[map[string]*LocalUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalUserMapOutput) MapIndex(k pulumi.StringInput) LocalUserOutput {

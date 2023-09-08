@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Attestation Provider.
@@ -84,6 +85,12 @@ func (o LookupProviderResultOutput) ToLookupProviderResultOutput() LookupProvide
 
 func (o LookupProviderResultOutput) ToLookupProviderResultOutputWithContext(ctx context.Context) LookupProviderResultOutput {
 	return o
+}
+
+func (o LookupProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProviderResult] {
+	return pulumix.Output[LookupProviderResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The (Endpoint|URI) of the Attestation Service.

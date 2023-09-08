@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Linux Function App.
@@ -178,6 +179,12 @@ func (o LookupLinuxFunctionAppResultOutput) ToLookupLinuxFunctionAppResultOutput
 
 func (o LookupLinuxFunctionAppResultOutput) ToLookupLinuxFunctionAppResultOutputWithContext(ctx context.Context) LookupLinuxFunctionAppResultOutput {
 	return o
+}
+
+func (o LookupLinuxFunctionAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLinuxFunctionAppResult] {
+	return pulumix.Output[LookupLinuxFunctionAppResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.

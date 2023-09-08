@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Custom Provider.
@@ -209,6 +210,12 @@ func (i *CustomProvider) ToCustomProviderOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderOutput)
 }
 
+func (i *CustomProvider) ToOutput(ctx context.Context) pulumix.Output[*CustomProvider] {
+	return pulumix.Output[*CustomProvider]{
+		OutputState: i.ToCustomProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomProviderArrayInput is an input type that accepts CustomProviderArray and CustomProviderArrayOutput values.
 // You can construct a concrete instance of `CustomProviderArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i CustomProviderArray) ToCustomProviderArrayOutput() CustomProviderArrayOu
 
 func (i CustomProviderArray) ToCustomProviderArrayOutputWithContext(ctx context.Context) CustomProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderArrayOutput)
+}
+
+func (i CustomProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomProvider] {
+	return pulumix.Output[[]*CustomProvider]{
+		OutputState: i.ToCustomProviderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomProviderMapInput is an input type that accepts CustomProviderMap and CustomProviderMapOutput values.
@@ -259,6 +272,12 @@ func (i CustomProviderMap) ToCustomProviderMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderMapOutput)
 }
 
+func (i CustomProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomProvider] {
+	return pulumix.Output[map[string]*CustomProvider]{
+		OutputState: i.ToCustomProviderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomProviderOutput struct{ *pulumi.OutputState }
 
 func (CustomProviderOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o CustomProviderOutput) ToCustomProviderOutput() CustomProviderOutput {
 
 func (o CustomProviderOutput) ToCustomProviderOutputWithContext(ctx context.Context) CustomProviderOutput {
 	return o
+}
+
+func (o CustomProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomProvider] {
+	return pulumix.Output[*CustomProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
@@ -322,6 +347,12 @@ func (o CustomProviderArrayOutput) ToCustomProviderArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o CustomProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomProvider] {
+	return pulumix.Output[[]*CustomProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomProviderArrayOutput) Index(i pulumi.IntInput) CustomProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomProvider {
 		return vs[0].([]*CustomProvider)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o CustomProviderMapOutput) ToCustomProviderMapOutput() CustomProviderMapOu
 
 func (o CustomProviderMapOutput) ToCustomProviderMapOutputWithContext(ctx context.Context) CustomProviderMapOutput {
 	return o
+}
+
+func (o CustomProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomProvider] {
+	return pulumix.Output[map[string]*CustomProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomProviderMapOutput) MapIndex(k pulumi.StringInput) CustomProviderOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Express Route Connection.
@@ -280,6 +281,12 @@ func (i *ExpressRouteConnection) ToExpressRouteConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionOutput)
 }
 
+func (i *ExpressRouteConnection) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteConnection] {
+	return pulumix.Output[*ExpressRouteConnection]{
+		OutputState: i.ToExpressRouteConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExpressRouteConnectionArrayInput is an input type that accepts ExpressRouteConnectionArray and ExpressRouteConnectionArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteConnectionArrayInput` via:
 //
@@ -303,6 +310,12 @@ func (i ExpressRouteConnectionArray) ToExpressRouteConnectionArrayOutput() Expre
 
 func (i ExpressRouteConnectionArray) ToExpressRouteConnectionArrayOutputWithContext(ctx context.Context) ExpressRouteConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionArrayOutput)
+}
+
+func (i ExpressRouteConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteConnection] {
+	return pulumix.Output[[]*ExpressRouteConnection]{
+		OutputState: i.ToExpressRouteConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExpressRouteConnectionMapInput is an input type that accepts ExpressRouteConnectionMap and ExpressRouteConnectionMapOutput values.
@@ -330,6 +343,12 @@ func (i ExpressRouteConnectionMap) ToExpressRouteConnectionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionMapOutput)
 }
 
+func (i ExpressRouteConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteConnection] {
+	return pulumix.Output[map[string]*ExpressRouteConnection]{
+		OutputState: i.ToExpressRouteConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExpressRouteConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteConnectionOutput) ElementType() reflect.Type {
@@ -342,6 +361,12 @@ func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutput() ExpressRo
 
 func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutputWithContext(ctx context.Context) ExpressRouteConnectionOutput {
 	return o
+}
+
+func (o ExpressRouteConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteConnection] {
+	return pulumix.Output[*ExpressRouteConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authorization key to establish the Express Route Connection.
@@ -398,6 +423,12 @@ func (o ExpressRouteConnectionArrayOutput) ToExpressRouteConnectionArrayOutputWi
 	return o
 }
 
+func (o ExpressRouteConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteConnection] {
+	return pulumix.Output[[]*ExpressRouteConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExpressRouteConnectionArrayOutput) Index(i pulumi.IntInput) ExpressRouteConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteConnection {
 		return vs[0].([]*ExpressRouteConnection)[vs[1].(int)]
@@ -416,6 +447,12 @@ func (o ExpressRouteConnectionMapOutput) ToExpressRouteConnectionMapOutput() Exp
 
 func (o ExpressRouteConnectionMapOutput) ToExpressRouteConnectionMapOutputWithContext(ctx context.Context) ExpressRouteConnectionMapOutput {
 	return o
+}
+
+func (o ExpressRouteConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteConnection] {
+	return pulumix.Output[map[string]*ExpressRouteConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExpressRouteConnectionMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteConnectionOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Route Table.
@@ -114,6 +115,12 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutput() LookupRou
 
 func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(ctx context.Context) LookupRouteTableResultOutput {
 	return o
+}
+
+func (o LookupRouteTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteTableResult] {
+	return pulumix.Output[LookupRouteTableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean flag which controls propagation of routes learned by BGP on that route table.

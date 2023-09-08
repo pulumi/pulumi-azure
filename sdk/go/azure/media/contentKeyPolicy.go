@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Content Key Policy.
@@ -303,6 +304,12 @@ func (i *ContentKeyPolicy) ToContentKeyPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOutput)
 }
 
+func (i *ContentKeyPolicy) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicy] {
+	return pulumix.Output[*ContentKeyPolicy]{
+		OutputState: i.ToContentKeyPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContentKeyPolicyArrayInput is an input type that accepts ContentKeyPolicyArray and ContentKeyPolicyArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyArrayInput` via:
 //
@@ -326,6 +333,12 @@ func (i ContentKeyPolicyArray) ToContentKeyPolicyArrayOutput() ContentKeyPolicyA
 
 func (i ContentKeyPolicyArray) ToContentKeyPolicyArrayOutputWithContext(ctx context.Context) ContentKeyPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyArrayOutput)
+}
+
+func (i ContentKeyPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContentKeyPolicy] {
+	return pulumix.Output[[]*ContentKeyPolicy]{
+		OutputState: i.ToContentKeyPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContentKeyPolicyMapInput is an input type that accepts ContentKeyPolicyMap and ContentKeyPolicyMapOutput values.
@@ -353,6 +366,12 @@ func (i ContentKeyPolicyMap) ToContentKeyPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyMapOutput)
 }
 
+func (i ContentKeyPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContentKeyPolicy] {
+	return pulumix.Output[map[string]*ContentKeyPolicy]{
+		OutputState: i.ToContentKeyPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContentKeyPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOutput) ElementType() reflect.Type {
@@ -365,6 +384,12 @@ func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutput() ContentKeyPolicyOutpu
 
 func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutputWithContext(ctx context.Context) ContentKeyPolicyOutput {
 	return o
+}
+
+func (o ContentKeyPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicy] {
+	return pulumix.Output[*ContentKeyPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description for the Policy.
@@ -406,6 +431,12 @@ func (o ContentKeyPolicyArrayOutput) ToContentKeyPolicyArrayOutputWithContext(ct
 	return o
 }
 
+func (o ContentKeyPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContentKeyPolicy] {
+	return pulumix.Output[[]*ContentKeyPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContentKeyPolicyArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContentKeyPolicy {
 		return vs[0].([]*ContentKeyPolicy)[vs[1].(int)]
@@ -424,6 +455,12 @@ func (o ContentKeyPolicyMapOutput) ToContentKeyPolicyMapOutput() ContentKeyPolic
 
 func (o ContentKeyPolicyMapOutput) ToContentKeyPolicyMapOutputWithContext(ctx context.Context) ContentKeyPolicyMapOutput {
 	return o
+}
+
+func (o ContentKeyPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContentKeyPolicy] {
+	return pulumix.Output[map[string]*ContentKeyPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContentKeyPolicyMapOutput) MapIndex(k pulumi.StringInput) ContentKeyPolicyOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an existing NetApp Pool.
@@ -116,6 +117,12 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutput() LookupPoolResultOutpu
 
 func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.Context) LookupPoolResultOutput {
 	return o
+}
+
+func (o LookupPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPoolResult] {
+	return pulumix.Output[LookupPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPoolResultOutput) AccountName() pulumi.StringOutput {

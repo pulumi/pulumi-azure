@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Network Gateway Nat Rule.
@@ -189,6 +190,12 @@ func (i *VirtualNetworkGatewayNatRule) ToVirtualNetworkGatewayNatRuleOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleOutput)
 }
 
+func (i *VirtualNetworkGatewayNatRule) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkGatewayNatRule] {
+	return pulumix.Output[*VirtualNetworkGatewayNatRule]{
+		OutputState: i.ToVirtualNetworkGatewayNatRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNetworkGatewayNatRuleArrayInput is an input type that accepts VirtualNetworkGatewayNatRuleArray and VirtualNetworkGatewayNatRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayNatRuleArrayInput` via:
 //
@@ -212,6 +219,12 @@ func (i VirtualNetworkGatewayNatRuleArray) ToVirtualNetworkGatewayNatRuleArrayOu
 
 func (i VirtualNetworkGatewayNatRuleArray) ToVirtualNetworkGatewayNatRuleArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleArrayOutput)
+}
+
+func (i VirtualNetworkGatewayNatRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkGatewayNatRule] {
+	return pulumix.Output[[]*VirtualNetworkGatewayNatRule]{
+		OutputState: i.ToVirtualNetworkGatewayNatRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNetworkGatewayNatRuleMapInput is an input type that accepts VirtualNetworkGatewayNatRuleMap and VirtualNetworkGatewayNatRuleMapOutput values.
@@ -239,6 +252,12 @@ func (i VirtualNetworkGatewayNatRuleMap) ToVirtualNetworkGatewayNatRuleMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleMapOutput)
 }
 
+func (i VirtualNetworkGatewayNatRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkGatewayNatRule] {
+	return pulumix.Output[map[string]*VirtualNetworkGatewayNatRule]{
+		OutputState: i.ToVirtualNetworkGatewayNatRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNetworkGatewayNatRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayNatRuleOutput) ElementType() reflect.Type {
@@ -251,6 +270,12 @@ func (o VirtualNetworkGatewayNatRuleOutput) ToVirtualNetworkGatewayNatRuleOutput
 
 func (o VirtualNetworkGatewayNatRuleOutput) ToVirtualNetworkGatewayNatRuleOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkGatewayNatRule] {
+	return pulumix.Output[*VirtualNetworkGatewayNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `externalMapping` blocks as documented below.
@@ -311,6 +336,12 @@ func (o VirtualNetworkGatewayNatRuleArrayOutput) ToVirtualNetworkGatewayNatRuleA
 	return o
 }
 
+func (o VirtualNetworkGatewayNatRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkGatewayNatRule] {
+	return pulumix.Output[[]*VirtualNetworkGatewayNatRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNetworkGatewayNatRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayNatRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkGatewayNatRule {
 		return vs[0].([]*VirtualNetworkGatewayNatRule)[vs[1].(int)]
@@ -329,6 +360,12 @@ func (o VirtualNetworkGatewayNatRuleMapOutput) ToVirtualNetworkGatewayNatRuleMap
 
 func (o VirtualNetworkGatewayNatRuleMapOutput) ToVirtualNetworkGatewayNatRuleMapOutputWithContext(ctx context.Context) VirtualNetworkGatewayNatRuleMapOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayNatRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkGatewayNatRule] {
+	return pulumix.Output[map[string]*VirtualNetworkGatewayNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkGatewayNatRuleMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkGatewayNatRuleOutput {

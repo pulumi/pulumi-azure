@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
@@ -204,6 +205,12 @@ func (i *ProtectionContainer) ToProtectionContainerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerOutput)
 }
 
+func (i *ProtectionContainer) ToOutput(ctx context.Context) pulumix.Output[*ProtectionContainer] {
+	return pulumix.Output[*ProtectionContainer]{
+		OutputState: i.ToProtectionContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProtectionContainerArrayInput is an input type that accepts ProtectionContainerArray and ProtectionContainerArrayOutput values.
 // You can construct a concrete instance of `ProtectionContainerArrayInput` via:
 //
@@ -227,6 +234,12 @@ func (i ProtectionContainerArray) ToProtectionContainerArrayOutput() ProtectionC
 
 func (i ProtectionContainerArray) ToProtectionContainerArrayOutputWithContext(ctx context.Context) ProtectionContainerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerArrayOutput)
+}
+
+func (i ProtectionContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionContainer] {
+	return pulumix.Output[[]*ProtectionContainer]{
+		OutputState: i.ToProtectionContainerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProtectionContainerMapInput is an input type that accepts ProtectionContainerMap and ProtectionContainerMapOutput values.
@@ -254,6 +267,12 @@ func (i ProtectionContainerMap) ToProtectionContainerMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMapOutput)
 }
 
+func (i ProtectionContainerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionContainer] {
+	return pulumix.Output[map[string]*ProtectionContainer]{
+		OutputState: i.ToProtectionContainerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProtectionContainerOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerOutput) ElementType() reflect.Type {
@@ -266,6 +285,12 @@ func (o ProtectionContainerOutput) ToProtectionContainerOutput() ProtectionConta
 
 func (o ProtectionContainerOutput) ToProtectionContainerOutputWithContext(ctx context.Context) ProtectionContainerOutput {
 	return o
+}
+
+func (o ProtectionContainerOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionContainer] {
+	return pulumix.Output[*ProtectionContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the protection container. Changing this forces a new resource to be created.
@@ -302,6 +327,12 @@ func (o ProtectionContainerArrayOutput) ToProtectionContainerArrayOutputWithCont
 	return o
 }
 
+func (o ProtectionContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionContainer] {
+	return pulumix.Output[[]*ProtectionContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionContainerArrayOutput) Index(i pulumi.IntInput) ProtectionContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionContainer {
 		return vs[0].([]*ProtectionContainer)[vs[1].(int)]
@@ -320,6 +351,12 @@ func (o ProtectionContainerMapOutput) ToProtectionContainerMapOutput() Protectio
 
 func (o ProtectionContainerMapOutput) ToProtectionContainerMapOutputWithContext(ctx context.Context) ProtectionContainerMapOutput {
 	return o
+}
+
+func (o ProtectionContainerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionContainer] {
+	return pulumix.Output[map[string]*ProtectionContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionContainerMapOutput) MapIndex(k pulumi.StringInput) ProtectionContainerOutput {

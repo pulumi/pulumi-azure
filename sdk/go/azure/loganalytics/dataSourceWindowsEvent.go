@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Windows Event DataSource.
@@ -206,6 +207,12 @@ func (i *DataSourceWindowsEvent) ToDataSourceWindowsEventOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsEventOutput)
 }
 
+func (i *DataSourceWindowsEvent) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWindowsEvent] {
+	return pulumix.Output[*DataSourceWindowsEvent]{
+		OutputState: i.ToDataSourceWindowsEventOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSourceWindowsEventArrayInput is an input type that accepts DataSourceWindowsEventArray and DataSourceWindowsEventArrayOutput values.
 // You can construct a concrete instance of `DataSourceWindowsEventArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i DataSourceWindowsEventArray) ToDataSourceWindowsEventArrayOutput() DataS
 
 func (i DataSourceWindowsEventArray) ToDataSourceWindowsEventArrayOutputWithContext(ctx context.Context) DataSourceWindowsEventArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsEventArrayOutput)
+}
+
+func (i DataSourceWindowsEventArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataSourceWindowsEvent] {
+	return pulumix.Output[[]*DataSourceWindowsEvent]{
+		OutputState: i.ToDataSourceWindowsEventArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataSourceWindowsEventMapInput is an input type that accepts DataSourceWindowsEventMap and DataSourceWindowsEventMapOutput values.
@@ -256,6 +269,12 @@ func (i DataSourceWindowsEventMap) ToDataSourceWindowsEventMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsEventMapOutput)
 }
 
+func (i DataSourceWindowsEventMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSourceWindowsEvent] {
+	return pulumix.Output[map[string]*DataSourceWindowsEvent]{
+		OutputState: i.ToDataSourceWindowsEventMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceWindowsEventOutput struct{ *pulumi.OutputState }
 
 func (DataSourceWindowsEventOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o DataSourceWindowsEventOutput) ToDataSourceWindowsEventOutput() DataSourc
 
 func (o DataSourceWindowsEventOutput) ToDataSourceWindowsEventOutputWithContext(ctx context.Context) DataSourceWindowsEventOutput {
 	return o
+}
+
+func (o DataSourceWindowsEventOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWindowsEvent] {
+	return pulumix.Output[*DataSourceWindowsEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Windows Event Log to collect events from.
@@ -309,6 +334,12 @@ func (o DataSourceWindowsEventArrayOutput) ToDataSourceWindowsEventArrayOutputWi
 	return o
 }
 
+func (o DataSourceWindowsEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataSourceWindowsEvent] {
+	return pulumix.Output[[]*DataSourceWindowsEvent]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceWindowsEventArrayOutput) Index(i pulumi.IntInput) DataSourceWindowsEventOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSourceWindowsEvent {
 		return vs[0].([]*DataSourceWindowsEvent)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o DataSourceWindowsEventMapOutput) ToDataSourceWindowsEventMapOutput() Dat
 
 func (o DataSourceWindowsEventMapOutput) ToDataSourceWindowsEventMapOutputWithContext(ctx context.Context) DataSourceWindowsEventMapOutput {
 	return o
+}
+
+func (o DataSourceWindowsEventMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSourceWindowsEvent] {
+	return pulumix.Output[map[string]*DataSourceWindowsEvent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceWindowsEventMapOutput) MapIndex(k pulumi.StringInput) DataSourceWindowsEventOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the association between a NAT Gateway and a Public IP Prefix.
@@ -176,6 +177,12 @@ func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpPrefixAssociationOutput)
 }
 
+func (i *NatGatewayPublicIpPrefixAssociation) ToOutput(ctx context.Context) pulumix.Output[*NatGatewayPublicIpPrefixAssociation] {
+	return pulumix.Output[*NatGatewayPublicIpPrefixAssociation]{
+		OutputState: i.ToNatGatewayPublicIpPrefixAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NatGatewayPublicIpPrefixAssociationArrayInput is an input type that accepts NatGatewayPublicIpPrefixAssociationArray and NatGatewayPublicIpPrefixAssociationArrayOutput values.
 // You can construct a concrete instance of `NatGatewayPublicIpPrefixAssociationArrayInput` via:
 //
@@ -199,6 +206,12 @@ func (i NatGatewayPublicIpPrefixAssociationArray) ToNatGatewayPublicIpPrefixAsso
 
 func (i NatGatewayPublicIpPrefixAssociationArray) ToNatGatewayPublicIpPrefixAssociationArrayOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpPrefixAssociationArrayOutput)
+}
+
+func (i NatGatewayPublicIpPrefixAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NatGatewayPublicIpPrefixAssociation] {
+	return pulumix.Output[[]*NatGatewayPublicIpPrefixAssociation]{
+		OutputState: i.ToNatGatewayPublicIpPrefixAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NatGatewayPublicIpPrefixAssociationMapInput is an input type that accepts NatGatewayPublicIpPrefixAssociationMap and NatGatewayPublicIpPrefixAssociationMapOutput values.
@@ -226,6 +239,12 @@ func (i NatGatewayPublicIpPrefixAssociationMap) ToNatGatewayPublicIpPrefixAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpPrefixAssociationMapOutput)
 }
 
+func (i NatGatewayPublicIpPrefixAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatGatewayPublicIpPrefixAssociation] {
+	return pulumix.Output[map[string]*NatGatewayPublicIpPrefixAssociation]{
+		OutputState: i.ToNatGatewayPublicIpPrefixAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NatGatewayPublicIpPrefixAssociationOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayPublicIpPrefixAssociationOutput) ElementType() reflect.Type {
@@ -238,6 +257,12 @@ func (o NatGatewayPublicIpPrefixAssociationOutput) ToNatGatewayPublicIpPrefixAss
 
 func (o NatGatewayPublicIpPrefixAssociationOutput) ToNatGatewayPublicIpPrefixAssociationOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationOutput {
 	return o
+}
+
+func (o NatGatewayPublicIpPrefixAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NatGatewayPublicIpPrefixAssociation] {
+	return pulumix.Output[*NatGatewayPublicIpPrefixAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -264,6 +289,12 @@ func (o NatGatewayPublicIpPrefixAssociationArrayOutput) ToNatGatewayPublicIpPref
 	return o
 }
 
+func (o NatGatewayPublicIpPrefixAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NatGatewayPublicIpPrefixAssociation] {
+	return pulumix.Output[[]*NatGatewayPublicIpPrefixAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NatGatewayPublicIpPrefixAssociationArrayOutput) Index(i pulumi.IntInput) NatGatewayPublicIpPrefixAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatGatewayPublicIpPrefixAssociation {
 		return vs[0].([]*NatGatewayPublicIpPrefixAssociation)[vs[1].(int)]
@@ -282,6 +313,12 @@ func (o NatGatewayPublicIpPrefixAssociationMapOutput) ToNatGatewayPublicIpPrefix
 
 func (o NatGatewayPublicIpPrefixAssociationMapOutput) ToNatGatewayPublicIpPrefixAssociationMapOutputWithContext(ctx context.Context) NatGatewayPublicIpPrefixAssociationMapOutput {
 	return o
+}
+
+func (o NatGatewayPublicIpPrefixAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatGatewayPublicIpPrefixAssociation] {
+	return pulumix.Output[map[string]*NatGatewayPublicIpPrefixAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NatGatewayPublicIpPrefixAssociationMapOutput) MapIndex(k pulumi.StringInput) NatGatewayPublicIpPrefixAssociationOutput {

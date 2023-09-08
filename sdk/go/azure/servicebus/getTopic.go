@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Service Bus Topic.
@@ -148,6 +149,12 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOu
 
 func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
 	return o
+}
+
+func (o LookupTopicResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTopicResult] {
+	return pulumix.Output[LookupTopicResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.

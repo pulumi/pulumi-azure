@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
@@ -119,6 +120,12 @@ func (o LookupAnalyticsWorkspaceResultOutput) ToLookupAnalyticsWorkspaceResultOu
 
 func (o LookupAnalyticsWorkspaceResultOutput) ToLookupAnalyticsWorkspaceResultOutputWithContext(ctx context.Context) LookupAnalyticsWorkspaceResultOutput {
 	return o
+}
+
+func (o LookupAnalyticsWorkspaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnalyticsWorkspaceResult] {
+	return pulumix.Output[LookupAnalyticsWorkspaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The workspace daily quota for ingestion in GB.

@@ -19,6 +19,7 @@ __all__ = [
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
     'ProviderFeaturesManagedDiskArgs',
     'ProviderFeaturesResourceGroupArgs',
+    'ProviderFeaturesSubscriptionArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
     'ProviderFeaturesVirtualMachineArgs',
     'ProviderFeaturesVirtualMachineScaleSetArgs',
@@ -35,6 +36,7 @@ class ProviderFeaturesArgs:
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
                  resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
+                 subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
@@ -54,6 +56,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "managed_disk", managed_disk)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if subscription is not None:
+            pulumi.set(__self__, "subscription", subscription)
         if template_deployment is not None:
             pulumi.set(__self__, "template_deployment", template_deployment)
         if virtual_machine is not None:
@@ -132,6 +136,15 @@ class ProviderFeaturesArgs:
     @resource_group.setter
     def resource_group(self, value: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']]):
         pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter
+    def subscription(self) -> Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']]:
+        return pulumi.get(self, "subscription")
+
+    @subscription.setter
+    def subscription(self, value: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']]):
+        pulumi.set(self, "subscription", value)
 
     @property
     @pulumi.getter(name="templateDeployment")
@@ -415,6 +428,23 @@ class ProviderFeaturesResourceGroupArgs:
     @prevent_deletion_if_contains_resources.setter
     def prevent_deletion_if_contains_resources(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "prevent_deletion_if_contains_resources", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesSubscriptionArgs:
+    def __init__(__self__, *,
+                 prevent_cancellation_on_destroy: Optional[pulumi.Input[bool]] = None):
+        if prevent_cancellation_on_destroy is not None:
+            pulumi.set(__self__, "prevent_cancellation_on_destroy", prevent_cancellation_on_destroy)
+
+    @property
+    @pulumi.getter(name="preventCancellationOnDestroy")
+    def prevent_cancellation_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "prevent_cancellation_on_destroy")
+
+    @prevent_cancellation_on_destroy.setter
+    def prevent_cancellation_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prevent_cancellation_on_destroy", value)
 
 
 @pulumi.input_type

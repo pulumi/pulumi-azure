@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing MySQL Flexible Server.
@@ -139,6 +140,12 @@ func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutput() L
 
 func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutputWithContext(ctx context.Context) LookupFlexibleServerResultOutput {
 	return o
+}
+
+func (o LookupFlexibleServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlexibleServerResult] {
+	return pulumix.Output[LookupFlexibleServerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Administrator login of the MySQL Flexible Server.

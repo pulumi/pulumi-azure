@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and configured via a Local Rulestack.
@@ -176,6 +177,12 @@ func (i *NextGenerationFirewallVirtualNetworkLocalRulestack) ToNextGenerationFir
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackOutput)
 }
 
+func (i *NextGenerationFirewallVirtualNetworkLocalRulestack) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestack] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestack]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualNetworkLocalRulestackArrayInput is an input type that accepts NextGenerationFirewallVirtualNetworkLocalRulestackArray and NextGenerationFirewallVirtualNetworkLocalRulestackArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkLocalRulestackArrayInput` via:
 //
@@ -199,6 +206,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackArray) ToNextGeneratio
 
 func (i NextGenerationFirewallVirtualNetworkLocalRulestackArray) ToNextGenerationFirewallVirtualNetworkLocalRulestackArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackArrayOutput)
+}
+
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackArray) ToOutput(ctx context.Context) pulumix.Output[[]*NextGenerationFirewallVirtualNetworkLocalRulestack] {
+	return pulumix.Output[[]*NextGenerationFirewallVirtualNetworkLocalRulestack]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NextGenerationFirewallVirtualNetworkLocalRulestackMapInput is an input type that accepts NextGenerationFirewallVirtualNetworkLocalRulestackMap and NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput values.
@@ -226,6 +239,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackMap) ToNextGenerationF
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NextGenerationFirewallVirtualNetworkLocalRulestack] {
+	return pulumix.Output[map[string]*NextGenerationFirewallVirtualNetworkLocalRulestack]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackOutput) ElementType() reflect.Type {
@@ -238,6 +257,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) ToNextGenerati
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestack] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `destinationNat` blocks as defined below.
@@ -297,6 +322,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackArrayOutput) ToNextGen
 	return o
 }
 
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NextGenerationFirewallVirtualNetworkLocalRulestack] {
+	return pulumix.Output[[]*NextGenerationFirewallVirtualNetworkLocalRulestack]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualNetworkLocalRulestackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NextGenerationFirewallVirtualNetworkLocalRulestack {
 		return vs[0].([]*NextGenerationFirewallVirtualNetworkLocalRulestack)[vs[1].(int)]
@@ -315,6 +346,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput) ToNextGener
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackMapOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NextGenerationFirewallVirtualNetworkLocalRulestack] {
+	return pulumix.Output[map[string]*NextGenerationFirewallVirtualNetworkLocalRulestack]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackMapOutput) MapIndex(k pulumi.StringInput) NextGenerationFirewallVirtualNetworkLocalRulestackOutput {

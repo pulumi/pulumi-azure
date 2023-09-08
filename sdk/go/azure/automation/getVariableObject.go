@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Automation Object Variable.
@@ -87,6 +88,12 @@ func (o LookupVariableObjectResultOutput) ToLookupVariableObjectResultOutput() L
 
 func (o LookupVariableObjectResultOutput) ToLookupVariableObjectResultOutputWithContext(ctx context.Context) LookupVariableObjectResultOutput {
 	return o
+}
+
+func (o LookupVariableObjectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVariableObjectResult] {
+	return pulumix.Output[LookupVariableObjectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVariableObjectResultOutput) AutomationAccountName() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a PostgreSQL Dataset inside a Azure Data Factory.
@@ -251,6 +252,12 @@ func (i *DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlOutput)
 }
 
+func (i *DatasetPostgresql) ToOutput(ctx context.Context) pulumix.Output[*DatasetPostgresql] {
+	return pulumix.Output[*DatasetPostgresql]{
+		OutputState: i.ToDatasetPostgresqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetPostgresqlArrayInput is an input type that accepts DatasetPostgresqlArray and DatasetPostgresqlArrayOutput values.
 // You can construct a concrete instance of `DatasetPostgresqlArrayInput` via:
 //
@@ -274,6 +281,12 @@ func (i DatasetPostgresqlArray) ToDatasetPostgresqlArrayOutput() DatasetPostgres
 
 func (i DatasetPostgresqlArray) ToDatasetPostgresqlArrayOutputWithContext(ctx context.Context) DatasetPostgresqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlArrayOutput)
+}
+
+func (i DatasetPostgresqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetPostgresql] {
+	return pulumix.Output[[]*DatasetPostgresql]{
+		OutputState: i.ToDatasetPostgresqlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatasetPostgresqlMapInput is an input type that accepts DatasetPostgresqlMap and DatasetPostgresqlMapOutput values.
@@ -301,6 +314,12 @@ func (i DatasetPostgresqlMap) ToDatasetPostgresqlMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlMapOutput)
 }
 
+func (i DatasetPostgresqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetPostgresql] {
+	return pulumix.Output[map[string]*DatasetPostgresql]{
+		OutputState: i.ToDatasetPostgresqlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetPostgresqlOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlOutput) ElementType() reflect.Type {
@@ -313,6 +332,12 @@ func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutput() DatasetPostgresqlOu
 
 func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
 	return o
+}
+
+func (o DatasetPostgresqlOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetPostgresql] {
+	return pulumix.Output[*DatasetPostgresql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
@@ -379,6 +404,12 @@ func (o DatasetPostgresqlArrayOutput) ToDatasetPostgresqlArrayOutputWithContext(
 	return o
 }
 
+func (o DatasetPostgresqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetPostgresql] {
+	return pulumix.Output[[]*DatasetPostgresql]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetPostgresqlArrayOutput) Index(i pulumi.IntInput) DatasetPostgresqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetPostgresql {
 		return vs[0].([]*DatasetPostgresql)[vs[1].(int)]
@@ -397,6 +428,12 @@ func (o DatasetPostgresqlMapOutput) ToDatasetPostgresqlMapOutput() DatasetPostgr
 
 func (o DatasetPostgresqlMapOutput) ToDatasetPostgresqlMapOutputWithContext(ctx context.Context) DatasetPostgresqlMapOutput {
 	return o
+}
+
+func (o DatasetPostgresqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetPostgresql] {
+	return pulumix.Output[map[string]*DatasetPostgresql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetPostgresqlMapOutput) MapIndex(k pulumi.StringInput) DatasetPostgresqlOutput {

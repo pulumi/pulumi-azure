@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
@@ -292,6 +293,12 @@ func (i *AadDiagnosticSetting) ToAadDiagnosticSettingOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingOutput)
 }
 
+func (i *AadDiagnosticSetting) ToOutput(ctx context.Context) pulumix.Output[*AadDiagnosticSetting] {
+	return pulumix.Output[*AadDiagnosticSetting]{
+		OutputState: i.ToAadDiagnosticSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AadDiagnosticSettingArrayInput is an input type that accepts AadDiagnosticSettingArray and AadDiagnosticSettingArrayOutput values.
 // You can construct a concrete instance of `AadDiagnosticSettingArrayInput` via:
 //
@@ -315,6 +322,12 @@ func (i AadDiagnosticSettingArray) ToAadDiagnosticSettingArrayOutput() AadDiagno
 
 func (i AadDiagnosticSettingArray) ToAadDiagnosticSettingArrayOutputWithContext(ctx context.Context) AadDiagnosticSettingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingArrayOutput)
+}
+
+func (i AadDiagnosticSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]*AadDiagnosticSetting] {
+	return pulumix.Output[[]*AadDiagnosticSetting]{
+		OutputState: i.ToAadDiagnosticSettingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AadDiagnosticSettingMapInput is an input type that accepts AadDiagnosticSettingMap and AadDiagnosticSettingMapOutput values.
@@ -342,6 +355,12 @@ func (i AadDiagnosticSettingMap) ToAadDiagnosticSettingMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingMapOutput)
 }
 
+func (i AadDiagnosticSettingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AadDiagnosticSetting] {
+	return pulumix.Output[map[string]*AadDiagnosticSetting]{
+		OutputState: i.ToAadDiagnosticSettingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AadDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingOutput) ElementType() reflect.Type {
@@ -354,6 +373,12 @@ func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingOutput() AadDiagnostic
 
 func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingOutputWithContext(ctx context.Context) AadDiagnosticSettingOutput {
 	return o
+}
+
+func (o AadDiagnosticSettingOutput) ToOutput(ctx context.Context) pulumix.Output[*AadDiagnosticSetting] {
+	return pulumix.Output[*AadDiagnosticSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `enabledLog` blocks as defined below.
@@ -415,6 +440,12 @@ func (o AadDiagnosticSettingArrayOutput) ToAadDiagnosticSettingArrayOutputWithCo
 	return o
 }
 
+func (o AadDiagnosticSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AadDiagnosticSetting] {
+	return pulumix.Output[[]*AadDiagnosticSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AadDiagnosticSettingArrayOutput) Index(i pulumi.IntInput) AadDiagnosticSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AadDiagnosticSetting {
 		return vs[0].([]*AadDiagnosticSetting)[vs[1].(int)]
@@ -433,6 +464,12 @@ func (o AadDiagnosticSettingMapOutput) ToAadDiagnosticSettingMapOutput() AadDiag
 
 func (o AadDiagnosticSettingMapOutput) ToAadDiagnosticSettingMapOutputWithContext(ctx context.Context) AadDiagnosticSettingMapOutput {
 	return o
+}
+
+func (o AadDiagnosticSettingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AadDiagnosticSetting] {
+	return pulumix.Output[map[string]*AadDiagnosticSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AadDiagnosticSettingMapOutput) MapIndex(k pulumi.StringInput) AadDiagnosticSettingOutput {

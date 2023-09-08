@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Monitor Action Rule which type is action group.
@@ -235,6 +236,12 @@ func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupOutput)
 }
 
+func (i *ActionRuleActionGroup) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroup] {
+	return pulumix.Output[*ActionRuleActionGroup]{
+		OutputState: i.ToActionRuleActionGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionRuleActionGroupArrayInput is an input type that accepts ActionRuleActionGroupArray and ActionRuleActionGroupArrayOutput values.
 // You can construct a concrete instance of `ActionRuleActionGroupArrayInput` via:
 //
@@ -258,6 +265,12 @@ func (i ActionRuleActionGroupArray) ToActionRuleActionGroupArrayOutput() ActionR
 
 func (i ActionRuleActionGroupArray) ToActionRuleActionGroupArrayOutputWithContext(ctx context.Context) ActionRuleActionGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupArrayOutput)
+}
+
+func (i ActionRuleActionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionRuleActionGroup] {
+	return pulumix.Output[[]*ActionRuleActionGroup]{
+		OutputState: i.ToActionRuleActionGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionRuleActionGroupMapInput is an input type that accepts ActionRuleActionGroupMap and ActionRuleActionGroupMapOutput values.
@@ -285,6 +298,12 @@ func (i ActionRuleActionGroupMap) ToActionRuleActionGroupMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupMapOutput)
 }
 
+func (i ActionRuleActionGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionRuleActionGroup] {
+	return pulumix.Output[map[string]*ActionRuleActionGroup]{
+		OutputState: i.ToActionRuleActionGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionRuleActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupOutput) ElementType() reflect.Type {
@@ -297,6 +316,12 @@ func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutput() ActionRuleA
 
 func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput {
 	return o
+}
+
+func (o ActionRuleActionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroup] {
+	return pulumix.Output[*ActionRuleActionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the resource id of monitor action group.
@@ -353,6 +378,12 @@ func (o ActionRuleActionGroupArrayOutput) ToActionRuleActionGroupArrayOutputWith
 	return o
 }
 
+func (o ActionRuleActionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionRuleActionGroup] {
+	return pulumix.Output[[]*ActionRuleActionGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionRuleActionGroupArrayOutput) Index(i pulumi.IntInput) ActionRuleActionGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionRuleActionGroup {
 		return vs[0].([]*ActionRuleActionGroup)[vs[1].(int)]
@@ -371,6 +402,12 @@ func (o ActionRuleActionGroupMapOutput) ToActionRuleActionGroupMapOutput() Actio
 
 func (o ActionRuleActionGroupMapOutput) ToActionRuleActionGroupMapOutputWithContext(ctx context.Context) ActionRuleActionGroupMapOutput {
 	return o
+}
+
+func (o ActionRuleActionGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionRuleActionGroup] {
+	return pulumix.Output[map[string]*ActionRuleActionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionRuleActionGroupMapOutput) MapIndex(k pulumi.StringInput) ActionRuleActionGroupOutput {

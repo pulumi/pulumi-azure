@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Partner.
@@ -204,6 +205,12 @@ func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
 }
 
+func (i *IntegrationAccountPartner) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountPartner] {
+	return pulumix.Output[*IntegrationAccountPartner]{
+		OutputState: i.ToIntegrationAccountPartnerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationAccountPartnerArrayInput is an input type that accepts IntegrationAccountPartnerArray and IntegrationAccountPartnerArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountPartnerArrayInput` via:
 //
@@ -227,6 +234,12 @@ func (i IntegrationAccountPartnerArray) ToIntegrationAccountPartnerArrayOutput()
 
 func (i IntegrationAccountPartnerArray) ToIntegrationAccountPartnerArrayOutputWithContext(ctx context.Context) IntegrationAccountPartnerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerArrayOutput)
+}
+
+func (i IntegrationAccountPartnerArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountPartner] {
+	return pulumix.Output[[]*IntegrationAccountPartner]{
+		OutputState: i.ToIntegrationAccountPartnerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationAccountPartnerMapInput is an input type that accepts IntegrationAccountPartnerMap and IntegrationAccountPartnerMapOutput values.
@@ -254,6 +267,12 @@ func (i IntegrationAccountPartnerMap) ToIntegrationAccountPartnerMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerMapOutput)
 }
 
+func (i IntegrationAccountPartnerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountPartner] {
+	return pulumix.Output[map[string]*IntegrationAccountPartner]{
+		OutputState: i.ToIntegrationAccountPartnerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationAccountPartnerOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
@@ -266,6 +285,12 @@ func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutput() Int
 
 func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput {
 	return o
+}
+
+func (o IntegrationAccountPartnerOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountPartner] {
+	return pulumix.Output[*IntegrationAccountPartner]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `businessIdentity` block as documented below.
@@ -309,6 +334,12 @@ func (o IntegrationAccountPartnerArrayOutput) ToIntegrationAccountPartnerArrayOu
 	return o
 }
 
+func (o IntegrationAccountPartnerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountPartner] {
+	return pulumix.Output[[]*IntegrationAccountPartner]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationAccountPartnerArrayOutput) Index(i pulumi.IntInput) IntegrationAccountPartnerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountPartner {
 		return vs[0].([]*IntegrationAccountPartner)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o IntegrationAccountPartnerMapOutput) ToIntegrationAccountPartnerMapOutput
 
 func (o IntegrationAccountPartnerMapOutput) ToIntegrationAccountPartnerMapOutputWithContext(ctx context.Context) IntegrationAccountPartnerMapOutput {
 	return o
+}
+
+func (o IntegrationAccountPartnerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountPartner] {
+	return pulumix.Output[map[string]*IntegrationAccountPartner]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationAccountPartnerMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountPartnerOutput {

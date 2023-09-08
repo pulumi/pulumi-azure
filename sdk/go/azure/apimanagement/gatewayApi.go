@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management Gateway API.
@@ -173,6 +174,12 @@ func (i *GatewayApi) ToGatewayApiOutputWithContext(ctx context.Context) GatewayA
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiOutput)
 }
 
+func (i *GatewayApi) ToOutput(ctx context.Context) pulumix.Output[*GatewayApi] {
+	return pulumix.Output[*GatewayApi]{
+		OutputState: i.ToGatewayApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayApiArrayInput is an input type that accepts GatewayApiArray and GatewayApiArrayOutput values.
 // You can construct a concrete instance of `GatewayApiArrayInput` via:
 //
@@ -196,6 +203,12 @@ func (i GatewayApiArray) ToGatewayApiArrayOutput() GatewayApiArrayOutput {
 
 func (i GatewayApiArray) ToGatewayApiArrayOutputWithContext(ctx context.Context) GatewayApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiArrayOutput)
+}
+
+func (i GatewayApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayApi] {
+	return pulumix.Output[[]*GatewayApi]{
+		OutputState: i.ToGatewayApiArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GatewayApiMapInput is an input type that accepts GatewayApiMap and GatewayApiMapOutput values.
@@ -223,6 +236,12 @@ func (i GatewayApiMap) ToGatewayApiMapOutputWithContext(ctx context.Context) Gat
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiMapOutput)
 }
 
+func (i GatewayApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayApi] {
+	return pulumix.Output[map[string]*GatewayApi]{
+		OutputState: i.ToGatewayApiMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayApiOutput struct{ *pulumi.OutputState }
 
 func (GatewayApiOutput) ElementType() reflect.Type {
@@ -235,6 +254,12 @@ func (o GatewayApiOutput) ToGatewayApiOutput() GatewayApiOutput {
 
 func (o GatewayApiOutput) ToGatewayApiOutputWithContext(ctx context.Context) GatewayApiOutput {
 	return o
+}
+
+func (o GatewayApiOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayApi] {
+	return pulumix.Output[*GatewayApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
@@ -261,6 +286,12 @@ func (o GatewayApiArrayOutput) ToGatewayApiArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o GatewayApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayApi] {
+	return pulumix.Output[[]*GatewayApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayApiArrayOutput) Index(i pulumi.IntInput) GatewayApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayApi {
 		return vs[0].([]*GatewayApi)[vs[1].(int)]
@@ -279,6 +310,12 @@ func (o GatewayApiMapOutput) ToGatewayApiMapOutput() GatewayApiMapOutput {
 
 func (o GatewayApiMapOutput) ToGatewayApiMapOutputWithContext(ctx context.Context) GatewayApiMapOutput {
 	return o
+}
+
+func (o GatewayApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayApi] {
+	return pulumix.Output[map[string]*GatewayApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayApiMapOutput) MapIndex(k pulumi.StringInput) GatewayApiOutput {

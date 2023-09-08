@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
@@ -277,6 +278,12 @@ func (i *NetworkMapping) ToNetworkMappingOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingOutput)
 }
 
+func (i *NetworkMapping) ToOutput(ctx context.Context) pulumix.Output[*NetworkMapping] {
+	return pulumix.Output[*NetworkMapping]{
+		OutputState: i.ToNetworkMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkMappingArrayInput is an input type that accepts NetworkMappingArray and NetworkMappingArrayOutput values.
 // You can construct a concrete instance of `NetworkMappingArrayInput` via:
 //
@@ -300,6 +307,12 @@ func (i NetworkMappingArray) ToNetworkMappingArrayOutput() NetworkMappingArrayOu
 
 func (i NetworkMappingArray) ToNetworkMappingArrayOutputWithContext(ctx context.Context) NetworkMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingArrayOutput)
+}
+
+func (i NetworkMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkMapping] {
+	return pulumix.Output[[]*NetworkMapping]{
+		OutputState: i.ToNetworkMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkMappingMapInput is an input type that accepts NetworkMappingMap and NetworkMappingMapOutput values.
@@ -327,6 +340,12 @@ func (i NetworkMappingMap) ToNetworkMappingMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingMapOutput)
 }
 
+func (i NetworkMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkMapping] {
+	return pulumix.Output[map[string]*NetworkMapping]{
+		OutputState: i.ToNetworkMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkMappingOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingOutput) ElementType() reflect.Type {
@@ -339,6 +358,12 @@ func (o NetworkMappingOutput) ToNetworkMappingOutput() NetworkMappingOutput {
 
 func (o NetworkMappingOutput) ToNetworkMappingOutputWithContext(ctx context.Context) NetworkMappingOutput {
 	return o
+}
+
+func (o NetworkMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkMapping] {
+	return pulumix.Output[*NetworkMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the network mapping. Changing this forces a new resource to be created.
@@ -390,6 +415,12 @@ func (o NetworkMappingArrayOutput) ToNetworkMappingArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NetworkMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkMapping] {
+	return pulumix.Output[[]*NetworkMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkMappingArrayOutput) Index(i pulumi.IntInput) NetworkMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkMapping {
 		return vs[0].([]*NetworkMapping)[vs[1].(int)]
@@ -408,6 +439,12 @@ func (o NetworkMappingMapOutput) ToNetworkMappingMapOutput() NetworkMappingMapOu
 
 func (o NetworkMappingMapOutput) ToNetworkMappingMapOutputWithContext(ctx context.Context) NetworkMappingMapOutput {
 	return o
+}
+
+func (o NetworkMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkMapping] {
+	return pulumix.Output[map[string]*NetworkMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkMappingMapOutput) MapIndex(k pulumi.StringInput) NetworkMappingOutput {

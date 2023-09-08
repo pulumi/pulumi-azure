@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub
@@ -484,6 +485,12 @@ func (i *IoTHub) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubOutput)
 }
 
+func (i *IoTHub) ToOutput(ctx context.Context) pulumix.Output[*IoTHub] {
+	return pulumix.Output[*IoTHub]{
+		OutputState: i.ToIoTHubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IoTHubArrayInput is an input type that accepts IoTHubArray and IoTHubArrayOutput values.
 // You can construct a concrete instance of `IoTHubArrayInput` via:
 //
@@ -507,6 +514,12 @@ func (i IoTHubArray) ToIoTHubArrayOutput() IoTHubArrayOutput {
 
 func (i IoTHubArray) ToIoTHubArrayOutputWithContext(ctx context.Context) IoTHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubArrayOutput)
+}
+
+func (i IoTHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*IoTHub] {
+	return pulumix.Output[[]*IoTHub]{
+		OutputState: i.ToIoTHubArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IoTHubMapInput is an input type that accepts IoTHubMap and IoTHubMapOutput values.
@@ -534,6 +547,12 @@ func (i IoTHubMap) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubMapOutput)
 }
 
+func (i IoTHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IoTHub] {
+	return pulumix.Output[map[string]*IoTHub]{
+		OutputState: i.ToIoTHubMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IoTHubOutput struct{ *pulumi.OutputState }
 
 func (IoTHubOutput) ElementType() reflect.Type {
@@ -546,6 +565,12 @@ func (o IoTHubOutput) ToIoTHubOutput() IoTHubOutput {
 
 func (o IoTHubOutput) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
 	return o
+}
+
+func (o IoTHubOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHub] {
+	return pulumix.Output[*IoTHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `cloudToDevice` block as defined below.
@@ -689,6 +714,12 @@ func (o IoTHubArrayOutput) ToIoTHubArrayOutputWithContext(ctx context.Context) I
 	return o
 }
 
+func (o IoTHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IoTHub] {
+	return pulumix.Output[[]*IoTHub]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IoTHubArrayOutput) Index(i pulumi.IntInput) IoTHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IoTHub {
 		return vs[0].([]*IoTHub)[vs[1].(int)]
@@ -707,6 +738,12 @@ func (o IoTHubMapOutput) ToIoTHubMapOutput() IoTHubMapOutput {
 
 func (o IoTHubMapOutput) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOutput {
 	return o
+}
+
+func (o IoTHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IoTHub] {
+	return pulumix.Output[map[string]*IoTHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IoTHubMapOutput) MapIndex(k pulumi.StringInput) IoTHubOutput {

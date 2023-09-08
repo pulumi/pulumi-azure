@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Device Provisioning Service.
@@ -260,6 +261,12 @@ func (i *IotHubDps) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsO
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsOutput)
 }
 
+func (i *IotHubDps) ToOutput(ctx context.Context) pulumix.Output[*IotHubDps] {
+	return pulumix.Output[*IotHubDps]{
+		OutputState: i.ToIotHubDpsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IotHubDpsArrayInput is an input type that accepts IotHubDpsArray and IotHubDpsArrayOutput values.
 // You can construct a concrete instance of `IotHubDpsArrayInput` via:
 //
@@ -283,6 +290,12 @@ func (i IotHubDpsArray) ToIotHubDpsArrayOutput() IotHubDpsArrayOutput {
 
 func (i IotHubDpsArray) ToIotHubDpsArrayOutputWithContext(ctx context.Context) IotHubDpsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsArrayOutput)
+}
+
+func (i IotHubDpsArray) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDps] {
+	return pulumix.Output[[]*IotHubDps]{
+		OutputState: i.ToIotHubDpsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IotHubDpsMapInput is an input type that accepts IotHubDpsMap and IotHubDpsMapOutput values.
@@ -310,6 +323,12 @@ func (i IotHubDpsMap) ToIotHubDpsMapOutputWithContext(ctx context.Context) IotHu
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsMapOutput)
 }
 
+func (i IotHubDpsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDps] {
+	return pulumix.Output[map[string]*IotHubDps]{
+		OutputState: i.ToIotHubDpsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IotHubDpsOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsOutput) ElementType() reflect.Type {
@@ -322,6 +341,12 @@ func (o IotHubDpsOutput) ToIotHubDpsOutput() IotHubDpsOutput {
 
 func (o IotHubDpsOutput) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsOutput {
 	return o
+}
+
+func (o IotHubDpsOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDps] {
+	return pulumix.Output[*IotHubDps]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
@@ -403,6 +428,12 @@ func (o IotHubDpsArrayOutput) ToIotHubDpsArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o IotHubDpsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDps] {
+	return pulumix.Output[[]*IotHubDps]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IotHubDpsArrayOutput) Index(i pulumi.IntInput) IotHubDpsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IotHubDps {
 		return vs[0].([]*IotHubDps)[vs[1].(int)]
@@ -421,6 +452,12 @@ func (o IotHubDpsMapOutput) ToIotHubDpsMapOutput() IotHubDpsMapOutput {
 
 func (o IotHubDpsMapOutput) ToIotHubDpsMapOutputWithContext(ctx context.Context) IotHubDpsMapOutput {
 	return o
+}
+
+func (o IotHubDpsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDps] {
+	return pulumix.Output[map[string]*IotHubDps]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IotHubDpsMapOutput) MapIndex(k pulumi.StringInput) IotHubDpsOutput {

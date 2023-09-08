@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Spring Cloud Application.
@@ -124,6 +125,12 @@ func (o LookupSpringCloudAppResultOutput) ToLookupSpringCloudAppResultOutput() L
 
 func (o LookupSpringCloudAppResultOutput) ToLookupSpringCloudAppResultOutputWithContext(ctx context.Context) LookupSpringCloudAppResultOutput {
 	return o
+}
+
+func (o LookupSpringCloudAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSpringCloudAppResult] {
+	return pulumix.Output[LookupSpringCloudAppResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Fully Qualified DNS Name.

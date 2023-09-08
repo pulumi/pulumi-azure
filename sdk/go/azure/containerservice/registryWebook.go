@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Container Registry Webhook.
@@ -264,6 +265,12 @@ func (i *RegistryWebook) ToRegistryWebookOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookOutput)
 }
 
+func (i *RegistryWebook) ToOutput(ctx context.Context) pulumix.Output[*RegistryWebook] {
+	return pulumix.Output[*RegistryWebook]{
+		OutputState: i.ToRegistryWebookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryWebookArrayInput is an input type that accepts RegistryWebookArray and RegistryWebookArrayOutput values.
 // You can construct a concrete instance of `RegistryWebookArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i RegistryWebookArray) ToRegistryWebookArrayOutput() RegistryWebookArrayOu
 
 func (i RegistryWebookArray) ToRegistryWebookArrayOutputWithContext(ctx context.Context) RegistryWebookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookArrayOutput)
+}
+
+func (i RegistryWebookArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryWebook] {
+	return pulumix.Output[[]*RegistryWebook]{
+		OutputState: i.ToRegistryWebookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryWebookMapInput is an input type that accepts RegistryWebookMap and RegistryWebookMapOutput values.
@@ -314,6 +327,12 @@ func (i RegistryWebookMap) ToRegistryWebookMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookMapOutput)
 }
 
+func (i RegistryWebookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryWebook] {
+	return pulumix.Output[map[string]*RegistryWebook]{
+		OutputState: i.ToRegistryWebookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryWebookOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebookOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o RegistryWebookOutput) ToRegistryWebookOutput() RegistryWebookOutput {
 
 func (o RegistryWebookOutput) ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput {
 	return o
+}
+
+func (o RegistryWebookOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryWebook] {
+	return pulumix.Output[*RegistryWebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
@@ -392,6 +417,12 @@ func (o RegistryWebookArrayOutput) ToRegistryWebookArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o RegistryWebookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryWebook] {
+	return pulumix.Output[[]*RegistryWebook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryWebookArrayOutput) Index(i pulumi.IntInput) RegistryWebookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryWebook {
 		return vs[0].([]*RegistryWebook)[vs[1].(int)]
@@ -410,6 +441,12 @@ func (o RegistryWebookMapOutput) ToRegistryWebookMapOutput() RegistryWebookMapOu
 
 func (o RegistryWebookMapOutput) ToRegistryWebookMapOutputWithContext(ctx context.Context) RegistryWebookMapOutput {
 	return o
+}
+
+func (o RegistryWebookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryWebook] {
+	return pulumix.Output[map[string]*RegistryWebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryWebookMapOutput) MapIndex(k pulumi.StringInput) RegistryWebookOutput {

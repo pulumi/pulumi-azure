@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output to CosmosDB.
@@ -267,6 +268,12 @@ func (i *OutputCosmosdb) ToOutputCosmosdbOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OutputCosmosdbOutput)
 }
 
+func (i *OutputCosmosdb) ToOutput(ctx context.Context) pulumix.Output[*OutputCosmosdb] {
+	return pulumix.Output[*OutputCosmosdb]{
+		OutputState: i.ToOutputCosmosdbOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutputCosmosdbArrayInput is an input type that accepts OutputCosmosdbArray and OutputCosmosdbArrayOutput values.
 // You can construct a concrete instance of `OutputCosmosdbArrayInput` via:
 //
@@ -290,6 +297,12 @@ func (i OutputCosmosdbArray) ToOutputCosmosdbArrayOutput() OutputCosmosdbArrayOu
 
 func (i OutputCosmosdbArray) ToOutputCosmosdbArrayOutputWithContext(ctx context.Context) OutputCosmosdbArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputCosmosdbArrayOutput)
+}
+
+func (i OutputCosmosdbArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputCosmosdb] {
+	return pulumix.Output[[]*OutputCosmosdb]{
+		OutputState: i.ToOutputCosmosdbArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutputCosmosdbMapInput is an input type that accepts OutputCosmosdbMap and OutputCosmosdbMapOutput values.
@@ -317,6 +330,12 @@ func (i OutputCosmosdbMap) ToOutputCosmosdbMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(OutputCosmosdbMapOutput)
 }
 
+func (i OutputCosmosdbMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputCosmosdb] {
+	return pulumix.Output[map[string]*OutputCosmosdb]{
+		OutputState: i.ToOutputCosmosdbMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputCosmosdbOutput struct{ *pulumi.OutputState }
 
 func (OutputCosmosdbOutput) ElementType() reflect.Type {
@@ -329,6 +348,12 @@ func (o OutputCosmosdbOutput) ToOutputCosmosdbOutput() OutputCosmosdbOutput {
 
 func (o OutputCosmosdbOutput) ToOutputCosmosdbOutputWithContext(ctx context.Context) OutputCosmosdbOutput {
 	return o
+}
+
+func (o OutputCosmosdbOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputCosmosdb] {
+	return pulumix.Output[*OutputCosmosdb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the CosmosDB container.
@@ -380,6 +405,12 @@ func (o OutputCosmosdbArrayOutput) ToOutputCosmosdbArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o OutputCosmosdbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputCosmosdb] {
+	return pulumix.Output[[]*OutputCosmosdb]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutputCosmosdbArrayOutput) Index(i pulumi.IntInput) OutputCosmosdbOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputCosmosdb {
 		return vs[0].([]*OutputCosmosdb)[vs[1].(int)]
@@ -398,6 +429,12 @@ func (o OutputCosmosdbMapOutput) ToOutputCosmosdbMapOutput() OutputCosmosdbMapOu
 
 func (o OutputCosmosdbMapOutput) ToOutputCosmosdbMapOutputWithContext(ctx context.Context) OutputCosmosdbMapOutput {
 	return o
+}
+
+func (o OutputCosmosdbMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputCosmosdb] {
+	return pulumix.Output[map[string]*OutputCosmosdb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputCosmosdbMapOutput) MapIndex(k pulumi.StringInput) OutputCosmosdbOutput {

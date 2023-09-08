@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure File Share Backup Policy within a Recovery Services vault.
@@ -292,6 +293,12 @@ func (i *PolicyFileShare) ToPolicyFileShareOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareOutput)
 }
 
+func (i *PolicyFileShare) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShare] {
+	return pulumix.Output[*PolicyFileShare]{
+		OutputState: i.ToPolicyFileShareOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyFileShareArrayInput is an input type that accepts PolicyFileShareArray and PolicyFileShareArrayOutput values.
 // You can construct a concrete instance of `PolicyFileShareArrayInput` via:
 //
@@ -315,6 +322,12 @@ func (i PolicyFileShareArray) ToPolicyFileShareArrayOutput() PolicyFileShareArra
 
 func (i PolicyFileShareArray) ToPolicyFileShareArrayOutputWithContext(ctx context.Context) PolicyFileShareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareArrayOutput)
+}
+
+func (i PolicyFileShareArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyFileShare] {
+	return pulumix.Output[[]*PolicyFileShare]{
+		OutputState: i.ToPolicyFileShareArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyFileShareMapInput is an input type that accepts PolicyFileShareMap and PolicyFileShareMapOutput values.
@@ -342,6 +355,12 @@ func (i PolicyFileShareMap) ToPolicyFileShareMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareMapOutput)
 }
 
+func (i PolicyFileShareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyFileShare] {
+	return pulumix.Output[map[string]*PolicyFileShare]{
+		OutputState: i.ToPolicyFileShareMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyFileShareOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareOutput) ElementType() reflect.Type {
@@ -354,6 +373,12 @@ func (o PolicyFileShareOutput) ToPolicyFileShareOutput() PolicyFileShareOutput {
 
 func (o PolicyFileShareOutput) ToPolicyFileShareOutputWithContext(ctx context.Context) PolicyFileShareOutput {
 	return o
+}
+
+func (o PolicyFileShareOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShare] {
+	return pulumix.Output[*PolicyFileShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configures the Policy backup frequency and times as documented in the `backup` block below.
@@ -417,6 +442,12 @@ func (o PolicyFileShareArrayOutput) ToPolicyFileShareArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o PolicyFileShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyFileShare] {
+	return pulumix.Output[[]*PolicyFileShare]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyFileShareArrayOutput) Index(i pulumi.IntInput) PolicyFileShareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyFileShare {
 		return vs[0].([]*PolicyFileShare)[vs[1].(int)]
@@ -435,6 +466,12 @@ func (o PolicyFileShareMapOutput) ToPolicyFileShareMapOutput() PolicyFileShareMa
 
 func (o PolicyFileShareMapOutput) ToPolicyFileShareMapOutputWithContext(ctx context.Context) PolicyFileShareMapOutput {
 	return o
+}
+
+func (o PolicyFileShareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyFileShare] {
+	return pulumix.Output[map[string]*PolicyFileShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyFileShareMapOutput) MapIndex(k pulumi.StringInput) PolicyFileShareOutput {

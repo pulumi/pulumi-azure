@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
@@ -616,6 +617,12 @@ func (i *ReplicatedVM) ToReplicatedVMOutputWithContext(ctx context.Context) Repl
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMOutput)
 }
 
+func (i *ReplicatedVM) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVM] {
+	return pulumix.Output[*ReplicatedVM]{
+		OutputState: i.ToReplicatedVMOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicatedVMArrayInput is an input type that accepts ReplicatedVMArray and ReplicatedVMArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMArrayInput` via:
 //
@@ -639,6 +646,12 @@ func (i ReplicatedVMArray) ToReplicatedVMArrayOutput() ReplicatedVMArrayOutput {
 
 func (i ReplicatedVMArray) ToReplicatedVMArrayOutputWithContext(ctx context.Context) ReplicatedVMArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMArrayOutput)
+}
+
+func (i ReplicatedVMArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicatedVM] {
+	return pulumix.Output[[]*ReplicatedVM]{
+		OutputState: i.ToReplicatedVMArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicatedVMMapInput is an input type that accepts ReplicatedVMMap and ReplicatedVMMapOutput values.
@@ -666,6 +679,12 @@ func (i ReplicatedVMMap) ToReplicatedVMMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMMapOutput)
 }
 
+func (i ReplicatedVMMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicatedVM] {
+	return pulumix.Output[map[string]*ReplicatedVM]{
+		OutputState: i.ToReplicatedVMMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicatedVMOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMOutput) ElementType() reflect.Type {
@@ -678,6 +697,12 @@ func (o ReplicatedVMOutput) ToReplicatedVMOutput() ReplicatedVMOutput {
 
 func (o ReplicatedVMOutput) ToReplicatedVMOutputWithContext(ctx context.Context) ReplicatedVMOutput {
 	return o
+}
+
+func (o ReplicatedVMOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVM] {
+	return pulumix.Output[*ReplicatedVM]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
@@ -810,6 +835,12 @@ func (o ReplicatedVMArrayOutput) ToReplicatedVMArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ReplicatedVMArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicatedVM] {
+	return pulumix.Output[[]*ReplicatedVM]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicatedVMArrayOutput) Index(i pulumi.IntInput) ReplicatedVMOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicatedVM {
 		return vs[0].([]*ReplicatedVM)[vs[1].(int)]
@@ -828,6 +859,12 @@ func (o ReplicatedVMMapOutput) ToReplicatedVMMapOutput() ReplicatedVMMapOutput {
 
 func (o ReplicatedVMMapOutput) ToReplicatedVMMapOutputWithContext(ctx context.Context) ReplicatedVMMapOutput {
 	return o
+}
+
+func (o ReplicatedVMMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicatedVM] {
+	return pulumix.Output[map[string]*ReplicatedVM]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicatedVMMapOutput) MapIndex(k pulumi.StringInput) ReplicatedVMOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Relay Hybrid Connection Authorization Rule.
@@ -265,6 +266,12 @@ func (i *HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleOutput)
 }
 
+func (i *HybridConnectionAuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*HybridConnectionAuthorizationRule] {
+	return pulumix.Output[*HybridConnectionAuthorizationRule]{
+		OutputState: i.ToHybridConnectionAuthorizationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HybridConnectionAuthorizationRuleArrayInput is an input type that accepts HybridConnectionAuthorizationRuleArray and HybridConnectionAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `HybridConnectionAuthorizationRuleArrayInput` via:
 //
@@ -288,6 +295,12 @@ func (i HybridConnectionAuthorizationRuleArray) ToHybridConnectionAuthorizationR
 
 func (i HybridConnectionAuthorizationRuleArray) ToHybridConnectionAuthorizationRuleArrayOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleArrayOutput)
+}
+
+func (i HybridConnectionAuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*HybridConnectionAuthorizationRule] {
+	return pulumix.Output[[]*HybridConnectionAuthorizationRule]{
+		OutputState: i.ToHybridConnectionAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HybridConnectionAuthorizationRuleMapInput is an input type that accepts HybridConnectionAuthorizationRuleMap and HybridConnectionAuthorizationRuleMapOutput values.
@@ -315,6 +328,12 @@ func (i HybridConnectionAuthorizationRuleMap) ToHybridConnectionAuthorizationRul
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleMapOutput)
 }
 
+func (i HybridConnectionAuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HybridConnectionAuthorizationRule] {
+	return pulumix.Output[map[string]*HybridConnectionAuthorizationRule]{
+		OutputState: i.ToHybridConnectionAuthorizationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HybridConnectionAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -327,6 +346,12 @@ func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorization
 
 func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorizationRuleOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleOutput {
 	return o
+}
+
+func (o HybridConnectionAuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*HybridConnectionAuthorizationRule] {
+	return pulumix.Output[*HybridConnectionAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -398,6 +423,12 @@ func (o HybridConnectionAuthorizationRuleArrayOutput) ToHybridConnectionAuthoriz
 	return o
 }
 
+func (o HybridConnectionAuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HybridConnectionAuthorizationRule] {
+	return pulumix.Output[[]*HybridConnectionAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HybridConnectionAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) HybridConnectionAuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HybridConnectionAuthorizationRule {
 		return vs[0].([]*HybridConnectionAuthorizationRule)[vs[1].(int)]
@@ -416,6 +447,12 @@ func (o HybridConnectionAuthorizationRuleMapOutput) ToHybridConnectionAuthorizat
 
 func (o HybridConnectionAuthorizationRuleMapOutput) ToHybridConnectionAuthorizationRuleMapOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleMapOutput {
 	return o
+}
+
+func (o HybridConnectionAuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HybridConnectionAuthorizationRule] {
+	return pulumix.Output[map[string]*HybridConnectionAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HybridConnectionAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) HybridConnectionAuthorizationRuleOutput {

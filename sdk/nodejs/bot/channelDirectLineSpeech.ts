@@ -77,6 +77,10 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
      */
     public readonly botName!: pulumi.Output<string>;
     /**
+     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     */
+    public readonly cognitiveAccountId!: pulumi.Output<string | undefined>;
+    /**
      * The access key to access the Cognitive Service.
      */
     public readonly cognitiveServiceAccessKey!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ChannelDirectLineSpeechState | undefined;
             resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
             resourceInputs["cognitiveServiceAccessKey"] = state ? state.cognitiveServiceAccessKey : undefined;
             resourceInputs["cognitiveServiceLocation"] = state ? state.cognitiveServiceLocation : undefined;
             resourceInputs["customSpeechModelId"] = state ? state.customSpeechModelId : undefined;
@@ -136,6 +141,7 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
             resourceInputs["cognitiveServiceAccessKey"] = args?.cognitiveServiceAccessKey ? pulumi.secret(args.cognitiveServiceAccessKey) : undefined;
             resourceInputs["cognitiveServiceLocation"] = args ? args.cognitiveServiceLocation : undefined;
             resourceInputs["customSpeechModelId"] = args ? args.customSpeechModelId : undefined;
@@ -158,6 +164,10 @@ export interface ChannelDirectLineSpeechState {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
     botName?: pulumi.Input<string>;
+    /**
+     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     */
+    cognitiveAccountId?: pulumi.Input<string>;
     /**
      * The access key to access the Cognitive Service.
      */
@@ -192,6 +202,10 @@ export interface ChannelDirectLineSpeechArgs {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
     botName: pulumi.Input<string>;
+    /**
+     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     */
+    cognitiveAccountId?: pulumi.Input<string>;
     /**
      * The access key to access the Cognitive Service.
      */

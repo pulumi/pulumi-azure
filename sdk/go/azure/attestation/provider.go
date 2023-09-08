@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Attestation Provider.
@@ -277,6 +278,12 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderOutput)
 }
 
+func (i *Provider) ToOutput(ctx context.Context) pulumix.Output[*Provider] {
+	return pulumix.Output[*Provider]{
+		OutputState: i.ToProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProviderArrayInput is an input type that accepts ProviderArray and ProviderArrayOutput values.
 // You can construct a concrete instance of `ProviderArrayInput` via:
 //
@@ -300,6 +307,12 @@ func (i ProviderArray) ToProviderArrayOutput() ProviderArrayOutput {
 
 func (i ProviderArray) ToProviderArrayOutputWithContext(ctx context.Context) ProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderArrayOutput)
+}
+
+func (i ProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*Provider] {
+	return pulumix.Output[[]*Provider]{
+		OutputState: i.ToProviderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProviderMapInput is an input type that accepts ProviderMap and ProviderMapOutput values.
@@ -327,6 +340,12 @@ func (i ProviderMap) ToProviderMapOutputWithContext(ctx context.Context) Provide
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderMapOutput)
 }
 
+func (i ProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Provider] {
+	return pulumix.Output[map[string]*Provider]{
+		OutputState: i.ToProviderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
@@ -339,6 +358,12 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+func (o ProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*Provider] {
+	return pulumix.Output[*Provider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The URI of the Attestation Service.
@@ -419,6 +444,12 @@ func (o ProviderArrayOutput) ToProviderArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Provider] {
+	return pulumix.Output[[]*Provider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderArrayOutput) Index(i pulumi.IntInput) ProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Provider {
 		return vs[0].([]*Provider)[vs[1].(int)]
@@ -437,6 +468,12 @@ func (o ProviderMapOutput) ToProviderMapOutput() ProviderMapOutput {
 
 func (o ProviderMapOutput) ToProviderMapOutputWithContext(ctx context.Context) ProviderMapOutput {
 	return o
+}
+
+func (o ProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Provider] {
+	return pulumix.Output[map[string]*Provider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderMapOutput) MapIndex(k pulumi.StringInput) ProviderOutput {

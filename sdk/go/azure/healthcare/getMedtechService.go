@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Healthcare Med Tech Service
@@ -114,6 +115,12 @@ func (o LookupMedtechServiceResultOutput) ToLookupMedtechServiceResultOutput() L
 
 func (o LookupMedtechServiceResultOutput) ToLookupMedtechServiceResultOutputWithContext(ctx context.Context) LookupMedtechServiceResultOutput {
 	return o
+}
+
+func (o LookupMedtechServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMedtechServiceResult] {
+	return pulumix.Output[LookupMedtechServiceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Device Mappings of the Med Tech Service.

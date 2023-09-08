@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SubscriptionPolicyRemediation struct {
@@ -147,6 +148,12 @@ func (i *SubscriptionPolicyRemediation) ToSubscriptionPolicyRemediationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyRemediationOutput)
 }
 
+func (i *SubscriptionPolicyRemediation) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyRemediation] {
+	return pulumix.Output[*SubscriptionPolicyRemediation]{
+		OutputState: i.ToSubscriptionPolicyRemediationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyRemediationArrayInput is an input type that accepts SubscriptionPolicyRemediationArray and SubscriptionPolicyRemediationArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyRemediationArrayInput` via:
 //
@@ -170,6 +177,12 @@ func (i SubscriptionPolicyRemediationArray) ToSubscriptionPolicyRemediationArray
 
 func (i SubscriptionPolicyRemediationArray) ToSubscriptionPolicyRemediationArrayOutputWithContext(ctx context.Context) SubscriptionPolicyRemediationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyRemediationArrayOutput)
+}
+
+func (i SubscriptionPolicyRemediationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPolicyRemediation] {
+	return pulumix.Output[[]*SubscriptionPolicyRemediation]{
+		OutputState: i.ToSubscriptionPolicyRemediationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionPolicyRemediationMapInput is an input type that accepts SubscriptionPolicyRemediationMap and SubscriptionPolicyRemediationMapOutput values.
@@ -197,6 +210,12 @@ func (i SubscriptionPolicyRemediationMap) ToSubscriptionPolicyRemediationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyRemediationMapOutput)
 }
 
+func (i SubscriptionPolicyRemediationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPolicyRemediation] {
+	return pulumix.Output[map[string]*SubscriptionPolicyRemediation]{
+		OutputState: i.ToSubscriptionPolicyRemediationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyRemediationOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyRemediationOutput) ElementType() reflect.Type {
@@ -209,6 +228,12 @@ func (o SubscriptionPolicyRemediationOutput) ToSubscriptionPolicyRemediationOutp
 
 func (o SubscriptionPolicyRemediationOutput) ToSubscriptionPolicyRemediationOutputWithContext(ctx context.Context) SubscriptionPolicyRemediationOutput {
 	return o
+}
+
+func (o SubscriptionPolicyRemediationOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyRemediation] {
+	return pulumix.Output[*SubscriptionPolicyRemediation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
@@ -266,6 +291,12 @@ func (o SubscriptionPolicyRemediationArrayOutput) ToSubscriptionPolicyRemediatio
 	return o
 }
 
+func (o SubscriptionPolicyRemediationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPolicyRemediation] {
+	return pulumix.Output[[]*SubscriptionPolicyRemediation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionPolicyRemediationArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyRemediationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionPolicyRemediation {
 		return vs[0].([]*SubscriptionPolicyRemediation)[vs[1].(int)]
@@ -284,6 +315,12 @@ func (o SubscriptionPolicyRemediationMapOutput) ToSubscriptionPolicyRemediationM
 
 func (o SubscriptionPolicyRemediationMapOutput) ToSubscriptionPolicyRemediationMapOutputWithContext(ctx context.Context) SubscriptionPolicyRemediationMapOutput {
 	return o
+}
+
+func (o SubscriptionPolicyRemediationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPolicyRemediation] {
+	return pulumix.Output[map[string]*SubscriptionPolicyRemediation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyRemediationMapOutput) MapIndex(k pulumi.StringInput) SubscriptionPolicyRemediationOutput {

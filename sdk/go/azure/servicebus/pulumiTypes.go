@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyOutput)
 }
 
+func (i NamespaceCustomerManagedKeyArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceCustomerManagedKey] {
+	return pulumix.Output[NamespaceCustomerManagedKey]{
+		OutputState: i.ToNamespaceCustomerManagedKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyPtrOutput() NamespaceCustomerManagedKeyPtrOutput {
 	return i.ToNamespaceCustomerManagedKeyPtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *namespaceCustomerManagedKeyPtrType) ToNamespaceCustomerManagedKeyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyPtrOutput)
 }
 
+func (i *namespaceCustomerManagedKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*NamespaceCustomerManagedKey] {
+	return pulumix.Output[*NamespaceCustomerManagedKey]{
+		OutputState: i.ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (NamespaceCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -117,6 +130,12 @@ func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceCustomerManagedKey) *NamespaceCustomerManagedKey {
 		return &v
 	}).(NamespaceCustomerManagedKeyPtrOutput)
+}
+
+func (o NamespaceCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceCustomerManagedKey] {
+	return pulumix.Output[NamespaceCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the User Assigned Identity that has access to the key.
@@ -146,6 +165,12 @@ func (o NamespaceCustomerManagedKeyPtrOutput) ToNamespaceCustomerManagedKeyPtrOu
 
 func (o NamespaceCustomerManagedKeyPtrOutput) ToNamespaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyPtrOutput {
 	return o
+}
+
+func (o NamespaceCustomerManagedKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceCustomerManagedKey] {
+	return pulumix.Output[*NamespaceCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceCustomerManagedKeyPtrOutput) Elem() NamespaceCustomerManagedKeyOutput {
@@ -237,6 +262,12 @@ func (i NamespaceIdentityArgs) ToNamespaceIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityOutput)
 }
 
+func (i NamespaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceIdentity] {
+	return pulumix.Output[NamespaceIdentity]{
+		OutputState: i.ToNamespaceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
 	return i.ToNamespaceIdentityPtrOutputWithContext(context.Background())
 }
@@ -278,6 +309,12 @@ func (i *namespaceIdentityPtrType) ToNamespaceIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityPtrOutput)
 }
 
+func (i *namespaceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*NamespaceIdentity] {
+	return pulumix.Output[*NamespaceIdentity]{
+		OutputState: i.ToNamespaceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (NamespaceIdentityOutput) ElementType() reflect.Type {
@@ -300,6 +337,12 @@ func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceIdentity) *NamespaceIdentity {
 		return &v
 	}).(NamespaceIdentityPtrOutput)
+}
+
+func (o NamespaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceIdentity] {
+	return pulumix.Output[NamespaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
@@ -336,6 +379,12 @@ func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutput() NamespaceIden
 
 func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
 	return o
+}
+
+func (o NamespaceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceIdentity] {
+	return pulumix.Output[*NamespaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
@@ -397,7 +446,7 @@ type NamespaceNetworkRuleSetType struct {
 	IpRules []string `pulumi:"ipRules"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
-	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
@@ -421,7 +470,7 @@ type NamespaceNetworkRuleSetTypeArgs struct {
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput `pulumi:"networkRules"`
-	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed pulumi.BoolPtrInput `pulumi:"trustedServicesAllowed"`
@@ -437,6 +486,12 @@ func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypeOutput() N
 
 func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypeOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetTypeOutput)
+}
+
+func (i NamespaceNetworkRuleSetTypeArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSetType] {
+	return pulumix.Output[NamespaceNetworkRuleSetType]{
+		OutputState: i.ToNamespaceNetworkRuleSetTypeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypePtrOutput() NamespaceNetworkRuleSetTypePtrOutput {
@@ -480,6 +535,12 @@ func (i *namespaceNetworkRuleSetTypePtrType) ToNamespaceNetworkRuleSetTypePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetTypePtrOutput)
 }
 
+func (i *namespaceNetworkRuleSetTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*NamespaceNetworkRuleSetType] {
+	return pulumix.Output[*NamespaceNetworkRuleSetType]{
+		OutputState: i.ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceNetworkRuleSetTypeOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetTypeOutput) ElementType() reflect.Type {
@@ -504,6 +565,12 @@ func (o NamespaceNetworkRuleSetTypeOutput) ToNamespaceNetworkRuleSetTypePtrOutpu
 	}).(NamespaceNetworkRuleSetTypePtrOutput)
 }
 
+func (o NamespaceNetworkRuleSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSetType] {
+	return pulumix.Output[NamespaceNetworkRuleSetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 func (o NamespaceNetworkRuleSetTypeOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSetType) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
@@ -519,7 +586,7 @@ func (o NamespaceNetworkRuleSetTypeOutput) NetworkRules() NamespaceNetworkRuleSe
 	return o.ApplyT(func(v NamespaceNetworkRuleSetType) []NamespaceNetworkRuleSetNetworkRule { return v.NetworkRules }).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
-// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 func (o NamespaceNetworkRuleSetTypeOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSetType) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -541,6 +608,12 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) ToNamespaceNetworkRuleSetTypePtrOu
 
 func (o NamespaceNetworkRuleSetTypePtrOutput) ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypePtrOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceNetworkRuleSetType] {
+	return pulumix.Output[*NamespaceNetworkRuleSetType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceNetworkRuleSetTypePtrOutput) Elem() NamespaceNetworkRuleSetTypeOutput {
@@ -583,7 +656,7 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) NetworkRules() NamespaceNetworkRul
 	}).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
-// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 func (o NamespaceNetworkRuleSetTypePtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) *bool {
 		if v == nil {
@@ -640,6 +713,12 @@ func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToNamespaceNetworkRuleSetNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetNetworkRuleOutput)
 }
 
+func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: i.ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamespaceNetworkRuleSetNetworkRuleArrayInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArray and NamespaceNetworkRuleSetNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleArrayInput` via:
 //
@@ -665,6 +744,12 @@ func (i NamespaceNetworkRuleSetNetworkRuleArray) ToNamespaceNetworkRuleSetNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
+func (i NamespaceNetworkRuleSetNetworkRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: i.ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceNetworkRuleSetNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetNetworkRuleOutput) ElementType() reflect.Type {
@@ -677,6 +762,12 @@ func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetwo
 
 func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -701,6 +792,12 @@ func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToNamespaceNetworkRuleSet
 
 func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleArrayOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) Index(i pulumi.IntInput) NamespaceNetworkRuleSetNetworkRuleOutput {
@@ -754,6 +851,12 @@ func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionOutput)
 }
 
+func (i SubscriptionClientScopedSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionClientScopedSubscription] {
+	return pulumix.Output[SubscriptionClientScopedSubscription]{
+		OutputState: i.ToSubscriptionClientScopedSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput {
 	return i.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(context.Background())
 }
@@ -795,6 +898,12 @@ func (i *subscriptionClientScopedSubscriptionPtrType) ToSubscriptionClientScoped
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionPtrOutput)
 }
 
+func (i *subscriptionClientScopedSubscriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionClientScopedSubscription] {
+	return pulumix.Output[*SubscriptionClientScopedSubscription]{
+		OutputState: i.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionClientScopedSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionClientScopedSubscriptionOutput) ElementType() reflect.Type {
@@ -817,6 +926,12 @@ func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionClientScopedSubscription) *SubscriptionClientScopedSubscription {
 		return &v
 	}).(SubscriptionClientScopedSubscriptionPtrOutput)
+}
+
+func (o SubscriptionClientScopedSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionClientScopedSubscription] {
+	return pulumix.Output[SubscriptionClientScopedSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
@@ -848,6 +963,12 @@ func (o SubscriptionClientScopedSubscriptionPtrOutput) ToSubscriptionClientScope
 
 func (o SubscriptionClientScopedSubscriptionPtrOutput) ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionPtrOutput {
 	return o
+}
+
+func (o SubscriptionClientScopedSubscriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionClientScopedSubscription] {
+	return pulumix.Output[*SubscriptionClientScopedSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionClientScopedSubscriptionPtrOutput) Elem() SubscriptionClientScopedSubscriptionOutput {
@@ -961,6 +1082,12 @@ func (i SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilt
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleCorrelationFilterOutput)
 }
 
+func (i SubscriptionRuleCorrelationFilterArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[SubscriptionRuleCorrelationFilter]{
+		OutputState: i.ToSubscriptionRuleCorrelationFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilterPtrOutput() SubscriptionRuleCorrelationFilterPtrOutput {
 	return i.ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(context.Background())
 }
@@ -1002,6 +1129,12 @@ func (i *subscriptionRuleCorrelationFilterPtrType) ToSubscriptionRuleCorrelation
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
 
+func (i *subscriptionRuleCorrelationFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[*SubscriptionRuleCorrelationFilter]{
+		OutputState: i.ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionRuleCorrelationFilterOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleCorrelationFilterOutput) ElementType() reflect.Type {
@@ -1024,6 +1157,12 @@ func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionRuleCorrelationFilter) *SubscriptionRuleCorrelationFilter {
 		return &v
 	}).(SubscriptionRuleCorrelationFilterPtrOutput)
+}
+
+func (o SubscriptionRuleCorrelationFilterOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[SubscriptionRuleCorrelationFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Content type of the message.
@@ -1085,6 +1224,12 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelatio
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(ctx context.Context) SubscriptionRuleCorrelationFilterPtrOutput {
 	return o
+}
+
+func (o SubscriptionRuleCorrelationFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[*SubscriptionRuleCorrelationFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorrelationFilterOutput {

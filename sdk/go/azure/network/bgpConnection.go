@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Bgp Connection for a Virtual Hub.
@@ -240,6 +241,12 @@ func (i *BgpConnection) ToBgpConnectionOutputWithContext(ctx context.Context) Bg
 	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionOutput)
 }
 
+func (i *BgpConnection) ToOutput(ctx context.Context) pulumix.Output[*BgpConnection] {
+	return pulumix.Output[*BgpConnection]{
+		OutputState: i.ToBgpConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BgpConnectionArrayInput is an input type that accepts BgpConnectionArray and BgpConnectionArrayOutput values.
 // You can construct a concrete instance of `BgpConnectionArrayInput` via:
 //
@@ -263,6 +270,12 @@ func (i BgpConnectionArray) ToBgpConnectionArrayOutput() BgpConnectionArrayOutpu
 
 func (i BgpConnectionArray) ToBgpConnectionArrayOutputWithContext(ctx context.Context) BgpConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionArrayOutput)
+}
+
+func (i BgpConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*BgpConnection] {
+	return pulumix.Output[[]*BgpConnection]{
+		OutputState: i.ToBgpConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BgpConnectionMapInput is an input type that accepts BgpConnectionMap and BgpConnectionMapOutput values.
@@ -290,6 +303,12 @@ func (i BgpConnectionMap) ToBgpConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BgpConnectionMapOutput)
 }
 
+func (i BgpConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BgpConnection] {
+	return pulumix.Output[map[string]*BgpConnection]{
+		OutputState: i.ToBgpConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BgpConnectionOutput struct{ *pulumi.OutputState }
 
 func (BgpConnectionOutput) ElementType() reflect.Type {
@@ -302,6 +321,12 @@ func (o BgpConnectionOutput) ToBgpConnectionOutput() BgpConnectionOutput {
 
 func (o BgpConnectionOutput) ToBgpConnectionOutputWithContext(ctx context.Context) BgpConnectionOutput {
 	return o
+}
+
+func (o BgpConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*BgpConnection] {
+	return pulumix.Output[*BgpConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
@@ -343,6 +368,12 @@ func (o BgpConnectionArrayOutput) ToBgpConnectionArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o BgpConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BgpConnection] {
+	return pulumix.Output[[]*BgpConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BgpConnectionArrayOutput) Index(i pulumi.IntInput) BgpConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BgpConnection {
 		return vs[0].([]*BgpConnection)[vs[1].(int)]
@@ -361,6 +392,12 @@ func (o BgpConnectionMapOutput) ToBgpConnectionMapOutput() BgpConnectionMapOutpu
 
 func (o BgpConnectionMapOutput) ToBgpConnectionMapOutputWithContext(ctx context.Context) BgpConnectionMapOutput {
 	return o
+}
+
+func (o BgpConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BgpConnection] {
+	return pulumix.Output[map[string]*BgpConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BgpConnectionMapOutput) MapIndex(k pulumi.StringInput) BgpConnectionOutput {

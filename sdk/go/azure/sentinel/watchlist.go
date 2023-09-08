@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Watchlist.
@@ -226,6 +227,12 @@ func (i *Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistO
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistOutput)
 }
 
+func (i *Watchlist) ToOutput(ctx context.Context) pulumix.Output[*Watchlist] {
+	return pulumix.Output[*Watchlist]{
+		OutputState: i.ToWatchlistOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WatchlistArrayInput is an input type that accepts WatchlistArray and WatchlistArrayOutput values.
 // You can construct a concrete instance of `WatchlistArrayInput` via:
 //
@@ -249,6 +256,12 @@ func (i WatchlistArray) ToWatchlistArrayOutput() WatchlistArrayOutput {
 
 func (i WatchlistArray) ToWatchlistArrayOutputWithContext(ctx context.Context) WatchlistArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistArrayOutput)
+}
+
+func (i WatchlistArray) ToOutput(ctx context.Context) pulumix.Output[[]*Watchlist] {
+	return pulumix.Output[[]*Watchlist]{
+		OutputState: i.ToWatchlistArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WatchlistMapInput is an input type that accepts WatchlistMap and WatchlistMapOutput values.
@@ -276,6 +289,12 @@ func (i WatchlistMap) ToWatchlistMapOutputWithContext(ctx context.Context) Watch
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistMapOutput)
 }
 
+func (i WatchlistMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Watchlist] {
+	return pulumix.Output[map[string]*Watchlist]{
+		OutputState: i.ToWatchlistMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WatchlistOutput struct{ *pulumi.OutputState }
 
 func (WatchlistOutput) ElementType() reflect.Type {
@@ -288,6 +307,12 @@ func (o WatchlistOutput) ToWatchlistOutput() WatchlistOutput {
 
 func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) WatchlistOutput {
 	return o
+}
+
+func (o WatchlistOutput) ToOutput(ctx context.Context) pulumix.Output[*Watchlist] {
+	return pulumix.Output[*Watchlist]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -339,6 +364,12 @@ func (o WatchlistArrayOutput) ToWatchlistArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o WatchlistArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Watchlist] {
+	return pulumix.Output[[]*Watchlist]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WatchlistArrayOutput) Index(i pulumi.IntInput) WatchlistOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Watchlist {
 		return vs[0].([]*Watchlist)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o WatchlistMapOutput) ToWatchlistMapOutput() WatchlistMapOutput {
 
 func (o WatchlistMapOutput) ToWatchlistMapOutputWithContext(ctx context.Context) WatchlistMapOutput {
 	return o
+}
+
+func (o WatchlistMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Watchlist] {
+	return pulumix.Output[map[string]*Watchlist]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WatchlistMapOutput) MapIndex(k pulumi.StringInput) WatchlistOutput {

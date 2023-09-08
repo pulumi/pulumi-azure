@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Fusion Alert Rule.
@@ -210,6 +211,12 @@ func (i *AlertRuleFusion) ToAlertRuleFusionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionOutput)
 }
 
+func (i *AlertRuleFusion) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleFusion] {
+	return pulumix.Output[*AlertRuleFusion]{
+		OutputState: i.ToAlertRuleFusionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleFusionArrayInput is an input type that accepts AlertRuleFusionArray and AlertRuleFusionArrayOutput values.
 // You can construct a concrete instance of `AlertRuleFusionArrayInput` via:
 //
@@ -233,6 +240,12 @@ func (i AlertRuleFusionArray) ToAlertRuleFusionArrayOutput() AlertRuleFusionArra
 
 func (i AlertRuleFusionArray) ToAlertRuleFusionArrayOutputWithContext(ctx context.Context) AlertRuleFusionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionArrayOutput)
+}
+
+func (i AlertRuleFusionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleFusion] {
+	return pulumix.Output[[]*AlertRuleFusion]{
+		OutputState: i.ToAlertRuleFusionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertRuleFusionMapInput is an input type that accepts AlertRuleFusionMap and AlertRuleFusionMapOutput values.
@@ -260,6 +273,12 @@ func (i AlertRuleFusionMap) ToAlertRuleFusionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionMapOutput)
 }
 
+func (i AlertRuleFusionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleFusion] {
+	return pulumix.Output[map[string]*AlertRuleFusion]{
+		OutputState: i.ToAlertRuleFusionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleFusionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionOutput) ElementType() reflect.Type {
@@ -272,6 +291,12 @@ func (o AlertRuleFusionOutput) ToAlertRuleFusionOutput() AlertRuleFusionOutput {
 
 func (o AlertRuleFusionOutput) ToAlertRuleFusionOutputWithContext(ctx context.Context) AlertRuleFusionOutput {
 	return o
+}
+
+func (o AlertRuleFusionOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleFusion] {
+	return pulumix.Output[*AlertRuleFusion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
@@ -313,6 +338,12 @@ func (o AlertRuleFusionArrayOutput) ToAlertRuleFusionArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o AlertRuleFusionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleFusion] {
+	return pulumix.Output[[]*AlertRuleFusion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertRuleFusionArrayOutput) Index(i pulumi.IntInput) AlertRuleFusionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleFusion {
 		return vs[0].([]*AlertRuleFusion)[vs[1].(int)]
@@ -331,6 +362,12 @@ func (o AlertRuleFusionMapOutput) ToAlertRuleFusionMapOutput() AlertRuleFusionMa
 
 func (o AlertRuleFusionMapOutput) ToAlertRuleFusionMapOutputWithContext(ctx context.Context) AlertRuleFusionMapOutput {
 	return o
+}
+
+func (o AlertRuleFusionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleFusion] {
+	return pulumix.Output[map[string]*AlertRuleFusion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleFusionMapOutput) MapIndex(k pulumi.StringInput) AlertRuleFusionOutput {

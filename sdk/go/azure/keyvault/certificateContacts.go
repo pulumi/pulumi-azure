@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Key Vault Certificate Contacts.
@@ -202,6 +203,12 @@ func (i *CertificateContacts) ToCertificateContactsOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsOutput)
 }
 
+func (i *CertificateContacts) ToOutput(ctx context.Context) pulumix.Output[*CertificateContacts] {
+	return pulumix.Output[*CertificateContacts]{
+		OutputState: i.ToCertificateContactsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateContactsArrayInput is an input type that accepts CertificateContactsArray and CertificateContactsArrayOutput values.
 // You can construct a concrete instance of `CertificateContactsArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i CertificateContactsArray) ToCertificateContactsArrayOutput() Certificate
 
 func (i CertificateContactsArray) ToCertificateContactsArrayOutputWithContext(ctx context.Context) CertificateContactsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsArrayOutput)
+}
+
+func (i CertificateContactsArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateContacts] {
+	return pulumix.Output[[]*CertificateContacts]{
+		OutputState: i.ToCertificateContactsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateContactsMapInput is an input type that accepts CertificateContactsMap and CertificateContactsMapOutput values.
@@ -252,6 +265,12 @@ func (i CertificateContactsMap) ToCertificateContactsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsMapOutput)
 }
 
+func (i CertificateContactsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateContacts] {
+	return pulumix.Output[map[string]*CertificateContacts]{
+		OutputState: i.ToCertificateContactsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateContactsOutput struct{ *pulumi.OutputState }
 
 func (CertificateContactsOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o CertificateContactsOutput) ToCertificateContactsOutput() CertificateCont
 
 func (o CertificateContactsOutput) ToCertificateContactsOutputWithContext(ctx context.Context) CertificateContactsOutput {
 	return o
+}
+
+func (o CertificateContactsOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateContacts] {
+	return pulumix.Output[*CertificateContacts]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `contact` blocks as defined below.
@@ -290,6 +315,12 @@ func (o CertificateContactsArrayOutput) ToCertificateContactsArrayOutputWithCont
 	return o
 }
 
+func (o CertificateContactsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateContacts] {
+	return pulumix.Output[[]*CertificateContacts]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateContactsArrayOutput) Index(i pulumi.IntInput) CertificateContactsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateContacts {
 		return vs[0].([]*CertificateContacts)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o CertificateContactsMapOutput) ToCertificateContactsMapOutput() Certifica
 
 func (o CertificateContactsMapOutput) ToCertificateContactsMapOutputWithContext(ctx context.Context) CertificateContactsMapOutput {
 	return o
+}
+
+func (o CertificateContactsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateContacts] {
+	return pulumix.Output[map[string]*CertificateContacts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateContactsMapOutput) MapIndex(k pulumi.StringInput) CertificateContactsOutput {

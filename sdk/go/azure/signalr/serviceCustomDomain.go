@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure SignalR Custom Domain.
@@ -277,6 +278,12 @@ func (i *ServiceCustomDomain) ToServiceCustomDomainOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomDomainOutput)
 }
 
+func (i *ServiceCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*ServiceCustomDomain] {
+	return pulumix.Output[*ServiceCustomDomain]{
+		OutputState: i.ToServiceCustomDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceCustomDomainArrayInput is an input type that accepts ServiceCustomDomainArray and ServiceCustomDomainArrayOutput values.
 // You can construct a concrete instance of `ServiceCustomDomainArrayInput` via:
 //
@@ -300,6 +307,12 @@ func (i ServiceCustomDomainArray) ToServiceCustomDomainArrayOutput() ServiceCust
 
 func (i ServiceCustomDomainArray) ToServiceCustomDomainArrayOutputWithContext(ctx context.Context) ServiceCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomDomainArrayOutput)
+}
+
+func (i ServiceCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceCustomDomain] {
+	return pulumix.Output[[]*ServiceCustomDomain]{
+		OutputState: i.ToServiceCustomDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceCustomDomainMapInput is an input type that accepts ServiceCustomDomainMap and ServiceCustomDomainMapOutput values.
@@ -327,6 +340,12 @@ func (i ServiceCustomDomainMap) ToServiceCustomDomainMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomDomainMapOutput)
 }
 
+func (i ServiceCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceCustomDomain] {
+	return pulumix.Output[map[string]*ServiceCustomDomain]{
+		OutputState: i.ToServiceCustomDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (ServiceCustomDomainOutput) ElementType() reflect.Type {
@@ -339,6 +358,12 @@ func (o ServiceCustomDomainOutput) ToServiceCustomDomainOutput() ServiceCustomDo
 
 func (o ServiceCustomDomainOutput) ToServiceCustomDomainOutputWithContext(ctx context.Context) ServiceCustomDomainOutput {
 	return o
+}
+
+func (o ServiceCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCustomDomain] {
+	return pulumix.Output[*ServiceCustomDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
@@ -377,6 +402,12 @@ func (o ServiceCustomDomainArrayOutput) ToServiceCustomDomainArrayOutputWithCont
 	return o
 }
 
+func (o ServiceCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceCustomDomain] {
+	return pulumix.Output[[]*ServiceCustomDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceCustomDomainArrayOutput) Index(i pulumi.IntInput) ServiceCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceCustomDomain {
 		return vs[0].([]*ServiceCustomDomain)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o ServiceCustomDomainMapOutput) ToServiceCustomDomainMapOutput() ServiceCu
 
 func (o ServiceCustomDomainMapOutput) ToServiceCustomDomainMapOutputWithContext(ctx context.Context) ServiceCustomDomainMapOutput {
 	return o
+}
+
+func (o ServiceCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceCustomDomain] {
+	return pulumix.Output[map[string]*ServiceCustomDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceCustomDomainMapOutput) MapIndex(k pulumi.StringInput) ServiceCustomDomainOutput {

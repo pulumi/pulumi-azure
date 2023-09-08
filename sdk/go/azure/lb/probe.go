@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a LoadBalancer Probe Resource.
@@ -244,6 +245,12 @@ func (i *Probe) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeOutput)
 }
 
+func (i *Probe) ToOutput(ctx context.Context) pulumix.Output[*Probe] {
+	return pulumix.Output[*Probe]{
+		OutputState: i.ToProbeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProbeArrayInput is an input type that accepts ProbeArray and ProbeArrayOutput values.
 // You can construct a concrete instance of `ProbeArrayInput` via:
 //
@@ -267,6 +274,12 @@ func (i ProbeArray) ToProbeArrayOutput() ProbeArrayOutput {
 
 func (i ProbeArray) ToProbeArrayOutputWithContext(ctx context.Context) ProbeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeArrayOutput)
+}
+
+func (i ProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]*Probe] {
+	return pulumix.Output[[]*Probe]{
+		OutputState: i.ToProbeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProbeMapInput is an input type that accepts ProbeMap and ProbeMapOutput values.
@@ -294,6 +307,12 @@ func (i ProbeMap) ToProbeMapOutputWithContext(ctx context.Context) ProbeMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeMapOutput)
 }
 
+func (i ProbeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Probe] {
+	return pulumix.Output[map[string]*Probe]{
+		OutputState: i.ToProbeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProbeOutput struct{ *pulumi.OutputState }
 
 func (ProbeOutput) ElementType() reflect.Type {
@@ -306,6 +325,12 @@ func (o ProbeOutput) ToProbeOutput() ProbeOutput {
 
 func (o ProbeOutput) ToProbeOutputWithContext(ctx context.Context) ProbeOutput {
 	return o
+}
+
+func (o ProbeOutput) ToOutput(ctx context.Context) pulumix.Output[*Probe] {
+	return pulumix.Output[*Probe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
@@ -366,6 +391,12 @@ func (o ProbeArrayOutput) ToProbeArrayOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
+func (o ProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Probe] {
+	return pulumix.Output[[]*Probe]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProbeArrayOutput) Index(i pulumi.IntInput) ProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Probe {
 		return vs[0].([]*Probe)[vs[1].(int)]
@@ -384,6 +415,12 @@ func (o ProbeMapOutput) ToProbeMapOutput() ProbeMapOutput {
 
 func (o ProbeMapOutput) ToProbeMapOutputWithContext(ctx context.Context) ProbeMapOutput {
 	return o
+}
+
+func (o ProbeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Probe] {
+	return pulumix.Output[map[string]*Probe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProbeMapOutput) MapIndex(k pulumi.StringInput) ProbeOutput {

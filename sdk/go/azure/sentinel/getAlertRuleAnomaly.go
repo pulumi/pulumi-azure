@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Anomaly Alert Rule.
@@ -163,6 +164,12 @@ func (o GetAlertRuleAnomalyResultOutput) ToGetAlertRuleAnomalyResultOutput() Get
 
 func (o GetAlertRuleAnomalyResultOutput) ToGetAlertRuleAnomalyResultOutputWithContext(ctx context.Context) GetAlertRuleAnomalyResultOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyResult] {
+	return pulumix.Output[GetAlertRuleAnomalyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of the Anomaly Security ML Analytics Settings.

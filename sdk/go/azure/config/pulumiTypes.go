@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -22,6 +23,7 @@ type Features struct {
 	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk            *FeaturesManagedDisk            `pulumi:"managedDisk"`
 	ResourceGroup          *FeaturesResourceGroup          `pulumi:"resourceGroup"`
+	Subscription           *FeaturesSubscription           `pulumi:"subscription"`
 	TemplateDeployment     *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
@@ -47,6 +49,7 @@ type FeaturesArgs struct {
 	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk            FeaturesManagedDiskPtrInput            `pulumi:"managedDisk"`
 	ResourceGroup          FeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
+	Subscription           FeaturesSubscriptionPtrInput           `pulumi:"subscription"`
 	TemplateDeployment     FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
@@ -64,6 +67,12 @@ func (i FeaturesArgs) ToFeaturesOutputWithContext(ctx context.Context) FeaturesO
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesOutput)
 }
 
+func (i FeaturesArgs) ToOutput(ctx context.Context) pulumix.Output[Features] {
+	return pulumix.Output[Features]{
+		OutputState: i.ToFeaturesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesOutput struct{ *pulumi.OutputState }
 
 func (FeaturesOutput) ElementType() reflect.Type {
@@ -76,6 +85,12 @@ func (o FeaturesOutput) ToFeaturesOutput() FeaturesOutput {
 
 func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) FeaturesOutput {
 	return o
+}
+
+func (o FeaturesOutput) ToOutput(ctx context.Context) pulumix.Output[Features] {
+	return pulumix.Output[Features]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesOutput) ApiManagement() FeaturesApiManagementPtrOutput {
@@ -108,6 +123,10 @@ func (o FeaturesOutput) ManagedDisk() FeaturesManagedDiskPtrOutput {
 
 func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesResourceGroup { return v.ResourceGroup }).(FeaturesResourceGroupPtrOutput)
+}
+
+func (o FeaturesOutput) Subscription() FeaturesSubscriptionPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesSubscription { return v.Subscription }).(FeaturesSubscriptionPtrOutput)
 }
 
 func (o FeaturesOutput) TemplateDeployment() FeaturesTemplateDeploymentPtrOutput {
@@ -155,6 +174,12 @@ func (i FeaturesApiManagementArgs) ToFeaturesApiManagementOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApiManagementOutput)
 }
 
+func (i FeaturesApiManagementArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesApiManagement] {
+	return pulumix.Output[FeaturesApiManagement]{
+		OutputState: i.ToFeaturesApiManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesApiManagementArgs) ToFeaturesApiManagementPtrOutput() FeaturesApiManagementPtrOutput {
 	return i.ToFeaturesApiManagementPtrOutputWithContext(context.Background())
 }
@@ -196,6 +221,12 @@ func (i *featuresApiManagementPtrType) ToFeaturesApiManagementPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApiManagementPtrOutput)
 }
 
+func (i *featuresApiManagementPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesApiManagement] {
+	return pulumix.Output[*FeaturesApiManagement]{
+		OutputState: i.ToFeaturesApiManagementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesApiManagementOutput struct{ *pulumi.OutputState }
 
 func (FeaturesApiManagementOutput) ElementType() reflect.Type {
@@ -220,6 +251,12 @@ func (o FeaturesApiManagementOutput) ToFeaturesApiManagementPtrOutputWithContext
 	}).(FeaturesApiManagementPtrOutput)
 }
 
+func (o FeaturesApiManagementOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesApiManagement] {
+	return pulumix.Output[FeaturesApiManagement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -240,6 +277,12 @@ func (o FeaturesApiManagementPtrOutput) ToFeaturesApiManagementPtrOutput() Featu
 
 func (o FeaturesApiManagementPtrOutput) ToFeaturesApiManagementPtrOutputWithContext(ctx context.Context) FeaturesApiManagementPtrOutput {
 	return o
+}
+
+func (o FeaturesApiManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesApiManagement] {
+	return pulumix.Output[*FeaturesApiManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesApiManagementPtrOutput) Elem() FeaturesApiManagementOutput {
@@ -303,6 +346,12 @@ func (i FeaturesAppConfigurationArgs) ToFeaturesAppConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesAppConfigurationOutput)
 }
 
+func (i FeaturesAppConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesAppConfiguration] {
+	return pulumix.Output[FeaturesAppConfiguration]{
+		OutputState: i.ToFeaturesAppConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesAppConfigurationArgs) ToFeaturesAppConfigurationPtrOutput() FeaturesAppConfigurationPtrOutput {
 	return i.ToFeaturesAppConfigurationPtrOutputWithContext(context.Background())
 }
@@ -344,6 +393,12 @@ func (i *featuresAppConfigurationPtrType) ToFeaturesAppConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesAppConfigurationPtrOutput)
 }
 
+func (i *featuresAppConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesAppConfiguration] {
+	return pulumix.Output[*FeaturesAppConfiguration]{
+		OutputState: i.ToFeaturesAppConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesAppConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FeaturesAppConfigurationOutput) ElementType() reflect.Type {
@@ -368,6 +423,12 @@ func (o FeaturesAppConfigurationOutput) ToFeaturesAppConfigurationPtrOutputWithC
 	}).(FeaturesAppConfigurationPtrOutput)
 }
 
+func (o FeaturesAppConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesAppConfiguration] {
+	return pulumix.Output[FeaturesAppConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesAppConfigurationOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesAppConfiguration) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -388,6 +449,12 @@ func (o FeaturesAppConfigurationPtrOutput) ToFeaturesAppConfigurationPtrOutput()
 
 func (o FeaturesAppConfigurationPtrOutput) ToFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) FeaturesAppConfigurationPtrOutput {
 	return o
+}
+
+func (o FeaturesAppConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesAppConfiguration] {
+	return pulumix.Output[*FeaturesAppConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesAppConfigurationPtrOutput) Elem() FeaturesAppConfigurationOutput {
@@ -449,6 +516,12 @@ func (i FeaturesApplicationInsightsArgs) ToFeaturesApplicationInsightsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApplicationInsightsOutput)
 }
 
+func (i FeaturesApplicationInsightsArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesApplicationInsights] {
+	return pulumix.Output[FeaturesApplicationInsights]{
+		OutputState: i.ToFeaturesApplicationInsightsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesApplicationInsightsArgs) ToFeaturesApplicationInsightsPtrOutput() FeaturesApplicationInsightsPtrOutput {
 	return i.ToFeaturesApplicationInsightsPtrOutputWithContext(context.Background())
 }
@@ -490,6 +563,12 @@ func (i *featuresApplicationInsightsPtrType) ToFeaturesApplicationInsightsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesApplicationInsightsPtrOutput)
 }
 
+func (i *featuresApplicationInsightsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesApplicationInsights] {
+	return pulumix.Output[*FeaturesApplicationInsights]{
+		OutputState: i.ToFeaturesApplicationInsightsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesApplicationInsightsOutput struct{ *pulumi.OutputState }
 
 func (FeaturesApplicationInsightsOutput) ElementType() reflect.Type {
@@ -514,6 +593,12 @@ func (o FeaturesApplicationInsightsOutput) ToFeaturesApplicationInsightsPtrOutpu
 	}).(FeaturesApplicationInsightsPtrOutput)
 }
 
+func (o FeaturesApplicationInsightsOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesApplicationInsights] {
+	return pulumix.Output[FeaturesApplicationInsights]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesApplicationInsightsOutput) DisableGeneratedRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesApplicationInsights) *bool { return v.DisableGeneratedRule }).(pulumi.BoolPtrOutput)
 }
@@ -530,6 +615,12 @@ func (o FeaturesApplicationInsightsPtrOutput) ToFeaturesApplicationInsightsPtrOu
 
 func (o FeaturesApplicationInsightsPtrOutput) ToFeaturesApplicationInsightsPtrOutputWithContext(ctx context.Context) FeaturesApplicationInsightsPtrOutput {
 	return o
+}
+
+func (o FeaturesApplicationInsightsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesApplicationInsights] {
+	return pulumix.Output[*FeaturesApplicationInsights]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesApplicationInsightsPtrOutput) Elem() FeaturesApplicationInsightsOutput {
@@ -582,6 +673,12 @@ func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCognitiveAccountOutput)
 }
 
+func (i FeaturesCognitiveAccountArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesCognitiveAccount] {
+	return pulumix.Output[FeaturesCognitiveAccount]{
+		OutputState: i.ToFeaturesCognitiveAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountPtrOutput() FeaturesCognitiveAccountPtrOutput {
 	return i.ToFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
 }
@@ -623,6 +720,12 @@ func (i *featuresCognitiveAccountPtrType) ToFeaturesCognitiveAccountPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCognitiveAccountPtrOutput)
 }
 
+func (i *featuresCognitiveAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesCognitiveAccount] {
+	return pulumix.Output[*FeaturesCognitiveAccount]{
+		OutputState: i.ToFeaturesCognitiveAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesCognitiveAccountOutput struct{ *pulumi.OutputState }
 
 func (FeaturesCognitiveAccountOutput) ElementType() reflect.Type {
@@ -647,6 +750,12 @@ func (o FeaturesCognitiveAccountOutput) ToFeaturesCognitiveAccountPtrOutputWithC
 	}).(FeaturesCognitiveAccountPtrOutput)
 }
 
+func (o FeaturesCognitiveAccountOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesCognitiveAccount] {
+	return pulumix.Output[FeaturesCognitiveAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesCognitiveAccountOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesCognitiveAccount) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -663,6 +772,12 @@ func (o FeaturesCognitiveAccountPtrOutput) ToFeaturesCognitiveAccountPtrOutput()
 
 func (o FeaturesCognitiveAccountPtrOutput) ToFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) FeaturesCognitiveAccountPtrOutput {
 	return o
+}
+
+func (o FeaturesCognitiveAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesCognitiveAccount] {
+	return pulumix.Output[*FeaturesCognitiveAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesCognitiveAccountPtrOutput) Elem() FeaturesCognitiveAccountOutput {
@@ -731,6 +846,12 @@ func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesKeyVaultOutput)
 }
 
+func (i FeaturesKeyVaultArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesKeyVault] {
+	return pulumix.Output[FeaturesKeyVault]{
+		OutputState: i.ToFeaturesKeyVaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPtrOutput {
 	return i.ToFeaturesKeyVaultPtrOutputWithContext(context.Background())
 }
@@ -772,6 +893,12 @@ func (i *featuresKeyVaultPtrType) ToFeaturesKeyVaultPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesKeyVaultPtrOutput)
 }
 
+func (i *featuresKeyVaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesKeyVault] {
+	return pulumix.Output[*FeaturesKeyVault]{
+		OutputState: i.ToFeaturesKeyVaultPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (FeaturesKeyVaultOutput) ElementType() reflect.Type {
@@ -794,6 +921,12 @@ func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesKeyVault) *FeaturesKeyVault {
 		return &v
 	}).(FeaturesKeyVaultPtrOutput)
+}
+
+func (o FeaturesKeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesKeyVault] {
+	return pulumix.Output[FeaturesKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -844,6 +977,12 @@ func (o FeaturesKeyVaultPtrOutput) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaul
 
 func (o FeaturesKeyVaultPtrOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) FeaturesKeyVaultPtrOutput {
 	return o
+}
+
+func (o FeaturesKeyVaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesKeyVault] {
+	return pulumix.Output[*FeaturesKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
@@ -968,6 +1107,12 @@ func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspaceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesLogAnalyticsWorkspaceOutput)
 }
 
+func (i FeaturesLogAnalyticsWorkspaceArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[FeaturesLogAnalyticsWorkspace]{
+		OutputState: i.ToFeaturesLogAnalyticsWorkspaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspacePtrOutput() FeaturesLogAnalyticsWorkspacePtrOutput {
 	return i.ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
 }
@@ -1009,6 +1154,12 @@ func (i *featuresLogAnalyticsWorkspacePtrType) ToFeaturesLogAnalyticsWorkspacePt
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
+func (i *featuresLogAnalyticsWorkspacePtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[*FeaturesLogAnalyticsWorkspace]{
+		OutputState: i.ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesLogAnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (FeaturesLogAnalyticsWorkspaceOutput) ElementType() reflect.Type {
@@ -1033,6 +1184,12 @@ func (o FeaturesLogAnalyticsWorkspaceOutput) ToFeaturesLogAnalyticsWorkspacePtrO
 	}).(FeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
+func (o FeaturesLogAnalyticsWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[FeaturesLogAnalyticsWorkspace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesLogAnalyticsWorkspace) *bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -1049,6 +1206,12 @@ func (o FeaturesLogAnalyticsWorkspacePtrOutput) ToFeaturesLogAnalyticsWorkspaceP
 
 func (o FeaturesLogAnalyticsWorkspacePtrOutput) ToFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) FeaturesLogAnalyticsWorkspacePtrOutput {
 	return o
+}
+
+func (o FeaturesLogAnalyticsWorkspacePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[*FeaturesLogAnalyticsWorkspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesLogAnalyticsWorkspacePtrOutput) Elem() FeaturesLogAnalyticsWorkspaceOutput {
@@ -1101,6 +1264,12 @@ func (i FeaturesManagedDiskArgs) ToFeaturesManagedDiskOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesManagedDiskOutput)
 }
 
+func (i FeaturesManagedDiskArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesManagedDisk] {
+	return pulumix.Output[FeaturesManagedDisk]{
+		OutputState: i.ToFeaturesManagedDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesManagedDiskArgs) ToFeaturesManagedDiskPtrOutput() FeaturesManagedDiskPtrOutput {
 	return i.ToFeaturesManagedDiskPtrOutputWithContext(context.Background())
 }
@@ -1142,6 +1311,12 @@ func (i *featuresManagedDiskPtrType) ToFeaturesManagedDiskPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesManagedDiskPtrOutput)
 }
 
+func (i *featuresManagedDiskPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesManagedDisk] {
+	return pulumix.Output[*FeaturesManagedDisk]{
+		OutputState: i.ToFeaturesManagedDiskPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesManagedDiskOutput struct{ *pulumi.OutputState }
 
 func (FeaturesManagedDiskOutput) ElementType() reflect.Type {
@@ -1166,6 +1341,12 @@ func (o FeaturesManagedDiskOutput) ToFeaturesManagedDiskPtrOutputWithContext(ctx
 	}).(FeaturesManagedDiskPtrOutput)
 }
 
+func (o FeaturesManagedDiskOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesManagedDisk] {
+	return pulumix.Output[FeaturesManagedDisk]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesManagedDiskOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesManagedDisk) *bool { return v.ExpandWithoutDowntime }).(pulumi.BoolPtrOutput)
 }
@@ -1182,6 +1363,12 @@ func (o FeaturesManagedDiskPtrOutput) ToFeaturesManagedDiskPtrOutput() FeaturesM
 
 func (o FeaturesManagedDiskPtrOutput) ToFeaturesManagedDiskPtrOutputWithContext(ctx context.Context) FeaturesManagedDiskPtrOutput {
 	return o
+}
+
+func (o FeaturesManagedDiskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesManagedDisk] {
+	return pulumix.Output[*FeaturesManagedDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesManagedDiskPtrOutput) Elem() FeaturesManagedDiskOutput {
@@ -1234,6 +1421,12 @@ func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesResourceGroupOutput)
 }
 
+func (i FeaturesResourceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesResourceGroup] {
+	return pulumix.Output[FeaturesResourceGroup]{
+		OutputState: i.ToFeaturesResourceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupPtrOutput() FeaturesResourceGroupPtrOutput {
 	return i.ToFeaturesResourceGroupPtrOutputWithContext(context.Background())
 }
@@ -1275,6 +1468,12 @@ func (i *featuresResourceGroupPtrType) ToFeaturesResourceGroupPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesResourceGroupPtrOutput)
 }
 
+func (i *featuresResourceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesResourceGroup] {
+	return pulumix.Output[*FeaturesResourceGroup]{
+		OutputState: i.ToFeaturesResourceGroupPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (FeaturesResourceGroupOutput) ElementType() reflect.Type {
@@ -1299,6 +1498,12 @@ func (o FeaturesResourceGroupOutput) ToFeaturesResourceGroupPtrOutputWithContext
 	}).(FeaturesResourceGroupPtrOutput)
 }
 
+func (o FeaturesResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesResourceGroup] {
+	return pulumix.Output[FeaturesResourceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesResourceGroupOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesResourceGroup) *bool { return v.PreventDeletionIfContainsResources }).(pulumi.BoolPtrOutput)
 }
@@ -1317,6 +1522,12 @@ func (o FeaturesResourceGroupPtrOutput) ToFeaturesResourceGroupPtrOutputWithCont
 	return o
 }
 
+func (o FeaturesResourceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesResourceGroup] {
+	return pulumix.Output[*FeaturesResourceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesResourceGroupPtrOutput) Elem() FeaturesResourceGroupOutput {
 	return o.ApplyT(func(v *FeaturesResourceGroup) FeaturesResourceGroup {
 		if v != nil {
@@ -1333,6 +1544,163 @@ func (o FeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pul
 			return nil
 		}
 		return v.PreventDeletionIfContainsResources
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesSubscription struct {
+	PreventCancellationOnDestroy *bool `pulumi:"preventCancellationOnDestroy"`
+}
+
+// FeaturesSubscriptionInput is an input type that accepts FeaturesSubscriptionArgs and FeaturesSubscriptionOutput values.
+// You can construct a concrete instance of `FeaturesSubscriptionInput` via:
+//
+//	FeaturesSubscriptionArgs{...}
+type FeaturesSubscriptionInput interface {
+	pulumi.Input
+
+	ToFeaturesSubscriptionOutput() FeaturesSubscriptionOutput
+	ToFeaturesSubscriptionOutputWithContext(context.Context) FeaturesSubscriptionOutput
+}
+
+type FeaturesSubscriptionArgs struct {
+	PreventCancellationOnDestroy pulumi.BoolPtrInput `pulumi:"preventCancellationOnDestroy"`
+}
+
+func (FeaturesSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesSubscription)(nil)).Elem()
+}
+
+func (i FeaturesSubscriptionArgs) ToFeaturesSubscriptionOutput() FeaturesSubscriptionOutput {
+	return i.ToFeaturesSubscriptionOutputWithContext(context.Background())
+}
+
+func (i FeaturesSubscriptionArgs) ToFeaturesSubscriptionOutputWithContext(ctx context.Context) FeaturesSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesSubscriptionOutput)
+}
+
+func (i FeaturesSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesSubscription] {
+	return pulumix.Output[FeaturesSubscription]{
+		OutputState: i.ToFeaturesSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FeaturesSubscriptionArgs) ToFeaturesSubscriptionPtrOutput() FeaturesSubscriptionPtrOutput {
+	return i.ToFeaturesSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesSubscriptionArgs) ToFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) FeaturesSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesSubscriptionOutput).ToFeaturesSubscriptionPtrOutputWithContext(ctx)
+}
+
+// FeaturesSubscriptionPtrInput is an input type that accepts FeaturesSubscriptionArgs, FeaturesSubscriptionPtr and FeaturesSubscriptionPtrOutput values.
+// You can construct a concrete instance of `FeaturesSubscriptionPtrInput` via:
+//
+//	        FeaturesSubscriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesSubscriptionPtrOutput() FeaturesSubscriptionPtrOutput
+	ToFeaturesSubscriptionPtrOutputWithContext(context.Context) FeaturesSubscriptionPtrOutput
+}
+
+type featuresSubscriptionPtrType FeaturesSubscriptionArgs
+
+func FeaturesSubscriptionPtr(v *FeaturesSubscriptionArgs) FeaturesSubscriptionPtrInput {
+	return (*featuresSubscriptionPtrType)(v)
+}
+
+func (*featuresSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesSubscription)(nil)).Elem()
+}
+
+func (i *featuresSubscriptionPtrType) ToFeaturesSubscriptionPtrOutput() FeaturesSubscriptionPtrOutput {
+	return i.ToFeaturesSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresSubscriptionPtrType) ToFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) FeaturesSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesSubscriptionPtrOutput)
+}
+
+func (i *featuresSubscriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesSubscription] {
+	return pulumix.Output[*FeaturesSubscription]{
+		OutputState: i.ToFeaturesSubscriptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FeaturesSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (FeaturesSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesSubscription)(nil)).Elem()
+}
+
+func (o FeaturesSubscriptionOutput) ToFeaturesSubscriptionOutput() FeaturesSubscriptionOutput {
+	return o
+}
+
+func (o FeaturesSubscriptionOutput) ToFeaturesSubscriptionOutputWithContext(ctx context.Context) FeaturesSubscriptionOutput {
+	return o
+}
+
+func (o FeaturesSubscriptionOutput) ToFeaturesSubscriptionPtrOutput() FeaturesSubscriptionPtrOutput {
+	return o.ToFeaturesSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesSubscriptionOutput) ToFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) FeaturesSubscriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesSubscription) *FeaturesSubscription {
+		return &v
+	}).(FeaturesSubscriptionPtrOutput)
+}
+
+func (o FeaturesSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesSubscription] {
+	return pulumix.Output[FeaturesSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeaturesSubscriptionOutput) PreventCancellationOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesSubscription) *bool { return v.PreventCancellationOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesSubscriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesSubscription)(nil)).Elem()
+}
+
+func (o FeaturesSubscriptionPtrOutput) ToFeaturesSubscriptionPtrOutput() FeaturesSubscriptionPtrOutput {
+	return o
+}
+
+func (o FeaturesSubscriptionPtrOutput) ToFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) FeaturesSubscriptionPtrOutput {
+	return o
+}
+
+func (o FeaturesSubscriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesSubscription] {
+	return pulumix.Output[*FeaturesSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeaturesSubscriptionPtrOutput) Elem() FeaturesSubscriptionOutput {
+	return o.ApplyT(func(v *FeaturesSubscription) FeaturesSubscription {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesSubscription
+		return ret
+	}).(FeaturesSubscriptionOutput)
+}
+
+func (o FeaturesSubscriptionPtrOutput) PreventCancellationOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesSubscription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventCancellationOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1365,6 +1733,12 @@ func (i FeaturesTemplateDeploymentArgs) ToFeaturesTemplateDeploymentOutput() Fea
 
 func (i FeaturesTemplateDeploymentArgs) ToFeaturesTemplateDeploymentOutputWithContext(ctx context.Context) FeaturesTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesTemplateDeploymentOutput)
+}
+
+func (i FeaturesTemplateDeploymentArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesTemplateDeployment] {
+	return pulumix.Output[FeaturesTemplateDeployment]{
+		OutputState: i.ToFeaturesTemplateDeploymentOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FeaturesTemplateDeploymentArgs) ToFeaturesTemplateDeploymentPtrOutput() FeaturesTemplateDeploymentPtrOutput {
@@ -1408,6 +1782,12 @@ func (i *featuresTemplateDeploymentPtrType) ToFeaturesTemplateDeploymentPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesTemplateDeploymentPtrOutput)
 }
 
+func (i *featuresTemplateDeploymentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesTemplateDeployment] {
+	return pulumix.Output[*FeaturesTemplateDeployment]{
+		OutputState: i.ToFeaturesTemplateDeploymentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (FeaturesTemplateDeploymentOutput) ElementType() reflect.Type {
@@ -1432,6 +1812,12 @@ func (o FeaturesTemplateDeploymentOutput) ToFeaturesTemplateDeploymentPtrOutputW
 	}).(FeaturesTemplateDeploymentPtrOutput)
 }
 
+func (o FeaturesTemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesTemplateDeployment] {
+	return pulumix.Output[FeaturesTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeaturesTemplateDeploymentOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolOutput {
 	return o.ApplyT(func(v FeaturesTemplateDeployment) bool { return v.DeleteNestedItemsDuringDeletion }).(pulumi.BoolOutput)
 }
@@ -1448,6 +1834,12 @@ func (o FeaturesTemplateDeploymentPtrOutput) ToFeaturesTemplateDeploymentPtrOutp
 
 func (o FeaturesTemplateDeploymentPtrOutput) ToFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) FeaturesTemplateDeploymentPtrOutput {
 	return o
+}
+
+func (o FeaturesTemplateDeploymentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesTemplateDeployment] {
+	return pulumix.Output[*FeaturesTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesTemplateDeploymentPtrOutput) Elem() FeaturesTemplateDeploymentOutput {
@@ -1504,6 +1896,12 @@ func (i FeaturesVirtualMachineArgs) ToFeaturesVirtualMachineOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesVirtualMachineOutput)
 }
 
+func (i FeaturesVirtualMachineArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesVirtualMachine] {
+	return pulumix.Output[FeaturesVirtualMachine]{
+		OutputState: i.ToFeaturesVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesVirtualMachineArgs) ToFeaturesVirtualMachinePtrOutput() FeaturesVirtualMachinePtrOutput {
 	return i.ToFeaturesVirtualMachinePtrOutputWithContext(context.Background())
 }
@@ -1545,6 +1943,12 @@ func (i *featuresVirtualMachinePtrType) ToFeaturesVirtualMachinePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesVirtualMachinePtrOutput)
 }
 
+func (i *featuresVirtualMachinePtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesVirtualMachine] {
+	return pulumix.Output[*FeaturesVirtualMachine]{
+		OutputState: i.ToFeaturesVirtualMachinePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachineOutput) ElementType() reflect.Type {
@@ -1567,6 +1971,12 @@ func (o FeaturesVirtualMachineOutput) ToFeaturesVirtualMachinePtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesVirtualMachine) *FeaturesVirtualMachine {
 		return &v
 	}).(FeaturesVirtualMachinePtrOutput)
+}
+
+func (o FeaturesVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesVirtualMachine] {
+	return pulumix.Output[FeaturesVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
@@ -1593,6 +2003,12 @@ func (o FeaturesVirtualMachinePtrOutput) ToFeaturesVirtualMachinePtrOutput() Fea
 
 func (o FeaturesVirtualMachinePtrOutput) ToFeaturesVirtualMachinePtrOutputWithContext(ctx context.Context) FeaturesVirtualMachinePtrOutput {
 	return o
+}
+
+func (o FeaturesVirtualMachinePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesVirtualMachine] {
+	return pulumix.Output[*FeaturesVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesVirtualMachinePtrOutput) Elem() FeaturesVirtualMachineOutput {
@@ -1667,6 +2083,12 @@ func (i FeaturesVirtualMachineScaleSetArgs) ToFeaturesVirtualMachineScaleSetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesVirtualMachineScaleSetOutput)
 }
 
+func (i FeaturesVirtualMachineScaleSetArgs) ToOutput(ctx context.Context) pulumix.Output[FeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[FeaturesVirtualMachineScaleSet]{
+		OutputState: i.ToFeaturesVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FeaturesVirtualMachineScaleSetArgs) ToFeaturesVirtualMachineScaleSetPtrOutput() FeaturesVirtualMachineScaleSetPtrOutput {
 	return i.ToFeaturesVirtualMachineScaleSetPtrOutputWithContext(context.Background())
 }
@@ -1708,6 +2130,12 @@ func (i *featuresVirtualMachineScaleSetPtrType) ToFeaturesVirtualMachineScaleSet
 	return pulumi.ToOutputWithContext(ctx, i).(FeaturesVirtualMachineScaleSetPtrOutput)
 }
 
+func (i *featuresVirtualMachineScaleSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*FeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[*FeaturesVirtualMachineScaleSet]{
+		OutputState: i.ToFeaturesVirtualMachineScaleSetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeaturesVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -1730,6 +2158,12 @@ func (o FeaturesVirtualMachineScaleSetOutput) ToFeaturesVirtualMachineScaleSetPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesVirtualMachineScaleSet) *FeaturesVirtualMachineScaleSet {
 		return &v
 	}).(FeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+func (o FeaturesVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[FeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[FeaturesVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolPtrOutput {
@@ -1756,6 +2190,12 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) ToFeaturesVirtualMachineScaleSe
 
 func (o FeaturesVirtualMachineScaleSetPtrOutput) ToFeaturesVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) FeaturesVirtualMachineScaleSetPtrOutput {
 	return o
+}
+
+func (o FeaturesVirtualMachineScaleSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[*FeaturesVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeaturesVirtualMachineScaleSetPtrOutput) Elem() FeaturesVirtualMachineScaleSetOutput {
@@ -1813,6 +2253,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskPtrInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupPtrInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesSubscriptionInput)(nil)).Elem(), FeaturesSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesSubscriptionPtrInput)(nil)).Elem(), FeaturesSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesTemplateDeploymentInput)(nil)).Elem(), FeaturesTemplateDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesTemplateDeploymentPtrInput)(nil)).Elem(), FeaturesTemplateDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachineInput)(nil)).Elem(), FeaturesVirtualMachineArgs{})
@@ -1836,6 +2278,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesManagedDiskPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesSubscriptionOutput{})
+	pulumi.RegisterOutputType(FeaturesSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachineOutput{})

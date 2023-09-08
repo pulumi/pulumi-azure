@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Data Collection Rule.
@@ -126,6 +127,12 @@ func (o LookupDataCollectionRuleResultOutput) ToLookupDataCollectionRuleResultOu
 
 func (o LookupDataCollectionRuleResultOutput) ToLookupDataCollectionRuleResultOutputWithContext(ctx context.Context) LookupDataCollectionRuleResultOutput {
 	return o
+}
+
+func (o LookupDataCollectionRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataCollectionRuleResult] {
+	return pulumix.Output[LookupDataCollectionRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource ID of the Data Collection Endpoint that this rule can be used with.

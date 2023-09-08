@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Container App Environment Certificate.
@@ -122,6 +123,12 @@ func (o LookupEnvironmentCertificateResultOutput) ToLookupEnvironmentCertificate
 
 func (o LookupEnvironmentCertificateResultOutput) ToLookupEnvironmentCertificateResultOutputWithContext(ctx context.Context) LookupEnvironmentCertificateResultOutput {
 	return o
+}
+
+func (o LookupEnvironmentCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentCertificateResult] {
+	return pulumix.Output[LookupEnvironmentCertificateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEnvironmentCertificateResultOutput) ContainerAppEnvironmentId() pulumi.StringOutput {

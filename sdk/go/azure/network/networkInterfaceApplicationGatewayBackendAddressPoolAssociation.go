@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
@@ -136,6 +137,12 @@ func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput)
 }
 
+func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation] {
+	return pulumix.Output[*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation]{
+		OutputState: i.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput is an input type that accepts NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray and NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput` via:
 //
@@ -159,6 +166,12 @@ func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray) To
 
 func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput)
+}
+
+func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation] {
+	return pulumix.Output[[]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation]{
+		OutputState: i.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapInput is an input type that accepts NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap and NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput values.
@@ -186,6 +199,12 @@ func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap) ToNe
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput)
 }
 
+func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation] {
+	return pulumix.Output[map[string]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation]{
+		OutputState: i.ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ElementType() reflect.Type {
@@ -198,6 +217,12 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) T
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
 	return o
+}
+
+func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation] {
+	return pulumix.Output[*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -235,6 +260,12 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutp
 	return o
 }
 
+func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation] {
+	return pulumix.Output[[]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
 		return vs[0].([]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation)[vs[1].(int)]
@@ -253,6 +284,12 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput) ToNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutputWithContext(ctx context.Context) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput {
 	return o
+}
+
+func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation] {
+	return pulumix.Output[map[string]*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput {

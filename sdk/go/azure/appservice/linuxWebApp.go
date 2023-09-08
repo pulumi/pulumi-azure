@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Web App.
@@ -465,6 +466,12 @@ func (i *LinuxWebApp) ToLinuxWebAppOutputWithContext(ctx context.Context) LinuxW
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxWebAppOutput)
 }
 
+func (i *LinuxWebApp) ToOutput(ctx context.Context) pulumix.Output[*LinuxWebApp] {
+	return pulumix.Output[*LinuxWebApp]{
+		OutputState: i.ToLinuxWebAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinuxWebAppArrayInput is an input type that accepts LinuxWebAppArray and LinuxWebAppArrayOutput values.
 // You can construct a concrete instance of `LinuxWebAppArrayInput` via:
 //
@@ -488,6 +495,12 @@ func (i LinuxWebAppArray) ToLinuxWebAppArrayOutput() LinuxWebAppArrayOutput {
 
 func (i LinuxWebAppArray) ToLinuxWebAppArrayOutputWithContext(ctx context.Context) LinuxWebAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxWebAppArrayOutput)
+}
+
+func (i LinuxWebAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxWebApp] {
+	return pulumix.Output[[]*LinuxWebApp]{
+		OutputState: i.ToLinuxWebAppArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinuxWebAppMapInput is an input type that accepts LinuxWebAppMap and LinuxWebAppMapOutput values.
@@ -515,6 +528,12 @@ func (i LinuxWebAppMap) ToLinuxWebAppMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxWebAppMapOutput)
 }
 
+func (i LinuxWebAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxWebApp] {
+	return pulumix.Output[map[string]*LinuxWebApp]{
+		OutputState: i.ToLinuxWebAppMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinuxWebAppOutput struct{ *pulumi.OutputState }
 
 func (LinuxWebAppOutput) ElementType() reflect.Type {
@@ -527,6 +546,12 @@ func (o LinuxWebAppOutput) ToLinuxWebAppOutput() LinuxWebAppOutput {
 
 func (o LinuxWebAppOutput) ToLinuxWebAppOutputWithContext(ctx context.Context) LinuxWebAppOutput {
 	return o
+}
+
+func (o LinuxWebAppOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxWebApp] {
+	return pulumix.Output[*LinuxWebApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of key-value pairs of App Settings.
@@ -714,6 +739,12 @@ func (o LinuxWebAppArrayOutput) ToLinuxWebAppArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o LinuxWebAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxWebApp] {
+	return pulumix.Output[[]*LinuxWebApp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinuxWebAppArrayOutput) Index(i pulumi.IntInput) LinuxWebAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxWebApp {
 		return vs[0].([]*LinuxWebApp)[vs[1].(int)]
@@ -732,6 +763,12 @@ func (o LinuxWebAppMapOutput) ToLinuxWebAppMapOutput() LinuxWebAppMapOutput {
 
 func (o LinuxWebAppMapOutput) ToLinuxWebAppMapOutputWithContext(ctx context.Context) LinuxWebAppMapOutput {
 	return o
+}
+
+func (o LinuxWebAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxWebApp] {
+	return pulumix.Output[map[string]*LinuxWebApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinuxWebAppMapOutput) MapIndex(k pulumi.StringInput) LinuxWebAppOutput {

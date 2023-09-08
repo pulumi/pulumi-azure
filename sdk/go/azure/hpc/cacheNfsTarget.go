@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a NFS Target within a HPC Cache.
@@ -174,6 +175,12 @@ func (i *CacheNfsTarget) ToCacheNfsTargetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetOutput)
 }
 
+func (i *CacheNfsTarget) ToOutput(ctx context.Context) pulumix.Output[*CacheNfsTarget] {
+	return pulumix.Output[*CacheNfsTarget]{
+		OutputState: i.ToCacheNfsTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CacheNfsTargetArrayInput is an input type that accepts CacheNfsTargetArray and CacheNfsTargetArrayOutput values.
 // You can construct a concrete instance of `CacheNfsTargetArrayInput` via:
 //
@@ -197,6 +204,12 @@ func (i CacheNfsTargetArray) ToCacheNfsTargetArrayOutput() CacheNfsTargetArrayOu
 
 func (i CacheNfsTargetArray) ToCacheNfsTargetArrayOutputWithContext(ctx context.Context) CacheNfsTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetArrayOutput)
+}
+
+func (i CacheNfsTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*CacheNfsTarget] {
+	return pulumix.Output[[]*CacheNfsTarget]{
+		OutputState: i.ToCacheNfsTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CacheNfsTargetMapInput is an input type that accepts CacheNfsTargetMap and CacheNfsTargetMapOutput values.
@@ -224,6 +237,12 @@ func (i CacheNfsTargetMap) ToCacheNfsTargetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNfsTargetMapOutput)
 }
 
+func (i CacheNfsTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CacheNfsTarget] {
+	return pulumix.Output[map[string]*CacheNfsTarget]{
+		OutputState: i.ToCacheNfsTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CacheNfsTargetOutput struct{ *pulumi.OutputState }
 
 func (CacheNfsTargetOutput) ElementType() reflect.Type {
@@ -236,6 +255,12 @@ func (o CacheNfsTargetOutput) ToCacheNfsTargetOutput() CacheNfsTargetOutput {
 
 func (o CacheNfsTargetOutput) ToCacheNfsTargetOutputWithContext(ctx context.Context) CacheNfsTargetOutput {
 	return o
+}
+
+func (o CacheNfsTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheNfsTarget] {
+	return pulumix.Output[*CacheNfsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
@@ -282,6 +307,12 @@ func (o CacheNfsTargetArrayOutput) ToCacheNfsTargetArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o CacheNfsTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CacheNfsTarget] {
+	return pulumix.Output[[]*CacheNfsTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CacheNfsTargetArrayOutput) Index(i pulumi.IntInput) CacheNfsTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CacheNfsTarget {
 		return vs[0].([]*CacheNfsTarget)[vs[1].(int)]
@@ -300,6 +331,12 @@ func (o CacheNfsTargetMapOutput) ToCacheNfsTargetMapOutput() CacheNfsTargetMapOu
 
 func (o CacheNfsTargetMapOutput) ToCacheNfsTargetMapOutputWithContext(ctx context.Context) CacheNfsTargetMapOutput {
 	return o
+}
+
+func (o CacheNfsTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CacheNfsTarget] {
+	return pulumix.Output[map[string]*CacheNfsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CacheNfsTargetMapOutput) MapIndex(k pulumi.StringInput) CacheNfsTargetOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Storage Encryption Scope.
@@ -115,6 +116,12 @@ func (o LookupEncryptionScopeResultOutput) ToLookupEncryptionScopeResultOutput()
 
 func (o LookupEncryptionScopeResultOutput) ToLookupEncryptionScopeResultOutputWithContext(ctx context.Context) LookupEncryptionScopeResultOutput {
 	return o
+}
+
+func (o LookupEncryptionScopeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEncryptionScopeResult] {
+	return pulumix.Output[LookupEncryptionScopeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

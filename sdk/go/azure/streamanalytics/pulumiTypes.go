@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i FunctionJavaScriptUDFInputTypeArgs) ToFunctionJavaScriptUDFInputTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputTypeOutput)
 }
 
+func (i FunctionJavaScriptUDFInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionJavaScriptUDFInputType] {
+	return pulumix.Output[FunctionJavaScriptUDFInputType]{
+		OutputState: i.ToFunctionJavaScriptUDFInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionJavaScriptUDFInputTypeArrayInput is an input type that accepts FunctionJavaScriptUDFInputTypeArray and FunctionJavaScriptUDFInputTypeArrayOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFInputTypeArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i FunctionJavaScriptUDFInputTypeArray) ToFunctionJavaScriptUDFInputTypeArr
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFInputTypeArrayOutput)
 }
 
+func (i FunctionJavaScriptUDFInputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionJavaScriptUDFInputType] {
+	return pulumix.Output[[]FunctionJavaScriptUDFInputType]{
+		OutputState: i.ToFunctionJavaScriptUDFInputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionJavaScriptUDFInputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFInputTypeOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o FunctionJavaScriptUDFInputTypeOutput) ToFunctionJavaScriptUDFInputTypeOu
 
 func (o FunctionJavaScriptUDFInputTypeOutput) ToFunctionJavaScriptUDFInputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeOutput {
 	return o
+}
+
+func (o FunctionJavaScriptUDFInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionJavaScriptUDFInputType] {
+	return pulumix.Output[FunctionJavaScriptUDFInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is this input parameter a configuration parameter? Defaults to `false`.
@@ -111,6 +130,12 @@ func (o FunctionJavaScriptUDFInputTypeArrayOutput) ToFunctionJavaScriptUDFInputT
 
 func (o FunctionJavaScriptUDFInputTypeArrayOutput) ToFunctionJavaScriptUDFInputTypeArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputTypeArrayOutput {
 	return o
+}
+
+func (o FunctionJavaScriptUDFInputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionJavaScriptUDFInputType] {
+	return pulumix.Output[[]FunctionJavaScriptUDFInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionJavaScriptUDFInputTypeArrayOutput) Index(i pulumi.IntInput) FunctionJavaScriptUDFInputTypeOutput {
@@ -150,6 +175,12 @@ func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypeOu
 
 func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypeOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypeOutput)
+}
+
+func (i FunctionJavaScriptUDFOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionJavaScriptUDFOutputType] {
+	return pulumix.Output[FunctionJavaScriptUDFOutputType]{
+		OutputState: i.ToFunctionJavaScriptUDFOutputTypeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
@@ -193,6 +224,12 @@ func (i *functionJavaScriptUDFOutputTypePtrType) ToFunctionJavaScriptUDFOutputTy
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypePtrOutput)
 }
 
+func (i *functionJavaScriptUDFOutputTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavaScriptUDFOutputType] {
+	return pulumix.Output[*FunctionJavaScriptUDFOutputType]{
+		OutputState: i.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionJavaScriptUDFOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFOutputTypeOutput) ElementType() reflect.Type {
@@ -217,6 +254,12 @@ func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputType
 	}).(FunctionJavaScriptUDFOutputTypePtrOutput)
 }
 
+func (o FunctionJavaScriptUDFOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionJavaScriptUDFOutputType] {
+	return pulumix.Output[FunctionJavaScriptUDFOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 func (o FunctionJavaScriptUDFOutputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaScriptUDFOutputType) string { return v.Type }).(pulumi.StringOutput)
@@ -234,6 +277,12 @@ func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputT
 
 func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
 	return o
+}
+
+func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavaScriptUDFOutputType] {
+	return pulumix.Output[*FunctionJavaScriptUDFOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionJavaScriptUDFOutputTypePtrOutput) Elem() FunctionJavaScriptUDFOutputTypeOutput {
@@ -293,6 +342,12 @@ func (i FunctionJavascriptUdaInputTypeArgs) ToFunctionJavascriptUdaInputTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaInputTypeOutput)
 }
 
+func (i FunctionJavascriptUdaInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionJavascriptUdaInputType] {
+	return pulumix.Output[FunctionJavascriptUdaInputType]{
+		OutputState: i.ToFunctionJavascriptUdaInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionJavascriptUdaInputTypeArrayInput is an input type that accepts FunctionJavascriptUdaInputTypeArray and FunctionJavascriptUdaInputTypeArrayOutput values.
 // You can construct a concrete instance of `FunctionJavascriptUdaInputTypeArrayInput` via:
 //
@@ -318,6 +373,12 @@ func (i FunctionJavascriptUdaInputTypeArray) ToFunctionJavascriptUdaInputTypeArr
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaInputTypeArrayOutput)
 }
 
+func (i FunctionJavascriptUdaInputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionJavascriptUdaInputType] {
+	return pulumix.Output[[]FunctionJavascriptUdaInputType]{
+		OutputState: i.ToFunctionJavascriptUdaInputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionJavascriptUdaInputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavascriptUdaInputTypeOutput) ElementType() reflect.Type {
@@ -330,6 +391,12 @@ func (o FunctionJavascriptUdaInputTypeOutput) ToFunctionJavascriptUdaInputTypeOu
 
 func (o FunctionJavascriptUdaInputTypeOutput) ToFunctionJavascriptUdaInputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeOutput {
 	return o
+}
+
+func (o FunctionJavascriptUdaInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionJavascriptUdaInputType] {
+	return pulumix.Output[FunctionJavascriptUdaInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is this input parameter a configuration parameter? Defaults to `false`.
@@ -354,6 +421,12 @@ func (o FunctionJavascriptUdaInputTypeArrayOutput) ToFunctionJavascriptUdaInputT
 
 func (o FunctionJavascriptUdaInputTypeArrayOutput) ToFunctionJavascriptUdaInputTypeArrayOutputWithContext(ctx context.Context) FunctionJavascriptUdaInputTypeArrayOutput {
 	return o
+}
+
+func (o FunctionJavascriptUdaInputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionJavascriptUdaInputType] {
+	return pulumix.Output[[]FunctionJavascriptUdaInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionJavascriptUdaInputTypeArrayOutput) Index(i pulumi.IntInput) FunctionJavascriptUdaInputTypeOutput {
@@ -393,6 +466,12 @@ func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypeOu
 
 func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypeOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaOutputTypeOutput)
+}
+
+func (i FunctionJavascriptUdaOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionJavascriptUdaOutputType] {
+	return pulumix.Output[FunctionJavascriptUdaOutputType]{
+		OutputState: i.ToFunctionJavascriptUdaOutputTypeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FunctionJavascriptUdaOutputTypeArgs) ToFunctionJavascriptUdaOutputTypePtrOutput() FunctionJavascriptUdaOutputTypePtrOutput {
@@ -436,6 +515,12 @@ func (i *functionJavascriptUdaOutputTypePtrType) ToFunctionJavascriptUdaOutputTy
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaOutputTypePtrOutput)
 }
 
+func (i *functionJavascriptUdaOutputTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavascriptUdaOutputType] {
+	return pulumix.Output[*FunctionJavascriptUdaOutputType]{
+		OutputState: i.ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionJavascriptUdaOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavascriptUdaOutputTypeOutput) ElementType() reflect.Type {
@@ -460,6 +545,12 @@ func (o FunctionJavascriptUdaOutputTypeOutput) ToFunctionJavascriptUdaOutputType
 	}).(FunctionJavascriptUdaOutputTypePtrOutput)
 }
 
+func (o FunctionJavascriptUdaOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionJavascriptUdaOutputType] {
+	return pulumix.Output[FunctionJavascriptUdaOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 func (o FunctionJavascriptUdaOutputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavascriptUdaOutputType) string { return v.Type }).(pulumi.StringOutput)
@@ -477,6 +568,12 @@ func (o FunctionJavascriptUdaOutputTypePtrOutput) ToFunctionJavascriptUdaOutputT
 
 func (o FunctionJavascriptUdaOutputTypePtrOutput) ToFunctionJavascriptUdaOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutputTypePtrOutput {
 	return o
+}
+
+func (o FunctionJavascriptUdaOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavascriptUdaOutputType] {
+	return pulumix.Output[*FunctionJavascriptUdaOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionJavascriptUdaOutputTypePtrOutput) Elem() FunctionJavascriptUdaOutputTypeOutput {
@@ -540,6 +637,12 @@ func (i JobIdentityArgs) ToJobIdentityOutputWithContext(ctx context.Context) Job
 	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityOutput)
 }
 
+func (i JobIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[JobIdentity] {
+	return pulumix.Output[JobIdentity]{
+		OutputState: i.ToJobIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i JobIdentityArgs) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
 	return i.ToJobIdentityPtrOutputWithContext(context.Background())
 }
@@ -581,6 +684,12 @@ func (i *jobIdentityPtrType) ToJobIdentityPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(JobIdentityPtrOutput)
 }
 
+func (i *jobIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobIdentity] {
+	return pulumix.Output[*JobIdentity]{
+		OutputState: i.ToJobIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobIdentityOutput struct{ *pulumi.OutputState }
 
 func (JobIdentityOutput) ElementType() reflect.Type {
@@ -603,6 +712,12 @@ func (o JobIdentityOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobIdentity) *JobIdentity {
 		return &v
 	}).(JobIdentityPtrOutput)
+}
+
+func (o JobIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[JobIdentity] {
+	return pulumix.Output[JobIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -632,6 +747,12 @@ func (o JobIdentityPtrOutput) ToJobIdentityPtrOutput() JobIdentityPtrOutput {
 
 func (o JobIdentityPtrOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context) JobIdentityPtrOutput {
 	return o
+}
+
+func (o JobIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobIdentity] {
+	return pulumix.Output[*JobIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobIdentityPtrOutput) Elem() JobIdentityOutput {
@@ -715,6 +836,12 @@ func (i JobJobStorageAccountArgs) ToJobJobStorageAccountOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobJobStorageAccountOutput)
 }
 
+func (i JobJobStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[JobJobStorageAccount] {
+	return pulumix.Output[JobJobStorageAccount]{
+		OutputState: i.ToJobJobStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // JobJobStorageAccountArrayInput is an input type that accepts JobJobStorageAccountArray and JobJobStorageAccountArrayOutput values.
 // You can construct a concrete instance of `JobJobStorageAccountArrayInput` via:
 //
@@ -740,6 +867,12 @@ func (i JobJobStorageAccountArray) ToJobJobStorageAccountArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(JobJobStorageAccountArrayOutput)
 }
 
+func (i JobJobStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]JobJobStorageAccount] {
+	return pulumix.Output[[]JobJobStorageAccount]{
+		OutputState: i.ToJobJobStorageAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobJobStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (JobJobStorageAccountOutput) ElementType() reflect.Type {
@@ -752,6 +885,12 @@ func (o JobJobStorageAccountOutput) ToJobJobStorageAccountOutput() JobJobStorage
 
 func (o JobJobStorageAccountOutput) ToJobJobStorageAccountOutputWithContext(ctx context.Context) JobJobStorageAccountOutput {
 	return o
+}
+
+func (o JobJobStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[JobJobStorageAccount] {
+	return pulumix.Output[JobJobStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account key for the Azure storage account.
@@ -781,6 +920,12 @@ func (o JobJobStorageAccountArrayOutput) ToJobJobStorageAccountArrayOutput() Job
 
 func (o JobJobStorageAccountArrayOutput) ToJobJobStorageAccountArrayOutputWithContext(ctx context.Context) JobJobStorageAccountArrayOutput {
 	return o
+}
+
+func (o JobJobStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobJobStorageAccount] {
+	return pulumix.Output[[]JobJobStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobJobStorageAccountArrayOutput) Index(i pulumi.IntInput) JobJobStorageAccountOutput {
@@ -850,6 +995,12 @@ func (i OutputBlobSerializationArgs) ToOutputBlobSerializationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobSerializationOutput)
 }
 
+func (i OutputBlobSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[OutputBlobSerialization] {
+	return pulumix.Output[OutputBlobSerialization]{
+		OutputState: i.ToOutputBlobSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OutputBlobSerializationArgs) ToOutputBlobSerializationPtrOutput() OutputBlobSerializationPtrOutput {
 	return i.ToOutputBlobSerializationPtrOutputWithContext(context.Background())
 }
@@ -891,6 +1042,12 @@ func (i *outputBlobSerializationPtrType) ToOutputBlobSerializationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobSerializationPtrOutput)
 }
 
+func (i *outputBlobSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutputBlobSerialization] {
+	return pulumix.Output[*OutputBlobSerialization]{
+		OutputState: i.ToOutputBlobSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobSerializationOutput) ElementType() reflect.Type {
@@ -913,6 +1070,12 @@ func (o OutputBlobSerializationOutput) ToOutputBlobSerializationPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputBlobSerialization) *OutputBlobSerialization {
 		return &v
 	}).(OutputBlobSerializationPtrOutput)
+}
+
+func (o OutputBlobSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[OutputBlobSerialization] {
+	return pulumix.Output[OutputBlobSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -955,6 +1118,12 @@ func (o OutputBlobSerializationPtrOutput) ToOutputBlobSerializationPtrOutput() O
 
 func (o OutputBlobSerializationPtrOutput) ToOutputBlobSerializationPtrOutputWithContext(ctx context.Context) OutputBlobSerializationPtrOutput {
 	return o
+}
+
+func (o OutputBlobSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputBlobSerialization] {
+	return pulumix.Output[*OutputBlobSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputBlobSerializationPtrOutput) Elem() OutputBlobSerializationOutput {
@@ -1072,6 +1241,12 @@ func (i OutputEventHubSerializationArgs) ToOutputEventHubSerializationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubSerializationOutput)
 }
 
+func (i OutputEventHubSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[OutputEventHubSerialization] {
+	return pulumix.Output[OutputEventHubSerialization]{
+		OutputState: i.ToOutputEventHubSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OutputEventHubSerializationArgs) ToOutputEventHubSerializationPtrOutput() OutputEventHubSerializationPtrOutput {
 	return i.ToOutputEventHubSerializationPtrOutputWithContext(context.Background())
 }
@@ -1113,6 +1288,12 @@ func (i *outputEventHubSerializationPtrType) ToOutputEventHubSerializationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubSerializationPtrOutput)
 }
 
+func (i *outputEventHubSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutputEventHubSerialization] {
+	return pulumix.Output[*OutputEventHubSerialization]{
+		OutputState: i.ToOutputEventHubSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputEventHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputEventHubSerializationOutput) ElementType() reflect.Type {
@@ -1135,6 +1316,12 @@ func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputEventHubSerialization) *OutputEventHubSerialization {
 		return &v
 	}).(OutputEventHubSerializationPtrOutput)
+}
+
+func (o OutputEventHubSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[OutputEventHubSerialization] {
+	return pulumix.Output[OutputEventHubSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1175,6 +1362,12 @@ func (o OutputEventHubSerializationPtrOutput) ToOutputEventHubSerializationPtrOu
 
 func (o OutputEventHubSerializationPtrOutput) ToOutputEventHubSerializationPtrOutputWithContext(ctx context.Context) OutputEventHubSerializationPtrOutput {
 	return o
+}
+
+func (o OutputEventHubSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputEventHubSerialization] {
+	return pulumix.Output[*OutputEventHubSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputEventHubSerializationPtrOutput) Elem() OutputEventHubSerializationOutput {
@@ -1290,6 +1483,12 @@ func (i OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializa
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueSerializationOutput)
 }
 
+func (i OutputServiceBusQueueSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[OutputServiceBusQueueSerialization] {
+	return pulumix.Output[OutputServiceBusQueueSerialization]{
+		OutputState: i.ToOutputServiceBusQueueSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializationPtrOutput() OutputServiceBusQueueSerializationPtrOutput {
 	return i.ToOutputServiceBusQueueSerializationPtrOutputWithContext(context.Background())
 }
@@ -1331,6 +1530,12 @@ func (i *outputServiceBusQueueSerializationPtrType) ToOutputServiceBusQueueSeria
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueSerializationPtrOutput)
 }
 
+func (i *outputServiceBusQueueSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutputServiceBusQueueSerialization] {
+	return pulumix.Output[*OutputServiceBusQueueSerialization]{
+		OutputState: i.ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputServiceBusQueueSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputServiceBusQueueSerializationOutput) ElementType() reflect.Type {
@@ -1353,6 +1558,12 @@ func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSeriali
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServiceBusQueueSerialization) *OutputServiceBusQueueSerialization {
 		return &v
 	}).(OutputServiceBusQueueSerializationPtrOutput)
+}
+
+func (o OutputServiceBusQueueSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[OutputServiceBusQueueSerialization] {
+	return pulumix.Output[OutputServiceBusQueueSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1393,6 +1604,12 @@ func (o OutputServiceBusQueueSerializationPtrOutput) ToOutputServiceBusQueueSeri
 
 func (o OutputServiceBusQueueSerializationPtrOutput) ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationPtrOutput {
 	return o
+}
+
+func (o OutputServiceBusQueueSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputServiceBusQueueSerialization] {
+	return pulumix.Output[*OutputServiceBusQueueSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputServiceBusQueueSerializationPtrOutput) Elem() OutputServiceBusQueueSerializationOutput {
@@ -1508,6 +1725,12 @@ func (i OutputServicebusTopicSerializationArgs) ToOutputServicebusTopicSerializa
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicSerializationOutput)
 }
 
+func (i OutputServicebusTopicSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[OutputServicebusTopicSerialization] {
+	return pulumix.Output[OutputServicebusTopicSerialization]{
+		OutputState: i.ToOutputServicebusTopicSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i OutputServicebusTopicSerializationArgs) ToOutputServicebusTopicSerializationPtrOutput() OutputServicebusTopicSerializationPtrOutput {
 	return i.ToOutputServicebusTopicSerializationPtrOutputWithContext(context.Background())
 }
@@ -1549,6 +1772,12 @@ func (i *outputServicebusTopicSerializationPtrType) ToOutputServicebusTopicSeria
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicSerializationPtrOutput)
 }
 
+func (i *outputServicebusTopicSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutputServicebusTopicSerialization] {
+	return pulumix.Output[*OutputServicebusTopicSerialization]{
+		OutputState: i.ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputServicebusTopicSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputServicebusTopicSerializationOutput) ElementType() reflect.Type {
@@ -1571,6 +1800,12 @@ func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSeriali
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServicebusTopicSerialization) *OutputServicebusTopicSerialization {
 		return &v
 	}).(OutputServicebusTopicSerializationPtrOutput)
+}
+
+func (o OutputServicebusTopicSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[OutputServicebusTopicSerialization] {
+	return pulumix.Output[OutputServicebusTopicSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1611,6 +1846,12 @@ func (o OutputServicebusTopicSerializationPtrOutput) ToOutputServicebusTopicSeri
 
 func (o OutputServicebusTopicSerializationPtrOutput) ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationPtrOutput {
 	return o
+}
+
+func (o OutputServicebusTopicSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputServicebusTopicSerialization] {
+	return pulumix.Output[*OutputServicebusTopicSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputServicebusTopicSerializationPtrOutput) Elem() OutputServicebusTopicSerializationOutput {
@@ -1718,6 +1959,12 @@ func (i ReferenceInputBlobSerializationArgs) ToReferenceInputBlobSerializationOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobSerializationOutput)
 }
 
+func (i ReferenceInputBlobSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[ReferenceInputBlobSerialization] {
+	return pulumix.Output[ReferenceInputBlobSerialization]{
+		OutputState: i.ToReferenceInputBlobSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReferenceInputBlobSerializationArgs) ToReferenceInputBlobSerializationPtrOutput() ReferenceInputBlobSerializationPtrOutput {
 	return i.ToReferenceInputBlobSerializationPtrOutputWithContext(context.Background())
 }
@@ -1759,6 +2006,12 @@ func (i *referenceInputBlobSerializationPtrType) ToReferenceInputBlobSerializati
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobSerializationPtrOutput)
 }
 
+func (i *referenceInputBlobSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReferenceInputBlobSerialization] {
+	return pulumix.Output[*ReferenceInputBlobSerialization]{
+		OutputState: i.ToReferenceInputBlobSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReferenceInputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobSerializationOutput) ElementType() reflect.Type {
@@ -1781,6 +2034,12 @@ func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerialization
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceInputBlobSerialization) *ReferenceInputBlobSerialization {
 		return &v
 	}).(ReferenceInputBlobSerializationPtrOutput)
+}
+
+func (o ReferenceInputBlobSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[ReferenceInputBlobSerialization] {
+	return pulumix.Output[ReferenceInputBlobSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1814,6 +2073,12 @@ func (o ReferenceInputBlobSerializationPtrOutput) ToReferenceInputBlobSerializat
 
 func (o ReferenceInputBlobSerializationPtrOutput) ToReferenceInputBlobSerializationPtrOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationPtrOutput {
 	return o
+}
+
+func (o ReferenceInputBlobSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceInputBlobSerialization] {
+	return pulumix.Output[*ReferenceInputBlobSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReferenceInputBlobSerializationPtrOutput) Elem() ReferenceInputBlobSerializationOutput {
@@ -1909,6 +2174,12 @@ func (i StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobSerializationOutput)
 }
 
+func (i StreamInputBlobSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamInputBlobSerialization] {
+	return pulumix.Output[StreamInputBlobSerialization]{
+		OutputState: i.ToStreamInputBlobSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationPtrOutput() StreamInputBlobSerializationPtrOutput {
 	return i.ToStreamInputBlobSerializationPtrOutputWithContext(context.Background())
 }
@@ -1950,6 +2221,12 @@ func (i *streamInputBlobSerializationPtrType) ToStreamInputBlobSerializationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobSerializationPtrOutput)
 }
 
+func (i *streamInputBlobSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamInputBlobSerialization] {
+	return pulumix.Output[*StreamInputBlobSerialization]{
+		OutputState: i.ToStreamInputBlobSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamInputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobSerializationOutput) ElementType() reflect.Type {
@@ -1972,6 +2249,12 @@ func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputBlobSerialization) *StreamInputBlobSerialization {
 		return &v
 	}).(StreamInputBlobSerializationPtrOutput)
+}
+
+func (o StreamInputBlobSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamInputBlobSerialization] {
+	return pulumix.Output[StreamInputBlobSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -2005,6 +2288,12 @@ func (o StreamInputBlobSerializationPtrOutput) ToStreamInputBlobSerializationPtr
 
 func (o StreamInputBlobSerializationPtrOutput) ToStreamInputBlobSerializationPtrOutputWithContext(ctx context.Context) StreamInputBlobSerializationPtrOutput {
 	return o
+}
+
+func (o StreamInputBlobSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputBlobSerialization] {
+	return pulumix.Output[*StreamInputBlobSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamInputBlobSerializationPtrOutput) Elem() StreamInputBlobSerializationOutput {
@@ -2100,6 +2389,12 @@ func (i StreamInputEventHubSerializationArgs) ToStreamInputEventHubSerialization
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubSerializationOutput)
 }
 
+func (i StreamInputEventHubSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamInputEventHubSerialization] {
+	return pulumix.Output[StreamInputEventHubSerialization]{
+		OutputState: i.ToStreamInputEventHubSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamInputEventHubSerializationArgs) ToStreamInputEventHubSerializationPtrOutput() StreamInputEventHubSerializationPtrOutput {
 	return i.ToStreamInputEventHubSerializationPtrOutputWithContext(context.Background())
 }
@@ -2141,6 +2436,12 @@ func (i *streamInputEventHubSerializationPtrType) ToStreamInputEventHubSerializa
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubSerializationPtrOutput)
 }
 
+func (i *streamInputEventHubSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamInputEventHubSerialization] {
+	return pulumix.Output[*StreamInputEventHubSerialization]{
+		OutputState: i.ToStreamInputEventHubSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamInputEventHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputEventHubSerializationOutput) ElementType() reflect.Type {
@@ -2163,6 +2464,12 @@ func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputEventHubSerialization) *StreamInputEventHubSerialization {
 		return &v
 	}).(StreamInputEventHubSerializationPtrOutput)
+}
+
+func (o StreamInputEventHubSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamInputEventHubSerialization] {
+	return pulumix.Output[StreamInputEventHubSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -2196,6 +2503,12 @@ func (o StreamInputEventHubSerializationPtrOutput) ToStreamInputEventHubSerializ
 
 func (o StreamInputEventHubSerializationPtrOutput) ToStreamInputEventHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubSerializationPtrOutput {
 	return o
+}
+
+func (o StreamInputEventHubSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputEventHubSerialization] {
+	return pulumix.Output[*StreamInputEventHubSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamInputEventHubSerializationPtrOutput) Elem() StreamInputEventHubSerializationOutput {
@@ -2291,6 +2604,12 @@ func (i StreamInputEventHubV2SerializationArgs) ToStreamInputEventHubV2Serializa
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubV2SerializationOutput)
 }
 
+func (i StreamInputEventHubV2SerializationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamInputEventHubV2Serialization] {
+	return pulumix.Output[StreamInputEventHubV2Serialization]{
+		OutputState: i.ToStreamInputEventHubV2SerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamInputEventHubV2SerializationArgs) ToStreamInputEventHubV2SerializationPtrOutput() StreamInputEventHubV2SerializationPtrOutput {
 	return i.ToStreamInputEventHubV2SerializationPtrOutputWithContext(context.Background())
 }
@@ -2332,6 +2651,12 @@ func (i *streamInputEventHubV2SerializationPtrType) ToStreamInputEventHubV2Seria
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubV2SerializationPtrOutput)
 }
 
+func (i *streamInputEventHubV2SerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamInputEventHubV2Serialization] {
+	return pulumix.Output[*StreamInputEventHubV2Serialization]{
+		OutputState: i.ToStreamInputEventHubV2SerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamInputEventHubV2SerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputEventHubV2SerializationOutput) ElementType() reflect.Type {
@@ -2354,6 +2679,12 @@ func (o StreamInputEventHubV2SerializationOutput) ToStreamInputEventHubV2Seriali
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputEventHubV2Serialization) *StreamInputEventHubV2Serialization {
 		return &v
 	}).(StreamInputEventHubV2SerializationPtrOutput)
+}
+
+func (o StreamInputEventHubV2SerializationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamInputEventHubV2Serialization] {
+	return pulumix.Output[StreamInputEventHubV2Serialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -2387,6 +2718,12 @@ func (o StreamInputEventHubV2SerializationPtrOutput) ToStreamInputEventHubV2Seri
 
 func (o StreamInputEventHubV2SerializationPtrOutput) ToStreamInputEventHubV2SerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubV2SerializationPtrOutput {
 	return o
+}
+
+func (o StreamInputEventHubV2SerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputEventHubV2Serialization] {
+	return pulumix.Output[*StreamInputEventHubV2Serialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamInputEventHubV2SerializationPtrOutput) Elem() StreamInputEventHubV2SerializationOutput {
@@ -2482,6 +2819,12 @@ func (i StreamInputIotHubSerializationArgs) ToStreamInputIotHubSerializationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubSerializationOutput)
 }
 
+func (i StreamInputIotHubSerializationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamInputIotHubSerialization] {
+	return pulumix.Output[StreamInputIotHubSerialization]{
+		OutputState: i.ToStreamInputIotHubSerializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StreamInputIotHubSerializationArgs) ToStreamInputIotHubSerializationPtrOutput() StreamInputIotHubSerializationPtrOutput {
 	return i.ToStreamInputIotHubSerializationPtrOutputWithContext(context.Background())
 }
@@ -2523,6 +2866,12 @@ func (i *streamInputIotHubSerializationPtrType) ToStreamInputIotHubSerialization
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubSerializationPtrOutput)
 }
 
+func (i *streamInputIotHubSerializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamInputIotHubSerialization] {
+	return pulumix.Output[*StreamInputIotHubSerialization]{
+		OutputState: i.ToStreamInputIotHubSerializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamInputIotHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputIotHubSerializationOutput) ElementType() reflect.Type {
@@ -2545,6 +2894,12 @@ func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputIotHubSerialization) *StreamInputIotHubSerialization {
 		return &v
 	}).(StreamInputIotHubSerializationPtrOutput)
+}
+
+func (o StreamInputIotHubSerializationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamInputIotHubSerialization] {
+	return pulumix.Output[StreamInputIotHubSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -2578,6 +2933,12 @@ func (o StreamInputIotHubSerializationPtrOutput) ToStreamInputIotHubSerializatio
 
 func (o StreamInputIotHubSerializationPtrOutput) ToStreamInputIotHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputIotHubSerializationPtrOutput {
 	return o
+}
+
+func (o StreamInputIotHubSerializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputIotHubSerialization] {
+	return pulumix.Output[*StreamInputIotHubSerialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamInputIotHubSerializationPtrOutput) Elem() StreamInputIotHubSerializationOutput {
@@ -2665,6 +3026,12 @@ func (i GetJobIdentityArgs) ToGetJobIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetJobIdentityOutput)
 }
 
+func (i GetJobIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetJobIdentity] {
+	return pulumix.Output[GetJobIdentity]{
+		OutputState: i.ToGetJobIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetJobIdentityArrayInput is an input type that accepts GetJobIdentityArray and GetJobIdentityArrayOutput values.
 // You can construct a concrete instance of `GetJobIdentityArrayInput` via:
 //
@@ -2690,6 +3057,12 @@ func (i GetJobIdentityArray) ToGetJobIdentityArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetJobIdentityArrayOutput)
 }
 
+func (i GetJobIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetJobIdentity] {
+	return pulumix.Output[[]GetJobIdentity]{
+		OutputState: i.ToGetJobIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetJobIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetJobIdentityOutput) ElementType() reflect.Type {
@@ -2702,6 +3075,12 @@ func (o GetJobIdentityOutput) ToGetJobIdentityOutput() GetJobIdentityOutput {
 
 func (o GetJobIdentityOutput) ToGetJobIdentityOutputWithContext(ctx context.Context) GetJobIdentityOutput {
 	return o
+}
+
+func (o GetJobIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetJobIdentity] {
+	return pulumix.Output[GetJobIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -2731,6 +3110,12 @@ func (o GetJobIdentityArrayOutput) ToGetJobIdentityArrayOutput() GetJobIdentityA
 
 func (o GetJobIdentityArrayOutput) ToGetJobIdentityArrayOutputWithContext(ctx context.Context) GetJobIdentityArrayOutput {
 	return o
+}
+
+func (o GetJobIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetJobIdentity] {
+	return pulumix.Output[[]GetJobIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetJobIdentityArrayOutput) Index(i pulumi.IntInput) GetJobIdentityOutput {

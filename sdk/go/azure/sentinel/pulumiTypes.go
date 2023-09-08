@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i AlertRuleAnomalyBuiltInMultiSelectObservationArgs) ToAlertRuleAnomalyBui
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInMultiSelectObservationOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInMultiSelectObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInMultiSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInMultiSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInMultiSelectObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInMultiSelectObservationArray and AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyBuiltInMultiSelectObservationArrayInput` via:
 //
@@ -83,6 +90,12 @@ func (i AlertRuleAnomalyBuiltInMultiSelectObservationArray) ToAlertRuleAnomalyBu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInMultiSelectObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInMultiSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInMultiSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyBuiltInMultiSelectObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ElementType() reflect.Type {
@@ -95,6 +108,12 @@ func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ToAlertRuleAnomalyB
 
 func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ToAlertRuleAnomalyBuiltInMultiSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInMultiSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInMultiSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -129,6 +148,12 @@ func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) ToAlertRuleAno
 
 func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) ToAlertRuleAnomalyBuiltInMultiSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInMultiSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInMultiSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyBuiltInMultiSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInMultiSelectObservationOutput {
@@ -182,6 +207,12 @@ func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs) ToAlertRuleAno
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInPrioritizedExcludeObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInPrioritizedExcludeObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray and AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayInput` via:
 //
@@ -207,6 +238,12 @@ func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray) ToAlertRuleAn
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ElementType() reflect.Type {
@@ -219,6 +256,12 @@ func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ToAlertRuleA
 
 func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInPrioritizedExcludeObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInPrioritizedExcludeObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -253,6 +296,12 @@ func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) ToAlert
 
 func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) ToAlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInPrioritizedExcludeObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput {
@@ -298,6 +347,12 @@ func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArgs) ToAlertRuleAnomalyBuil
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInRequiredDataConnectorOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInRequiredDataConnector] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInRequiredDataConnector]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyBuiltInRequiredDataConnectorArrayInput is an input type that accepts AlertRuleAnomalyBuiltInRequiredDataConnectorArray and AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyBuiltInRequiredDataConnectorArrayInput` via:
 //
@@ -323,6 +378,12 @@ func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArray) ToAlertRuleAnomalyBui
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInRequiredDataConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInRequiredDataConnector] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInRequiredDataConnector]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyBuiltInRequiredDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ElementType() reflect.Type {
@@ -335,6 +396,12 @@ func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ToAlertRuleAnomalyBu
 
 func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ToAlertRuleAnomalyBuiltInRequiredDataConnectorOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInRequiredDataConnector] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInRequiredDataConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the required Data Connector.
@@ -359,6 +426,12 @@ func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) ToAlertRuleAnom
 
 func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) ToAlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInRequiredDataConnector] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInRequiredDataConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInRequiredDataConnectorOutput {
@@ -412,6 +485,12 @@ func (i AlertRuleAnomalyBuiltInSingleSelectObservationArgs) ToAlertRuleAnomalyBu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInSingleSelectObservationOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInSingleSelectObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInSingleSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInSingleSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInSingleSelectObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInSingleSelectObservationArray and AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyBuiltInSingleSelectObservationArrayInput` via:
 //
@@ -437,6 +516,12 @@ func (i AlertRuleAnomalyBuiltInSingleSelectObservationArray) ToAlertRuleAnomalyB
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInSingleSelectObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInSingleSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInSingleSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyBuiltInSingleSelectObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ElementType() reflect.Type {
@@ -449,6 +534,12 @@ func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ToAlertRuleAnomaly
 
 func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ToAlertRuleAnomalyBuiltInSingleSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInSingleSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInSingleSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -483,6 +574,12 @@ func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) ToAlertRuleAn
 
 func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) ToAlertRuleAnomalyBuiltInSingleSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInSingleSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInSingleSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyBuiltInSingleSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInSingleSelectObservationOutput {
@@ -540,6 +637,12 @@ func (i AlertRuleAnomalyBuiltInThresholdObservationArgs) ToAlertRuleAnomalyBuilt
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInThresholdObservationOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInThresholdObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInThresholdObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInThresholdObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInThresholdObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyBuiltInThresholdObservationArrayInput is an input type that accepts AlertRuleAnomalyBuiltInThresholdObservationArray and AlertRuleAnomalyBuiltInThresholdObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyBuiltInThresholdObservationArrayInput` via:
 //
@@ -565,6 +668,12 @@ func (i AlertRuleAnomalyBuiltInThresholdObservationArray) ToAlertRuleAnomalyBuil
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInThresholdObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyBuiltInThresholdObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInThresholdObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInThresholdObservation]{
+		OutputState: i.ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyBuiltInThresholdObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyBuiltInThresholdObservationOutput) ElementType() reflect.Type {
@@ -577,6 +686,12 @@ func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) ToAlertRuleAnomalyBui
 
 func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) ToAlertRuleAnomalyBuiltInThresholdObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInThresholdObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyBuiltInThresholdObservation] {
+	return pulumix.Output[AlertRuleAnomalyBuiltInThresholdObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -616,6 +731,12 @@ func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) ToAlertRuleAnoma
 
 func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) ToAlertRuleAnomalyBuiltInThresholdObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInThresholdObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyBuiltInThresholdObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyBuiltInThresholdObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyBuiltInThresholdObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInThresholdObservationOutput {
@@ -669,6 +790,12 @@ func (i AlertRuleAnomalyDuplicateMultiSelectObservationArgs) ToAlertRuleAnomalyD
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateMultiSelectObservationOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateMultiSelectObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateMultiSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateMultiSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateMultiSelectObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicateMultiSelectObservationArray and AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyDuplicateMultiSelectObservationArrayInput` via:
 //
@@ -694,6 +821,12 @@ func (i AlertRuleAnomalyDuplicateMultiSelectObservationArray) ToAlertRuleAnomaly
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateMultiSelectObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateMultiSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateMultiSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyDuplicateMultiSelectObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ElementType() reflect.Type {
@@ -706,6 +839,12 @@ func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ToAlertRuleAnomal
 
 func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ToAlertRuleAnomalyDuplicateMultiSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateMultiSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateMultiSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the multi select observation.
@@ -740,6 +879,12 @@ func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) ToAlertRuleA
 
 func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) ToAlertRuleAnomalyDuplicateMultiSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateMultiSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateMultiSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyDuplicateMultiSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateMultiSelectObservationOutput {
@@ -793,6 +938,12 @@ func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs) ToAlertRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput)
 }
 
+func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicatePrioritizedExcludeObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicatePrioritizedExcludeObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray and AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayInput` via:
 //
@@ -818,6 +969,12 @@ func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray) ToAlertRule
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ElementType() reflect.Type {
@@ -830,6 +987,12 @@ func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ToAlertRul
 
 func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicatePrioritizedExcludeObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicatePrioritizedExcludeObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the prioritized exclude observation.
@@ -864,6 +1027,12 @@ func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) ToAle
 
 func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) ToAlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicatePrioritizedExcludeObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicatePrioritizedExcludeObservationOutput {
@@ -909,6 +1078,12 @@ func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArgs) ToAlertRuleAnomalyDu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateRequiredDataConnectorOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateRequiredDataConnector] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateRequiredDataConnector]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyDuplicateRequiredDataConnectorArrayInput is an input type that accepts AlertRuleAnomalyDuplicateRequiredDataConnectorArray and AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyDuplicateRequiredDataConnectorArrayInput` via:
 //
@@ -934,6 +1109,12 @@ func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArray) ToAlertRuleAnomalyD
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateRequiredDataConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateRequiredDataConnector] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateRequiredDataConnector]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyDuplicateRequiredDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ElementType() reflect.Type {
@@ -946,6 +1127,12 @@ func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ToAlertRuleAnomaly
 
 func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ToAlertRuleAnomalyDuplicateRequiredDataConnectorOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateRequiredDataConnector] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateRequiredDataConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the required Data Connector.
@@ -970,6 +1157,12 @@ func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) ToAlertRuleAn
 
 func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) ToAlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateRequiredDataConnector] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateRequiredDataConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyDuplicateRequiredDataConnectorArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateRequiredDataConnectorOutput {
@@ -1023,6 +1216,12 @@ func (i AlertRuleAnomalyDuplicateSingleSelectObservationArgs) ToAlertRuleAnomaly
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateSingleSelectObservationOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateSingleSelectObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateSingleSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateSingleSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateSingleSelectObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicateSingleSelectObservationArray and AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput` via:
 //
@@ -1048,6 +1247,12 @@ func (i AlertRuleAnomalyDuplicateSingleSelectObservationArray) ToAlertRuleAnomal
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateSingleSelectObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateSingleSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateSingleSelectObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyDuplicateSingleSelectObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ElementType() reflect.Type {
@@ -1060,6 +1265,12 @@ func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ToAlertRuleAnoma
 
 func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ToAlertRuleAnomalyDuplicateSingleSelectObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateSingleSelectObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateSingleSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the single select observation.
@@ -1094,6 +1305,12 @@ func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) ToAlertRule
 
 func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) ToAlertRuleAnomalyDuplicateSingleSelectObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateSingleSelectObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateSingleSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyDuplicateSingleSelectObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateSingleSelectObservationOutput {
@@ -1151,6 +1368,12 @@ func (i AlertRuleAnomalyDuplicateThresholdObservationArgs) ToAlertRuleAnomalyDup
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateThresholdObservationOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateThresholdObservationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateThresholdObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateThresholdObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateThresholdObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyDuplicateThresholdObservationArrayInput is an input type that accepts AlertRuleAnomalyDuplicateThresholdObservationArray and AlertRuleAnomalyDuplicateThresholdObservationArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyDuplicateThresholdObservationArrayInput` via:
 //
@@ -1176,6 +1399,12 @@ func (i AlertRuleAnomalyDuplicateThresholdObservationArray) ToAlertRuleAnomalyDu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateThresholdObservationArrayOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateThresholdObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateThresholdObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateThresholdObservation]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyDuplicateThresholdObservationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyDuplicateThresholdObservationOutput) ElementType() reflect.Type {
@@ -1188,6 +1417,12 @@ func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) ToAlertRuleAnomalyD
 
 func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) ToAlertRuleAnomalyDuplicateThresholdObservationOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateThresholdObservationOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleAnomalyDuplicateThresholdObservation] {
+	return pulumix.Output[AlertRuleAnomalyDuplicateThresholdObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -1227,6 +1462,12 @@ func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) ToAlertRuleAno
 
 func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) ToAlertRuleAnomalyDuplicateThresholdObservationArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleAnomalyDuplicateThresholdObservation] {
+	return pulumix.Output[[]AlertRuleAnomalyDuplicateThresholdObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyDuplicateThresholdObservationArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateThresholdObservationOutput {
@@ -1276,6 +1517,12 @@ func (i AlertRuleFusionSourceArgs) ToAlertRuleFusionSourceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceOutput)
 }
 
+func (i AlertRuleFusionSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleFusionSource] {
+	return pulumix.Output[AlertRuleFusionSource]{
+		OutputState: i.ToAlertRuleFusionSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleFusionSourceArrayInput is an input type that accepts AlertRuleFusionSourceArray and AlertRuleFusionSourceArrayOutput values.
 // You can construct a concrete instance of `AlertRuleFusionSourceArrayInput` via:
 //
@@ -1301,6 +1548,12 @@ func (i AlertRuleFusionSourceArray) ToAlertRuleFusionSourceArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceArrayOutput)
 }
 
+func (i AlertRuleFusionSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleFusionSource] {
+	return pulumix.Output[[]AlertRuleFusionSource]{
+		OutputState: i.ToAlertRuleFusionSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleFusionSourceOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionSourceOutput) ElementType() reflect.Type {
@@ -1313,6 +1566,12 @@ func (o AlertRuleFusionSourceOutput) ToAlertRuleFusionSourceOutput() AlertRuleFu
 
 func (o AlertRuleFusionSourceOutput) ToAlertRuleFusionSourceOutputWithContext(ctx context.Context) AlertRuleFusionSourceOutput {
 	return o
+}
+
+func (o AlertRuleFusionSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleFusionSource] {
+	return pulumix.Output[AlertRuleFusionSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
@@ -1342,6 +1601,12 @@ func (o AlertRuleFusionSourceArrayOutput) ToAlertRuleFusionSourceArrayOutput() A
 
 func (o AlertRuleFusionSourceArrayOutput) ToAlertRuleFusionSourceArrayOutputWithContext(ctx context.Context) AlertRuleFusionSourceArrayOutput {
 	return o
+}
+
+func (o AlertRuleFusionSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleFusionSource] {
+	return pulumix.Output[[]AlertRuleFusionSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleFusionSourceArrayOutput) Index(i pulumi.IntInput) AlertRuleFusionSourceOutput {
@@ -1391,6 +1656,12 @@ func (i AlertRuleFusionSourceSubTypeArgs) ToAlertRuleFusionSourceSubTypeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceSubTypeOutput)
 }
 
+func (i AlertRuleFusionSourceSubTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleFusionSourceSubType] {
+	return pulumix.Output[AlertRuleFusionSourceSubType]{
+		OutputState: i.ToAlertRuleFusionSourceSubTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleFusionSourceSubTypeArrayInput is an input type that accepts AlertRuleFusionSourceSubTypeArray and AlertRuleFusionSourceSubTypeArrayOutput values.
 // You can construct a concrete instance of `AlertRuleFusionSourceSubTypeArrayInput` via:
 //
@@ -1416,6 +1687,12 @@ func (i AlertRuleFusionSourceSubTypeArray) ToAlertRuleFusionSourceSubTypeArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionSourceSubTypeArrayOutput)
 }
 
+func (i AlertRuleFusionSourceSubTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleFusionSourceSubType] {
+	return pulumix.Output[[]AlertRuleFusionSourceSubType]{
+		OutputState: i.ToAlertRuleFusionSourceSubTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleFusionSourceSubTypeOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionSourceSubTypeOutput) ElementType() reflect.Type {
@@ -1428,6 +1705,12 @@ func (o AlertRuleFusionSourceSubTypeOutput) ToAlertRuleFusionSourceSubTypeOutput
 
 func (o AlertRuleFusionSourceSubTypeOutput) ToAlertRuleFusionSourceSubTypeOutputWithContext(ctx context.Context) AlertRuleFusionSourceSubTypeOutput {
 	return o
+}
+
+func (o AlertRuleFusionSourceSubTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleFusionSourceSubType] {
+	return pulumix.Output[AlertRuleFusionSourceSubType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
@@ -1457,6 +1740,12 @@ func (o AlertRuleFusionSourceSubTypeArrayOutput) ToAlertRuleFusionSourceSubTypeA
 
 func (o AlertRuleFusionSourceSubTypeArrayOutput) ToAlertRuleFusionSourceSubTypeArrayOutputWithContext(ctx context.Context) AlertRuleFusionSourceSubTypeArrayOutput {
 	return o
+}
+
+func (o AlertRuleFusionSourceSubTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleFusionSourceSubType] {
+	return pulumix.Output[[]AlertRuleFusionSourceSubType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleFusionSourceSubTypeArrayOutput) Index(i pulumi.IntInput) AlertRuleFusionSourceSubTypeOutput {
@@ -1514,6 +1803,12 @@ func (i AlertRuleNrtAlertDetailsOverrideArgs) ToAlertRuleNrtAlertDetailsOverride
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideOutput)
 }
 
+func (i AlertRuleNrtAlertDetailsOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtAlertDetailsOverride] {
+	return pulumix.Output[AlertRuleNrtAlertDetailsOverride]{
+		OutputState: i.ToAlertRuleNrtAlertDetailsOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleNrtAlertDetailsOverrideArrayInput is an input type that accepts AlertRuleNrtAlertDetailsOverrideArray and AlertRuleNrtAlertDetailsOverrideArrayOutput values.
 // You can construct a concrete instance of `AlertRuleNrtAlertDetailsOverrideArrayInput` via:
 //
@@ -1539,6 +1834,12 @@ func (i AlertRuleNrtAlertDetailsOverrideArray) ToAlertRuleNrtAlertDetailsOverrid
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideArrayOutput)
 }
 
+func (i AlertRuleNrtAlertDetailsOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtAlertDetailsOverride] {
+	return pulumix.Output[[]AlertRuleNrtAlertDetailsOverride]{
+		OutputState: i.ToAlertRuleNrtAlertDetailsOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtAlertDetailsOverrideOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtAlertDetailsOverrideOutput) ElementType() reflect.Type {
@@ -1551,6 +1852,12 @@ func (o AlertRuleNrtAlertDetailsOverrideOutput) ToAlertRuleNrtAlertDetailsOverri
 
 func (o AlertRuleNrtAlertDetailsOverrideOutput) ToAlertRuleNrtAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideOutput {
 	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtAlertDetailsOverride] {
+	return pulumix.Output[AlertRuleNrtAlertDetailsOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The format containing columns name(s) to override the description of this Sentinel Alert Rule.
@@ -1592,6 +1899,12 @@ func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) ToAlertRuleNrtAlertDetailsO
 
 func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) ToAlertRuleNrtAlertDetailsOverrideArrayOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideArrayOutput {
 	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtAlertDetailsOverride] {
+	return pulumix.Output[[]AlertRuleNrtAlertDetailsOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtAlertDetailsOverrideOutput {
@@ -1637,6 +1950,12 @@ func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs) ToAlertRuleNrtAlert
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput)
 }
 
+func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[AlertRuleNrtAlertDetailsOverrideDynamicProperty]{
+		OutputState: i.ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput is an input type that accepts AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray and AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput values.
 // You can construct a concrete instance of `AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayInput` via:
 //
@@ -1662,6 +1981,12 @@ func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray) ToAlertRuleNrtAler
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput)
 }
 
+func (i AlertRuleNrtAlertDetailsOverrideDynamicPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[[]AlertRuleNrtAlertDetailsOverrideDynamicProperty]{
+		OutputState: i.ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ElementType() reflect.Type {
@@ -1674,6 +1999,12 @@ func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleNrtAle
 
 func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
 	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[AlertRuleNrtAlertDetailsOverrideDynamicProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
@@ -1698,6 +2029,12 @@ func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleN
 
 func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput {
 	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[[]AlertRuleNrtAlertDetailsOverrideDynamicProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtAlertDetailsOverrideDynamicPropertyOutput {
@@ -1743,6 +2080,12 @@ func (i AlertRuleNrtEntityMappingArgs) ToAlertRuleNrtEntityMappingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingOutput)
 }
 
+func (i AlertRuleNrtEntityMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtEntityMapping] {
+	return pulumix.Output[AlertRuleNrtEntityMapping]{
+		OutputState: i.ToAlertRuleNrtEntityMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleNrtEntityMappingArrayInput is an input type that accepts AlertRuleNrtEntityMappingArray and AlertRuleNrtEntityMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleNrtEntityMappingArrayInput` via:
 //
@@ -1768,6 +2111,12 @@ func (i AlertRuleNrtEntityMappingArray) ToAlertRuleNrtEntityMappingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingArrayOutput)
 }
 
+func (i AlertRuleNrtEntityMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtEntityMapping] {
+	return pulumix.Output[[]AlertRuleNrtEntityMapping]{
+		OutputState: i.ToAlertRuleNrtEntityMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtEntityMappingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtEntityMappingOutput) ElementType() reflect.Type {
@@ -1780,6 +2129,12 @@ func (o AlertRuleNrtEntityMappingOutput) ToAlertRuleNrtEntityMappingOutput() Ale
 
 func (o AlertRuleNrtEntityMappingOutput) ToAlertRuleNrtEntityMappingOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingOutput {
 	return o
+}
+
+func (o AlertRuleNrtEntityMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtEntityMapping] {
+	return pulumix.Output[AlertRuleNrtEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
@@ -1804,6 +2159,12 @@ func (o AlertRuleNrtEntityMappingArrayOutput) ToAlertRuleNrtEntityMappingArrayOu
 
 func (o AlertRuleNrtEntityMappingArrayOutput) ToAlertRuleNrtEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingArrayOutput {
 	return o
+}
+
+func (o AlertRuleNrtEntityMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtEntityMapping] {
+	return pulumix.Output[[]AlertRuleNrtEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtEntityMappingOutput {
@@ -1849,6 +2210,12 @@ func (i AlertRuleNrtEntityMappingFieldMappingArgs) ToAlertRuleNrtEntityMappingFi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingFieldMappingOutput)
 }
 
+func (i AlertRuleNrtEntityMappingFieldMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtEntityMappingFieldMapping] {
+	return pulumix.Output[AlertRuleNrtEntityMappingFieldMapping]{
+		OutputState: i.ToAlertRuleNrtEntityMappingFieldMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleNrtEntityMappingFieldMappingArrayInput is an input type that accepts AlertRuleNrtEntityMappingFieldMappingArray and AlertRuleNrtEntityMappingFieldMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleNrtEntityMappingFieldMappingArrayInput` via:
 //
@@ -1874,6 +2241,12 @@ func (i AlertRuleNrtEntityMappingFieldMappingArray) ToAlertRuleNrtEntityMappingF
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingFieldMappingArrayOutput)
 }
 
+func (i AlertRuleNrtEntityMappingFieldMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtEntityMappingFieldMapping] {
+	return pulumix.Output[[]AlertRuleNrtEntityMappingFieldMapping]{
+		OutputState: i.ToAlertRuleNrtEntityMappingFieldMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtEntityMappingFieldMappingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtEntityMappingFieldMappingOutput) ElementType() reflect.Type {
@@ -1886,6 +2259,12 @@ func (o AlertRuleNrtEntityMappingFieldMappingOutput) ToAlertRuleNrtEntityMapping
 
 func (o AlertRuleNrtEntityMappingFieldMappingOutput) ToAlertRuleNrtEntityMappingFieldMappingOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingFieldMappingOutput {
 	return o
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtEntityMappingFieldMapping] {
+	return pulumix.Output[AlertRuleNrtEntityMappingFieldMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The column name to be mapped to the identifier.
@@ -1910,6 +2289,12 @@ func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) ToAlertRuleNrtEntityMa
 
 func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) ToAlertRuleNrtEntityMappingFieldMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingFieldMappingArrayOutput {
 	return o
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtEntityMappingFieldMapping] {
+	return pulumix.Output[[]AlertRuleNrtEntityMappingFieldMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtEntityMappingFieldMappingOutput {
@@ -1949,6 +2334,12 @@ func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingOutput() Alert
 
 func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEventGroupingOutput)
+}
+
+func (i AlertRuleNrtEventGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtEventGrouping] {
+	return pulumix.Output[AlertRuleNrtEventGrouping]{
+		OutputState: i.ToAlertRuleNrtEventGroupingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AlertRuleNrtEventGroupingArgs) ToAlertRuleNrtEventGroupingPtrOutput() AlertRuleNrtEventGroupingPtrOutput {
@@ -1992,6 +2383,12 @@ func (i *alertRuleNrtEventGroupingPtrType) ToAlertRuleNrtEventGroupingPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEventGroupingPtrOutput)
 }
 
+func (i *alertRuleNrtEventGroupingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrtEventGrouping] {
+	return pulumix.Output[*AlertRuleNrtEventGrouping]{
+		OutputState: i.ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtEventGroupingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtEventGroupingOutput) ElementType() reflect.Type {
@@ -2016,6 +2413,12 @@ func (o AlertRuleNrtEventGroupingOutput) ToAlertRuleNrtEventGroupingPtrOutputWit
 	}).(AlertRuleNrtEventGroupingPtrOutput)
 }
 
+func (o AlertRuleNrtEventGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtEventGrouping] {
+	return pulumix.Output[AlertRuleNrtEventGrouping]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
 func (o AlertRuleNrtEventGroupingOutput) AggregationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertRuleNrtEventGrouping) string { return v.AggregationMethod }).(pulumi.StringOutput)
@@ -2033,6 +2436,12 @@ func (o AlertRuleNrtEventGroupingPtrOutput) ToAlertRuleNrtEventGroupingPtrOutput
 
 func (o AlertRuleNrtEventGroupingPtrOutput) ToAlertRuleNrtEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtEventGroupingPtrOutput {
 	return o
+}
+
+func (o AlertRuleNrtEventGroupingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrtEventGrouping] {
+	return pulumix.Output[*AlertRuleNrtEventGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtEventGroupingPtrOutput) Elem() AlertRuleNrtEventGroupingOutput {
@@ -2092,6 +2501,12 @@ func (i AlertRuleNrtIncidentArgs) ToAlertRuleNrtIncidentOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentOutput)
 }
 
+func (i AlertRuleNrtIncidentArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtIncident] {
+	return pulumix.Output[AlertRuleNrtIncident]{
+		OutputState: i.ToAlertRuleNrtIncidentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertRuleNrtIncidentArgs) ToAlertRuleNrtIncidentPtrOutput() AlertRuleNrtIncidentPtrOutput {
 	return i.ToAlertRuleNrtIncidentPtrOutputWithContext(context.Background())
 }
@@ -2133,6 +2548,12 @@ func (i *alertRuleNrtIncidentPtrType) ToAlertRuleNrtIncidentPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentPtrOutput)
 }
 
+func (i *alertRuleNrtIncidentPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrtIncident] {
+	return pulumix.Output[*AlertRuleNrtIncident]{
+		OutputState: i.ToAlertRuleNrtIncidentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtIncidentOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtIncidentOutput) ElementType() reflect.Type {
@@ -2157,6 +2578,12 @@ func (o AlertRuleNrtIncidentOutput) ToAlertRuleNrtIncidentPtrOutputWithContext(c
 	}).(AlertRuleNrtIncidentPtrOutput)
 }
 
+func (o AlertRuleNrtIncidentOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtIncident] {
+	return pulumix.Output[AlertRuleNrtIncident]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
 func (o AlertRuleNrtIncidentOutput) CreateIncidentEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AlertRuleNrtIncident) bool { return v.CreateIncidentEnabled }).(pulumi.BoolOutput)
@@ -2179,6 +2606,12 @@ func (o AlertRuleNrtIncidentPtrOutput) ToAlertRuleNrtIncidentPtrOutput() AlertRu
 
 func (o AlertRuleNrtIncidentPtrOutput) ToAlertRuleNrtIncidentPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentPtrOutput {
 	return o
+}
+
+func (o AlertRuleNrtIncidentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrtIncident] {
+	return pulumix.Output[*AlertRuleNrtIncident]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtIncidentPtrOutput) Elem() AlertRuleNrtIncidentOutput {
@@ -2268,6 +2701,12 @@ func (i AlertRuleNrtIncidentGroupingArgs) ToAlertRuleNrtIncidentGroupingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentGroupingOutput)
 }
 
+func (i AlertRuleNrtIncidentGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtIncidentGrouping] {
+	return pulumix.Output[AlertRuleNrtIncidentGrouping]{
+		OutputState: i.ToAlertRuleNrtIncidentGroupingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertRuleNrtIncidentGroupingArgs) ToAlertRuleNrtIncidentGroupingPtrOutput() AlertRuleNrtIncidentGroupingPtrOutput {
 	return i.ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(context.Background())
 }
@@ -2309,6 +2748,12 @@ func (i *alertRuleNrtIncidentGroupingPtrType) ToAlertRuleNrtIncidentGroupingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentGroupingPtrOutput)
 }
 
+func (i *alertRuleNrtIncidentGroupingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrtIncidentGrouping] {
+	return pulumix.Output[*AlertRuleNrtIncidentGrouping]{
+		OutputState: i.ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtIncidentGroupingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtIncidentGroupingOutput) ElementType() reflect.Type {
@@ -2331,6 +2776,12 @@ func (o AlertRuleNrtIncidentGroupingOutput) ToAlertRuleNrtIncidentGroupingPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleNrtIncidentGrouping) *AlertRuleNrtIncidentGrouping {
 		return &v
 	}).(AlertRuleNrtIncidentGroupingPtrOutput)
+}
+
+func (o AlertRuleNrtIncidentGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtIncidentGrouping] {
+	return pulumix.Output[AlertRuleNrtIncidentGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
@@ -2380,6 +2831,12 @@ func (o AlertRuleNrtIncidentGroupingPtrOutput) ToAlertRuleNrtIncidentGroupingPtr
 
 func (o AlertRuleNrtIncidentGroupingPtrOutput) ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingPtrOutput {
 	return o
+}
+
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrtIncidentGrouping] {
+	return pulumix.Output[*AlertRuleNrtIncidentGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtIncidentGroupingPtrOutput) Elem() AlertRuleNrtIncidentGroupingOutput {
@@ -2495,6 +2952,12 @@ func (i AlertRuleNrtSentinelEntityMappingArgs) ToAlertRuleNrtSentinelEntityMappi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtSentinelEntityMappingOutput)
 }
 
+func (i AlertRuleNrtSentinelEntityMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtSentinelEntityMapping] {
+	return pulumix.Output[AlertRuleNrtSentinelEntityMapping]{
+		OutputState: i.ToAlertRuleNrtSentinelEntityMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleNrtSentinelEntityMappingArrayInput is an input type that accepts AlertRuleNrtSentinelEntityMappingArray and AlertRuleNrtSentinelEntityMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleNrtSentinelEntityMappingArrayInput` via:
 //
@@ -2520,6 +2983,12 @@ func (i AlertRuleNrtSentinelEntityMappingArray) ToAlertRuleNrtSentinelEntityMapp
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtSentinelEntityMappingArrayOutput)
 }
 
+func (i AlertRuleNrtSentinelEntityMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtSentinelEntityMapping] {
+	return pulumix.Output[[]AlertRuleNrtSentinelEntityMapping]{
+		OutputState: i.ToAlertRuleNrtSentinelEntityMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtSentinelEntityMappingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtSentinelEntityMappingOutput) ElementType() reflect.Type {
@@ -2532,6 +3001,12 @@ func (o AlertRuleNrtSentinelEntityMappingOutput) ToAlertRuleNrtSentinelEntityMap
 
 func (o AlertRuleNrtSentinelEntityMappingOutput) ToAlertRuleNrtSentinelEntityMappingOutputWithContext(ctx context.Context) AlertRuleNrtSentinelEntityMappingOutput {
 	return o
+}
+
+func (o AlertRuleNrtSentinelEntityMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleNrtSentinelEntityMapping] {
+	return pulumix.Output[AlertRuleNrtSentinelEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The column name to be mapped to the identifier.
@@ -2551,6 +3026,12 @@ func (o AlertRuleNrtSentinelEntityMappingArrayOutput) ToAlertRuleNrtSentinelEnti
 
 func (o AlertRuleNrtSentinelEntityMappingArrayOutput) ToAlertRuleNrtSentinelEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtSentinelEntityMappingArrayOutput {
 	return o
+}
+
+func (o AlertRuleNrtSentinelEntityMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleNrtSentinelEntityMapping] {
+	return pulumix.Output[[]AlertRuleNrtSentinelEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtSentinelEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtSentinelEntityMappingOutput {
@@ -2608,6 +3089,12 @@ func (i AlertRuleScheduledAlertDetailsOverrideArgs) ToAlertRuleScheduledAlertDet
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideOutput)
 }
 
+func (i AlertRuleScheduledAlertDetailsOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledAlertDetailsOverride] {
+	return pulumix.Output[AlertRuleScheduledAlertDetailsOverride]{
+		OutputState: i.ToAlertRuleScheduledAlertDetailsOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleScheduledAlertDetailsOverrideArrayInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideArray and AlertRuleScheduledAlertDetailsOverrideArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideArrayInput` via:
 //
@@ -2633,6 +3120,12 @@ func (i AlertRuleScheduledAlertDetailsOverrideArray) ToAlertRuleScheduledAlertDe
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideArrayOutput)
 }
 
+func (i AlertRuleScheduledAlertDetailsOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledAlertDetailsOverride] {
+	return pulumix.Output[[]AlertRuleScheduledAlertDetailsOverride]{
+		OutputState: i.ToAlertRuleScheduledAlertDetailsOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledAlertDetailsOverrideOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledAlertDetailsOverrideOutput) ElementType() reflect.Type {
@@ -2645,6 +3138,12 @@ func (o AlertRuleScheduledAlertDetailsOverrideOutput) ToAlertRuleScheduledAlertD
 
 func (o AlertRuleScheduledAlertDetailsOverrideOutput) ToAlertRuleScheduledAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideOutput {
 	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledAlertDetailsOverride] {
+	return pulumix.Output[AlertRuleScheduledAlertDetailsOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The format containing columns name(s) to override the description of this Sentinel Alert Rule.
@@ -2686,6 +3185,12 @@ func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) ToAlertRuleScheduledA
 
 func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) ToAlertRuleScheduledAlertDetailsOverrideArrayOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideArrayOutput {
 	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledAlertDetailsOverride] {
+	return pulumix.Output[[]AlertRuleScheduledAlertDetailsOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledAlertDetailsOverrideOutput {
@@ -2731,6 +3236,12 @@ func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs) ToAlertRuleSc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput)
 }
 
+func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[AlertRuleScheduledAlertDetailsOverrideDynamicProperty]{
+		OutputState: i.ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput is an input type that accepts AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray and AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayInput` via:
 //
@@ -2756,6 +3267,12 @@ func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray) ToAlertRuleS
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput)
 }
 
+func (i AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[[]AlertRuleScheduledAlertDetailsOverrideDynamicProperty]{
+		OutputState: i.ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ElementType() reflect.Type {
@@ -2768,6 +3285,12 @@ func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ToAlertRule
 
 func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
 	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[AlertRuleScheduledAlertDetailsOverrideDynamicProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the dynamic property. Possible Values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps` and `Techniques`.
@@ -2792,6 +3315,12 @@ func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) ToAler
 
 func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) ToAlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutputWithContext(ctx context.Context) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput {
 	return o
+}
+
+func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledAlertDetailsOverrideDynamicProperty] {
+	return pulumix.Output[[]AlertRuleScheduledAlertDetailsOverrideDynamicProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledAlertDetailsOverrideDynamicPropertyOutput {
@@ -2837,6 +3366,12 @@ func (i AlertRuleScheduledEntityMappingArgs) ToAlertRuleScheduledEntityMappingOu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingOutput)
 }
 
+func (i AlertRuleScheduledEntityMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledEntityMapping] {
+	return pulumix.Output[AlertRuleScheduledEntityMapping]{
+		OutputState: i.ToAlertRuleScheduledEntityMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleScheduledEntityMappingArrayInput is an input type that accepts AlertRuleScheduledEntityMappingArray and AlertRuleScheduledEntityMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEntityMappingArrayInput` via:
 //
@@ -2862,6 +3397,12 @@ func (i AlertRuleScheduledEntityMappingArray) ToAlertRuleScheduledEntityMappingA
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingArrayOutput)
 }
 
+func (i AlertRuleScheduledEntityMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledEntityMapping] {
+	return pulumix.Output[[]AlertRuleScheduledEntityMapping]{
+		OutputState: i.ToAlertRuleScheduledEntityMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledEntityMappingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledEntityMappingOutput) ElementType() reflect.Type {
@@ -2874,6 +3415,12 @@ func (o AlertRuleScheduledEntityMappingOutput) ToAlertRuleScheduledEntityMapping
 
 func (o AlertRuleScheduledEntityMappingOutput) ToAlertRuleScheduledEntityMappingOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingOutput {
 	return o
+}
+
+func (o AlertRuleScheduledEntityMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledEntityMapping] {
+	return pulumix.Output[AlertRuleScheduledEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
@@ -2900,6 +3447,12 @@ func (o AlertRuleScheduledEntityMappingArrayOutput) ToAlertRuleScheduledEntityMa
 
 func (o AlertRuleScheduledEntityMappingArrayOutput) ToAlertRuleScheduledEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingArrayOutput {
 	return o
+}
+
+func (o AlertRuleScheduledEntityMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledEntityMapping] {
+	return pulumix.Output[[]AlertRuleScheduledEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledEntityMappingOutput {
@@ -2945,6 +3498,12 @@ func (i AlertRuleScheduledEntityMappingFieldMappingArgs) ToAlertRuleScheduledEnt
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingFieldMappingOutput)
 }
 
+func (i AlertRuleScheduledEntityMappingFieldMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledEntityMappingFieldMapping] {
+	return pulumix.Output[AlertRuleScheduledEntityMappingFieldMapping]{
+		OutputState: i.ToAlertRuleScheduledEntityMappingFieldMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleScheduledEntityMappingFieldMappingArrayInput is an input type that accepts AlertRuleScheduledEntityMappingFieldMappingArray and AlertRuleScheduledEntityMappingFieldMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledEntityMappingFieldMappingArrayInput` via:
 //
@@ -2970,6 +3529,12 @@ func (i AlertRuleScheduledEntityMappingFieldMappingArray) ToAlertRuleScheduledEn
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEntityMappingFieldMappingArrayOutput)
 }
 
+func (i AlertRuleScheduledEntityMappingFieldMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledEntityMappingFieldMapping] {
+	return pulumix.Output[[]AlertRuleScheduledEntityMappingFieldMapping]{
+		OutputState: i.ToAlertRuleScheduledEntityMappingFieldMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledEntityMappingFieldMappingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledEntityMappingFieldMappingOutput) ElementType() reflect.Type {
@@ -2982,6 +3547,12 @@ func (o AlertRuleScheduledEntityMappingFieldMappingOutput) ToAlertRuleScheduledE
 
 func (o AlertRuleScheduledEntityMappingFieldMappingOutput) ToAlertRuleScheduledEntityMappingFieldMappingOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingFieldMappingOutput {
 	return o
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledEntityMappingFieldMapping] {
+	return pulumix.Output[AlertRuleScheduledEntityMappingFieldMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The column name to be mapped to the identifier.
@@ -3006,6 +3577,12 @@ func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) ToAlertRuleSched
 
 func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) ToAlertRuleScheduledEntityMappingFieldMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledEntityMappingFieldMappingArrayOutput {
 	return o
+}
+
+func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledEntityMappingFieldMapping] {
+	return pulumix.Output[[]AlertRuleScheduledEntityMappingFieldMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledEntityMappingFieldMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledEntityMappingFieldMappingOutput {
@@ -3045,6 +3622,12 @@ func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingOu
 
 func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEventGroupingOutput)
+}
+
+func (i AlertRuleScheduledEventGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledEventGrouping] {
+	return pulumix.Output[AlertRuleScheduledEventGrouping]{
+		OutputState: i.ToAlertRuleScheduledEventGroupingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AlertRuleScheduledEventGroupingArgs) ToAlertRuleScheduledEventGroupingPtrOutput() AlertRuleScheduledEventGroupingPtrOutput {
@@ -3088,6 +3671,12 @@ func (i *alertRuleScheduledEventGroupingPtrType) ToAlertRuleScheduledEventGroupi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledEventGroupingPtrOutput)
 }
 
+func (i *alertRuleScheduledEventGroupingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduledEventGrouping] {
+	return pulumix.Output[*AlertRuleScheduledEventGrouping]{
+		OutputState: i.ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledEventGroupingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledEventGroupingOutput) ElementType() reflect.Type {
@@ -3112,6 +3701,12 @@ func (o AlertRuleScheduledEventGroupingOutput) ToAlertRuleScheduledEventGrouping
 	}).(AlertRuleScheduledEventGroupingPtrOutput)
 }
 
+func (o AlertRuleScheduledEventGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledEventGrouping] {
+	return pulumix.Output[AlertRuleScheduledEventGrouping]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
 func (o AlertRuleScheduledEventGroupingOutput) AggregationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertRuleScheduledEventGrouping) string { return v.AggregationMethod }).(pulumi.StringOutput)
@@ -3129,6 +3724,12 @@ func (o AlertRuleScheduledEventGroupingPtrOutput) ToAlertRuleScheduledEventGroup
 
 func (o AlertRuleScheduledEventGroupingPtrOutput) ToAlertRuleScheduledEventGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledEventGroupingPtrOutput {
 	return o
+}
+
+func (o AlertRuleScheduledEventGroupingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduledEventGrouping] {
+	return pulumix.Output[*AlertRuleScheduledEventGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledEventGroupingPtrOutput) Elem() AlertRuleScheduledEventGroupingOutput {
@@ -3188,6 +3789,12 @@ func (i AlertRuleScheduledIncidentConfigurationArgs) ToAlertRuleScheduledInciden
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentConfigurationOutput)
 }
 
+func (i AlertRuleScheduledIncidentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledIncidentConfiguration] {
+	return pulumix.Output[AlertRuleScheduledIncidentConfiguration]{
+		OutputState: i.ToAlertRuleScheduledIncidentConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertRuleScheduledIncidentConfigurationArgs) ToAlertRuleScheduledIncidentConfigurationPtrOutput() AlertRuleScheduledIncidentConfigurationPtrOutput {
 	return i.ToAlertRuleScheduledIncidentConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3229,6 +3836,12 @@ func (i *alertRuleScheduledIncidentConfigurationPtrType) ToAlertRuleScheduledInc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentConfigurationPtrOutput)
 }
 
+func (i *alertRuleScheduledIncidentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduledIncidentConfiguration] {
+	return pulumix.Output[*AlertRuleScheduledIncidentConfiguration]{
+		OutputState: i.ToAlertRuleScheduledIncidentConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledIncidentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledIncidentConfigurationOutput) ElementType() reflect.Type {
@@ -3251,6 +3864,12 @@ func (o AlertRuleScheduledIncidentConfigurationOutput) ToAlertRuleScheduledIncid
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledIncidentConfiguration) *AlertRuleScheduledIncidentConfiguration {
 		return &v
 	}).(AlertRuleScheduledIncidentConfigurationPtrOutput)
+}
+
+func (o AlertRuleScheduledIncidentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledIncidentConfiguration] {
+	return pulumix.Output[AlertRuleScheduledIncidentConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
@@ -3277,6 +3896,12 @@ func (o AlertRuleScheduledIncidentConfigurationPtrOutput) ToAlertRuleScheduledIn
 
 func (o AlertRuleScheduledIncidentConfigurationPtrOutput) ToAlertRuleScheduledIncidentConfigurationPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentConfigurationPtrOutput {
 	return o
+}
+
+func (o AlertRuleScheduledIncidentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduledIncidentConfiguration] {
+	return pulumix.Output[*AlertRuleScheduledIncidentConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledIncidentConfigurationPtrOutput) Elem() AlertRuleScheduledIncidentConfigurationOutput {
@@ -3366,6 +3991,12 @@ func (i AlertRuleScheduledIncidentConfigurationGroupingArgs) ToAlertRuleSchedule
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentConfigurationGroupingOutput)
 }
 
+func (i AlertRuleScheduledIncidentConfigurationGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledIncidentConfigurationGrouping] {
+	return pulumix.Output[AlertRuleScheduledIncidentConfigurationGrouping]{
+		OutputState: i.ToAlertRuleScheduledIncidentConfigurationGroupingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AlertRuleScheduledIncidentConfigurationGroupingArgs) ToAlertRuleScheduledIncidentConfigurationGroupingPtrOutput() AlertRuleScheduledIncidentConfigurationGroupingPtrOutput {
 	return i.ToAlertRuleScheduledIncidentConfigurationGroupingPtrOutputWithContext(context.Background())
 }
@@ -3407,6 +4038,12 @@ func (i *alertRuleScheduledIncidentConfigurationGroupingPtrType) ToAlertRuleSche
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput)
 }
 
+func (i *alertRuleScheduledIncidentConfigurationGroupingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduledIncidentConfigurationGrouping] {
+	return pulumix.Output[*AlertRuleScheduledIncidentConfigurationGrouping]{
+		OutputState: i.ToAlertRuleScheduledIncidentConfigurationGroupingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledIncidentConfigurationGroupingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledIncidentConfigurationGroupingOutput) ElementType() reflect.Type {
@@ -3429,6 +4066,12 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) ToAlertRuleSchedu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledIncidentConfigurationGrouping) *AlertRuleScheduledIncidentConfigurationGrouping {
 		return &v
 	}).(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput)
+}
+
+func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledIncidentConfigurationGrouping] {
+	return pulumix.Output[AlertRuleScheduledIncidentConfigurationGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
@@ -3478,6 +4121,12 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ToAlertRuleSch
 
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ToAlertRuleScheduledIncidentConfigurationGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentConfigurationGroupingPtrOutput {
 	return o
+}
+
+func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduledIncidentConfigurationGrouping] {
+	return pulumix.Output[*AlertRuleScheduledIncidentConfigurationGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) Elem() AlertRuleScheduledIncidentConfigurationGroupingOutput {
@@ -3593,6 +4242,12 @@ func (i AlertRuleScheduledSentinelEntityMappingArgs) ToAlertRuleScheduledSentine
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledSentinelEntityMappingOutput)
 }
 
+func (i AlertRuleScheduledSentinelEntityMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledSentinelEntityMapping] {
+	return pulumix.Output[AlertRuleScheduledSentinelEntityMapping]{
+		OutputState: i.ToAlertRuleScheduledSentinelEntityMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleScheduledSentinelEntityMappingArrayInput is an input type that accepts AlertRuleScheduledSentinelEntityMappingArray and AlertRuleScheduledSentinelEntityMappingArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledSentinelEntityMappingArrayInput` via:
 //
@@ -3618,6 +4273,12 @@ func (i AlertRuleScheduledSentinelEntityMappingArray) ToAlertRuleScheduledSentin
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledSentinelEntityMappingArrayOutput)
 }
 
+func (i AlertRuleScheduledSentinelEntityMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledSentinelEntityMapping] {
+	return pulumix.Output[[]AlertRuleScheduledSentinelEntityMapping]{
+		OutputState: i.ToAlertRuleScheduledSentinelEntityMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleScheduledSentinelEntityMappingOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledSentinelEntityMappingOutput) ElementType() reflect.Type {
@@ -3630,6 +4291,12 @@ func (o AlertRuleScheduledSentinelEntityMappingOutput) ToAlertRuleScheduledSenti
 
 func (o AlertRuleScheduledSentinelEntityMappingOutput) ToAlertRuleScheduledSentinelEntityMappingOutputWithContext(ctx context.Context) AlertRuleScheduledSentinelEntityMappingOutput {
 	return o
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AlertRuleScheduledSentinelEntityMapping] {
+	return pulumix.Output[AlertRuleScheduledSentinelEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The column name to be mapped to the identifier.
@@ -3649,6 +4316,12 @@ func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) ToAlertRuleScheduled
 
 func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) ToAlertRuleScheduledSentinelEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleScheduledSentinelEntityMappingArrayOutput {
 	return o
+}
+
+func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertRuleScheduledSentinelEntityMapping] {
+	return pulumix.Output[[]AlertRuleScheduledSentinelEntityMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledSentinelEntityMappingOutput {
@@ -3726,6 +4399,12 @@ func (i AuthomationRuleActionIncidentArgs) ToAuthomationRuleActionIncidentOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionIncidentOutput)
 }
 
+func (i AuthomationRuleActionIncidentArgs) ToOutput(ctx context.Context) pulumix.Output[AuthomationRuleActionIncident] {
+	return pulumix.Output[AuthomationRuleActionIncident]{
+		OutputState: i.ToAuthomationRuleActionIncidentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthomationRuleActionIncidentArrayInput is an input type that accepts AuthomationRuleActionIncidentArray and AuthomationRuleActionIncidentArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleActionIncidentArrayInput` via:
 //
@@ -3751,6 +4430,12 @@ func (i AuthomationRuleActionIncidentArray) ToAuthomationRuleActionIncidentArray
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionIncidentArrayOutput)
 }
 
+func (i AuthomationRuleActionIncidentArray) ToOutput(ctx context.Context) pulumix.Output[[]AuthomationRuleActionIncident] {
+	return pulumix.Output[[]AuthomationRuleActionIncident]{
+		OutputState: i.ToAuthomationRuleActionIncidentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthomationRuleActionIncidentOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleActionIncidentOutput) ElementType() reflect.Type {
@@ -3763,6 +4448,12 @@ func (o AuthomationRuleActionIncidentOutput) ToAuthomationRuleActionIncidentOutp
 
 func (o AuthomationRuleActionIncidentOutput) ToAuthomationRuleActionIncidentOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentOutput {
 	return o
+}
+
+func (o AuthomationRuleActionIncidentOutput) ToOutput(ctx context.Context) pulumix.Output[AuthomationRuleActionIncident] {
+	return pulumix.Output[AuthomationRuleActionIncident]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
@@ -3820,6 +4511,12 @@ func (o AuthomationRuleActionIncidentArrayOutput) ToAuthomationRuleActionInciden
 	return o
 }
 
+func (o AuthomationRuleActionIncidentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AuthomationRuleActionIncident] {
+	return pulumix.Output[[]AuthomationRuleActionIncident]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthomationRuleActionIncidentArrayOutput) Index(i pulumi.IntInput) AuthomationRuleActionIncidentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthomationRuleActionIncident {
 		return vs[0].([]AuthomationRuleActionIncident)[vs[1].(int)]
@@ -3867,6 +4564,12 @@ func (i AuthomationRuleActionPlaybookArgs) ToAuthomationRuleActionPlaybookOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionPlaybookOutput)
 }
 
+func (i AuthomationRuleActionPlaybookArgs) ToOutput(ctx context.Context) pulumix.Output[AuthomationRuleActionPlaybook] {
+	return pulumix.Output[AuthomationRuleActionPlaybook]{
+		OutputState: i.ToAuthomationRuleActionPlaybookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthomationRuleActionPlaybookArrayInput is an input type that accepts AuthomationRuleActionPlaybookArray and AuthomationRuleActionPlaybookArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleActionPlaybookArrayInput` via:
 //
@@ -3892,6 +4595,12 @@ func (i AuthomationRuleActionPlaybookArray) ToAuthomationRuleActionPlaybookArray
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionPlaybookArrayOutput)
 }
 
+func (i AuthomationRuleActionPlaybookArray) ToOutput(ctx context.Context) pulumix.Output[[]AuthomationRuleActionPlaybook] {
+	return pulumix.Output[[]AuthomationRuleActionPlaybook]{
+		OutputState: i.ToAuthomationRuleActionPlaybookArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthomationRuleActionPlaybookOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleActionPlaybookOutput) ElementType() reflect.Type {
@@ -3904,6 +4613,12 @@ func (o AuthomationRuleActionPlaybookOutput) ToAuthomationRuleActionPlaybookOutp
 
 func (o AuthomationRuleActionPlaybookOutput) ToAuthomationRuleActionPlaybookOutputWithContext(ctx context.Context) AuthomationRuleActionPlaybookOutput {
 	return o
+}
+
+func (o AuthomationRuleActionPlaybookOutput) ToOutput(ctx context.Context) pulumix.Output[AuthomationRuleActionPlaybook] {
+	return pulumix.Output[AuthomationRuleActionPlaybook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Logic App that defines the playbook's logic.
@@ -3933,6 +4648,12 @@ func (o AuthomationRuleActionPlaybookArrayOutput) ToAuthomationRuleActionPlayboo
 
 func (o AuthomationRuleActionPlaybookArrayOutput) ToAuthomationRuleActionPlaybookArrayOutputWithContext(ctx context.Context) AuthomationRuleActionPlaybookArrayOutput {
 	return o
+}
+
+func (o AuthomationRuleActionPlaybookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AuthomationRuleActionPlaybook] {
+	return pulumix.Output[[]AuthomationRuleActionPlaybook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthomationRuleActionPlaybookArrayOutput) Index(i pulumi.IntInput) AuthomationRuleActionPlaybookOutput {
@@ -3982,6 +4703,12 @@ func (i AuthomationRuleConditionArgs) ToAuthomationRuleConditionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleConditionOutput)
 }
 
+func (i AuthomationRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AuthomationRuleCondition] {
+	return pulumix.Output[AuthomationRuleCondition]{
+		OutputState: i.ToAuthomationRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthomationRuleConditionArrayInput is an input type that accepts AuthomationRuleConditionArray and AuthomationRuleConditionArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleConditionArrayInput` via:
 //
@@ -4007,6 +4734,12 @@ func (i AuthomationRuleConditionArray) ToAuthomationRuleConditionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleConditionArrayOutput)
 }
 
+func (i AuthomationRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]AuthomationRuleCondition] {
+	return pulumix.Output[[]AuthomationRuleCondition]{
+		OutputState: i.ToAuthomationRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthomationRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleConditionOutput) ElementType() reflect.Type {
@@ -4019,6 +4752,12 @@ func (o AuthomationRuleConditionOutput) ToAuthomationRuleConditionOutput() Autho
 
 func (o AuthomationRuleConditionOutput) ToAuthomationRuleConditionOutputWithContext(ctx context.Context) AuthomationRuleConditionOutput {
 	return o
+}
+
+func (o AuthomationRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AuthomationRuleCondition] {
+	return pulumix.Output[AuthomationRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
@@ -4048,6 +4787,12 @@ func (o AuthomationRuleConditionArrayOutput) ToAuthomationRuleConditionArrayOutp
 
 func (o AuthomationRuleConditionArrayOutput) ToAuthomationRuleConditionArrayOutputWithContext(ctx context.Context) AuthomationRuleConditionArrayOutput {
 	return o
+}
+
+func (o AuthomationRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AuthomationRuleCondition] {
+	return pulumix.Output[[]AuthomationRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthomationRuleConditionArrayOutput) Index(i pulumi.IntInput) AuthomationRuleConditionOutput {
@@ -4125,6 +4870,12 @@ func (i AutomationRuleActionIncidentArgs) ToAutomationRuleActionIncidentOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionIncidentOutput)
 }
 
+func (i AutomationRuleActionIncidentArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleActionIncident] {
+	return pulumix.Output[AutomationRuleActionIncident]{
+		OutputState: i.ToAutomationRuleActionIncidentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutomationRuleActionIncidentArrayInput is an input type that accepts AutomationRuleActionIncidentArray and AutomationRuleActionIncidentArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleActionIncidentArrayInput` via:
 //
@@ -4150,6 +4901,12 @@ func (i AutomationRuleActionIncidentArray) ToAutomationRuleActionIncidentArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionIncidentArrayOutput)
 }
 
+func (i AutomationRuleActionIncidentArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleActionIncident] {
+	return pulumix.Output[[]AutomationRuleActionIncident]{
+		OutputState: i.ToAutomationRuleActionIncidentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationRuleActionIncidentOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleActionIncidentOutput) ElementType() reflect.Type {
@@ -4162,6 +4919,12 @@ func (o AutomationRuleActionIncidentOutput) ToAutomationRuleActionIncidentOutput
 
 func (o AutomationRuleActionIncidentOutput) ToAutomationRuleActionIncidentOutputWithContext(ctx context.Context) AutomationRuleActionIncidentOutput {
 	return o
+}
+
+func (o AutomationRuleActionIncidentOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleActionIncident] {
+	return pulumix.Output[AutomationRuleActionIncident]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
@@ -4219,6 +4982,12 @@ func (o AutomationRuleActionIncidentArrayOutput) ToAutomationRuleActionIncidentA
 	return o
 }
 
+func (o AutomationRuleActionIncidentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleActionIncident] {
+	return pulumix.Output[[]AutomationRuleActionIncident]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AutomationRuleActionIncidentArrayOutput) Index(i pulumi.IntInput) AutomationRuleActionIncidentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleActionIncident {
 		return vs[0].([]AutomationRuleActionIncident)[vs[1].(int)]
@@ -4266,6 +5035,12 @@ func (i AutomationRuleActionPlaybookArgs) ToAutomationRuleActionPlaybookOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionPlaybookOutput)
 }
 
+func (i AutomationRuleActionPlaybookArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleActionPlaybook] {
+	return pulumix.Output[AutomationRuleActionPlaybook]{
+		OutputState: i.ToAutomationRuleActionPlaybookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutomationRuleActionPlaybookArrayInput is an input type that accepts AutomationRuleActionPlaybookArray and AutomationRuleActionPlaybookArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleActionPlaybookArrayInput` via:
 //
@@ -4291,6 +5066,12 @@ func (i AutomationRuleActionPlaybookArray) ToAutomationRuleActionPlaybookArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionPlaybookArrayOutput)
 }
 
+func (i AutomationRuleActionPlaybookArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleActionPlaybook] {
+	return pulumix.Output[[]AutomationRuleActionPlaybook]{
+		OutputState: i.ToAutomationRuleActionPlaybookArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationRuleActionPlaybookOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleActionPlaybookOutput) ElementType() reflect.Type {
@@ -4303,6 +5084,12 @@ func (o AutomationRuleActionPlaybookOutput) ToAutomationRuleActionPlaybookOutput
 
 func (o AutomationRuleActionPlaybookOutput) ToAutomationRuleActionPlaybookOutputWithContext(ctx context.Context) AutomationRuleActionPlaybookOutput {
 	return o
+}
+
+func (o AutomationRuleActionPlaybookOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleActionPlaybook] {
+	return pulumix.Output[AutomationRuleActionPlaybook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Logic App that defines the playbook's logic.
@@ -4332,6 +5119,12 @@ func (o AutomationRuleActionPlaybookArrayOutput) ToAutomationRuleActionPlaybookA
 
 func (o AutomationRuleActionPlaybookArrayOutput) ToAutomationRuleActionPlaybookArrayOutputWithContext(ctx context.Context) AutomationRuleActionPlaybookArrayOutput {
 	return o
+}
+
+func (o AutomationRuleActionPlaybookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleActionPlaybook] {
+	return pulumix.Output[[]AutomationRuleActionPlaybook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutomationRuleActionPlaybookArrayOutput) Index(i pulumi.IntInput) AutomationRuleActionPlaybookOutput {
@@ -4381,6 +5174,12 @@ func (i AutomationRuleConditionArgs) ToAutomationRuleConditionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleConditionOutput)
 }
 
+func (i AutomationRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleCondition] {
+	return pulumix.Output[AutomationRuleCondition]{
+		OutputState: i.ToAutomationRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutomationRuleConditionArrayInput is an input type that accepts AutomationRuleConditionArray and AutomationRuleConditionArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleConditionArrayInput` via:
 //
@@ -4406,6 +5205,12 @@ func (i AutomationRuleConditionArray) ToAutomationRuleConditionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleConditionArrayOutput)
 }
 
+func (i AutomationRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleCondition] {
+	return pulumix.Output[[]AutomationRuleCondition]{
+		OutputState: i.ToAutomationRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleConditionOutput) ElementType() reflect.Type {
@@ -4418,6 +5223,12 @@ func (o AutomationRuleConditionOutput) ToAutomationRuleConditionOutput() Automat
 
 func (o AutomationRuleConditionOutput) ToAutomationRuleConditionOutputWithContext(ctx context.Context) AutomationRuleConditionOutput {
 	return o
+}
+
+func (o AutomationRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleCondition] {
+	return pulumix.Output[AutomationRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
@@ -4447,6 +5258,12 @@ func (o AutomationRuleConditionArrayOutput) ToAutomationRuleConditionArrayOutput
 
 func (o AutomationRuleConditionArrayOutput) ToAutomationRuleConditionArrayOutputWithContext(ctx context.Context) AutomationRuleConditionArrayOutput {
 	return o
+}
+
+func (o AutomationRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleCondition] {
+	return pulumix.Output[[]AutomationRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutomationRuleConditionArrayOutput) Index(i pulumi.IntInput) AutomationRuleConditionOutput {
@@ -4496,6 +5313,12 @@ func (i MetadataAuthorArgs) ToMetadataAuthorOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorOutput)
 }
 
+func (i MetadataAuthorArgs) ToOutput(ctx context.Context) pulumix.Output[MetadataAuthor] {
+	return pulumix.Output[MetadataAuthor]{
+		OutputState: i.ToMetadataAuthorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MetadataAuthorArgs) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutput {
 	return i.ToMetadataAuthorPtrOutputWithContext(context.Background())
 }
@@ -4537,6 +5360,12 @@ func (i *metadataAuthorPtrType) ToMetadataAuthorPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorPtrOutput)
 }
 
+func (i *metadataAuthorPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetadataAuthor] {
+	return pulumix.Output[*MetadataAuthor]{
+		OutputState: i.ToMetadataAuthorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetadataAuthorOutput struct{ *pulumi.OutputState }
 
 func (MetadataAuthorOutput) ElementType() reflect.Type {
@@ -4559,6 +5388,12 @@ func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataAuthor) *MetadataAuthor {
 		return &v
 	}).(MetadataAuthorPtrOutput)
+}
+
+func (o MetadataAuthorOutput) ToOutput(ctx context.Context) pulumix.Output[MetadataAuthor] {
+	return pulumix.Output[MetadataAuthor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The email address of the author contact.
@@ -4588,6 +5423,12 @@ func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOu
 
 func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
 	return o
+}
+
+func (o MetadataAuthorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetadataAuthor] {
+	return pulumix.Output[*MetadataAuthor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetadataAuthorPtrOutput) Elem() MetadataAuthorOutput {
@@ -4667,6 +5508,12 @@ func (i MetadataCategoryArgs) ToMetadataCategoryOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoryOutput)
 }
 
+func (i MetadataCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[MetadataCategory] {
+	return pulumix.Output[MetadataCategory]{
+		OutputState: i.ToMetadataCategoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MetadataCategoryArgs) ToMetadataCategoryPtrOutput() MetadataCategoryPtrOutput {
 	return i.ToMetadataCategoryPtrOutputWithContext(context.Background())
 }
@@ -4708,6 +5555,12 @@ func (i *metadataCategoryPtrType) ToMetadataCategoryPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataCategoryPtrOutput)
 }
 
+func (i *metadataCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetadataCategory] {
+	return pulumix.Output[*MetadataCategory]{
+		OutputState: i.ToMetadataCategoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetadataCategoryOutput struct{ *pulumi.OutputState }
 
 func (MetadataCategoryOutput) ElementType() reflect.Type {
@@ -4732,6 +5585,12 @@ func (o MetadataCategoryOutput) ToMetadataCategoryPtrOutputWithContext(ctx conte
 	}).(MetadataCategoryPtrOutput)
 }
 
+func (o MetadataCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[MetadataCategory] {
+	return pulumix.Output[MetadataCategory]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a list of domains for the solution content item.
 func (o MetadataCategoryOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetadataCategory) []string { return v.Domains }).(pulumi.StringArrayOutput)
@@ -4754,6 +5613,12 @@ func (o MetadataCategoryPtrOutput) ToMetadataCategoryPtrOutput() MetadataCategor
 
 func (o MetadataCategoryPtrOutput) ToMetadataCategoryPtrOutputWithContext(ctx context.Context) MetadataCategoryPtrOutput {
 	return o
+}
+
+func (o MetadataCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetadataCategory] {
+	return pulumix.Output[*MetadataCategory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetadataCategoryPtrOutput) Elem() MetadataCategoryOutput {
@@ -4827,6 +5692,12 @@ func (i MetadataSourceArgs) ToMetadataSourceOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceOutput)
 }
 
+func (i MetadataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[MetadataSource] {
+	return pulumix.Output[MetadataSource]{
+		OutputState: i.ToMetadataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MetadataSourceArgs) ToMetadataSourcePtrOutput() MetadataSourcePtrOutput {
 	return i.ToMetadataSourcePtrOutputWithContext(context.Background())
 }
@@ -4868,6 +5739,12 @@ func (i *metadataSourcePtrType) ToMetadataSourcePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourcePtrOutput)
 }
 
+func (i *metadataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*MetadataSource] {
+	return pulumix.Output[*MetadataSource]{
+		OutputState: i.ToMetadataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetadataSourceOutput struct{ *pulumi.OutputState }
 
 func (MetadataSourceOutput) ElementType() reflect.Type {
@@ -4890,6 +5767,12 @@ func (o MetadataSourceOutput) ToMetadataSourcePtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSource) *MetadataSource {
 		return &v
 	}).(MetadataSourcePtrOutput)
+}
+
+func (o MetadataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[MetadataSource] {
+	return pulumix.Output[MetadataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The id of the content source, the solution ID, Log Analytics Workspace name etc.
@@ -4919,6 +5802,12 @@ func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOu
 
 func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
 	return o
+}
+
+func (o MetadataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetadataSource] {
+	return pulumix.Output[*MetadataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetadataSourcePtrOutput) Elem() MetadataSourceOutput {
@@ -5006,6 +5895,12 @@ func (i MetadataSupportArgs) ToMetadataSupportOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportOutput)
 }
 
+func (i MetadataSupportArgs) ToOutput(ctx context.Context) pulumix.Output[MetadataSupport] {
+	return pulumix.Output[MetadataSupport]{
+		OutputState: i.ToMetadataSupportOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MetadataSupportArgs) ToMetadataSupportPtrOutput() MetadataSupportPtrOutput {
 	return i.ToMetadataSupportPtrOutputWithContext(context.Background())
 }
@@ -5047,6 +5942,12 @@ func (i *metadataSupportPtrType) ToMetadataSupportPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportPtrOutput)
 }
 
+func (i *metadataSupportPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetadataSupport] {
+	return pulumix.Output[*MetadataSupport]{
+		OutputState: i.ToMetadataSupportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetadataSupportOutput struct{ *pulumi.OutputState }
 
 func (MetadataSupportOutput) ElementType() reflect.Type {
@@ -5069,6 +5970,12 @@ func (o MetadataSupportOutput) ToMetadataSupportPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSupport) *MetadataSupport {
 		return &v
 	}).(MetadataSupportPtrOutput)
+}
+
+func (o MetadataSupportOutput) ToOutput(ctx context.Context) pulumix.Output[MetadataSupport] {
+	return pulumix.Output[MetadataSupport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The email address of the support contact.
@@ -5103,6 +6010,12 @@ func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutput() MetadataSupportPt
 
 func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
 	return o
+}
+
+func (o MetadataSupportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetadataSupport] {
+	return pulumix.Output[*MetadataSupport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetadataSupportPtrOutput) Elem() MetadataSupportOutput {
@@ -5204,6 +6117,12 @@ func (i ThreatIntelligenceIndicatorExternalReferenceArgs) ToThreatIntelligenceIn
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorExternalReferenceOutput)
 }
 
+func (i ThreatIntelligenceIndicatorExternalReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorExternalReference] {
+	return pulumix.Output[ThreatIntelligenceIndicatorExternalReference]{
+		OutputState: i.ToThreatIntelligenceIndicatorExternalReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThreatIntelligenceIndicatorExternalReferenceArrayInput is an input type that accepts ThreatIntelligenceIndicatorExternalReferenceArray and ThreatIntelligenceIndicatorExternalReferenceArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceIndicatorExternalReferenceArrayInput` via:
 //
@@ -5229,6 +6148,12 @@ func (i ThreatIntelligenceIndicatorExternalReferenceArray) ToThreatIntelligenceI
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorExternalReferenceArrayOutput)
 }
 
+func (i ThreatIntelligenceIndicatorExternalReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorExternalReference] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorExternalReference]{
+		OutputState: i.ToThreatIntelligenceIndicatorExternalReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThreatIntelligenceIndicatorExternalReferenceOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorExternalReferenceOutput) ElementType() reflect.Type {
@@ -5241,6 +6166,12 @@ func (o ThreatIntelligenceIndicatorExternalReferenceOutput) ToThreatIntelligence
 
 func (o ThreatIntelligenceIndicatorExternalReferenceOutput) ToThreatIntelligenceIndicatorExternalReferenceOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorExternalReferenceOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorExternalReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorExternalReference] {
+	return pulumix.Output[ThreatIntelligenceIndicatorExternalReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the external reference of the Threat Intelligence Indicator.
@@ -5280,6 +6211,12 @@ func (o ThreatIntelligenceIndicatorExternalReferenceArrayOutput) ToThreatIntelli
 
 func (o ThreatIntelligenceIndicatorExternalReferenceArrayOutput) ToThreatIntelligenceIndicatorExternalReferenceArrayOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorExternalReferenceArrayOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorExternalReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorExternalReference] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorExternalReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThreatIntelligenceIndicatorExternalReferenceArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceIndicatorExternalReferenceOutput {
@@ -5329,6 +6266,12 @@ func (i ThreatIntelligenceIndicatorGranularMarkingArgs) ToThreatIntelligenceIndi
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorGranularMarkingOutput)
 }
 
+func (i ThreatIntelligenceIndicatorGranularMarkingArgs) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorGranularMarking] {
+	return pulumix.Output[ThreatIntelligenceIndicatorGranularMarking]{
+		OutputState: i.ToThreatIntelligenceIndicatorGranularMarkingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThreatIntelligenceIndicatorGranularMarkingArrayInput is an input type that accepts ThreatIntelligenceIndicatorGranularMarkingArray and ThreatIntelligenceIndicatorGranularMarkingArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceIndicatorGranularMarkingArrayInput` via:
 //
@@ -5354,6 +6297,12 @@ func (i ThreatIntelligenceIndicatorGranularMarkingArray) ToThreatIntelligenceInd
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorGranularMarkingArrayOutput)
 }
 
+func (i ThreatIntelligenceIndicatorGranularMarkingArray) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorGranularMarking] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorGranularMarking]{
+		OutputState: i.ToThreatIntelligenceIndicatorGranularMarkingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThreatIntelligenceIndicatorGranularMarkingOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorGranularMarkingOutput) ElementType() reflect.Type {
@@ -5366,6 +6315,12 @@ func (o ThreatIntelligenceIndicatorGranularMarkingOutput) ToThreatIntelligenceIn
 
 func (o ThreatIntelligenceIndicatorGranularMarkingOutput) ToThreatIntelligenceIndicatorGranularMarkingOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorGranularMarkingOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorGranularMarkingOutput) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorGranularMarking] {
+	return pulumix.Output[ThreatIntelligenceIndicatorGranularMarking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The language of granular marking of the Threat Intelligence Indicator.
@@ -5395,6 +6350,12 @@ func (o ThreatIntelligenceIndicatorGranularMarkingArrayOutput) ToThreatIntellige
 
 func (o ThreatIntelligenceIndicatorGranularMarkingArrayOutput) ToThreatIntelligenceIndicatorGranularMarkingArrayOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorGranularMarkingArrayOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorGranularMarkingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorGranularMarking] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorGranularMarking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThreatIntelligenceIndicatorGranularMarkingArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceIndicatorGranularMarkingOutput {
@@ -5436,6 +6397,12 @@ func (i ThreatIntelligenceIndicatorKillChainPhaseArgs) ToThreatIntelligenceIndic
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorKillChainPhaseOutput)
 }
 
+func (i ThreatIntelligenceIndicatorKillChainPhaseArgs) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorKillChainPhase] {
+	return pulumix.Output[ThreatIntelligenceIndicatorKillChainPhase]{
+		OutputState: i.ToThreatIntelligenceIndicatorKillChainPhaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThreatIntelligenceIndicatorKillChainPhaseArrayInput is an input type that accepts ThreatIntelligenceIndicatorKillChainPhaseArray and ThreatIntelligenceIndicatorKillChainPhaseArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceIndicatorKillChainPhaseArrayInput` via:
 //
@@ -5461,6 +6428,12 @@ func (i ThreatIntelligenceIndicatorKillChainPhaseArray) ToThreatIntelligenceIndi
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorKillChainPhaseArrayOutput)
 }
 
+func (i ThreatIntelligenceIndicatorKillChainPhaseArray) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorKillChainPhase] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorKillChainPhase]{
+		OutputState: i.ToThreatIntelligenceIndicatorKillChainPhaseArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThreatIntelligenceIndicatorKillChainPhaseOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorKillChainPhaseOutput) ElementType() reflect.Type {
@@ -5473,6 +6446,12 @@ func (o ThreatIntelligenceIndicatorKillChainPhaseOutput) ToThreatIntelligenceInd
 
 func (o ThreatIntelligenceIndicatorKillChainPhaseOutput) ToThreatIntelligenceIndicatorKillChainPhaseOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorKillChainPhaseOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorKillChainPhaseOutput) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorKillChainPhase] {
+	return pulumix.Output[ThreatIntelligenceIndicatorKillChainPhase]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for the Lockheed Martin cyber kill chain phase.
@@ -5492,6 +6471,12 @@ func (o ThreatIntelligenceIndicatorKillChainPhaseArrayOutput) ToThreatIntelligen
 
 func (o ThreatIntelligenceIndicatorKillChainPhaseArrayOutput) ToThreatIntelligenceIndicatorKillChainPhaseArrayOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorKillChainPhaseArrayOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorKillChainPhaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorKillChainPhase] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorKillChainPhase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThreatIntelligenceIndicatorKillChainPhaseArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceIndicatorKillChainPhaseOutput {
@@ -5537,6 +6522,12 @@ func (i ThreatIntelligenceIndicatorParsedPatternArgs) ToThreatIntelligenceIndica
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorParsedPatternOutput)
 }
 
+func (i ThreatIntelligenceIndicatorParsedPatternArgs) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorParsedPattern] {
+	return pulumix.Output[ThreatIntelligenceIndicatorParsedPattern]{
+		OutputState: i.ToThreatIntelligenceIndicatorParsedPatternOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThreatIntelligenceIndicatorParsedPatternArrayInput is an input type that accepts ThreatIntelligenceIndicatorParsedPatternArray and ThreatIntelligenceIndicatorParsedPatternArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceIndicatorParsedPatternArrayInput` via:
 //
@@ -5562,6 +6553,12 @@ func (i ThreatIntelligenceIndicatorParsedPatternArray) ToThreatIntelligenceIndic
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorParsedPatternArrayOutput)
 }
 
+func (i ThreatIntelligenceIndicatorParsedPatternArray) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorParsedPattern] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorParsedPattern]{
+		OutputState: i.ToThreatIntelligenceIndicatorParsedPatternArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThreatIntelligenceIndicatorParsedPatternOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorParsedPatternOutput) ElementType() reflect.Type {
@@ -5574,6 +6571,12 @@ func (o ThreatIntelligenceIndicatorParsedPatternOutput) ToThreatIntelligenceIndi
 
 func (o ThreatIntelligenceIndicatorParsedPatternOutput) ToThreatIntelligenceIndicatorParsedPatternOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorParsedPatternOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorParsedPatternOutput) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorParsedPattern] {
+	return pulumix.Output[ThreatIntelligenceIndicatorParsedPattern]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type key of parsed pattern.
@@ -5600,6 +6603,12 @@ func (o ThreatIntelligenceIndicatorParsedPatternArrayOutput) ToThreatIntelligenc
 
 func (o ThreatIntelligenceIndicatorParsedPatternArrayOutput) ToThreatIntelligenceIndicatorParsedPatternArrayOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorParsedPatternArrayOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorParsedPatternArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorParsedPattern] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorParsedPattern]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThreatIntelligenceIndicatorParsedPatternArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceIndicatorParsedPatternOutput {
@@ -5645,6 +6654,12 @@ func (i ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs) ToThreatIn
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput)
 }
 
+func (i ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorParsedPatternPatternTypeValue] {
+	return pulumix.Output[ThreatIntelligenceIndicatorParsedPatternPatternTypeValue]{
+		OutputState: i.ToThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayInput is an input type that accepts ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArray and ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayInput` via:
 //
@@ -5670,6 +6685,12 @@ func (i ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArray) ToThreatI
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput)
 }
 
+func (i ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArray) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorParsedPatternPatternTypeValue] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorParsedPatternPatternTypeValue]{
+		OutputState: i.ToThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput) ElementType() reflect.Type {
@@ -5682,6 +6703,12 @@ func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput) ToThreat
 
 func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput) ToThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput) ToOutput(ctx context.Context) pulumix.Output[ThreatIntelligenceIndicatorParsedPatternPatternTypeValue] {
+	return pulumix.Output[ThreatIntelligenceIndicatorParsedPatternPatternTypeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value of the parsed pattern type.
@@ -5706,6 +6733,12 @@ func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput) ToT
 
 func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput) ToThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThreatIntelligenceIndicatorParsedPatternPatternTypeValue] {
+	return pulumix.Output[[]ThreatIntelligenceIndicatorParsedPatternPatternTypeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceIndicatorParsedPatternPatternTypeValueOutput {
@@ -5759,6 +6792,12 @@ func (i GetAlertRuleAnomalyMultiSelectObservationArgs) ToGetAlertRuleAnomalyMult
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyMultiSelectObservationOutput)
 }
 
+func (i GetAlertRuleAnomalyMultiSelectObservationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyMultiSelectObservation] {
+	return pulumix.Output[GetAlertRuleAnomalyMultiSelectObservation]{
+		OutputState: i.ToGetAlertRuleAnomalyMultiSelectObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleAnomalyMultiSelectObservationArrayInput is an input type that accepts GetAlertRuleAnomalyMultiSelectObservationArray and GetAlertRuleAnomalyMultiSelectObservationArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleAnomalyMultiSelectObservationArrayInput` via:
 //
@@ -5784,6 +6823,12 @@ func (i GetAlertRuleAnomalyMultiSelectObservationArray) ToGetAlertRuleAnomalyMul
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyMultiSelectObservationArrayOutput)
 }
 
+func (i GetAlertRuleAnomalyMultiSelectObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyMultiSelectObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalyMultiSelectObservation]{
+		OutputState: i.ToGetAlertRuleAnomalyMultiSelectObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleAnomalyMultiSelectObservationOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleAnomalyMultiSelectObservationOutput) ElementType() reflect.Type {
@@ -5796,6 +6841,12 @@ func (o GetAlertRuleAnomalyMultiSelectObservationOutput) ToGetAlertRuleAnomalyMu
 
 func (o GetAlertRuleAnomalyMultiSelectObservationOutput) ToGetAlertRuleAnomalyMultiSelectObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyMultiSelectObservationOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyMultiSelectObservation] {
+	return pulumix.Output[GetAlertRuleAnomalyMultiSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -5830,6 +6881,12 @@ func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) ToGetAlertRuleAnom
 
 func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) ToGetAlertRuleAnomalyMultiSelectObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyMultiSelectObservationArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyMultiSelectObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalyMultiSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleAnomalyMultiSelectObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyMultiSelectObservationOutput {
@@ -5883,6 +6940,12 @@ func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArgs) ToGetAlertRuleAnom
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyPrioritizedExcludeObservationOutput)
 }
 
+func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyPrioritizedExcludeObservation] {
+	return pulumix.Output[GetAlertRuleAnomalyPrioritizedExcludeObservation]{
+		OutputState: i.ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleAnomalyPrioritizedExcludeObservationArrayInput is an input type that accepts GetAlertRuleAnomalyPrioritizedExcludeObservationArray and GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleAnomalyPrioritizedExcludeObservationArrayInput` via:
 //
@@ -5908,6 +6971,12 @@ func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArray) ToGetAlertRuleAno
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput)
 }
 
+func (i GetAlertRuleAnomalyPrioritizedExcludeObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyPrioritizedExcludeObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalyPrioritizedExcludeObservation]{
+		OutputState: i.ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleAnomalyPrioritizedExcludeObservationOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ElementType() reflect.Type {
@@ -5920,6 +6989,12 @@ func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ToGetAlertRuleAn
 
 func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ToGetAlertRuleAnomalyPrioritizedExcludeObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyPrioritizedExcludeObservation] {
+	return pulumix.Output[GetAlertRuleAnomalyPrioritizedExcludeObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -5954,6 +7029,12 @@ func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) ToGetAlertR
 
 func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) ToGetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyPrioritizedExcludeObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalyPrioritizedExcludeObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleAnomalyPrioritizedExcludeObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyPrioritizedExcludeObservationOutput {
@@ -5999,6 +7080,12 @@ func (i GetAlertRuleAnomalyRequiredDataConnectorArgs) ToGetAlertRuleAnomalyRequi
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyRequiredDataConnectorOutput)
 }
 
+func (i GetAlertRuleAnomalyRequiredDataConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyRequiredDataConnector] {
+	return pulumix.Output[GetAlertRuleAnomalyRequiredDataConnector]{
+		OutputState: i.ToGetAlertRuleAnomalyRequiredDataConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleAnomalyRequiredDataConnectorArrayInput is an input type that accepts GetAlertRuleAnomalyRequiredDataConnectorArray and GetAlertRuleAnomalyRequiredDataConnectorArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleAnomalyRequiredDataConnectorArrayInput` via:
 //
@@ -6024,6 +7111,12 @@ func (i GetAlertRuleAnomalyRequiredDataConnectorArray) ToGetAlertRuleAnomalyRequ
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyRequiredDataConnectorArrayOutput)
 }
 
+func (i GetAlertRuleAnomalyRequiredDataConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyRequiredDataConnector] {
+	return pulumix.Output[[]GetAlertRuleAnomalyRequiredDataConnector]{
+		OutputState: i.ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleAnomalyRequiredDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleAnomalyRequiredDataConnectorOutput) ElementType() reflect.Type {
@@ -6036,6 +7129,12 @@ func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) ToGetAlertRuleAnomalyReq
 
 func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) ToGetAlertRuleAnomalyRequiredDataConnectorOutputWithContext(ctx context.Context) GetAlertRuleAnomalyRequiredDataConnectorOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyRequiredDataConnector] {
+	return pulumix.Output[GetAlertRuleAnomalyRequiredDataConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the required Data Connector.
@@ -6060,6 +7159,12 @@ func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) ToGetAlertRuleAnoma
 
 func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) ToGetAlertRuleAnomalyRequiredDataConnectorArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyRequiredDataConnectorArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyRequiredDataConnector] {
+	return pulumix.Output[[]GetAlertRuleAnomalyRequiredDataConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleAnomalyRequiredDataConnectorArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyRequiredDataConnectorOutput {
@@ -6113,6 +7218,12 @@ func (i GetAlertRuleAnomalySingleSelectObservationArgs) ToGetAlertRuleAnomalySin
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalySingleSelectObservationOutput)
 }
 
+func (i GetAlertRuleAnomalySingleSelectObservationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalySingleSelectObservation] {
+	return pulumix.Output[GetAlertRuleAnomalySingleSelectObservation]{
+		OutputState: i.ToGetAlertRuleAnomalySingleSelectObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleAnomalySingleSelectObservationArrayInput is an input type that accepts GetAlertRuleAnomalySingleSelectObservationArray and GetAlertRuleAnomalySingleSelectObservationArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleAnomalySingleSelectObservationArrayInput` via:
 //
@@ -6138,6 +7249,12 @@ func (i GetAlertRuleAnomalySingleSelectObservationArray) ToGetAlertRuleAnomalySi
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalySingleSelectObservationArrayOutput)
 }
 
+func (i GetAlertRuleAnomalySingleSelectObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalySingleSelectObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalySingleSelectObservation]{
+		OutputState: i.ToGetAlertRuleAnomalySingleSelectObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleAnomalySingleSelectObservationOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleAnomalySingleSelectObservationOutput) ElementType() reflect.Type {
@@ -6150,6 +7267,12 @@ func (o GetAlertRuleAnomalySingleSelectObservationOutput) ToGetAlertRuleAnomalyS
 
 func (o GetAlertRuleAnomalySingleSelectObservationOutput) ToGetAlertRuleAnomalySingleSelectObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalySingleSelectObservationOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalySingleSelectObservation] {
+	return pulumix.Output[GetAlertRuleAnomalySingleSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -6184,6 +7307,12 @@ func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) ToGetAlertRuleAno
 
 func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) ToGetAlertRuleAnomalySingleSelectObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalySingleSelectObservationArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalySingleSelectObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalySingleSelectObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleAnomalySingleSelectObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalySingleSelectObservationOutput {
@@ -6241,6 +7370,12 @@ func (i GetAlertRuleAnomalyThresholdObservationArgs) ToGetAlertRuleAnomalyThresh
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyThresholdObservationOutput)
 }
 
+func (i GetAlertRuleAnomalyThresholdObservationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyThresholdObservation] {
+	return pulumix.Output[GetAlertRuleAnomalyThresholdObservation]{
+		OutputState: i.ToGetAlertRuleAnomalyThresholdObservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleAnomalyThresholdObservationArrayInput is an input type that accepts GetAlertRuleAnomalyThresholdObservationArray and GetAlertRuleAnomalyThresholdObservationArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleAnomalyThresholdObservationArrayInput` via:
 //
@@ -6266,6 +7401,12 @@ func (i GetAlertRuleAnomalyThresholdObservationArray) ToGetAlertRuleAnomalyThres
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleAnomalyThresholdObservationArrayOutput)
 }
 
+func (i GetAlertRuleAnomalyThresholdObservationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyThresholdObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalyThresholdObservation]{
+		OutputState: i.ToGetAlertRuleAnomalyThresholdObservationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleAnomalyThresholdObservationOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleAnomalyThresholdObservationOutput) ElementType() reflect.Type {
@@ -6278,6 +7419,12 @@ func (o GetAlertRuleAnomalyThresholdObservationOutput) ToGetAlertRuleAnomalyThre
 
 func (o GetAlertRuleAnomalyThresholdObservationOutput) ToGetAlertRuleAnomalyThresholdObservationOutputWithContext(ctx context.Context) GetAlertRuleAnomalyThresholdObservationOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleAnomalyThresholdObservation] {
+	return pulumix.Output[GetAlertRuleAnomalyThresholdObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the threshold observation.
@@ -6317,6 +7464,12 @@ func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) ToGetAlertRuleAnomal
 
 func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) ToGetAlertRuleAnomalyThresholdObservationArrayOutputWithContext(ctx context.Context) GetAlertRuleAnomalyThresholdObservationArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleAnomalyThresholdObservation] {
+	return pulumix.Output[[]GetAlertRuleAnomalyThresholdObservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleAnomalyThresholdObservationArrayOutput) Index(i pulumi.IntInput) GetAlertRuleAnomalyThresholdObservationOutput {
@@ -6370,6 +7523,12 @@ func (i GetAlertRuleTemplateNrtTemplateArgs) ToGetAlertRuleTemplateNrtTemplateOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateNrtTemplateOutput)
 }
 
+func (i GetAlertRuleTemplateNrtTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateNrtTemplate] {
+	return pulumix.Output[GetAlertRuleTemplateNrtTemplate]{
+		OutputState: i.ToGetAlertRuleTemplateNrtTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleTemplateNrtTemplateArrayInput is an input type that accepts GetAlertRuleTemplateNrtTemplateArray and GetAlertRuleTemplateNrtTemplateArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateNrtTemplateArrayInput` via:
 //
@@ -6395,6 +7554,12 @@ func (i GetAlertRuleTemplateNrtTemplateArray) ToGetAlertRuleTemplateNrtTemplateA
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateNrtTemplateArrayOutput)
 }
 
+func (i GetAlertRuleTemplateNrtTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleTemplateNrtTemplate] {
+	return pulumix.Output[[]GetAlertRuleTemplateNrtTemplate]{
+		OutputState: i.ToGetAlertRuleTemplateNrtTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleTemplateNrtTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleTemplateNrtTemplateOutput) ElementType() reflect.Type {
@@ -6407,6 +7572,12 @@ func (o GetAlertRuleTemplateNrtTemplateOutput) ToGetAlertRuleTemplateNrtTemplate
 
 func (o GetAlertRuleTemplateNrtTemplateOutput) ToGetAlertRuleTemplateNrtTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateNrtTemplateOutput {
 	return o
+}
+
+func (o GetAlertRuleTemplateNrtTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateNrtTemplate] {
+	return pulumix.Output[GetAlertRuleTemplateNrtTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of this Sentinel Scheduled Alert Rule Template.
@@ -6441,6 +7612,12 @@ func (o GetAlertRuleTemplateNrtTemplateArrayOutput) ToGetAlertRuleTemplateNrtTem
 
 func (o GetAlertRuleTemplateNrtTemplateArrayOutput) ToGetAlertRuleTemplateNrtTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateNrtTemplateArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleTemplateNrtTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleTemplateNrtTemplate] {
+	return pulumix.Output[[]GetAlertRuleTemplateNrtTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleTemplateNrtTemplateArrayOutput) Index(i pulumi.IntInput) GetAlertRuleTemplateNrtTemplateOutput {
@@ -6510,6 +7687,12 @@ func (i GetAlertRuleTemplateScheduledTemplateArgs) ToGetAlertRuleTemplateSchedul
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateScheduledTemplateOutput)
 }
 
+func (i GetAlertRuleTemplateScheduledTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateScheduledTemplate] {
+	return pulumix.Output[GetAlertRuleTemplateScheduledTemplate]{
+		OutputState: i.ToGetAlertRuleTemplateScheduledTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleTemplateScheduledTemplateArrayInput is an input type that accepts GetAlertRuleTemplateScheduledTemplateArray and GetAlertRuleTemplateScheduledTemplateArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateScheduledTemplateArrayInput` via:
 //
@@ -6535,6 +7718,12 @@ func (i GetAlertRuleTemplateScheduledTemplateArray) ToGetAlertRuleTemplateSchedu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateScheduledTemplateArrayOutput)
 }
 
+func (i GetAlertRuleTemplateScheduledTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleTemplateScheduledTemplate] {
+	return pulumix.Output[[]GetAlertRuleTemplateScheduledTemplate]{
+		OutputState: i.ToGetAlertRuleTemplateScheduledTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleTemplateScheduledTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleTemplateScheduledTemplateOutput) ElementType() reflect.Type {
@@ -6547,6 +7736,12 @@ func (o GetAlertRuleTemplateScheduledTemplateOutput) ToGetAlertRuleTemplateSched
 
 func (o GetAlertRuleTemplateScheduledTemplateOutput) ToGetAlertRuleTemplateScheduledTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateScheduledTemplateOutput {
 	return o
+}
+
+func (o GetAlertRuleTemplateScheduledTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateScheduledTemplate] {
+	return pulumix.Output[GetAlertRuleTemplateScheduledTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of this Sentinel Scheduled Alert Rule Template.
@@ -6603,6 +7798,12 @@ func (o GetAlertRuleTemplateScheduledTemplateArrayOutput) ToGetAlertRuleTemplate
 	return o
 }
 
+func (o GetAlertRuleTemplateScheduledTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleTemplateScheduledTemplate] {
+	return pulumix.Output[[]GetAlertRuleTemplateScheduledTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetAlertRuleTemplateScheduledTemplateArrayOutput) Index(i pulumi.IntInput) GetAlertRuleTemplateScheduledTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleTemplateScheduledTemplate {
 		return vs[0].([]GetAlertRuleTemplateScheduledTemplate)[vs[1].(int)]
@@ -6646,6 +7847,12 @@ func (i GetAlertRuleTemplateSecurityIncidentTemplateArgs) ToGetAlertRuleTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateSecurityIncidentTemplateOutput)
 }
 
+func (i GetAlertRuleTemplateSecurityIncidentTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateSecurityIncidentTemplate] {
+	return pulumix.Output[GetAlertRuleTemplateSecurityIncidentTemplate]{
+		OutputState: i.ToGetAlertRuleTemplateSecurityIncidentTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAlertRuleTemplateSecurityIncidentTemplateArrayInput is an input type that accepts GetAlertRuleTemplateSecurityIncidentTemplateArray and GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput values.
 // You can construct a concrete instance of `GetAlertRuleTemplateSecurityIncidentTemplateArrayInput` via:
 //
@@ -6671,6 +7878,12 @@ func (i GetAlertRuleTemplateSecurityIncidentTemplateArray) ToGetAlertRuleTemplat
 	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput)
 }
 
+func (i GetAlertRuleTemplateSecurityIncidentTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleTemplateSecurityIncidentTemplate] {
+	return pulumix.Output[[]GetAlertRuleTemplateSecurityIncidentTemplate]{
+		OutputState: i.ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAlertRuleTemplateSecurityIncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetAlertRuleTemplateSecurityIncidentTemplateOutput) ElementType() reflect.Type {
@@ -6683,6 +7896,12 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) ToGetAlertRuleTempla
 
 func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) ToGetAlertRuleTemplateSecurityIncidentTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateSecurityIncidentTemplateOutput {
 	return o
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateSecurityIncidentTemplate] {
+	return pulumix.Output[GetAlertRuleTemplateSecurityIncidentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of this Sentinel Scheduled Alert Rule Template.
@@ -6707,6 +7926,12 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) ToGetAlertRuleT
 
 func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) ToGetAlertRuleTemplateSecurityIncidentTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput {
 	return o
+}
+
+func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAlertRuleTemplateSecurityIncidentTemplate] {
+	return pulumix.Output[[]GetAlertRuleTemplateSecurityIncidentTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.IntInput) GetAlertRuleTemplateSecurityIncidentTemplateOutput {

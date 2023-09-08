@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output powerBI.
@@ -236,6 +237,12 @@ func (i *OutputPowerbi) ToOutputPowerbiOutputWithContext(ctx context.Context) Ou
 	return pulumi.ToOutputWithContext(ctx, i).(OutputPowerbiOutput)
 }
 
+func (i *OutputPowerbi) ToOutput(ctx context.Context) pulumix.Output[*OutputPowerbi] {
+	return pulumix.Output[*OutputPowerbi]{
+		OutputState: i.ToOutputPowerbiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutputPowerbiArrayInput is an input type that accepts OutputPowerbiArray and OutputPowerbiArrayOutput values.
 // You can construct a concrete instance of `OutputPowerbiArrayInput` via:
 //
@@ -259,6 +266,12 @@ func (i OutputPowerbiArray) ToOutputPowerbiArrayOutput() OutputPowerbiArrayOutpu
 
 func (i OutputPowerbiArray) ToOutputPowerbiArrayOutputWithContext(ctx context.Context) OutputPowerbiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputPowerbiArrayOutput)
+}
+
+func (i OutputPowerbiArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputPowerbi] {
+	return pulumix.Output[[]*OutputPowerbi]{
+		OutputState: i.ToOutputPowerbiArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutputPowerbiMapInput is an input type that accepts OutputPowerbiMap and OutputPowerbiMapOutput values.
@@ -286,6 +299,12 @@ func (i OutputPowerbiMap) ToOutputPowerbiMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(OutputPowerbiMapOutput)
 }
 
+func (i OutputPowerbiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputPowerbi] {
+	return pulumix.Output[map[string]*OutputPowerbi]{
+		OutputState: i.ToOutputPowerbiMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputPowerbiOutput struct{ *pulumi.OutputState }
 
 func (OutputPowerbiOutput) ElementType() reflect.Type {
@@ -298,6 +317,12 @@ func (o OutputPowerbiOutput) ToOutputPowerbiOutput() OutputPowerbiOutput {
 
 func (o OutputPowerbiOutput) ToOutputPowerbiOutputWithContext(ctx context.Context) OutputPowerbiOutput {
 	return o
+}
+
+func (o OutputPowerbiOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputPowerbi] {
+	return pulumix.Output[*OutputPowerbi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Power BI dataset.
@@ -354,6 +379,12 @@ func (o OutputPowerbiArrayOutput) ToOutputPowerbiArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o OutputPowerbiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputPowerbi] {
+	return pulumix.Output[[]*OutputPowerbi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutputPowerbiArrayOutput) Index(i pulumi.IntInput) OutputPowerbiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputPowerbi {
 		return vs[0].([]*OutputPowerbi)[vs[1].(int)]
@@ -372,6 +403,12 @@ func (o OutputPowerbiMapOutput) ToOutputPowerbiMapOutput() OutputPowerbiMapOutpu
 
 func (o OutputPowerbiMapOutput) ToOutputPowerbiMapOutputWithContext(ctx context.Context) OutputPowerbiMapOutput {
 	return o
+}
+
+func (o OutputPowerbiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputPowerbi] {
+	return pulumix.Output[map[string]*OutputPowerbi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputPowerbiMapOutput) MapIndex(k pulumi.StringInput) OutputPowerbiOutput {

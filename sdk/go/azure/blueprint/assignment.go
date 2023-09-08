@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Blueprint Assignment resource
@@ -368,6 +369,12 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
 }
 
+func (i *Assignment) ToOutput(ctx context.Context) pulumix.Output[*Assignment] {
+	return pulumix.Output[*Assignment]{
+		OutputState: i.ToAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssignmentArrayInput is an input type that accepts AssignmentArray and AssignmentArrayOutput values.
 // You can construct a concrete instance of `AssignmentArrayInput` via:
 //
@@ -391,6 +398,12 @@ func (i AssignmentArray) ToAssignmentArrayOutput() AssignmentArrayOutput {
 
 func (i AssignmentArray) ToAssignmentArrayOutputWithContext(ctx context.Context) AssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentArrayOutput)
+}
+
+func (i AssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Assignment] {
+	return pulumix.Output[[]*Assignment]{
+		OutputState: i.ToAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AssignmentMapInput is an input type that accepts AssignmentMap and AssignmentMapOutput values.
@@ -418,6 +431,12 @@ func (i AssignmentMap) ToAssignmentMapOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentMapOutput)
 }
 
+func (i AssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Assignment] {
+	return pulumix.Output[map[string]*Assignment]{
+		OutputState: i.ToAssignmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
@@ -430,6 +449,12 @@ func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
 
 func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
 	return o
+}
+
+func (o AssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Assignment] {
+	return pulumix.Output[*Assignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the blueprint assigned
@@ -520,6 +545,12 @@ func (o AssignmentArrayOutput) ToAssignmentArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Assignment] {
+	return pulumix.Output[[]*Assignment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentArrayOutput) Index(i pulumi.IntInput) AssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Assignment {
 		return vs[0].([]*Assignment)[vs[1].(int)]
@@ -538,6 +569,12 @@ func (o AssignmentMapOutput) ToAssignmentMapOutput() AssignmentMapOutput {
 
 func (o AssignmentMapOutput) ToAssignmentMapOutputWithContext(ctx context.Context) AssignmentMapOutput {
 	return o
+}
+
+func (o AssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Assignment] {
+	return pulumix.Output[map[string]*Assignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssignmentMapOutput) MapIndex(k pulumi.StringInput) AssignmentOutput {

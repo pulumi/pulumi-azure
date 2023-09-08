@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Service.
@@ -267,6 +268,12 @@ func (i *NetworkService) ToNetworkServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceOutput)
 }
 
+func (i *NetworkService) ToOutput(ctx context.Context) pulumix.Output[*NetworkService] {
+	return pulumix.Output[*NetworkService]{
+		OutputState: i.ToNetworkServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkServiceArrayInput is an input type that accepts NetworkServiceArray and NetworkServiceArrayOutput values.
 // You can construct a concrete instance of `NetworkServiceArrayInput` via:
 //
@@ -290,6 +297,12 @@ func (i NetworkServiceArray) ToNetworkServiceArrayOutput() NetworkServiceArrayOu
 
 func (i NetworkServiceArray) ToNetworkServiceArrayOutputWithContext(ctx context.Context) NetworkServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceArrayOutput)
+}
+
+func (i NetworkServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkService] {
+	return pulumix.Output[[]*NetworkService]{
+		OutputState: i.ToNetworkServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkServiceMapInput is an input type that accepts NetworkServiceMap and NetworkServiceMapOutput values.
@@ -317,6 +330,12 @@ func (i NetworkServiceMap) ToNetworkServiceMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceMapOutput)
 }
 
+func (i NetworkServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkService] {
+	return pulumix.Output[map[string]*NetworkService]{
+		OutputState: i.ToNetworkServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkServiceOutput struct{ *pulumi.OutputState }
 
 func (NetworkServiceOutput) ElementType() reflect.Type {
@@ -329,6 +348,12 @@ func (o NetworkServiceOutput) ToNetworkServiceOutput() NetworkServiceOutput {
 
 func (o NetworkServiceOutput) ToNetworkServiceOutputWithContext(ctx context.Context) NetworkServiceOutput {
 	return o
+}
+
+func (o NetworkServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkService] {
+	return pulumix.Output[*NetworkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
@@ -380,6 +405,12 @@ func (o NetworkServiceArrayOutput) ToNetworkServiceArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NetworkServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkService] {
+	return pulumix.Output[[]*NetworkService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkServiceArrayOutput) Index(i pulumi.IntInput) NetworkServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkService {
 		return vs[0].([]*NetworkService)[vs[1].(int)]
@@ -398,6 +429,12 @@ func (o NetworkServiceMapOutput) ToNetworkServiceMapOutput() NetworkServiceMapOu
 
 func (o NetworkServiceMapOutput) ToNetworkServiceMapOutputWithContext(ctx context.Context) NetworkServiceMapOutput {
 	return o
+}
+
+func (o NetworkServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkService] {
+	return pulumix.Output[map[string]*NetworkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkServiceMapOutput) MapIndex(k pulumi.StringInput) NetworkServiceOutput {

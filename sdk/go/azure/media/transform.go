@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Transform.
@@ -556,6 +557,12 @@ func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformO
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
 }
 
+func (i *Transform) ToOutput(ctx context.Context) pulumix.Output[*Transform] {
+	return pulumix.Output[*Transform]{
+		OutputState: i.ToTransformOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransformArrayInput is an input type that accepts TransformArray and TransformArrayOutput values.
 // You can construct a concrete instance of `TransformArrayInput` via:
 //
@@ -579,6 +586,12 @@ func (i TransformArray) ToTransformArrayOutput() TransformArrayOutput {
 
 func (i TransformArray) ToTransformArrayOutputWithContext(ctx context.Context) TransformArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformArrayOutput)
+}
+
+func (i TransformArray) ToOutput(ctx context.Context) pulumix.Output[[]*Transform] {
+	return pulumix.Output[[]*Transform]{
+		OutputState: i.ToTransformArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransformMapInput is an input type that accepts TransformMap and TransformMapOutput values.
@@ -606,6 +619,12 @@ func (i TransformMap) ToTransformMapOutputWithContext(ctx context.Context) Trans
 	return pulumi.ToOutputWithContext(ctx, i).(TransformMapOutput)
 }
 
+func (i TransformMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Transform] {
+	return pulumix.Output[map[string]*Transform]{
+		OutputState: i.ToTransformMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
@@ -618,6 +637,12 @@ func (o TransformOutput) ToTransformOutput() TransformOutput {
 
 func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
 	return o
+}
+
+func (o TransformOutput) ToOutput(ctx context.Context) pulumix.Output[*Transform] {
+	return pulumix.Output[*Transform]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An optional verbose description of the Transform.
@@ -659,6 +684,12 @@ func (o TransformArrayOutput) ToTransformArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TransformArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Transform] {
+	return pulumix.Output[[]*Transform]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransformArrayOutput) Index(i pulumi.IntInput) TransformOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Transform {
 		return vs[0].([]*Transform)[vs[1].(int)]
@@ -677,6 +708,12 @@ func (o TransformMapOutput) ToTransformMapOutput() TransformMapOutput {
 
 func (o TransformMapOutput) ToTransformMapOutputWithContext(ctx context.Context) TransformMapOutput {
 	return o
+}
+
+func (o TransformMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Transform] {
+	return pulumix.Output[map[string]*Transform]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransformMapOutput) MapIndex(k pulumi.StringInput) TransformOutput {

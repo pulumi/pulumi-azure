@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Operation within an API Management Service.
@@ -275,6 +276,12 @@ func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
 }
 
+func (i *ApiOperation) ToOutput(ctx context.Context) pulumix.Output[*ApiOperation] {
+	return pulumix.Output[*ApiOperation]{
+		OutputState: i.ToApiOperationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationArrayInput is an input type that accepts ApiOperationArray and ApiOperationArrayOutput values.
 // You can construct a concrete instance of `ApiOperationArrayInput` via:
 //
@@ -298,6 +305,12 @@ func (i ApiOperationArray) ToApiOperationArrayOutput() ApiOperationArrayOutput {
 
 func (i ApiOperationArray) ToApiOperationArrayOutputWithContext(ctx context.Context) ApiOperationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationArrayOutput)
+}
+
+func (i ApiOperationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiOperation] {
+	return pulumix.Output[[]*ApiOperation]{
+		OutputState: i.ToApiOperationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApiOperationMapInput is an input type that accepts ApiOperationMap and ApiOperationMapOutput values.
@@ -325,6 +338,12 @@ func (i ApiOperationMap) ToApiOperationMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationMapOutput)
 }
 
+func (i ApiOperationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiOperation] {
+	return pulumix.Output[map[string]*ApiOperation]{
+		OutputState: i.ToApiOperationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
@@ -337,6 +356,12 @@ func (o ApiOperationOutput) ToApiOperationOutput() ApiOperationOutput {
 
 func (o ApiOperationOutput) ToApiOperationOutputWithContext(ctx context.Context) ApiOperationOutput {
 	return o
+}
+
+func (o ApiOperationOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiOperation] {
+	return pulumix.Output[*ApiOperation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -408,6 +433,12 @@ func (o ApiOperationArrayOutput) ToApiOperationArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ApiOperationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiOperation] {
+	return pulumix.Output[[]*ApiOperation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationArrayOutput) Index(i pulumi.IntInput) ApiOperationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiOperation {
 		return vs[0].([]*ApiOperation)[vs[1].(int)]
@@ -426,6 +457,12 @@ func (o ApiOperationMapOutput) ToApiOperationMapOutput() ApiOperationMapOutput {
 
 func (o ApiOperationMapOutput) ToApiOperationMapOutputWithContext(ctx context.Context) ApiOperationMapOutput {
 	return o
+}
+
+func (o ApiOperationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiOperation] {
+	return pulumix.Output[map[string]*ApiOperation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationMapOutput) MapIndex(k pulumi.StringInput) ApiOperationOutput {

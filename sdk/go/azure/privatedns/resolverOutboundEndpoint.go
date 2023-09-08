@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private DNS Resolver Outbound Endpoint.
@@ -231,6 +232,12 @@ func (i *ResolverOutboundEndpoint) ToResolverOutboundEndpointOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutboundEndpointOutput)
 }
 
+func (i *ResolverOutboundEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ResolverOutboundEndpoint] {
+	return pulumix.Output[*ResolverOutboundEndpoint]{
+		OutputState: i.ToResolverOutboundEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverOutboundEndpointArrayInput is an input type that accepts ResolverOutboundEndpointArray and ResolverOutboundEndpointArrayOutput values.
 // You can construct a concrete instance of `ResolverOutboundEndpointArrayInput` via:
 //
@@ -254,6 +261,12 @@ func (i ResolverOutboundEndpointArray) ToResolverOutboundEndpointArrayOutput() R
 
 func (i ResolverOutboundEndpointArray) ToResolverOutboundEndpointArrayOutputWithContext(ctx context.Context) ResolverOutboundEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutboundEndpointArrayOutput)
+}
+
+func (i ResolverOutboundEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverOutboundEndpoint] {
+	return pulumix.Output[[]*ResolverOutboundEndpoint]{
+		OutputState: i.ToResolverOutboundEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverOutboundEndpointMapInput is an input type that accepts ResolverOutboundEndpointMap and ResolverOutboundEndpointMapOutput values.
@@ -281,6 +294,12 @@ func (i ResolverOutboundEndpointMap) ToResolverOutboundEndpointMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutboundEndpointMapOutput)
 }
 
+func (i ResolverOutboundEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverOutboundEndpoint] {
+	return pulumix.Output[map[string]*ResolverOutboundEndpoint]{
+		OutputState: i.ToResolverOutboundEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverOutboundEndpointOutput struct{ *pulumi.OutputState }
 
 func (ResolverOutboundEndpointOutput) ElementType() reflect.Type {
@@ -293,6 +312,12 @@ func (o ResolverOutboundEndpointOutput) ToResolverOutboundEndpointOutput() Resol
 
 func (o ResolverOutboundEndpointOutput) ToResolverOutboundEndpointOutputWithContext(ctx context.Context) ResolverOutboundEndpointOutput {
 	return o
+}
+
+func (o ResolverOutboundEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverOutboundEndpoint] {
+	return pulumix.Output[*ResolverOutboundEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
@@ -334,6 +359,12 @@ func (o ResolverOutboundEndpointArrayOutput) ToResolverOutboundEndpointArrayOutp
 	return o
 }
 
+func (o ResolverOutboundEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverOutboundEndpoint] {
+	return pulumix.Output[[]*ResolverOutboundEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverOutboundEndpointArrayOutput) Index(i pulumi.IntInput) ResolverOutboundEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverOutboundEndpoint {
 		return vs[0].([]*ResolverOutboundEndpoint)[vs[1].(int)]
@@ -352,6 +383,12 @@ func (o ResolverOutboundEndpointMapOutput) ToResolverOutboundEndpointMapOutput()
 
 func (o ResolverOutboundEndpointMapOutput) ToResolverOutboundEndpointMapOutputWithContext(ctx context.Context) ResolverOutboundEndpointMapOutput {
 	return o
+}
+
+func (o ResolverOutboundEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverOutboundEndpoint] {
+	return pulumix.Output[map[string]*ResolverOutboundEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverOutboundEndpointMapOutput) MapIndex(k pulumi.StringInput) ResolverOutboundEndpointOutput {

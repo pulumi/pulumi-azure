@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route Map.
@@ -205,6 +206,12 @@ func (i *RouteMapResource) ToRouteMapResourceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapResourceOutput)
 }
 
+func (i *RouteMapResource) ToOutput(ctx context.Context) pulumix.Output[*RouteMapResource] {
+	return pulumix.Output[*RouteMapResource]{
+		OutputState: i.ToRouteMapResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteMapResourceArrayInput is an input type that accepts RouteMapResourceArray and RouteMapResourceArrayOutput values.
 // You can construct a concrete instance of `RouteMapResourceArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i RouteMapResourceArray) ToRouteMapResourceArrayOutput() RouteMapResourceA
 
 func (i RouteMapResourceArray) ToRouteMapResourceArrayOutputWithContext(ctx context.Context) RouteMapResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapResourceArrayOutput)
+}
+
+func (i RouteMapResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteMapResource] {
+	return pulumix.Output[[]*RouteMapResource]{
+		OutputState: i.ToRouteMapResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteMapResourceMapInput is an input type that accepts RouteMapResourceMap and RouteMapResourceMapOutput values.
@@ -255,6 +268,12 @@ func (i RouteMapResourceMap) ToRouteMapResourceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapResourceMapOutput)
 }
 
+func (i RouteMapResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteMapResource] {
+	return pulumix.Output[map[string]*RouteMapResource]{
+		OutputState: i.ToRouteMapResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteMapResourceOutput struct{ *pulumi.OutputState }
 
 func (RouteMapResourceOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o RouteMapResourceOutput) ToRouteMapResourceOutput() RouteMapResourceOutpu
 
 func (o RouteMapResourceOutput) ToRouteMapResourceOutputWithContext(ctx context.Context) RouteMapResourceOutput {
 	return o
+}
+
+func (o RouteMapResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteMapResource] {
+	return pulumix.Output[*RouteMapResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Route Map. Changing this forces a new resource to be created.
@@ -298,6 +323,12 @@ func (o RouteMapResourceArrayOutput) ToRouteMapResourceArrayOutputWithContext(ct
 	return o
 }
 
+func (o RouteMapResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteMapResource] {
+	return pulumix.Output[[]*RouteMapResource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteMapResourceArrayOutput) Index(i pulumi.IntInput) RouteMapResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteMapResource {
 		return vs[0].([]*RouteMapResource)[vs[1].(int)]
@@ -316,6 +347,12 @@ func (o RouteMapResourceMapOutput) ToRouteMapResourceMapOutput() RouteMapResourc
 
 func (o RouteMapResourceMapOutput) ToRouteMapResourceMapOutputWithContext(ctx context.Context) RouteMapResourceMapOutput {
 	return o
+}
+
+func (o RouteMapResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteMapResource] {
+	return pulumix.Output[map[string]*RouteMapResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMapResourceMapOutput) MapIndex(k pulumi.StringInput) RouteMapResourceOutput {

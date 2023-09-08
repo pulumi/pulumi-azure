@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an existing NetApp Snapshot Policy.
@@ -132,6 +133,12 @@ func (o LookupSnapshotPolicyResultOutput) ToLookupSnapshotPolicyResultOutput() L
 
 func (o LookupSnapshotPolicyResultOutput) ToLookupSnapshotPolicyResultOutputWithContext(ctx context.Context) LookupSnapshotPolicyResultOutput {
 	return o
+}
+
+func (o LookupSnapshotPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSnapshotPolicyResult] {
+	return pulumix.Output[LookupSnapshotPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the NetApp Account in which the NetApp Snapshot Policy was created.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Authorization Rule for a ServiceBus Queue.
@@ -261,6 +262,12 @@ func (i *QueueAuthorizationRule) ToQueueAuthorizationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleOutput)
 }
 
+func (i *QueueAuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*QueueAuthorizationRule] {
+	return pulumix.Output[*QueueAuthorizationRule]{
+		OutputState: i.ToQueueAuthorizationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // QueueAuthorizationRuleArrayInput is an input type that accepts QueueAuthorizationRuleArray and QueueAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `QueueAuthorizationRuleArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i QueueAuthorizationRuleArray) ToQueueAuthorizationRuleArrayOutput() Queue
 
 func (i QueueAuthorizationRuleArray) ToQueueAuthorizationRuleArrayOutputWithContext(ctx context.Context) QueueAuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleArrayOutput)
+}
+
+func (i QueueAuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*QueueAuthorizationRule] {
+	return pulumix.Output[[]*QueueAuthorizationRule]{
+		OutputState: i.ToQueueAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // QueueAuthorizationRuleMapInput is an input type that accepts QueueAuthorizationRuleMap and QueueAuthorizationRuleMapOutput values.
@@ -311,6 +324,12 @@ func (i QueueAuthorizationRuleMap) ToQueueAuthorizationRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleMapOutput)
 }
 
+func (i QueueAuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueueAuthorizationRule] {
+	return pulumix.Output[map[string]*QueueAuthorizationRule]{
+		OutputState: i.ToQueueAuthorizationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueueAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (QueueAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutput() QueueAuth
 
 func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutputWithContext(ctx context.Context) QueueAuthorizationRuleOutput {
 	return o
+}
+
+func (o QueueAuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueAuthorizationRule] {
+	return pulumix.Output[*QueueAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
@@ -396,6 +421,12 @@ func (o QueueAuthorizationRuleArrayOutput) ToQueueAuthorizationRuleArrayOutputWi
 	return o
 }
 
+func (o QueueAuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QueueAuthorizationRule] {
+	return pulumix.Output[[]*QueueAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QueueAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) QueueAuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QueueAuthorizationRule {
 		return vs[0].([]*QueueAuthorizationRule)[vs[1].(int)]
@@ -414,6 +445,12 @@ func (o QueueAuthorizationRuleMapOutput) ToQueueAuthorizationRuleMapOutput() Que
 
 func (o QueueAuthorizationRuleMapOutput) ToQueueAuthorizationRuleMapOutputWithContext(ctx context.Context) QueueAuthorizationRuleMapOutput {
 	return o
+}
+
+func (o QueueAuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueueAuthorizationRule] {
+	return pulumix.Output[map[string]*QueueAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) QueueAuthorizationRuleOutput {

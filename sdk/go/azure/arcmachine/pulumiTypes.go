@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -70,6 +71,12 @@ func (i GetAgentArgs) ToGetAgentOutputWithContext(ctx context.Context) GetAgentO
 	return pulumi.ToOutputWithContext(ctx, i).(GetAgentOutput)
 }
 
+func (i GetAgentArgs) ToOutput(ctx context.Context) pulumix.Output[GetAgent] {
+	return pulumix.Output[GetAgent]{
+		OutputState: i.ToGetAgentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAgentArrayInput is an input type that accepts GetAgentArray and GetAgentArrayOutput values.
 // You can construct a concrete instance of `GetAgentArrayInput` via:
 //
@@ -95,6 +102,12 @@ func (i GetAgentArray) ToGetAgentArrayOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetAgentArrayOutput)
 }
 
+func (i GetAgentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAgent] {
+	return pulumix.Output[[]GetAgent]{
+		OutputState: i.ToGetAgentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAgentOutput struct{ *pulumi.OutputState }
 
 func (GetAgentOutput) ElementType() reflect.Type {
@@ -107,6 +120,12 @@ func (o GetAgentOutput) ToGetAgentOutput() GetAgentOutput {
 
 func (o GetAgentOutput) ToGetAgentOutputWithContext(ctx context.Context) GetAgentOutput {
 	return o
+}
+
+func (o GetAgentOutput) ToOutput(ctx context.Context) pulumix.Output[GetAgent] {
+	return pulumix.Output[GetAgent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `extensionsAllowList` block as defined below.
@@ -158,6 +177,12 @@ func (o GetAgentArrayOutput) ToGetAgentArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o GetAgentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAgent] {
+	return pulumix.Output[[]GetAgent]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetAgentArrayOutput) Index(i pulumi.IntInput) GetAgentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAgent {
 		return vs[0].([]GetAgent)[vs[1].(int)]
@@ -201,6 +226,12 @@ func (i GetAgentExtensionsAllowListArgs) ToGetAgentExtensionsAllowListOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetAgentExtensionsAllowListOutput)
 }
 
+func (i GetAgentExtensionsAllowListArgs) ToOutput(ctx context.Context) pulumix.Output[GetAgentExtensionsAllowList] {
+	return pulumix.Output[GetAgentExtensionsAllowList]{
+		OutputState: i.ToGetAgentExtensionsAllowListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAgentExtensionsAllowListArrayInput is an input type that accepts GetAgentExtensionsAllowListArray and GetAgentExtensionsAllowListArrayOutput values.
 // You can construct a concrete instance of `GetAgentExtensionsAllowListArrayInput` via:
 //
@@ -226,6 +257,12 @@ func (i GetAgentExtensionsAllowListArray) ToGetAgentExtensionsAllowListArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAgentExtensionsAllowListArrayOutput)
 }
 
+func (i GetAgentExtensionsAllowListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAgentExtensionsAllowList] {
+	return pulumix.Output[[]GetAgentExtensionsAllowList]{
+		OutputState: i.ToGetAgentExtensionsAllowListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAgentExtensionsAllowListOutput struct{ *pulumi.OutputState }
 
 func (GetAgentExtensionsAllowListOutput) ElementType() reflect.Type {
@@ -238,6 +275,12 @@ func (o GetAgentExtensionsAllowListOutput) ToGetAgentExtensionsAllowListOutput()
 
 func (o GetAgentExtensionsAllowListOutput) ToGetAgentExtensionsAllowListOutputWithContext(ctx context.Context) GetAgentExtensionsAllowListOutput {
 	return o
+}
+
+func (o GetAgentExtensionsAllowListOutput) ToOutput(ctx context.Context) pulumix.Output[GetAgentExtensionsAllowList] {
+	return pulumix.Output[GetAgentExtensionsAllowList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Publisher of the extension.
@@ -262,6 +305,12 @@ func (o GetAgentExtensionsAllowListArrayOutput) ToGetAgentExtensionsAllowListArr
 
 func (o GetAgentExtensionsAllowListArrayOutput) ToGetAgentExtensionsAllowListArrayOutputWithContext(ctx context.Context) GetAgentExtensionsAllowListArrayOutput {
 	return o
+}
+
+func (o GetAgentExtensionsAllowListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAgentExtensionsAllowList] {
+	return pulumix.Output[[]GetAgentExtensionsAllowList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAgentExtensionsAllowListArrayOutput) Index(i pulumi.IntInput) GetAgentExtensionsAllowListOutput {
@@ -307,6 +356,12 @@ func (i GetAgentExtensionsBlockListArgs) ToGetAgentExtensionsBlockListOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetAgentExtensionsBlockListOutput)
 }
 
+func (i GetAgentExtensionsBlockListArgs) ToOutput(ctx context.Context) pulumix.Output[GetAgentExtensionsBlockList] {
+	return pulumix.Output[GetAgentExtensionsBlockList]{
+		OutputState: i.ToGetAgentExtensionsBlockListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAgentExtensionsBlockListArrayInput is an input type that accepts GetAgentExtensionsBlockListArray and GetAgentExtensionsBlockListArrayOutput values.
 // You can construct a concrete instance of `GetAgentExtensionsBlockListArrayInput` via:
 //
@@ -332,6 +387,12 @@ func (i GetAgentExtensionsBlockListArray) ToGetAgentExtensionsBlockListArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAgentExtensionsBlockListArrayOutput)
 }
 
+func (i GetAgentExtensionsBlockListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAgentExtensionsBlockList] {
+	return pulumix.Output[[]GetAgentExtensionsBlockList]{
+		OutputState: i.ToGetAgentExtensionsBlockListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAgentExtensionsBlockListOutput struct{ *pulumi.OutputState }
 
 func (GetAgentExtensionsBlockListOutput) ElementType() reflect.Type {
@@ -344,6 +405,12 @@ func (o GetAgentExtensionsBlockListOutput) ToGetAgentExtensionsBlockListOutput()
 
 func (o GetAgentExtensionsBlockListOutput) ToGetAgentExtensionsBlockListOutputWithContext(ctx context.Context) GetAgentExtensionsBlockListOutput {
 	return o
+}
+
+func (o GetAgentExtensionsBlockListOutput) ToOutput(ctx context.Context) pulumix.Output[GetAgentExtensionsBlockList] {
+	return pulumix.Output[GetAgentExtensionsBlockList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Publisher of the extension.
@@ -368,6 +435,12 @@ func (o GetAgentExtensionsBlockListArrayOutput) ToGetAgentExtensionsBlockListArr
 
 func (o GetAgentExtensionsBlockListArrayOutput) ToGetAgentExtensionsBlockListArrayOutputWithContext(ctx context.Context) GetAgentExtensionsBlockListArrayOutput {
 	return o
+}
+
+func (o GetAgentExtensionsBlockListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAgentExtensionsBlockList] {
+	return pulumix.Output[[]GetAgentExtensionsBlockList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAgentExtensionsBlockListArrayOutput) Index(i pulumi.IntInput) GetAgentExtensionsBlockListOutput {
@@ -409,6 +482,12 @@ func (i GetCloudMetadataArgs) ToGetCloudMetadataOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetCloudMetadataOutput)
 }
 
+func (i GetCloudMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[GetCloudMetadata] {
+	return pulumix.Output[GetCloudMetadata]{
+		OutputState: i.ToGetCloudMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetCloudMetadataArrayInput is an input type that accepts GetCloudMetadataArray and GetCloudMetadataArrayOutput values.
 // You can construct a concrete instance of `GetCloudMetadataArrayInput` via:
 //
@@ -434,6 +513,12 @@ func (i GetCloudMetadataArray) ToGetCloudMetadataArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetCloudMetadataArrayOutput)
 }
 
+func (i GetCloudMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCloudMetadata] {
+	return pulumix.Output[[]GetCloudMetadata]{
+		OutputState: i.ToGetCloudMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetCloudMetadataOutput struct{ *pulumi.OutputState }
 
 func (GetCloudMetadataOutput) ElementType() reflect.Type {
@@ -446,6 +531,12 @@ func (o GetCloudMetadataOutput) ToGetCloudMetadataOutput() GetCloudMetadataOutpu
 
 func (o GetCloudMetadataOutput) ToGetCloudMetadataOutputWithContext(ctx context.Context) GetCloudMetadataOutput {
 	return o
+}
+
+func (o GetCloudMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[GetCloudMetadata] {
+	return pulumix.Output[GetCloudMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the cloud provider. For example `Azure`, `AWS` and `GCP`.
@@ -465,6 +556,12 @@ func (o GetCloudMetadataArrayOutput) ToGetCloudMetadataArrayOutput() GetCloudMet
 
 func (o GetCloudMetadataArrayOutput) ToGetCloudMetadataArrayOutputWithContext(ctx context.Context) GetCloudMetadataArrayOutput {
 	return o
+}
+
+func (o GetCloudMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCloudMetadata] {
+	return pulumix.Output[[]GetCloudMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetCloudMetadataArrayOutput) Index(i pulumi.IntInput) GetCloudMetadataOutput {
@@ -514,6 +611,12 @@ func (i GetIdentityArgs) ToGetIdentityOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityOutput)
 }
 
+func (i GetIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetIdentity] {
+	return pulumix.Output[GetIdentity]{
+		OutputState: i.ToGetIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetIdentityArrayInput is an input type that accepts GetIdentityArray and GetIdentityArrayOutput values.
 // You can construct a concrete instance of `GetIdentityArrayInput` via:
 //
@@ -539,6 +642,12 @@ func (i GetIdentityArray) ToGetIdentityArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityArrayOutput)
 }
 
+func (i GetIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIdentity] {
+	return pulumix.Output[[]GetIdentity]{
+		OutputState: i.ToGetIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetIdentityOutput) ElementType() reflect.Type {
@@ -551,6 +660,12 @@ func (o GetIdentityOutput) ToGetIdentityOutput() GetIdentityOutput {
 
 func (o GetIdentityOutput) ToGetIdentityOutputWithContext(ctx context.Context) GetIdentityOutput {
 	return o
+}
+
+func (o GetIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetIdentity] {
+	return pulumix.Output[GetIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal ID of resource identity.
@@ -580,6 +695,12 @@ func (o GetIdentityArrayOutput) ToGetIdentityArrayOutput() GetIdentityArrayOutpu
 
 func (o GetIdentityArrayOutput) ToGetIdentityArrayOutputWithContext(ctx context.Context) GetIdentityArrayOutput {
 	return o
+}
+
+func (o GetIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIdentity] {
+	return pulumix.Output[[]GetIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetIdentityArrayOutput) Index(i pulumi.IntInput) GetIdentityOutput {
@@ -633,6 +754,12 @@ func (i GetLocationDataArgs) ToGetLocationDataOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetLocationDataOutput)
 }
 
+func (i GetLocationDataArgs) ToOutput(ctx context.Context) pulumix.Output[GetLocationData] {
+	return pulumix.Output[GetLocationData]{
+		OutputState: i.ToGetLocationDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLocationDataArrayInput is an input type that accepts GetLocationDataArray and GetLocationDataArrayOutput values.
 // You can construct a concrete instance of `GetLocationDataArrayInput` via:
 //
@@ -658,6 +785,12 @@ func (i GetLocationDataArray) ToGetLocationDataArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetLocationDataArrayOutput)
 }
 
+func (i GetLocationDataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLocationData] {
+	return pulumix.Output[[]GetLocationData]{
+		OutputState: i.ToGetLocationDataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLocationDataOutput struct{ *pulumi.OutputState }
 
 func (GetLocationDataOutput) ElementType() reflect.Type {
@@ -670,6 +803,12 @@ func (o GetLocationDataOutput) ToGetLocationDataOutput() GetLocationDataOutput {
 
 func (o GetLocationDataOutput) ToGetLocationDataOutputWithContext(ctx context.Context) GetLocationDataOutput {
 	return o
+}
+
+func (o GetLocationDataOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocationData] {
+	return pulumix.Output[GetLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The city or locality where the resource is located.
@@ -704,6 +843,12 @@ func (o GetLocationDataArrayOutput) ToGetLocationDataArrayOutput() GetLocationDa
 
 func (o GetLocationDataArrayOutput) ToGetLocationDataArrayOutputWithContext(ctx context.Context) GetLocationDataArrayOutput {
 	return o
+}
+
+func (o GetLocationDataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLocationData] {
+	return pulumix.Output[[]GetLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocationDataArrayOutput) Index(i pulumi.IntInput) GetLocationDataOutput {
@@ -753,6 +898,12 @@ func (i GetOsProfileArgs) ToGetOsProfileOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileOutput)
 }
 
+func (i GetOsProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetOsProfile] {
+	return pulumix.Output[GetOsProfile]{
+		OutputState: i.ToGetOsProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOsProfileArrayInput is an input type that accepts GetOsProfileArray and GetOsProfileArrayOutput values.
 // You can construct a concrete instance of `GetOsProfileArrayInput` via:
 //
@@ -778,6 +929,12 @@ func (i GetOsProfileArray) ToGetOsProfileArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileArrayOutput)
 }
 
+func (i GetOsProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfile] {
+	return pulumix.Output[[]GetOsProfile]{
+		OutputState: i.ToGetOsProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOsProfileOutput struct{ *pulumi.OutputState }
 
 func (GetOsProfileOutput) ElementType() reflect.Type {
@@ -790,6 +947,12 @@ func (o GetOsProfileOutput) ToGetOsProfileOutput() GetOsProfileOutput {
 
 func (o GetOsProfileOutput) ToGetOsProfileOutputWithContext(ctx context.Context) GetOsProfileOutput {
 	return o
+}
+
+func (o GetOsProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetOsProfile] {
+	return pulumix.Output[GetOsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the host OS name of the Azure Arc machine.
@@ -819,6 +982,12 @@ func (o GetOsProfileArrayOutput) ToGetOsProfileArrayOutput() GetOsProfileArrayOu
 
 func (o GetOsProfileArrayOutput) ToGetOsProfileArrayOutputWithContext(ctx context.Context) GetOsProfileArrayOutput {
 	return o
+}
+
+func (o GetOsProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfile] {
+	return pulumix.Output[[]GetOsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOsProfileArrayOutput) Index(i pulumi.IntInput) GetOsProfileOutput {
@@ -860,6 +1029,12 @@ func (i GetOsProfileLinuxArgs) ToGetOsProfileLinuxOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileLinuxOutput)
 }
 
+func (i GetOsProfileLinuxArgs) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileLinux] {
+	return pulumix.Output[GetOsProfileLinux]{
+		OutputState: i.ToGetOsProfileLinuxOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOsProfileLinuxArrayInput is an input type that accepts GetOsProfileLinuxArray and GetOsProfileLinuxArrayOutput values.
 // You can construct a concrete instance of `GetOsProfileLinuxArrayInput` via:
 //
@@ -885,6 +1060,12 @@ func (i GetOsProfileLinuxArray) ToGetOsProfileLinuxArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileLinuxArrayOutput)
 }
 
+func (i GetOsProfileLinuxArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileLinux] {
+	return pulumix.Output[[]GetOsProfileLinux]{
+		OutputState: i.ToGetOsProfileLinuxArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOsProfileLinuxOutput struct{ *pulumi.OutputState }
 
 func (GetOsProfileLinuxOutput) ElementType() reflect.Type {
@@ -897,6 +1078,12 @@ func (o GetOsProfileLinuxOutput) ToGetOsProfileLinuxOutput() GetOsProfileLinuxOu
 
 func (o GetOsProfileLinuxOutput) ToGetOsProfileLinuxOutputWithContext(ctx context.Context) GetOsProfileLinuxOutput {
 	return o
+}
+
+func (o GetOsProfileLinuxOutput) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileLinux] {
+	return pulumix.Output[GetOsProfileLinux]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `patch` block as defined above.
@@ -916,6 +1103,12 @@ func (o GetOsProfileLinuxArrayOutput) ToGetOsProfileLinuxArrayOutput() GetOsProf
 
 func (o GetOsProfileLinuxArrayOutput) ToGetOsProfileLinuxArrayOutputWithContext(ctx context.Context) GetOsProfileLinuxArrayOutput {
 	return o
+}
+
+func (o GetOsProfileLinuxArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileLinux] {
+	return pulumix.Output[[]GetOsProfileLinux]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOsProfileLinuxArrayOutput) Index(i pulumi.IntInput) GetOsProfileLinuxOutput {
@@ -961,6 +1154,12 @@ func (i GetOsProfileLinuxPatchArgs) ToGetOsProfileLinuxPatchOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileLinuxPatchOutput)
 }
 
+func (i GetOsProfileLinuxPatchArgs) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileLinuxPatch] {
+	return pulumix.Output[GetOsProfileLinuxPatch]{
+		OutputState: i.ToGetOsProfileLinuxPatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOsProfileLinuxPatchArrayInput is an input type that accepts GetOsProfileLinuxPatchArray and GetOsProfileLinuxPatchArrayOutput values.
 // You can construct a concrete instance of `GetOsProfileLinuxPatchArrayInput` via:
 //
@@ -986,6 +1185,12 @@ func (i GetOsProfileLinuxPatchArray) ToGetOsProfileLinuxPatchArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileLinuxPatchArrayOutput)
 }
 
+func (i GetOsProfileLinuxPatchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileLinuxPatch] {
+	return pulumix.Output[[]GetOsProfileLinuxPatch]{
+		OutputState: i.ToGetOsProfileLinuxPatchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOsProfileLinuxPatchOutput struct{ *pulumi.OutputState }
 
 func (GetOsProfileLinuxPatchOutput) ElementType() reflect.Type {
@@ -998,6 +1203,12 @@ func (o GetOsProfileLinuxPatchOutput) ToGetOsProfileLinuxPatchOutput() GetOsProf
 
 func (o GetOsProfileLinuxPatchOutput) ToGetOsProfileLinuxPatchOutputWithContext(ctx context.Context) GetOsProfileLinuxPatchOutput {
 	return o
+}
+
+func (o GetOsProfileLinuxPatchOutput) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileLinuxPatch] {
+	return pulumix.Output[GetOsProfileLinuxPatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the assessment mode.
@@ -1022,6 +1233,12 @@ func (o GetOsProfileLinuxPatchArrayOutput) ToGetOsProfileLinuxPatchArrayOutput()
 
 func (o GetOsProfileLinuxPatchArrayOutput) ToGetOsProfileLinuxPatchArrayOutputWithContext(ctx context.Context) GetOsProfileLinuxPatchArrayOutput {
 	return o
+}
+
+func (o GetOsProfileLinuxPatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileLinuxPatch] {
+	return pulumix.Output[[]GetOsProfileLinuxPatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOsProfileLinuxPatchArrayOutput) Index(i pulumi.IntInput) GetOsProfileLinuxPatchOutput {
@@ -1063,6 +1280,12 @@ func (i GetOsProfileWindowArgs) ToGetOsProfileWindowOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileWindowOutput)
 }
 
+func (i GetOsProfileWindowArgs) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileWindow] {
+	return pulumix.Output[GetOsProfileWindow]{
+		OutputState: i.ToGetOsProfileWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOsProfileWindowArrayInput is an input type that accepts GetOsProfileWindowArray and GetOsProfileWindowArrayOutput values.
 // You can construct a concrete instance of `GetOsProfileWindowArrayInput` via:
 //
@@ -1088,6 +1311,12 @@ func (i GetOsProfileWindowArray) ToGetOsProfileWindowArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileWindowArrayOutput)
 }
 
+func (i GetOsProfileWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileWindow] {
+	return pulumix.Output[[]GetOsProfileWindow]{
+		OutputState: i.ToGetOsProfileWindowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOsProfileWindowOutput struct{ *pulumi.OutputState }
 
 func (GetOsProfileWindowOutput) ElementType() reflect.Type {
@@ -1100,6 +1329,12 @@ func (o GetOsProfileWindowOutput) ToGetOsProfileWindowOutput() GetOsProfileWindo
 
 func (o GetOsProfileWindowOutput) ToGetOsProfileWindowOutputWithContext(ctx context.Context) GetOsProfileWindowOutput {
 	return o
+}
+
+func (o GetOsProfileWindowOutput) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileWindow] {
+	return pulumix.Output[GetOsProfileWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `patch` block as defined above.
@@ -1119,6 +1354,12 @@ func (o GetOsProfileWindowArrayOutput) ToGetOsProfileWindowArrayOutput() GetOsPr
 
 func (o GetOsProfileWindowArrayOutput) ToGetOsProfileWindowArrayOutputWithContext(ctx context.Context) GetOsProfileWindowArrayOutput {
 	return o
+}
+
+func (o GetOsProfileWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileWindow] {
+	return pulumix.Output[[]GetOsProfileWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOsProfileWindowArrayOutput) Index(i pulumi.IntInput) GetOsProfileWindowOutput {
@@ -1164,6 +1405,12 @@ func (i GetOsProfileWindowPatchArgs) ToGetOsProfileWindowPatchOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileWindowPatchOutput)
 }
 
+func (i GetOsProfileWindowPatchArgs) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileWindowPatch] {
+	return pulumix.Output[GetOsProfileWindowPatch]{
+		OutputState: i.ToGetOsProfileWindowPatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOsProfileWindowPatchArrayInput is an input type that accepts GetOsProfileWindowPatchArray and GetOsProfileWindowPatchArrayOutput values.
 // You can construct a concrete instance of `GetOsProfileWindowPatchArrayInput` via:
 //
@@ -1189,6 +1436,12 @@ func (i GetOsProfileWindowPatchArray) ToGetOsProfileWindowPatchArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetOsProfileWindowPatchArrayOutput)
 }
 
+func (i GetOsProfileWindowPatchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileWindowPatch] {
+	return pulumix.Output[[]GetOsProfileWindowPatch]{
+		OutputState: i.ToGetOsProfileWindowPatchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOsProfileWindowPatchOutput struct{ *pulumi.OutputState }
 
 func (GetOsProfileWindowPatchOutput) ElementType() reflect.Type {
@@ -1201,6 +1454,12 @@ func (o GetOsProfileWindowPatchOutput) ToGetOsProfileWindowPatchOutput() GetOsPr
 
 func (o GetOsProfileWindowPatchOutput) ToGetOsProfileWindowPatchOutputWithContext(ctx context.Context) GetOsProfileWindowPatchOutput {
 	return o
+}
+
+func (o GetOsProfileWindowPatchOutput) ToOutput(ctx context.Context) pulumix.Output[GetOsProfileWindowPatch] {
+	return pulumix.Output[GetOsProfileWindowPatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the assessment mode.
@@ -1225,6 +1484,12 @@ func (o GetOsProfileWindowPatchArrayOutput) ToGetOsProfileWindowPatchArrayOutput
 
 func (o GetOsProfileWindowPatchArrayOutput) ToGetOsProfileWindowPatchArrayOutputWithContext(ctx context.Context) GetOsProfileWindowPatchArrayOutput {
 	return o
+}
+
+func (o GetOsProfileWindowPatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOsProfileWindowPatch] {
+	return pulumix.Output[[]GetOsProfileWindowPatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOsProfileWindowPatchArrayOutput) Index(i pulumi.IntInput) GetOsProfileWindowPatchOutput {
@@ -1270,6 +1535,12 @@ func (i GetServiceStatusArgs) ToGetServiceStatusOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceStatusOutput)
 }
 
+func (i GetServiceStatusArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceStatus] {
+	return pulumix.Output[GetServiceStatus]{
+		OutputState: i.ToGetServiceStatusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceStatusArrayInput is an input type that accepts GetServiceStatusArray and GetServiceStatusArrayOutput values.
 // You can construct a concrete instance of `GetServiceStatusArrayInput` via:
 //
@@ -1295,6 +1566,12 @@ func (i GetServiceStatusArray) ToGetServiceStatusArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceStatusArrayOutput)
 }
 
+func (i GetServiceStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceStatus] {
+	return pulumix.Output[[]GetServiceStatus]{
+		OutputState: i.ToGetServiceStatusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceStatusOutput struct{ *pulumi.OutputState }
 
 func (GetServiceStatusOutput) ElementType() reflect.Type {
@@ -1307,6 +1584,12 @@ func (o GetServiceStatusOutput) ToGetServiceStatusOutput() GetServiceStatusOutpu
 
 func (o GetServiceStatusOutput) ToGetServiceStatusOutputWithContext(ctx context.Context) GetServiceStatusOutput {
 	return o
+}
+
+func (o GetServiceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceStatus] {
+	return pulumix.Output[GetServiceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `extensionService` block as defined above.
@@ -1333,6 +1616,12 @@ func (o GetServiceStatusArrayOutput) ToGetServiceStatusArrayOutput() GetServiceS
 
 func (o GetServiceStatusArrayOutput) ToGetServiceStatusArrayOutputWithContext(ctx context.Context) GetServiceStatusArrayOutput {
 	return o
+}
+
+func (o GetServiceStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceStatus] {
+	return pulumix.Output[[]GetServiceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceStatusArrayOutput) Index(i pulumi.IntInput) GetServiceStatusOutput {
@@ -1378,6 +1667,12 @@ func (i GetServiceStatusExtensionServiceArgs) ToGetServiceStatusExtensionService
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceStatusExtensionServiceOutput)
 }
 
+func (i GetServiceStatusExtensionServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceStatusExtensionService] {
+	return pulumix.Output[GetServiceStatusExtensionService]{
+		OutputState: i.ToGetServiceStatusExtensionServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceStatusExtensionServiceArrayInput is an input type that accepts GetServiceStatusExtensionServiceArray and GetServiceStatusExtensionServiceArrayOutput values.
 // You can construct a concrete instance of `GetServiceStatusExtensionServiceArrayInput` via:
 //
@@ -1403,6 +1698,12 @@ func (i GetServiceStatusExtensionServiceArray) ToGetServiceStatusExtensionServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceStatusExtensionServiceArrayOutput)
 }
 
+func (i GetServiceStatusExtensionServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceStatusExtensionService] {
+	return pulumix.Output[[]GetServiceStatusExtensionService]{
+		OutputState: i.ToGetServiceStatusExtensionServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceStatusExtensionServiceOutput struct{ *pulumi.OutputState }
 
 func (GetServiceStatusExtensionServiceOutput) ElementType() reflect.Type {
@@ -1415,6 +1716,12 @@ func (o GetServiceStatusExtensionServiceOutput) ToGetServiceStatusExtensionServi
 
 func (o GetServiceStatusExtensionServiceOutput) ToGetServiceStatusExtensionServiceOutputWithContext(ctx context.Context) GetServiceStatusExtensionServiceOutput {
 	return o
+}
+
+func (o GetServiceStatusExtensionServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceStatusExtensionService] {
+	return pulumix.Output[GetServiceStatusExtensionService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behavior of the service when the Arc-enabled machine starts up.
@@ -1439,6 +1746,12 @@ func (o GetServiceStatusExtensionServiceArrayOutput) ToGetServiceStatusExtension
 
 func (o GetServiceStatusExtensionServiceArrayOutput) ToGetServiceStatusExtensionServiceArrayOutputWithContext(ctx context.Context) GetServiceStatusExtensionServiceArrayOutput {
 	return o
+}
+
+func (o GetServiceStatusExtensionServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceStatusExtensionService] {
+	return pulumix.Output[[]GetServiceStatusExtensionService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceStatusExtensionServiceArrayOutput) Index(i pulumi.IntInput) GetServiceStatusExtensionServiceOutput {
@@ -1484,6 +1797,12 @@ func (i GetServiceStatusGuestConfigurationServiceArgs) ToGetServiceStatusGuestCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceStatusGuestConfigurationServiceOutput)
 }
 
+func (i GetServiceStatusGuestConfigurationServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceStatusGuestConfigurationService] {
+	return pulumix.Output[GetServiceStatusGuestConfigurationService]{
+		OutputState: i.ToGetServiceStatusGuestConfigurationServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceStatusGuestConfigurationServiceArrayInput is an input type that accepts GetServiceStatusGuestConfigurationServiceArray and GetServiceStatusGuestConfigurationServiceArrayOutput values.
 // You can construct a concrete instance of `GetServiceStatusGuestConfigurationServiceArrayInput` via:
 //
@@ -1509,6 +1828,12 @@ func (i GetServiceStatusGuestConfigurationServiceArray) ToGetServiceStatusGuestC
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceStatusGuestConfigurationServiceArrayOutput)
 }
 
+func (i GetServiceStatusGuestConfigurationServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceStatusGuestConfigurationService] {
+	return pulumix.Output[[]GetServiceStatusGuestConfigurationService]{
+		OutputState: i.ToGetServiceStatusGuestConfigurationServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceStatusGuestConfigurationServiceOutput struct{ *pulumi.OutputState }
 
 func (GetServiceStatusGuestConfigurationServiceOutput) ElementType() reflect.Type {
@@ -1521,6 +1846,12 @@ func (o GetServiceStatusGuestConfigurationServiceOutput) ToGetServiceStatusGuest
 
 func (o GetServiceStatusGuestConfigurationServiceOutput) ToGetServiceStatusGuestConfigurationServiceOutputWithContext(ctx context.Context) GetServiceStatusGuestConfigurationServiceOutput {
 	return o
+}
+
+func (o GetServiceStatusGuestConfigurationServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceStatusGuestConfigurationService] {
+	return pulumix.Output[GetServiceStatusGuestConfigurationService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behavior of the service when the Arc-enabled machine starts up.
@@ -1545,6 +1876,12 @@ func (o GetServiceStatusGuestConfigurationServiceArrayOutput) ToGetServiceStatus
 
 func (o GetServiceStatusGuestConfigurationServiceArrayOutput) ToGetServiceStatusGuestConfigurationServiceArrayOutputWithContext(ctx context.Context) GetServiceStatusGuestConfigurationServiceArrayOutput {
 	return o
+}
+
+func (o GetServiceStatusGuestConfigurationServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceStatusGuestConfigurationService] {
+	return pulumix.Output[[]GetServiceStatusGuestConfigurationService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceStatusGuestConfigurationServiceArrayOutput) Index(i pulumi.IntInput) GetServiceStatusGuestConfigurationServiceOutput {

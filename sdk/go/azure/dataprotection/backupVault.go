@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Vault.
@@ -212,6 +213,12 @@ func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) Backup
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultOutput)
 }
 
+func (i *BackupVault) ToOutput(ctx context.Context) pulumix.Output[*BackupVault] {
+	return pulumix.Output[*BackupVault]{
+		OutputState: i.ToBackupVaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupVaultArrayInput is an input type that accepts BackupVaultArray and BackupVaultArrayOutput values.
 // You can construct a concrete instance of `BackupVaultArrayInput` via:
 //
@@ -235,6 +242,12 @@ func (i BackupVaultArray) ToBackupVaultArrayOutput() BackupVaultArrayOutput {
 
 func (i BackupVaultArray) ToBackupVaultArrayOutputWithContext(ctx context.Context) BackupVaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultArrayOutput)
+}
+
+func (i BackupVaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupVault] {
+	return pulumix.Output[[]*BackupVault]{
+		OutputState: i.ToBackupVaultArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BackupVaultMapInput is an input type that accepts BackupVaultMap and BackupVaultMapOutput values.
@@ -262,6 +275,12 @@ func (i BackupVaultMap) ToBackupVaultMapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultMapOutput)
 }
 
+func (i BackupVaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupVault] {
+	return pulumix.Output[map[string]*BackupVault]{
+		OutputState: i.ToBackupVaultMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupVaultOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultOutput) ElementType() reflect.Type {
@@ -274,6 +293,12 @@ func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {
 
 func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
 	return o
+}
+
+func (o BackupVaultOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupVault] {
+	return pulumix.Output[*BackupVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
@@ -325,6 +350,12 @@ func (o BackupVaultArrayOutput) ToBackupVaultArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o BackupVaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupVault] {
+	return pulumix.Output[[]*BackupVault]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackupVaultArrayOutput) Index(i pulumi.IntInput) BackupVaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupVault {
 		return vs[0].([]*BackupVault)[vs[1].(int)]
@@ -343,6 +374,12 @@ func (o BackupVaultMapOutput) ToBackupVaultMapOutput() BackupVaultMapOutput {
 
 func (o BackupVaultMapOutput) ToBackupVaultMapOutputWithContext(ctx context.Context) BackupVaultMapOutput {
 	return o
+}
+
+func (o BackupVaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupVault] {
+	return pulumix.Output[map[string]*BackupVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupVaultMapOutput) MapIndex(k pulumi.StringInput) BackupVaultOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Facebook integration for a Bot Channel
@@ -237,6 +238,12 @@ func (i *ChannelFacebook) ToChannelFacebookOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookOutput)
 }
 
+func (i *ChannelFacebook) ToOutput(ctx context.Context) pulumix.Output[*ChannelFacebook] {
+	return pulumix.Output[*ChannelFacebook]{
+		OutputState: i.ToChannelFacebookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelFacebookArrayInput is an input type that accepts ChannelFacebookArray and ChannelFacebookArrayOutput values.
 // You can construct a concrete instance of `ChannelFacebookArrayInput` via:
 //
@@ -260,6 +267,12 @@ func (i ChannelFacebookArray) ToChannelFacebookArrayOutput() ChannelFacebookArra
 
 func (i ChannelFacebookArray) ToChannelFacebookArrayOutputWithContext(ctx context.Context) ChannelFacebookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookArrayOutput)
+}
+
+func (i ChannelFacebookArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelFacebook] {
+	return pulumix.Output[[]*ChannelFacebook]{
+		OutputState: i.ToChannelFacebookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ChannelFacebookMapInput is an input type that accepts ChannelFacebookMap and ChannelFacebookMapOutput values.
@@ -287,6 +300,12 @@ func (i ChannelFacebookMap) ToChannelFacebookMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookMapOutput)
 }
 
+func (i ChannelFacebookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelFacebook] {
+	return pulumix.Output[map[string]*ChannelFacebook]{
+		OutputState: i.ToChannelFacebookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelFacebookOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookOutput) ElementType() reflect.Type {
@@ -299,6 +318,12 @@ func (o ChannelFacebookOutput) ToChannelFacebookOutput() ChannelFacebookOutput {
 
 func (o ChannelFacebookOutput) ToChannelFacebookOutputWithContext(ctx context.Context) ChannelFacebookOutput {
 	return o
+}
+
+func (o ChannelFacebookOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelFacebook] {
+	return pulumix.Output[*ChannelFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -345,6 +370,12 @@ func (o ChannelFacebookArrayOutput) ToChannelFacebookArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ChannelFacebookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelFacebook] {
+	return pulumix.Output[[]*ChannelFacebook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelFacebookArrayOutput) Index(i pulumi.IntInput) ChannelFacebookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelFacebook {
 		return vs[0].([]*ChannelFacebook)[vs[1].(int)]
@@ -363,6 +394,12 @@ func (o ChannelFacebookMapOutput) ToChannelFacebookMapOutput() ChannelFacebookMa
 
 func (o ChannelFacebookMapOutput) ToChannelFacebookMapOutputWithContext(ctx context.Context) ChannelFacebookMapOutput {
 	return o
+}
+
+func (o ChannelFacebookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelFacebook] {
+	return pulumix.Output[map[string]*ChannelFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelFacebookMapOutput) MapIndex(k pulumi.StringInput) ChannelFacebookOutput {

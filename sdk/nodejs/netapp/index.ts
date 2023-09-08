@@ -40,6 +40,11 @@ export const getVolumeGroupSapHana: typeof import("./getVolumeGroupSapHana").get
 export const getVolumeGroupSapHanaOutput: typeof import("./getVolumeGroupSapHana").getVolumeGroupSapHanaOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeGroupSapHana","getVolumeGroupSapHanaOutput"], () => require("./getVolumeGroupSapHana"));
 
+export { GetVolumeQuotaRuleArgs, GetVolumeQuotaRuleResult, GetVolumeQuotaRuleOutputArgs } from "./getVolumeQuotaRule";
+export const getVolumeQuotaRule: typeof import("./getVolumeQuotaRule").getVolumeQuotaRule = null as any;
+export const getVolumeQuotaRuleOutput: typeof import("./getVolumeQuotaRule").getVolumeQuotaRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeQuotaRule","getVolumeQuotaRuleOutput"], () => require("./getVolumeQuotaRule"));
+
 export { PoolArgs, PoolState } from "./pool";
 export type Pool = import("./pool").Pool;
 export const Pool: typeof import("./pool").Pool = null as any;
@@ -65,6 +70,11 @@ export type VolumeGroupSapHana = import("./volumeGroupSapHana").VolumeGroupSapHa
 export const VolumeGroupSapHana: typeof import("./volumeGroupSapHana").VolumeGroupSapHana = null as any;
 utilities.lazyLoad(exports, ["VolumeGroupSapHana"], () => require("./volumeGroupSapHana"));
 
+export { VolumeQuotaRuleArgs, VolumeQuotaRuleState } from "./volumeQuotaRule";
+export type VolumeQuotaRule = import("./volumeQuotaRule").VolumeQuotaRule;
+export const VolumeQuotaRule: typeof import("./volumeQuotaRule").VolumeQuotaRule = null as any;
+utilities.lazyLoad(exports, ["VolumeQuotaRule"], () => require("./volumeQuotaRule"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -82,6 +92,8 @@ const _module = {
                 return new Volume(name, <any>undefined, { urn })
             case "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana":
                 return new VolumeGroupSapHana(name, <any>undefined, { urn })
+            case "azure:netapp/volumeQuotaRule:VolumeQuotaRule":
+                return new VolumeQuotaRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -93,3 +105,4 @@ pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volume", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volumeGroupSapHana", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/volumeQuotaRule", _module)

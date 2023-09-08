@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Instance Blob Storage.
@@ -234,6 +235,12 @@ func (i *BackupInstanceBlogStorage) ToBackupInstanceBlogStorageOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceBlogStorageOutput)
 }
 
+func (i *BackupInstanceBlogStorage) ToOutput(ctx context.Context) pulumix.Output[*BackupInstanceBlogStorage] {
+	return pulumix.Output[*BackupInstanceBlogStorage]{
+		OutputState: i.ToBackupInstanceBlogStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupInstanceBlogStorageArrayInput is an input type that accepts BackupInstanceBlogStorageArray and BackupInstanceBlogStorageArrayOutput values.
 // You can construct a concrete instance of `BackupInstanceBlogStorageArrayInput` via:
 //
@@ -257,6 +264,12 @@ func (i BackupInstanceBlogStorageArray) ToBackupInstanceBlogStorageArrayOutput()
 
 func (i BackupInstanceBlogStorageArray) ToBackupInstanceBlogStorageArrayOutputWithContext(ctx context.Context) BackupInstanceBlogStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceBlogStorageArrayOutput)
+}
+
+func (i BackupInstanceBlogStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupInstanceBlogStorage] {
+	return pulumix.Output[[]*BackupInstanceBlogStorage]{
+		OutputState: i.ToBackupInstanceBlogStorageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BackupInstanceBlogStorageMapInput is an input type that accepts BackupInstanceBlogStorageMap and BackupInstanceBlogStorageMapOutput values.
@@ -284,6 +297,12 @@ func (i BackupInstanceBlogStorageMap) ToBackupInstanceBlogStorageMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceBlogStorageMapOutput)
 }
 
+func (i BackupInstanceBlogStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupInstanceBlogStorage] {
+	return pulumix.Output[map[string]*BackupInstanceBlogStorage]{
+		OutputState: i.ToBackupInstanceBlogStorageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupInstanceBlogStorageOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceBlogStorageOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o BackupInstanceBlogStorageOutput) ToBackupInstanceBlogStorageOutput() Bac
 
 func (o BackupInstanceBlogStorageOutput) ToBackupInstanceBlogStorageOutputWithContext(ctx context.Context) BackupInstanceBlogStorageOutput {
 	return o
+}
+
+func (o BackupInstanceBlogStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupInstanceBlogStorage] {
+	return pulumix.Output[*BackupInstanceBlogStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Backup Policy.
@@ -337,6 +362,12 @@ func (o BackupInstanceBlogStorageArrayOutput) ToBackupInstanceBlogStorageArrayOu
 	return o
 }
 
+func (o BackupInstanceBlogStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupInstanceBlogStorage] {
+	return pulumix.Output[[]*BackupInstanceBlogStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackupInstanceBlogStorageArrayOutput) Index(i pulumi.IntInput) BackupInstanceBlogStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupInstanceBlogStorage {
 		return vs[0].([]*BackupInstanceBlogStorage)[vs[1].(int)]
@@ -355,6 +386,12 @@ func (o BackupInstanceBlogStorageMapOutput) ToBackupInstanceBlogStorageMapOutput
 
 func (o BackupInstanceBlogStorageMapOutput) ToBackupInstanceBlogStorageMapOutputWithContext(ctx context.Context) BackupInstanceBlogStorageMapOutput {
 	return o
+}
+
+func (o BackupInstanceBlogStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupInstanceBlogStorage] {
+	return pulumix.Output[map[string]*BackupInstanceBlogStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupInstanceBlogStorageMapOutput) MapIndex(k pulumi.StringInput) BackupInstanceBlogStorageOutput {

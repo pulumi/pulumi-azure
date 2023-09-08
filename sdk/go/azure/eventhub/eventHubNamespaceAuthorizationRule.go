@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Authorization Rule for an Event Hub Namespace.
@@ -267,6 +268,12 @@ func (i *EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRul
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRuleOutput)
 }
 
+func (i *EventHubNamespaceAuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespaceAuthorizationRule] {
+	return pulumix.Output[*EventHubNamespaceAuthorizationRule]{
+		OutputState: i.ToEventHubNamespaceAuthorizationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventHubNamespaceAuthorizationRuleArrayInput is an input type that accepts EventHubNamespaceAuthorizationRuleArray and EventHubNamespaceAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `EventHubNamespaceAuthorizationRuleArrayInput` via:
 //
@@ -290,6 +297,12 @@ func (i EventHubNamespaceAuthorizationRuleArray) ToEventHubNamespaceAuthorizatio
 
 func (i EventHubNamespaceAuthorizationRuleArray) ToEventHubNamespaceAuthorizationRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRuleArrayOutput)
+}
+
+func (i EventHubNamespaceAuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubNamespaceAuthorizationRule] {
+	return pulumix.Output[[]*EventHubNamespaceAuthorizationRule]{
+		OutputState: i.ToEventHubNamespaceAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventHubNamespaceAuthorizationRuleMapInput is an input type that accepts EventHubNamespaceAuthorizationRuleMap and EventHubNamespaceAuthorizationRuleMapOutput values.
@@ -317,6 +330,12 @@ func (i EventHubNamespaceAuthorizationRuleMap) ToEventHubNamespaceAuthorizationR
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceAuthorizationRuleMapOutput)
 }
 
+func (i EventHubNamespaceAuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubNamespaceAuthorizationRule] {
+	return pulumix.Output[map[string]*EventHubNamespaceAuthorizationRule]{
+		OutputState: i.ToEventHubNamespaceAuthorizationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubNamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -329,6 +348,12 @@ func (o EventHubNamespaceAuthorizationRuleOutput) ToEventHubNamespaceAuthorizati
 
 func (o EventHubNamespaceAuthorizationRuleOutput) ToEventHubNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleOutput {
 	return o
+}
+
+func (o EventHubNamespaceAuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespaceAuthorizationRule] {
+	return pulumix.Output[*EventHubNamespaceAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -409,6 +434,12 @@ func (o EventHubNamespaceAuthorizationRuleArrayOutput) ToEventHubNamespaceAuthor
 	return o
 }
 
+func (o EventHubNamespaceAuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubNamespaceAuthorizationRule] {
+	return pulumix.Output[[]*EventHubNamespaceAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventHubNamespaceAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceAuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHubNamespaceAuthorizationRule {
 		return vs[0].([]*EventHubNamespaceAuthorizationRule)[vs[1].(int)]
@@ -427,6 +458,12 @@ func (o EventHubNamespaceAuthorizationRuleMapOutput) ToEventHubNamespaceAuthoriz
 
 func (o EventHubNamespaceAuthorizationRuleMapOutput) ToEventHubNamespaceAuthorizationRuleMapOutputWithContext(ctx context.Context) EventHubNamespaceAuthorizationRuleMapOutput {
 	return o
+}
+
+func (o EventHubNamespaceAuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubNamespaceAuthorizationRule] {
+	return pulumix.Output[map[string]*EventHubNamespaceAuthorizationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubNamespaceAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) EventHubNamespaceAuthorizationRuleOutput {

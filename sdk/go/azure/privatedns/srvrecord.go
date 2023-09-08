@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to manage DNS SRV Records within Azure Private DNS.
@@ -233,6 +234,12 @@ func (i *SRVRecord) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordO
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordOutput)
 }
 
+func (i *SRVRecord) ToOutput(ctx context.Context) pulumix.Output[*SRVRecord] {
+	return pulumix.Output[*SRVRecord]{
+		OutputState: i.ToSRVRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SRVRecordArrayInput is an input type that accepts SRVRecordArray and SRVRecordArrayOutput values.
 // You can construct a concrete instance of `SRVRecordArrayInput` via:
 //
@@ -256,6 +263,12 @@ func (i SRVRecordArray) ToSRVRecordArrayOutput() SRVRecordArrayOutput {
 
 func (i SRVRecordArray) ToSRVRecordArrayOutputWithContext(ctx context.Context) SRVRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordArrayOutput)
+}
+
+func (i SRVRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*SRVRecord] {
+	return pulumix.Output[[]*SRVRecord]{
+		OutputState: i.ToSRVRecordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SRVRecordMapInput is an input type that accepts SRVRecordMap and SRVRecordMapOutput values.
@@ -283,6 +296,12 @@ func (i SRVRecordMap) ToSRVRecordMapOutputWithContext(ctx context.Context) SRVRe
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordMapOutput)
 }
 
+func (i SRVRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SRVRecord] {
+	return pulumix.Output[map[string]*SRVRecord]{
+		OutputState: i.ToSRVRecordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SRVRecordOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordOutput) ElementType() reflect.Type {
@@ -295,6 +314,12 @@ func (o SRVRecordOutput) ToSRVRecordOutput() SRVRecordOutput {
 
 func (o SRVRecordOutput) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput {
 	return o
+}
+
+func (o SRVRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*SRVRecord] {
+	return pulumix.Output[*SRVRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN of the DNS SRV Record.
@@ -346,6 +371,12 @@ func (o SRVRecordArrayOutput) ToSRVRecordArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o SRVRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SRVRecord] {
+	return pulumix.Output[[]*SRVRecord]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SRVRecordArrayOutput) Index(i pulumi.IntInput) SRVRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SRVRecord {
 		return vs[0].([]*SRVRecord)[vs[1].(int)]
@@ -364,6 +395,12 @@ func (o SRVRecordMapOutput) ToSRVRecordMapOutput() SRVRecordMapOutput {
 
 func (o SRVRecordMapOutput) ToSRVRecordMapOutputWithContext(ctx context.Context) SRVRecordMapOutput {
 	return o
+}
+
+func (o SRVRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SRVRecord] {
+	return pulumix.Output[map[string]*SRVRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SRVRecordMapOutput) MapIndex(k pulumi.StringInput) SRVRecordOutput {

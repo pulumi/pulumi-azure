@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -131,6 +132,12 @@ func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationOutput)
 }
 
+func (i *CustomHttpsConfiguration) ToOutput(ctx context.Context) pulumix.Output[*CustomHttpsConfiguration] {
+	return pulumix.Output[*CustomHttpsConfiguration]{
+		OutputState: i.ToCustomHttpsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomHttpsConfigurationArrayInput is an input type that accepts CustomHttpsConfigurationArray and CustomHttpsConfigurationArrayOutput values.
 // You can construct a concrete instance of `CustomHttpsConfigurationArrayInput` via:
 //
@@ -154,6 +161,12 @@ func (i CustomHttpsConfigurationArray) ToCustomHttpsConfigurationArrayOutput() C
 
 func (i CustomHttpsConfigurationArray) ToCustomHttpsConfigurationArrayOutputWithContext(ctx context.Context) CustomHttpsConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationArrayOutput)
+}
+
+func (i CustomHttpsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomHttpsConfiguration] {
+	return pulumix.Output[[]*CustomHttpsConfiguration]{
+		OutputState: i.ToCustomHttpsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomHttpsConfigurationMapInput is an input type that accepts CustomHttpsConfigurationMap and CustomHttpsConfigurationMapOutput values.
@@ -181,6 +194,12 @@ func (i CustomHttpsConfigurationMap) ToCustomHttpsConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationMapOutput)
 }
 
+func (i CustomHttpsConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomHttpsConfiguration] {
+	return pulumix.Output[map[string]*CustomHttpsConfiguration]{
+		OutputState: i.ToCustomHttpsConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CustomHttpsConfigurationOutput) ElementType() reflect.Type {
@@ -193,6 +212,12 @@ func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutput() Custo
 
 func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
 	return o
+}
+
+func (o CustomHttpsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomHttpsConfiguration] {
+	return pulumix.Output[*CustomHttpsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `customHttpsConfiguration` block as defined above.
@@ -226,6 +251,12 @@ func (o CustomHttpsConfigurationArrayOutput) ToCustomHttpsConfigurationArrayOutp
 	return o
 }
 
+func (o CustomHttpsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomHttpsConfiguration] {
+	return pulumix.Output[[]*CustomHttpsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomHttpsConfigurationArrayOutput) Index(i pulumi.IntInput) CustomHttpsConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomHttpsConfiguration {
 		return vs[0].([]*CustomHttpsConfiguration)[vs[1].(int)]
@@ -244,6 +275,12 @@ func (o CustomHttpsConfigurationMapOutput) ToCustomHttpsConfigurationMapOutput()
 
 func (o CustomHttpsConfigurationMapOutput) ToCustomHttpsConfigurationMapOutputWithContext(ctx context.Context) CustomHttpsConfigurationMapOutput {
 	return o
+}
+
+func (o CustomHttpsConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomHttpsConfiguration] {
+	return pulumix.Output[map[string]*CustomHttpsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomHttpsConfigurationMapOutput) MapIndex(k pulumi.StringInput) CustomHttpsConfigurationOutput {

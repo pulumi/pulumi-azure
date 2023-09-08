@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private DNS Resolver Virtual Network Link.
@@ -244,6 +245,12 @@ func (i *ResolverVirtualNetworkLink) ToResolverVirtualNetworkLinkOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverVirtualNetworkLinkOutput)
 }
 
+func (i *ResolverVirtualNetworkLink) ToOutput(ctx context.Context) pulumix.Output[*ResolverVirtualNetworkLink] {
+	return pulumix.Output[*ResolverVirtualNetworkLink]{
+		OutputState: i.ToResolverVirtualNetworkLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverVirtualNetworkLinkArrayInput is an input type that accepts ResolverVirtualNetworkLinkArray and ResolverVirtualNetworkLinkArrayOutput values.
 // You can construct a concrete instance of `ResolverVirtualNetworkLinkArrayInput` via:
 //
@@ -267,6 +274,12 @@ func (i ResolverVirtualNetworkLinkArray) ToResolverVirtualNetworkLinkArrayOutput
 
 func (i ResolverVirtualNetworkLinkArray) ToResolverVirtualNetworkLinkArrayOutputWithContext(ctx context.Context) ResolverVirtualNetworkLinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverVirtualNetworkLinkArrayOutput)
+}
+
+func (i ResolverVirtualNetworkLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverVirtualNetworkLink] {
+	return pulumix.Output[[]*ResolverVirtualNetworkLink]{
+		OutputState: i.ToResolverVirtualNetworkLinkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverVirtualNetworkLinkMapInput is an input type that accepts ResolverVirtualNetworkLinkMap and ResolverVirtualNetworkLinkMapOutput values.
@@ -294,6 +307,12 @@ func (i ResolverVirtualNetworkLinkMap) ToResolverVirtualNetworkLinkMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverVirtualNetworkLinkMapOutput)
 }
 
+func (i ResolverVirtualNetworkLinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverVirtualNetworkLink] {
+	return pulumix.Output[map[string]*ResolverVirtualNetworkLink]{
+		OutputState: i.ToResolverVirtualNetworkLinkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverVirtualNetworkLinkOutput struct{ *pulumi.OutputState }
 
 func (ResolverVirtualNetworkLinkOutput) ElementType() reflect.Type {
@@ -306,6 +325,12 @@ func (o ResolverVirtualNetworkLinkOutput) ToResolverVirtualNetworkLinkOutput() R
 
 func (o ResolverVirtualNetworkLinkOutput) ToResolverVirtualNetworkLinkOutputWithContext(ctx context.Context) ResolverVirtualNetworkLinkOutput {
 	return o
+}
+
+func (o ResolverVirtualNetworkLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverVirtualNetworkLink] {
+	return pulumix.Output[*ResolverVirtualNetworkLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
@@ -342,6 +367,12 @@ func (o ResolverVirtualNetworkLinkArrayOutput) ToResolverVirtualNetworkLinkArray
 	return o
 }
 
+func (o ResolverVirtualNetworkLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverVirtualNetworkLink] {
+	return pulumix.Output[[]*ResolverVirtualNetworkLink]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverVirtualNetworkLinkArrayOutput) Index(i pulumi.IntInput) ResolverVirtualNetworkLinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverVirtualNetworkLink {
 		return vs[0].([]*ResolverVirtualNetworkLink)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o ResolverVirtualNetworkLinkMapOutput) ToResolverVirtualNetworkLinkMapOutp
 
 func (o ResolverVirtualNetworkLinkMapOutput) ToResolverVirtualNetworkLinkMapOutputWithContext(ctx context.Context) ResolverVirtualNetworkLinkMapOutput {
 	return o
+}
+
+func (o ResolverVirtualNetworkLinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverVirtualNetworkLink] {
+	return pulumix.Output[map[string]*ResolverVirtualNetworkLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverVirtualNetworkLinkMapOutput) MapIndex(k pulumi.StringInput) ResolverVirtualNetworkLinkOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
@@ -307,6 +308,12 @@ func (i *ReferenceInputBlob) ToReferenceInputBlobOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobOutput)
 }
 
+func (i *ReferenceInputBlob) ToOutput(ctx context.Context) pulumix.Output[*ReferenceInputBlob] {
+	return pulumix.Output[*ReferenceInputBlob]{
+		OutputState: i.ToReferenceInputBlobOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReferenceInputBlobArrayInput is an input type that accepts ReferenceInputBlobArray and ReferenceInputBlobArrayOutput values.
 // You can construct a concrete instance of `ReferenceInputBlobArrayInput` via:
 //
@@ -330,6 +337,12 @@ func (i ReferenceInputBlobArray) ToReferenceInputBlobArrayOutput() ReferenceInpu
 
 func (i ReferenceInputBlobArray) ToReferenceInputBlobArrayOutputWithContext(ctx context.Context) ReferenceInputBlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobArrayOutput)
+}
+
+func (i ReferenceInputBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReferenceInputBlob] {
+	return pulumix.Output[[]*ReferenceInputBlob]{
+		OutputState: i.ToReferenceInputBlobArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReferenceInputBlobMapInput is an input type that accepts ReferenceInputBlobMap and ReferenceInputBlobMapOutput values.
@@ -357,6 +370,12 @@ func (i ReferenceInputBlobMap) ToReferenceInputBlobMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobMapOutput)
 }
 
+func (i ReferenceInputBlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReferenceInputBlob] {
+	return pulumix.Output[map[string]*ReferenceInputBlob]{
+		OutputState: i.ToReferenceInputBlobMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReferenceInputBlobOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobOutput) ElementType() reflect.Type {
@@ -369,6 +388,12 @@ func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutput() ReferenceInputBlo
 
 func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput {
 	return o
+}
+
+func (o ReferenceInputBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceInputBlob] {
+	return pulumix.Output[*ReferenceInputBlob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -440,6 +465,12 @@ func (o ReferenceInputBlobArrayOutput) ToReferenceInputBlobArrayOutputWithContex
 	return o
 }
 
+func (o ReferenceInputBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReferenceInputBlob] {
+	return pulumix.Output[[]*ReferenceInputBlob]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReferenceInputBlobArrayOutput) Index(i pulumi.IntInput) ReferenceInputBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReferenceInputBlob {
 		return vs[0].([]*ReferenceInputBlob)[vs[1].(int)]
@@ -458,6 +489,12 @@ func (o ReferenceInputBlobMapOutput) ToReferenceInputBlobMapOutput() ReferenceIn
 
 func (o ReferenceInputBlobMapOutput) ToReferenceInputBlobMapOutputWithContext(ctx context.Context) ReferenceInputBlobMapOutput {
 	return o
+}
+
+func (o ReferenceInputBlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReferenceInputBlob] {
+	return pulumix.Output[map[string]*ReferenceInputBlob]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReferenceInputBlobMapOutput) MapIndex(k pulumi.StringInput) ReferenceInputBlobOutput {

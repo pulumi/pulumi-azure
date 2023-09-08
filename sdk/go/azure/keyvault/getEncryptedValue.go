@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Encrypts or Decrypts a value using a Key Vault Key.
@@ -92,6 +93,12 @@ func (o GetEncryptedValueResultOutput) ToGetEncryptedValueResultOutput() GetEncr
 
 func (o GetEncryptedValueResultOutput) ToGetEncryptedValueResultOutputWithContext(ctx context.Context) GetEncryptedValueResultOutput {
 	return o
+}
+
+func (o GetEncryptedValueResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEncryptedValueResult] {
+	return pulumix.Output[GetEncryptedValueResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEncryptedValueResultOutput) Algorithm() pulumi.StringOutput {

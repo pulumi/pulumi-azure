@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Security Admin Configuration.
@@ -140,6 +141,12 @@ func (i *NetworkManagerSecurityAdminConfiguration) ToNetworkManagerSecurityAdmin
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerSecurityAdminConfigurationOutput)
 }
 
+func (i *NetworkManagerSecurityAdminConfiguration) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerSecurityAdminConfiguration] {
+	return pulumix.Output[*NetworkManagerSecurityAdminConfiguration]{
+		OutputState: i.ToNetworkManagerSecurityAdminConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkManagerSecurityAdminConfigurationArrayInput is an input type that accepts NetworkManagerSecurityAdminConfigurationArray and NetworkManagerSecurityAdminConfigurationArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerSecurityAdminConfigurationArrayInput` via:
 //
@@ -163,6 +170,12 @@ func (i NetworkManagerSecurityAdminConfigurationArray) ToNetworkManagerSecurityA
 
 func (i NetworkManagerSecurityAdminConfigurationArray) ToNetworkManagerSecurityAdminConfigurationArrayOutputWithContext(ctx context.Context) NetworkManagerSecurityAdminConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerSecurityAdminConfigurationArrayOutput)
+}
+
+func (i NetworkManagerSecurityAdminConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerSecurityAdminConfiguration] {
+	return pulumix.Output[[]*NetworkManagerSecurityAdminConfiguration]{
+		OutputState: i.ToNetworkManagerSecurityAdminConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkManagerSecurityAdminConfigurationMapInput is an input type that accepts NetworkManagerSecurityAdminConfigurationMap and NetworkManagerSecurityAdminConfigurationMapOutput values.
@@ -190,6 +203,12 @@ func (i NetworkManagerSecurityAdminConfigurationMap) ToNetworkManagerSecurityAdm
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerSecurityAdminConfigurationMapOutput)
 }
 
+func (i NetworkManagerSecurityAdminConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerSecurityAdminConfiguration] {
+	return pulumix.Output[map[string]*NetworkManagerSecurityAdminConfiguration]{
+		OutputState: i.ToNetworkManagerSecurityAdminConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkManagerSecurityAdminConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerSecurityAdminConfigurationOutput) ElementType() reflect.Type {
@@ -202,6 +221,12 @@ func (o NetworkManagerSecurityAdminConfigurationOutput) ToNetworkManagerSecurity
 
 func (o NetworkManagerSecurityAdminConfigurationOutput) ToNetworkManagerSecurityAdminConfigurationOutputWithContext(ctx context.Context) NetworkManagerSecurityAdminConfigurationOutput {
 	return o
+}
+
+func (o NetworkManagerSecurityAdminConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerSecurityAdminConfiguration] {
+	return pulumix.Output[*NetworkManagerSecurityAdminConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
@@ -240,6 +265,12 @@ func (o NetworkManagerSecurityAdminConfigurationArrayOutput) ToNetworkManagerSec
 	return o
 }
 
+func (o NetworkManagerSecurityAdminConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerSecurityAdminConfiguration] {
+	return pulumix.Output[[]*NetworkManagerSecurityAdminConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkManagerSecurityAdminConfigurationArrayOutput) Index(i pulumi.IntInput) NetworkManagerSecurityAdminConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerSecurityAdminConfiguration {
 		return vs[0].([]*NetworkManagerSecurityAdminConfiguration)[vs[1].(int)]
@@ -258,6 +289,12 @@ func (o NetworkManagerSecurityAdminConfigurationMapOutput) ToNetworkManagerSecur
 
 func (o NetworkManagerSecurityAdminConfigurationMapOutput) ToNetworkManagerSecurityAdminConfigurationMapOutputWithContext(ctx context.Context) NetworkManagerSecurityAdminConfigurationMapOutput {
 	return o
+}
+
+func (o NetworkManagerSecurityAdminConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerSecurityAdminConfiguration] {
+	return pulumix.Output[map[string]*NetworkManagerSecurityAdminConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkManagerSecurityAdminConfigurationMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerSecurityAdminConfigurationOutput {

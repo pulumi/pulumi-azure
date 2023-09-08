@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Hub within a Virtual WAN.
@@ -261,6 +262,12 @@ func (i *VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualH
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
 }
 
+func (i *VirtualHub) ToOutput(ctx context.Context) pulumix.Output[*VirtualHub] {
+	return pulumix.Output[*VirtualHub]{
+		OutputState: i.ToVirtualHubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualHubArrayInput is an input type that accepts VirtualHubArray and VirtualHubArrayOutput values.
 // You can construct a concrete instance of `VirtualHubArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i VirtualHubArray) ToVirtualHubArrayOutput() VirtualHubArrayOutput {
 
 func (i VirtualHubArray) ToVirtualHubArrayOutputWithContext(ctx context.Context) VirtualHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubArrayOutput)
+}
+
+func (i VirtualHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHub] {
+	return pulumix.Output[[]*VirtualHub]{
+		OutputState: i.ToVirtualHubArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualHubMapInput is an input type that accepts VirtualHubMap and VirtualHubMapOutput values.
@@ -311,6 +324,12 @@ func (i VirtualHubMap) ToVirtualHubMapOutputWithContext(ctx context.Context) Vir
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubMapOutput)
 }
 
+func (i VirtualHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHub] {
+	return pulumix.Output[map[string]*VirtualHub]{
+		OutputState: i.ToVirtualHubMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualHubOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o VirtualHubOutput) ToVirtualHubOutput() VirtualHubOutput {
 
 func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) VirtualHubOutput {
 	return o
+}
+
+func (o VirtualHubOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualHub] {
+	return pulumix.Output[*VirtualHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
@@ -404,6 +429,12 @@ func (o VirtualHubArrayOutput) ToVirtualHubArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o VirtualHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHub] {
+	return pulumix.Output[[]*VirtualHub]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualHubArrayOutput) Index(i pulumi.IntInput) VirtualHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHub {
 		return vs[0].([]*VirtualHub)[vs[1].(int)]
@@ -422,6 +453,12 @@ func (o VirtualHubMapOutput) ToVirtualHubMapOutput() VirtualHubMapOutput {
 
 func (o VirtualHubMapOutput) ToVirtualHubMapOutputWithContext(ctx context.Context) VirtualHubMapOutput {
 	return o
+}
+
+func (o VirtualHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHub] {
+	return pulumix.Output[map[string]*VirtualHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualHubMapOutput) MapIndex(k pulumi.StringInput) VirtualHubOutput {

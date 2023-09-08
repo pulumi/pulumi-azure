@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Customer Managed Key for a Cognitive Services Account.
@@ -297,6 +298,12 @@ func (i *AccountCustomerManagedKey) ToAccountCustomerManagedKeyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyOutput)
 }
 
+func (i *AccountCustomerManagedKey) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomerManagedKey] {
+	return pulumix.Output[*AccountCustomerManagedKey]{
+		OutputState: i.ToAccountCustomerManagedKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountCustomerManagedKeyArrayInput is an input type that accepts AccountCustomerManagedKeyArray and AccountCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `AccountCustomerManagedKeyArrayInput` via:
 //
@@ -320,6 +327,12 @@ func (i AccountCustomerManagedKeyArray) ToAccountCustomerManagedKeyArrayOutput()
 
 func (i AccountCustomerManagedKeyArray) ToAccountCustomerManagedKeyArrayOutputWithContext(ctx context.Context) AccountCustomerManagedKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyArrayOutput)
+}
+
+func (i AccountCustomerManagedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountCustomerManagedKey] {
+	return pulumix.Output[[]*AccountCustomerManagedKey]{
+		OutputState: i.ToAccountCustomerManagedKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountCustomerManagedKeyMapInput is an input type that accepts AccountCustomerManagedKeyMap and AccountCustomerManagedKeyMapOutput values.
@@ -347,6 +360,12 @@ func (i AccountCustomerManagedKeyMap) ToAccountCustomerManagedKeyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyMapOutput)
 }
 
+func (i AccountCustomerManagedKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountCustomerManagedKey] {
+	return pulumix.Output[map[string]*AccountCustomerManagedKey]{
+		OutputState: i.ToAccountCustomerManagedKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -359,6 +378,12 @@ func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyOutput() Acc
 
 func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyOutputWithContext(ctx context.Context) AccountCustomerManagedKeyOutput {
 	return o
+}
+
+func (o AccountCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomerManagedKey] {
+	return pulumix.Output[*AccountCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Cognitive Account. Changing this forces a new resource to be created.
@@ -390,6 +415,12 @@ func (o AccountCustomerManagedKeyArrayOutput) ToAccountCustomerManagedKeyArrayOu
 	return o
 }
 
+func (o AccountCustomerManagedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountCustomerManagedKey] {
+	return pulumix.Output[[]*AccountCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) AccountCustomerManagedKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountCustomerManagedKey {
 		return vs[0].([]*AccountCustomerManagedKey)[vs[1].(int)]
@@ -408,6 +439,12 @@ func (o AccountCustomerManagedKeyMapOutput) ToAccountCustomerManagedKeyMapOutput
 
 func (o AccountCustomerManagedKeyMapOutput) ToAccountCustomerManagedKeyMapOutputWithContext(ctx context.Context) AccountCustomerManagedKeyMapOutput {
 	return o
+}
+
+func (o AccountCustomerManagedKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountCustomerManagedKey] {
+	return pulumix.Output[map[string]*AccountCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) AccountCustomerManagedKeyOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container Registry Token Password.
@@ -133,6 +134,12 @@ func (i *TokenPassword) ToTokenPasswordOutputWithContext(ctx context.Context) To
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordOutput)
 }
 
+func (i *TokenPassword) ToOutput(ctx context.Context) pulumix.Output[*TokenPassword] {
+	return pulumix.Output[*TokenPassword]{
+		OutputState: i.ToTokenPasswordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TokenPasswordArrayInput is an input type that accepts TokenPasswordArray and TokenPasswordArrayOutput values.
 // You can construct a concrete instance of `TokenPasswordArrayInput` via:
 //
@@ -156,6 +163,12 @@ func (i TokenPasswordArray) ToTokenPasswordArrayOutput() TokenPasswordArrayOutpu
 
 func (i TokenPasswordArray) ToTokenPasswordArrayOutputWithContext(ctx context.Context) TokenPasswordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordArrayOutput)
+}
+
+func (i TokenPasswordArray) ToOutput(ctx context.Context) pulumix.Output[[]*TokenPassword] {
+	return pulumix.Output[[]*TokenPassword]{
+		OutputState: i.ToTokenPasswordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TokenPasswordMapInput is an input type that accepts TokenPasswordMap and TokenPasswordMapOutput values.
@@ -183,6 +196,12 @@ func (i TokenPasswordMap) ToTokenPasswordMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordMapOutput)
 }
 
+func (i TokenPasswordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TokenPassword] {
+	return pulumix.Output[map[string]*TokenPassword]{
+		OutputState: i.ToTokenPasswordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TokenPasswordOutput struct{ *pulumi.OutputState }
 
 func (TokenPasswordOutput) ElementType() reflect.Type {
@@ -195,6 +214,12 @@ func (o TokenPasswordOutput) ToTokenPasswordOutput() TokenPasswordOutput {
 
 func (o TokenPasswordOutput) ToTokenPasswordOutputWithContext(ctx context.Context) TokenPasswordOutput {
 	return o
+}
+
+func (o TokenPasswordOutput) ToOutput(ctx context.Context) pulumix.Output[*TokenPassword] {
+	return pulumix.Output[*TokenPassword]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
@@ -226,6 +251,12 @@ func (o TokenPasswordArrayOutput) ToTokenPasswordArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o TokenPasswordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TokenPassword] {
+	return pulumix.Output[[]*TokenPassword]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TokenPasswordArrayOutput) Index(i pulumi.IntInput) TokenPasswordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TokenPassword {
 		return vs[0].([]*TokenPassword)[vs[1].(int)]
@@ -244,6 +275,12 @@ func (o TokenPasswordMapOutput) ToTokenPasswordMapOutput() TokenPasswordMapOutpu
 
 func (o TokenPasswordMapOutput) ToTokenPasswordMapOutputWithContext(ctx context.Context) TokenPasswordMapOutput {
 	return o
+}
+
+func (o TokenPasswordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TokenPassword] {
+	return pulumix.Output[map[string]*TokenPassword]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TokenPasswordMapOutput) MapIndex(k pulumi.StringInput) TokenPasswordOutput {

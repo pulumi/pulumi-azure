@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
@@ -286,6 +287,12 @@ func (i *OutputSynapse) ToOutputSynapseOutputWithContext(ctx context.Context) Ou
 	return pulumi.ToOutputWithContext(ctx, i).(OutputSynapseOutput)
 }
 
+func (i *OutputSynapse) ToOutput(ctx context.Context) pulumix.Output[*OutputSynapse] {
+	return pulumix.Output[*OutputSynapse]{
+		OutputState: i.ToOutputSynapseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutputSynapseArrayInput is an input type that accepts OutputSynapseArray and OutputSynapseArrayOutput values.
 // You can construct a concrete instance of `OutputSynapseArrayInput` via:
 //
@@ -309,6 +316,12 @@ func (i OutputSynapseArray) ToOutputSynapseArrayOutput() OutputSynapseArrayOutpu
 
 func (i OutputSynapseArray) ToOutputSynapseArrayOutputWithContext(ctx context.Context) OutputSynapseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputSynapseArrayOutput)
+}
+
+func (i OutputSynapseArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputSynapse] {
+	return pulumix.Output[[]*OutputSynapse]{
+		OutputState: i.ToOutputSynapseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutputSynapseMapInput is an input type that accepts OutputSynapseMap and OutputSynapseMapOutput values.
@@ -336,6 +349,12 @@ func (i OutputSynapseMap) ToOutputSynapseMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(OutputSynapseMapOutput)
 }
 
+func (i OutputSynapseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputSynapse] {
+	return pulumix.Output[map[string]*OutputSynapse]{
+		OutputState: i.ToOutputSynapseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputSynapseOutput struct{ *pulumi.OutputState }
 
 func (OutputSynapseOutput) ElementType() reflect.Type {
@@ -348,6 +367,12 @@ func (o OutputSynapseOutput) ToOutputSynapseOutput() OutputSynapseOutput {
 
 func (o OutputSynapseOutput) ToOutputSynapseOutputWithContext(ctx context.Context) OutputSynapseOutput {
 	return o
+}
+
+func (o OutputSynapseOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputSynapse] {
+	return pulumix.Output[*OutputSynapse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Azure SQL database. Changing this forces a new resource to be created.
@@ -404,6 +429,12 @@ func (o OutputSynapseArrayOutput) ToOutputSynapseArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o OutputSynapseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputSynapse] {
+	return pulumix.Output[[]*OutputSynapse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutputSynapseArrayOutput) Index(i pulumi.IntInput) OutputSynapseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputSynapse {
 		return vs[0].([]*OutputSynapse)[vs[1].(int)]
@@ -422,6 +453,12 @@ func (o OutputSynapseMapOutput) ToOutputSynapseMapOutput() OutputSynapseMapOutpu
 
 func (o OutputSynapseMapOutput) ToOutputSynapseMapOutputWithContext(ctx context.Context) OutputSynapseMapOutput {
 	return o
+}
+
+func (o OutputSynapseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputSynapse] {
+	return pulumix.Output[map[string]*OutputSynapse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputSynapseMapOutput) MapIndex(k pulumi.StringInput) OutputSynapseOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -354,6 +355,12 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
 }
 
+func (i *FirewallPolicy) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicy] {
+	return pulumix.Output[*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallPolicyArrayInput is an input type that accepts FirewallPolicyArray and FirewallPolicyArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyArrayInput` via:
 //
@@ -377,6 +384,12 @@ func (i FirewallPolicyArray) ToFirewallPolicyArrayOutput() FirewallPolicyArrayOu
 
 func (i FirewallPolicyArray) ToFirewallPolicyArrayOutputWithContext(ctx context.Context) FirewallPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyArrayOutput)
+}
+
+func (i FirewallPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallPolicy] {
+	return pulumix.Output[[]*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FirewallPolicyMapInput is an input type that accepts FirewallPolicyMap and FirewallPolicyMapOutput values.
@@ -404,6 +417,12 @@ func (i FirewallPolicyMap) ToFirewallPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyMapOutput)
 }
 
+func (i FirewallPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallPolicy] {
+	return pulumix.Output[map[string]*FirewallPolicy]{
+		OutputState: i.ToFirewallPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyOutput) ElementType() reflect.Type {
@@ -416,6 +435,12 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutput() FirewallPolicyOutput {
 
 func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyOutput {
 	return o
+}
+
+func (o FirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicy] {
+	return pulumix.Output[*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
@@ -492,6 +517,12 @@ func (o FirewallPolicyArrayOutput) ToFirewallPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o FirewallPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallPolicy] {
+	return pulumix.Output[[]*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallPolicyArrayOutput) Index(i pulumi.IntInput) FirewallPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallPolicy {
 		return vs[0].([]*FirewallPolicy)[vs[1].(int)]
@@ -510,6 +541,12 @@ func (o FirewallPolicyMapOutput) ToFirewallPolicyMapOutput() FirewallPolicyMapOu
 
 func (o FirewallPolicyMapOutput) ToFirewallPolicyMapOutputWithContext(ctx context.Context) FirewallPolicyMapOutput {
 	return o
+}
+
+func (o FirewallPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallPolicy] {
+	return pulumix.Output[map[string]*FirewallPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallPolicyMapOutput) MapIndex(k pulumi.StringInput) FirewallPolicyOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing IoTHub.
@@ -113,6 +114,12 @@ func (o GetIotHubResultOutput) ToGetIotHubResultOutput() GetIotHubResultOutput {
 
 func (o GetIotHubResultOutput) ToGetIotHubResultOutputWithContext(ctx context.Context) GetIotHubResultOutput {
 	return o
+}
+
+func (o GetIotHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIotHubResult] {
+	return pulumix.Output[GetIotHubResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hostname of the IoTHub.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i LoadTestIdentityArgs) ToLoadTestIdentityOutput() LoadTestIdentityOutput 
 
 func (i LoadTestIdentityArgs) ToLoadTestIdentityOutputWithContext(ctx context.Context) LoadTestIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadTestIdentityOutput)
+}
+
+func (i LoadTestIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[LoadTestIdentity] {
+	return pulumix.Output[LoadTestIdentity]{
+		OutputState: i.ToLoadTestIdentityOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LoadTestIdentityArgs) ToLoadTestIdentityPtrOutput() LoadTestIdentityPtrOutput {
@@ -91,6 +98,12 @@ func (i *loadTestIdentityPtrType) ToLoadTestIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LoadTestIdentityPtrOutput)
 }
 
+func (i *loadTestIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoadTestIdentity] {
+	return pulumix.Output[*LoadTestIdentity]{
+		OutputState: i.ToLoadTestIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadTestIdentityOutput struct{ *pulumi.OutputState }
 
 func (LoadTestIdentityOutput) ElementType() reflect.Type {
@@ -113,6 +126,12 @@ func (o LoadTestIdentityOutput) ToLoadTestIdentityPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadTestIdentity) *LoadTestIdentity {
 		return &v
 	}).(LoadTestIdentityPtrOutput)
+}
+
+func (o LoadTestIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[LoadTestIdentity] {
+	return pulumix.Output[LoadTestIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadTestIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -143,6 +162,12 @@ func (o LoadTestIdentityPtrOutput) ToLoadTestIdentityPtrOutput() LoadTestIdentit
 
 func (o LoadTestIdentityPtrOutput) ToLoadTestIdentityPtrOutputWithContext(ctx context.Context) LoadTestIdentityPtrOutput {
 	return o
+}
+
+func (o LoadTestIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadTestIdentity] {
+	return pulumix.Output[*LoadTestIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadTestIdentityPtrOutput) Elem() LoadTestIdentityOutput {

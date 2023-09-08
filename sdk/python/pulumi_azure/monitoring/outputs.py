@@ -6841,6 +6841,9 @@ class DiagnosticSettingEnabledLog(dict):
         """
         A `retention_policy` block as defined below.
         """
+        warnings.warn("""`retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+
         return pulumi.get(self, "retention_policy")
 
 

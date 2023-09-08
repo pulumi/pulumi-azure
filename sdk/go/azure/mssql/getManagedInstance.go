@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
@@ -138,6 +139,12 @@ func (o LookupManagedInstanceResultOutput) ToLookupManagedInstanceResultOutput()
 
 func (o LookupManagedInstanceResultOutput) ToLookupManagedInstanceResultOutputWithContext(ctx context.Context) LookupManagedInstanceResultOutput {
 	return o
+}
+
+func (o LookupManagedInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupManagedInstanceResult] {
+	return pulumix.Output[LookupManagedInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The administrator login name for the SQL Managed Instance.

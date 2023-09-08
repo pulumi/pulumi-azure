@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
@@ -114,6 +115,12 @@ func (o LookupDatasetDataLakeGen2ResultOutput) ToLookupDatasetDataLakeGen2Result
 
 func (o LookupDatasetDataLakeGen2ResultOutput) ToLookupDatasetDataLakeGen2ResultOutputWithContext(ctx context.Context) LookupDatasetDataLakeGen2ResultOutput {
 	return o
+}
+
+func (o LookupDatasetDataLakeGen2ResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatasetDataLakeGen2Result] {
+	return pulumix.Output[LookupDatasetDataLakeGen2Result]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Data Share Dataset.

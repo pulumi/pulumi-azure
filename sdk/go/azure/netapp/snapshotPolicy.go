@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a NetApp Snapshot Policy.
@@ -278,6 +279,12 @@ func (i *SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyOutput)
 }
 
+func (i *SnapshotPolicy) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicy] {
+	return pulumix.Output[*SnapshotPolicy]{
+		OutputState: i.ToSnapshotPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SnapshotPolicyArrayInput is an input type that accepts SnapshotPolicyArray and SnapshotPolicyArrayOutput values.
 // You can construct a concrete instance of `SnapshotPolicyArrayInput` via:
 //
@@ -301,6 +308,12 @@ func (i SnapshotPolicyArray) ToSnapshotPolicyArrayOutput() SnapshotPolicyArrayOu
 
 func (i SnapshotPolicyArray) ToSnapshotPolicyArrayOutputWithContext(ctx context.Context) SnapshotPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyArrayOutput)
+}
+
+func (i SnapshotPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotPolicy] {
+	return pulumix.Output[[]*SnapshotPolicy]{
+		OutputState: i.ToSnapshotPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SnapshotPolicyMapInput is an input type that accepts SnapshotPolicyMap and SnapshotPolicyMapOutput values.
@@ -328,6 +341,12 @@ func (i SnapshotPolicyMap) ToSnapshotPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyMapOutput)
 }
 
+func (i SnapshotPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotPolicy] {
+	return pulumix.Output[map[string]*SnapshotPolicy]{
+		OutputState: i.ToSnapshotPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotPolicyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyOutput) ElementType() reflect.Type {
@@ -340,6 +359,12 @@ func (o SnapshotPolicyOutput) ToSnapshotPolicyOutput() SnapshotPolicyOutput {
 
 func (o SnapshotPolicyOutput) ToSnapshotPolicyOutputWithContext(ctx context.Context) SnapshotPolicyOutput {
 	return o
+}
+
+func (o SnapshotPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicy] {
+	return pulumix.Output[*SnapshotPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
@@ -406,6 +431,12 @@ func (o SnapshotPolicyArrayOutput) ToSnapshotPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o SnapshotPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotPolicy] {
+	return pulumix.Output[[]*SnapshotPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnapshotPolicyArrayOutput) Index(i pulumi.IntInput) SnapshotPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotPolicy {
 		return vs[0].([]*SnapshotPolicy)[vs[1].(int)]
@@ -424,6 +455,12 @@ func (o SnapshotPolicyMapOutput) ToSnapshotPolicyMapOutput() SnapshotPolicyMapOu
 
 func (o SnapshotPolicyMapOutput) ToSnapshotPolicyMapOutputWithContext(ctx context.Context) SnapshotPolicyMapOutput {
 	return o
+}
+
+func (o SnapshotPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotPolicy] {
+	return pulumix.Output[map[string]*SnapshotPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotPolicyMapOutput) MapIndex(k pulumi.StringInput) SnapshotPolicyOutput {

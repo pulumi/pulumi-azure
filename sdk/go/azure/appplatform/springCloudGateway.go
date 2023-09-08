@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -324,6 +325,12 @@ func (i *SpringCloudGateway) ToSpringCloudGatewayOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayOutput)
 }
 
+func (i *SpringCloudGateway) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGateway] {
+	return pulumix.Output[*SpringCloudGateway]{
+		OutputState: i.ToSpringCloudGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudGatewayArrayInput is an input type that accepts SpringCloudGatewayArray and SpringCloudGatewayArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayArrayInput` via:
 //
@@ -347,6 +354,12 @@ func (i SpringCloudGatewayArray) ToSpringCloudGatewayArrayOutput() SpringCloudGa
 
 func (i SpringCloudGatewayArray) ToSpringCloudGatewayArrayOutputWithContext(ctx context.Context) SpringCloudGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayArrayOutput)
+}
+
+func (i SpringCloudGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudGateway] {
+	return pulumix.Output[[]*SpringCloudGateway]{
+		OutputState: i.ToSpringCloudGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudGatewayMapInput is an input type that accepts SpringCloudGatewayMap and SpringCloudGatewayMapOutput values.
@@ -374,6 +387,12 @@ func (i SpringCloudGatewayMap) ToSpringCloudGatewayMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayMapOutput)
 }
 
+func (i SpringCloudGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudGateway] {
+	return pulumix.Output[map[string]*SpringCloudGateway]{
+		OutputState: i.ToSpringCloudGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayOutput) ElementType() reflect.Type {
@@ -386,6 +405,12 @@ func (o SpringCloudGatewayOutput) ToSpringCloudGatewayOutput() SpringCloudGatewa
 
 func (o SpringCloudGatewayOutput) ToSpringCloudGatewayOutputWithContext(ctx context.Context) SpringCloudGatewayOutput {
 	return o
+}
+
+func (o SpringCloudGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGateway] {
+	return pulumix.Output[*SpringCloudGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `apiMetadata` block as defined below.
@@ -474,6 +499,12 @@ func (o SpringCloudGatewayArrayOutput) ToSpringCloudGatewayArrayOutputWithContex
 	return o
 }
 
+func (o SpringCloudGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudGateway] {
+	return pulumix.Output[[]*SpringCloudGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudGatewayArrayOutput) Index(i pulumi.IntInput) SpringCloudGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudGateway {
 		return vs[0].([]*SpringCloudGateway)[vs[1].(int)]
@@ -492,6 +523,12 @@ func (o SpringCloudGatewayMapOutput) ToSpringCloudGatewayMapOutput() SpringCloud
 
 func (o SpringCloudGatewayMapOutput) ToSpringCloudGatewayMapOutputWithContext(ctx context.Context) SpringCloudGatewayMapOutput {
 	return o
+}
+
+func (o SpringCloudGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudGateway] {
+	return pulumix.Output[map[string]*SpringCloudGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayMapOutput) MapIndex(k pulumi.StringInput) SpringCloudGatewayOutput {

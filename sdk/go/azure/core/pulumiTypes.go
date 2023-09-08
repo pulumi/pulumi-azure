@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i CustomProviderActionArgs) ToCustomProviderActionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderActionOutput)
 }
 
+func (i CustomProviderActionArgs) ToOutput(ctx context.Context) pulumix.Output[CustomProviderAction] {
+	return pulumix.Output[CustomProviderAction]{
+		OutputState: i.ToCustomProviderActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomProviderActionArrayInput is an input type that accepts CustomProviderActionArray and CustomProviderActionArrayOutput values.
 // You can construct a concrete instance of `CustomProviderActionArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i CustomProviderActionArray) ToCustomProviderActionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderActionArrayOutput)
 }
 
+func (i CustomProviderActionArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomProviderAction] {
+	return pulumix.Output[[]CustomProviderAction]{
+		OutputState: i.ToCustomProviderActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomProviderActionOutput struct{ *pulumi.OutputState }
 
 func (CustomProviderActionOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o CustomProviderActionOutput) ToCustomProviderActionOutput() CustomProvide
 
 func (o CustomProviderActionOutput) ToCustomProviderActionOutputWithContext(ctx context.Context) CustomProviderActionOutput {
 	return o
+}
+
+func (o CustomProviderActionOutput) ToOutput(ctx context.Context) pulumix.Output[CustomProviderAction] {
+	return pulumix.Output[CustomProviderAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the endpoint of the action.
@@ -111,6 +130,12 @@ func (o CustomProviderActionArrayOutput) ToCustomProviderActionArrayOutput() Cus
 
 func (o CustomProviderActionArrayOutput) ToCustomProviderActionArrayOutputWithContext(ctx context.Context) CustomProviderActionArrayOutput {
 	return o
+}
+
+func (o CustomProviderActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomProviderAction] {
+	return pulumix.Output[[]CustomProviderAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomProviderActionArrayOutput) Index(i pulumi.IntInput) CustomProviderActionOutput {
@@ -160,6 +185,12 @@ func (i CustomProviderResourceTypeArgs) ToCustomProviderResourceTypeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderResourceTypeOutput)
 }
 
+func (i CustomProviderResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[CustomProviderResourceType] {
+	return pulumix.Output[CustomProviderResourceType]{
+		OutputState: i.ToCustomProviderResourceTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomProviderResourceTypeArrayInput is an input type that accepts CustomProviderResourceTypeArray and CustomProviderResourceTypeArrayOutput values.
 // You can construct a concrete instance of `CustomProviderResourceTypeArrayInput` via:
 //
@@ -185,6 +216,12 @@ func (i CustomProviderResourceTypeArray) ToCustomProviderResourceTypeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderResourceTypeArrayOutput)
 }
 
+func (i CustomProviderResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomProviderResourceType] {
+	return pulumix.Output[[]CustomProviderResourceType]{
+		OutputState: i.ToCustomProviderResourceTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomProviderResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (CustomProviderResourceTypeOutput) ElementType() reflect.Type {
@@ -197,6 +234,12 @@ func (o CustomProviderResourceTypeOutput) ToCustomProviderResourceTypeOutput() C
 
 func (o CustomProviderResourceTypeOutput) ToCustomProviderResourceTypeOutputWithContext(ctx context.Context) CustomProviderResourceTypeOutput {
 	return o
+}
+
+func (o CustomProviderResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomProviderResourceType] {
+	return pulumix.Output[CustomProviderResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the endpoint of the route definition.
@@ -226,6 +269,12 @@ func (o CustomProviderResourceTypeArrayOutput) ToCustomProviderResourceTypeArray
 
 func (o CustomProviderResourceTypeArrayOutput) ToCustomProviderResourceTypeArrayOutputWithContext(ctx context.Context) CustomProviderResourceTypeArrayOutput {
 	return o
+}
+
+func (o CustomProviderResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomProviderResourceType] {
+	return pulumix.Output[[]CustomProviderResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomProviderResourceTypeArrayOutput) Index(i pulumi.IntInput) CustomProviderResourceTypeOutput {
@@ -267,6 +316,12 @@ func (i CustomProviderValidationArgs) ToCustomProviderValidationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderValidationOutput)
 }
 
+func (i CustomProviderValidationArgs) ToOutput(ctx context.Context) pulumix.Output[CustomProviderValidation] {
+	return pulumix.Output[CustomProviderValidation]{
+		OutputState: i.ToCustomProviderValidationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomProviderValidationArrayInput is an input type that accepts CustomProviderValidationArray and CustomProviderValidationArrayOutput values.
 // You can construct a concrete instance of `CustomProviderValidationArrayInput` via:
 //
@@ -292,6 +347,12 @@ func (i CustomProviderValidationArray) ToCustomProviderValidationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomProviderValidationArrayOutput)
 }
 
+func (i CustomProviderValidationArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomProviderValidation] {
+	return pulumix.Output[[]CustomProviderValidation]{
+		OutputState: i.ToCustomProviderValidationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomProviderValidationOutput struct{ *pulumi.OutputState }
 
 func (CustomProviderValidationOutput) ElementType() reflect.Type {
@@ -304,6 +365,12 @@ func (o CustomProviderValidationOutput) ToCustomProviderValidationOutput() Custo
 
 func (o CustomProviderValidationOutput) ToCustomProviderValidationOutputWithContext(ctx context.Context) CustomProviderValidationOutput {
 	return o
+}
+
+func (o CustomProviderValidationOutput) ToOutput(ctx context.Context) pulumix.Output[CustomProviderValidation] {
+	return pulumix.Output[CustomProviderValidation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The endpoint where the validation specification is located.
@@ -323,6 +390,12 @@ func (o CustomProviderValidationArrayOutput) ToCustomProviderValidationArrayOutp
 
 func (o CustomProviderValidationArrayOutput) ToCustomProviderValidationArrayOutputWithContext(ctx context.Context) CustomProviderValidationArrayOutput {
 	return o
+}
+
+func (o CustomProviderValidationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomProviderValidation] {
+	return pulumix.Output[[]CustomProviderValidation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProviderValidationOutput {
@@ -362,6 +435,12 @@ func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScrip
 
 func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScriptAzureCliContainerOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliContainerOutput)
+}
+
+func (i ResourceDeploymentScriptAzureCliContainerArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliContainer] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliContainer]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliContainerOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScriptAzureCliContainerPtrOutput() ResourceDeploymentScriptAzureCliContainerPtrOutput {
@@ -405,6 +484,12 @@ func (i *resourceDeploymentScriptAzureCliContainerPtrType) ToResourceDeploymentS
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliContainerPtrOutput)
 }
 
+func (i *resourceDeploymentScriptAzureCliContainerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCliContainer] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCliContainer]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptAzureCliContainerOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptAzureCliContainerOutput) ElementType() reflect.Type {
@@ -429,6 +514,12 @@ func (o ResourceDeploymentScriptAzureCliContainerOutput) ToResourceDeploymentScr
 	}).(ResourceDeploymentScriptAzureCliContainerPtrOutput)
 }
 
+func (o ResourceDeploymentScriptAzureCliContainerOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliContainer] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 func (o ResourceDeploymentScriptAzureCliContainerOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliContainer) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
@@ -446,6 +537,12 @@ func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ToResourceDeployment
 
 func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerPtrOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCliContainer] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCliContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) Elem() ResourceDeploymentScriptAzureCliContainerOutput {
@@ -509,6 +606,12 @@ func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArgs) ToResourceDeplo
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliEnvironmentVariableOutput)
 }
 
+func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliEnvironmentVariable] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliEnvironmentVariable]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliEnvironmentVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceDeploymentScriptAzureCliEnvironmentVariableArrayInput is an input type that accepts ResourceDeploymentScriptAzureCliEnvironmentVariableArray and ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ResourceDeploymentScriptAzureCliEnvironmentVariableArrayInput` via:
 //
@@ -534,6 +637,12 @@ func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArray) ToResourceDepl
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput)
 }
 
+func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDeploymentScriptAzureCliEnvironmentVariable] {
+	return pulumix.Output[[]ResourceDeploymentScriptAzureCliEnvironmentVariable]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptAzureCliEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -546,6 +655,12 @@ func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ToResourceDep
 
 func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ToResourceDeploymentScriptAzureCliEnvironmentVariableOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliEnvironmentVariable] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliEnvironmentVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the environment variable.
@@ -575,6 +690,12 @@ func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) ToResour
 
 func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDeploymentScriptAzureCliEnvironmentVariable] {
+	return pulumix.Output[[]ResourceDeploymentScriptAzureCliEnvironmentVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
@@ -620,6 +741,12 @@ func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToResourceDeploymentScript
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliIdentityOutput)
 }
 
+func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliIdentity] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliIdentity]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToResourceDeploymentScriptAzureCliIdentityPtrOutput() ResourceDeploymentScriptAzureCliIdentityPtrOutput {
 	return i.ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(context.Background())
 }
@@ -661,6 +788,12 @@ func (i *resourceDeploymentScriptAzureCliIdentityPtrType) ToResourceDeploymentSc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliIdentityPtrOutput)
 }
 
+func (i *resourceDeploymentScriptAzureCliIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCliIdentity] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCliIdentity]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptAzureCliIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptAzureCliIdentityOutput) ElementType() reflect.Type {
@@ -685,6 +818,12 @@ func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToResourceDeploymentScri
 	}).(ResourceDeploymentScriptAzureCliIdentityPtrOutput)
 }
 
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliIdentity] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptAzureCliIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -707,6 +846,12 @@ func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) ToResourceDeploymentS
 
 func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityPtrOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCliIdentity] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCliIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) Elem() ResourceDeploymentScriptAzureCliIdentityOutput {
@@ -776,6 +921,12 @@ func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToResourceDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliStorageAccountOutput)
 }
 
+func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliStorageAccount] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliStorageAccount]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutput() ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
 	return i.ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(context.Background())
 }
@@ -817,6 +968,12 @@ func (i *resourceDeploymentScriptAzureCliStorageAccountPtrType) ToResourceDeploy
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliStorageAccountPtrOutput)
 }
 
+func (i *resourceDeploymentScriptAzureCliStorageAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCliStorageAccount] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCliStorageAccount]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptAzureCliStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptAzureCliStorageAccountOutput) ElementType() reflect.Type {
@@ -841,6 +998,12 @@ func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) ToResourceDeployme
 	}).(ResourceDeploymentScriptAzureCliStorageAccountPtrOutput)
 }
 
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptAzureCliStorageAccount] {
+	return pulumix.Output[ResourceDeploymentScriptAzureCliStorageAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the storage account access key.
 func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliStorageAccount) string { return v.Key }).(pulumi.StringOutput)
@@ -863,6 +1026,12 @@ func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) ToResourceDeplo
 
 func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCliStorageAccount] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCliStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) Elem() ResourceDeploymentScriptAzureCliStorageAccountOutput {
@@ -928,6 +1097,12 @@ func (i ResourceDeploymentScriptPowerShellContainerArgs) ToResourceDeploymentScr
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellContainerOutput)
 }
 
+func (i ResourceDeploymentScriptPowerShellContainerArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellContainer] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellContainer]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceDeploymentScriptPowerShellContainerArgs) ToResourceDeploymentScriptPowerShellContainerPtrOutput() ResourceDeploymentScriptPowerShellContainerPtrOutput {
 	return i.ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(context.Background())
 }
@@ -969,6 +1144,12 @@ func (i *resourceDeploymentScriptPowerShellContainerPtrType) ToResourceDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellContainerPtrOutput)
 }
 
+func (i *resourceDeploymentScriptPowerShellContainerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShellContainer] {
+	return pulumix.Output[*ResourceDeploymentScriptPowerShellContainer]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptPowerShellContainerOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptPowerShellContainerOutput) ElementType() reflect.Type {
@@ -993,6 +1174,12 @@ func (o ResourceDeploymentScriptPowerShellContainerOutput) ToResourceDeploymentS
 	}).(ResourceDeploymentScriptPowerShellContainerPtrOutput)
 }
 
+func (o ResourceDeploymentScriptPowerShellContainerOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellContainer] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 func (o ResourceDeploymentScriptPowerShellContainerOutput) ContainerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellContainer) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
@@ -1010,6 +1197,12 @@ func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ToResourceDeployme
 
 func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerPtrOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShellContainer] {
+	return pulumix.Output[*ResourceDeploymentScriptPowerShellContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) Elem() ResourceDeploymentScriptPowerShellContainerOutput {
@@ -1073,6 +1266,12 @@ func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArgs) ToResourceDep
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellEnvironmentVariableOutput)
 }
 
+func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellEnvironmentVariable] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellEnvironmentVariable]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellEnvironmentVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceDeploymentScriptPowerShellEnvironmentVariableArrayInput is an input type that accepts ResourceDeploymentScriptPowerShellEnvironmentVariableArray and ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ResourceDeploymentScriptPowerShellEnvironmentVariableArrayInput` via:
 //
@@ -1098,6 +1297,12 @@ func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArray) ToResourceDe
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput)
 }
 
+func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDeploymentScriptPowerShellEnvironmentVariable] {
+	return pulumix.Output[[]ResourceDeploymentScriptPowerShellEnvironmentVariable]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptPowerShellEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -1110,6 +1315,12 @@ func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ToResourceD
 
 func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ToResourceDeploymentScriptPowerShellEnvironmentVariableOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellEnvironmentVariable] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellEnvironmentVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the environment variable.
@@ -1139,6 +1350,12 @@ func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) ToReso
 
 func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDeploymentScriptPowerShellEnvironmentVariable] {
+	return pulumix.Output[[]ResourceDeploymentScriptPowerShellEnvironmentVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
@@ -1184,6 +1401,12 @@ func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToResourceDeploymentScri
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellIdentityOutput)
 }
 
+func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellIdentity] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellIdentity]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToResourceDeploymentScriptPowerShellIdentityPtrOutput() ResourceDeploymentScriptPowerShellIdentityPtrOutput {
 	return i.ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(context.Background())
 }
@@ -1225,6 +1448,12 @@ func (i *resourceDeploymentScriptPowerShellIdentityPtrType) ToResourceDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellIdentityPtrOutput)
 }
 
+func (i *resourceDeploymentScriptPowerShellIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShellIdentity] {
+	return pulumix.Output[*ResourceDeploymentScriptPowerShellIdentity]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptPowerShellIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptPowerShellIdentityOutput) ElementType() reflect.Type {
@@ -1249,6 +1478,12 @@ func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToResourceDeploymentSc
 	}).(ResourceDeploymentScriptPowerShellIdentityPtrOutput)
 }
 
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellIdentity] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 func (o ResourceDeploymentScriptPowerShellIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -1271,6 +1506,12 @@ func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) ToResourceDeploymen
 
 func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityPtrOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShellIdentity] {
+	return pulumix.Output[*ResourceDeploymentScriptPowerShellIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) Elem() ResourceDeploymentScriptPowerShellIdentityOutput {
@@ -1340,6 +1581,12 @@ func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToResourceDeployme
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellStorageAccountOutput)
 }
 
+func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellStorageAccount] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellStorageAccount]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutput() ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
 	return i.ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(context.Background())
 }
@@ -1381,6 +1628,12 @@ func (i *resourceDeploymentScriptPowerShellStorageAccountPtrType) ToResourceDepl
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellStorageAccountPtrOutput)
 }
 
+func (i *resourceDeploymentScriptPowerShellStorageAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShellStorageAccount] {
+	return pulumix.Output[*ResourceDeploymentScriptPowerShellStorageAccount]{
+		OutputState: i.ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptPowerShellStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptPowerShellStorageAccountOutput) ElementType() reflect.Type {
@@ -1405,6 +1658,12 @@ func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) ToResourceDeploy
 	}).(ResourceDeploymentScriptPowerShellStorageAccountPtrOutput)
 }
 
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDeploymentScriptPowerShellStorageAccount] {
+	return pulumix.Output[ResourceDeploymentScriptPowerShellStorageAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the storage account access key.
 func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellStorageAccount) string { return v.Key }).(pulumi.StringOutput)
@@ -1427,6 +1686,12 @@ func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) ToResourceDep
 
 func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShellStorageAccount] {
+	return pulumix.Output[*ResourceDeploymentScriptPowerShellStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) Elem() ResourceDeploymentScriptPowerShellStorageAccountOutput {
@@ -1496,6 +1761,12 @@ func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataOptionsOutput)
 }
 
+func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementExportExportDataOptions] {
+	return pulumix.Output[ResourceGroupCostManagementExportExportDataOptions]{
+		OutputState: i.ToResourceGroupCostManagementExportExportDataOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupCostManagementExportExportDataOptionsPtrOutput() ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
 	return i.ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
 }
@@ -1537,6 +1808,12 @@ func (i *resourceGroupCostManagementExportExportDataOptionsPtrType) ToResourceGr
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataOptionsPtrOutput)
 }
 
+func (i *resourceGroupCostManagementExportExportDataOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementExportExportDataOptions] {
+	return pulumix.Output[*ResourceGroupCostManagementExportExportDataOptions]{
+		OutputState: i.ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementExportExportDataOptionsOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementExportExportDataOptionsOutput) ElementType() reflect.Type {
@@ -1561,6 +1838,12 @@ func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToResourceGrou
 	}).(ResourceGroupCostManagementExportExportDataOptionsPtrOutput)
 }
 
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementExportExportDataOptions] {
+	return pulumix.Output[ResourceGroupCostManagementExportExportDataOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o ResourceGroupCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
@@ -1583,6 +1866,12 @@ func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) ToResourceG
 
 func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementExportExportDataOptions] {
+	return pulumix.Output[*ResourceGroupCostManagementExportExportDataOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) Elem() ResourceGroupCostManagementExportExportDataOptionsOutput {
@@ -1656,6 +1945,12 @@ func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResour
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataStorageLocationOutput)
 }
 
+func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[ResourceGroupCostManagementExportExportDataStorageLocation]{
+		OutputState: i.ToResourceGroupCostManagementExportExportDataStorageLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutput() ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
 	return i.ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
 }
@@ -1697,6 +1992,12 @@ func (i *resourceGroupCostManagementExportExportDataStorageLocationPtrType) ToRe
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput)
 }
 
+func (i *resourceGroupCostManagementExportExportDataStorageLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[*ResourceGroupCostManagementExportExportDataStorageLocation]{
+		OutputState: i.ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementExportExportDataStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementExportExportDataStorageLocationOutput) ElementType() reflect.Type {
@@ -1719,6 +2020,12 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToReso
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupCostManagementExportExportDataStorageLocation) *ResourceGroupCostManagementExportExportDataStorageLocation {
 		return &v
 	}).(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput)
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[ResourceGroupCostManagementExportExportDataStorageLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
@@ -1745,6 +2052,12 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ToR
 
 func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[*ResourceGroupCostManagementExportExportDataStorageLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) Elem() ResourceGroupCostManagementExportExportDataStorageLocationOutput {
@@ -1824,6 +2137,12 @@ func (i ResourceGroupCostManagementViewDatasetArgs) ToResourceGroupCostManagemen
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDataset] {
+	return pulumix.Output[ResourceGroupCostManagementViewDataset]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceGroupCostManagementViewDatasetArgs) ToResourceGroupCostManagementViewDatasetPtrOutput() ResourceGroupCostManagementViewDatasetPtrOutput {
 	return i.ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(context.Background())
 }
@@ -1865,6 +2184,12 @@ func (i *resourceGroupCostManagementViewDatasetPtrType) ToResourceGroupCostManag
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetPtrOutput)
 }
 
+func (i *resourceGroupCostManagementViewDatasetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementViewDataset] {
+	return pulumix.Output[*ResourceGroupCostManagementViewDataset]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementViewDatasetOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewDatasetOutput) ElementType() reflect.Type {
@@ -1887,6 +2212,12 @@ func (o ResourceGroupCostManagementViewDatasetOutput) ToResourceGroupCostManagem
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupCostManagementViewDataset) *ResourceGroupCostManagementViewDataset {
 		return &v
 	}).(ResourceGroupCostManagementViewDatasetPtrOutput)
+}
+
+func (o ResourceGroupCostManagementViewDatasetOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDataset] {
+	return pulumix.Output[ResourceGroupCostManagementViewDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `aggregation` blocks as defined above.
@@ -1927,6 +2258,12 @@ func (o ResourceGroupCostManagementViewDatasetPtrOutput) ToResourceGroupCostMana
 
 func (o ResourceGroupCostManagementViewDatasetPtrOutput) ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetPtrOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementViewDataset] {
+	return pulumix.Output[*ResourceGroupCostManagementViewDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementViewDatasetPtrOutput) Elem() ResourceGroupCostManagementViewDatasetOutput {
@@ -2016,6 +2353,12 @@ func (i ResourceGroupCostManagementViewDatasetAggregationArgs) ToResourceGroupCo
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetAggregationOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetAggregationArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDatasetAggregation] {
+	return pulumix.Output[ResourceGroupCostManagementViewDatasetAggregation]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetAggregationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupCostManagementViewDatasetAggregationArrayInput is an input type that accepts ResourceGroupCostManagementViewDatasetAggregationArray and ResourceGroupCostManagementViewDatasetAggregationArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetAggregationArrayInput` via:
 //
@@ -2041,6 +2384,12 @@ func (i ResourceGroupCostManagementViewDatasetAggregationArray) ToResourceGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetAggregationArrayOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetAggregationArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewDatasetAggregation] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewDatasetAggregation]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetAggregationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementViewDatasetAggregationOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewDatasetAggregationOutput) ElementType() reflect.Type {
@@ -2053,6 +2402,12 @@ func (o ResourceGroupCostManagementViewDatasetAggregationOutput) ToResourceGroup
 
 func (o ResourceGroupCostManagementViewDatasetAggregationOutput) ToResourceGroupCostManagementViewDatasetAggregationOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetAggregationOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDatasetAggregation] {
+	return pulumix.Output[ResourceGroupCostManagementViewDatasetAggregation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
@@ -2077,6 +2432,12 @@ func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) ToResource
 
 func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) ToResourceGroupCostManagementViewDatasetAggregationArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewDatasetAggregation] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewDatasetAggregation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewDatasetAggregationOutput {
@@ -2122,6 +2483,12 @@ func (i ResourceGroupCostManagementViewDatasetGroupingArgs) ToResourceGroupCostM
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetGroupingOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDatasetGrouping] {
+	return pulumix.Output[ResourceGroupCostManagementViewDatasetGrouping]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetGroupingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupCostManagementViewDatasetGroupingArrayInput is an input type that accepts ResourceGroupCostManagementViewDatasetGroupingArray and ResourceGroupCostManagementViewDatasetGroupingArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetGroupingArrayInput` via:
 //
@@ -2147,6 +2514,12 @@ func (i ResourceGroupCostManagementViewDatasetGroupingArray) ToResourceGroupCost
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetGroupingArrayOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetGroupingArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewDatasetGrouping] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewDatasetGrouping]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetGroupingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementViewDatasetGroupingOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewDatasetGroupingOutput) ElementType() reflect.Type {
@@ -2159,6 +2532,12 @@ func (o ResourceGroupCostManagementViewDatasetGroupingOutput) ToResourceGroupCos
 
 func (o ResourceGroupCostManagementViewDatasetGroupingOutput) ToResourceGroupCostManagementViewDatasetGroupingOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetGroupingOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDatasetGrouping] {
+	return pulumix.Output[ResourceGroupCostManagementViewDatasetGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to group.
@@ -2183,6 +2562,12 @@ func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) ToResourceGro
 
 func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) ToResourceGroupCostManagementViewDatasetGroupingArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewDatasetGrouping] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewDatasetGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewDatasetGroupingOutput {
@@ -2228,6 +2613,12 @@ func (i ResourceGroupCostManagementViewDatasetSortingArgs) ToResourceGroupCostMa
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetSortingOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetSortingArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDatasetSorting] {
+	return pulumix.Output[ResourceGroupCostManagementViewDatasetSorting]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetSortingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupCostManagementViewDatasetSortingArrayInput is an input type that accepts ResourceGroupCostManagementViewDatasetSortingArray and ResourceGroupCostManagementViewDatasetSortingArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetSortingArrayInput` via:
 //
@@ -2253,6 +2644,12 @@ func (i ResourceGroupCostManagementViewDatasetSortingArray) ToResourceGroupCostM
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetSortingArrayOutput)
 }
 
+func (i ResourceGroupCostManagementViewDatasetSortingArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewDatasetSorting] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewDatasetSorting]{
+		OutputState: i.ToResourceGroupCostManagementViewDatasetSortingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementViewDatasetSortingOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewDatasetSortingOutput) ElementType() reflect.Type {
@@ -2265,6 +2662,12 @@ func (o ResourceGroupCostManagementViewDatasetSortingOutput) ToResourceGroupCost
 
 func (o ResourceGroupCostManagementViewDatasetSortingOutput) ToResourceGroupCostManagementViewDatasetSortingOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetSortingOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewDatasetSorting] {
+	return pulumix.Output[ResourceGroupCostManagementViewDatasetSorting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Direction of sort. Possible values are `Ascending` and `Descending`.
@@ -2289,6 +2692,12 @@ func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) ToResourceGrou
 
 func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) ToResourceGroupCostManagementViewDatasetSortingArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetSortingArrayOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewDatasetSorting] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewDatasetSorting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewDatasetSortingOutput {
@@ -2330,6 +2739,12 @@ func (i ResourceGroupCostManagementViewKpiArgs) ToResourceGroupCostManagementVie
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewKpiOutput)
 }
 
+func (i ResourceGroupCostManagementViewKpiArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewKpi] {
+	return pulumix.Output[ResourceGroupCostManagementViewKpi]{
+		OutputState: i.ToResourceGroupCostManagementViewKpiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupCostManagementViewKpiArrayInput is an input type that accepts ResourceGroupCostManagementViewKpiArray and ResourceGroupCostManagementViewKpiArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementViewKpiArrayInput` via:
 //
@@ -2355,6 +2770,12 @@ func (i ResourceGroupCostManagementViewKpiArray) ToResourceGroupCostManagementVi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewKpiArrayOutput)
 }
 
+func (i ResourceGroupCostManagementViewKpiArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewKpi] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewKpi]{
+		OutputState: i.ToResourceGroupCostManagementViewKpiArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementViewKpiOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewKpiOutput) ElementType() reflect.Type {
@@ -2367,6 +2788,12 @@ func (o ResourceGroupCostManagementViewKpiOutput) ToResourceGroupCostManagementV
 
 func (o ResourceGroupCostManagementViewKpiOutput) ToResourceGroupCostManagementViewKpiOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewKpiOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewKpiOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewKpi] {
+	return pulumix.Output[ResourceGroupCostManagementViewKpi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // KPI type. Possible values are `Budget` and `Forecast`.
@@ -2386,6 +2813,12 @@ func (o ResourceGroupCostManagementViewKpiArrayOutput) ToResourceGroupCostManage
 
 func (o ResourceGroupCostManagementViewKpiArrayOutput) ToResourceGroupCostManagementViewKpiArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewKpiArrayOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewKpiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewKpi] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewKpi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementViewKpiArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewKpiOutput {
@@ -2431,6 +2864,12 @@ func (i ResourceGroupCostManagementViewPivotArgs) ToResourceGroupCostManagementV
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewPivotOutput)
 }
 
+func (i ResourceGroupCostManagementViewPivotArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewPivot] {
+	return pulumix.Output[ResourceGroupCostManagementViewPivot]{
+		OutputState: i.ToResourceGroupCostManagementViewPivotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupCostManagementViewPivotArrayInput is an input type that accepts ResourceGroupCostManagementViewPivotArray and ResourceGroupCostManagementViewPivotArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementViewPivotArrayInput` via:
 //
@@ -2456,6 +2895,12 @@ func (i ResourceGroupCostManagementViewPivotArray) ToResourceGroupCostManagement
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewPivotArrayOutput)
 }
 
+func (i ResourceGroupCostManagementViewPivotArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewPivot] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewPivot]{
+		OutputState: i.ToResourceGroupCostManagementViewPivotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupCostManagementViewPivotOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewPivotOutput) ElementType() reflect.Type {
@@ -2468,6 +2913,12 @@ func (o ResourceGroupCostManagementViewPivotOutput) ToResourceGroupCostManagemen
 
 func (o ResourceGroupCostManagementViewPivotOutput) ToResourceGroupCostManagementViewPivotOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewPivotOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewPivotOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupCostManagementViewPivot] {
+	return pulumix.Output[ResourceGroupCostManagementViewPivot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column which should be used for this sub-view in the Cost Analysis UI.
@@ -2492,6 +2943,12 @@ func (o ResourceGroupCostManagementViewPivotArrayOutput) ToResourceGroupCostMana
 
 func (o ResourceGroupCostManagementViewPivotArrayOutput) ToResourceGroupCostManagementViewPivotArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewPivotArrayOutput {
 	return o
+}
+
+func (o ResourceGroupCostManagementViewPivotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupCostManagementViewPivot] {
+	return pulumix.Output[[]ResourceGroupCostManagementViewPivot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewPivotOutput {
@@ -2549,6 +3006,12 @@ func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentIdentityOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentIdentity] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentIdentity]{
+		OutputState: i.ToResourceGroupPolicyAssignmentIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourceGroupPolicyAssignmentIdentityArgs) ToResourceGroupPolicyAssignmentIdentityPtrOutput() ResourceGroupPolicyAssignmentIdentityPtrOutput {
 	return i.ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
 }
@@ -2590,6 +3053,12 @@ func (i *resourceGroupPolicyAssignmentIdentityPtrType) ToResourceGroupPolicyAssi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentIdentityPtrOutput)
 }
 
+func (i *resourceGroupPolicyAssignmentIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyAssignmentIdentity] {
+	return pulumix.Output[*ResourceGroupPolicyAssignmentIdentity]{
+		OutputState: i.ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
@@ -2612,6 +3081,12 @@ func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssign
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupPolicyAssignmentIdentity) *ResourceGroupPolicyAssignmentIdentity {
 		return &v
 	}).(ResourceGroupPolicyAssignmentIdentityPtrOutput)
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentIdentity] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -2648,6 +3123,12 @@ func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) ToResourceGroupPolicyAss
 
 func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) ToResourceGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentIdentityPtrOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyAssignmentIdentity] {
+	return pulumix.Output[*ResourceGroupPolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Elem() ResourceGroupPolicyAssignmentIdentityOutput {
@@ -2739,6 +3220,12 @@ func (i ResourceGroupPolicyAssignmentNonComplianceMessageArgs) ToResourceGroupPo
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentNonComplianceMessageOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentNonComplianceMessageArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToResourceGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts ResourceGroupPolicyAssignmentNonComplianceMessageArray and ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
@@ -2764,6 +3251,12 @@ func (i ResourceGroupPolicyAssignmentNonComplianceMessageArray) ToResourceGroupP
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentNonComplianceMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
@@ -2776,6 +3269,12 @@ func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ToResourceGroup
 
 func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ToResourceGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
@@ -2802,6 +3301,12 @@ func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) ToResource
 
 func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
@@ -2847,6 +3352,12 @@ func (i ResourceGroupPolicyAssignmentOverrideArgs) ToResourceGroupPolicyAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentOverrideOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentOverride] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentOverride]{
+		OutputState: i.ToResourceGroupPolicyAssignmentOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupPolicyAssignmentOverrideArrayInput is an input type that accepts ResourceGroupPolicyAssignmentOverrideArray and ResourceGroupPolicyAssignmentOverrideArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentOverrideArrayInput` via:
 //
@@ -2872,6 +3383,12 @@ func (i ResourceGroupPolicyAssignmentOverrideArray) ToResourceGroupPolicyAssignm
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentOverrideArrayOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentOverride] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentOverride]{
+		OutputState: i.ToResourceGroupPolicyAssignmentOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupPolicyAssignmentOverrideOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentOverrideOutput) ElementType() reflect.Type {
@@ -2884,6 +3401,12 @@ func (o ResourceGroupPolicyAssignmentOverrideOutput) ToResourceGroupPolicyAssign
 
 func (o ResourceGroupPolicyAssignmentOverrideOutput) ToResourceGroupPolicyAssignmentOverrideOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentOverrideOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentOverride] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `overrideSelector` as defined below.
@@ -2910,6 +3433,12 @@ func (o ResourceGroupPolicyAssignmentOverrideArrayOutput) ToResourceGroupPolicyA
 
 func (o ResourceGroupPolicyAssignmentOverrideArrayOutput) ToResourceGroupPolicyAssignmentOverrideArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentOverrideArrayOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentOverride] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupPolicyAssignmentOverrideArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentOverrideOutput {
@@ -2959,6 +3488,12 @@ func (i ResourceGroupPolicyAssignmentOverrideSelectorArgs) ToResourceGroupPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentOverrideSelectorOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentOverrideSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentOverrideSelector]{
+		OutputState: i.ToResourceGroupPolicyAssignmentOverrideSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupPolicyAssignmentOverrideSelectorArrayInput is an input type that accepts ResourceGroupPolicyAssignmentOverrideSelectorArray and ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentOverrideSelectorArrayInput` via:
 //
@@ -2984,6 +3519,12 @@ func (i ResourceGroupPolicyAssignmentOverrideSelectorArray) ToResourceGroupPolic
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentOverrideSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentOverrideSelector]{
+		OutputState: i.ToResourceGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupPolicyAssignmentOverrideSelectorOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentOverrideSelectorOutput) ElementType() reflect.Type {
@@ -2996,6 +3537,12 @@ func (o ResourceGroupPolicyAssignmentOverrideSelectorOutput) ToResourceGroupPoli
 
 func (o ResourceGroupPolicyAssignmentOverrideSelectorOutput) ToResourceGroupPolicyAssignmentOverrideSelectorOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentOverrideSelectorOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentOverrideSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -3025,6 +3572,12 @@ func (o ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput) ToResourceGrou
 
 func (o ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput) ToResourceGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupPolicyAssignmentOverrideSelectorArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentOverrideSelectorOutput {
@@ -3070,6 +3623,12 @@ func (i ResourceGroupPolicyAssignmentResourceSelectorArgs) ToResourceGroupPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentResourceSelectorOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentResourceSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentResourceSelector]{
+		OutputState: i.ToResourceGroupPolicyAssignmentResourceSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupPolicyAssignmentResourceSelectorArrayInput is an input type that accepts ResourceGroupPolicyAssignmentResourceSelectorArray and ResourceGroupPolicyAssignmentResourceSelectorArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentResourceSelectorArrayInput` via:
 //
@@ -3095,6 +3654,12 @@ func (i ResourceGroupPolicyAssignmentResourceSelectorArray) ToResourceGroupPolic
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentResourceSelectorArrayOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentResourceSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelector]{
+		OutputState: i.ToResourceGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupPolicyAssignmentResourceSelectorOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentResourceSelectorOutput) ElementType() reflect.Type {
@@ -3107,6 +3672,12 @@ func (o ResourceGroupPolicyAssignmentResourceSelectorOutput) ToResourceGroupPoli
 
 func (o ResourceGroupPolicyAssignmentResourceSelectorOutput) ToResourceGroupPolicyAssignmentResourceSelectorOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentResourceSelectorOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentResourceSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a name for the resource selector.
@@ -3133,6 +3704,12 @@ func (o ResourceGroupPolicyAssignmentResourceSelectorArrayOutput) ToResourceGrou
 
 func (o ResourceGroupPolicyAssignmentResourceSelectorArrayOutput) ToResourceGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentResourceSelectorArrayOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentResourceSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupPolicyAssignmentResourceSelectorArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentResourceSelectorOutput {
@@ -3182,6 +3759,12 @@ func (i ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs) ToResourceGro
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToResourceGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayInput is an input type that accepts ResourceGroupPolicyAssignmentResourceSelectorSelectorArray and ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayInput` via:
 //
@@ -3207,6 +3790,12 @@ func (i ResourceGroupPolicyAssignmentResourceSelectorSelectorArray) ToResourceGr
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput)
 }
 
+func (i ResourceGroupPolicyAssignmentResourceSelectorSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput) ElementType() reflect.Type {
@@ -3219,6 +3808,12 @@ func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput) ToResourceG
 
 func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput) ToResourceGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceGroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[ResourceGroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -3248,6 +3843,12 @@ func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToReso
 
 func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
 	return o
+}
+
+func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]ResourceGroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentResourceSelectorSelectorOutput {
@@ -3305,6 +3906,12 @@ func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentIdentityOutput)
 }
 
+func (i ResourcePolicyAssignmentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentIdentity] {
+	return pulumix.Output[ResourcePolicyAssignmentIdentity]{
+		OutputState: i.ToResourcePolicyAssignmentIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ResourcePolicyAssignmentIdentityArgs) ToResourcePolicyAssignmentIdentityPtrOutput() ResourcePolicyAssignmentIdentityPtrOutput {
 	return i.ToResourcePolicyAssignmentIdentityPtrOutputWithContext(context.Background())
 }
@@ -3346,6 +3953,12 @@ func (i *resourcePolicyAssignmentIdentityPtrType) ToResourcePolicyAssignmentIden
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentIdentityPtrOutput)
 }
 
+func (i *resourcePolicyAssignmentIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicyAssignmentIdentity] {
+	return pulumix.Output[*ResourcePolicyAssignmentIdentity]{
+		OutputState: i.ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentIdentityOutput) ElementType() reflect.Type {
@@ -3368,6 +3981,12 @@ func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdenti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePolicyAssignmentIdentity) *ResourcePolicyAssignmentIdentity {
 		return &v
 	}).(ResourcePolicyAssignmentIdentityPtrOutput)
+}
+
+func (o ResourcePolicyAssignmentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentIdentity] {
+	return pulumix.Output[ResourcePolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -3404,6 +4023,12 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) ToResourcePolicyAssignmentIde
 
 func (o ResourcePolicyAssignmentIdentityPtrOutput) ToResourcePolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) ResourcePolicyAssignmentIdentityPtrOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicyAssignmentIdentity] {
+	return pulumix.Output[*ResourcePolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyAssignmentIdentityPtrOutput) Elem() ResourcePolicyAssignmentIdentityOutput {
@@ -3495,6 +4120,12 @@ func (i ResourcePolicyAssignmentNonComplianceMessageArgs) ToResourcePolicyAssign
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentNonComplianceMessageOutput)
 }
 
+func (i ResourcePolicyAssignmentNonComplianceMessageArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[ResourcePolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToResourcePolicyAssignmentNonComplianceMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourcePolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts ResourcePolicyAssignmentNonComplianceMessageArray and ResourcePolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentNonComplianceMessageArrayInput` via:
 //
@@ -3520,6 +4151,12 @@ func (i ResourcePolicyAssignmentNonComplianceMessageArray) ToResourcePolicyAssig
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentNonComplianceMessageArrayOutput)
 }
 
+func (i ResourcePolicyAssignmentNonComplianceMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]ResourcePolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToResourcePolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
@@ -3532,6 +4169,12 @@ func (o ResourcePolicyAssignmentNonComplianceMessageOutput) ToResourcePolicyAssi
 
 func (o ResourcePolicyAssignmentNonComplianceMessageOutput) ToResourcePolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) ResourcePolicyAssignmentNonComplianceMessageOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[ResourcePolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
@@ -3556,6 +4199,12 @@ func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) ToResourcePolic
 
 func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) ToResourcePolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentNonComplianceMessageArrayOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]ResourcePolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentNonComplianceMessageOutput {
@@ -3601,6 +4250,12 @@ func (i ResourcePolicyAssignmentOverrideArgs) ToResourcePolicyAssignmentOverride
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentOverrideOutput)
 }
 
+func (i ResourcePolicyAssignmentOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentOverride] {
+	return pulumix.Output[ResourcePolicyAssignmentOverride]{
+		OutputState: i.ToResourcePolicyAssignmentOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourcePolicyAssignmentOverrideArrayInput is an input type that accepts ResourcePolicyAssignmentOverrideArray and ResourcePolicyAssignmentOverrideArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentOverrideArrayInput` via:
 //
@@ -3626,6 +4281,12 @@ func (i ResourcePolicyAssignmentOverrideArray) ToResourcePolicyAssignmentOverrid
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentOverrideArrayOutput)
 }
 
+func (i ResourcePolicyAssignmentOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentOverride] {
+	return pulumix.Output[[]ResourcePolicyAssignmentOverride]{
+		OutputState: i.ToResourcePolicyAssignmentOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyAssignmentOverrideOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentOverrideOutput) ElementType() reflect.Type {
@@ -3638,6 +4299,12 @@ func (o ResourcePolicyAssignmentOverrideOutput) ToResourcePolicyAssignmentOverri
 
 func (o ResourcePolicyAssignmentOverrideOutput) ToResourcePolicyAssignmentOverrideOutputWithContext(ctx context.Context) ResourcePolicyAssignmentOverrideOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentOverride] {
+	return pulumix.Output[ResourcePolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `overrideSelector` as defined below.
@@ -3664,6 +4331,12 @@ func (o ResourcePolicyAssignmentOverrideArrayOutput) ToResourcePolicyAssignmentO
 
 func (o ResourcePolicyAssignmentOverrideArrayOutput) ToResourcePolicyAssignmentOverrideArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentOverrideArrayOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentOverride] {
+	return pulumix.Output[[]ResourcePolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyAssignmentOverrideArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentOverrideOutput {
@@ -3713,6 +4386,12 @@ func (i ResourcePolicyAssignmentOverrideSelectorArgs) ToResourcePolicyAssignment
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentOverrideSelectorOutput)
 }
 
+func (i ResourcePolicyAssignmentOverrideSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentOverrideSelector] {
+	return pulumix.Output[ResourcePolicyAssignmentOverrideSelector]{
+		OutputState: i.ToResourcePolicyAssignmentOverrideSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourcePolicyAssignmentOverrideSelectorArrayInput is an input type that accepts ResourcePolicyAssignmentOverrideSelectorArray and ResourcePolicyAssignmentOverrideSelectorArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentOverrideSelectorArrayInput` via:
 //
@@ -3738,6 +4417,12 @@ func (i ResourcePolicyAssignmentOverrideSelectorArray) ToResourcePolicyAssignmen
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentOverrideSelectorArrayOutput)
 }
 
+func (i ResourcePolicyAssignmentOverrideSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]ResourcePolicyAssignmentOverrideSelector]{
+		OutputState: i.ToResourcePolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyAssignmentOverrideSelectorOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentOverrideSelectorOutput) ElementType() reflect.Type {
@@ -3750,6 +4435,12 @@ func (o ResourcePolicyAssignmentOverrideSelectorOutput) ToResourcePolicyAssignme
 
 func (o ResourcePolicyAssignmentOverrideSelectorOutput) ToResourcePolicyAssignmentOverrideSelectorOutputWithContext(ctx context.Context) ResourcePolicyAssignmentOverrideSelectorOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentOverrideSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentOverrideSelector] {
+	return pulumix.Output[ResourcePolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -3779,6 +4470,12 @@ func (o ResourcePolicyAssignmentOverrideSelectorArrayOutput) ToResourcePolicyAss
 
 func (o ResourcePolicyAssignmentOverrideSelectorArrayOutput) ToResourcePolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentOverrideSelectorArrayOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentOverrideSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]ResourcePolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyAssignmentOverrideSelectorArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentOverrideSelectorOutput {
@@ -3824,6 +4521,12 @@ func (i ResourcePolicyAssignmentResourceSelectorArgs) ToResourcePolicyAssignment
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentResourceSelectorOutput)
 }
 
+func (i ResourcePolicyAssignmentResourceSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentResourceSelector] {
+	return pulumix.Output[ResourcePolicyAssignmentResourceSelector]{
+		OutputState: i.ToResourcePolicyAssignmentResourceSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourcePolicyAssignmentResourceSelectorArrayInput is an input type that accepts ResourcePolicyAssignmentResourceSelectorArray and ResourcePolicyAssignmentResourceSelectorArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentResourceSelectorArrayInput` via:
 //
@@ -3849,6 +4552,12 @@ func (i ResourcePolicyAssignmentResourceSelectorArray) ToResourcePolicyAssignmen
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentResourceSelectorArrayOutput)
 }
 
+func (i ResourcePolicyAssignmentResourceSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]ResourcePolicyAssignmentResourceSelector]{
+		OutputState: i.ToResourcePolicyAssignmentResourceSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyAssignmentResourceSelectorOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentResourceSelectorOutput) ElementType() reflect.Type {
@@ -3861,6 +4570,12 @@ func (o ResourcePolicyAssignmentResourceSelectorOutput) ToResourcePolicyAssignme
 
 func (o ResourcePolicyAssignmentResourceSelectorOutput) ToResourcePolicyAssignmentResourceSelectorOutputWithContext(ctx context.Context) ResourcePolicyAssignmentResourceSelectorOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentResourceSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentResourceSelector] {
+	return pulumix.Output[ResourcePolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a name for the resource selector.
@@ -3887,6 +4602,12 @@ func (o ResourcePolicyAssignmentResourceSelectorArrayOutput) ToResourcePolicyAss
 
 func (o ResourcePolicyAssignmentResourceSelectorArrayOutput) ToResourcePolicyAssignmentResourceSelectorArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentResourceSelectorArrayOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentResourceSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]ResourcePolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyAssignmentResourceSelectorArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentResourceSelectorOutput {
@@ -3936,6 +4657,12 @@ func (i ResourcePolicyAssignmentResourceSelectorSelectorArgs) ToResourcePolicyAs
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentResourceSelectorSelectorOutput)
 }
 
+func (i ResourcePolicyAssignmentResourceSelectorSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[ResourcePolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToResourcePolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourcePolicyAssignmentResourceSelectorSelectorArrayInput is an input type that accepts ResourcePolicyAssignmentResourceSelectorSelectorArray and ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentResourceSelectorSelectorArrayInput` via:
 //
@@ -3961,6 +4688,12 @@ func (i ResourcePolicyAssignmentResourceSelectorSelectorArray) ToResourcePolicyA
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput)
 }
 
+func (i ResourcePolicyAssignmentResourceSelectorSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]ResourcePolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToResourcePolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyAssignmentResourceSelectorSelectorOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyAssignmentResourceSelectorSelectorOutput) ElementType() reflect.Type {
@@ -3973,6 +4706,12 @@ func (o ResourcePolicyAssignmentResourceSelectorSelectorOutput) ToResourcePolicy
 
 func (o ResourcePolicyAssignmentResourceSelectorSelectorOutput) ToResourcePolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx context.Context) ResourcePolicyAssignmentResourceSelectorSelectorOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentResourceSelectorSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[ResourcePolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -4002,6 +4741,12 @@ func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) ToResourceP
 
 func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) ToResourcePolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput {
 	return o
+}
+
+func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]ResourcePolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentResourceSelectorSelectorOutput {
@@ -4047,6 +4792,12 @@ func (i ResourceProviderRegistrationFeatureArgs) ToResourceProviderRegistrationF
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationFeatureOutput)
 }
 
+func (i ResourceProviderRegistrationFeatureArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceProviderRegistrationFeature] {
+	return pulumix.Output[ResourceProviderRegistrationFeature]{
+		OutputState: i.ToResourceProviderRegistrationFeatureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceProviderRegistrationFeatureArrayInput is an input type that accepts ResourceProviderRegistrationFeatureArray and ResourceProviderRegistrationFeatureArrayOutput values.
 // You can construct a concrete instance of `ResourceProviderRegistrationFeatureArrayInput` via:
 //
@@ -4072,6 +4823,12 @@ func (i ResourceProviderRegistrationFeatureArray) ToResourceProviderRegistration
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationFeatureArrayOutput)
 }
 
+func (i ResourceProviderRegistrationFeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceProviderRegistrationFeature] {
+	return pulumix.Output[[]ResourceProviderRegistrationFeature]{
+		OutputState: i.ToResourceProviderRegistrationFeatureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceProviderRegistrationFeatureOutput struct{ *pulumi.OutputState }
 
 func (ResourceProviderRegistrationFeatureOutput) ElementType() reflect.Type {
@@ -4084,6 +4841,12 @@ func (o ResourceProviderRegistrationFeatureOutput) ToResourceProviderRegistratio
 
 func (o ResourceProviderRegistrationFeatureOutput) ToResourceProviderRegistrationFeatureOutputWithContext(ctx context.Context) ResourceProviderRegistrationFeatureOutput {
 	return o
+}
+
+func (o ResourceProviderRegistrationFeatureOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceProviderRegistrationFeature] {
+	return pulumix.Output[ResourceProviderRegistrationFeature]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
@@ -4108,6 +4871,12 @@ func (o ResourceProviderRegistrationFeatureArrayOutput) ToResourceProviderRegist
 
 func (o ResourceProviderRegistrationFeatureArrayOutput) ToResourceProviderRegistrationFeatureArrayOutputWithContext(ctx context.Context) ResourceProviderRegistrationFeatureArrayOutput {
 	return o
+}
+
+func (o ResourceProviderRegistrationFeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceProviderRegistrationFeature] {
+	return pulumix.Output[[]ResourceProviderRegistrationFeature]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceProviderRegistrationFeatureArrayOutput) Index(i pulumi.IntInput) ResourceProviderRegistrationFeatureOutput {
@@ -4153,6 +4922,12 @@ func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCos
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataOptionsOutput)
 }
 
+func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementExportExportDataOptions] {
+	return pulumix.Output[SubscriptionCostManagementExportExportDataOptions]{
+		OutputState: i.ToSubscriptionCostManagementExportExportDataOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCostManagementExportExportDataOptionsPtrOutput() SubscriptionCostManagementExportExportDataOptionsPtrOutput {
 	return i.ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
 }
@@ -4194,6 +4969,12 @@ func (i *subscriptionCostManagementExportExportDataOptionsPtrType) ToSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataOptionsPtrOutput)
 }
 
+func (i *subscriptionCostManagementExportExportDataOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementExportExportDataOptions] {
+	return pulumix.Output[*SubscriptionCostManagementExportExportDataOptions]{
+		OutputState: i.ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementExportExportDataOptionsOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementExportExportDataOptionsOutput) ElementType() reflect.Type {
@@ -4218,6 +4999,12 @@ func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToSubscriptionC
 	}).(SubscriptionCostManagementExportExportDataOptionsPtrOutput)
 }
 
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementExportExportDataOptions] {
+	return pulumix.Output[SubscriptionCostManagementExportExportDataOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o SubscriptionCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
@@ -4240,6 +5027,12 @@ func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) ToSubscripti
 
 func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsPtrOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementExportExportDataOptions] {
+	return pulumix.Output[*SubscriptionCostManagementExportExportDataOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) Elem() SubscriptionCostManagementExportExportDataOptionsOutput {
@@ -4313,6 +5106,12 @@ func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataStorageLocationOutput)
 }
 
+func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[SubscriptionCostManagementExportExportDataStorageLocation]{
+		OutputState: i.ToSubscriptionCostManagementExportExportDataStorageLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutput() SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
 	return i.ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
 }
@@ -4354,6 +5153,12 @@ func (i *subscriptionCostManagementExportExportDataStorageLocationPtrType) ToSub
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput)
 }
 
+func (i *subscriptionCostManagementExportExportDataStorageLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[*SubscriptionCostManagementExportExportDataStorageLocation]{
+		OutputState: i.ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementExportExportDataStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementExportExportDataStorageLocationOutput) ElementType() reflect.Type {
@@ -4376,6 +5181,12 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToSubsc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionCostManagementExportExportDataStorageLocation) *SubscriptionCostManagementExportExportDataStorageLocation {
 		return &v
 	}).(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput)
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[SubscriptionCostManagementExportExportDataStorageLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
@@ -4402,6 +5213,12 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ToSu
 
 func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementExportExportDataStorageLocation] {
+	return pulumix.Output[*SubscriptionCostManagementExportExportDataStorageLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) Elem() SubscriptionCostManagementExportExportDataStorageLocationOutput {
@@ -4481,6 +5298,12 @@ func (i SubscriptionCostManagementViewDatasetArgs) ToSubscriptionCostManagementV
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDataset] {
+	return pulumix.Output[SubscriptionCostManagementViewDataset]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionCostManagementViewDatasetArgs) ToSubscriptionCostManagementViewDatasetPtrOutput() SubscriptionCostManagementViewDatasetPtrOutput {
 	return i.ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(context.Background())
 }
@@ -4522,6 +5345,12 @@ func (i *subscriptionCostManagementViewDatasetPtrType) ToSubscriptionCostManagem
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetPtrOutput)
 }
 
+func (i *subscriptionCostManagementViewDatasetPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementViewDataset] {
+	return pulumix.Output[*SubscriptionCostManagementViewDataset]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewDatasetOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewDatasetOutput) ElementType() reflect.Type {
@@ -4544,6 +5373,12 @@ func (o SubscriptionCostManagementViewDatasetOutput) ToSubscriptionCostManagemen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionCostManagementViewDataset) *SubscriptionCostManagementViewDataset {
 		return &v
 	}).(SubscriptionCostManagementViewDatasetPtrOutput)
+}
+
+func (o SubscriptionCostManagementViewDatasetOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDataset] {
+	return pulumix.Output[SubscriptionCostManagementViewDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `aggregation` blocks as defined above.
@@ -4584,6 +5419,12 @@ func (o SubscriptionCostManagementViewDatasetPtrOutput) ToSubscriptionCostManage
 
 func (o SubscriptionCostManagementViewDatasetPtrOutput) ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetPtrOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementViewDataset] {
+	return pulumix.Output[*SubscriptionCostManagementViewDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewDatasetPtrOutput) Elem() SubscriptionCostManagementViewDatasetOutput {
@@ -4673,6 +5514,12 @@ func (i SubscriptionCostManagementViewDatasetAggregationArgs) ToSubscriptionCost
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetAggregationOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetAggregationArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDatasetAggregation] {
+	return pulumix.Output[SubscriptionCostManagementViewDatasetAggregation]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetAggregationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionCostManagementViewDatasetAggregationArrayInput is an input type that accepts SubscriptionCostManagementViewDatasetAggregationArray and SubscriptionCostManagementViewDatasetAggregationArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementViewDatasetAggregationArrayInput` via:
 //
@@ -4698,6 +5545,12 @@ func (i SubscriptionCostManagementViewDatasetAggregationArray) ToSubscriptionCos
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetAggregationArrayOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetAggregationArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewDatasetAggregation] {
+	return pulumix.Output[[]SubscriptionCostManagementViewDatasetAggregation]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetAggregationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewDatasetAggregationOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewDatasetAggregationOutput) ElementType() reflect.Type {
@@ -4710,6 +5563,12 @@ func (o SubscriptionCostManagementViewDatasetAggregationOutput) ToSubscriptionCo
 
 func (o SubscriptionCostManagementViewDatasetAggregationOutput) ToSubscriptionCostManagementViewDatasetAggregationOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetAggregationOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDatasetAggregation] {
+	return pulumix.Output[SubscriptionCostManagementViewDatasetAggregation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
@@ -4734,6 +5593,12 @@ func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) ToSubscript
 
 func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) ToSubscriptionCostManagementViewDatasetAggregationArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetAggregationArrayOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewDatasetAggregation] {
+	return pulumix.Output[[]SubscriptionCostManagementViewDatasetAggregation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewDatasetAggregationOutput {
@@ -4779,6 +5644,12 @@ func (i SubscriptionCostManagementViewDatasetGroupingArgs) ToSubscriptionCostMan
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetGroupingOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDatasetGrouping] {
+	return pulumix.Output[SubscriptionCostManagementViewDatasetGrouping]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetGroupingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionCostManagementViewDatasetGroupingArrayInput is an input type that accepts SubscriptionCostManagementViewDatasetGroupingArray and SubscriptionCostManagementViewDatasetGroupingArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementViewDatasetGroupingArrayInput` via:
 //
@@ -4804,6 +5675,12 @@ func (i SubscriptionCostManagementViewDatasetGroupingArray) ToSubscriptionCostMa
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetGroupingArrayOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetGroupingArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewDatasetGrouping] {
+	return pulumix.Output[[]SubscriptionCostManagementViewDatasetGrouping]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetGroupingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewDatasetGroupingOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewDatasetGroupingOutput) ElementType() reflect.Type {
@@ -4816,6 +5693,12 @@ func (o SubscriptionCostManagementViewDatasetGroupingOutput) ToSubscriptionCostM
 
 func (o SubscriptionCostManagementViewDatasetGroupingOutput) ToSubscriptionCostManagementViewDatasetGroupingOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetGroupingOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDatasetGrouping] {
+	return pulumix.Output[SubscriptionCostManagementViewDatasetGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to group.
@@ -4840,6 +5723,12 @@ func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) ToSubscription
 
 func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) ToSubscriptionCostManagementViewDatasetGroupingArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetGroupingArrayOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewDatasetGrouping] {
+	return pulumix.Output[[]SubscriptionCostManagementViewDatasetGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewDatasetGroupingOutput {
@@ -4885,6 +5774,12 @@ func (i SubscriptionCostManagementViewDatasetSortingArgs) ToSubscriptionCostMana
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetSortingOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetSortingArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDatasetSorting] {
+	return pulumix.Output[SubscriptionCostManagementViewDatasetSorting]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetSortingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionCostManagementViewDatasetSortingArrayInput is an input type that accepts SubscriptionCostManagementViewDatasetSortingArray and SubscriptionCostManagementViewDatasetSortingArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementViewDatasetSortingArrayInput` via:
 //
@@ -4910,6 +5805,12 @@ func (i SubscriptionCostManagementViewDatasetSortingArray) ToSubscriptionCostMan
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetSortingArrayOutput)
 }
 
+func (i SubscriptionCostManagementViewDatasetSortingArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewDatasetSorting] {
+	return pulumix.Output[[]SubscriptionCostManagementViewDatasetSorting]{
+		OutputState: i.ToSubscriptionCostManagementViewDatasetSortingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewDatasetSortingOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewDatasetSortingOutput) ElementType() reflect.Type {
@@ -4922,6 +5823,12 @@ func (o SubscriptionCostManagementViewDatasetSortingOutput) ToSubscriptionCostMa
 
 func (o SubscriptionCostManagementViewDatasetSortingOutput) ToSubscriptionCostManagementViewDatasetSortingOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetSortingOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewDatasetSorting] {
+	return pulumix.Output[SubscriptionCostManagementViewDatasetSorting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Direction of sort. Possible values are `Ascending` and `Descending`.
@@ -4946,6 +5853,12 @@ func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) ToSubscriptionC
 
 func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) ToSubscriptionCostManagementViewDatasetSortingArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetSortingArrayOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewDatasetSorting] {
+	return pulumix.Output[[]SubscriptionCostManagementViewDatasetSorting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewDatasetSortingOutput {
@@ -4987,6 +5900,12 @@ func (i SubscriptionCostManagementViewKpiArgs) ToSubscriptionCostManagementViewK
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewKpiOutput)
 }
 
+func (i SubscriptionCostManagementViewKpiArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewKpi] {
+	return pulumix.Output[SubscriptionCostManagementViewKpi]{
+		OutputState: i.ToSubscriptionCostManagementViewKpiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionCostManagementViewKpiArrayInput is an input type that accepts SubscriptionCostManagementViewKpiArray and SubscriptionCostManagementViewKpiArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementViewKpiArrayInput` via:
 //
@@ -5012,6 +5931,12 @@ func (i SubscriptionCostManagementViewKpiArray) ToSubscriptionCostManagementView
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewKpiArrayOutput)
 }
 
+func (i SubscriptionCostManagementViewKpiArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewKpi] {
+	return pulumix.Output[[]SubscriptionCostManagementViewKpi]{
+		OutputState: i.ToSubscriptionCostManagementViewKpiArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewKpiOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewKpiOutput) ElementType() reflect.Type {
@@ -5024,6 +5949,12 @@ func (o SubscriptionCostManagementViewKpiOutput) ToSubscriptionCostManagementVie
 
 func (o SubscriptionCostManagementViewKpiOutput) ToSubscriptionCostManagementViewKpiOutputWithContext(ctx context.Context) SubscriptionCostManagementViewKpiOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewKpiOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewKpi] {
+	return pulumix.Output[SubscriptionCostManagementViewKpi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // KPI type. Possible values are `Budget` and `Forecast`.
@@ -5043,6 +5974,12 @@ func (o SubscriptionCostManagementViewKpiArrayOutput) ToSubscriptionCostManageme
 
 func (o SubscriptionCostManagementViewKpiArrayOutput) ToSubscriptionCostManagementViewKpiArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewKpiArrayOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewKpiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewKpi] {
+	return pulumix.Output[[]SubscriptionCostManagementViewKpi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewKpiArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewKpiOutput {
@@ -5088,6 +6025,12 @@ func (i SubscriptionCostManagementViewPivotArgs) ToSubscriptionCostManagementVie
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewPivotOutput)
 }
 
+func (i SubscriptionCostManagementViewPivotArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewPivot] {
+	return pulumix.Output[SubscriptionCostManagementViewPivot]{
+		OutputState: i.ToSubscriptionCostManagementViewPivotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionCostManagementViewPivotArrayInput is an input type that accepts SubscriptionCostManagementViewPivotArray and SubscriptionCostManagementViewPivotArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementViewPivotArrayInput` via:
 //
@@ -5113,6 +6056,12 @@ func (i SubscriptionCostManagementViewPivotArray) ToSubscriptionCostManagementVi
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewPivotArrayOutput)
 }
 
+func (i SubscriptionCostManagementViewPivotArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewPivot] {
+	return pulumix.Output[[]SubscriptionCostManagementViewPivot]{
+		OutputState: i.ToSubscriptionCostManagementViewPivotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewPivotOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewPivotOutput) ElementType() reflect.Type {
@@ -5125,6 +6074,12 @@ func (o SubscriptionCostManagementViewPivotOutput) ToSubscriptionCostManagementV
 
 func (o SubscriptionCostManagementViewPivotOutput) ToSubscriptionCostManagementViewPivotOutputWithContext(ctx context.Context) SubscriptionCostManagementViewPivotOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewPivotOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionCostManagementViewPivot] {
+	return pulumix.Output[SubscriptionCostManagementViewPivot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column which should be used for this sub-view in the Cost Analysis UI.
@@ -5149,6 +6104,12 @@ func (o SubscriptionCostManagementViewPivotArrayOutput) ToSubscriptionCostManage
 
 func (o SubscriptionCostManagementViewPivotArrayOutput) ToSubscriptionCostManagementViewPivotArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewPivotArrayOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewPivotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionCostManagementViewPivot] {
+	return pulumix.Output[[]SubscriptionCostManagementViewPivot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewPivotOutput {
@@ -5206,6 +6167,12 @@ func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignment
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentIdentityOutput)
 }
 
+func (i SubscriptionPolicyAssignmentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentIdentity] {
+	return pulumix.Output[SubscriptionPolicyAssignmentIdentity]{
+		OutputState: i.ToSubscriptionPolicyAssignmentIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionPolicyAssignmentIdentityArgs) ToSubscriptionPolicyAssignmentIdentityPtrOutput() SubscriptionPolicyAssignmentIdentityPtrOutput {
 	return i.ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
 }
@@ -5247,6 +6214,12 @@ func (i *subscriptionPolicyAssignmentIdentityPtrType) ToSubscriptionPolicyAssign
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentIdentityPtrOutput)
 }
 
+func (i *subscriptionPolicyAssignmentIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyAssignmentIdentity] {
+	return pulumix.Output[*SubscriptionPolicyAssignmentIdentity]{
+		OutputState: i.ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
@@ -5269,6 +6242,12 @@ func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignme
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionPolicyAssignmentIdentity) *SubscriptionPolicyAssignmentIdentity {
 		return &v
 	}).(SubscriptionPolicyAssignmentIdentityPtrOutput)
+}
+
+func (o SubscriptionPolicyAssignmentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentIdentity] {
+	return pulumix.Output[SubscriptionPolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -5305,6 +6284,12 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) ToSubscriptionPolicyAssig
 
 func (o SubscriptionPolicyAssignmentIdentityPtrOutput) ToSubscriptionPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentIdentityPtrOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyAssignmentIdentity] {
+	return pulumix.Output[*SubscriptionPolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Elem() SubscriptionPolicyAssignmentIdentityOutput {
@@ -5396,6 +6381,12 @@ func (i SubscriptionPolicyAssignmentNonComplianceMessageArgs) ToSubscriptionPoli
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentNonComplianceMessageOutput)
 }
 
+func (i SubscriptionPolicyAssignmentNonComplianceMessageArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[SubscriptionPolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToSubscriptionPolicyAssignmentNonComplianceMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts SubscriptionPolicyAssignmentNonComplianceMessageArray and SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
@@ -5421,6 +6412,12 @@ func (i SubscriptionPolicyAssignmentNonComplianceMessageArray) ToSubscriptionPol
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput)
 }
 
+func (i SubscriptionPolicyAssignmentNonComplianceMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
@@ -5433,6 +6430,12 @@ func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) ToSubscriptionPo
 
 func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) ToSubscriptionPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentNonComplianceMessageOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[SubscriptionPolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
@@ -5457,6 +6460,12 @@ func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) ToSubscript
 
 func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentNonComplianceMessageOutput {
@@ -5502,6 +6511,12 @@ func (i SubscriptionPolicyAssignmentOverrideArgs) ToSubscriptionPolicyAssignment
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentOverrideOutput)
 }
 
+func (i SubscriptionPolicyAssignmentOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentOverride] {
+	return pulumix.Output[SubscriptionPolicyAssignmentOverride]{
+		OutputState: i.ToSubscriptionPolicyAssignmentOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyAssignmentOverrideArrayInput is an input type that accepts SubscriptionPolicyAssignmentOverrideArray and SubscriptionPolicyAssignmentOverrideArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentOverrideArrayInput` via:
 //
@@ -5527,6 +6542,12 @@ func (i SubscriptionPolicyAssignmentOverrideArray) ToSubscriptionPolicyAssignmen
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentOverrideArrayOutput)
 }
 
+func (i SubscriptionPolicyAssignmentOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentOverride] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentOverride]{
+		OutputState: i.ToSubscriptionPolicyAssignmentOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentOverrideOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentOverrideOutput) ElementType() reflect.Type {
@@ -5539,6 +6560,12 @@ func (o SubscriptionPolicyAssignmentOverrideOutput) ToSubscriptionPolicyAssignme
 
 func (o SubscriptionPolicyAssignmentOverrideOutput) ToSubscriptionPolicyAssignmentOverrideOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentOverrideOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentOverride] {
+	return pulumix.Output[SubscriptionPolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `overrideSelector` as defined below.
@@ -5565,6 +6592,12 @@ func (o SubscriptionPolicyAssignmentOverrideArrayOutput) ToSubscriptionPolicyAss
 
 func (o SubscriptionPolicyAssignmentOverrideArrayOutput) ToSubscriptionPolicyAssignmentOverrideArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentOverrideArrayOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentOverride] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentOverrideArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentOverrideOutput {
@@ -5614,6 +6647,12 @@ func (i SubscriptionPolicyAssignmentOverrideSelectorArgs) ToSubscriptionPolicyAs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentOverrideSelectorOutput)
 }
 
+func (i SubscriptionPolicyAssignmentOverrideSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[SubscriptionPolicyAssignmentOverrideSelector]{
+		OutputState: i.ToSubscriptionPolicyAssignmentOverrideSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyAssignmentOverrideSelectorArrayInput is an input type that accepts SubscriptionPolicyAssignmentOverrideSelectorArray and SubscriptionPolicyAssignmentOverrideSelectorArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentOverrideSelectorArrayInput` via:
 //
@@ -5639,6 +6678,12 @@ func (i SubscriptionPolicyAssignmentOverrideSelectorArray) ToSubscriptionPolicyA
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentOverrideSelectorArrayOutput)
 }
 
+func (i SubscriptionPolicyAssignmentOverrideSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentOverrideSelector]{
+		OutputState: i.ToSubscriptionPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentOverrideSelectorOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentOverrideSelectorOutput) ElementType() reflect.Type {
@@ -5651,6 +6696,12 @@ func (o SubscriptionPolicyAssignmentOverrideSelectorOutput) ToSubscriptionPolicy
 
 func (o SubscriptionPolicyAssignmentOverrideSelectorOutput) ToSubscriptionPolicyAssignmentOverrideSelectorOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentOverrideSelectorOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentOverrideSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[SubscriptionPolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -5680,6 +6731,12 @@ func (o SubscriptionPolicyAssignmentOverrideSelectorArrayOutput) ToSubscriptionP
 
 func (o SubscriptionPolicyAssignmentOverrideSelectorArrayOutput) ToSubscriptionPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentOverrideSelectorArrayOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentOverrideSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentOverrideSelectorArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentOverrideSelectorOutput {
@@ -5725,6 +6782,12 @@ func (i SubscriptionPolicyAssignmentResourceSelectorArgs) ToSubscriptionPolicyAs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentResourceSelectorOutput)
 }
 
+func (i SubscriptionPolicyAssignmentResourceSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentResourceSelector] {
+	return pulumix.Output[SubscriptionPolicyAssignmentResourceSelector]{
+		OutputState: i.ToSubscriptionPolicyAssignmentResourceSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyAssignmentResourceSelectorArrayInput is an input type that accepts SubscriptionPolicyAssignmentResourceSelectorArray and SubscriptionPolicyAssignmentResourceSelectorArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentResourceSelectorArrayInput` via:
 //
@@ -5750,6 +6813,12 @@ func (i SubscriptionPolicyAssignmentResourceSelectorArray) ToSubscriptionPolicyA
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentResourceSelectorArrayOutput)
 }
 
+func (i SubscriptionPolicyAssignmentResourceSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelector]{
+		OutputState: i.ToSubscriptionPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentResourceSelectorOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentResourceSelectorOutput) ElementType() reflect.Type {
@@ -5762,6 +6831,12 @@ func (o SubscriptionPolicyAssignmentResourceSelectorOutput) ToSubscriptionPolicy
 
 func (o SubscriptionPolicyAssignmentResourceSelectorOutput) ToSubscriptionPolicyAssignmentResourceSelectorOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentResourceSelectorOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentResourceSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentResourceSelector] {
+	return pulumix.Output[SubscriptionPolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a name for the resource selector.
@@ -5788,6 +6863,12 @@ func (o SubscriptionPolicyAssignmentResourceSelectorArrayOutput) ToSubscriptionP
 
 func (o SubscriptionPolicyAssignmentResourceSelectorArrayOutput) ToSubscriptionPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentResourceSelectorArrayOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentResourceSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentResourceSelectorArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentResourceSelectorOutput {
@@ -5837,6 +6918,12 @@ func (i SubscriptionPolicyAssignmentResourceSelectorSelectorArgs) ToSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentResourceSelectorSelectorOutput)
 }
 
+func (i SubscriptionPolicyAssignmentResourceSelectorSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[SubscriptionPolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToSubscriptionPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyAssignmentResourceSelectorSelectorArrayInput is an input type that accepts SubscriptionPolicyAssignmentResourceSelectorSelectorArray and SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentResourceSelectorSelectorArrayInput` via:
 //
@@ -5862,6 +6949,12 @@ func (i SubscriptionPolicyAssignmentResourceSelectorSelectorArray) ToSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput)
 }
 
+func (i SubscriptionPolicyAssignmentResourceSelectorSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToSubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentResourceSelectorSelectorOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentResourceSelectorSelectorOutput) ElementType() reflect.Type {
@@ -5874,6 +6967,12 @@ func (o SubscriptionPolicyAssignmentResourceSelectorSelectorOutput) ToSubscripti
 
 func (o SubscriptionPolicyAssignmentResourceSelectorSelectorOutput) ToSubscriptionPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentResourceSelectorSelectorOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentResourceSelectorSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[SubscriptionPolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -5903,6 +7002,12 @@ func (o SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput) ToSubsc
 
 func (o SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput) ToSubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]SubscriptionPolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentResourceSelectorSelectorOutput {
@@ -5964,6 +7069,12 @@ func (i GetResourcesResourceArgs) ToGetResourcesResourceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceOutput)
 }
 
+func (i GetResourcesResourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResource] {
+	return pulumix.Output[GetResourcesResource]{
+		OutputState: i.ToGetResourcesResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetResourcesResourceArrayInput is an input type that accepts GetResourcesResourceArray and GetResourcesResourceArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceArrayInput` via:
 //
@@ -5989,6 +7100,12 @@ func (i GetResourcesResourceArray) ToGetResourcesResourceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceArrayOutput)
 }
 
+func (i GetResourcesResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesResource] {
+	return pulumix.Output[[]GetResourcesResource]{
+		OutputState: i.ToGetResourcesResourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetResourcesResourceOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesResourceOutput) ElementType() reflect.Type {
@@ -6001,6 +7118,12 @@ func (o GetResourcesResourceOutput) ToGetResourcesResourceOutput() GetResourcesR
 
 func (o GetResourcesResourceOutput) ToGetResourcesResourceOutputWithContext(ctx context.Context) GetResourcesResourceOutput {
 	return o
+}
+
+func (o GetResourcesResourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResource] {
+	return pulumix.Output[GetResourcesResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of this Resource.
@@ -6045,6 +7168,12 @@ func (o GetResourcesResourceArrayOutput) ToGetResourcesResourceArrayOutput() Get
 
 func (o GetResourcesResourceArrayOutput) ToGetResourcesResourceArrayOutputWithContext(ctx context.Context) GetResourcesResourceArrayOutput {
 	return o
+}
+
+func (o GetResourcesResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesResource] {
+	return pulumix.Output[[]GetResourcesResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetResourcesResourceArrayOutput) Index(i pulumi.IntInput) GetResourcesResourceOutput {
@@ -6118,6 +7247,12 @@ func (i GetSubscriptionsSubscriptionArgs) ToGetSubscriptionsSubscriptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubscriptionsSubscriptionOutput)
 }
 
+func (i GetSubscriptionsSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetSubscriptionsSubscription] {
+	return pulumix.Output[GetSubscriptionsSubscription]{
+		OutputState: i.ToGetSubscriptionsSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSubscriptionsSubscriptionArrayInput is an input type that accepts GetSubscriptionsSubscriptionArray and GetSubscriptionsSubscriptionArrayOutput values.
 // You can construct a concrete instance of `GetSubscriptionsSubscriptionArrayInput` via:
 //
@@ -6143,6 +7278,12 @@ func (i GetSubscriptionsSubscriptionArray) ToGetSubscriptionsSubscriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubscriptionsSubscriptionArrayOutput)
 }
 
+func (i GetSubscriptionsSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSubscriptionsSubscription] {
+	return pulumix.Output[[]GetSubscriptionsSubscription]{
+		OutputState: i.ToGetSubscriptionsSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSubscriptionsSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (GetSubscriptionsSubscriptionOutput) ElementType() reflect.Type {
@@ -6155,6 +7296,12 @@ func (o GetSubscriptionsSubscriptionOutput) ToGetSubscriptionsSubscriptionOutput
 
 func (o GetSubscriptionsSubscriptionOutput) ToGetSubscriptionsSubscriptionOutputWithContext(ctx context.Context) GetSubscriptionsSubscriptionOutput {
 	return o
+}
+
+func (o GetSubscriptionsSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubscriptionsSubscription] {
+	return pulumix.Output[GetSubscriptionsSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The subscription display name.
@@ -6214,6 +7361,12 @@ func (o GetSubscriptionsSubscriptionArrayOutput) ToGetSubscriptionsSubscriptionA
 
 func (o GetSubscriptionsSubscriptionArrayOutput) ToGetSubscriptionsSubscriptionArrayOutputWithContext(ctx context.Context) GetSubscriptionsSubscriptionArrayOutput {
 	return o
+}
+
+func (o GetSubscriptionsSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSubscriptionsSubscription] {
+	return pulumix.Output[[]GetSubscriptionsSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubscriptionsSubscriptionArrayOutput) Index(i pulumi.IntInput) GetSubscriptionsSubscriptionOutput {

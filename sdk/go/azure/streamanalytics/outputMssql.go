@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output to Microsoft SQL Server Database.
@@ -299,6 +300,12 @@ func (i *OutputMssql) ToOutputMssqlOutputWithContext(ctx context.Context) Output
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlOutput)
 }
 
+func (i *OutputMssql) ToOutput(ctx context.Context) pulumix.Output[*OutputMssql] {
+	return pulumix.Output[*OutputMssql]{
+		OutputState: i.ToOutputMssqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutputMssqlArrayInput is an input type that accepts OutputMssqlArray and OutputMssqlArrayOutput values.
 // You can construct a concrete instance of `OutputMssqlArrayInput` via:
 //
@@ -322,6 +329,12 @@ func (i OutputMssqlArray) ToOutputMssqlArrayOutput() OutputMssqlArrayOutput {
 
 func (i OutputMssqlArray) ToOutputMssqlArrayOutputWithContext(ctx context.Context) OutputMssqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlArrayOutput)
+}
+
+func (i OutputMssqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputMssql] {
+	return pulumix.Output[[]*OutputMssql]{
+		OutputState: i.ToOutputMssqlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutputMssqlMapInput is an input type that accepts OutputMssqlMap and OutputMssqlMapOutput values.
@@ -349,6 +362,12 @@ func (i OutputMssqlMap) ToOutputMssqlMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OutputMssqlMapOutput)
 }
 
+func (i OutputMssqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputMssql] {
+	return pulumix.Output[map[string]*OutputMssql]{
+		OutputState: i.ToOutputMssqlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputMssqlOutput struct{ *pulumi.OutputState }
 
 func (OutputMssqlOutput) ElementType() reflect.Type {
@@ -361,6 +380,12 @@ func (o OutputMssqlOutput) ToOutputMssqlOutput() OutputMssqlOutput {
 
 func (o OutputMssqlOutput) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
 	return o
+}
+
+func (o OutputMssqlOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputMssql] {
+	return pulumix.Output[*OutputMssql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -432,6 +457,12 @@ func (o OutputMssqlArrayOutput) ToOutputMssqlArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o OutputMssqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputMssql] {
+	return pulumix.Output[[]*OutputMssql]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutputMssqlArrayOutput) Index(i pulumi.IntInput) OutputMssqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputMssql {
 		return vs[0].([]*OutputMssql)[vs[1].(int)]
@@ -450,6 +481,12 @@ func (o OutputMssqlMapOutput) ToOutputMssqlMapOutput() OutputMssqlMapOutput {
 
 func (o OutputMssqlMapOutput) ToOutputMssqlMapOutputWithContext(ctx context.Context) OutputMssqlMapOutput {
 	return o
+}
+
+func (o OutputMssqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputMssql] {
+	return pulumix.Output[map[string]*OutputMssql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputMssqlMapOutput) MapIndex(k pulumi.StringInput) OutputMssqlOutput {

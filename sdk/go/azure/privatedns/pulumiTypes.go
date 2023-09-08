@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -66,6 +67,12 @@ func (i LinkServiceNatIpConfigurationArgs) ToLinkServiceNatIpConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceNatIpConfigurationOutput)
 }
 
+func (i LinkServiceNatIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LinkServiceNatIpConfiguration] {
+	return pulumix.Output[LinkServiceNatIpConfiguration]{
+		OutputState: i.ToLinkServiceNatIpConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkServiceNatIpConfigurationArrayInput is an input type that accepts LinkServiceNatIpConfigurationArray and LinkServiceNatIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `LinkServiceNatIpConfigurationArrayInput` via:
 //
@@ -91,6 +98,12 @@ func (i LinkServiceNatIpConfigurationArray) ToLinkServiceNatIpConfigurationArray
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceNatIpConfigurationArrayOutput)
 }
 
+func (i LinkServiceNatIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]LinkServiceNatIpConfiguration] {
+	return pulumix.Output[[]LinkServiceNatIpConfiguration]{
+		OutputState: i.ToLinkServiceNatIpConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkServiceNatIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceNatIpConfigurationOutput) ElementType() reflect.Type {
@@ -103,6 +116,12 @@ func (o LinkServiceNatIpConfigurationOutput) ToLinkServiceNatIpConfigurationOutp
 
 func (o LinkServiceNatIpConfigurationOutput) ToLinkServiceNatIpConfigurationOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationOutput {
 	return o
+}
+
+func (o LinkServiceNatIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LinkServiceNatIpConfiguration] {
+	return pulumix.Output[LinkServiceNatIpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
@@ -144,6 +163,12 @@ func (o LinkServiceNatIpConfigurationArrayOutput) ToLinkServiceNatIpConfiguratio
 
 func (o LinkServiceNatIpConfigurationArrayOutput) ToLinkServiceNatIpConfigurationArrayOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationArrayOutput {
 	return o
+}
+
+func (o LinkServiceNatIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LinkServiceNatIpConfiguration] {
+	return pulumix.Output[[]LinkServiceNatIpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) LinkServiceNatIpConfigurationOutput {
@@ -189,6 +214,12 @@ func (i MxRecordRecordArgs) ToMxRecordRecordOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordRecordOutput)
 }
 
+func (i MxRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[MxRecordRecord] {
+	return pulumix.Output[MxRecordRecord]{
+		OutputState: i.ToMxRecordRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MxRecordRecordArrayInput is an input type that accepts MxRecordRecordArray and MxRecordRecordArrayOutput values.
 // You can construct a concrete instance of `MxRecordRecordArrayInput` via:
 //
@@ -214,6 +245,12 @@ func (i MxRecordRecordArray) ToMxRecordRecordArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordRecordArrayOutput)
 }
 
+func (i MxRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]MxRecordRecord] {
+	return pulumix.Output[[]MxRecordRecord]{
+		OutputState: i.ToMxRecordRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MxRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordRecordOutput) ElementType() reflect.Type {
@@ -226,6 +263,12 @@ func (o MxRecordRecordOutput) ToMxRecordRecordOutput() MxRecordRecordOutput {
 
 func (o MxRecordRecordOutput) ToMxRecordRecordOutputWithContext(ctx context.Context) MxRecordRecordOutput {
 	return o
+}
+
+func (o MxRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[MxRecordRecord] {
+	return pulumix.Output[MxRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN of the exchange to MX record points to.
@@ -250,6 +293,12 @@ func (o MxRecordRecordArrayOutput) ToMxRecordRecordArrayOutput() MxRecordRecordA
 
 func (o MxRecordRecordArrayOutput) ToMxRecordRecordArrayOutputWithContext(ctx context.Context) MxRecordRecordArrayOutput {
 	return o
+}
+
+func (o MxRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MxRecordRecord] {
+	return pulumix.Output[[]MxRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MxRecordRecordArrayOutput) Index(i pulumi.IntInput) MxRecordRecordOutput {
@@ -295,6 +344,12 @@ func (i ResolverForwardingRuleTargetDnsServerArgs) ToResolverForwardingRuleTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleTargetDnsServerOutput)
 }
 
+func (i ResolverForwardingRuleTargetDnsServerArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[ResolverForwardingRuleTargetDnsServer]{
+		OutputState: i.ToResolverForwardingRuleTargetDnsServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverForwardingRuleTargetDnsServerArrayInput is an input type that accepts ResolverForwardingRuleTargetDnsServerArray and ResolverForwardingRuleTargetDnsServerArrayOutput values.
 // You can construct a concrete instance of `ResolverForwardingRuleTargetDnsServerArrayInput` via:
 //
@@ -320,6 +375,12 @@ func (i ResolverForwardingRuleTargetDnsServerArray) ToResolverForwardingRuleTarg
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleTargetDnsServerArrayOutput)
 }
 
+func (i ResolverForwardingRuleTargetDnsServerArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[[]ResolverForwardingRuleTargetDnsServer]{
+		OutputState: i.ToResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverForwardingRuleTargetDnsServerOutput struct{ *pulumi.OutputState }
 
 func (ResolverForwardingRuleTargetDnsServerOutput) ElementType() reflect.Type {
@@ -332,6 +393,12 @@ func (o ResolverForwardingRuleTargetDnsServerOutput) ToResolverForwardingRuleTar
 
 func (o ResolverForwardingRuleTargetDnsServerOutput) ToResolverForwardingRuleTargetDnsServerOutputWithContext(ctx context.Context) ResolverForwardingRuleTargetDnsServerOutput {
 	return o
+}
+
+func (o ResolverForwardingRuleTargetDnsServerOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[ResolverForwardingRuleTargetDnsServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // DNS server IP address.
@@ -356,6 +423,12 @@ func (o ResolverForwardingRuleTargetDnsServerArrayOutput) ToResolverForwardingRu
 
 func (o ResolverForwardingRuleTargetDnsServerArrayOutput) ToResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx context.Context) ResolverForwardingRuleTargetDnsServerArrayOutput {
 	return o
+}
+
+func (o ResolverForwardingRuleTargetDnsServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[[]ResolverForwardingRuleTargetDnsServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInput) ResolverForwardingRuleTargetDnsServerOutput {
@@ -405,6 +478,12 @@ func (i ResolverInboundEndpointIpConfigurationArgs) ToResolverInboundEndpointIpC
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationOutput)
 }
 
+func (i ResolverInboundEndpointIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[ResolverInboundEndpointIpConfiguration]{
+		OutputState: i.ToResolverInboundEndpointIpConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverInboundEndpointIpConfigurationArrayInput is an input type that accepts ResolverInboundEndpointIpConfigurationArray and ResolverInboundEndpointIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `ResolverInboundEndpointIpConfigurationArrayInput` via:
 //
@@ -430,6 +509,12 @@ func (i ResolverInboundEndpointIpConfigurationArray) ToResolverInboundEndpointIp
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationArrayOutput)
 }
 
+func (i ResolverInboundEndpointIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[[]ResolverInboundEndpointIpConfiguration]{
+		OutputState: i.ToResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverInboundEndpointIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ResolverInboundEndpointIpConfigurationOutput) ElementType() reflect.Type {
@@ -442,6 +527,12 @@ func (o ResolverInboundEndpointIpConfigurationOutput) ToResolverInboundEndpointI
 
 func (o ResolverInboundEndpointIpConfigurationOutput) ToResolverInboundEndpointIpConfigurationOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationOutput {
 	return o
+}
+
+func (o ResolverInboundEndpointIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[ResolverInboundEndpointIpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Private IP address of the IP configuration.
@@ -471,6 +562,12 @@ func (o ResolverInboundEndpointIpConfigurationArrayOutput) ToResolverInboundEndp
 
 func (o ResolverInboundEndpointIpConfigurationArrayOutput) ToResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationArrayOutput {
 	return o
+}
+
+func (o ResolverInboundEndpointIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[[]ResolverInboundEndpointIpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverInboundEndpointIpConfigurationArrayOutput) Index(i pulumi.IntInput) ResolverInboundEndpointIpConfigurationOutput {
@@ -524,6 +621,12 @@ func (i SRVRecordRecordArgs) ToSRVRecordRecordOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordRecordOutput)
 }
 
+func (i SRVRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[SRVRecordRecord] {
+	return pulumix.Output[SRVRecordRecord]{
+		OutputState: i.ToSRVRecordRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SRVRecordRecordArrayInput is an input type that accepts SRVRecordRecordArray and SRVRecordRecordArrayOutput values.
 // You can construct a concrete instance of `SRVRecordRecordArrayInput` via:
 //
@@ -549,6 +652,12 @@ func (i SRVRecordRecordArray) ToSRVRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordRecordArrayOutput)
 }
 
+func (i SRVRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]SRVRecordRecord] {
+	return pulumix.Output[[]SRVRecordRecord]{
+		OutputState: i.ToSRVRecordRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SRVRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordRecordOutput) ElementType() reflect.Type {
@@ -561,6 +670,12 @@ func (o SRVRecordRecordOutput) ToSRVRecordRecordOutput() SRVRecordRecordOutput {
 
 func (o SRVRecordRecordOutput) ToSRVRecordRecordOutputWithContext(ctx context.Context) SRVRecordRecordOutput {
 	return o
+}
+
+func (o SRVRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[SRVRecordRecord] {
+	return pulumix.Output[SRVRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Port the service is listening on.
@@ -595,6 +710,12 @@ func (o SRVRecordRecordArrayOutput) ToSRVRecordRecordArrayOutput() SRVRecordReco
 
 func (o SRVRecordRecordArrayOutput) ToSRVRecordRecordArrayOutputWithContext(ctx context.Context) SRVRecordRecordArrayOutput {
 	return o
+}
+
+func (o SRVRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SRVRecordRecord] {
+	return pulumix.Output[[]SRVRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SRVRecordRecordArrayOutput) Index(i pulumi.IntInput) SRVRecordRecordOutput {
@@ -636,6 +757,12 @@ func (i TxtRecordRecordArgs) ToTxtRecordRecordOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordOutput)
 }
 
+func (i TxtRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[TxtRecordRecord] {
+	return pulumix.Output[TxtRecordRecord]{
+		OutputState: i.ToTxtRecordRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TxtRecordRecordArrayInput is an input type that accepts TxtRecordRecordArray and TxtRecordRecordArrayOutput values.
 // You can construct a concrete instance of `TxtRecordRecordArrayInput` via:
 //
@@ -661,6 +788,12 @@ func (i TxtRecordRecordArray) ToTxtRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordArrayOutput)
 }
 
+func (i TxtRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]TxtRecordRecord] {
+	return pulumix.Output[[]TxtRecordRecord]{
+		OutputState: i.ToTxtRecordRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TxtRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordRecordOutput) ElementType() reflect.Type {
@@ -673,6 +806,12 @@ func (o TxtRecordRecordOutput) ToTxtRecordRecordOutput() TxtRecordRecordOutput {
 
 func (o TxtRecordRecordOutput) ToTxtRecordRecordOutputWithContext(ctx context.Context) TxtRecordRecordOutput {
 	return o
+}
+
+func (o TxtRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[TxtRecordRecord] {
+	return pulumix.Output[TxtRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value of the TXT record. Max length: 1024 characters
@@ -692,6 +831,12 @@ func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutput() TxtRecordReco
 
 func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutputWithContext(ctx context.Context) TxtRecordRecordArrayOutput {
 	return o
+}
+
+func (o TxtRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TxtRecordRecord] {
+	return pulumix.Output[[]TxtRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TxtRecordRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordRecordOutput {
@@ -769,6 +914,12 @@ func (i ZoneSoaRecordArgs) ToZoneSoaRecordOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordOutput)
 }
 
+func (i ZoneSoaRecordArgs) ToOutput(ctx context.Context) pulumix.Output[ZoneSoaRecord] {
+	return pulumix.Output[ZoneSoaRecord]{
+		OutputState: i.ToZoneSoaRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ZoneSoaRecordArgs) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
 	return i.ToZoneSoaRecordPtrOutputWithContext(context.Background())
 }
@@ -810,6 +961,12 @@ func (i *zoneSoaRecordPtrType) ToZoneSoaRecordPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordPtrOutput)
 }
 
+func (i *zoneSoaRecordPtrType) ToOutput(ctx context.Context) pulumix.Output[*ZoneSoaRecord] {
+	return pulumix.Output[*ZoneSoaRecord]{
+		OutputState: i.ToZoneSoaRecordPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ZoneSoaRecordOutput struct{ *pulumi.OutputState }
 
 func (ZoneSoaRecordOutput) ElementType() reflect.Type {
@@ -832,6 +989,12 @@ func (o ZoneSoaRecordOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZoneSoaRecord) *ZoneSoaRecord {
 		return &v
 	}).(ZoneSoaRecordPtrOutput)
+}
+
+func (o ZoneSoaRecordOutput) ToOutput(ctx context.Context) pulumix.Output[ZoneSoaRecord] {
+	return pulumix.Output[ZoneSoaRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The email contact for the SOA record.
@@ -896,6 +1059,12 @@ func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutpu
 
 func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
 	return o
+}
+
+func (o ZoneSoaRecordPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ZoneSoaRecord] {
+	return pulumix.Output[*ZoneSoaRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ZoneSoaRecordPtrOutput) Elem() ZoneSoaRecordOutput {
@@ -1045,6 +1214,12 @@ func (i GetMxRecordRecordArgs) ToGetMxRecordRecordOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetMxRecordRecordOutput)
 }
 
+func (i GetMxRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetMxRecordRecord] {
+	return pulumix.Output[GetMxRecordRecord]{
+		OutputState: i.ToGetMxRecordRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetMxRecordRecordArrayInput is an input type that accepts GetMxRecordRecordArray and GetMxRecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetMxRecordRecordArrayInput` via:
 //
@@ -1070,6 +1245,12 @@ func (i GetMxRecordRecordArray) ToGetMxRecordRecordArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetMxRecordRecordArrayOutput)
 }
 
+func (i GetMxRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMxRecordRecord] {
+	return pulumix.Output[[]GetMxRecordRecord]{
+		OutputState: i.ToGetMxRecordRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetMxRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetMxRecordRecordOutput) ElementType() reflect.Type {
@@ -1082,6 +1263,12 @@ func (o GetMxRecordRecordOutput) ToGetMxRecordRecordOutput() GetMxRecordRecordOu
 
 func (o GetMxRecordRecordOutput) ToGetMxRecordRecordOutputWithContext(ctx context.Context) GetMxRecordRecordOutput {
 	return o
+}
+
+func (o GetMxRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetMxRecordRecord] {
+	return pulumix.Output[GetMxRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The mail server responsible for the domain covered by the MX record.
@@ -1106,6 +1293,12 @@ func (o GetMxRecordRecordArrayOutput) ToGetMxRecordRecordArrayOutput() GetMxReco
 
 func (o GetMxRecordRecordArrayOutput) ToGetMxRecordRecordArrayOutputWithContext(ctx context.Context) GetMxRecordRecordArrayOutput {
 	return o
+}
+
+func (o GetMxRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMxRecordRecord] {
+	return pulumix.Output[[]GetMxRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetMxRecordRecordArrayOutput) Index(i pulumi.IntInput) GetMxRecordRecordOutput {
@@ -1151,6 +1344,12 @@ func (i GetResolverForwardingRuleTargetDnsServerArgs) ToGetResolverForwardingRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverForwardingRuleTargetDnsServerOutput)
 }
 
+func (i GetResolverForwardingRuleTargetDnsServerArgs) ToOutput(ctx context.Context) pulumix.Output[GetResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[GetResolverForwardingRuleTargetDnsServer]{
+		OutputState: i.ToGetResolverForwardingRuleTargetDnsServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetResolverForwardingRuleTargetDnsServerArrayInput is an input type that accepts GetResolverForwardingRuleTargetDnsServerArray and GetResolverForwardingRuleTargetDnsServerArrayOutput values.
 // You can construct a concrete instance of `GetResolverForwardingRuleTargetDnsServerArrayInput` via:
 //
@@ -1176,6 +1375,12 @@ func (i GetResolverForwardingRuleTargetDnsServerArray) ToGetResolverForwardingRu
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverForwardingRuleTargetDnsServerArrayOutput)
 }
 
+func (i GetResolverForwardingRuleTargetDnsServerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[[]GetResolverForwardingRuleTargetDnsServer]{
+		OutputState: i.ToGetResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetResolverForwardingRuleTargetDnsServerOutput struct{ *pulumi.OutputState }
 
 func (GetResolverForwardingRuleTargetDnsServerOutput) ElementType() reflect.Type {
@@ -1188,6 +1393,12 @@ func (o GetResolverForwardingRuleTargetDnsServerOutput) ToGetResolverForwardingR
 
 func (o GetResolverForwardingRuleTargetDnsServerOutput) ToGetResolverForwardingRuleTargetDnsServerOutputWithContext(ctx context.Context) GetResolverForwardingRuleTargetDnsServerOutput {
 	return o
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerOutput) ToOutput(ctx context.Context) pulumix.Output[GetResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[GetResolverForwardingRuleTargetDnsServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The DNS server IP address.
@@ -1212,6 +1423,12 @@ func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) ToGetResolverForwar
 
 func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) ToGetResolverForwardingRuleTargetDnsServerArrayOutputWithContext(ctx context.Context) GetResolverForwardingRuleTargetDnsServerArrayOutput {
 	return o
+}
+
+func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverForwardingRuleTargetDnsServer] {
+	return pulumix.Output[[]GetResolverForwardingRuleTargetDnsServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInput) GetResolverForwardingRuleTargetDnsServerOutput {
@@ -1261,6 +1478,12 @@ func (i GetResolverInboundEndpointIpConfigurationArgs) ToGetResolverInboundEndpo
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverInboundEndpointIpConfigurationOutput)
 }
 
+func (i GetResolverInboundEndpointIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[GetResolverInboundEndpointIpConfiguration]{
+		OutputState: i.ToGetResolverInboundEndpointIpConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetResolverInboundEndpointIpConfigurationArrayInput is an input type that accepts GetResolverInboundEndpointIpConfigurationArray and GetResolverInboundEndpointIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetResolverInboundEndpointIpConfigurationArrayInput` via:
 //
@@ -1286,6 +1509,12 @@ func (i GetResolverInboundEndpointIpConfigurationArray) ToGetResolverInboundEndp
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverInboundEndpointIpConfigurationArrayOutput)
 }
 
+func (i GetResolverInboundEndpointIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[[]GetResolverInboundEndpointIpConfiguration]{
+		OutputState: i.ToGetResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetResolverInboundEndpointIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetResolverInboundEndpointIpConfigurationOutput) ElementType() reflect.Type {
@@ -1298,6 +1527,12 @@ func (o GetResolverInboundEndpointIpConfigurationOutput) ToGetResolverInboundEnd
 
 func (o GetResolverInboundEndpointIpConfigurationOutput) ToGetResolverInboundEndpointIpConfigurationOutputWithContext(ctx context.Context) GetResolverInboundEndpointIpConfigurationOutput {
 	return o
+}
+
+func (o GetResolverInboundEndpointIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[GetResolverInboundEndpointIpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The private IP address of the IP configuration.
@@ -1327,6 +1562,12 @@ func (o GetResolverInboundEndpointIpConfigurationArrayOutput) ToGetResolverInbou
 
 func (o GetResolverInboundEndpointIpConfigurationArrayOutput) ToGetResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) GetResolverInboundEndpointIpConfigurationArrayOutput {
 	return o
+}
+
+func (o GetResolverInboundEndpointIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverInboundEndpointIpConfiguration] {
+	return pulumix.Output[[]GetResolverInboundEndpointIpConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetResolverInboundEndpointIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetResolverInboundEndpointIpConfigurationOutput {
@@ -1380,6 +1621,12 @@ func (i GetSrvRecordRecordArgs) ToGetSrvRecordRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSrvRecordRecordOutput)
 }
 
+func (i GetSrvRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetSrvRecordRecord] {
+	return pulumix.Output[GetSrvRecordRecord]{
+		OutputState: i.ToGetSrvRecordRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSrvRecordRecordArrayInput is an input type that accepts GetSrvRecordRecordArray and GetSrvRecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetSrvRecordRecordArrayInput` via:
 //
@@ -1405,6 +1652,12 @@ func (i GetSrvRecordRecordArray) ToGetSrvRecordRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSrvRecordRecordArrayOutput)
 }
 
+func (i GetSrvRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSrvRecordRecord] {
+	return pulumix.Output[[]GetSrvRecordRecord]{
+		OutputState: i.ToGetSrvRecordRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSrvRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetSrvRecordRecordOutput) ElementType() reflect.Type {
@@ -1417,6 +1670,12 @@ func (o GetSrvRecordRecordOutput) ToGetSrvRecordRecordOutput() GetSrvRecordRecor
 
 func (o GetSrvRecordRecordOutput) ToGetSrvRecordRecordOutputWithContext(ctx context.Context) GetSrvRecordRecordOutput {
 	return o
+}
+
+func (o GetSrvRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetSrvRecordRecord] {
+	return pulumix.Output[GetSrvRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Port the service is listening on.
@@ -1451,6 +1710,12 @@ func (o GetSrvRecordRecordArrayOutput) ToGetSrvRecordRecordArrayOutput() GetSrvR
 
 func (o GetSrvRecordRecordArrayOutput) ToGetSrvRecordRecordArrayOutputWithContext(ctx context.Context) GetSrvRecordRecordArrayOutput {
 	return o
+}
+
+func (o GetSrvRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSrvRecordRecord] {
+	return pulumix.Output[[]GetSrvRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSrvRecordRecordArrayOutput) Index(i pulumi.IntInput) GetSrvRecordRecordOutput {
@@ -1492,6 +1757,12 @@ func (i GetTxtRecordRecordArgs) ToGetTxtRecordRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetTxtRecordRecordOutput)
 }
 
+func (i GetTxtRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetTxtRecordRecord] {
+	return pulumix.Output[GetTxtRecordRecord]{
+		OutputState: i.ToGetTxtRecordRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTxtRecordRecordArrayInput is an input type that accepts GetTxtRecordRecordArray and GetTxtRecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetTxtRecordRecordArrayInput` via:
 //
@@ -1517,6 +1788,12 @@ func (i GetTxtRecordRecordArray) ToGetTxtRecordRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetTxtRecordRecordArrayOutput)
 }
 
+func (i GetTxtRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTxtRecordRecord] {
+	return pulumix.Output[[]GetTxtRecordRecord]{
+		OutputState: i.ToGetTxtRecordRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTxtRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetTxtRecordRecordOutput) ElementType() reflect.Type {
@@ -1529,6 +1806,12 @@ func (o GetTxtRecordRecordOutput) ToGetTxtRecordRecordOutput() GetTxtRecordRecor
 
 func (o GetTxtRecordRecordOutput) ToGetTxtRecordRecordOutputWithContext(ctx context.Context) GetTxtRecordRecordOutput {
 	return o
+}
+
+func (o GetTxtRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetTxtRecordRecord] {
+	return pulumix.Output[GetTxtRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value of the record. Max length: 1024 characters
@@ -1548,6 +1831,12 @@ func (o GetTxtRecordRecordArrayOutput) ToGetTxtRecordRecordArrayOutput() GetTxtR
 
 func (o GetTxtRecordRecordArrayOutput) ToGetTxtRecordRecordArrayOutputWithContext(ctx context.Context) GetTxtRecordRecordArrayOutput {
 	return o
+}
+
+func (o GetTxtRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTxtRecordRecord] {
+	return pulumix.Output[[]GetTxtRecordRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTxtRecordRecordArrayOutput) Index(i pulumi.IntInput) GetTxtRecordRecordOutput {

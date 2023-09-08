@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private DNS Resolver.
@@ -199,6 +200,12 @@ func (i *Resolver) ToResolverOutputWithContext(ctx context.Context) ResolverOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverOutput)
 }
 
+func (i *Resolver) ToOutput(ctx context.Context) pulumix.Output[*Resolver] {
+	return pulumix.Output[*Resolver]{
+		OutputState: i.ToResolverOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverArrayInput is an input type that accepts ResolverArray and ResolverArrayOutput values.
 // You can construct a concrete instance of `ResolverArrayInput` via:
 //
@@ -222,6 +229,12 @@ func (i ResolverArray) ToResolverArrayOutput() ResolverArrayOutput {
 
 func (i ResolverArray) ToResolverArrayOutputWithContext(ctx context.Context) ResolverArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverArrayOutput)
+}
+
+func (i ResolverArray) ToOutput(ctx context.Context) pulumix.Output[[]*Resolver] {
+	return pulumix.Output[[]*Resolver]{
+		OutputState: i.ToResolverArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverMapInput is an input type that accepts ResolverMap and ResolverMapOutput values.
@@ -249,6 +262,12 @@ func (i ResolverMap) ToResolverMapOutputWithContext(ctx context.Context) Resolve
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverMapOutput)
 }
 
+func (i ResolverMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resolver] {
+	return pulumix.Output[map[string]*Resolver]{
+		OutputState: i.ToResolverMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverOutput struct{ *pulumi.OutputState }
 
 func (ResolverOutput) ElementType() reflect.Type {
@@ -261,6 +280,12 @@ func (o ResolverOutput) ToResolverOutput() ResolverOutput {
 
 func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) ResolverOutput {
 	return o
+}
+
+func (o ResolverOutput) ToOutput(ctx context.Context) pulumix.Output[*Resolver] {
+	return pulumix.Output[*Resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
@@ -302,6 +327,12 @@ func (o ResolverArrayOutput) ToResolverArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResolverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Resolver] {
+	return pulumix.Output[[]*Resolver]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverArrayOutput) Index(i pulumi.IntInput) ResolverOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Resolver {
 		return vs[0].([]*Resolver)[vs[1].(int)]
@@ -320,6 +351,12 @@ func (o ResolverMapOutput) ToResolverMapOutput() ResolverMapOutput {
 
 func (o ResolverMapOutput) ToResolverMapOutputWithContext(ctx context.Context) ResolverMapOutput {
 	return o
+}
+
+func (o ResolverMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Resolver] {
+	return pulumix.Output[map[string]*Resolver]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverMapOutput) MapIndex(k pulumi.StringInput) ResolverOutput {

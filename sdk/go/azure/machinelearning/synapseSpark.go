@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
@@ -300,6 +301,12 @@ func (i *SynapseSpark) ToSynapseSparkOutputWithContext(ctx context.Context) Syna
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkOutput)
 }
 
+func (i *SynapseSpark) ToOutput(ctx context.Context) pulumix.Output[*SynapseSpark] {
+	return pulumix.Output[*SynapseSpark]{
+		OutputState: i.ToSynapseSparkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SynapseSparkArrayInput is an input type that accepts SynapseSparkArray and SynapseSparkArrayOutput values.
 // You can construct a concrete instance of `SynapseSparkArrayInput` via:
 //
@@ -323,6 +330,12 @@ func (i SynapseSparkArray) ToSynapseSparkArrayOutput() SynapseSparkArrayOutput {
 
 func (i SynapseSparkArray) ToSynapseSparkArrayOutputWithContext(ctx context.Context) SynapseSparkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkArrayOutput)
+}
+
+func (i SynapseSparkArray) ToOutput(ctx context.Context) pulumix.Output[[]*SynapseSpark] {
+	return pulumix.Output[[]*SynapseSpark]{
+		OutputState: i.ToSynapseSparkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SynapseSparkMapInput is an input type that accepts SynapseSparkMap and SynapseSparkMapOutput values.
@@ -350,6 +363,12 @@ func (i SynapseSparkMap) ToSynapseSparkMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkMapOutput)
 }
 
+func (i SynapseSparkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SynapseSpark] {
+	return pulumix.Output[map[string]*SynapseSpark]{
+		OutputState: i.ToSynapseSparkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SynapseSparkOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkOutput) ElementType() reflect.Type {
@@ -362,6 +381,12 @@ func (o SynapseSparkOutput) ToSynapseSparkOutput() SynapseSparkOutput {
 
 func (o SynapseSparkOutput) ToSynapseSparkOutputWithContext(ctx context.Context) SynapseSparkOutput {
 	return o
+}
+
+func (o SynapseSparkOutput) ToOutput(ctx context.Context) pulumix.Output[*SynapseSpark] {
+	return pulumix.Output[*SynapseSpark]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -418,6 +443,12 @@ func (o SynapseSparkArrayOutput) ToSynapseSparkArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o SynapseSparkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SynapseSpark] {
+	return pulumix.Output[[]*SynapseSpark]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SynapseSparkArrayOutput) Index(i pulumi.IntInput) SynapseSparkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SynapseSpark {
 		return vs[0].([]*SynapseSpark)[vs[1].(int)]
@@ -436,6 +467,12 @@ func (o SynapseSparkMapOutput) ToSynapseSparkMapOutput() SynapseSparkMapOutput {
 
 func (o SynapseSparkMapOutput) ToSynapseSparkMapOutputWithContext(ctx context.Context) SynapseSparkMapOutput {
 	return o
+}
+
+func (o SynapseSparkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SynapseSpark] {
+	return pulumix.Output[map[string]*SynapseSpark]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SynapseSparkMapOutput) MapIndex(k pulumi.StringInput) SynapseSparkOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Media Live Event Output.
@@ -281,6 +282,12 @@ func (i *LiveEventOutputResource) ToLiveEventOutputResourceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourceOutput)
 }
 
+func (i *LiveEventOutputResource) ToOutput(ctx context.Context) pulumix.Output[*LiveEventOutputResource] {
+	return pulumix.Output[*LiveEventOutputResource]{
+		OutputState: i.ToLiveEventOutputResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LiveEventOutputResourceArrayInput is an input type that accepts LiveEventOutputResourceArray and LiveEventOutputResourceArrayOutput values.
 // You can construct a concrete instance of `LiveEventOutputResourceArrayInput` via:
 //
@@ -304,6 +311,12 @@ func (i LiveEventOutputResourceArray) ToLiveEventOutputResourceArrayOutput() Liv
 
 func (i LiveEventOutputResourceArray) ToLiveEventOutputResourceArrayOutputWithContext(ctx context.Context) LiveEventOutputResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourceArrayOutput)
+}
+
+func (i LiveEventOutputResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*LiveEventOutputResource] {
+	return pulumix.Output[[]*LiveEventOutputResource]{
+		OutputState: i.ToLiveEventOutputResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LiveEventOutputResourceMapInput is an input type that accepts LiveEventOutputResourceMap and LiveEventOutputResourceMapOutput values.
@@ -331,6 +344,12 @@ func (i LiveEventOutputResourceMap) ToLiveEventOutputResourceMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputResourceMapOutput)
 }
 
+func (i LiveEventOutputResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LiveEventOutputResource] {
+	return pulumix.Output[map[string]*LiveEventOutputResource]{
+		OutputState: i.ToLiveEventOutputResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LiveEventOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutputResourceOutput) ElementType() reflect.Type {
@@ -343,6 +362,12 @@ func (o LiveEventOutputResourceOutput) ToLiveEventOutputResourceOutput() LiveEve
 
 func (o LiveEventOutputResourceOutput) ToLiveEventOutputResourceOutputWithContext(ctx context.Context) LiveEventOutputResourceOutput {
 	return o
+}
+
+func (o LiveEventOutputResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveEventOutputResource] {
+	return pulumix.Output[*LiveEventOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
@@ -403,6 +428,12 @@ func (o LiveEventOutputResourceArrayOutput) ToLiveEventOutputResourceArrayOutput
 	return o
 }
 
+func (o LiveEventOutputResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LiveEventOutputResource] {
+	return pulumix.Output[[]*LiveEventOutputResource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LiveEventOutputResourceArrayOutput) Index(i pulumi.IntInput) LiveEventOutputResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LiveEventOutputResource {
 		return vs[0].([]*LiveEventOutputResource)[vs[1].(int)]
@@ -421,6 +452,12 @@ func (o LiveEventOutputResourceMapOutput) ToLiveEventOutputResourceMapOutput() L
 
 func (o LiveEventOutputResourceMapOutput) ToLiveEventOutputResourceMapOutputWithContext(ctx context.Context) LiveEventOutputResourceMapOutput {
 	return o
+}
+
+func (o LiveEventOutputResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LiveEventOutputResource] {
+	return pulumix.Output[map[string]*LiveEventOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LiveEventOutputResourceMapOutput) MapIndex(k pulumi.StringInput) LiveEventOutputResourceOutput {

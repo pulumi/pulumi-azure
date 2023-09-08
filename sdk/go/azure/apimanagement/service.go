@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -105,7 +106,9 @@ type Service struct {
 	PublicIpAddressId pulumi.StringPtrOutput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
-	// Is public access to the service allowed?. Defaults to `true`
+	// Is public access to the service allowed? Defaults to `true`.
+	//
+	// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringOutput `pulumi:"publisherEmail"`
@@ -229,7 +232,9 @@ type serviceState struct {
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
-	// Is public access to the service allowed?. Defaults to `true`
+	// Is public access to the service allowed? Defaults to `true`.
+	//
+	// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail *string `pulumi:"publisherEmail"`
@@ -312,7 +317,9 @@ type ServiceState struct {
 	PublicIpAddressId pulumi.StringPtrInput
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput
-	// Is public access to the service allowed?. Defaults to `true`
+	// Is public access to the service allowed? Defaults to `true`.
+	//
+	// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringPtrInput
@@ -385,7 +392,9 @@ type serviceArgs struct {
 	//
 	// > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
-	// Is public access to the service allowed?. Defaults to `true`
+	// Is public access to the service allowed? Defaults to `true`.
+	//
+	// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The email of publisher/company.
 	PublisherEmail string `pulumi:"publisherEmail"`
@@ -453,7 +462,9 @@ type ServiceArgs struct {
 	//
 	// > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
 	PublicIpAddressId pulumi.StringPtrInput
-	// Is public access to the service allowed?. Defaults to `true`
+	// Is public access to the service allowed? Defaults to `true`.
+	//
+	// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringInput
@@ -512,6 +523,12 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
+func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
@@ -535,6 +552,12 @@ func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
 
 func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) ServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceArrayOutput)
+}
+
+func (i ServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: i.ToServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
@@ -562,6 +585,12 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
+func (i ServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: i.ToServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -574,6 +603,12 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `additionalLocation` blocks as defined below.
@@ -683,7 +718,9 @@ func (o ServiceOutput) PublicIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringArrayOutput { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Is public access to the service allowed?. Defaults to `true`
+// Is public access to the service allowed? Defaults to `true`.
+//
+// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
 func (o ServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -775,6 +812,12 @@ func (o ServiceArrayOutput) ToServiceArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceArrayOutput) Index(i pulumi.IntInput) ServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Service {
 		return vs[0].([]*Service)[vs[1].(int)]
@@ -793,6 +836,12 @@ func (o ServiceMapOutput) ToServiceMapOutput() ServiceMapOutput {
 
 func (o ServiceMapOutput) ToServiceMapOutputWithContext(ctx context.Context) ServiceMapOutput {
 	return o
+}
+
+func (o ServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {

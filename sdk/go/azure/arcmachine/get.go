@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Azure Arc machine.
@@ -159,6 +160,12 @@ func (o GetResultOutput) ToGetResultOutput() GetResultOutput {
 
 func (o GetResultOutput) ToGetResultOutputWithContext(ctx context.Context) GetResultOutput {
 	return o
+}
+
+func (o GetResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResult] {
+	return pulumix.Output[GetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the AD fully qualified display name.

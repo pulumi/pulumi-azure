@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an association between Private Endpoint and Application Security Group.
@@ -264,6 +265,12 @@ func (i *ApplicationSecurityGroupAssociation) ToApplicationSecurityGroupAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupAssociationOutput)
 }
 
+func (i *ApplicationSecurityGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSecurityGroupAssociation] {
+	return pulumix.Output[*ApplicationSecurityGroupAssociation]{
+		OutputState: i.ToApplicationSecurityGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationSecurityGroupAssociationArrayInput is an input type that accepts ApplicationSecurityGroupAssociationArray and ApplicationSecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `ApplicationSecurityGroupAssociationArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i ApplicationSecurityGroupAssociationArray) ToApplicationSecurityGroupAsso
 
 func (i ApplicationSecurityGroupAssociationArray) ToApplicationSecurityGroupAssociationArrayOutputWithContext(ctx context.Context) ApplicationSecurityGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupAssociationArrayOutput)
+}
+
+func (i ApplicationSecurityGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSecurityGroupAssociation] {
+	return pulumix.Output[[]*ApplicationSecurityGroupAssociation]{
+		OutputState: i.ToApplicationSecurityGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationSecurityGroupAssociationMapInput is an input type that accepts ApplicationSecurityGroupAssociationMap and ApplicationSecurityGroupAssociationMapOutput values.
@@ -314,6 +327,12 @@ func (i ApplicationSecurityGroupAssociationMap) ToApplicationSecurityGroupAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupAssociationMapOutput)
 }
 
+func (i ApplicationSecurityGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSecurityGroupAssociation] {
+	return pulumix.Output[map[string]*ApplicationSecurityGroupAssociation]{
+		OutputState: i.ToApplicationSecurityGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationSecurityGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSecurityGroupAssociationOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o ApplicationSecurityGroupAssociationOutput) ToApplicationSecurityGroupAss
 
 func (o ApplicationSecurityGroupAssociationOutput) ToApplicationSecurityGroupAssociationOutputWithContext(ctx context.Context) ApplicationSecurityGroupAssociationOutput {
 	return o
+}
+
+func (o ApplicationSecurityGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSecurityGroupAssociation] {
+	return pulumix.Output[*ApplicationSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The id of application security group to associate. Changing this forces a new resource to be created.
@@ -352,6 +377,12 @@ func (o ApplicationSecurityGroupAssociationArrayOutput) ToApplicationSecurityGro
 	return o
 }
 
+func (o ApplicationSecurityGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSecurityGroupAssociation] {
+	return pulumix.Output[[]*ApplicationSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationSecurityGroupAssociationArrayOutput) Index(i pulumi.IntInput) ApplicationSecurityGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationSecurityGroupAssociation {
 		return vs[0].([]*ApplicationSecurityGroupAssociation)[vs[1].(int)]
@@ -370,6 +401,12 @@ func (o ApplicationSecurityGroupAssociationMapOutput) ToApplicationSecurityGroup
 
 func (o ApplicationSecurityGroupAssociationMapOutput) ToApplicationSecurityGroupAssociationMapOutputWithContext(ctx context.Context) ApplicationSecurityGroupAssociationMapOutput {
 	return o
+}
+
+func (o ApplicationSecurityGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSecurityGroupAssociation] {
+	return pulumix.Output[map[string]*ApplicationSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationSecurityGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) ApplicationSecurityGroupAssociationOutput {

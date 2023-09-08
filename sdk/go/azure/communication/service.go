@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Communication Service.
@@ -198,6 +199,12 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
+func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
@@ -221,6 +228,12 @@ func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
 
 func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) ServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceArrayOutput)
+}
+
+func (i ServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: i.ToServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
@@ -248,6 +261,12 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
+func (i ServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: i.ToServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -260,6 +279,12 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
+}
+
+func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
+	return pulumix.Output[*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
@@ -316,6 +341,12 @@ func (o ServiceArrayOutput) ToServiceArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
+	return pulumix.Output[[]*Service]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceArrayOutput) Index(i pulumi.IntInput) ServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Service {
 		return vs[0].([]*Service)[vs[1].(int)]
@@ -334,6 +365,12 @@ func (o ServiceMapOutput) ToServiceMapOutput() ServiceMapOutput {
 
 func (o ServiceMapOutput) ToServiceMapOutputWithContext(ctx context.Context) ServiceMapOutput {
 	return o
+}
+
+func (o ServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
+	return pulumix.Output[map[string]*Service]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {

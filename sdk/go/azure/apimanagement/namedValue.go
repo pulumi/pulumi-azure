@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Named Value.
@@ -249,6 +250,12 @@ func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedVal
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
 }
 
+func (i *NamedValue) ToOutput(ctx context.Context) pulumix.Output[*NamedValue] {
+	return pulumix.Output[*NamedValue]{
+		OutputState: i.ToNamedValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamedValueArrayInput is an input type that accepts NamedValueArray and NamedValueArrayOutput values.
 // You can construct a concrete instance of `NamedValueArrayInput` via:
 //
@@ -272,6 +279,12 @@ func (i NamedValueArray) ToNamedValueArrayOutput() NamedValueArrayOutput {
 
 func (i NamedValueArray) ToNamedValueArrayOutputWithContext(ctx context.Context) NamedValueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueArrayOutput)
+}
+
+func (i NamedValueArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamedValue] {
+	return pulumix.Output[[]*NamedValue]{
+		OutputState: i.ToNamedValueArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NamedValueMapInput is an input type that accepts NamedValueMap and NamedValueMapOutput values.
@@ -299,6 +312,12 @@ func (i NamedValueMap) ToNamedValueMapOutputWithContext(ctx context.Context) Nam
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueMapOutput)
 }
 
+func (i NamedValueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamedValue] {
+	return pulumix.Output[map[string]*NamedValue]{
+		OutputState: i.ToNamedValueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
@@ -311,6 +330,12 @@ func (o NamedValueOutput) ToNamedValueOutput() NamedValueOutput {
 
 func (o NamedValueOutput) ToNamedValueOutputWithContext(ctx context.Context) NamedValueOutput {
 	return o
+}
+
+func (o NamedValueOutput) ToOutput(ctx context.Context) pulumix.Output[*NamedValue] {
+	return pulumix.Output[*NamedValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -369,6 +394,12 @@ func (o NamedValueArrayOutput) ToNamedValueArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o NamedValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamedValue] {
+	return pulumix.Output[[]*NamedValue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NamedValueArrayOutput) Index(i pulumi.IntInput) NamedValueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamedValue {
 		return vs[0].([]*NamedValue)[vs[1].(int)]
@@ -387,6 +418,12 @@ func (o NamedValueMapOutput) ToNamedValueMapOutput() NamedValueMapOutput {
 
 func (o NamedValueMapOutput) ToNamedValueMapOutputWithContext(ctx context.Context) NamedValueMapOutput {
 	return o
+}
+
+func (o NamedValueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamedValue] {
+	return pulumix.Output[map[string]*NamedValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamedValueMapOutput) MapIndex(k pulumi.StringInput) NamedValueOutput {

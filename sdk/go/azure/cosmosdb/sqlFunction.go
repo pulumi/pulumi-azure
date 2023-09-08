@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an SQL User Defined Function.
@@ -184,6 +185,12 @@ func (i *SqlFunction) ToSqlFunctionOutputWithContext(ctx context.Context) SqlFun
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionOutput)
 }
 
+func (i *SqlFunction) ToOutput(ctx context.Context) pulumix.Output[*SqlFunction] {
+	return pulumix.Output[*SqlFunction]{
+		OutputState: i.ToSqlFunctionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlFunctionArrayInput is an input type that accepts SqlFunctionArray and SqlFunctionArrayOutput values.
 // You can construct a concrete instance of `SqlFunctionArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i SqlFunctionArray) ToSqlFunctionArrayOutput() SqlFunctionArrayOutput {
 
 func (i SqlFunctionArray) ToSqlFunctionArrayOutputWithContext(ctx context.Context) SqlFunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionArrayOutput)
+}
+
+func (i SqlFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlFunction] {
+	return pulumix.Output[[]*SqlFunction]{
+		OutputState: i.ToSqlFunctionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlFunctionMapInput is an input type that accepts SqlFunctionMap and SqlFunctionMapOutput values.
@@ -234,6 +247,12 @@ func (i SqlFunctionMap) ToSqlFunctionMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionMapOutput)
 }
 
+func (i SqlFunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlFunction] {
+	return pulumix.Output[map[string]*SqlFunction]{
+		OutputState: i.ToSqlFunctionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlFunctionOutput struct{ *pulumi.OutputState }
 
 func (SqlFunctionOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o SqlFunctionOutput) ToSqlFunctionOutput() SqlFunctionOutput {
 
 func (o SqlFunctionOutput) ToSqlFunctionOutputWithContext(ctx context.Context) SqlFunctionOutput {
 	return o
+}
+
+func (o SqlFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlFunction] {
+	return pulumix.Output[*SqlFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Body of the User Defined Function.
@@ -277,6 +302,12 @@ func (o SqlFunctionArrayOutput) ToSqlFunctionArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SqlFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlFunction] {
+	return pulumix.Output[[]*SqlFunction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlFunctionArrayOutput) Index(i pulumi.IntInput) SqlFunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlFunction {
 		return vs[0].([]*SqlFunction)[vs[1].(int)]
@@ -295,6 +326,12 @@ func (o SqlFunctionMapOutput) ToSqlFunctionMapOutput() SqlFunctionMapOutput {
 
 func (o SqlFunctionMapOutput) ToSqlFunctionMapOutputWithContext(ctx context.Context) SqlFunctionMapOutput {
 	return o
+}
+
+func (o SqlFunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlFunction] {
+	return pulumix.Output[map[string]*SqlFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlFunctionMapOutput) MapIndex(k pulumi.StringInput) SqlFunctionOutput {

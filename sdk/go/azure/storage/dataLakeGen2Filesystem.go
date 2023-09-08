@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Lake Gen2 File System within an Azure Storage Account.
@@ -219,6 +220,12 @@ func (i *DataLakeGen2Filesystem) ToDataLakeGen2FilesystemOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemOutput)
 }
 
+func (i *DataLakeGen2Filesystem) ToOutput(ctx context.Context) pulumix.Output[*DataLakeGen2Filesystem] {
+	return pulumix.Output[*DataLakeGen2Filesystem]{
+		OutputState: i.ToDataLakeGen2FilesystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataLakeGen2FilesystemArrayInput is an input type that accepts DataLakeGen2FilesystemArray and DataLakeGen2FilesystemArrayOutput values.
 // You can construct a concrete instance of `DataLakeGen2FilesystemArrayInput` via:
 //
@@ -242,6 +249,12 @@ func (i DataLakeGen2FilesystemArray) ToDataLakeGen2FilesystemArrayOutput() DataL
 
 func (i DataLakeGen2FilesystemArray) ToDataLakeGen2FilesystemArrayOutputWithContext(ctx context.Context) DataLakeGen2FilesystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemArrayOutput)
+}
+
+func (i DataLakeGen2FilesystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeGen2Filesystem] {
+	return pulumix.Output[[]*DataLakeGen2Filesystem]{
+		OutputState: i.ToDataLakeGen2FilesystemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataLakeGen2FilesystemMapInput is an input type that accepts DataLakeGen2FilesystemMap and DataLakeGen2FilesystemMapOutput values.
@@ -269,6 +282,12 @@ func (i DataLakeGen2FilesystemMap) ToDataLakeGen2FilesystemMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemMapOutput)
 }
 
+func (i DataLakeGen2FilesystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeGen2Filesystem] {
+	return pulumix.Output[map[string]*DataLakeGen2Filesystem]{
+		OutputState: i.ToDataLakeGen2FilesystemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataLakeGen2FilesystemOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2FilesystemOutput) ElementType() reflect.Type {
@@ -281,6 +300,12 @@ func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemOutput() DataLakeG
 
 func (o DataLakeGen2FilesystemOutput) ToDataLakeGen2FilesystemOutputWithContext(ctx context.Context) DataLakeGen2FilesystemOutput {
 	return o
+}
+
+func (o DataLakeGen2FilesystemOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeGen2Filesystem] {
+	return pulumix.Output[*DataLakeGen2Filesystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
@@ -329,6 +354,12 @@ func (o DataLakeGen2FilesystemArrayOutput) ToDataLakeGen2FilesystemArrayOutputWi
 	return o
 }
 
+func (o DataLakeGen2FilesystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeGen2Filesystem] {
+	return pulumix.Output[[]*DataLakeGen2Filesystem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataLakeGen2FilesystemArrayOutput) Index(i pulumi.IntInput) DataLakeGen2FilesystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataLakeGen2Filesystem {
 		return vs[0].([]*DataLakeGen2Filesystem)[vs[1].(int)]
@@ -347,6 +378,12 @@ func (o DataLakeGen2FilesystemMapOutput) ToDataLakeGen2FilesystemMapOutput() Dat
 
 func (o DataLakeGen2FilesystemMapOutput) ToDataLakeGen2FilesystemMapOutputWithContext(ctx context.Context) DataLakeGen2FilesystemMapOutput {
 	return o
+}
+
+func (o DataLakeGen2FilesystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeGen2Filesystem] {
+	return pulumix.Output[map[string]*DataLakeGen2Filesystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataLakeGen2FilesystemMapOutput) MapIndex(k pulumi.StringInput) DataLakeGen2FilesystemOutput {

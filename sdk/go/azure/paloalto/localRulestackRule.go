@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Local Rulestack Rule.
@@ -370,6 +371,12 @@ func (i *LocalRulestackRule) ToLocalRulestackRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleOutput)
 }
 
+func (i *LocalRulestackRule) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRule] {
+	return pulumix.Output[*LocalRulestackRule]{
+		OutputState: i.ToLocalRulestackRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalRulestackRuleArrayInput is an input type that accepts LocalRulestackRuleArray and LocalRulestackRuleArrayOutput values.
 // You can construct a concrete instance of `LocalRulestackRuleArrayInput` via:
 //
@@ -393,6 +400,12 @@ func (i LocalRulestackRuleArray) ToLocalRulestackRuleArrayOutput() LocalRulestac
 
 func (i LocalRulestackRuleArray) ToLocalRulestackRuleArrayOutputWithContext(ctx context.Context) LocalRulestackRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleArrayOutput)
+}
+
+func (i LocalRulestackRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackRule] {
+	return pulumix.Output[[]*LocalRulestackRule]{
+		OutputState: i.ToLocalRulestackRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalRulestackRuleMapInput is an input type that accepts LocalRulestackRuleMap and LocalRulestackRuleMapOutput values.
@@ -420,6 +433,12 @@ func (i LocalRulestackRuleMap) ToLocalRulestackRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleMapOutput)
 }
 
+func (i LocalRulestackRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackRule] {
+	return pulumix.Output[map[string]*LocalRulestackRule]{
+		OutputState: i.ToLocalRulestackRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRulestackRuleOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackRuleOutput) ElementType() reflect.Type {
@@ -432,6 +451,12 @@ func (o LocalRulestackRuleOutput) ToLocalRulestackRuleOutput() LocalRulestackRul
 
 func (o LocalRulestackRuleOutput) ToLocalRulestackRuleOutputWithContext(ctx context.Context) LocalRulestackRuleOutput {
 	return o
+}
+
+func (o LocalRulestackRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRule] {
+	return pulumix.Output[*LocalRulestackRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to take on the rule being triggered.
@@ -545,6 +570,12 @@ func (o LocalRulestackRuleArrayOutput) ToLocalRulestackRuleArrayOutputWithContex
 	return o
 }
 
+func (o LocalRulestackRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackRule] {
+	return pulumix.Output[[]*LocalRulestackRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalRulestackRuleArrayOutput) Index(i pulumi.IntInput) LocalRulestackRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRulestackRule {
 		return vs[0].([]*LocalRulestackRule)[vs[1].(int)]
@@ -563,6 +594,12 @@ func (o LocalRulestackRuleMapOutput) ToLocalRulestackRuleMapOutput() LocalRulest
 
 func (o LocalRulestackRuleMapOutput) ToLocalRulestackRuleMapOutputWithContext(ctx context.Context) LocalRulestackRuleMapOutput {
 	return o
+}
+
+func (o LocalRulestackRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackRule] {
+	return pulumix.Output[map[string]*LocalRulestackRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRulestackRuleMapOutput) MapIndex(k pulumi.StringInput) LocalRulestackRuleOutput {

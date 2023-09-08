@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing CosmosDB SQL Database.
@@ -113,6 +114,12 @@ func (o LookupSqlDatabaseResultOutput) ToLookupSqlDatabaseResultOutput() LookupS
 
 func (o LookupSqlDatabaseResultOutput) ToLookupSqlDatabaseResultOutputWithContext(ctx context.Context) LookupSqlDatabaseResultOutput {
 	return o
+}
+
+func (o LookupSqlDatabaseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSqlDatabaseResult] {
+	return pulumix.Output[LookupSqlDatabaseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSqlDatabaseResultOutput) AccountName() pulumi.StringOutput {

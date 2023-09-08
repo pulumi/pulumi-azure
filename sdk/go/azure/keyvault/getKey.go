@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Key Vault Key.
@@ -138,6 +139,12 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutput() LookupKeyResultOutput {
 
 func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Context) LookupKeyResultOutput {
 	return o
+}
+
+func (o LookupKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyResult] {
+	return pulumix.Output[LookupKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The EC Curve name of this Key Vault Key.

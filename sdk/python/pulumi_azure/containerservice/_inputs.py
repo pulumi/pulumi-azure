@@ -6180,9 +6180,9 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
                
                > **Note:** This property can only be set when `network_plugin` is set to `azure`.
-        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
                
-               > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+               > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
@@ -6362,9 +6362,9 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkPluginMode")
     def network_plugin_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 
-        > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+        > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
         """
         return pulumi.get(self, "network_plugin_mode")
 

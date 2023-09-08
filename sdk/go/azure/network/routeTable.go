@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route Table
@@ -224,6 +225,12 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
 }
 
+func (i *RouteTable) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
+	return pulumix.Output[*RouteTable]{
+		OutputState: i.ToRouteTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteTableArrayInput is an input type that accepts RouteTableArray and RouteTableArrayOutput values.
 // You can construct a concrete instance of `RouteTableArrayInput` via:
 //
@@ -247,6 +254,12 @@ func (i RouteTableArray) ToRouteTableArrayOutput() RouteTableArrayOutput {
 
 func (i RouteTableArray) ToRouteTableArrayOutputWithContext(ctx context.Context) RouteTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableArrayOutput)
+}
+
+func (i RouteTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTable] {
+	return pulumix.Output[[]*RouteTable]{
+		OutputState: i.ToRouteTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteTableMapInput is an input type that accepts RouteTableMap and RouteTableMapOutput values.
@@ -274,6 +287,12 @@ func (i RouteTableMap) ToRouteTableMapOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableMapOutput)
 }
 
+func (i RouteTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTable] {
+	return pulumix.Output[map[string]*RouteTable]{
+		OutputState: i.ToRouteTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
@@ -286,6 +305,12 @@ func (o RouteTableOutput) ToRouteTableOutput() RouteTableOutput {
 
 func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput {
 	return o
+}
+
+func (o RouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
+	return pulumix.Output[*RouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
@@ -339,6 +364,12 @@ func (o RouteTableArrayOutput) ToRouteTableArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o RouteTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTable] {
+	return pulumix.Output[[]*RouteTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTableArrayOutput) Index(i pulumi.IntInput) RouteTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteTable {
 		return vs[0].([]*RouteTable)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o RouteTableMapOutput) ToRouteTableMapOutput() RouteTableMapOutput {
 
 func (o RouteTableMapOutput) ToRouteTableMapOutputWithContext(ctx context.Context) RouteTableMapOutput {
 	return o
+}
+
+func (o RouteTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTable] {
+	return pulumix.Output[map[string]*RouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTableMapOutput) MapIndex(k pulumi.StringInput) RouteTableOutput {

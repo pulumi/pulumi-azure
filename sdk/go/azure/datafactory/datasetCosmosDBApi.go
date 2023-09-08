@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
@@ -271,6 +272,12 @@ func (i *DatasetCosmosDBApi) ToDatasetCosmosDBApiOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetCosmosDBApiOutput)
 }
 
+func (i *DatasetCosmosDBApi) ToOutput(ctx context.Context) pulumix.Output[*DatasetCosmosDBApi] {
+	return pulumix.Output[*DatasetCosmosDBApi]{
+		OutputState: i.ToDatasetCosmosDBApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetCosmosDBApiArrayInput is an input type that accepts DatasetCosmosDBApiArray and DatasetCosmosDBApiArrayOutput values.
 // You can construct a concrete instance of `DatasetCosmosDBApiArrayInput` via:
 //
@@ -294,6 +301,12 @@ func (i DatasetCosmosDBApiArray) ToDatasetCosmosDBApiArrayOutput() DatasetCosmos
 
 func (i DatasetCosmosDBApiArray) ToDatasetCosmosDBApiArrayOutputWithContext(ctx context.Context) DatasetCosmosDBApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetCosmosDBApiArrayOutput)
+}
+
+func (i DatasetCosmosDBApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetCosmosDBApi] {
+	return pulumix.Output[[]*DatasetCosmosDBApi]{
+		OutputState: i.ToDatasetCosmosDBApiArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatasetCosmosDBApiMapInput is an input type that accepts DatasetCosmosDBApiMap and DatasetCosmosDBApiMapOutput values.
@@ -321,6 +334,12 @@ func (i DatasetCosmosDBApiMap) ToDatasetCosmosDBApiMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetCosmosDBApiMapOutput)
 }
 
+func (i DatasetCosmosDBApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetCosmosDBApi] {
+	return pulumix.Output[map[string]*DatasetCosmosDBApi]{
+		OutputState: i.ToDatasetCosmosDBApiMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetCosmosDBApiOutput struct{ *pulumi.OutputState }
 
 func (DatasetCosmosDBApiOutput) ElementType() reflect.Type {
@@ -333,6 +352,12 @@ func (o DatasetCosmosDBApiOutput) ToDatasetCosmosDBApiOutput() DatasetCosmosDBAp
 
 func (o DatasetCosmosDBApiOutput) ToDatasetCosmosDBApiOutputWithContext(ctx context.Context) DatasetCosmosDBApiOutput {
 	return o
+}
+
+func (o DatasetCosmosDBApiOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetCosmosDBApi] {
+	return pulumix.Output[*DatasetCosmosDBApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -401,6 +426,12 @@ func (o DatasetCosmosDBApiArrayOutput) ToDatasetCosmosDBApiArrayOutputWithContex
 	return o
 }
 
+func (o DatasetCosmosDBApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetCosmosDBApi] {
+	return pulumix.Output[[]*DatasetCosmosDBApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetCosmosDBApiArrayOutput) Index(i pulumi.IntInput) DatasetCosmosDBApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetCosmosDBApi {
 		return vs[0].([]*DatasetCosmosDBApi)[vs[1].(int)]
@@ -419,6 +450,12 @@ func (o DatasetCosmosDBApiMapOutput) ToDatasetCosmosDBApiMapOutput() DatasetCosm
 
 func (o DatasetCosmosDBApiMapOutput) ToDatasetCosmosDBApiMapOutputWithContext(ctx context.Context) DatasetCosmosDBApiMapOutput {
 	return o
+}
+
+func (o DatasetCosmosDBApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetCosmosDBApi] {
+	return pulumix.Output[map[string]*DatasetCosmosDBApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetCosmosDBApiMapOutput) MapIndex(k pulumi.StringInput) DatasetCosmosDBApiOutput {

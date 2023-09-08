@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AzureNetwork DDoS Protection Plan.
@@ -184,6 +185,12 @@ func (i *DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DdosProtectionPlanOutput)
 }
 
+func (i *DdosProtectionPlan) ToOutput(ctx context.Context) pulumix.Output[*DdosProtectionPlan] {
+	return pulumix.Output[*DdosProtectionPlan]{
+		OutputState: i.ToDdosProtectionPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DdosProtectionPlanArrayInput is an input type that accepts DdosProtectionPlanArray and DdosProtectionPlanArrayOutput values.
 // You can construct a concrete instance of `DdosProtectionPlanArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i DdosProtectionPlanArray) ToDdosProtectionPlanArrayOutput() DdosProtectio
 
 func (i DdosProtectionPlanArray) ToDdosProtectionPlanArrayOutputWithContext(ctx context.Context) DdosProtectionPlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DdosProtectionPlanArrayOutput)
+}
+
+func (i DdosProtectionPlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*DdosProtectionPlan] {
+	return pulumix.Output[[]*DdosProtectionPlan]{
+		OutputState: i.ToDdosProtectionPlanArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DdosProtectionPlanMapInput is an input type that accepts DdosProtectionPlanMap and DdosProtectionPlanMapOutput values.
@@ -234,6 +247,12 @@ func (i DdosProtectionPlanMap) ToDdosProtectionPlanMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DdosProtectionPlanMapOutput)
 }
 
+func (i DdosProtectionPlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DdosProtectionPlan] {
+	return pulumix.Output[map[string]*DdosProtectionPlan]{
+		OutputState: i.ToDdosProtectionPlanMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DdosProtectionPlanOutput struct{ *pulumi.OutputState }
 
 func (DdosProtectionPlanOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutput() DdosProtectionPla
 
 func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutputWithContext(ctx context.Context) DdosProtectionPlanOutput {
 	return o
+}
+
+func (o DdosProtectionPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*DdosProtectionPlan] {
+	return pulumix.Output[*DdosProtectionPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -287,6 +312,12 @@ func (o DdosProtectionPlanArrayOutput) ToDdosProtectionPlanArrayOutputWithContex
 	return o
 }
 
+func (o DdosProtectionPlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DdosProtectionPlan] {
+	return pulumix.Output[[]*DdosProtectionPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DdosProtectionPlanArrayOutput) Index(i pulumi.IntInput) DdosProtectionPlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DdosProtectionPlan {
 		return vs[0].([]*DdosProtectionPlan)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o DdosProtectionPlanMapOutput) ToDdosProtectionPlanMapOutput() DdosProtect
 
 func (o DdosProtectionPlanMapOutput) ToDdosProtectionPlanMapOutputWithContext(ctx context.Context) DdosProtectionPlanMapOutput {
 	return o
+}
+
+func (o DdosProtectionPlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DdosProtectionPlan] {
+	return pulumix.Output[map[string]*DdosProtectionPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DdosProtectionPlanMapOutput) MapIndex(k pulumi.StringInput) DdosProtectionPlanOutput {

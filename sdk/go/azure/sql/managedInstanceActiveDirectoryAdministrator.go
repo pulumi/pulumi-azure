@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance.
@@ -232,6 +233,12 @@ func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDir
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceActiveDirectoryAdministratorOutput)
 }
 
+func (i *ManagedInstanceActiveDirectoryAdministrator) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceActiveDirectoryAdministrator] {
+	return pulumix.Output[*ManagedInstanceActiveDirectoryAdministrator]{
+		OutputState: i.ToManagedInstanceActiveDirectoryAdministratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedInstanceActiveDirectoryAdministratorArrayInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorArray and ManagedInstanceActiveDirectoryAdministratorArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceActiveDirectoryAdministratorArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i ManagedInstanceActiveDirectoryAdministratorArray) ToManagedInstanceActiv
 
 func (i ManagedInstanceActiveDirectoryAdministratorArray) ToManagedInstanceActiveDirectoryAdministratorArrayOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceActiveDirectoryAdministratorArrayOutput)
+}
+
+func (i ManagedInstanceActiveDirectoryAdministratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceActiveDirectoryAdministrator] {
+	return pulumix.Output[[]*ManagedInstanceActiveDirectoryAdministrator]{
+		OutputState: i.ToManagedInstanceActiveDirectoryAdministratorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedInstanceActiveDirectoryAdministratorMapInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorMap and ManagedInstanceActiveDirectoryAdministratorMapOutput values.
@@ -282,6 +295,12 @@ func (i ManagedInstanceActiveDirectoryAdministratorMap) ToManagedInstanceActiveD
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceActiveDirectoryAdministratorMapOutput)
 }
 
+func (i ManagedInstanceActiveDirectoryAdministratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceActiveDirectoryAdministrator] {
+	return pulumix.Output[map[string]*ManagedInstanceActiveDirectoryAdministrator]{
+		OutputState: i.ToManagedInstanceActiveDirectoryAdministratorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceActiveDirectoryAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
@@ -294,6 +313,12 @@ func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActi
 
 func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorOutput {
 	return o
+}
+
+func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceActiveDirectoryAdministrator] {
+	return pulumix.Output[*ManagedInstanceActiveDirectoryAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`.
@@ -342,6 +367,12 @@ func (o ManagedInstanceActiveDirectoryAdministratorArrayOutput) ToManagedInstanc
 	return o
 }
 
+func (o ManagedInstanceActiveDirectoryAdministratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceActiveDirectoryAdministrator] {
+	return pulumix.Output[[]*ManagedInstanceActiveDirectoryAdministrator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedInstanceActiveDirectoryAdministratorArrayOutput) Index(i pulumi.IntInput) ManagedInstanceActiveDirectoryAdministratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstanceActiveDirectoryAdministrator {
 		return vs[0].([]*ManagedInstanceActiveDirectoryAdministrator)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) ToManagedInstanceA
 
 func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) ToManagedInstanceActiveDirectoryAdministratorMapOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorMapOutput {
 	return o
+}
+
+func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceActiveDirectoryAdministrator] {
+	return pulumix.Output[map[string]*ManagedInstanceActiveDirectoryAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceActiveDirectoryAdministratorOutput {

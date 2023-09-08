@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Facebook Identity Provider.
@@ -202,6 +203,12 @@ func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookOutput)
 }
 
+func (i *IdentityProviderFacebook) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderFacebook] {
+	return pulumix.Output[*IdentityProviderFacebook]{
+		OutputState: i.ToIdentityProviderFacebookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IdentityProviderFacebookArrayInput is an input type that accepts IdentityProviderFacebookArray and IdentityProviderFacebookArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderFacebookArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i IdentityProviderFacebookArray) ToIdentityProviderFacebookArrayOutput() I
 
 func (i IdentityProviderFacebookArray) ToIdentityProviderFacebookArrayOutputWithContext(ctx context.Context) IdentityProviderFacebookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookArrayOutput)
+}
+
+func (i IdentityProviderFacebookArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderFacebook] {
+	return pulumix.Output[[]*IdentityProviderFacebook]{
+		OutputState: i.ToIdentityProviderFacebookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IdentityProviderFacebookMapInput is an input type that accepts IdentityProviderFacebookMap and IdentityProviderFacebookMapOutput values.
@@ -252,6 +265,12 @@ func (i IdentityProviderFacebookMap) ToIdentityProviderFacebookMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderFacebookMapOutput)
 }
 
+func (i IdentityProviderFacebookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderFacebook] {
+	return pulumix.Output[map[string]*IdentityProviderFacebook]{
+		OutputState: i.ToIdentityProviderFacebookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityProviderFacebookOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderFacebookOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookOutput() Ident
 
 func (o IdentityProviderFacebookOutput) ToIdentityProviderFacebookOutputWithContext(ctx context.Context) IdentityProviderFacebookOutput {
 	return o
+}
+
+func (o IdentityProviderFacebookOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderFacebook] {
+	return pulumix.Output[*IdentityProviderFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
@@ -300,6 +325,12 @@ func (o IdentityProviderFacebookArrayOutput) ToIdentityProviderFacebookArrayOutp
 	return o
 }
 
+func (o IdentityProviderFacebookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderFacebook] {
+	return pulumix.Output[[]*IdentityProviderFacebook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentityProviderFacebookArrayOutput) Index(i pulumi.IntInput) IdentityProviderFacebookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderFacebook {
 		return vs[0].([]*IdentityProviderFacebook)[vs[1].(int)]
@@ -318,6 +349,12 @@ func (o IdentityProviderFacebookMapOutput) ToIdentityProviderFacebookMapOutput()
 
 func (o IdentityProviderFacebookMapOutput) ToIdentityProviderFacebookMapOutputWithContext(ctx context.Context) IdentityProviderFacebookMapOutput {
 	return o
+}
+
+func (o IdentityProviderFacebookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderFacebook] {
+	return pulumix.Output[map[string]*IdentityProviderFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderFacebookMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderFacebookOutput {

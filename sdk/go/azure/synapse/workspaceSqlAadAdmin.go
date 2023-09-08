@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
@@ -263,6 +264,12 @@ func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
 }
 
+func (i *WorkspaceSqlAadAdmin) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSqlAadAdmin] {
+	return pulumix.Output[*WorkspaceSqlAadAdmin]{
+		OutputState: i.ToWorkspaceSqlAadAdminOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceSqlAadAdminArrayInput is an input type that accepts WorkspaceSqlAadAdminArray and WorkspaceSqlAadAdminArrayOutput values.
 // You can construct a concrete instance of `WorkspaceSqlAadAdminArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i WorkspaceSqlAadAdminArray) ToWorkspaceSqlAadAdminArrayOutput() Workspace
 
 func (i WorkspaceSqlAadAdminArray) ToWorkspaceSqlAadAdminArrayOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminArrayOutput)
+}
+
+func (i WorkspaceSqlAadAdminArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceSqlAadAdmin] {
+	return pulumix.Output[[]*WorkspaceSqlAadAdmin]{
+		OutputState: i.ToWorkspaceSqlAadAdminArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceSqlAadAdminMapInput is an input type that accepts WorkspaceSqlAadAdminMap and WorkspaceSqlAadAdminMapOutput values.
@@ -313,6 +326,12 @@ func (i WorkspaceSqlAadAdminMap) ToWorkspaceSqlAadAdminMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminMapOutput)
 }
 
+func (i WorkspaceSqlAadAdminMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceSqlAadAdmin] {
+	return pulumix.Output[map[string]*WorkspaceSqlAadAdmin]{
+		OutputState: i.ToWorkspaceSqlAadAdminMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceSqlAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlA
 
 func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
 	return o
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSqlAadAdmin] {
+	return pulumix.Output[*WorkspaceSqlAadAdmin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace.
@@ -361,6 +386,12 @@ func (o WorkspaceSqlAadAdminArrayOutput) ToWorkspaceSqlAadAdminArrayOutputWithCo
 	return o
 }
 
+func (o WorkspaceSqlAadAdminArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceSqlAadAdmin] {
+	return pulumix.Output[[]*WorkspaceSqlAadAdmin]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceSqlAadAdminArrayOutput) Index(i pulumi.IntInput) WorkspaceSqlAadAdminOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceSqlAadAdmin {
 		return vs[0].([]*WorkspaceSqlAadAdmin)[vs[1].(int)]
@@ -379,6 +410,12 @@ func (o WorkspaceSqlAadAdminMapOutput) ToWorkspaceSqlAadAdminMapOutput() Workspa
 
 func (o WorkspaceSqlAadAdminMapOutput) ToWorkspaceSqlAadAdminMapOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminMapOutput {
 	return o
+}
+
+func (o WorkspaceSqlAadAdminMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceSqlAadAdmin] {
+	return pulumix.Output[map[string]*WorkspaceSqlAadAdmin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceSqlAadAdminMapOutput) MapIndex(k pulumi.StringInput) WorkspaceSqlAadAdminOutput {

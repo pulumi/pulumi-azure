@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Iot Security Device Group.
@@ -210,6 +211,12 @@ func (i *SecurityDeviceGroup) ToSecurityDeviceGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupOutput)
 }
 
+func (i *SecurityDeviceGroup) ToOutput(ctx context.Context) pulumix.Output[*SecurityDeviceGroup] {
+	return pulumix.Output[*SecurityDeviceGroup]{
+		OutputState: i.ToSecurityDeviceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityDeviceGroupArrayInput is an input type that accepts SecurityDeviceGroupArray and SecurityDeviceGroupArrayOutput values.
 // You can construct a concrete instance of `SecurityDeviceGroupArrayInput` via:
 //
@@ -233,6 +240,12 @@ func (i SecurityDeviceGroupArray) ToSecurityDeviceGroupArrayOutput() SecurityDev
 
 func (i SecurityDeviceGroupArray) ToSecurityDeviceGroupArrayOutputWithContext(ctx context.Context) SecurityDeviceGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupArrayOutput)
+}
+
+func (i SecurityDeviceGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityDeviceGroup] {
+	return pulumix.Output[[]*SecurityDeviceGroup]{
+		OutputState: i.ToSecurityDeviceGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityDeviceGroupMapInput is an input type that accepts SecurityDeviceGroupMap and SecurityDeviceGroupMapOutput values.
@@ -260,6 +273,12 @@ func (i SecurityDeviceGroupMap) ToSecurityDeviceGroupMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupMapOutput)
 }
 
+func (i SecurityDeviceGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityDeviceGroup] {
+	return pulumix.Output[map[string]*SecurityDeviceGroup]{
+		OutputState: i.ToSecurityDeviceGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityDeviceGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityDeviceGroupOutput) ElementType() reflect.Type {
@@ -272,6 +291,12 @@ func (o SecurityDeviceGroupOutput) ToSecurityDeviceGroupOutput() SecurityDeviceG
 
 func (o SecurityDeviceGroupOutput) ToSecurityDeviceGroupOutputWithContext(ctx context.Context) SecurityDeviceGroupOutput {
 	return o
+}
+
+func (o SecurityDeviceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityDeviceGroup] {
+	return pulumix.Output[*SecurityDeviceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // an `allowRule` blocks as defined below.
@@ -308,6 +333,12 @@ func (o SecurityDeviceGroupArrayOutput) ToSecurityDeviceGroupArrayOutputWithCont
 	return o
 }
 
+func (o SecurityDeviceGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityDeviceGroup] {
+	return pulumix.Output[[]*SecurityDeviceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityDeviceGroupArrayOutput) Index(i pulumi.IntInput) SecurityDeviceGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityDeviceGroup {
 		return vs[0].([]*SecurityDeviceGroup)[vs[1].(int)]
@@ -326,6 +357,12 @@ func (o SecurityDeviceGroupMapOutput) ToSecurityDeviceGroupMapOutput() SecurityD
 
 func (o SecurityDeviceGroupMapOutput) ToSecurityDeviceGroupMapOutputWithContext(ctx context.Context) SecurityDeviceGroupMapOutput {
 	return o
+}
+
+func (o SecurityDeviceGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityDeviceGroup] {
+	return pulumix.Output[map[string]*SecurityDeviceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityDeviceGroupMapOutput) MapIndex(k pulumi.StringInput) SecurityDeviceGroupOutput {

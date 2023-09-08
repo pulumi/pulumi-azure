@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container App Environment.
@@ -71,6 +72,8 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	DaprApplicationInsightsConnectionString pulumi.StringPtrOutput `pulumi:"daprApplicationInsightsConnectionString"`
 	// The default, publicly resolvable, name of this Container App Environment.
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
@@ -111,6 +114,13 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.DaprApplicationInsightsConnectionString != nil {
+		args.DaprApplicationInsightsConnectionString = pulumi.ToSecret(args.DaprApplicationInsightsConnectionString).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"daprApplicationInsightsConnectionString",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("azure:containerapp/environment:Environment", name, args, &resource, opts...)
@@ -134,6 +144,8 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
 	// The default, publicly resolvable, name of this Container App Environment.
 	DefaultDomain *string `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
@@ -165,6 +177,8 @@ type environmentState struct {
 }
 
 type EnvironmentState struct {
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
 	// The default, publicly resolvable, name of this Container App Environment.
 	DefaultDomain pulumi.StringPtrInput
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
@@ -200,6 +214,8 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -222,6 +238,8 @@ type environmentArgs struct {
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -265,6 +283,12 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
+func (i *Environment) ToOutput(ctx context.Context) pulumix.Output[*Environment] {
+	return pulumix.Output[*Environment]{
+		OutputState: i.ToEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentArrayInput` via:
 //
@@ -288,6 +312,12 @@ func (i EnvironmentArray) ToEnvironmentArrayOutput() EnvironmentArrayOutput {
 
 func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Context) EnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentArrayOutput)
+}
+
+func (i EnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Environment] {
+	return pulumix.Output[[]*Environment]{
+		OutputState: i.ToEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
@@ -315,6 +345,12 @@ func (i EnvironmentMap) ToEnvironmentMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMapOutput)
 }
 
+func (i EnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Environment] {
+	return pulumix.Output[map[string]*Environment]{
+		OutputState: i.ToEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
@@ -327,6 +363,17 @@ func (o EnvironmentOutput) ToEnvironmentOutput() EnvironmentOutput {
 
 func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput {
 	return o
+}
+
+func (o EnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Environment] {
+	return pulumix.Output[*Environment]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+func (o EnvironmentOutput) DaprApplicationInsightsConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.DaprApplicationInsightsConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // The default, publicly resolvable, name of this Container App Environment.
@@ -407,6 +454,12 @@ func (o EnvironmentArrayOutput) ToEnvironmentArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o EnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Environment] {
+	return pulumix.Output[[]*Environment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentArrayOutput) Index(i pulumi.IntInput) EnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Environment {
 		return vs[0].([]*Environment)[vs[1].(int)]
@@ -425,6 +478,12 @@ func (o EnvironmentMapOutput) ToEnvironmentMapOutput() EnvironmentMapOutput {
 
 func (o EnvironmentMapOutput) ToEnvironmentMapOutputWithContext(ctx context.Context) EnvironmentMapOutput {
 	return o
+}
+
+func (o EnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Environment] {
+	return pulumix.Output[map[string]*Environment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentMapOutput) MapIndex(k pulumi.StringInput) EnvironmentOutput {

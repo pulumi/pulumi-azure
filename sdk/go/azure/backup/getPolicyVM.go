@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing VM Backup Policy.
@@ -109,6 +110,12 @@ func (o LookupPolicyVMResultOutput) ToLookupPolicyVMResultOutput() LookupPolicyV
 
 func (o LookupPolicyVMResultOutput) ToLookupPolicyVMResultOutputWithContext(ctx context.Context) LookupPolicyVMResultOutput {
 	return o
+}
+
+func (o LookupPolicyVMResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPolicyVMResult] {
+	return pulumix.Output[LookupPolicyVMResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

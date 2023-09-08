@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Linked Service.
@@ -216,6 +217,12 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
+func (i *LinkedService) ToOutput(ctx context.Context) pulumix.Output[*LinkedService] {
+	return pulumix.Output[*LinkedService]{
+		OutputState: i.ToLinkedServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceArrayInput is an input type that accepts LinkedServiceArray and LinkedServiceArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i LinkedServiceArray) ToLinkedServiceArrayOutput() LinkedServiceArrayOutpu
 
 func (i LinkedServiceArray) ToLinkedServiceArrayOutputWithContext(ctx context.Context) LinkedServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceArrayOutput)
+}
+
+func (i LinkedServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedService] {
+	return pulumix.Output[[]*LinkedService]{
+		OutputState: i.ToLinkedServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceMapInput is an input type that accepts LinkedServiceMap and LinkedServiceMapOutput values.
@@ -266,6 +279,12 @@ func (i LinkedServiceMap) ToLinkedServiceMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMapOutput)
 }
 
+func (i LinkedServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedService] {
+	return pulumix.Output[map[string]*LinkedService]{
+		OutputState: i.ToLinkedServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {
 
 func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
 	return o
+}
+
+func (o LinkedServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedService] {
+	return pulumix.Output[*LinkedService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
@@ -321,6 +346,12 @@ func (o LinkedServiceArrayOutput) ToLinkedServiceArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o LinkedServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedService] {
+	return pulumix.Output[[]*LinkedService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceArrayOutput) Index(i pulumi.IntInput) LinkedServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedService {
 		return vs[0].([]*LinkedService)[vs[1].(int)]
@@ -339,6 +370,12 @@ func (o LinkedServiceMapOutput) ToLinkedServiceMapOutput() LinkedServiceMapOutpu
 
 func (o LinkedServiceMapOutput) ToLinkedServiceMapOutputWithContext(ctx context.Context) LinkedServiceMapOutput {
 	return o
+}
+
+func (o LinkedServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedService] {
+	return pulumix.Output[map[string]*LinkedService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceOutput {

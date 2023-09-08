@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i ServerIdentityArgs) ToServerIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityOutput)
 }
 
+func (i ServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServerIdentity] {
+	return pulumix.Output[ServerIdentity]{
+		OutputState: i.ToServerIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerIdentityArgs) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
 	return i.ToServerIdentityPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *serverIdentityPtrType) ToServerIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityPtrOutput)
 }
 
+func (i *serverIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentity] {
+	return pulumix.Output[*ServerIdentity]{
+		OutputState: i.ToServerIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServerIdentityOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentity) *ServerIdentity {
 		return &v
 	}).(ServerIdentityPtrOutput)
+}
+
+func (o ServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServerIdentity] {
+	return pulumix.Output[ServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
@@ -155,6 +174,12 @@ func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOu
 
 func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
 	return o
+}
+
+func (o ServerIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentity] {
+	return pulumix.Output[*ServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {

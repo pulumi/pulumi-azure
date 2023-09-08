@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Storage Container Endpoint
@@ -313,6 +314,12 @@ func (i *EndpointStorageContainer) ToEndpointStorageContainerOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerOutput)
 }
 
+func (i *EndpointStorageContainer) ToOutput(ctx context.Context) pulumix.Output[*EndpointStorageContainer] {
+	return pulumix.Output[*EndpointStorageContainer]{
+		OutputState: i.ToEndpointStorageContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointStorageContainerArrayInput is an input type that accepts EndpointStorageContainerArray and EndpointStorageContainerArrayOutput values.
 // You can construct a concrete instance of `EndpointStorageContainerArrayInput` via:
 //
@@ -336,6 +343,12 @@ func (i EndpointStorageContainerArray) ToEndpointStorageContainerArrayOutput() E
 
 func (i EndpointStorageContainerArray) ToEndpointStorageContainerArrayOutputWithContext(ctx context.Context) EndpointStorageContainerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerArrayOutput)
+}
+
+func (i EndpointStorageContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointStorageContainer] {
+	return pulumix.Output[[]*EndpointStorageContainer]{
+		OutputState: i.ToEndpointStorageContainerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointStorageContainerMapInput is an input type that accepts EndpointStorageContainerMap and EndpointStorageContainerMapOutput values.
@@ -363,6 +376,12 @@ func (i EndpointStorageContainerMap) ToEndpointStorageContainerMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerMapOutput)
 }
 
+func (i EndpointStorageContainerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointStorageContainer] {
+	return pulumix.Output[map[string]*EndpointStorageContainer]{
+		OutputState: i.ToEndpointStorageContainerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointStorageContainerOutput struct{ *pulumi.OutputState }
 
 func (EndpointStorageContainerOutput) ElementType() reflect.Type {
@@ -375,6 +394,12 @@ func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutput() Endpo
 
 func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput {
 	return o
+}
+
+func (o EndpointStorageContainerOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointStorageContainer] {
+	return pulumix.Output[*EndpointStorageContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -453,6 +478,12 @@ func (o EndpointStorageContainerArrayOutput) ToEndpointStorageContainerArrayOutp
 	return o
 }
 
+func (o EndpointStorageContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointStorageContainer] {
+	return pulumix.Output[[]*EndpointStorageContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointStorageContainerArrayOutput) Index(i pulumi.IntInput) EndpointStorageContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointStorageContainer {
 		return vs[0].([]*EndpointStorageContainer)[vs[1].(int)]
@@ -471,6 +502,12 @@ func (o EndpointStorageContainerMapOutput) ToEndpointStorageContainerMapOutput()
 
 func (o EndpointStorageContainerMapOutput) ToEndpointStorageContainerMapOutputWithContext(ctx context.Context) EndpointStorageContainerMapOutput {
 	return o
+}
+
+func (o EndpointStorageContainerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointStorageContainer] {
+	return pulumix.Output[map[string]*EndpointStorageContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointStorageContainerMapOutput) MapIndex(k pulumi.StringInput) EndpointStorageContainerOutput {

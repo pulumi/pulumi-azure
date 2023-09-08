@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables or disables the Security Center Auto Provisioning feature for the subscription
@@ -138,6 +139,12 @@ func (i *AutoProvisioning) ToAutoProvisioningOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningOutput)
 }
 
+func (i *AutoProvisioning) ToOutput(ctx context.Context) pulumix.Output[*AutoProvisioning] {
+	return pulumix.Output[*AutoProvisioning]{
+		OutputState: i.ToAutoProvisioningOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutoProvisioningArrayInput is an input type that accepts AutoProvisioningArray and AutoProvisioningArrayOutput values.
 // You can construct a concrete instance of `AutoProvisioningArrayInput` via:
 //
@@ -161,6 +168,12 @@ func (i AutoProvisioningArray) ToAutoProvisioningArrayOutput() AutoProvisioningA
 
 func (i AutoProvisioningArray) ToAutoProvisioningArrayOutputWithContext(ctx context.Context) AutoProvisioningArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningArrayOutput)
+}
+
+func (i AutoProvisioningArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutoProvisioning] {
+	return pulumix.Output[[]*AutoProvisioning]{
+		OutputState: i.ToAutoProvisioningArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AutoProvisioningMapInput is an input type that accepts AutoProvisioningMap and AutoProvisioningMapOutput values.
@@ -188,6 +201,12 @@ func (i AutoProvisioningMap) ToAutoProvisioningMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AutoProvisioningMapOutput)
 }
 
+func (i AutoProvisioningMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoProvisioning] {
+	return pulumix.Output[map[string]*AutoProvisioning]{
+		OutputState: i.ToAutoProvisioningMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutoProvisioningOutput struct{ *pulumi.OutputState }
 
 func (AutoProvisioningOutput) ElementType() reflect.Type {
@@ -200,6 +219,12 @@ func (o AutoProvisioningOutput) ToAutoProvisioningOutput() AutoProvisioningOutpu
 
 func (o AutoProvisioningOutput) ToAutoProvisioningOutputWithContext(ctx context.Context) AutoProvisioningOutput {
 	return o
+}
+
+func (o AutoProvisioningOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoProvisioning] {
+	return pulumix.Output[*AutoProvisioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
@@ -221,6 +246,12 @@ func (o AutoProvisioningArrayOutput) ToAutoProvisioningArrayOutputWithContext(ct
 	return o
 }
 
+func (o AutoProvisioningArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutoProvisioning] {
+	return pulumix.Output[[]*AutoProvisioning]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AutoProvisioningArrayOutput) Index(i pulumi.IntInput) AutoProvisioningOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoProvisioning {
 		return vs[0].([]*AutoProvisioning)[vs[1].(int)]
@@ -239,6 +270,12 @@ func (o AutoProvisioningMapOutput) ToAutoProvisioningMapOutput() AutoProvisionin
 
 func (o AutoProvisioningMapOutput) ToAutoProvisioningMapOutputWithContext(ctx context.Context) AutoProvisioningMapOutput {
 	return o
+}
+
+func (o AutoProvisioningMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoProvisioning] {
+	return pulumix.Output[map[string]*AutoProvisioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutoProvisioningMapOutput) MapIndex(k pulumi.StringInput) AutoProvisioningOutput {

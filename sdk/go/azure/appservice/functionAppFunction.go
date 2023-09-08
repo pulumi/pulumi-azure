@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Function App Function.
@@ -444,6 +445,12 @@ func (i *FunctionAppFunction) ToFunctionAppFunctionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppFunctionOutput)
 }
 
+func (i *FunctionAppFunction) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppFunction] {
+	return pulumix.Output[*FunctionAppFunction]{
+		OutputState: i.ToFunctionAppFunctionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionAppFunctionArrayInput is an input type that accepts FunctionAppFunctionArray and FunctionAppFunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionAppFunctionArrayInput` via:
 //
@@ -467,6 +474,12 @@ func (i FunctionAppFunctionArray) ToFunctionAppFunctionArrayOutput() FunctionApp
 
 func (i FunctionAppFunctionArray) ToFunctionAppFunctionArrayOutputWithContext(ctx context.Context) FunctionAppFunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppFunctionArrayOutput)
+}
+
+func (i FunctionAppFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppFunction] {
+	return pulumix.Output[[]*FunctionAppFunction]{
+		OutputState: i.ToFunctionAppFunctionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionAppFunctionMapInput is an input type that accepts FunctionAppFunctionMap and FunctionAppFunctionMapOutput values.
@@ -494,6 +507,12 @@ func (i FunctionAppFunctionMap) ToFunctionAppFunctionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppFunctionMapOutput)
 }
 
+func (i FunctionAppFunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppFunction] {
+	return pulumix.Output[map[string]*FunctionAppFunction]{
+		OutputState: i.ToFunctionAppFunctionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionAppFunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppFunctionOutput) ElementType() reflect.Type {
@@ -506,6 +525,12 @@ func (o FunctionAppFunctionOutput) ToFunctionAppFunctionOutput() FunctionAppFunc
 
 func (o FunctionAppFunctionOutput) ToFunctionAppFunctionOutputWithContext(ctx context.Context) FunctionAppFunctionOutput {
 	return o
+}
+
+func (o FunctionAppFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppFunction] {
+	return pulumix.Output[*FunctionAppFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The config for this Function in JSON format.
@@ -594,6 +619,12 @@ func (o FunctionAppFunctionArrayOutput) ToFunctionAppFunctionArrayOutputWithCont
 	return o
 }
 
+func (o FunctionAppFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppFunction] {
+	return pulumix.Output[[]*FunctionAppFunction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionAppFunctionArrayOutput) Index(i pulumi.IntInput) FunctionAppFunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionAppFunction {
 		return vs[0].([]*FunctionAppFunction)[vs[1].(int)]
@@ -612,6 +643,12 @@ func (o FunctionAppFunctionMapOutput) ToFunctionAppFunctionMapOutput() FunctionA
 
 func (o FunctionAppFunctionMapOutput) ToFunctionAppFunctionMapOutputWithContext(ctx context.Context) FunctionAppFunctionMapOutput {
 	return o
+}
+
+func (o FunctionAppFunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppFunction] {
+	return pulumix.Output[map[string]*FunctionAppFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionAppFunctionMapOutput) MapIndex(k pulumi.StringInput) FunctionAppFunctionOutput {

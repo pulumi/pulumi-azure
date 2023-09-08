@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -270,6 +271,12 @@ func (i *EnvironmentV3) ToEnvironmentV3OutputWithContext(ctx context.Context) En
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3Output)
 }
 
+func (i *EnvironmentV3) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentV3] {
+	return pulumix.Output[*EnvironmentV3]{
+		OutputState: i.ToEnvironmentV3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentV3ArrayInput is an input type that accepts EnvironmentV3Array and EnvironmentV3ArrayOutput values.
 // You can construct a concrete instance of `EnvironmentV3ArrayInput` via:
 //
@@ -293,6 +300,12 @@ func (i EnvironmentV3Array) ToEnvironmentV3ArrayOutput() EnvironmentV3ArrayOutpu
 
 func (i EnvironmentV3Array) ToEnvironmentV3ArrayOutputWithContext(ctx context.Context) EnvironmentV3ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3ArrayOutput)
+}
+
+func (i EnvironmentV3Array) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentV3] {
+	return pulumix.Output[[]*EnvironmentV3]{
+		OutputState: i.ToEnvironmentV3ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnvironmentV3MapInput is an input type that accepts EnvironmentV3Map and EnvironmentV3MapOutput values.
@@ -320,6 +333,12 @@ func (i EnvironmentV3Map) ToEnvironmentV3MapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3MapOutput)
 }
 
+func (i EnvironmentV3Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentV3] {
+	return pulumix.Output[map[string]*EnvironmentV3]{
+		OutputState: i.ToEnvironmentV3MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentV3Output struct{ *pulumi.OutputState }
 
 func (EnvironmentV3Output) ElementType() reflect.Type {
@@ -332,6 +351,12 @@ func (o EnvironmentV3Output) ToEnvironmentV3Output() EnvironmentV3Output {
 
 func (o EnvironmentV3Output) ToEnvironmentV3OutputWithContext(ctx context.Context) EnvironmentV3Output {
 	return o
+}
+
+func (o EnvironmentV3Output) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentV3] {
+	return pulumix.Output[*EnvironmentV3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should new Private Endpoint Connections be allowed. Defaults to `true`.
@@ -445,6 +470,12 @@ func (o EnvironmentV3ArrayOutput) ToEnvironmentV3ArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o EnvironmentV3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentV3] {
+	return pulumix.Output[[]*EnvironmentV3]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentV3ArrayOutput) Index(i pulumi.IntInput) EnvironmentV3Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentV3 {
 		return vs[0].([]*EnvironmentV3)[vs[1].(int)]
@@ -463,6 +494,12 @@ func (o EnvironmentV3MapOutput) ToEnvironmentV3MapOutput() EnvironmentV3MapOutpu
 
 func (o EnvironmentV3MapOutput) ToEnvironmentV3MapOutputWithContext(ctx context.Context) EnvironmentV3MapOutput {
 	return o
+}
+
+func (o EnvironmentV3MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentV3] {
+	return pulumix.Output[map[string]*EnvironmentV3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentV3MapOutput) MapIndex(k pulumi.StringInput) EnvironmentV3Output {

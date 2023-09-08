@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Automation Rule.
@@ -318,6 +319,12 @@ func (i *AutomationRule) ToAutomationRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleOutput)
 }
 
+func (i *AutomationRule) ToOutput(ctx context.Context) pulumix.Output[*AutomationRule] {
+	return pulumix.Output[*AutomationRule]{
+		OutputState: i.ToAutomationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutomationRuleArrayInput is an input type that accepts AutomationRuleArray and AutomationRuleArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleArrayInput` via:
 //
@@ -341,6 +348,12 @@ func (i AutomationRuleArray) ToAutomationRuleArrayOutput() AutomationRuleArrayOu
 
 func (i AutomationRuleArray) ToAutomationRuleArrayOutputWithContext(ctx context.Context) AutomationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleArrayOutput)
+}
+
+func (i AutomationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationRule] {
+	return pulumix.Output[[]*AutomationRule]{
+		OutputState: i.ToAutomationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AutomationRuleMapInput is an input type that accepts AutomationRuleMap and AutomationRuleMapOutput values.
@@ -368,6 +381,12 @@ func (i AutomationRuleMap) ToAutomationRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleMapOutput)
 }
 
+func (i AutomationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationRule] {
+	return pulumix.Output[map[string]*AutomationRule]{
+		OutputState: i.ToAutomationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationRuleOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleOutput) ElementType() reflect.Type {
@@ -380,6 +399,12 @@ func (o AutomationRuleOutput) ToAutomationRuleOutput() AutomationRuleOutput {
 
 func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Context) AutomationRuleOutput {
 	return o
+}
+
+func (o AutomationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRule] {
+	return pulumix.Output[*AutomationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `actionIncident` blocks as defined below.
@@ -462,6 +487,12 @@ func (o AutomationRuleArrayOutput) ToAutomationRuleArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o AutomationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationRule] {
+	return pulumix.Output[[]*AutomationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AutomationRuleArrayOutput) Index(i pulumi.IntInput) AutomationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutomationRule {
 		return vs[0].([]*AutomationRule)[vs[1].(int)]
@@ -480,6 +511,12 @@ func (o AutomationRuleMapOutput) ToAutomationRuleMapOutput() AutomationRuleMapOu
 
 func (o AutomationRuleMapOutput) ToAutomationRuleMapOutputWithContext(ctx context.Context) AutomationRuleMapOutput {
 	return o
+}
+
+func (o AutomationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationRule] {
+	return pulumix.Output[map[string]*AutomationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutomationRuleMapOutput) MapIndex(k pulumi.StringInput) AutomationRuleOutput {

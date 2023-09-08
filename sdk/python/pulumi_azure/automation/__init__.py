@@ -29,6 +29,7 @@ from .hybrid_runbook_worker_group import *
 from .int_variable import *
 from .job_schedule import *
 from .module import *
+from .python3_package import *
 from .run_book import *
 from .schedule import *
 from .software_update_configuration import *

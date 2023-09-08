@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing PostgreSQL Flexible Server.
@@ -62,6 +63,8 @@ type LookupFlexibleServerArgs struct {
 type LookupFlexibleServerResult struct {
 	// The Administrator login for the PostgreSQL Flexible Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
+	// Is the storage auto grow for PostgreSQL Flexible Server enabled?
+	AutoGrowEnabled bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server.
 	BackupRetentionDays int `pulumi:"backupRetentionDays"`
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server.
@@ -126,9 +129,20 @@ func (o LookupFlexibleServerResultOutput) ToLookupFlexibleServerResultOutputWith
 	return o
 }
 
+func (o LookupFlexibleServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlexibleServerResult] {
+	return pulumix.Output[LookupFlexibleServerResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Administrator login for the PostgreSQL Flexible Server.
 func (o LookupFlexibleServerResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlexibleServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+}
+
+// Is the storage auto grow for PostgreSQL Flexible Server enabled?
+func (o LookupFlexibleServerResultOutput) AutoGrowEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFlexibleServerResult) bool { return v.AutoGrowEnabled }).(pulumi.BoolOutput)
 }
 
 // The backup retention days for the PostgreSQL Flexible Server.

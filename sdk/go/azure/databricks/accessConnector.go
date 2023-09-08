@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Databricks Access Connector
@@ -190,6 +191,12 @@ func (i *AccessConnector) ToAccessConnectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorOutput)
 }
 
+func (i *AccessConnector) ToOutput(ctx context.Context) pulumix.Output[*AccessConnector] {
+	return pulumix.Output[*AccessConnector]{
+		OutputState: i.ToAccessConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessConnectorArrayInput is an input type that accepts AccessConnectorArray and AccessConnectorArrayOutput values.
 // You can construct a concrete instance of `AccessConnectorArrayInput` via:
 //
@@ -213,6 +220,12 @@ func (i AccessConnectorArray) ToAccessConnectorArrayOutput() AccessConnectorArra
 
 func (i AccessConnectorArray) ToAccessConnectorArrayOutputWithContext(ctx context.Context) AccessConnectorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorArrayOutput)
+}
+
+func (i AccessConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessConnector] {
+	return pulumix.Output[[]*AccessConnector]{
+		OutputState: i.ToAccessConnectorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccessConnectorMapInput is an input type that accepts AccessConnectorMap and AccessConnectorMapOutput values.
@@ -240,6 +253,12 @@ func (i AccessConnectorMap) ToAccessConnectorMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorMapOutput)
 }
 
+func (i AccessConnectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessConnector] {
+	return pulumix.Output[map[string]*AccessConnector]{
+		OutputState: i.ToAccessConnectorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessConnectorOutput struct{ *pulumi.OutputState }
 
 func (AccessConnectorOutput) ElementType() reflect.Type {
@@ -252,6 +271,12 @@ func (o AccessConnectorOutput) ToAccessConnectorOutput() AccessConnectorOutput {
 
 func (o AccessConnectorOutput) ToAccessConnectorOutputWithContext(ctx context.Context) AccessConnectorOutput {
 	return o
+}
+
+func (o AccessConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessConnector] {
+	return pulumix.Output[*AccessConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `identity` block as defined below.
@@ -293,6 +318,12 @@ func (o AccessConnectorArrayOutput) ToAccessConnectorArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o AccessConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessConnector] {
+	return pulumix.Output[[]*AccessConnector]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccessConnectorArrayOutput) Index(i pulumi.IntInput) AccessConnectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessConnector {
 		return vs[0].([]*AccessConnector)[vs[1].(int)]
@@ -311,6 +342,12 @@ func (o AccessConnectorMapOutput) ToAccessConnectorMapOutput() AccessConnectorMa
 
 func (o AccessConnectorMapOutput) ToAccessConnectorMapOutputWithContext(ctx context.Context) AccessConnectorMapOutput {
 	return o
+}
+
+func (o AccessConnectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessConnector] {
+	return pulumix.Output[map[string]*AccessConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessConnectorMapOutput) MapIndex(k pulumi.StringInput) AccessConnectorOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Server Configuration.
@@ -278,6 +279,12 @@ func (i *VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
 }
 
+func (i *VpnServerConfiguration) ToOutput(ctx context.Context) pulumix.Output[*VpnServerConfiguration] {
+	return pulumix.Output[*VpnServerConfiguration]{
+		OutputState: i.ToVpnServerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpnServerConfigurationArrayInput is an input type that accepts VpnServerConfigurationArray and VpnServerConfigurationArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationArrayInput` via:
 //
@@ -301,6 +308,12 @@ func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutput() VpnSe
 
 func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutputWithContext(ctx context.Context) VpnServerConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationArrayOutput)
+}
+
+func (i VpnServerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnServerConfiguration] {
+	return pulumix.Output[[]*VpnServerConfiguration]{
+		OutputState: i.ToVpnServerConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpnServerConfigurationMapInput is an input type that accepts VpnServerConfigurationMap and VpnServerConfigurationMapOutput values.
@@ -328,6 +341,12 @@ func (i VpnServerConfigurationMap) ToVpnServerConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationMapOutput)
 }
 
+func (i VpnServerConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnServerConfiguration] {
+	return pulumix.Output[map[string]*VpnServerConfiguration]{
+		OutputState: i.ToVpnServerConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnServerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VpnServerConfigurationOutput) ElementType() reflect.Type {
@@ -340,6 +359,12 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutput() VpnServer
 
 func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(ctx context.Context) VpnServerConfigurationOutput {
 	return o
+}
+
+func (o VpnServerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnServerConfiguration] {
+	return pulumix.Output[*VpnServerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `azureActiveDirectoryAuthentication` block as defined below.
@@ -417,6 +442,12 @@ func (o VpnServerConfigurationArrayOutput) ToVpnServerConfigurationArrayOutputWi
 	return o
 }
 
+func (o VpnServerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnServerConfiguration] {
+	return pulumix.Output[[]*VpnServerConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpnServerConfigurationArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnServerConfiguration {
 		return vs[0].([]*VpnServerConfiguration)[vs[1].(int)]
@@ -435,6 +466,12 @@ func (o VpnServerConfigurationMapOutput) ToVpnServerConfigurationMapOutput() Vpn
 
 func (o VpnServerConfigurationMapOutput) ToVpnServerConfigurationMapOutputWithContext(ctx context.Context) VpnServerConfigurationMapOutput {
 	return o
+}
+
+func (o VpnServerConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnServerConfiguration] {
+	return pulumix.Output[map[string]*VpnServerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpnServerConfigurationMapOutput) MapIndex(k pulumi.StringInput) VpnServerConfigurationOutput {

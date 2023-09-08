@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Configuration Service.
@@ -200,6 +201,12 @@ func (i *SpringCloudConfigurationService) ToSpringCloudConfigurationServiceOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConfigurationServiceOutput)
 }
 
+func (i *SpringCloudConfigurationService) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConfigurationService] {
+	return pulumix.Output[*SpringCloudConfigurationService]{
+		OutputState: i.ToSpringCloudConfigurationServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudConfigurationServiceArrayInput is an input type that accepts SpringCloudConfigurationServiceArray and SpringCloudConfigurationServiceArrayOutput values.
 // You can construct a concrete instance of `SpringCloudConfigurationServiceArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i SpringCloudConfigurationServiceArray) ToSpringCloudConfigurationServiceA
 
 func (i SpringCloudConfigurationServiceArray) ToSpringCloudConfigurationServiceArrayOutputWithContext(ctx context.Context) SpringCloudConfigurationServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConfigurationServiceArrayOutput)
+}
+
+func (i SpringCloudConfigurationServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudConfigurationService] {
+	return pulumix.Output[[]*SpringCloudConfigurationService]{
+		OutputState: i.ToSpringCloudConfigurationServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudConfigurationServiceMapInput is an input type that accepts SpringCloudConfigurationServiceMap and SpringCloudConfigurationServiceMapOutput values.
@@ -250,6 +263,12 @@ func (i SpringCloudConfigurationServiceMap) ToSpringCloudConfigurationServiceMap
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConfigurationServiceMapOutput)
 }
 
+func (i SpringCloudConfigurationServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudConfigurationService] {
+	return pulumix.Output[map[string]*SpringCloudConfigurationService]{
+		OutputState: i.ToSpringCloudConfigurationServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudConfigurationServiceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudConfigurationServiceOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o SpringCloudConfigurationServiceOutput) ToSpringCloudConfigurationService
 
 func (o SpringCloudConfigurationServiceOutput) ToSpringCloudConfigurationServiceOutputWithContext(ctx context.Context) SpringCloudConfigurationServiceOutput {
 	return o
+}
+
+func (o SpringCloudConfigurationServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConfigurationService] {
+	return pulumix.Output[*SpringCloudConfigurationService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
@@ -300,6 +325,12 @@ func (o SpringCloudConfigurationServiceArrayOutput) ToSpringCloudConfigurationSe
 	return o
 }
 
+func (o SpringCloudConfigurationServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudConfigurationService] {
+	return pulumix.Output[[]*SpringCloudConfigurationService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudConfigurationServiceArrayOutput) Index(i pulumi.IntInput) SpringCloudConfigurationServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudConfigurationService {
 		return vs[0].([]*SpringCloudConfigurationService)[vs[1].(int)]
@@ -318,6 +349,12 @@ func (o SpringCloudConfigurationServiceMapOutput) ToSpringCloudConfigurationServ
 
 func (o SpringCloudConfigurationServiceMapOutput) ToSpringCloudConfigurationServiceMapOutputWithContext(ctx context.Context) SpringCloudConfigurationServiceMapOutput {
 	return o
+}
+
+func (o SpringCloudConfigurationServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudConfigurationService] {
+	return pulumix.Output[map[string]*SpringCloudConfigurationService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudConfigurationServiceMapOutput) MapIndex(k pulumi.StringInput) SpringCloudConfigurationServiceOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Blob Dataset inside an Azure Data Factory.
@@ -300,6 +301,12 @@ func (i *DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobOutput)
 }
 
+func (i *DatasetAzureBlob) ToOutput(ctx context.Context) pulumix.Output[*DatasetAzureBlob] {
+	return pulumix.Output[*DatasetAzureBlob]{
+		OutputState: i.ToDatasetAzureBlobOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetAzureBlobArrayInput is an input type that accepts DatasetAzureBlobArray and DatasetAzureBlobArrayOutput values.
 // You can construct a concrete instance of `DatasetAzureBlobArrayInput` via:
 //
@@ -323,6 +330,12 @@ func (i DatasetAzureBlobArray) ToDatasetAzureBlobArrayOutput() DatasetAzureBlobA
 
 func (i DatasetAzureBlobArray) ToDatasetAzureBlobArrayOutputWithContext(ctx context.Context) DatasetAzureBlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobArrayOutput)
+}
+
+func (i DatasetAzureBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetAzureBlob] {
+	return pulumix.Output[[]*DatasetAzureBlob]{
+		OutputState: i.ToDatasetAzureBlobArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatasetAzureBlobMapInput is an input type that accepts DatasetAzureBlobMap and DatasetAzureBlobMapOutput values.
@@ -350,6 +363,12 @@ func (i DatasetAzureBlobMap) ToDatasetAzureBlobMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobMapOutput)
 }
 
+func (i DatasetAzureBlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetAzureBlob] {
+	return pulumix.Output[map[string]*DatasetAzureBlob]{
+		OutputState: i.ToDatasetAzureBlobMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetAzureBlobOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureBlobOutput) ElementType() reflect.Type {
@@ -362,6 +381,12 @@ func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutput() DatasetAzureBlobOutpu
 
 func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput {
 	return o
+}
+
+func (o DatasetAzureBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetAzureBlob] {
+	return pulumix.Output[*DatasetAzureBlob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -445,6 +470,12 @@ func (o DatasetAzureBlobArrayOutput) ToDatasetAzureBlobArrayOutputWithContext(ct
 	return o
 }
 
+func (o DatasetAzureBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetAzureBlob] {
+	return pulumix.Output[[]*DatasetAzureBlob]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetAzureBlobArrayOutput) Index(i pulumi.IntInput) DatasetAzureBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetAzureBlob {
 		return vs[0].([]*DatasetAzureBlob)[vs[1].(int)]
@@ -463,6 +494,12 @@ func (o DatasetAzureBlobMapOutput) ToDatasetAzureBlobMapOutput() DatasetAzureBlo
 
 func (o DatasetAzureBlobMapOutput) ToDatasetAzureBlobMapOutputWithContext(ctx context.Context) DatasetAzureBlobMapOutput {
 	return o
+}
+
+func (o DatasetAzureBlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetAzureBlob] {
+	return pulumix.Output[map[string]*DatasetAzureBlob]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetAzureBlobMapOutput) MapIndex(k pulumi.StringInput) DatasetAzureBlobOutput {

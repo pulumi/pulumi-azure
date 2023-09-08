@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Virtual Machine Scale Set.
@@ -968,6 +969,12 @@ func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOutput)
 }
 
+func (i *LinuxVirtualMachineScaleSet) ToOutput(ctx context.Context) pulumix.Output[*LinuxVirtualMachineScaleSet] {
+	return pulumix.Output[*LinuxVirtualMachineScaleSet]{
+		OutputState: i.ToLinuxVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinuxVirtualMachineScaleSetArrayInput is an input type that accepts LinuxVirtualMachineScaleSetArray and LinuxVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetArrayInput` via:
 //
@@ -991,6 +998,12 @@ func (i LinuxVirtualMachineScaleSetArray) ToLinuxVirtualMachineScaleSetArrayOutp
 
 func (i LinuxVirtualMachineScaleSetArray) ToLinuxVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetArrayOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxVirtualMachineScaleSet] {
+	return pulumix.Output[[]*LinuxVirtualMachineScaleSet]{
+		OutputState: i.ToLinuxVirtualMachineScaleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinuxVirtualMachineScaleSetMapInput is an input type that accepts LinuxVirtualMachineScaleSetMap and LinuxVirtualMachineScaleSetMapOutput values.
@@ -1018,6 +1031,12 @@ func (i LinuxVirtualMachineScaleSetMap) ToLinuxVirtualMachineScaleSetMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetMapOutput)
 }
 
+func (i LinuxVirtualMachineScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxVirtualMachineScaleSet] {
+	return pulumix.Output[map[string]*LinuxVirtualMachineScaleSet]{
+		OutputState: i.ToLinuxVirtualMachineScaleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinuxVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -1030,6 +1049,12 @@ func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutput()
 
 func (o LinuxVirtualMachineScaleSetOutput) ToLinuxVirtualMachineScaleSetOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxVirtualMachineScaleSet] {
+	return pulumix.Output[*LinuxVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `additionalCapabilities` block as defined below.
@@ -1397,6 +1422,12 @@ func (o LinuxVirtualMachineScaleSetArrayOutput) ToLinuxVirtualMachineScaleSetArr
 	return o
 }
 
+func (o LinuxVirtualMachineScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxVirtualMachineScaleSet] {
+	return pulumix.Output[[]*LinuxVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinuxVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxVirtualMachineScaleSet {
 		return vs[0].([]*LinuxVirtualMachineScaleSet)[vs[1].(int)]
@@ -1415,6 +1446,12 @@ func (o LinuxVirtualMachineScaleSetMapOutput) ToLinuxVirtualMachineScaleSetMapOu
 
 func (o LinuxVirtualMachineScaleSetMapOutput) ToLinuxVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetMapOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxVirtualMachineScaleSet] {
+	return pulumix.Output[map[string]*LinuxVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinuxVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) LinuxVirtualMachineScaleSetOutput {

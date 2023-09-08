@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Bastion Host.
@@ -360,6 +361,12 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
 }
 
+func (i *BastionHost) ToOutput(ctx context.Context) pulumix.Output[*BastionHost] {
+	return pulumix.Output[*BastionHost]{
+		OutputState: i.ToBastionHostOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BastionHostArrayInput is an input type that accepts BastionHostArray and BastionHostArrayOutput values.
 // You can construct a concrete instance of `BastionHostArrayInput` via:
 //
@@ -383,6 +390,12 @@ func (i BastionHostArray) ToBastionHostArrayOutput() BastionHostArrayOutput {
 
 func (i BastionHostArray) ToBastionHostArrayOutputWithContext(ctx context.Context) BastionHostArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostArrayOutput)
+}
+
+func (i BastionHostArray) ToOutput(ctx context.Context) pulumix.Output[[]*BastionHost] {
+	return pulumix.Output[[]*BastionHost]{
+		OutputState: i.ToBastionHostArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BastionHostMapInput is an input type that accepts BastionHostMap and BastionHostMapOutput values.
@@ -410,6 +423,12 @@ func (i BastionHostMap) ToBastionHostMapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostMapOutput)
 }
 
+func (i BastionHostMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BastionHost] {
+	return pulumix.Output[map[string]*BastionHost]{
+		OutputState: i.ToBastionHostMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
@@ -422,6 +441,12 @@ func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {
 
 func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
 	return o
+}
+
+func (o BastionHostOutput) ToOutput(ctx context.Context) pulumix.Output[*BastionHost] {
+	return pulumix.Output[*BastionHost]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
@@ -515,6 +540,12 @@ func (o BastionHostArrayOutput) ToBastionHostArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o BastionHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BastionHost] {
+	return pulumix.Output[[]*BastionHost]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BastionHostArrayOutput) Index(i pulumi.IntInput) BastionHostOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BastionHost {
 		return vs[0].([]*BastionHost)[vs[1].(int)]
@@ -533,6 +564,12 @@ func (o BastionHostMapOutput) ToBastionHostMapOutput() BastionHostMapOutput {
 
 func (o BastionHostMapOutput) ToBastionHostMapOutputWithContext(ctx context.Context) BastionHostMapOutput {
 	return o
+}
+
+func (o BastionHostMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BastionHost] {
+	return pulumix.Output[map[string]*BastionHost]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BastionHostMapOutput) MapIndex(k pulumi.StringInput) BastionHostOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Gateway NAT Rule.
@@ -311,6 +312,12 @@ func (i *VnpGatewayNatRule) ToVnpGatewayNatRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleOutput)
 }
 
+func (i *VnpGatewayNatRule) ToOutput(ctx context.Context) pulumix.Output[*VnpGatewayNatRule] {
+	return pulumix.Output[*VnpGatewayNatRule]{
+		OutputState: i.ToVnpGatewayNatRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VnpGatewayNatRuleArrayInput is an input type that accepts VnpGatewayNatRuleArray and VnpGatewayNatRuleArrayOutput values.
 // You can construct a concrete instance of `VnpGatewayNatRuleArrayInput` via:
 //
@@ -334,6 +341,12 @@ func (i VnpGatewayNatRuleArray) ToVnpGatewayNatRuleArrayOutput() VnpGatewayNatRu
 
 func (i VnpGatewayNatRuleArray) ToVnpGatewayNatRuleArrayOutputWithContext(ctx context.Context) VnpGatewayNatRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleArrayOutput)
+}
+
+func (i VnpGatewayNatRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*VnpGatewayNatRule] {
+	return pulumix.Output[[]*VnpGatewayNatRule]{
+		OutputState: i.ToVnpGatewayNatRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VnpGatewayNatRuleMapInput is an input type that accepts VnpGatewayNatRuleMap and VnpGatewayNatRuleMapOutput values.
@@ -361,6 +374,12 @@ func (i VnpGatewayNatRuleMap) ToVnpGatewayNatRuleMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleMapOutput)
 }
 
+func (i VnpGatewayNatRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VnpGatewayNatRule] {
+	return pulumix.Output[map[string]*VnpGatewayNatRule]{
+		OutputState: i.ToVnpGatewayNatRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VnpGatewayNatRuleOutput struct{ *pulumi.OutputState }
 
 func (VnpGatewayNatRuleOutput) ElementType() reflect.Type {
@@ -373,6 +392,12 @@ func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutput() VnpGatewayNatRuleOu
 
 func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutputWithContext(ctx context.Context) VnpGatewayNatRuleOutput {
 	return o
+}
+
+func (o VnpGatewayNatRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*VnpGatewayNatRule] {
+	return pulumix.Output[*VnpGatewayNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
@@ -447,6 +472,12 @@ func (o VnpGatewayNatRuleArrayOutput) ToVnpGatewayNatRuleArrayOutputWithContext(
 	return o
 }
 
+func (o VnpGatewayNatRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VnpGatewayNatRule] {
+	return pulumix.Output[[]*VnpGatewayNatRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VnpGatewayNatRuleArrayOutput) Index(i pulumi.IntInput) VnpGatewayNatRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VnpGatewayNatRule {
 		return vs[0].([]*VnpGatewayNatRule)[vs[1].(int)]
@@ -465,6 +496,12 @@ func (o VnpGatewayNatRuleMapOutput) ToVnpGatewayNatRuleMapOutput() VnpGatewayNat
 
 func (o VnpGatewayNatRuleMapOutput) ToVnpGatewayNatRuleMapOutputWithContext(ctx context.Context) VnpGatewayNatRuleMapOutput {
 	return o
+}
+
+func (o VnpGatewayNatRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VnpGatewayNatRule] {
+	return pulumix.Output[map[string]*VnpGatewayNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VnpGatewayNatRuleMapOutput) MapIndex(k pulumi.StringInput) VnpGatewayNatRuleOutput {

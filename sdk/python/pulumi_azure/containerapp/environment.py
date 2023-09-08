@@ -15,6 +15,7 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class EnvironmentArgs:
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -36,6 +38,8 @@ class EnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dapr_application_insights_connection_string is not None:
+            pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
         if infrastructure_subnet_id is not None:
             pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
         if internal_load_balancer_enabled is not None:
@@ -60,6 +64,18 @@ class EnvironmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="daprApplicationInsightsConnectionString")
+    def dapr_application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        """
+        return pulumi.get(self, "dapr_application_insights_connection_string")
+
+    @dapr_application_insights_connection_string.setter
+    def dapr_application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dapr_application_insights_connection_string", value)
 
     @property
     @pulumi.getter(name="infrastructureSubnetId")
@@ -141,6 +157,7 @@ class EnvironmentArgs:
 @pulumi.input_type
 class _EnvironmentState:
     def __init__(__self__, *,
+                 dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  default_domain: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -155,6 +172,7 @@ class _EnvironmentState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+        :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
@@ -172,6 +190,8 @@ class _EnvironmentState:
         :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if dapr_application_insights_connection_string is not None:
+            pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
         if default_domain is not None:
             pulumi.set(__self__, "default_domain", default_domain)
         if docker_bridge_cidr is not None:
@@ -196,6 +216,18 @@ class _EnvironmentState:
             pulumi.set(__self__, "static_ip_address", static_ip_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="daprApplicationInsightsConnectionString")
+    def dapr_application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        """
+        return pulumi.get(self, "dapr_application_insights_connection_string")
+
+    @dapr_application_insights_connection_string.setter
+    def dapr_application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dapr_application_insights_connection_string", value)
 
     @property
     @pulumi.getter(name="defaultDomain")
@@ -351,6 +383,7 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -390,6 +423,7 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -452,6 +486,7 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -468,6 +503,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
+            __props__.__dict__["dapr_application_insights_connection_string"] = None if dapr_application_insights_connection_string is None else pulumi.Output.secret(dapr_application_insights_connection_string)
             __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["location"] = location
@@ -482,6 +518,8 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["platform_reserved_cidr"] = None
             __props__.__dict__["platform_reserved_dns_ip_address"] = None
             __props__.__dict__["static_ip_address"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["daprApplicationInsightsConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Environment, __self__).__init__(
             'azure:containerapp/environment:Environment',
             resource_name,
@@ -492,6 +530,7 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
             default_domain: Optional[pulumi.Input[str]] = None,
             docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
             infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -511,6 +550,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
@@ -532,6 +572,7 @@ class Environment(pulumi.CustomResource):
 
         __props__ = _EnvironmentState.__new__(_EnvironmentState)
 
+        __props__.__dict__["dapr_application_insights_connection_string"] = dapr_application_insights_connection_string
         __props__.__dict__["default_domain"] = default_domain
         __props__.__dict__["docker_bridge_cidr"] = docker_bridge_cidr
         __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
@@ -545,6 +586,14 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["static_ip_address"] = static_ip_address
         __props__.__dict__["tags"] = tags
         return Environment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="daprApplicationInsightsConnectionString")
+    def dapr_application_insights_connection_string(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        """
+        return pulumi.get(self, "dapr_application_insights_connection_string")
 
     @property
     @pulumi.getter(name="defaultDomain")

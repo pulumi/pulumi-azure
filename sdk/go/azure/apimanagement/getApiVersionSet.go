@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an API Version Set within an API Management Service.
@@ -119,6 +120,12 @@ func (o LookupApiVersionSetResultOutput) ToLookupApiVersionSetResultOutput() Loo
 
 func (o LookupApiVersionSetResultOutput) ToLookupApiVersionSetResultOutputWithContext(ctx context.Context) LookupApiVersionSetResultOutput {
 	return o
+}
+
+func (o LookupApiVersionSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiVersionSetResult] {
+	return pulumix.Output[LookupApiVersionSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApiVersionSetResultOutput) ApiManagementName() pulumi.StringOutput {

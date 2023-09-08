@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Backup VM Backup Policy.
@@ -309,6 +310,12 @@ func (i *PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMOutput)
 }
 
+func (i *PolicyVM) ToOutput(ctx context.Context) pulumix.Output[*PolicyVM] {
+	return pulumix.Output[*PolicyVM]{
+		OutputState: i.ToPolicyVMOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyVMArrayInput is an input type that accepts PolicyVMArray and PolicyVMArrayOutput values.
 // You can construct a concrete instance of `PolicyVMArrayInput` via:
 //
@@ -332,6 +339,12 @@ func (i PolicyVMArray) ToPolicyVMArrayOutput() PolicyVMArrayOutput {
 
 func (i PolicyVMArray) ToPolicyVMArrayOutputWithContext(ctx context.Context) PolicyVMArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMArrayOutput)
+}
+
+func (i PolicyVMArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyVM] {
+	return pulumix.Output[[]*PolicyVM]{
+		OutputState: i.ToPolicyVMArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyVMMapInput is an input type that accepts PolicyVMMap and PolicyVMMapOutput values.
@@ -359,6 +372,12 @@ func (i PolicyVMMap) ToPolicyVMMapOutputWithContext(ctx context.Context) PolicyV
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMMapOutput)
 }
 
+func (i PolicyVMMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyVM] {
+	return pulumix.Output[map[string]*PolicyVM]{
+		OutputState: i.ToPolicyVMMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyVMOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMOutput) ElementType() reflect.Type {
@@ -371,6 +390,12 @@ func (o PolicyVMOutput) ToPolicyVMOutput() PolicyVMOutput {
 
 func (o PolicyVMOutput) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutput {
 	return o
+}
+
+func (o PolicyVMOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVM] {
+	return pulumix.Output[*PolicyVM]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configures the Policy backup frequency, times & days as documented in the `backup` block below.
@@ -447,6 +472,12 @@ func (o PolicyVMArrayOutput) ToPolicyVMArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PolicyVMArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyVM] {
+	return pulumix.Output[[]*PolicyVM]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyVMArrayOutput) Index(i pulumi.IntInput) PolicyVMOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyVM {
 		return vs[0].([]*PolicyVM)[vs[1].(int)]
@@ -465,6 +496,12 @@ func (o PolicyVMMapOutput) ToPolicyVMMapOutput() PolicyVMMapOutput {
 
 func (o PolicyVMMapOutput) ToPolicyVMMapOutputWithContext(ctx context.Context) PolicyVMMapOutput {
 	return o
+}
+
+func (o PolicyVMMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyVM] {
+	return pulumix.Output[map[string]*PolicyVM]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyVMMapOutput) MapIndex(k pulumi.StringInput) PolicyVMOutput {

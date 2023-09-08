@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Spatial Anchors Account.
@@ -186,6 +187,12 @@ func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountOutput)
 }
 
+func (i *SpatialAnchorsAccount) ToOutput(ctx context.Context) pulumix.Output[*SpatialAnchorsAccount] {
+	return pulumix.Output[*SpatialAnchorsAccount]{
+		OutputState: i.ToSpatialAnchorsAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpatialAnchorsAccountArrayInput is an input type that accepts SpatialAnchorsAccountArray and SpatialAnchorsAccountArrayOutput values.
 // You can construct a concrete instance of `SpatialAnchorsAccountArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i SpatialAnchorsAccountArray) ToSpatialAnchorsAccountArrayOutput() Spatial
 
 func (i SpatialAnchorsAccountArray) ToSpatialAnchorsAccountArrayOutputWithContext(ctx context.Context) SpatialAnchorsAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountArrayOutput)
+}
+
+func (i SpatialAnchorsAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpatialAnchorsAccount] {
+	return pulumix.Output[[]*SpatialAnchorsAccount]{
+		OutputState: i.ToSpatialAnchorsAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpatialAnchorsAccountMapInput is an input type that accepts SpatialAnchorsAccountMap and SpatialAnchorsAccountMapOutput values.
@@ -236,6 +249,12 @@ func (i SpatialAnchorsAccountMap) ToSpatialAnchorsAccountMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountMapOutput)
 }
 
+func (i SpatialAnchorsAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpatialAnchorsAccount] {
+	return pulumix.Output[map[string]*SpatialAnchorsAccount]{
+		OutputState: i.ToSpatialAnchorsAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpatialAnchorsAccountOutput struct{ *pulumi.OutputState }
 
 func (SpatialAnchorsAccountOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutput() SpatialAnch
 
 func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutputWithContext(ctx context.Context) SpatialAnchorsAccountOutput {
 	return o
+}
+
+func (o SpatialAnchorsAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*SpatialAnchorsAccount] {
+	return pulumix.Output[*SpatialAnchorsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The domain of the Spatial Anchors Account.
@@ -294,6 +319,12 @@ func (o SpatialAnchorsAccountArrayOutput) ToSpatialAnchorsAccountArrayOutputWith
 	return o
 }
 
+func (o SpatialAnchorsAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpatialAnchorsAccount] {
+	return pulumix.Output[[]*SpatialAnchorsAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpatialAnchorsAccountArrayOutput) Index(i pulumi.IntInput) SpatialAnchorsAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpatialAnchorsAccount {
 		return vs[0].([]*SpatialAnchorsAccount)[vs[1].(int)]
@@ -312,6 +343,12 @@ func (o SpatialAnchorsAccountMapOutput) ToSpatialAnchorsAccountMapOutput() Spati
 
 func (o SpatialAnchorsAccountMapOutput) ToSpatialAnchorsAccountMapOutputWithContext(ctx context.Context) SpatialAnchorsAccountMapOutput {
 	return o
+}
+
+func (o SpatialAnchorsAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpatialAnchorsAccount] {
+	return pulumix.Output[map[string]*SpatialAnchorsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpatialAnchorsAccountMapOutput) MapIndex(k pulumi.StringInput) SpatialAnchorsAccountOutput {

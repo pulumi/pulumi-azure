@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Gremlin Graph within a Cosmos DB Account.
@@ -312,6 +313,12 @@ func (i *GremlinGraph) ToGremlinGraphOutputWithContext(ctx context.Context) Grem
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphOutput)
 }
 
+func (i *GremlinGraph) ToOutput(ctx context.Context) pulumix.Output[*GremlinGraph] {
+	return pulumix.Output[*GremlinGraph]{
+		OutputState: i.ToGremlinGraphOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GremlinGraphArrayInput is an input type that accepts GremlinGraphArray and GremlinGraphArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphArrayInput` via:
 //
@@ -335,6 +342,12 @@ func (i GremlinGraphArray) ToGremlinGraphArrayOutput() GremlinGraphArrayOutput {
 
 func (i GremlinGraphArray) ToGremlinGraphArrayOutputWithContext(ctx context.Context) GremlinGraphArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphArrayOutput)
+}
+
+func (i GremlinGraphArray) ToOutput(ctx context.Context) pulumix.Output[[]*GremlinGraph] {
+	return pulumix.Output[[]*GremlinGraph]{
+		OutputState: i.ToGremlinGraphArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GremlinGraphMapInput is an input type that accepts GremlinGraphMap and GremlinGraphMapOutput values.
@@ -362,6 +375,12 @@ func (i GremlinGraphMap) ToGremlinGraphMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphMapOutput)
 }
 
+func (i GremlinGraphMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GremlinGraph] {
+	return pulumix.Output[map[string]*GremlinGraph]{
+		OutputState: i.ToGremlinGraphMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GremlinGraphOutput struct{ *pulumi.OutputState }
 
 func (GremlinGraphOutput) ElementType() reflect.Type {
@@ -374,6 +393,12 @@ func (o GremlinGraphOutput) ToGremlinGraphOutput() GremlinGraphOutput {
 
 func (o GremlinGraphOutput) ToGremlinGraphOutputWithContext(ctx context.Context) GremlinGraphOutput {
 	return o
+}
+
+func (o GremlinGraphOutput) ToOutput(ctx context.Context) pulumix.Output[*GremlinGraph] {
+	return pulumix.Output[*GremlinGraph]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
@@ -456,6 +481,12 @@ func (o GremlinGraphArrayOutput) ToGremlinGraphArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o GremlinGraphArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GremlinGraph] {
+	return pulumix.Output[[]*GremlinGraph]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GremlinGraphArrayOutput) Index(i pulumi.IntInput) GremlinGraphOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GremlinGraph {
 		return vs[0].([]*GremlinGraph)[vs[1].(int)]
@@ -474,6 +505,12 @@ func (o GremlinGraphMapOutput) ToGremlinGraphMapOutput() GremlinGraphMapOutput {
 
 func (o GremlinGraphMapOutput) ToGremlinGraphMapOutputWithContext(ctx context.Context) GremlinGraphMapOutput {
 	return o
+}
+
+func (o GremlinGraphMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GremlinGraph] {
+	return pulumix.Output[map[string]*GremlinGraph]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GremlinGraphMapOutput) MapIndex(k pulumi.StringInput) GremlinGraphOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -225,6 +226,12 @@ func (i *LoadTest) ToLoadTestOutputWithContext(ctx context.Context) LoadTestOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LoadTestOutput)
 }
 
+func (i *LoadTest) ToOutput(ctx context.Context) pulumix.Output[*LoadTest] {
+	return pulumix.Output[*LoadTest]{
+		OutputState: i.ToLoadTestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadTestArrayInput is an input type that accepts LoadTestArray and LoadTestArrayOutput values.
 // You can construct a concrete instance of `LoadTestArrayInput` via:
 //
@@ -248,6 +255,12 @@ func (i LoadTestArray) ToLoadTestArrayOutput() LoadTestArrayOutput {
 
 func (i LoadTestArray) ToLoadTestArrayOutputWithContext(ctx context.Context) LoadTestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadTestArrayOutput)
+}
+
+func (i LoadTestArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadTest] {
+	return pulumix.Output[[]*LoadTest]{
+		OutputState: i.ToLoadTestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoadTestMapInput is an input type that accepts LoadTestMap and LoadTestMapOutput values.
@@ -275,6 +288,12 @@ func (i LoadTestMap) ToLoadTestMapOutputWithContext(ctx context.Context) LoadTes
 	return pulumi.ToOutputWithContext(ctx, i).(LoadTestMapOutput)
 }
 
+func (i LoadTestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadTest] {
+	return pulumix.Output[map[string]*LoadTest]{
+		OutputState: i.ToLoadTestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadTestOutput struct{ *pulumi.OutputState }
 
 func (LoadTestOutput) ElementType() reflect.Type {
@@ -287,6 +306,12 @@ func (o LoadTestOutput) ToLoadTestOutput() LoadTestOutput {
 
 func (o LoadTestOutput) ToLoadTestOutputWithContext(ctx context.Context) LoadTestOutput {
 	return o
+}
+
+func (o LoadTestOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadTest] {
+	return pulumix.Output[*LoadTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Resource data plane URI.
@@ -338,6 +363,12 @@ func (o LoadTestArrayOutput) ToLoadTestArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o LoadTestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadTest] {
+	return pulumix.Output[[]*LoadTest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoadTestArrayOutput) Index(i pulumi.IntInput) LoadTestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadTest {
 		return vs[0].([]*LoadTest)[vs[1].(int)]
@@ -356,6 +387,12 @@ func (o LoadTestMapOutput) ToLoadTestMapOutput() LoadTestMapOutput {
 
 func (o LoadTestMapOutput) ToLoadTestMapOutputWithContext(ctx context.Context) LoadTestMapOutput {
 	return o
+}
+
+func (o LoadTestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadTest] {
+	return pulumix.Output[map[string]*LoadTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadTestMapOutput) MapIndex(k pulumi.StringInput) LoadTestOutput {

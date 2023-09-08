@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create a failover group of databases on a collection of Azure SQL servers.
@@ -287,6 +288,12 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupOutput)
 }
 
+func (i *FailoverGroup) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroup] {
+	return pulumix.Output[*FailoverGroup]{
+		OutputState: i.ToFailoverGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FailoverGroupArrayInput is an input type that accepts FailoverGroupArray and FailoverGroupArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupArrayInput` via:
 //
@@ -310,6 +317,12 @@ func (i FailoverGroupArray) ToFailoverGroupArrayOutput() FailoverGroupArrayOutpu
 
 func (i FailoverGroupArray) ToFailoverGroupArrayOutputWithContext(ctx context.Context) FailoverGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupArrayOutput)
+}
+
+func (i FailoverGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*FailoverGroup] {
+	return pulumix.Output[[]*FailoverGroup]{
+		OutputState: i.ToFailoverGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FailoverGroupMapInput is an input type that accepts FailoverGroupMap and FailoverGroupMapOutput values.
@@ -337,6 +350,12 @@ func (i FailoverGroupMap) ToFailoverGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupMapOutput)
 }
 
+func (i FailoverGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FailoverGroup] {
+	return pulumix.Output[map[string]*FailoverGroup]{
+		OutputState: i.ToFailoverGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
@@ -349,6 +368,12 @@ func (o FailoverGroupOutput) ToFailoverGroupOutput() FailoverGroupOutput {
 
 func (o FailoverGroupOutput) ToFailoverGroupOutputWithContext(ctx context.Context) FailoverGroupOutput {
 	return o
+}
+
+func (o FailoverGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroup] {
+	return pulumix.Output[*FailoverGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of database ids to add to the failover group
@@ -421,6 +446,12 @@ func (o FailoverGroupArrayOutput) ToFailoverGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o FailoverGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FailoverGroup] {
+	return pulumix.Output[[]*FailoverGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FailoverGroupArrayOutput) Index(i pulumi.IntInput) FailoverGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FailoverGroup {
 		return vs[0].([]*FailoverGroup)[vs[1].(int)]
@@ -439,6 +470,12 @@ func (o FailoverGroupMapOutput) ToFailoverGroupMapOutput() FailoverGroupMapOutpu
 
 func (o FailoverGroupMapOutput) ToFailoverGroupMapOutputWithContext(ctx context.Context) FailoverGroupMapOutput {
 	return o
+}
+
+func (o FailoverGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FailoverGroup] {
+	return pulumix.Output[map[string]*FailoverGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FailoverGroupMapOutput) MapIndex(k pulumi.StringInput) FailoverGroupOutput {

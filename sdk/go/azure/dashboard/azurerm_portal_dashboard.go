@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
@@ -121,6 +122,12 @@ func (o Azurerm_portal_dashboardResultOutput) ToAzurerm_portal_dashboardResultOu
 
 func (o Azurerm_portal_dashboardResultOutput) ToAzurerm_portal_dashboardResultOutputWithContext(ctx context.Context) Azurerm_portal_dashboardResultOutput {
 	return o
+}
+
+func (o Azurerm_portal_dashboardResultOutput) ToOutput(ctx context.Context) pulumix.Output[Azurerm_portal_dashboardResult] {
+	return pulumix.Output[Azurerm_portal_dashboardResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // JSON data representing dashboard body.

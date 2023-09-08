@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Active Azure Spring Cloud Deployment.
@@ -190,6 +191,12 @@ func (i *SpringCloudActiveDeployment) ToSpringCloudActiveDeploymentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudActiveDeploymentOutput)
 }
 
+func (i *SpringCloudActiveDeployment) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudActiveDeployment] {
+	return pulumix.Output[*SpringCloudActiveDeployment]{
+		OutputState: i.ToSpringCloudActiveDeploymentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudActiveDeploymentArrayInput is an input type that accepts SpringCloudActiveDeploymentArray and SpringCloudActiveDeploymentArrayOutput values.
 // You can construct a concrete instance of `SpringCloudActiveDeploymentArrayInput` via:
 //
@@ -213,6 +220,12 @@ func (i SpringCloudActiveDeploymentArray) ToSpringCloudActiveDeploymentArrayOutp
 
 func (i SpringCloudActiveDeploymentArray) ToSpringCloudActiveDeploymentArrayOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudActiveDeploymentArrayOutput)
+}
+
+func (i SpringCloudActiveDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudActiveDeployment] {
+	return pulumix.Output[[]*SpringCloudActiveDeployment]{
+		OutputState: i.ToSpringCloudActiveDeploymentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudActiveDeploymentMapInput is an input type that accepts SpringCloudActiveDeploymentMap and SpringCloudActiveDeploymentMapOutput values.
@@ -240,6 +253,12 @@ func (i SpringCloudActiveDeploymentMap) ToSpringCloudActiveDeploymentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudActiveDeploymentMapOutput)
 }
 
+func (i SpringCloudActiveDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudActiveDeployment] {
+	return pulumix.Output[map[string]*SpringCloudActiveDeployment]{
+		OutputState: i.ToSpringCloudActiveDeploymentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudActiveDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudActiveDeploymentOutput) ElementType() reflect.Type {
@@ -252,6 +271,12 @@ func (o SpringCloudActiveDeploymentOutput) ToSpringCloudActiveDeploymentOutput()
 
 func (o SpringCloudActiveDeploymentOutput) ToSpringCloudActiveDeploymentOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentOutput {
 	return o
+}
+
+func (o SpringCloudActiveDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudActiveDeployment] {
+	return pulumix.Output[*SpringCloudActiveDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of Spring Cloud Deployment which is going to be active.
@@ -278,6 +303,12 @@ func (o SpringCloudActiveDeploymentArrayOutput) ToSpringCloudActiveDeploymentArr
 	return o
 }
 
+func (o SpringCloudActiveDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudActiveDeployment] {
+	return pulumix.Output[[]*SpringCloudActiveDeployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudActiveDeploymentArrayOutput) Index(i pulumi.IntInput) SpringCloudActiveDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudActiveDeployment {
 		return vs[0].([]*SpringCloudActiveDeployment)[vs[1].(int)]
@@ -296,6 +327,12 @@ func (o SpringCloudActiveDeploymentMapOutput) ToSpringCloudActiveDeploymentMapOu
 
 func (o SpringCloudActiveDeploymentMapOutput) ToSpringCloudActiveDeploymentMapOutputWithContext(ctx context.Context) SpringCloudActiveDeploymentMapOutput {
 	return o
+}
+
+func (o SpringCloudActiveDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudActiveDeployment] {
+	return pulumix.Output[map[string]*SpringCloudActiveDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudActiveDeploymentMapOutput) MapIndex(k pulumi.StringInput) SpringCloudActiveDeploymentOutput {

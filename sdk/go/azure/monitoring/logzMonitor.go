@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a logz Monitor.
@@ -263,6 +264,12 @@ func (i *LogzMonitor) ToLogzMonitorOutputWithContext(ctx context.Context) LogzMo
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorOutput)
 }
 
+func (i *LogzMonitor) ToOutput(ctx context.Context) pulumix.Output[*LogzMonitor] {
+	return pulumix.Output[*LogzMonitor]{
+		OutputState: i.ToLogzMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogzMonitorArrayInput is an input type that accepts LogzMonitorArray and LogzMonitorArrayOutput values.
 // You can construct a concrete instance of `LogzMonitorArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i LogzMonitorArray) ToLogzMonitorArrayOutput() LogzMonitorArrayOutput {
 
 func (i LogzMonitorArray) ToLogzMonitorArrayOutputWithContext(ctx context.Context) LogzMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorArrayOutput)
+}
+
+func (i LogzMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogzMonitor] {
+	return pulumix.Output[[]*LogzMonitor]{
+		OutputState: i.ToLogzMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogzMonitorMapInput is an input type that accepts LogzMonitorMap and LogzMonitorMapOutput values.
@@ -313,6 +326,12 @@ func (i LogzMonitorMap) ToLogzMonitorMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorMapOutput)
 }
 
+func (i LogzMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzMonitor] {
+	return pulumix.Output[map[string]*LogzMonitor]{
+		OutputState: i.ToLogzMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogzMonitorOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o LogzMonitorOutput) ToLogzMonitorOutput() LogzMonitorOutput {
 
 func (o LogzMonitorOutput) ToLogzMonitorOutputWithContext(ctx context.Context) LogzMonitorOutput {
 	return o
+}
+
+func (o LogzMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzMonitor] {
+	return pulumix.Output[*LogzMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the Logz organization. Changing this forces a new logz Monitor to be created.
@@ -398,6 +423,12 @@ func (o LogzMonitorArrayOutput) ToLogzMonitorArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o LogzMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogzMonitor] {
+	return pulumix.Output[[]*LogzMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogzMonitorArrayOutput) Index(i pulumi.IntInput) LogzMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogzMonitor {
 		return vs[0].([]*LogzMonitor)[vs[1].(int)]
@@ -416,6 +447,12 @@ func (o LogzMonitorMapOutput) ToLogzMonitorMapOutput() LogzMonitorMapOutput {
 
 func (o LogzMonitorMapOutput) ToLogzMonitorMapOutputWithContext(ctx context.Context) LogzMonitorMapOutput {
 	return o
+}
+
+func (o LogzMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzMonitor] {
+	return pulumix.Output[map[string]*LogzMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogzMonitorMapOutput) MapIndex(k pulumi.StringInput) LogzMonitorOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Desktop Host Pool.
@@ -332,6 +333,12 @@ func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
 }
 
+func (i *HostPool) ToOutput(ctx context.Context) pulumix.Output[*HostPool] {
+	return pulumix.Output[*HostPool]{
+		OutputState: i.ToHostPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostPoolArrayInput is an input type that accepts HostPoolArray and HostPoolArrayOutput values.
 // You can construct a concrete instance of `HostPoolArrayInput` via:
 //
@@ -355,6 +362,12 @@ func (i HostPoolArray) ToHostPoolArrayOutput() HostPoolArrayOutput {
 
 func (i HostPoolArray) ToHostPoolArrayOutputWithContext(ctx context.Context) HostPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolArrayOutput)
+}
+
+func (i HostPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostPool] {
+	return pulumix.Output[[]*HostPool]{
+		OutputState: i.ToHostPoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostPoolMapInput is an input type that accepts HostPoolMap and HostPoolMapOutput values.
@@ -382,6 +395,12 @@ func (i HostPoolMap) ToHostPoolMapOutputWithContext(ctx context.Context) HostPoo
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolMapOutput)
 }
 
+func (i HostPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostPool] {
+	return pulumix.Output[map[string]*HostPool]{
+		OutputState: i.ToHostPoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostPoolOutput struct{ *pulumi.OutputState }
 
 func (HostPoolOutput) ElementType() reflect.Type {
@@ -394,6 +413,12 @@ func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {
 
 func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutput {
 	return o
+}
+
+func (o HostPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*HostPool] {
+	return pulumix.Output[*HostPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -490,6 +515,12 @@ func (o HostPoolArrayOutput) ToHostPoolArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o HostPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostPool] {
+	return pulumix.Output[[]*HostPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostPoolArrayOutput) Index(i pulumi.IntInput) HostPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostPool {
 		return vs[0].([]*HostPool)[vs[1].(int)]
@@ -508,6 +539,12 @@ func (o HostPoolMapOutput) ToHostPoolMapOutput() HostPoolMapOutput {
 
 func (o HostPoolMapOutput) ToHostPoolMapOutputWithContext(ctx context.Context) HostPoolMapOutput {
 	return o
+}
+
+func (o HostPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostPool] {
+	return pulumix.Output[map[string]*HostPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostPoolMapOutput) MapIndex(k pulumi.StringInput) HostPoolOutput {

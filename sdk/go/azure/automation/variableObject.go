@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an object variable in Azure Automation
@@ -216,6 +217,12 @@ func (i *VariableObject) ToVariableObjectOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VariableObjectOutput)
 }
 
+func (i *VariableObject) ToOutput(ctx context.Context) pulumix.Output[*VariableObject] {
+	return pulumix.Output[*VariableObject]{
+		OutputState: i.ToVariableObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VariableObjectArrayInput is an input type that accepts VariableObjectArray and VariableObjectArrayOutput values.
 // You can construct a concrete instance of `VariableObjectArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i VariableObjectArray) ToVariableObjectArrayOutput() VariableObjectArrayOu
 
 func (i VariableObjectArray) ToVariableObjectArrayOutputWithContext(ctx context.Context) VariableObjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VariableObjectArrayOutput)
+}
+
+func (i VariableObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*VariableObject] {
+	return pulumix.Output[[]*VariableObject]{
+		OutputState: i.ToVariableObjectArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VariableObjectMapInput is an input type that accepts VariableObjectMap and VariableObjectMapOutput values.
@@ -266,6 +279,12 @@ func (i VariableObjectMap) ToVariableObjectMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VariableObjectMapOutput)
 }
 
+func (i VariableObjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VariableObject] {
+	return pulumix.Output[map[string]*VariableObject]{
+		OutputState: i.ToVariableObjectMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariableObjectOutput struct{ *pulumi.OutputState }
 
 func (VariableObjectOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o VariableObjectOutput) ToVariableObjectOutput() VariableObjectOutput {
 
 func (o VariableObjectOutput) ToVariableObjectOutputWithContext(ctx context.Context) VariableObjectOutput {
 	return o
+}
+
+func (o VariableObjectOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableObject] {
+	return pulumix.Output[*VariableObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -324,6 +349,12 @@ func (o VariableObjectArrayOutput) ToVariableObjectArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o VariableObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VariableObject] {
+	return pulumix.Output[[]*VariableObject]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariableObjectArrayOutput) Index(i pulumi.IntInput) VariableObjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VariableObject {
 		return vs[0].([]*VariableObject)[vs[1].(int)]
@@ -342,6 +373,12 @@ func (o VariableObjectMapOutput) ToVariableObjectMapOutput() VariableObjectMapOu
 
 func (o VariableObjectMapOutput) ToVariableObjectMapOutputWithContext(ctx context.Context) VariableObjectMapOutput {
 	return o
+}
+
+func (o VariableObjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VariableObject] {
+	return pulumix.Output[map[string]*VariableObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariableObjectMapOutput) MapIndex(k pulumi.StringInput) VariableObjectOutput {

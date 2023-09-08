@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Availability Set.
@@ -114,6 +115,12 @@ func (o LookupAvailabilitySetResultOutput) ToLookupAvailabilitySetResultOutput()
 
 func (o LookupAvailabilitySetResultOutput) ToLookupAvailabilitySetResultOutputWithContext(ctx context.Context) LookupAvailabilitySetResultOutput {
 	return o
+}
+
+func (o LookupAvailabilitySetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAvailabilitySetResult] {
+	return pulumix.Output[LookupAvailabilitySetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

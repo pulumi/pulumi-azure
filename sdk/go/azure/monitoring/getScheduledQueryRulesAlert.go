@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the properties of an AlertingAction scheduled query rule.
@@ -131,6 +132,12 @@ func (o LookupScheduledQueryRulesAlertResultOutput) ToLookupScheduledQueryRulesA
 
 func (o LookupScheduledQueryRulesAlertResultOutput) ToLookupScheduledQueryRulesAlertResultOutputWithContext(ctx context.Context) LookupScheduledQueryRulesAlertResultOutput {
 	return o
+}
+
+func (o LookupScheduledQueryRulesAlertResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduledQueryRulesAlertResult] {
+	return pulumix.Output[LookupScheduledQueryRulesAlertResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // supports the following:

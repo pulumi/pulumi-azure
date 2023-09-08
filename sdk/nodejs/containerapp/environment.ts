@@ -64,6 +64,10 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     */
+    public readonly daprApplicationInsightsConnectionString!: pulumi.Output<string | undefined>;
+    /**
      * The default, publicly resolvable, name of this Container App Environment.
      */
     public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
+            resourceInputs["daprApplicationInsightsConnectionString"] = state ? state.daprApplicationInsightsConnectionString : undefined;
             resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
             resourceInputs["dockerBridgeCidr"] = state ? state.dockerBridgeCidr : undefined;
             resourceInputs["infrastructureSubnetId"] = state ? state.infrastructureSubnetId : undefined;
@@ -146,6 +151,7 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["daprApplicationInsightsConnectionString"] = args?.daprApplicationInsightsConnectionString ? pulumi.secret(args.daprApplicationInsightsConnectionString) : undefined;
             resourceInputs["infrastructureSubnetId"] = args ? args.infrastructureSubnetId : undefined;
             resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -160,6 +166,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["staticIpAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["daprApplicationInsightsConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -168,6 +176,10 @@ export class Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Environment resources.
  */
 export interface EnvironmentState {
+    /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     */
+    daprApplicationInsightsConnectionString?: pulumi.Input<string>;
     /**
      * The default, publicly resolvable, name of this Container App Environment.
      */
@@ -226,6 +238,10 @@ export interface EnvironmentState {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     */
+    daprApplicationInsightsConnectionString?: pulumi.Input<string>;
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *

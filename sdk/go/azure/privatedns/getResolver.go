@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets information about an existing Private DNS Resolver.
@@ -109,6 +110,12 @@ func (o LookupResolverResultOutput) ToLookupResolverResultOutput() LookupResolve
 
 func (o LookupResolverResultOutput) ToLookupResolverResultOutputWithContext(ctx context.Context) LookupResolverResultOutput {
 	return o
+}
+
+func (o LookupResolverResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverResult] {
+	return pulumix.Output[LookupResolverResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

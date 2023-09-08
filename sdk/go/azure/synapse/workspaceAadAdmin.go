@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Active Directory Administrator setting for a Synapse Workspace
@@ -263,6 +264,12 @@ func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
 }
 
+func (i *WorkspaceAadAdmin) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAadAdmin] {
+	return pulumix.Output[*WorkspaceAadAdmin]{
+		OutputState: i.ToWorkspaceAadAdminOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceAadAdminArrayInput is an input type that accepts WorkspaceAadAdminArray and WorkspaceAadAdminArrayOutput values.
 // You can construct a concrete instance of `WorkspaceAadAdminArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i WorkspaceAadAdminArray) ToWorkspaceAadAdminArrayOutput() WorkspaceAadAdm
 
 func (i WorkspaceAadAdminArray) ToWorkspaceAadAdminArrayOutputWithContext(ctx context.Context) WorkspaceAadAdminArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminArrayOutput)
+}
+
+func (i WorkspaceAadAdminArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceAadAdmin] {
+	return pulumix.Output[[]*WorkspaceAadAdmin]{
+		OutputState: i.ToWorkspaceAadAdminArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceAadAdminMapInput is an input type that accepts WorkspaceAadAdminMap and WorkspaceAadAdminMapOutput values.
@@ -313,6 +326,12 @@ func (i WorkspaceAadAdminMap) ToWorkspaceAadAdminMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminMapOutput)
 }
 
+func (i WorkspaceAadAdminMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceAadAdmin] {
+	return pulumix.Output[map[string]*WorkspaceAadAdmin]{
+		OutputState: i.ToWorkspaceAadAdminMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOu
 
 func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
 	return o
+}
+
+func (o WorkspaceAadAdminOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAadAdmin] {
+	return pulumix.Output[*WorkspaceAadAdmin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace.
@@ -361,6 +386,12 @@ func (o WorkspaceAadAdminArrayOutput) ToWorkspaceAadAdminArrayOutputWithContext(
 	return o
 }
 
+func (o WorkspaceAadAdminArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceAadAdmin] {
+	return pulumix.Output[[]*WorkspaceAadAdmin]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceAadAdminArrayOutput) Index(i pulumi.IntInput) WorkspaceAadAdminOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceAadAdmin {
 		return vs[0].([]*WorkspaceAadAdmin)[vs[1].(int)]
@@ -379,6 +410,12 @@ func (o WorkspaceAadAdminMapOutput) ToWorkspaceAadAdminMapOutput() WorkspaceAadA
 
 func (o WorkspaceAadAdminMapOutput) ToWorkspaceAadAdminMapOutputWithContext(ctx context.Context) WorkspaceAadAdminMapOutput {
 	return o
+}
+
+func (o WorkspaceAadAdminMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceAadAdmin] {
+	return pulumix.Output[map[string]*WorkspaceAadAdmin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceAadAdminMapOutput) MapIndex(k pulumi.StringInput) WorkspaceAadAdminOutput {

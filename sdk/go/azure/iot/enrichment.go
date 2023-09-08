@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Enrichment
@@ -164,6 +165,12 @@ func (i *Enrichment) ToEnrichmentOutputWithContext(ctx context.Context) Enrichme
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentOutput)
 }
 
+func (i *Enrichment) ToOutput(ctx context.Context) pulumix.Output[*Enrichment] {
+	return pulumix.Output[*Enrichment]{
+		OutputState: i.ToEnrichmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnrichmentArrayInput is an input type that accepts EnrichmentArray and EnrichmentArrayOutput values.
 // You can construct a concrete instance of `EnrichmentArrayInput` via:
 //
@@ -187,6 +194,12 @@ func (i EnrichmentArray) ToEnrichmentArrayOutput() EnrichmentArrayOutput {
 
 func (i EnrichmentArray) ToEnrichmentArrayOutputWithContext(ctx context.Context) EnrichmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentArrayOutput)
+}
+
+func (i EnrichmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Enrichment] {
+	return pulumix.Output[[]*Enrichment]{
+		OutputState: i.ToEnrichmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnrichmentMapInput is an input type that accepts EnrichmentMap and EnrichmentMapOutput values.
@@ -214,6 +227,12 @@ func (i EnrichmentMap) ToEnrichmentMapOutputWithContext(ctx context.Context) Enr
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentMapOutput)
 }
 
+func (i EnrichmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Enrichment] {
+	return pulumix.Output[map[string]*Enrichment]{
+		OutputState: i.ToEnrichmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnrichmentOutput struct{ *pulumi.OutputState }
 
 func (EnrichmentOutput) ElementType() reflect.Type {
@@ -226,6 +245,12 @@ func (o EnrichmentOutput) ToEnrichmentOutput() EnrichmentOutput {
 
 func (o EnrichmentOutput) ToEnrichmentOutputWithContext(ctx context.Context) EnrichmentOutput {
 	return o
+}
+
+func (o EnrichmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Enrichment] {
+	return pulumix.Output[*Enrichment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of endpoints which will be enriched.
@@ -267,6 +292,12 @@ func (o EnrichmentArrayOutput) ToEnrichmentArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o EnrichmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Enrichment] {
+	return pulumix.Output[[]*Enrichment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnrichmentArrayOutput) Index(i pulumi.IntInput) EnrichmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Enrichment {
 		return vs[0].([]*Enrichment)[vs[1].(int)]
@@ -285,6 +316,12 @@ func (o EnrichmentMapOutput) ToEnrichmentMapOutput() EnrichmentMapOutput {
 
 func (o EnrichmentMapOutput) ToEnrichmentMapOutputWithContext(ctx context.Context) EnrichmentMapOutput {
 	return o
+}
+
+func (o EnrichmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Enrichment] {
+	return pulumix.Output[map[string]*Enrichment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnrichmentMapOutput) MapIndex(k pulumi.StringInput) EnrichmentOutput {

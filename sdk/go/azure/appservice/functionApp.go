@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Function App.
@@ -587,6 +588,12 @@ func (i *FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) Functi
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppOutput)
 }
 
+func (i *FunctionApp) ToOutput(ctx context.Context) pulumix.Output[*FunctionApp] {
+	return pulumix.Output[*FunctionApp]{
+		OutputState: i.ToFunctionAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionAppArrayInput is an input type that accepts FunctionAppArray and FunctionAppArrayOutput values.
 // You can construct a concrete instance of `FunctionAppArrayInput` via:
 //
@@ -610,6 +617,12 @@ func (i FunctionAppArray) ToFunctionAppArrayOutput() FunctionAppArrayOutput {
 
 func (i FunctionAppArray) ToFunctionAppArrayOutputWithContext(ctx context.Context) FunctionAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppArrayOutput)
+}
+
+func (i FunctionAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionApp] {
+	return pulumix.Output[[]*FunctionApp]{
+		OutputState: i.ToFunctionAppArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionAppMapInput is an input type that accepts FunctionAppMap and FunctionAppMapOutput values.
@@ -637,6 +650,12 @@ func (i FunctionAppMap) ToFunctionAppMapOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppMapOutput)
 }
 
+func (i FunctionAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionApp] {
+	return pulumix.Output[map[string]*FunctionApp]{
+		OutputState: i.ToFunctionAppMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionAppOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppOutput) ElementType() reflect.Type {
@@ -649,6 +668,12 @@ func (o FunctionAppOutput) ToFunctionAppOutput() FunctionAppOutput {
 
 func (o FunctionAppOutput) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
 	return o
+}
+
+func (o FunctionAppOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionApp] {
+	return pulumix.Output[*FunctionApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the App Service Plan within which to create this Function App.
@@ -808,6 +833,12 @@ func (o FunctionAppArrayOutput) ToFunctionAppArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o FunctionAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionApp] {
+	return pulumix.Output[[]*FunctionApp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionAppArrayOutput) Index(i pulumi.IntInput) FunctionAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionApp {
 		return vs[0].([]*FunctionApp)[vs[1].(int)]
@@ -826,6 +857,12 @@ func (o FunctionAppMapOutput) ToFunctionAppMapOutput() FunctionAppMapOutput {
 
 func (o FunctionAppMapOutput) ToFunctionAppMapOutputWithContext(ctx context.Context) FunctionAppMapOutput {
 	return o
+}
+
+func (o FunctionAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionApp] {
+	return pulumix.Output[map[string]*FunctionApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionAppMapOutput) MapIndex(k pulumi.StringInput) FunctionAppOutput {

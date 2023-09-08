@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Rule Collection within an Azure Firewall.
@@ -272,6 +273,12 @@ func (i *FirewallNetworkRuleCollection) ToFirewallNetworkRuleCollectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNetworkRuleCollectionOutput)
 }
 
+func (i *FirewallNetworkRuleCollection) ToOutput(ctx context.Context) pulumix.Output[*FirewallNetworkRuleCollection] {
+	return pulumix.Output[*FirewallNetworkRuleCollection]{
+		OutputState: i.ToFirewallNetworkRuleCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallNetworkRuleCollectionArrayInput is an input type that accepts FirewallNetworkRuleCollectionArray and FirewallNetworkRuleCollectionArrayOutput values.
 // You can construct a concrete instance of `FirewallNetworkRuleCollectionArrayInput` via:
 //
@@ -295,6 +302,12 @@ func (i FirewallNetworkRuleCollectionArray) ToFirewallNetworkRuleCollectionArray
 
 func (i FirewallNetworkRuleCollectionArray) ToFirewallNetworkRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNetworkRuleCollectionArrayOutput)
+}
+
+func (i FirewallNetworkRuleCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallNetworkRuleCollection] {
+	return pulumix.Output[[]*FirewallNetworkRuleCollection]{
+		OutputState: i.ToFirewallNetworkRuleCollectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FirewallNetworkRuleCollectionMapInput is an input type that accepts FirewallNetworkRuleCollectionMap and FirewallNetworkRuleCollectionMapOutput values.
@@ -322,6 +335,12 @@ func (i FirewallNetworkRuleCollectionMap) ToFirewallNetworkRuleCollectionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallNetworkRuleCollectionMapOutput)
 }
 
+func (i FirewallNetworkRuleCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallNetworkRuleCollection] {
+	return pulumix.Output[map[string]*FirewallNetworkRuleCollection]{
+		OutputState: i.ToFirewallNetworkRuleCollectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallNetworkRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (FirewallNetworkRuleCollectionOutput) ElementType() reflect.Type {
@@ -334,6 +353,12 @@ func (o FirewallNetworkRuleCollectionOutput) ToFirewallNetworkRuleCollectionOutp
 
 func (o FirewallNetworkRuleCollectionOutput) ToFirewallNetworkRuleCollectionOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionOutput {
 	return o
+}
+
+func (o FirewallNetworkRuleCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallNetworkRuleCollection] {
+	return pulumix.Output[*FirewallNetworkRuleCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
@@ -380,6 +405,12 @@ func (o FirewallNetworkRuleCollectionArrayOutput) ToFirewallNetworkRuleCollectio
 	return o
 }
 
+func (o FirewallNetworkRuleCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallNetworkRuleCollection] {
+	return pulumix.Output[[]*FirewallNetworkRuleCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallNetworkRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallNetworkRuleCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallNetworkRuleCollection {
 		return vs[0].([]*FirewallNetworkRuleCollection)[vs[1].(int)]
@@ -398,6 +429,12 @@ func (o FirewallNetworkRuleCollectionMapOutput) ToFirewallNetworkRuleCollectionM
 
 func (o FirewallNetworkRuleCollectionMapOutput) ToFirewallNetworkRuleCollectionMapOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionMapOutput {
 	return o
+}
+
+func (o FirewallNetworkRuleCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallNetworkRuleCollection] {
+	return pulumix.Output[map[string]*FirewallNetworkRuleCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallNetworkRuleCollectionMapOutput) MapIndex(k pulumi.StringInput) FirewallNetworkRuleCollectionOutput {

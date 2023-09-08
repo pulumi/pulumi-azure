@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Schema within an API Management Service.
@@ -242,6 +243,12 @@ func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
 }
 
+func (i *ApiSchema) ToOutput(ctx context.Context) pulumix.Output[*ApiSchema] {
+	return pulumix.Output[*ApiSchema]{
+		OutputState: i.ToApiSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiSchemaArrayInput is an input type that accepts ApiSchemaArray and ApiSchemaArrayOutput values.
 // You can construct a concrete instance of `ApiSchemaArrayInput` via:
 //
@@ -265,6 +272,12 @@ func (i ApiSchemaArray) ToApiSchemaArrayOutput() ApiSchemaArrayOutput {
 
 func (i ApiSchemaArray) ToApiSchemaArrayOutputWithContext(ctx context.Context) ApiSchemaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaArrayOutput)
+}
+
+func (i ApiSchemaArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiSchema] {
+	return pulumix.Output[[]*ApiSchema]{
+		OutputState: i.ToApiSchemaArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApiSchemaMapInput is an input type that accepts ApiSchemaMap and ApiSchemaMapOutput values.
@@ -292,6 +305,12 @@ func (i ApiSchemaMap) ToApiSchemaMapOutputWithContext(ctx context.Context) ApiSc
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaMapOutput)
 }
 
+func (i ApiSchemaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiSchema] {
+	return pulumix.Output[map[string]*ApiSchema]{
+		OutputState: i.ToApiSchemaMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
@@ -304,6 +323,12 @@ func (o ApiSchemaOutput) ToApiSchemaOutput() ApiSchemaOutput {
 
 func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaOutput {
 	return o
+}
+
+func (o ApiSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiSchema] {
+	return pulumix.Output[*ApiSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -360,6 +385,12 @@ func (o ApiSchemaArrayOutput) ToApiSchemaArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ApiSchemaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiSchema] {
+	return pulumix.Output[[]*ApiSchema]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiSchemaArrayOutput) Index(i pulumi.IntInput) ApiSchemaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiSchema {
 		return vs[0].([]*ApiSchema)[vs[1].(int)]
@@ -378,6 +409,12 @@ func (o ApiSchemaMapOutput) ToApiSchemaMapOutput() ApiSchemaMapOutput {
 
 func (o ApiSchemaMapOutput) ToApiSchemaMapOutputWithContext(ctx context.Context) ApiSchemaMapOutput {
 	return o
+}
+
+func (o ApiSchemaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiSchema] {
+	return pulumix.Output[map[string]*ApiSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiSchemaMapOutput) MapIndex(k pulumi.StringInput) ApiSchemaOutput {

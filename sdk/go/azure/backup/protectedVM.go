@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Azure Backup for an Azure VM
@@ -256,6 +257,12 @@ func (i *ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) Protec
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMOutput)
 }
 
+func (i *ProtectedVM) ToOutput(ctx context.Context) pulumix.Output[*ProtectedVM] {
+	return pulumix.Output[*ProtectedVM]{
+		OutputState: i.ToProtectedVMOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProtectedVMArrayInput is an input type that accepts ProtectedVMArray and ProtectedVMArrayOutput values.
 // You can construct a concrete instance of `ProtectedVMArrayInput` via:
 //
@@ -279,6 +286,12 @@ func (i ProtectedVMArray) ToProtectedVMArrayOutput() ProtectedVMArrayOutput {
 
 func (i ProtectedVMArray) ToProtectedVMArrayOutputWithContext(ctx context.Context) ProtectedVMArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMArrayOutput)
+}
+
+func (i ProtectedVMArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectedVM] {
+	return pulumix.Output[[]*ProtectedVM]{
+		OutputState: i.ToProtectedVMArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProtectedVMMapInput is an input type that accepts ProtectedVMMap and ProtectedVMMapOutput values.
@@ -306,6 +319,12 @@ func (i ProtectedVMMap) ToProtectedVMMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMMapOutput)
 }
 
+func (i ProtectedVMMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectedVM] {
+	return pulumix.Output[map[string]*ProtectedVM]{
+		OutputState: i.ToProtectedVMMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProtectedVMOutput struct{ *pulumi.OutputState }
 
 func (ProtectedVMOutput) ElementType() reflect.Type {
@@ -318,6 +337,12 @@ func (o ProtectedVMOutput) ToProtectedVMOutput() ProtectedVMOutput {
 
 func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
 	return o
+}
+
+func (o ProtectedVMOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectedVM] {
+	return pulumix.Output[*ProtectedVM]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the id of the backup policy to use. Required in creation or when `protectionStopped` is not specified.
@@ -372,6 +397,12 @@ func (o ProtectedVMArrayOutput) ToProtectedVMArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ProtectedVMArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectedVM] {
+	return pulumix.Output[[]*ProtectedVM]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectedVMArrayOutput) Index(i pulumi.IntInput) ProtectedVMOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectedVM {
 		return vs[0].([]*ProtectedVM)[vs[1].(int)]
@@ -390,6 +421,12 @@ func (o ProtectedVMMapOutput) ToProtectedVMMapOutput() ProtectedVMMapOutput {
 
 func (o ProtectedVMMapOutput) ToProtectedVMMapOutputWithContext(ctx context.Context) ProtectedVMMapOutput {
 	return o
+}
+
+func (o ProtectedVMMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectedVM] {
+	return pulumix.Output[map[string]*ProtectedVM]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectedVMMapOutput) MapIndex(k pulumi.StringInput) ProtectedVMOutput {

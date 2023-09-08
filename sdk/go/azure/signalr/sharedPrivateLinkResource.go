@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Shared Private Link Resource for a Signalr service.
@@ -248,6 +249,12 @@ func (i *SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceOutput)
 }
 
+func (i *SharedPrivateLinkResource) ToOutput(ctx context.Context) pulumix.Output[*SharedPrivateLinkResource] {
+	return pulumix.Output[*SharedPrivateLinkResource]{
+		OutputState: i.ToSharedPrivateLinkResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SharedPrivateLinkResourceArrayInput is an input type that accepts SharedPrivateLinkResourceArray and SharedPrivateLinkResourceArrayOutput values.
 // You can construct a concrete instance of `SharedPrivateLinkResourceArrayInput` via:
 //
@@ -271,6 +278,12 @@ func (i SharedPrivateLinkResourceArray) ToSharedPrivateLinkResourceArrayOutput()
 
 func (i SharedPrivateLinkResourceArray) ToSharedPrivateLinkResourceArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceArrayOutput)
+}
+
+func (i SharedPrivateLinkResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedPrivateLinkResource] {
+	return pulumix.Output[[]*SharedPrivateLinkResource]{
+		OutputState: i.ToSharedPrivateLinkResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SharedPrivateLinkResourceMapInput is an input type that accepts SharedPrivateLinkResourceMap and SharedPrivateLinkResourceMapOutput values.
@@ -298,6 +311,12 @@ func (i SharedPrivateLinkResourceMap) ToSharedPrivateLinkResourceMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceMapOutput)
 }
 
+func (i SharedPrivateLinkResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedPrivateLinkResource] {
+	return pulumix.Output[map[string]*SharedPrivateLinkResource]{
+		OutputState: i.ToSharedPrivateLinkResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
@@ -310,6 +329,12 @@ func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutput() Sha
 
 func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
 	return o
+}
+
+func (o SharedPrivateLinkResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedPrivateLinkResource] {
+	return pulumix.Output[*SharedPrivateLinkResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -358,6 +383,12 @@ func (o SharedPrivateLinkResourceArrayOutput) ToSharedPrivateLinkResourceArrayOu
 	return o
 }
 
+func (o SharedPrivateLinkResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedPrivateLinkResource] {
+	return pulumix.Output[[]*SharedPrivateLinkResource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SharedPrivateLinkResourceArrayOutput) Index(i pulumi.IntInput) SharedPrivateLinkResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedPrivateLinkResource {
 		return vs[0].([]*SharedPrivateLinkResource)[vs[1].(int)]
@@ -376,6 +407,12 @@ func (o SharedPrivateLinkResourceMapOutput) ToSharedPrivateLinkResourceMapOutput
 
 func (o SharedPrivateLinkResourceMapOutput) ToSharedPrivateLinkResourceMapOutputWithContext(ctx context.Context) SharedPrivateLinkResourceMapOutput {
 	return o
+}
+
+func (o SharedPrivateLinkResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedPrivateLinkResource] {
+	return pulumix.Output[map[string]*SharedPrivateLinkResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedPrivateLinkResourceMapOutput) MapIndex(k pulumi.StringInput) SharedPrivateLinkResourceOutput {

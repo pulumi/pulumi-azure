@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Alert Policy for a Synapse SQL Pool.
@@ -287,6 +288,12 @@ func (i *SqlPoolSecurityAlertPolicy) ToSqlPoolSecurityAlertPolicyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSecurityAlertPolicyOutput)
 }
 
+func (i *SqlPoolSecurityAlertPolicy) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolSecurityAlertPolicy] {
+	return pulumix.Output[*SqlPoolSecurityAlertPolicy]{
+		OutputState: i.ToSqlPoolSecurityAlertPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlPoolSecurityAlertPolicyArrayInput is an input type that accepts SqlPoolSecurityAlertPolicyArray and SqlPoolSecurityAlertPolicyArrayOutput values.
 // You can construct a concrete instance of `SqlPoolSecurityAlertPolicyArrayInput` via:
 //
@@ -310,6 +317,12 @@ func (i SqlPoolSecurityAlertPolicyArray) ToSqlPoolSecurityAlertPolicyArrayOutput
 
 func (i SqlPoolSecurityAlertPolicyArray) ToSqlPoolSecurityAlertPolicyArrayOutputWithContext(ctx context.Context) SqlPoolSecurityAlertPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSecurityAlertPolicyArrayOutput)
+}
+
+func (i SqlPoolSecurityAlertPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolSecurityAlertPolicy] {
+	return pulumix.Output[[]*SqlPoolSecurityAlertPolicy]{
+		OutputState: i.ToSqlPoolSecurityAlertPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlPoolSecurityAlertPolicyMapInput is an input type that accepts SqlPoolSecurityAlertPolicyMap and SqlPoolSecurityAlertPolicyMapOutput values.
@@ -337,6 +350,12 @@ func (i SqlPoolSecurityAlertPolicyMap) ToSqlPoolSecurityAlertPolicyMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSecurityAlertPolicyMapOutput)
 }
 
+func (i SqlPoolSecurityAlertPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*SqlPoolSecurityAlertPolicy]{
+		OutputState: i.ToSqlPoolSecurityAlertPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlPoolSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolSecurityAlertPolicyOutput) ElementType() reflect.Type {
@@ -349,6 +368,12 @@ func (o SqlPoolSecurityAlertPolicyOutput) ToSqlPoolSecurityAlertPolicyOutput() S
 
 func (o SqlPoolSecurityAlertPolicyOutput) ToSqlPoolSecurityAlertPolicyOutputWithContext(ctx context.Context) SqlPoolSecurityAlertPolicyOutput {
 	return o
+}
+
+func (o SqlPoolSecurityAlertPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolSecurityAlertPolicy] {
+	return pulumix.Output[*SqlPoolSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
@@ -405,6 +430,12 @@ func (o SqlPoolSecurityAlertPolicyArrayOutput) ToSqlPoolSecurityAlertPolicyArray
 	return o
 }
 
+func (o SqlPoolSecurityAlertPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolSecurityAlertPolicy] {
+	return pulumix.Output[[]*SqlPoolSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlPoolSecurityAlertPolicyArrayOutput) Index(i pulumi.IntInput) SqlPoolSecurityAlertPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolSecurityAlertPolicy {
 		return vs[0].([]*SqlPoolSecurityAlertPolicy)[vs[1].(int)]
@@ -423,6 +454,12 @@ func (o SqlPoolSecurityAlertPolicyMapOutput) ToSqlPoolSecurityAlertPolicyMapOutp
 
 func (o SqlPoolSecurityAlertPolicyMapOutput) ToSqlPoolSecurityAlertPolicyMapOutputWithContext(ctx context.Context) SqlPoolSecurityAlertPolicyMapOutput {
 	return o
+}
+
+func (o SqlPoolSecurityAlertPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*SqlPoolSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlPoolSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) SqlPoolSecurityAlertPolicyOutput {

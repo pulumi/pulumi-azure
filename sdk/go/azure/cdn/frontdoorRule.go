@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Front Door (standard/premium) Rule.
@@ -305,6 +306,12 @@ func (i *FrontdoorRule) ToFrontdoorRuleOutputWithContext(ctx context.Context) Fr
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleOutput)
 }
 
+func (i *FrontdoorRule) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRule] {
+	return pulumix.Output[*FrontdoorRule]{
+		OutputState: i.ToFrontdoorRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrontdoorRuleArrayInput is an input type that accepts FrontdoorRuleArray and FrontdoorRuleArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRuleArrayInput` via:
 //
@@ -328,6 +335,12 @@ func (i FrontdoorRuleArray) ToFrontdoorRuleArrayOutput() FrontdoorRuleArrayOutpu
 
 func (i FrontdoorRuleArray) ToFrontdoorRuleArrayOutputWithContext(ctx context.Context) FrontdoorRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleArrayOutput)
+}
+
+func (i FrontdoorRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRule] {
+	return pulumix.Output[[]*FrontdoorRule]{
+		OutputState: i.ToFrontdoorRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FrontdoorRuleMapInput is an input type that accepts FrontdoorRuleMap and FrontdoorRuleMapOutput values.
@@ -355,6 +368,12 @@ func (i FrontdoorRuleMap) ToFrontdoorRuleMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleMapOutput)
 }
 
+func (i FrontdoorRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRule] {
+	return pulumix.Output[map[string]*FrontdoorRule]{
+		OutputState: i.ToFrontdoorRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrontdoorRuleOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRuleOutput) ElementType() reflect.Type {
@@ -367,6 +386,12 @@ func (o FrontdoorRuleOutput) ToFrontdoorRuleOutput() FrontdoorRuleOutput {
 
 func (o FrontdoorRuleOutput) ToFrontdoorRuleOutputWithContext(ctx context.Context) FrontdoorRuleOutput {
 	return o
+}
+
+func (o FrontdoorRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRule] {
+	return pulumix.Output[*FrontdoorRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `actions` block as defined below.
@@ -420,6 +445,12 @@ func (o FrontdoorRuleArrayOutput) ToFrontdoorRuleArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o FrontdoorRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRule] {
+	return pulumix.Output[[]*FrontdoorRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FrontdoorRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorRule {
 		return vs[0].([]*FrontdoorRule)[vs[1].(int)]
@@ -438,6 +469,12 @@ func (o FrontdoorRuleMapOutput) ToFrontdoorRuleMapOutput() FrontdoorRuleMapOutpu
 
 func (o FrontdoorRuleMapOutput) ToFrontdoorRuleMapOutputWithContext(ctx context.Context) FrontdoorRuleMapOutput {
 	return o
+}
+
+func (o FrontdoorRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRule] {
+	return pulumix.Output[map[string]*FrontdoorRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrontdoorRuleMapOutput) MapIndex(k pulumi.StringInput) FrontdoorRuleOutput {

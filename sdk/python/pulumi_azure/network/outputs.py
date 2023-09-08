@@ -5702,7 +5702,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         :param Sequence[str] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
@@ -5782,7 +5782,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol']]:
         """
-        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        One or more `protocols` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
 
@@ -5942,7 +5942,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
                  translated_fqdn: Optional[str] = None):
         """
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param Sequence[str] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        :param Sequence[str] protocols: One or more `protocols` blocks as defined below.
         :param int translated_port: Specifies the translated port.
         :param str destination_address: The destination IP address (including CIDR).
         :param str destination_ports: Specifies a list of destination ports.
@@ -5981,7 +5981,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        One or more `protocols` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
 
@@ -6136,7 +6136,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
         """
         :param Sequence[str] destination_ports: Specifies a list of destination ports.
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param Sequence[str] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        :param Sequence[str] protocols: One or more `protocols` blocks as defined below.
         :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups.
@@ -6177,7 +6177,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        One or more `protocols` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
 
@@ -9364,8 +9364,14 @@ class VirtualHubConnectionRouting(dict):
         suggest = None
         if key == "associatedRouteTableId":
             suggest = "associated_route_table_id"
+        elif key == "inboundRouteMapId":
+            suggest = "inbound_route_map_id"
+        elif key == "outboundRouteMapId":
+            suggest = "outbound_route_map_id"
         elif key == "propagatedRouteTable":
             suggest = "propagated_route_table"
+        elif key == "staticVnetLocalRouteOverrideCriteria":
+            suggest = "static_vnet_local_route_override_criteria"
         elif key == "staticVnetRoutes":
             suggest = "static_vnet_routes"
 
@@ -9382,17 +9388,29 @@ class VirtualHubConnectionRouting(dict):
 
     def __init__(__self__, *,
                  associated_route_table_id: Optional[str] = None,
+                 inbound_route_map_id: Optional[str] = None,
+                 outbound_route_map_id: Optional[str] = None,
                  propagated_route_table: Optional['outputs.VirtualHubConnectionRoutingPropagatedRouteTable'] = None,
+                 static_vnet_local_route_override_criteria: Optional[str] = None,
                  static_vnet_routes: Optional[Sequence['outputs.VirtualHubConnectionRoutingStaticVnetRoute']] = None):
         """
         :param str associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
+        :param str inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param 'VirtualHubConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
+        :param str static_vnet_local_route_override_criteria: The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
         :param Sequence['VirtualHubConnectionRoutingStaticVnetRouteArgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
+        if static_vnet_local_route_override_criteria is not None:
+            pulumi.set(__self__, "static_vnet_local_route_override_criteria", static_vnet_local_route_override_criteria)
         if static_vnet_routes is not None:
             pulumi.set(__self__, "static_vnet_routes", static_vnet_routes)
 
@@ -9405,12 +9423,36 @@ class VirtualHubConnectionRouting(dict):
         return pulumi.get(self, "associated_route_table_id")
 
     @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[str]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[str]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
+
+    @property
     @pulumi.getter(name="propagatedRouteTable")
     def propagated_route_table(self) -> Optional['outputs.VirtualHubConnectionRoutingPropagatedRouteTable']:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
+
+    @property
+    @pulumi.getter(name="staticVnetLocalRouteOverrideCriteria")
+    def static_vnet_local_route_override_criteria(self) -> Optional[str]:
+        """
+        The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "static_vnet_local_route_override_criteria")
 
     @property
     @pulumi.getter(name="staticVnetRoutes")

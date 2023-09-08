@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Source Control Slot.
@@ -262,6 +263,12 @@ func (i *SourceControlSlot) ToSourceControlSlotOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSlotOutput)
 }
 
+func (i *SourceControlSlot) ToOutput(ctx context.Context) pulumix.Output[*SourceControlSlot] {
+	return pulumix.Output[*SourceControlSlot]{
+		OutputState: i.ToSourceControlSlotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SourceControlSlotArrayInput is an input type that accepts SourceControlSlotArray and SourceControlSlotArrayOutput values.
 // You can construct a concrete instance of `SourceControlSlotArrayInput` via:
 //
@@ -285,6 +292,12 @@ func (i SourceControlSlotArray) ToSourceControlSlotArrayOutput() SourceControlSl
 
 func (i SourceControlSlotArray) ToSourceControlSlotArrayOutputWithContext(ctx context.Context) SourceControlSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSlotArrayOutput)
+}
+
+func (i SourceControlSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*SourceControlSlot] {
+	return pulumix.Output[[]*SourceControlSlot]{
+		OutputState: i.ToSourceControlSlotArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SourceControlSlotMapInput is an input type that accepts SourceControlSlotMap and SourceControlSlotMapOutput values.
@@ -312,6 +325,12 @@ func (i SourceControlSlotMap) ToSourceControlSlotMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSlotMapOutput)
 }
 
+func (i SourceControlSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceControlSlot] {
+	return pulumix.Output[map[string]*SourceControlSlot]{
+		OutputState: i.ToSourceControlSlotMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SourceControlSlotOutput struct{ *pulumi.OutputState }
 
 func (SourceControlSlotOutput) ElementType() reflect.Type {
@@ -324,6 +343,12 @@ func (o SourceControlSlotOutput) ToSourceControlSlotOutput() SourceControlSlotOu
 
 func (o SourceControlSlotOutput) ToSourceControlSlotOutputWithContext(ctx context.Context) SourceControlSlotOutput {
 	return o
+}
+
+func (o SourceControlSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceControlSlot] {
+	return pulumix.Output[*SourceControlSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The URL for the repository. Changing this forces a new resource to be created.
@@ -394,6 +419,12 @@ func (o SourceControlSlotArrayOutput) ToSourceControlSlotArrayOutputWithContext(
 	return o
 }
 
+func (o SourceControlSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SourceControlSlot] {
+	return pulumix.Output[[]*SourceControlSlot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SourceControlSlotArrayOutput) Index(i pulumi.IntInput) SourceControlSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceControlSlot {
 		return vs[0].([]*SourceControlSlot)[vs[1].(int)]
@@ -412,6 +443,12 @@ func (o SourceControlSlotMapOutput) ToSourceControlSlotMapOutput() SourceControl
 
 func (o SourceControlSlotMapOutput) ToSourceControlSlotMapOutputWithContext(ctx context.Context) SourceControlSlotMapOutput {
 	return o
+}
+
+func (o SourceControlSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceControlSlot] {
+	return pulumix.Output[map[string]*SourceControlSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SourceControlSlotMapOutput) MapIndex(k pulumi.StringInput) SourceControlSlotOutput {

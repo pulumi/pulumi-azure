@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing EventGrid Domain Topic
@@ -109,6 +110,12 @@ func (o LookupDomainTopicResultOutput) ToLookupDomainTopicResultOutput() LookupD
 
 func (o LookupDomainTopicResultOutput) ToLookupDomainTopicResultOutputWithContext(ctx context.Context) LookupDomainTopicResultOutput {
 	return o
+}
+
+func (o LookupDomainTopicResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainTopicResult] {
+	return pulumix.Output[LookupDomainTopicResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The EventGrid Domain Topic Domain name.

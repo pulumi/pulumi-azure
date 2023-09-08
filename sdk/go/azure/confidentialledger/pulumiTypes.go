@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i LedgerAzureadBasedServicePrincipalArgs) ToLedgerAzureadBasedServicePrinc
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerAzureadBasedServicePrincipalOutput)
 }
 
+func (i LedgerAzureadBasedServicePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[LedgerAzureadBasedServicePrincipal] {
+	return pulumix.Output[LedgerAzureadBasedServicePrincipal]{
+		OutputState: i.ToLedgerAzureadBasedServicePrincipalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LedgerAzureadBasedServicePrincipalArrayInput is an input type that accepts LedgerAzureadBasedServicePrincipalArray and LedgerAzureadBasedServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `LedgerAzureadBasedServicePrincipalArrayInput` via:
 //
@@ -79,6 +86,12 @@ func (i LedgerAzureadBasedServicePrincipalArray) ToLedgerAzureadBasedServicePrin
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerAzureadBasedServicePrincipalArrayOutput)
 }
 
+func (i LedgerAzureadBasedServicePrincipalArray) ToOutput(ctx context.Context) pulumix.Output[[]LedgerAzureadBasedServicePrincipal] {
+	return pulumix.Output[[]LedgerAzureadBasedServicePrincipal]{
+		OutputState: i.ToLedgerAzureadBasedServicePrincipalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LedgerAzureadBasedServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (LedgerAzureadBasedServicePrincipalOutput) ElementType() reflect.Type {
@@ -91,6 +104,12 @@ func (o LedgerAzureadBasedServicePrincipalOutput) ToLedgerAzureadBasedServicePri
 
 func (o LedgerAzureadBasedServicePrincipalOutput) ToLedgerAzureadBasedServicePrincipalOutputWithContext(ctx context.Context) LedgerAzureadBasedServicePrincipalOutput {
 	return o
+}
+
+func (o LedgerAzureadBasedServicePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[LedgerAzureadBasedServicePrincipal] {
+	return pulumix.Output[LedgerAzureadBasedServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
@@ -120,6 +139,12 @@ func (o LedgerAzureadBasedServicePrincipalArrayOutput) ToLedgerAzureadBasedServi
 
 func (o LedgerAzureadBasedServicePrincipalArrayOutput) ToLedgerAzureadBasedServicePrincipalArrayOutputWithContext(ctx context.Context) LedgerAzureadBasedServicePrincipalArrayOutput {
 	return o
+}
+
+func (o LedgerAzureadBasedServicePrincipalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LedgerAzureadBasedServicePrincipal] {
+	return pulumix.Output[[]LedgerAzureadBasedServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LedgerAzureadBasedServicePrincipalArrayOutput) Index(i pulumi.IntInput) LedgerAzureadBasedServicePrincipalOutput {
@@ -165,6 +190,12 @@ func (i LedgerCertificateBasedSecurityPrincipalArgs) ToLedgerCertificateBasedSec
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerCertificateBasedSecurityPrincipalOutput)
 }
 
+func (i LedgerCertificateBasedSecurityPrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[LedgerCertificateBasedSecurityPrincipal] {
+	return pulumix.Output[LedgerCertificateBasedSecurityPrincipal]{
+		OutputState: i.ToLedgerCertificateBasedSecurityPrincipalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LedgerCertificateBasedSecurityPrincipalArrayInput is an input type that accepts LedgerCertificateBasedSecurityPrincipalArray and LedgerCertificateBasedSecurityPrincipalArrayOutput values.
 // You can construct a concrete instance of `LedgerCertificateBasedSecurityPrincipalArrayInput` via:
 //
@@ -190,6 +221,12 @@ func (i LedgerCertificateBasedSecurityPrincipalArray) ToLedgerCertificateBasedSe
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerCertificateBasedSecurityPrincipalArrayOutput)
 }
 
+func (i LedgerCertificateBasedSecurityPrincipalArray) ToOutput(ctx context.Context) pulumix.Output[[]LedgerCertificateBasedSecurityPrincipal] {
+	return pulumix.Output[[]LedgerCertificateBasedSecurityPrincipal]{
+		OutputState: i.ToLedgerCertificateBasedSecurityPrincipalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LedgerCertificateBasedSecurityPrincipalOutput struct{ *pulumi.OutputState }
 
 func (LedgerCertificateBasedSecurityPrincipalOutput) ElementType() reflect.Type {
@@ -202,6 +239,12 @@ func (o LedgerCertificateBasedSecurityPrincipalOutput) ToLedgerCertificateBasedS
 
 func (o LedgerCertificateBasedSecurityPrincipalOutput) ToLedgerCertificateBasedSecurityPrincipalOutputWithContext(ctx context.Context) LedgerCertificateBasedSecurityPrincipalOutput {
 	return o
+}
+
+func (o LedgerCertificateBasedSecurityPrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[LedgerCertificateBasedSecurityPrincipal] {
+	return pulumix.Output[LedgerCertificateBasedSecurityPrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
@@ -226,6 +269,12 @@ func (o LedgerCertificateBasedSecurityPrincipalArrayOutput) ToLedgerCertificateB
 
 func (o LedgerCertificateBasedSecurityPrincipalArrayOutput) ToLedgerCertificateBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) LedgerCertificateBasedSecurityPrincipalArrayOutput {
 	return o
+}
+
+func (o LedgerCertificateBasedSecurityPrincipalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LedgerCertificateBasedSecurityPrincipal] {
+	return pulumix.Output[[]LedgerCertificateBasedSecurityPrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LedgerCertificateBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) LedgerCertificateBasedSecurityPrincipalOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -62,6 +63,12 @@ func (i FlexibleServerCustomerManagedKeyArgs) ToFlexibleServerCustomerManagedKey
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerCustomerManagedKeyOutput)
 }
 
+func (i FlexibleServerCustomerManagedKeyArgs) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerCustomerManagedKey] {
+	return pulumix.Output[FlexibleServerCustomerManagedKey]{
+		OutputState: i.ToFlexibleServerCustomerManagedKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlexibleServerCustomerManagedKeyArgs) ToFlexibleServerCustomerManagedKeyPtrOutput() FlexibleServerCustomerManagedKeyPtrOutput {
 	return i.ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(context.Background())
 }
@@ -103,6 +110,12 @@ func (i *flexibleServerCustomerManagedKeyPtrType) ToFlexibleServerCustomerManage
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerCustomerManagedKeyPtrOutput)
 }
 
+func (i *flexibleServerCustomerManagedKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerCustomerManagedKey] {
+	return pulumix.Output[*FlexibleServerCustomerManagedKey]{
+		OutputState: i.ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -125,6 +138,12 @@ func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedK
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerCustomerManagedKey) *FlexibleServerCustomerManagedKey {
 		return &v
 	}).(FlexibleServerCustomerManagedKeyPtrOutput)
+}
+
+func (o FlexibleServerCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerCustomerManagedKey] {
+	return pulumix.Output[FlexibleServerCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
@@ -161,6 +180,12 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) ToFlexibleServerCustomerManag
 
 func (o FlexibleServerCustomerManagedKeyPtrOutput) ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyPtrOutput {
 	return o
+}
+
+func (o FlexibleServerCustomerManagedKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerCustomerManagedKey] {
+	return pulumix.Output[*FlexibleServerCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerCustomerManagedKeyPtrOutput) Elem() FlexibleServerCustomerManagedKeyOutput {
@@ -254,6 +279,12 @@ func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityOutput)
 }
 
+func (i FlexibleServerHighAvailabilityArgs) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerHighAvailability] {
+	return pulumix.Output[FlexibleServerHighAvailability]{
+		OutputState: i.ToFlexibleServerHighAvailabilityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrOutput() FlexibleServerHighAvailabilityPtrOutput {
 	return i.ToFlexibleServerHighAvailabilityPtrOutputWithContext(context.Background())
 }
@@ -295,6 +326,12 @@ func (i *flexibleServerHighAvailabilityPtrType) ToFlexibleServerHighAvailability
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerHighAvailabilityPtrOutput)
 }
 
+func (i *flexibleServerHighAvailabilityPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerHighAvailability] {
+	return pulumix.Output[*FlexibleServerHighAvailability]{
+		OutputState: i.ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerHighAvailabilityOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerHighAvailabilityOutput) ElementType() reflect.Type {
@@ -317,6 +354,12 @@ func (o FlexibleServerHighAvailabilityOutput) ToFlexibleServerHighAvailabilityPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerHighAvailability) *FlexibleServerHighAvailability {
 		return &v
 	}).(FlexibleServerHighAvailabilityPtrOutput)
+}
+
+func (o FlexibleServerHighAvailabilityOutput) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerHighAvailability] {
+	return pulumix.Output[FlexibleServerHighAvailability]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
@@ -342,6 +385,12 @@ func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilit
 
 func (o FlexibleServerHighAvailabilityPtrOutput) ToFlexibleServerHighAvailabilityPtrOutputWithContext(ctx context.Context) FlexibleServerHighAvailabilityPtrOutput {
 	return o
+}
+
+func (o FlexibleServerHighAvailabilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerHighAvailability] {
+	return pulumix.Output[*FlexibleServerHighAvailability]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerHighAvailabilityPtrOutput) Elem() FlexibleServerHighAvailabilityOutput {
@@ -412,6 +461,12 @@ func (i FlexibleServerIdentityArgs) ToFlexibleServerIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerIdentityOutput)
 }
 
+func (i FlexibleServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerIdentity] {
+	return pulumix.Output[FlexibleServerIdentity]{
+		OutputState: i.ToFlexibleServerIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlexibleServerIdentityArgs) ToFlexibleServerIdentityPtrOutput() FlexibleServerIdentityPtrOutput {
 	return i.ToFlexibleServerIdentityPtrOutputWithContext(context.Background())
 }
@@ -453,6 +508,12 @@ func (i *flexibleServerIdentityPtrType) ToFlexibleServerIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerIdentityPtrOutput)
 }
 
+func (i *flexibleServerIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerIdentity] {
+	return pulumix.Output[*FlexibleServerIdentity]{
+		OutputState: i.ToFlexibleServerIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerIdentityOutput) ElementType() reflect.Type {
@@ -477,6 +538,12 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 	}).(FlexibleServerIdentityPtrOutput)
 }
 
+func (o FlexibleServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerIdentity] {
+	return pulumix.Output[FlexibleServerIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -499,6 +566,12 @@ func (o FlexibleServerIdentityPtrOutput) ToFlexibleServerIdentityPtrOutput() Fle
 
 func (o FlexibleServerIdentityPtrOutput) ToFlexibleServerIdentityPtrOutputWithContext(ctx context.Context) FlexibleServerIdentityPtrOutput {
 	return o
+}
+
+func (o FlexibleServerIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerIdentity] {
+	return pulumix.Output[*FlexibleServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
@@ -572,6 +645,12 @@ func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowOu
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowOutput)
 }
 
+func (i FlexibleServerMaintenanceWindowArgs) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerMaintenanceWindow] {
+	return pulumix.Output[FlexibleServerMaintenanceWindow]{
+		OutputState: i.ToFlexibleServerMaintenanceWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
 	return i.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
 }
@@ -613,6 +692,12 @@ func (i *flexibleServerMaintenanceWindowPtrType) ToFlexibleServerMaintenanceWind
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowPtrOutput)
 }
 
+func (i *flexibleServerMaintenanceWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerMaintenanceWindow] {
+	return pulumix.Output[*FlexibleServerMaintenanceWindow]{
+		OutputState: i.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerMaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerMaintenanceWindowOutput) ElementType() reflect.Type {
@@ -635,6 +720,12 @@ func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindow
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerMaintenanceWindow) *FlexibleServerMaintenanceWindow {
 		return &v
 	}).(FlexibleServerMaintenanceWindowPtrOutput)
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerMaintenanceWindow] {
+	return pulumix.Output[FlexibleServerMaintenanceWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The day of week for maintenance window. Defaults to `0`.
@@ -664,6 +755,12 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWin
 
 func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
 	return o
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerMaintenanceWindow] {
+	return pulumix.Output[*FlexibleServerMaintenanceWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerMaintenanceWindowPtrOutput) Elem() FlexibleServerMaintenanceWindowOutput {
@@ -747,6 +844,12 @@ func (i FlexibleServerStorageArgs) ToFlexibleServerStorageOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerStorageOutput)
 }
 
+func (i FlexibleServerStorageArgs) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerStorage] {
+	return pulumix.Output[FlexibleServerStorage]{
+		OutputState: i.ToFlexibleServerStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FlexibleServerStorageArgs) ToFlexibleServerStoragePtrOutput() FlexibleServerStoragePtrOutput {
 	return i.ToFlexibleServerStoragePtrOutputWithContext(context.Background())
 }
@@ -788,6 +891,12 @@ func (i *flexibleServerStoragePtrType) ToFlexibleServerStoragePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerStoragePtrOutput)
 }
 
+func (i *flexibleServerStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerStorage] {
+	return pulumix.Output[*FlexibleServerStorage]{
+		OutputState: i.ToFlexibleServerStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerStorageOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerStorageOutput) ElementType() reflect.Type {
@@ -810,6 +919,12 @@ func (o FlexibleServerStorageOutput) ToFlexibleServerStoragePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerStorage) *FlexibleServerStorage {
 		return &v
 	}).(FlexibleServerStoragePtrOutput)
+}
+
+func (o FlexibleServerStorageOutput) ToOutput(ctx context.Context) pulumix.Output[FlexibleServerStorage] {
+	return pulumix.Output[FlexibleServerStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should Storage Auto Grow be enabled? Defaults to `true`.
@@ -839,6 +954,12 @@ func (o FlexibleServerStoragePtrOutput) ToFlexibleServerStoragePtrOutput() Flexi
 
 func (o FlexibleServerStoragePtrOutput) ToFlexibleServerStoragePtrOutputWithContext(ctx context.Context) FlexibleServerStoragePtrOutput {
 	return o
+}
+
+func (o FlexibleServerStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerStorage] {
+	return pulumix.Output[*FlexibleServerStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerStoragePtrOutput) Elem() FlexibleServerStorageOutput {
@@ -922,6 +1043,12 @@ func (i ServerIdentityArgs) ToServerIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityOutput)
 }
 
+func (i ServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServerIdentity] {
+	return pulumix.Output[ServerIdentity]{
+		OutputState: i.ToServerIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerIdentityArgs) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
 	return i.ToServerIdentityPtrOutputWithContext(context.Background())
 }
@@ -963,6 +1090,12 @@ func (i *serverIdentityPtrType) ToServerIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityPtrOutput)
 }
 
+func (i *serverIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentity] {
+	return pulumix.Output[*ServerIdentity]{
+		OutputState: i.ToServerIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServerIdentityOutput) ElementType() reflect.Type {
@@ -985,6 +1118,12 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentity) *ServerIdentity {
 		return &v
 	}).(ServerIdentityPtrOutput)
+}
+
+func (o ServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServerIdentity] {
+	return pulumix.Output[ServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -1014,6 +1153,12 @@ func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOu
 
 func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
 	return o
+}
+
+func (o ServerIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentity] {
+	return pulumix.Output[*ServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
@@ -1113,6 +1258,12 @@ func (i ServerThreatDetectionPolicyArgs) ToServerThreatDetectionPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServerThreatDetectionPolicyOutput)
 }
 
+func (i ServerThreatDetectionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ServerThreatDetectionPolicy] {
+	return pulumix.Output[ServerThreatDetectionPolicy]{
+		OutputState: i.ToServerThreatDetectionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerThreatDetectionPolicyArgs) ToServerThreatDetectionPolicyPtrOutput() ServerThreatDetectionPolicyPtrOutput {
 	return i.ToServerThreatDetectionPolicyPtrOutputWithContext(context.Background())
 }
@@ -1154,6 +1305,12 @@ func (i *serverThreatDetectionPolicyPtrType) ToServerThreatDetectionPolicyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServerThreatDetectionPolicyPtrOutput)
 }
 
+func (i *serverThreatDetectionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerThreatDetectionPolicy] {
+	return pulumix.Output[*ServerThreatDetectionPolicy]{
+		OutputState: i.ToServerThreatDetectionPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerThreatDetectionPolicyOutput) ElementType() reflect.Type {
@@ -1176,6 +1333,12 @@ func (o ServerThreatDetectionPolicyOutput) ToServerThreatDetectionPolicyPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerThreatDetectionPolicy) *ServerThreatDetectionPolicy {
 		return &v
 	}).(ServerThreatDetectionPolicyPtrOutput)
+}
+
+func (o ServerThreatDetectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ServerThreatDetectionPolicy] {
+	return pulumix.Output[ServerThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
@@ -1225,6 +1388,12 @@ func (o ServerThreatDetectionPolicyPtrOutput) ToServerThreatDetectionPolicyPtrOu
 
 func (o ServerThreatDetectionPolicyPtrOutput) ToServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) ServerThreatDetectionPolicyPtrOutput {
 	return o
+}
+
+func (o ServerThreatDetectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerThreatDetectionPolicy] {
+	return pulumix.Output[*ServerThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerThreatDetectionPolicyPtrOutput) Elem() ServerThreatDetectionPolicyOutput {
@@ -1344,6 +1513,12 @@ func (i GetFlexibleServerHighAvailabilityArgs) ToGetFlexibleServerHighAvailabili
 	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerHighAvailabilityOutput)
 }
 
+func (i GetFlexibleServerHighAvailabilityArgs) ToOutput(ctx context.Context) pulumix.Output[GetFlexibleServerHighAvailability] {
+	return pulumix.Output[GetFlexibleServerHighAvailability]{
+		OutputState: i.ToGetFlexibleServerHighAvailabilityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFlexibleServerHighAvailabilityArrayInput is an input type that accepts GetFlexibleServerHighAvailabilityArray and GetFlexibleServerHighAvailabilityArrayOutput values.
 // You can construct a concrete instance of `GetFlexibleServerHighAvailabilityArrayInput` via:
 //
@@ -1369,6 +1544,12 @@ func (i GetFlexibleServerHighAvailabilityArray) ToGetFlexibleServerHighAvailabil
 	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerHighAvailabilityArrayOutput)
 }
 
+func (i GetFlexibleServerHighAvailabilityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFlexibleServerHighAvailability] {
+	return pulumix.Output[[]GetFlexibleServerHighAvailability]{
+		OutputState: i.ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFlexibleServerHighAvailabilityOutput struct{ *pulumi.OutputState }
 
 func (GetFlexibleServerHighAvailabilityOutput) ElementType() reflect.Type {
@@ -1381,6 +1562,12 @@ func (o GetFlexibleServerHighAvailabilityOutput) ToGetFlexibleServerHighAvailabi
 
 func (o GetFlexibleServerHighAvailabilityOutput) ToGetFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityOutput {
 	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityOutput) ToOutput(ctx context.Context) pulumix.Output[GetFlexibleServerHighAvailability] {
+	return pulumix.Output[GetFlexibleServerHighAvailability]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The high availability mode of the MySQL Flexible Server.
@@ -1405,6 +1592,12 @@ func (o GetFlexibleServerHighAvailabilityArrayOutput) ToGetFlexibleServerHighAva
 
 func (o GetFlexibleServerHighAvailabilityArrayOutput) ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityArrayOutput {
 	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFlexibleServerHighAvailability] {
+	return pulumix.Output[[]GetFlexibleServerHighAvailability]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFlexibleServerHighAvailabilityArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerHighAvailabilityOutput {
@@ -1454,6 +1647,12 @@ func (i GetFlexibleServerMaintenanceWindowArgs) ToGetFlexibleServerMaintenanceWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerMaintenanceWindowOutput)
 }
 
+func (i GetFlexibleServerMaintenanceWindowArgs) ToOutput(ctx context.Context) pulumix.Output[GetFlexibleServerMaintenanceWindow] {
+	return pulumix.Output[GetFlexibleServerMaintenanceWindow]{
+		OutputState: i.ToGetFlexibleServerMaintenanceWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFlexibleServerMaintenanceWindowArrayInput is an input type that accepts GetFlexibleServerMaintenanceWindowArray and GetFlexibleServerMaintenanceWindowArrayOutput values.
 // You can construct a concrete instance of `GetFlexibleServerMaintenanceWindowArrayInput` via:
 //
@@ -1479,6 +1678,12 @@ func (i GetFlexibleServerMaintenanceWindowArray) ToGetFlexibleServerMaintenanceW
 	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerMaintenanceWindowArrayOutput)
 }
 
+func (i GetFlexibleServerMaintenanceWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFlexibleServerMaintenanceWindow] {
+	return pulumix.Output[[]GetFlexibleServerMaintenanceWindow]{
+		OutputState: i.ToGetFlexibleServerMaintenanceWindowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFlexibleServerMaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (GetFlexibleServerMaintenanceWindowOutput) ElementType() reflect.Type {
@@ -1491,6 +1696,12 @@ func (o GetFlexibleServerMaintenanceWindowOutput) ToGetFlexibleServerMaintenance
 
 func (o GetFlexibleServerMaintenanceWindowOutput) ToGetFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) GetFlexibleServerMaintenanceWindowOutput {
 	return o
+}
+
+func (o GetFlexibleServerMaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[GetFlexibleServerMaintenanceWindow] {
+	return pulumix.Output[GetFlexibleServerMaintenanceWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The day of week of the maintenance window.
@@ -1520,6 +1731,12 @@ func (o GetFlexibleServerMaintenanceWindowArrayOutput) ToGetFlexibleServerMainte
 
 func (o GetFlexibleServerMaintenanceWindowArrayOutput) ToGetFlexibleServerMaintenanceWindowArrayOutputWithContext(ctx context.Context) GetFlexibleServerMaintenanceWindowArrayOutput {
 	return o
+}
+
+func (o GetFlexibleServerMaintenanceWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFlexibleServerMaintenanceWindow] {
+	return pulumix.Output[[]GetFlexibleServerMaintenanceWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFlexibleServerMaintenanceWindowArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerMaintenanceWindowOutput {
@@ -1569,6 +1786,12 @@ func (i GetFlexibleServerStorageArgs) ToGetFlexibleServerStorageOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerStorageOutput)
 }
 
+func (i GetFlexibleServerStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetFlexibleServerStorage] {
+	return pulumix.Output[GetFlexibleServerStorage]{
+		OutputState: i.ToGetFlexibleServerStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFlexibleServerStorageArrayInput is an input type that accepts GetFlexibleServerStorageArray and GetFlexibleServerStorageArrayOutput values.
 // You can construct a concrete instance of `GetFlexibleServerStorageArrayInput` via:
 //
@@ -1594,6 +1817,12 @@ func (i GetFlexibleServerStorageArray) ToGetFlexibleServerStorageArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerStorageArrayOutput)
 }
 
+func (i GetFlexibleServerStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFlexibleServerStorage] {
+	return pulumix.Output[[]GetFlexibleServerStorage]{
+		OutputState: i.ToGetFlexibleServerStorageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFlexibleServerStorageOutput struct{ *pulumi.OutputState }
 
 func (GetFlexibleServerStorageOutput) ElementType() reflect.Type {
@@ -1606,6 +1835,12 @@ func (o GetFlexibleServerStorageOutput) ToGetFlexibleServerStorageOutput() GetFl
 
 func (o GetFlexibleServerStorageOutput) ToGetFlexibleServerStorageOutputWithContext(ctx context.Context) GetFlexibleServerStorageOutput {
 	return o
+}
+
+func (o GetFlexibleServerStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetFlexibleServerStorage] {
+	return pulumix.Output[GetFlexibleServerStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is Storage Auto Grow enabled?
@@ -1635,6 +1870,12 @@ func (o GetFlexibleServerStorageArrayOutput) ToGetFlexibleServerStorageArrayOutp
 
 func (o GetFlexibleServerStorageArrayOutput) ToGetFlexibleServerStorageArrayOutputWithContext(ctx context.Context) GetFlexibleServerStorageArrayOutput {
 	return o
+}
+
+func (o GetFlexibleServerStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFlexibleServerStorage] {
+	return pulumix.Output[[]GetFlexibleServerStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFlexibleServerStorageArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerStorageOutput {
@@ -1684,6 +1925,12 @@ func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityOutput)
 }
 
+func (i GetServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetServerIdentity] {
+	return pulumix.Output[GetServerIdentity]{
+		OutputState: i.ToGetServerIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServerIdentityArrayInput` via:
 //
@@ -1709,6 +1956,12 @@ func (i GetServerIdentityArray) ToGetServerIdentityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityArrayOutput)
 }
 
+func (i GetServerIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServerIdentity] {
+	return pulumix.Output[[]GetServerIdentity]{
+		OutputState: i.ToGetServerIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetServerIdentityOutput) ElementType() reflect.Type {
@@ -1721,6 +1974,12 @@ func (o GetServerIdentityOutput) ToGetServerIdentityOutput() GetServerIdentityOu
 
 func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
 	return o
+}
+
+func (o GetServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerIdentity] {
+	return pulumix.Output[GetServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -1750,6 +2009,12 @@ func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutput() GetServer
 
 func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
 	return o
+}
+
+func (o GetServerIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServerIdentity] {
+	return pulumix.Output[[]GetServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentityOutput {
@@ -1815,6 +2080,12 @@ func (i GetServerThreatDetectionPolicyArgs) ToGetServerThreatDetectionPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerThreatDetectionPolicyOutput)
 }
 
+func (i GetServerThreatDetectionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetServerThreatDetectionPolicy] {
+	return pulumix.Output[GetServerThreatDetectionPolicy]{
+		OutputState: i.ToGetServerThreatDetectionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServerThreatDetectionPolicyArrayInput is an input type that accepts GetServerThreatDetectionPolicyArray and GetServerThreatDetectionPolicyArrayOutput values.
 // You can construct a concrete instance of `GetServerThreatDetectionPolicyArrayInput` via:
 //
@@ -1840,6 +2111,12 @@ func (i GetServerThreatDetectionPolicyArray) ToGetServerThreatDetectionPolicyArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerThreatDetectionPolicyArrayOutput)
 }
 
+func (i GetServerThreatDetectionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServerThreatDetectionPolicy] {
+	return pulumix.Output[[]GetServerThreatDetectionPolicy]{
+		OutputState: i.ToGetServerThreatDetectionPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServerThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetServerThreatDetectionPolicyOutput) ElementType() reflect.Type {
@@ -1852,6 +2129,12 @@ func (o GetServerThreatDetectionPolicyOutput) ToGetServerThreatDetectionPolicyOu
 
 func (o GetServerThreatDetectionPolicyOutput) ToGetServerThreatDetectionPolicyOutputWithContext(ctx context.Context) GetServerThreatDetectionPolicyOutput {
 	return o
+}
+
+func (o GetServerThreatDetectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerThreatDetectionPolicy] {
+	return pulumix.Output[GetServerThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -1901,6 +2184,12 @@ func (o GetServerThreatDetectionPolicyArrayOutput) ToGetServerThreatDetectionPol
 
 func (o GetServerThreatDetectionPolicyArrayOutput) ToGetServerThreatDetectionPolicyArrayOutputWithContext(ctx context.Context) GetServerThreatDetectionPolicyArrayOutput {
 	return o
+}
+
+func (o GetServerThreatDetectionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServerThreatDetectionPolicy] {
+	return pulumix.Output[[]GetServerThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServerThreatDetectionPolicyArrayOutput) Index(i pulumi.IntInput) GetServerThreatDetectionPolicyOutput {

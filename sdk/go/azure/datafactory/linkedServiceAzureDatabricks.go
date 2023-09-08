@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
@@ -390,6 +391,12 @@ func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksOutput)
 }
 
+func (i *LinkedServiceAzureDatabricks) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureDatabricks] {
+	return pulumix.Output[*LinkedServiceAzureDatabricks]{
+		OutputState: i.ToLinkedServiceAzureDatabricksOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceAzureDatabricksArrayInput is an input type that accepts LinkedServiceAzureDatabricksArray and LinkedServiceAzureDatabricksArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksArrayInput` via:
 //
@@ -413,6 +420,12 @@ func (i LinkedServiceAzureDatabricksArray) ToLinkedServiceAzureDatabricksArrayOu
 
 func (i LinkedServiceAzureDatabricksArray) ToLinkedServiceAzureDatabricksArrayOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksArrayOutput)
+}
+
+func (i LinkedServiceAzureDatabricksArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureDatabricks] {
+	return pulumix.Output[[]*LinkedServiceAzureDatabricks]{
+		OutputState: i.ToLinkedServiceAzureDatabricksArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceAzureDatabricksMapInput is an input type that accepts LinkedServiceAzureDatabricksMap and LinkedServiceAzureDatabricksMapOutput values.
@@ -440,6 +453,12 @@ func (i LinkedServiceAzureDatabricksMap) ToLinkedServiceAzureDatabricksMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksMapOutput)
 }
 
+func (i LinkedServiceAzureDatabricksMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureDatabricks] {
+	return pulumix.Output[map[string]*LinkedServiceAzureDatabricks]{
+		OutputState: i.ToLinkedServiceAzureDatabricksMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceAzureDatabricksOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureDatabricksOutput) ElementType() reflect.Type {
@@ -452,6 +471,12 @@ func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksOutput
 
 func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksOutput {
 	return o
+}
+
+func (o LinkedServiceAzureDatabricksOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureDatabricks] {
+	return pulumix.Output[*LinkedServiceAzureDatabricks]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Authenticate to ADB via an access token.
@@ -544,6 +569,12 @@ func (o LinkedServiceAzureDatabricksArrayOutput) ToLinkedServiceAzureDatabricksA
 	return o
 }
 
+func (o LinkedServiceAzureDatabricksArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureDatabricks] {
+	return pulumix.Output[[]*LinkedServiceAzureDatabricks]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceAzureDatabricksArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureDatabricksOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureDatabricks {
 		return vs[0].([]*LinkedServiceAzureDatabricks)[vs[1].(int)]
@@ -562,6 +593,12 @@ func (o LinkedServiceAzureDatabricksMapOutput) ToLinkedServiceAzureDatabricksMap
 
 func (o LinkedServiceAzureDatabricksMapOutput) ToLinkedServiceAzureDatabricksMapOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksMapOutput {
 	return o
+}
+
+func (o LinkedServiceAzureDatabricksMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureDatabricks] {
+	return pulumix.Output[map[string]*LinkedServiceAzureDatabricks]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceAzureDatabricksMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureDatabricksOutput {

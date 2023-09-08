@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Blob within a Storage Container.
@@ -329,6 +330,12 @@ func (i *Blob) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobOutput)
 }
 
+func (i *Blob) ToOutput(ctx context.Context) pulumix.Output[*Blob] {
+	return pulumix.Output[*Blob]{
+		OutputState: i.ToBlobOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BlobArrayInput is an input type that accepts BlobArray and BlobArrayOutput values.
 // You can construct a concrete instance of `BlobArrayInput` via:
 //
@@ -352,6 +359,12 @@ func (i BlobArray) ToBlobArrayOutput() BlobArrayOutput {
 
 func (i BlobArray) ToBlobArrayOutputWithContext(ctx context.Context) BlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobArrayOutput)
+}
+
+func (i BlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*Blob] {
+	return pulumix.Output[[]*Blob]{
+		OutputState: i.ToBlobArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BlobMapInput is an input type that accepts BlobMap and BlobMapOutput values.
@@ -379,6 +392,12 @@ func (i BlobMap) ToBlobMapOutputWithContext(ctx context.Context) BlobMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobMapOutput)
 }
 
+func (i BlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Blob] {
+	return pulumix.Output[map[string]*Blob]{
+		OutputState: i.ToBlobMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BlobOutput struct{ *pulumi.OutputState }
 
 func (BlobOutput) ElementType() reflect.Type {
@@ -391,6 +410,12 @@ func (o BlobOutput) ToBlobOutput() BlobOutput {
 
 func (o BlobOutput) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 	return o
+}
+
+func (o BlobOutput) ToOutput(ctx context.Context) pulumix.Output[*Blob] {
+	return pulumix.Output[*Blob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -487,6 +512,12 @@ func (o BlobArrayOutput) ToBlobArrayOutputWithContext(ctx context.Context) BlobA
 	return o
 }
 
+func (o BlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Blob] {
+	return pulumix.Output[[]*Blob]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BlobArrayOutput) Index(i pulumi.IntInput) BlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Blob {
 		return vs[0].([]*Blob)[vs[1].(int)]
@@ -505,6 +536,12 @@ func (o BlobMapOutput) ToBlobMapOutput() BlobMapOutput {
 
 func (o BlobMapOutput) ToBlobMapOutputWithContext(ctx context.Context) BlobMapOutput {
 	return o
+}
+
+func (o BlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Blob] {
+	return pulumix.Output[map[string]*Blob]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BlobMapOutput) MapIndex(k pulumi.StringInput) BlobOutput {

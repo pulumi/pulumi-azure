@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Express Route Circuit Connection.
@@ -291,6 +292,12 @@ func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionOutput)
 }
 
+func (i *ExpressRouteCircuitConnection) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteCircuitConnection] {
+	return pulumix.Output[*ExpressRouteCircuitConnection]{
+		OutputState: i.ToExpressRouteCircuitConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExpressRouteCircuitConnectionArrayInput is an input type that accepts ExpressRouteCircuitConnectionArray and ExpressRouteCircuitConnectionArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitConnectionArrayInput` via:
 //
@@ -314,6 +321,12 @@ func (i ExpressRouteCircuitConnectionArray) ToExpressRouteCircuitConnectionArray
 
 func (i ExpressRouteCircuitConnectionArray) ToExpressRouteCircuitConnectionArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionArrayOutput)
+}
+
+func (i ExpressRouteCircuitConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteCircuitConnection] {
+	return pulumix.Output[[]*ExpressRouteCircuitConnection]{
+		OutputState: i.ToExpressRouteCircuitConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExpressRouteCircuitConnectionMapInput is an input type that accepts ExpressRouteCircuitConnectionMap and ExpressRouteCircuitConnectionMapOutput values.
@@ -341,6 +354,12 @@ func (i ExpressRouteCircuitConnectionMap) ToExpressRouteCircuitConnectionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionMapOutput)
 }
 
+func (i ExpressRouteCircuitConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteCircuitConnection] {
+	return pulumix.Output[map[string]*ExpressRouteCircuitConnection]{
+		OutputState: i.ToExpressRouteCircuitConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExpressRouteCircuitConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
@@ -353,6 +372,12 @@ func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutp
 
 func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionOutput {
 	return o
+}
+
+func (o ExpressRouteCircuitConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteCircuitConnection] {
+	return pulumix.Output[*ExpressRouteCircuitConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
@@ -401,6 +426,12 @@ func (o ExpressRouteCircuitConnectionArrayOutput) ToExpressRouteCircuitConnectio
 	return o
 }
 
+func (o ExpressRouteCircuitConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteCircuitConnection] {
+	return pulumix.Output[[]*ExpressRouteCircuitConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExpressRouteCircuitConnectionArrayOutput) Index(i pulumi.IntInput) ExpressRouteCircuitConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteCircuitConnection {
 		return vs[0].([]*ExpressRouteCircuitConnection)[vs[1].(int)]
@@ -419,6 +450,12 @@ func (o ExpressRouteCircuitConnectionMapOutput) ToExpressRouteCircuitConnectionM
 
 func (o ExpressRouteCircuitConnectionMapOutput) ToExpressRouteCircuitConnectionMapOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionMapOutput {
 	return o
+}
+
+func (o ExpressRouteCircuitConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteCircuitConnection] {
+	return pulumix.Output[map[string]*ExpressRouteCircuitConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExpressRouteCircuitConnectionMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteCircuitConnectionOutput {

@@ -157,7 +157,7 @@ class NamespaceNetworkRuleSetArgs:
         :param pulumi.Input[str] default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
-        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
         if default_action is not None:
@@ -211,7 +211,7 @@ class NamespaceNetworkRuleSetArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

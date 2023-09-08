@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Threat Intelligence Alert Rule.
@@ -206,6 +207,12 @@ func (i *AlertRuleThreatIntelligence) ToAlertRuleThreatIntelligenceOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleThreatIntelligenceOutput)
 }
 
+func (i *AlertRuleThreatIntelligence) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleThreatIntelligence] {
+	return pulumix.Output[*AlertRuleThreatIntelligence]{
+		OutputState: i.ToAlertRuleThreatIntelligenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleThreatIntelligenceArrayInput is an input type that accepts AlertRuleThreatIntelligenceArray and AlertRuleThreatIntelligenceArrayOutput values.
 // You can construct a concrete instance of `AlertRuleThreatIntelligenceArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i AlertRuleThreatIntelligenceArray) ToAlertRuleThreatIntelligenceArrayOutp
 
 func (i AlertRuleThreatIntelligenceArray) ToAlertRuleThreatIntelligenceArrayOutputWithContext(ctx context.Context) AlertRuleThreatIntelligenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleThreatIntelligenceArrayOutput)
+}
+
+func (i AlertRuleThreatIntelligenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleThreatIntelligence] {
+	return pulumix.Output[[]*AlertRuleThreatIntelligence]{
+		OutputState: i.ToAlertRuleThreatIntelligenceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertRuleThreatIntelligenceMapInput is an input type that accepts AlertRuleThreatIntelligenceMap and AlertRuleThreatIntelligenceMapOutput values.
@@ -256,6 +269,12 @@ func (i AlertRuleThreatIntelligenceMap) ToAlertRuleThreatIntelligenceMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleThreatIntelligenceMapOutput)
 }
 
+func (i AlertRuleThreatIntelligenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleThreatIntelligence] {
+	return pulumix.Output[map[string]*AlertRuleThreatIntelligence]{
+		OutputState: i.ToAlertRuleThreatIntelligenceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleThreatIntelligenceOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleThreatIntelligenceOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o AlertRuleThreatIntelligenceOutput) ToAlertRuleThreatIntelligenceOutput()
 
 func (o AlertRuleThreatIntelligenceOutput) ToAlertRuleThreatIntelligenceOutputWithContext(ctx context.Context) AlertRuleThreatIntelligenceOutput {
 	return o
+}
+
+func (o AlertRuleThreatIntelligenceOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleThreatIntelligence] {
+	return pulumix.Output[*AlertRuleThreatIntelligence]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The GUID of the alert rule template which is used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
@@ -304,6 +329,12 @@ func (o AlertRuleThreatIntelligenceArrayOutput) ToAlertRuleThreatIntelligenceArr
 	return o
 }
 
+func (o AlertRuleThreatIntelligenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleThreatIntelligence] {
+	return pulumix.Output[[]*AlertRuleThreatIntelligence]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertRuleThreatIntelligenceArrayOutput) Index(i pulumi.IntInput) AlertRuleThreatIntelligenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleThreatIntelligence {
 		return vs[0].([]*AlertRuleThreatIntelligence)[vs[1].(int)]
@@ -322,6 +353,12 @@ func (o AlertRuleThreatIntelligenceMapOutput) ToAlertRuleThreatIntelligenceMapOu
 
 func (o AlertRuleThreatIntelligenceMapOutput) ToAlertRuleThreatIntelligenceMapOutputWithContext(ctx context.Context) AlertRuleThreatIntelligenceMapOutput {
 	return o
+}
+
+func (o AlertRuleThreatIntelligenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleThreatIntelligence] {
+	return pulumix.Output[map[string]*AlertRuleThreatIntelligence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleThreatIntelligenceMapOutput) MapIndex(k pulumi.StringInput) AlertRuleThreatIntelligenceOutput {

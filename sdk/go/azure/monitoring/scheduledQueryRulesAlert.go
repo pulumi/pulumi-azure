@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
@@ -293,6 +294,12 @@ func (i *ScheduledQueryRulesAlert) ToScheduledQueryRulesAlertOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertOutput)
 }
 
+func (i *ScheduledQueryRulesAlert) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlert] {
+	return pulumix.Output[*ScheduledQueryRulesAlert]{
+		OutputState: i.ToScheduledQueryRulesAlertOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduledQueryRulesAlertArrayInput is an input type that accepts ScheduledQueryRulesAlertArray and ScheduledQueryRulesAlertArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesAlertArrayInput` via:
 //
@@ -316,6 +323,12 @@ func (i ScheduledQueryRulesAlertArray) ToScheduledQueryRulesAlertArrayOutput() S
 
 func (i ScheduledQueryRulesAlertArray) ToScheduledQueryRulesAlertArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertArrayOutput)
+}
+
+func (i ScheduledQueryRulesAlertArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledQueryRulesAlert] {
+	return pulumix.Output[[]*ScheduledQueryRulesAlert]{
+		OutputState: i.ToScheduledQueryRulesAlertArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScheduledQueryRulesAlertMapInput is an input type that accepts ScheduledQueryRulesAlertMap and ScheduledQueryRulesAlertMapOutput values.
@@ -343,6 +356,12 @@ func (i ScheduledQueryRulesAlertMap) ToScheduledQueryRulesAlertMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertMapOutput)
 }
 
+func (i ScheduledQueryRulesAlertMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledQueryRulesAlert] {
+	return pulumix.Output[map[string]*ScheduledQueryRulesAlert]{
+		OutputState: i.ToScheduledQueryRulesAlertMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduledQueryRulesAlertOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertOutput) ElementType() reflect.Type {
@@ -355,6 +374,12 @@ func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutput() Sched
 
 func (o ScheduledQueryRulesAlertOutput) ToScheduledQueryRulesAlertOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertOutput {
 	return o
+}
+
+func (o ScheduledQueryRulesAlertOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlert] {
+	return pulumix.Output[*ScheduledQueryRulesAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `action` block as defined below.
@@ -457,6 +482,12 @@ func (o ScheduledQueryRulesAlertArrayOutput) ToScheduledQueryRulesAlertArrayOutp
 	return o
 }
 
+func (o ScheduledQueryRulesAlertArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledQueryRulesAlert] {
+	return pulumix.Output[[]*ScheduledQueryRulesAlert]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduledQueryRulesAlertArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledQueryRulesAlert {
 		return vs[0].([]*ScheduledQueryRulesAlert)[vs[1].(int)]
@@ -475,6 +506,12 @@ func (o ScheduledQueryRulesAlertMapOutput) ToScheduledQueryRulesAlertMapOutput()
 
 func (o ScheduledQueryRulesAlertMapOutput) ToScheduledQueryRulesAlertMapOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertMapOutput {
 	return o
+}
+
+func (o ScheduledQueryRulesAlertMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledQueryRulesAlert] {
+	return pulumix.Output[map[string]*ScheduledQueryRulesAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledQueryRulesAlertMapOutput) MapIndex(k pulumi.StringInput) ScheduledQueryRulesAlertOutput {

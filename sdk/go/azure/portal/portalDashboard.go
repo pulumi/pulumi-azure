@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -163,6 +164,12 @@ func (i *PortalDashboard) ToPortalDashboardOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PortalDashboardOutput)
 }
 
+func (i *PortalDashboard) ToOutput(ctx context.Context) pulumix.Output[*PortalDashboard] {
+	return pulumix.Output[*PortalDashboard]{
+		OutputState: i.ToPortalDashboardOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PortalDashboardArrayInput is an input type that accepts PortalDashboardArray and PortalDashboardArrayOutput values.
 // You can construct a concrete instance of `PortalDashboardArrayInput` via:
 //
@@ -186,6 +193,12 @@ func (i PortalDashboardArray) ToPortalDashboardArrayOutput() PortalDashboardArra
 
 func (i PortalDashboardArray) ToPortalDashboardArrayOutputWithContext(ctx context.Context) PortalDashboardArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortalDashboardArrayOutput)
+}
+
+func (i PortalDashboardArray) ToOutput(ctx context.Context) pulumix.Output[[]*PortalDashboard] {
+	return pulumix.Output[[]*PortalDashboard]{
+		OutputState: i.ToPortalDashboardArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PortalDashboardMapInput is an input type that accepts PortalDashboardMap and PortalDashboardMapOutput values.
@@ -213,6 +226,12 @@ func (i PortalDashboardMap) ToPortalDashboardMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PortalDashboardMapOutput)
 }
 
+func (i PortalDashboardMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PortalDashboard] {
+	return pulumix.Output[map[string]*PortalDashboard]{
+		OutputState: i.ToPortalDashboardMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortalDashboardOutput struct{ *pulumi.OutputState }
 
 func (PortalDashboardOutput) ElementType() reflect.Type {
@@ -225,6 +244,12 @@ func (o PortalDashboardOutput) ToPortalDashboardOutput() PortalDashboardOutput {
 
 func (o PortalDashboardOutput) ToPortalDashboardOutputWithContext(ctx context.Context) PortalDashboardOutput {
 	return o
+}
+
+func (o PortalDashboardOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalDashboard] {
+	return pulumix.Output[*PortalDashboard]{
+		OutputState: o.OutputState,
+	}
 }
 
 // JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -268,6 +293,12 @@ func (o PortalDashboardArrayOutput) ToPortalDashboardArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o PortalDashboardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PortalDashboard] {
+	return pulumix.Output[[]*PortalDashboard]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PortalDashboardArrayOutput) Index(i pulumi.IntInput) PortalDashboardOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PortalDashboard {
 		return vs[0].([]*PortalDashboard)[vs[1].(int)]
@@ -286,6 +317,12 @@ func (o PortalDashboardMapOutput) ToPortalDashboardMapOutput() PortalDashboardMa
 
 func (o PortalDashboardMapOutput) ToPortalDashboardMapOutputWithContext(ctx context.Context) PortalDashboardMapOutput {
 	return o
+}
+
+func (o PortalDashboardMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PortalDashboard] {
+	return pulumix.Output[map[string]*PortalDashboard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortalDashboardMapOutput) MapIndex(k pulumi.StringInput) PortalDashboardOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Front Door (standard/premium) Secret.
@@ -257,6 +258,12 @@ func (i *FrontdoorSecret) ToFrontdoorSecretOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretOutput)
 }
 
+func (i *FrontdoorSecret) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorSecret] {
+	return pulumix.Output[*FrontdoorSecret]{
+		OutputState: i.ToFrontdoorSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrontdoorSecretArrayInput is an input type that accepts FrontdoorSecretArray and FrontdoorSecretArrayOutput values.
 // You can construct a concrete instance of `FrontdoorSecretArrayInput` via:
 //
@@ -280,6 +287,12 @@ func (i FrontdoorSecretArray) ToFrontdoorSecretArrayOutput() FrontdoorSecretArra
 
 func (i FrontdoorSecretArray) ToFrontdoorSecretArrayOutputWithContext(ctx context.Context) FrontdoorSecretArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretArrayOutput)
+}
+
+func (i FrontdoorSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorSecret] {
+	return pulumix.Output[[]*FrontdoorSecret]{
+		OutputState: i.ToFrontdoorSecretArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FrontdoorSecretMapInput is an input type that accepts FrontdoorSecretMap and FrontdoorSecretMapOutput values.
@@ -307,6 +320,12 @@ func (i FrontdoorSecretMap) ToFrontdoorSecretMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretMapOutput)
 }
 
+func (i FrontdoorSecretMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorSecret] {
+	return pulumix.Output[map[string]*FrontdoorSecret]{
+		OutputState: i.ToFrontdoorSecretMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrontdoorSecretOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorSecretOutput) ElementType() reflect.Type {
@@ -319,6 +338,12 @@ func (o FrontdoorSecretOutput) ToFrontdoorSecretOutput() FrontdoorSecretOutput {
 
 func (o FrontdoorSecretOutput) ToFrontdoorSecretOutputWithContext(ctx context.Context) FrontdoorSecretOutput {
 	return o
+}
+
+func (o FrontdoorSecretOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorSecret] {
+	return pulumix.Output[*FrontdoorSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
@@ -355,6 +380,12 @@ func (o FrontdoorSecretArrayOutput) ToFrontdoorSecretArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o FrontdoorSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorSecret] {
+	return pulumix.Output[[]*FrontdoorSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FrontdoorSecretArrayOutput) Index(i pulumi.IntInput) FrontdoorSecretOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorSecret {
 		return vs[0].([]*FrontdoorSecret)[vs[1].(int)]
@@ -373,6 +404,12 @@ func (o FrontdoorSecretMapOutput) ToFrontdoorSecretMapOutput() FrontdoorSecretMa
 
 func (o FrontdoorSecretMapOutput) ToFrontdoorSecretMapOutputWithContext(ctx context.Context) FrontdoorSecretMapOutput {
 	return o
+}
+
+func (o FrontdoorSecretMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorSecret] {
+	return pulumix.Output[map[string]*FrontdoorSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrontdoorSecretMapOutput) MapIndex(k pulumi.StringInput) FrontdoorSecretOutput {

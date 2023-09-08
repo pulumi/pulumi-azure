@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownSche
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsOutput)
 }
 
+func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalVMShutdownScheduleNotificationSettings] {
+	return pulumix.Output[GlobalVMShutdownScheduleNotificationSettings]{
+		OutputState: i.ToGlobalVMShutdownScheduleNotificationSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
 	return i.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *globalVMShutdownScheduleNotificationSettingsPtrType) ToGlobalVMShutdown
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
 }
 
+func (i *globalVMShutdownScheduleNotificationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GlobalVMShutdownScheduleNotificationSettings] {
+	return pulumix.Output[*GlobalVMShutdownScheduleNotificationSettings]{
+		OutputState: i.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalVMShutdownScheduleNotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalVMShutdownScheduleNotificationSettingsOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownSc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalVMShutdownScheduleNotificationSettings) *GlobalVMShutdownScheduleNotificationSettings {
 		return &v
 	}).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalVMShutdownScheduleNotificationSettings] {
+	return pulumix.Output[GlobalVMShutdownScheduleNotificationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // E-mail address to which the notification will be sent.
@@ -155,6 +174,12 @@ func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdow
 
 func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
 	return o
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalVMShutdownScheduleNotificationSettings] {
+	return pulumix.Output[*GlobalVMShutdownScheduleNotificationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Elem() GlobalVMShutdownScheduleNotificationSettingsOutput {
@@ -252,6 +277,12 @@ func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalle
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryImageReferenceOutput)
 }
 
+func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[LinuxVirtualMachineGalleryImageReference] {
+	return pulumix.Output[LinuxVirtualMachineGalleryImageReference]{
+		OutputState: i.ToLinuxVirtualMachineGalleryImageReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalleryImageReferencePtrOutput() LinuxVirtualMachineGalleryImageReferencePtrOutput {
 	return i.ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
 }
@@ -293,6 +324,12 @@ func (i *linuxVirtualMachineGalleryImageReferencePtrType) ToLinuxVirtualMachineG
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryImageReferencePtrOutput)
 }
 
+func (i *linuxVirtualMachineGalleryImageReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*LinuxVirtualMachineGalleryImageReference] {
+	return pulumix.Output[*LinuxVirtualMachineGalleryImageReference]{
+		OutputState: i.ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinuxVirtualMachineGalleryImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineGalleryImageReferenceOutput) ElementType() reflect.Type {
@@ -315,6 +352,12 @@ func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGal
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineGalleryImageReference) *LinuxVirtualMachineGalleryImageReference {
 		return &v
 	}).(LinuxVirtualMachineGalleryImageReferencePtrOutput)
+}
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[LinuxVirtualMachineGalleryImageReference] {
+	return pulumix.Output[LinuxVirtualMachineGalleryImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -349,6 +392,12 @@ func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) ToLinuxVirtualMachine
 
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxVirtualMachineGalleryImageReference] {
+	return pulumix.Output[*LinuxVirtualMachineGalleryImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Elem() LinuxVirtualMachineGalleryImageReferenceOutput {
@@ -442,6 +491,12 @@ func (i LinuxVirtualMachineInboundNatRuleArgs) ToLinuxVirtualMachineInboundNatRu
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineInboundNatRuleOutput)
 }
 
+func (i LinuxVirtualMachineInboundNatRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LinuxVirtualMachineInboundNatRule] {
+	return pulumix.Output[LinuxVirtualMachineInboundNatRule]{
+		OutputState: i.ToLinuxVirtualMachineInboundNatRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinuxVirtualMachineInboundNatRuleArrayInput is an input type that accepts LinuxVirtualMachineInboundNatRuleArray and LinuxVirtualMachineInboundNatRuleArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineInboundNatRuleArrayInput` via:
 //
@@ -467,6 +522,12 @@ func (i LinuxVirtualMachineInboundNatRuleArray) ToLinuxVirtualMachineInboundNatR
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineInboundNatRuleArrayOutput)
 }
 
+func (i LinuxVirtualMachineInboundNatRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]LinuxVirtualMachineInboundNatRule] {
+	return pulumix.Output[[]LinuxVirtualMachineInboundNatRule]{
+		OutputState: i.ToLinuxVirtualMachineInboundNatRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinuxVirtualMachineInboundNatRuleOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineInboundNatRuleOutput) ElementType() reflect.Type {
@@ -479,6 +540,12 @@ func (o LinuxVirtualMachineInboundNatRuleOutput) ToLinuxVirtualMachineInboundNat
 
 func (o LinuxVirtualMachineInboundNatRuleOutput) ToLinuxVirtualMachineInboundNatRuleOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRuleOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineInboundNatRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LinuxVirtualMachineInboundNatRule] {
+	return pulumix.Output[LinuxVirtualMachineInboundNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
@@ -508,6 +575,12 @@ func (o LinuxVirtualMachineInboundNatRuleArrayOutput) ToLinuxVirtualMachineInbou
 
 func (o LinuxVirtualMachineInboundNatRuleArrayOutput) ToLinuxVirtualMachineInboundNatRuleArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRuleArrayOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineInboundNatRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LinuxVirtualMachineInboundNatRule] {
+	return pulumix.Output[[]LinuxVirtualMachineInboundNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinuxVirtualMachineInboundNatRuleArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineInboundNatRuleOutput {
@@ -547,6 +620,12 @@ func (i ScheduleDailyRecurrenceArgs) ToScheduleDailyRecurrenceOutput() ScheduleD
 
 func (i ScheduleDailyRecurrenceArgs) ToScheduleDailyRecurrenceOutputWithContext(ctx context.Context) ScheduleDailyRecurrenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleDailyRecurrenceOutput)
+}
+
+func (i ScheduleDailyRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleDailyRecurrence] {
+	return pulumix.Output[ScheduleDailyRecurrence]{
+		OutputState: i.ToScheduleDailyRecurrenceOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ScheduleDailyRecurrenceArgs) ToScheduleDailyRecurrencePtrOutput() ScheduleDailyRecurrencePtrOutput {
@@ -590,6 +669,12 @@ func (i *scheduleDailyRecurrencePtrType) ToScheduleDailyRecurrencePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleDailyRecurrencePtrOutput)
 }
 
+func (i *scheduleDailyRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleDailyRecurrence] {
+	return pulumix.Output[*ScheduleDailyRecurrence]{
+		OutputState: i.ToScheduleDailyRecurrencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleDailyRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleDailyRecurrenceOutput) ElementType() reflect.Type {
@@ -614,6 +699,12 @@ func (o ScheduleDailyRecurrenceOutput) ToScheduleDailyRecurrencePtrOutputWithCon
 	}).(ScheduleDailyRecurrencePtrOutput)
 }
 
+func (o ScheduleDailyRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleDailyRecurrence] {
+	return pulumix.Output[ScheduleDailyRecurrence]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The time each day when the schedule takes effect.
 func (o ScheduleDailyRecurrenceOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleDailyRecurrence) string { return v.Time }).(pulumi.StringOutput)
@@ -631,6 +722,12 @@ func (o ScheduleDailyRecurrencePtrOutput) ToScheduleDailyRecurrencePtrOutput() S
 
 func (o ScheduleDailyRecurrencePtrOutput) ToScheduleDailyRecurrencePtrOutputWithContext(ctx context.Context) ScheduleDailyRecurrencePtrOutput {
 	return o
+}
+
+func (o ScheduleDailyRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleDailyRecurrence] {
+	return pulumix.Output[*ScheduleDailyRecurrence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleDailyRecurrencePtrOutput) Elem() ScheduleDailyRecurrenceOutput {
@@ -686,6 +783,12 @@ func (i ScheduleHourlyRecurrenceArgs) ToScheduleHourlyRecurrenceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleHourlyRecurrenceOutput)
 }
 
+func (i ScheduleHourlyRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleHourlyRecurrence] {
+	return pulumix.Output[ScheduleHourlyRecurrence]{
+		OutputState: i.ToScheduleHourlyRecurrenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ScheduleHourlyRecurrenceArgs) ToScheduleHourlyRecurrencePtrOutput() ScheduleHourlyRecurrencePtrOutput {
 	return i.ToScheduleHourlyRecurrencePtrOutputWithContext(context.Background())
 }
@@ -727,6 +830,12 @@ func (i *scheduleHourlyRecurrencePtrType) ToScheduleHourlyRecurrencePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleHourlyRecurrencePtrOutput)
 }
 
+func (i *scheduleHourlyRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleHourlyRecurrence] {
+	return pulumix.Output[*ScheduleHourlyRecurrence]{
+		OutputState: i.ToScheduleHourlyRecurrencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleHourlyRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleHourlyRecurrenceOutput) ElementType() reflect.Type {
@@ -751,6 +860,12 @@ func (o ScheduleHourlyRecurrenceOutput) ToScheduleHourlyRecurrencePtrOutputWithC
 	}).(ScheduleHourlyRecurrencePtrOutput)
 }
 
+func (o ScheduleHourlyRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleHourlyRecurrence] {
+	return pulumix.Output[ScheduleHourlyRecurrence]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Minutes of the hour the schedule will run.
 func (o ScheduleHourlyRecurrenceOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleHourlyRecurrence) int { return v.Minute }).(pulumi.IntOutput)
@@ -768,6 +883,12 @@ func (o ScheduleHourlyRecurrencePtrOutput) ToScheduleHourlyRecurrencePtrOutput()
 
 func (o ScheduleHourlyRecurrencePtrOutput) ToScheduleHourlyRecurrencePtrOutputWithContext(ctx context.Context) ScheduleHourlyRecurrencePtrOutput {
 	return o
+}
+
+func (o ScheduleHourlyRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleHourlyRecurrence] {
+	return pulumix.Output[*ScheduleHourlyRecurrence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleHourlyRecurrencePtrOutput) Elem() ScheduleHourlyRecurrenceOutput {
@@ -831,6 +952,12 @@ func (i ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleNotificationSettingsOutput)
 }
 
+func (i ScheduleNotificationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleNotificationSettings] {
+	return pulumix.Output[ScheduleNotificationSettings]{
+		OutputState: i.ToScheduleNotificationSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsPtrOutput() ScheduleNotificationSettingsPtrOutput {
 	return i.ToScheduleNotificationSettingsPtrOutputWithContext(context.Background())
 }
@@ -872,6 +999,12 @@ func (i *scheduleNotificationSettingsPtrType) ToScheduleNotificationSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleNotificationSettingsPtrOutput)
 }
 
+func (i *scheduleNotificationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleNotificationSettings] {
+	return pulumix.Output[*ScheduleNotificationSettings]{
+		OutputState: i.ToScheduleNotificationSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleNotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ScheduleNotificationSettingsOutput) ElementType() reflect.Type {
@@ -894,6 +1027,12 @@ func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleNotificationSettings) *ScheduleNotificationSettings {
 		return &v
 	}).(ScheduleNotificationSettingsPtrOutput)
+}
+
+func (o ScheduleNotificationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleNotificationSettings] {
+	return pulumix.Output[ScheduleNotificationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
@@ -923,6 +1062,12 @@ func (o ScheduleNotificationSettingsPtrOutput) ToScheduleNotificationSettingsPtr
 
 func (o ScheduleNotificationSettingsPtrOutput) ToScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) ScheduleNotificationSettingsPtrOutput {
 	return o
+}
+
+func (o ScheduleNotificationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleNotificationSettings] {
+	return pulumix.Output[*ScheduleNotificationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleNotificationSettingsPtrOutput) Elem() ScheduleNotificationSettingsOutput {
@@ -1002,6 +1147,12 @@ func (i ScheduleWeeklyRecurrenceArgs) ToScheduleWeeklyRecurrenceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleWeeklyRecurrenceOutput)
 }
 
+func (i ScheduleWeeklyRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleWeeklyRecurrence] {
+	return pulumix.Output[ScheduleWeeklyRecurrence]{
+		OutputState: i.ToScheduleWeeklyRecurrenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ScheduleWeeklyRecurrenceArgs) ToScheduleWeeklyRecurrencePtrOutput() ScheduleWeeklyRecurrencePtrOutput {
 	return i.ToScheduleWeeklyRecurrencePtrOutputWithContext(context.Background())
 }
@@ -1043,6 +1194,12 @@ func (i *scheduleWeeklyRecurrencePtrType) ToScheduleWeeklyRecurrencePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleWeeklyRecurrencePtrOutput)
 }
 
+func (i *scheduleWeeklyRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleWeeklyRecurrence] {
+	return pulumix.Output[*ScheduleWeeklyRecurrence]{
+		OutputState: i.ToScheduleWeeklyRecurrencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleWeeklyRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleWeeklyRecurrenceOutput) ElementType() reflect.Type {
@@ -1067,6 +1224,12 @@ func (o ScheduleWeeklyRecurrenceOutput) ToScheduleWeeklyRecurrencePtrOutputWithC
 	}).(ScheduleWeeklyRecurrencePtrOutput)
 }
 
+func (o ScheduleWeeklyRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleWeeklyRecurrence] {
+	return pulumix.Output[ScheduleWeeklyRecurrence]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The time when the schedule takes effect.
 func (o ScheduleWeeklyRecurrenceOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleWeeklyRecurrence) string { return v.Time }).(pulumi.StringOutput)
@@ -1089,6 +1252,12 @@ func (o ScheduleWeeklyRecurrencePtrOutput) ToScheduleWeeklyRecurrencePtrOutput()
 
 func (o ScheduleWeeklyRecurrencePtrOutput) ToScheduleWeeklyRecurrencePtrOutputWithContext(ctx context.Context) ScheduleWeeklyRecurrencePtrOutput {
 	return o
+}
+
+func (o ScheduleWeeklyRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleWeeklyRecurrence] {
+	return pulumix.Output[*ScheduleWeeklyRecurrence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleWeeklyRecurrencePtrOutput) Elem() ScheduleWeeklyRecurrenceOutput {
@@ -1162,6 +1331,12 @@ func (i VirtualNetworkSubnetArgs) ToVirtualNetworkSubnetOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetOutput)
 }
 
+func (i VirtualNetworkSubnetArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualNetworkSubnet] {
+	return pulumix.Output[VirtualNetworkSubnet]{
+		OutputState: i.ToVirtualNetworkSubnetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualNetworkSubnetArgs) ToVirtualNetworkSubnetPtrOutput() VirtualNetworkSubnetPtrOutput {
 	return i.ToVirtualNetworkSubnetPtrOutputWithContext(context.Background())
 }
@@ -1203,6 +1378,12 @@ func (i *virtualNetworkSubnetPtrType) ToVirtualNetworkSubnetPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetPtrOutput)
 }
 
+func (i *virtualNetworkSubnetPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkSubnet] {
+	return pulumix.Output[*VirtualNetworkSubnet]{
+		OutputState: i.ToVirtualNetworkSubnetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNetworkSubnetOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkSubnetOutput) ElementType() reflect.Type {
@@ -1225,6 +1406,12 @@ func (o VirtualNetworkSubnetOutput) ToVirtualNetworkSubnetPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkSubnet) *VirtualNetworkSubnet {
 		return &v
 	}).(VirtualNetworkSubnetPtrOutput)
+}
+
+func (o VirtualNetworkSubnetOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualNetworkSubnet] {
+	return pulumix.Output[VirtualNetworkSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
@@ -1254,6 +1441,12 @@ func (o VirtualNetworkSubnetPtrOutput) ToVirtualNetworkSubnetPtrOutput() Virtual
 
 func (o VirtualNetworkSubnetPtrOutput) ToVirtualNetworkSubnetPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetPtrOutput {
 	return o
+}
+
+func (o VirtualNetworkSubnetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkSubnet] {
+	return pulumix.Output[*VirtualNetworkSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkSubnetPtrOutput) Elem() VirtualNetworkSubnetOutput {
@@ -1341,6 +1534,12 @@ func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineG
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryImageReferenceOutput)
 }
 
+func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[WindowsVirtualMachineGalleryImageReference] {
+	return pulumix.Output[WindowsVirtualMachineGalleryImageReference]{
+		OutputState: i.ToWindowsVirtualMachineGalleryImageReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineGalleryImageReferencePtrOutput() WindowsVirtualMachineGalleryImageReferencePtrOutput {
 	return i.ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
 }
@@ -1382,6 +1581,12 @@ func (i *windowsVirtualMachineGalleryImageReferencePtrType) ToWindowsVirtualMach
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryImageReferencePtrOutput)
 }
 
+func (i *windowsVirtualMachineGalleryImageReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*WindowsVirtualMachineGalleryImageReference] {
+	return pulumix.Output[*WindowsVirtualMachineGalleryImageReference]{
+		OutputState: i.ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WindowsVirtualMachineGalleryImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineGalleryImageReferenceOutput) ElementType() reflect.Type {
@@ -1404,6 +1609,12 @@ func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineGalleryImageReference) *WindowsVirtualMachineGalleryImageReference {
 		return &v
 	}).(WindowsVirtualMachineGalleryImageReferencePtrOutput)
+}
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[WindowsVirtualMachineGalleryImageReference] {
+	return pulumix.Output[WindowsVirtualMachineGalleryImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -1438,6 +1649,12 @@ func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) ToWindowsVirtualMac
 
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsVirtualMachineGalleryImageReference] {
+	return pulumix.Output[*WindowsVirtualMachineGalleryImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Elem() WindowsVirtualMachineGalleryImageReferenceOutput {
@@ -1531,6 +1748,12 @@ func (i WindowsVirtualMachineInboundNatRuleArgs) ToWindowsVirtualMachineInboundN
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineInboundNatRuleOutput)
 }
 
+func (i WindowsVirtualMachineInboundNatRuleArgs) ToOutput(ctx context.Context) pulumix.Output[WindowsVirtualMachineInboundNatRule] {
+	return pulumix.Output[WindowsVirtualMachineInboundNatRule]{
+		OutputState: i.ToWindowsVirtualMachineInboundNatRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WindowsVirtualMachineInboundNatRuleArrayInput is an input type that accepts WindowsVirtualMachineInboundNatRuleArray and WindowsVirtualMachineInboundNatRuleArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineInboundNatRuleArrayInput` via:
 //
@@ -1556,6 +1779,12 @@ func (i WindowsVirtualMachineInboundNatRuleArray) ToWindowsVirtualMachineInbound
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineInboundNatRuleArrayOutput)
 }
 
+func (i WindowsVirtualMachineInboundNatRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]WindowsVirtualMachineInboundNatRule] {
+	return pulumix.Output[[]WindowsVirtualMachineInboundNatRule]{
+		OutputState: i.ToWindowsVirtualMachineInboundNatRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WindowsVirtualMachineInboundNatRuleOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineInboundNatRuleOutput) ElementType() reflect.Type {
@@ -1568,6 +1797,12 @@ func (o WindowsVirtualMachineInboundNatRuleOutput) ToWindowsVirtualMachineInboun
 
 func (o WindowsVirtualMachineInboundNatRuleOutput) ToWindowsVirtualMachineInboundNatRuleOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRuleOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineInboundNatRuleOutput) ToOutput(ctx context.Context) pulumix.Output[WindowsVirtualMachineInboundNatRule] {
+	return pulumix.Output[WindowsVirtualMachineInboundNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
@@ -1597,6 +1832,12 @@ func (o WindowsVirtualMachineInboundNatRuleArrayOutput) ToWindowsVirtualMachineI
 
 func (o WindowsVirtualMachineInboundNatRuleArrayOutput) ToWindowsVirtualMachineInboundNatRuleArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRuleArrayOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineInboundNatRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WindowsVirtualMachineInboundNatRule] {
+	return pulumix.Output[[]WindowsVirtualMachineInboundNatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WindowsVirtualMachineInboundNatRuleArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineInboundNatRuleOutput {
@@ -1646,6 +1887,12 @@ func (i GetVirtualNetworkAllowedSubnetArgs) ToGetVirtualNetworkAllowedSubnetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkAllowedSubnetOutput)
 }
 
+func (i GetVirtualNetworkAllowedSubnetArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualNetworkAllowedSubnet] {
+	return pulumix.Output[GetVirtualNetworkAllowedSubnet]{
+		OutputState: i.ToGetVirtualNetworkAllowedSubnetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetVirtualNetworkAllowedSubnetArrayInput is an input type that accepts GetVirtualNetworkAllowedSubnetArray and GetVirtualNetworkAllowedSubnetArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkAllowedSubnetArrayInput` via:
 //
@@ -1671,6 +1918,12 @@ func (i GetVirtualNetworkAllowedSubnetArray) ToGetVirtualNetworkAllowedSubnetArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkAllowedSubnetArrayOutput)
 }
 
+func (i GetVirtualNetworkAllowedSubnetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualNetworkAllowedSubnet] {
+	return pulumix.Output[[]GetVirtualNetworkAllowedSubnet]{
+		OutputState: i.ToGetVirtualNetworkAllowedSubnetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetVirtualNetworkAllowedSubnetOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualNetworkAllowedSubnetOutput) ElementType() reflect.Type {
@@ -1683,6 +1936,12 @@ func (o GetVirtualNetworkAllowedSubnetOutput) ToGetVirtualNetworkAllowedSubnetOu
 
 func (o GetVirtualNetworkAllowedSubnetOutput) ToGetVirtualNetworkAllowedSubnetOutputWithContext(ctx context.Context) GetVirtualNetworkAllowedSubnetOutput {
 	return o
+}
+
+func (o GetVirtualNetworkAllowedSubnetOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualNetworkAllowedSubnet] {
+	return pulumix.Output[GetVirtualNetworkAllowedSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates if this subnet allows public IP addresses. Possible values are `Allow`, `Default` and `Deny`.
@@ -1712,6 +1971,12 @@ func (o GetVirtualNetworkAllowedSubnetArrayOutput) ToGetVirtualNetworkAllowedSub
 
 func (o GetVirtualNetworkAllowedSubnetArrayOutput) ToGetVirtualNetworkAllowedSubnetArrayOutputWithContext(ctx context.Context) GetVirtualNetworkAllowedSubnetArrayOutput {
 	return o
+}
+
+func (o GetVirtualNetworkAllowedSubnetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualNetworkAllowedSubnet] {
+	return pulumix.Output[[]GetVirtualNetworkAllowedSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVirtualNetworkAllowedSubnetArrayOutput) Index(i pulumi.IntInput) GetVirtualNetworkAllowedSubnetOutput {
@@ -1767,6 +2032,12 @@ func (i GetVirtualNetworkSubnetOverrideArgs) ToGetVirtualNetworkSubnetOverrideOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkSubnetOverrideOutput)
 }
 
+func (i GetVirtualNetworkSubnetOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualNetworkSubnetOverride] {
+	return pulumix.Output[GetVirtualNetworkSubnetOverride]{
+		OutputState: i.ToGetVirtualNetworkSubnetOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetVirtualNetworkSubnetOverrideArrayInput is an input type that accepts GetVirtualNetworkSubnetOverrideArray and GetVirtualNetworkSubnetOverrideArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkSubnetOverrideArrayInput` via:
 //
@@ -1792,6 +2063,12 @@ func (i GetVirtualNetworkSubnetOverrideArray) ToGetVirtualNetworkSubnetOverrideA
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkSubnetOverrideArrayOutput)
 }
 
+func (i GetVirtualNetworkSubnetOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualNetworkSubnetOverride] {
+	return pulumix.Output[[]GetVirtualNetworkSubnetOverride]{
+		OutputState: i.ToGetVirtualNetworkSubnetOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetVirtualNetworkSubnetOverrideOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualNetworkSubnetOverrideOutput) ElementType() reflect.Type {
@@ -1804,6 +2081,12 @@ func (o GetVirtualNetworkSubnetOverrideOutput) ToGetVirtualNetworkSubnetOverride
 
 func (o GetVirtualNetworkSubnetOverrideOutput) ToGetVirtualNetworkSubnetOverrideOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverrideOutput {
 	return o
+}
+
+func (o GetVirtualNetworkSubnetOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualNetworkSubnetOverride] {
+	return pulumix.Output[GetVirtualNetworkSubnetOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the subnet.
@@ -1842,6 +2125,12 @@ func (o GetVirtualNetworkSubnetOverrideArrayOutput) ToGetVirtualNetworkSubnetOve
 
 func (o GetVirtualNetworkSubnetOverrideArrayOutput) ToGetVirtualNetworkSubnetOverrideArrayOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverrideArrayOutput {
 	return o
+}
+
+func (o GetVirtualNetworkSubnetOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualNetworkSubnetOverride] {
+	return pulumix.Output[[]GetVirtualNetworkSubnetOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVirtualNetworkSubnetOverrideArrayOutput) Index(i pulumi.IntInput) GetVirtualNetworkSubnetOverrideOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Packet Core Data Plane.
@@ -180,6 +181,12 @@ func (i *NetworkPacketCoreDataPlane) ToNetworkPacketCoreDataPlaneOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreDataPlaneOutput)
 }
 
+func (i *NetworkPacketCoreDataPlane) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreDataPlane] {
+	return pulumix.Output[*NetworkPacketCoreDataPlane]{
+		OutputState: i.ToNetworkPacketCoreDataPlaneOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkPacketCoreDataPlaneArrayInput is an input type that accepts NetworkPacketCoreDataPlaneArray and NetworkPacketCoreDataPlaneArrayOutput values.
 // You can construct a concrete instance of `NetworkPacketCoreDataPlaneArrayInput` via:
 //
@@ -203,6 +210,12 @@ func (i NetworkPacketCoreDataPlaneArray) ToNetworkPacketCoreDataPlaneArrayOutput
 
 func (i NetworkPacketCoreDataPlaneArray) ToNetworkPacketCoreDataPlaneArrayOutputWithContext(ctx context.Context) NetworkPacketCoreDataPlaneArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreDataPlaneArrayOutput)
+}
+
+func (i NetworkPacketCoreDataPlaneArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPacketCoreDataPlane] {
+	return pulumix.Output[[]*NetworkPacketCoreDataPlane]{
+		OutputState: i.ToNetworkPacketCoreDataPlaneArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkPacketCoreDataPlaneMapInput is an input type that accepts NetworkPacketCoreDataPlaneMap and NetworkPacketCoreDataPlaneMapOutput values.
@@ -230,6 +243,12 @@ func (i NetworkPacketCoreDataPlaneMap) ToNetworkPacketCoreDataPlaneMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreDataPlaneMapOutput)
 }
 
+func (i NetworkPacketCoreDataPlaneMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPacketCoreDataPlane] {
+	return pulumix.Output[map[string]*NetworkPacketCoreDataPlane]{
+		OutputState: i.ToNetworkPacketCoreDataPlaneMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkPacketCoreDataPlaneOutput struct{ *pulumi.OutputState }
 
 func (NetworkPacketCoreDataPlaneOutput) ElementType() reflect.Type {
@@ -242,6 +261,12 @@ func (o NetworkPacketCoreDataPlaneOutput) ToNetworkPacketCoreDataPlaneOutput() N
 
 func (o NetworkPacketCoreDataPlaneOutput) ToNetworkPacketCoreDataPlaneOutputWithContext(ctx context.Context) NetworkPacketCoreDataPlaneOutput {
 	return o
+}
+
+func (o NetworkPacketCoreDataPlaneOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreDataPlane] {
+	return pulumix.Output[*NetworkPacketCoreDataPlane]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Azure Region where the Mobile Network Packet Core Data Plane should exist. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
@@ -300,6 +325,12 @@ func (o NetworkPacketCoreDataPlaneArrayOutput) ToNetworkPacketCoreDataPlaneArray
 	return o
 }
 
+func (o NetworkPacketCoreDataPlaneArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPacketCoreDataPlane] {
+	return pulumix.Output[[]*NetworkPacketCoreDataPlane]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkPacketCoreDataPlaneArrayOutput) Index(i pulumi.IntInput) NetworkPacketCoreDataPlaneOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkPacketCoreDataPlane {
 		return vs[0].([]*NetworkPacketCoreDataPlane)[vs[1].(int)]
@@ -318,6 +349,12 @@ func (o NetworkPacketCoreDataPlaneMapOutput) ToNetworkPacketCoreDataPlaneMapOutp
 
 func (o NetworkPacketCoreDataPlaneMapOutput) ToNetworkPacketCoreDataPlaneMapOutputWithContext(ctx context.Context) NetworkPacketCoreDataPlaneMapOutput {
 	return o
+}
+
+func (o NetworkPacketCoreDataPlaneMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPacketCoreDataPlane] {
+	return pulumix.Output[map[string]*NetworkPacketCoreDataPlane]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkPacketCoreDataPlaneMapOutput) MapIndex(k pulumi.StringInput) NetworkPacketCoreDataPlaneOutput {

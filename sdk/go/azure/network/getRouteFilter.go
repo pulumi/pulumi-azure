@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Route Filter.
@@ -111,6 +112,12 @@ func (o LookupRouteFilterResultOutput) ToLookupRouteFilterResultOutput() LookupR
 
 func (o LookupRouteFilterResultOutput) ToLookupRouteFilterResultOutputWithContext(ctx context.Context) LookupRouteFilterResultOutput {
 	return o
+}
+
+func (o LookupRouteFilterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteFilterResult] {
+	return pulumix.Output[LookupRouteFilterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

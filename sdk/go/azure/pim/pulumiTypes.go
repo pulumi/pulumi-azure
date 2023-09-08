@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ActiveRoleAssignmentScheduleArgs) ToActiveRoleAssignmentScheduleOutput()
 
 func (i ActiveRoleAssignmentScheduleArgs) ToActiveRoleAssignmentScheduleOutputWithContext(ctx context.Context) ActiveRoleAssignmentScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentScheduleOutput)
+}
+
+func (i ActiveRoleAssignmentScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ActiveRoleAssignmentSchedule] {
+	return pulumix.Output[ActiveRoleAssignmentSchedule]{
+		OutputState: i.ToActiveRoleAssignmentScheduleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ActiveRoleAssignmentScheduleArgs) ToActiveRoleAssignmentSchedulePtrOutput() ActiveRoleAssignmentSchedulePtrOutput {
@@ -91,6 +98,12 @@ func (i *activeRoleAssignmentSchedulePtrType) ToActiveRoleAssignmentSchedulePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentSchedulePtrOutput)
 }
 
+func (i *activeRoleAssignmentSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignmentSchedule] {
+	return pulumix.Output[*ActiveRoleAssignmentSchedule]{
+		OutputState: i.ToActiveRoleAssignmentSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActiveRoleAssignmentScheduleOutput struct{ *pulumi.OutputState }
 
 func (ActiveRoleAssignmentScheduleOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o ActiveRoleAssignmentScheduleOutput) ToActiveRoleAssignmentSchedulePtrOut
 	}).(ActiveRoleAssignmentSchedulePtrOutput)
 }
 
+func (o ActiveRoleAssignmentScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ActiveRoleAssignmentSchedule] {
+	return pulumix.Output[ActiveRoleAssignmentSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A `expiration` block as defined above.
 func (o ActiveRoleAssignmentScheduleOutput) Expiration() ActiveRoleAssignmentScheduleExpirationPtrOutput {
 	return o.ApplyT(func(v ActiveRoleAssignmentSchedule) *ActiveRoleAssignmentScheduleExpiration { return v.Expiration }).(ActiveRoleAssignmentScheduleExpirationPtrOutput)
@@ -137,6 +156,12 @@ func (o ActiveRoleAssignmentSchedulePtrOutput) ToActiveRoleAssignmentSchedulePtr
 
 func (o ActiveRoleAssignmentSchedulePtrOutput) ToActiveRoleAssignmentSchedulePtrOutputWithContext(ctx context.Context) ActiveRoleAssignmentSchedulePtrOutput {
 	return o
+}
+
+func (o ActiveRoleAssignmentSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignmentSchedule] {
+	return pulumix.Output[*ActiveRoleAssignmentSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActiveRoleAssignmentSchedulePtrOutput) Elem() ActiveRoleAssignmentScheduleOutput {
@@ -210,6 +235,12 @@ func (i ActiveRoleAssignmentScheduleExpirationArgs) ToActiveRoleAssignmentSchedu
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentScheduleExpirationOutput)
 }
 
+func (i ActiveRoleAssignmentScheduleExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[ActiveRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[ActiveRoleAssignmentScheduleExpiration]{
+		OutputState: i.ToActiveRoleAssignmentScheduleExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ActiveRoleAssignmentScheduleExpirationArgs) ToActiveRoleAssignmentScheduleExpirationPtrOutput() ActiveRoleAssignmentScheduleExpirationPtrOutput {
 	return i.ToActiveRoleAssignmentScheduleExpirationPtrOutputWithContext(context.Background())
 }
@@ -251,6 +282,12 @@ func (i *activeRoleAssignmentScheduleExpirationPtrType) ToActiveRoleAssignmentSc
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentScheduleExpirationPtrOutput)
 }
 
+func (i *activeRoleAssignmentScheduleExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[*ActiveRoleAssignmentScheduleExpiration]{
+		OutputState: i.ToActiveRoleAssignmentScheduleExpirationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActiveRoleAssignmentScheduleExpirationOutput struct{ *pulumi.OutputState }
 
 func (ActiveRoleAssignmentScheduleExpirationOutput) ElementType() reflect.Type {
@@ -273,6 +310,12 @@ func (o ActiveRoleAssignmentScheduleExpirationOutput) ToActiveRoleAssignmentSche
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveRoleAssignmentScheduleExpiration) *ActiveRoleAssignmentScheduleExpiration {
 		return &v
 	}).(ActiveRoleAssignmentScheduleExpirationPtrOutput)
+}
+
+func (o ActiveRoleAssignmentScheduleExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[ActiveRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[ActiveRoleAssignmentScheduleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
@@ -302,6 +345,12 @@ func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) ToActiveRoleAssignmentS
 
 func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) ToActiveRoleAssignmentScheduleExpirationPtrOutputWithContext(ctx context.Context) ActiveRoleAssignmentScheduleExpirationPtrOutput {
 	return o
+}
+
+func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[*ActiveRoleAssignmentScheduleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) Elem() ActiveRoleAssignmentScheduleExpirationOutput {
@@ -381,6 +430,12 @@ func (i ActiveRoleAssignmentTicketArgs) ToActiveRoleAssignmentTicketOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentTicketOutput)
 }
 
+func (i ActiveRoleAssignmentTicketArgs) ToOutput(ctx context.Context) pulumix.Output[ActiveRoleAssignmentTicket] {
+	return pulumix.Output[ActiveRoleAssignmentTicket]{
+		OutputState: i.ToActiveRoleAssignmentTicketOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ActiveRoleAssignmentTicketArgs) ToActiveRoleAssignmentTicketPtrOutput() ActiveRoleAssignmentTicketPtrOutput {
 	return i.ToActiveRoleAssignmentTicketPtrOutputWithContext(context.Background())
 }
@@ -422,6 +477,12 @@ func (i *activeRoleAssignmentTicketPtrType) ToActiveRoleAssignmentTicketPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentTicketPtrOutput)
 }
 
+func (i *activeRoleAssignmentTicketPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignmentTicket] {
+	return pulumix.Output[*ActiveRoleAssignmentTicket]{
+		OutputState: i.ToActiveRoleAssignmentTicketPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActiveRoleAssignmentTicketOutput struct{ *pulumi.OutputState }
 
 func (ActiveRoleAssignmentTicketOutput) ElementType() reflect.Type {
@@ -446,6 +507,12 @@ func (o ActiveRoleAssignmentTicketOutput) ToActiveRoleAssignmentTicketPtrOutputW
 	}).(ActiveRoleAssignmentTicketPtrOutput)
 }
 
+func (o ActiveRoleAssignmentTicketOutput) ToOutput(ctx context.Context) pulumix.Output[ActiveRoleAssignmentTicket] {
+	return pulumix.Output[ActiveRoleAssignmentTicket]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ticket number.
 func (o ActiveRoleAssignmentTicketOutput) Number() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveRoleAssignmentTicket) *string { return v.Number }).(pulumi.StringPtrOutput)
@@ -468,6 +535,12 @@ func (o ActiveRoleAssignmentTicketPtrOutput) ToActiveRoleAssignmentTicketPtrOutp
 
 func (o ActiveRoleAssignmentTicketPtrOutput) ToActiveRoleAssignmentTicketPtrOutputWithContext(ctx context.Context) ActiveRoleAssignmentTicketPtrOutput {
 	return o
+}
+
+func (o ActiveRoleAssignmentTicketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignmentTicket] {
+	return pulumix.Output[*ActiveRoleAssignmentTicket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActiveRoleAssignmentTicketPtrOutput) Elem() ActiveRoleAssignmentTicketOutput {
@@ -537,6 +610,12 @@ func (i EligibleRoleAssignmentScheduleArgs) ToEligibleRoleAssignmentScheduleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentScheduleOutput)
 }
 
+func (i EligibleRoleAssignmentScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[EligibleRoleAssignmentSchedule] {
+	return pulumix.Output[EligibleRoleAssignmentSchedule]{
+		OutputState: i.ToEligibleRoleAssignmentScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EligibleRoleAssignmentScheduleArgs) ToEligibleRoleAssignmentSchedulePtrOutput() EligibleRoleAssignmentSchedulePtrOutput {
 	return i.ToEligibleRoleAssignmentSchedulePtrOutputWithContext(context.Background())
 }
@@ -578,6 +657,12 @@ func (i *eligibleRoleAssignmentSchedulePtrType) ToEligibleRoleAssignmentSchedule
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentSchedulePtrOutput)
 }
 
+func (i *eligibleRoleAssignmentSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignmentSchedule] {
+	return pulumix.Output[*EligibleRoleAssignmentSchedule]{
+		OutputState: i.ToEligibleRoleAssignmentSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EligibleRoleAssignmentScheduleOutput struct{ *pulumi.OutputState }
 
 func (EligibleRoleAssignmentScheduleOutput) ElementType() reflect.Type {
@@ -602,6 +687,12 @@ func (o EligibleRoleAssignmentScheduleOutput) ToEligibleRoleAssignmentSchedulePt
 	}).(EligibleRoleAssignmentSchedulePtrOutput)
 }
 
+func (o EligibleRoleAssignmentScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[EligibleRoleAssignmentSchedule] {
+	return pulumix.Output[EligibleRoleAssignmentSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A `expiration` block as defined above.
 func (o EligibleRoleAssignmentScheduleOutput) Expiration() EligibleRoleAssignmentScheduleExpirationPtrOutput {
 	return o.ApplyT(func(v EligibleRoleAssignmentSchedule) *EligibleRoleAssignmentScheduleExpiration { return v.Expiration }).(EligibleRoleAssignmentScheduleExpirationPtrOutput)
@@ -624,6 +715,12 @@ func (o EligibleRoleAssignmentSchedulePtrOutput) ToEligibleRoleAssignmentSchedul
 
 func (o EligibleRoleAssignmentSchedulePtrOutput) ToEligibleRoleAssignmentSchedulePtrOutputWithContext(ctx context.Context) EligibleRoleAssignmentSchedulePtrOutput {
 	return o
+}
+
+func (o EligibleRoleAssignmentSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignmentSchedule] {
+	return pulumix.Output[*EligibleRoleAssignmentSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EligibleRoleAssignmentSchedulePtrOutput) Elem() EligibleRoleAssignmentScheduleOutput {
@@ -697,6 +794,12 @@ func (i EligibleRoleAssignmentScheduleExpirationArgs) ToEligibleRoleAssignmentSc
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentScheduleExpirationOutput)
 }
 
+func (i EligibleRoleAssignmentScheduleExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[EligibleRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[EligibleRoleAssignmentScheduleExpiration]{
+		OutputState: i.ToEligibleRoleAssignmentScheduleExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EligibleRoleAssignmentScheduleExpirationArgs) ToEligibleRoleAssignmentScheduleExpirationPtrOutput() EligibleRoleAssignmentScheduleExpirationPtrOutput {
 	return i.ToEligibleRoleAssignmentScheduleExpirationPtrOutputWithContext(context.Background())
 }
@@ -738,6 +841,12 @@ func (i *eligibleRoleAssignmentScheduleExpirationPtrType) ToEligibleRoleAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentScheduleExpirationPtrOutput)
 }
 
+func (i *eligibleRoleAssignmentScheduleExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[*EligibleRoleAssignmentScheduleExpiration]{
+		OutputState: i.ToEligibleRoleAssignmentScheduleExpirationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EligibleRoleAssignmentScheduleExpirationOutput struct{ *pulumi.OutputState }
 
 func (EligibleRoleAssignmentScheduleExpirationOutput) ElementType() reflect.Type {
@@ -760,6 +869,12 @@ func (o EligibleRoleAssignmentScheduleExpirationOutput) ToEligibleRoleAssignment
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EligibleRoleAssignmentScheduleExpiration) *EligibleRoleAssignmentScheduleExpiration {
 		return &v
 	}).(EligibleRoleAssignmentScheduleExpirationPtrOutput)
+}
+
+func (o EligibleRoleAssignmentScheduleExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[EligibleRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[EligibleRoleAssignmentScheduleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
@@ -789,6 +904,12 @@ func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) ToEligibleRoleAssignm
 
 func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) ToEligibleRoleAssignmentScheduleExpirationPtrOutputWithContext(ctx context.Context) EligibleRoleAssignmentScheduleExpirationPtrOutput {
 	return o
+}
+
+func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignmentScheduleExpiration] {
+	return pulumix.Output[*EligibleRoleAssignmentScheduleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) Elem() EligibleRoleAssignmentScheduleExpirationOutput {
@@ -868,6 +989,12 @@ func (i EligibleRoleAssignmentTicketArgs) ToEligibleRoleAssignmentTicketOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentTicketOutput)
 }
 
+func (i EligibleRoleAssignmentTicketArgs) ToOutput(ctx context.Context) pulumix.Output[EligibleRoleAssignmentTicket] {
+	return pulumix.Output[EligibleRoleAssignmentTicket]{
+		OutputState: i.ToEligibleRoleAssignmentTicketOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EligibleRoleAssignmentTicketArgs) ToEligibleRoleAssignmentTicketPtrOutput() EligibleRoleAssignmentTicketPtrOutput {
 	return i.ToEligibleRoleAssignmentTicketPtrOutputWithContext(context.Background())
 }
@@ -909,6 +1036,12 @@ func (i *eligibleRoleAssignmentTicketPtrType) ToEligibleRoleAssignmentTicketPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentTicketPtrOutput)
 }
 
+func (i *eligibleRoleAssignmentTicketPtrType) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignmentTicket] {
+	return pulumix.Output[*EligibleRoleAssignmentTicket]{
+		OutputState: i.ToEligibleRoleAssignmentTicketPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EligibleRoleAssignmentTicketOutput struct{ *pulumi.OutputState }
 
 func (EligibleRoleAssignmentTicketOutput) ElementType() reflect.Type {
@@ -933,6 +1066,12 @@ func (o EligibleRoleAssignmentTicketOutput) ToEligibleRoleAssignmentTicketPtrOut
 	}).(EligibleRoleAssignmentTicketPtrOutput)
 }
 
+func (o EligibleRoleAssignmentTicketOutput) ToOutput(ctx context.Context) pulumix.Output[EligibleRoleAssignmentTicket] {
+	return pulumix.Output[EligibleRoleAssignmentTicket]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ticket number.
 func (o EligibleRoleAssignmentTicketOutput) Number() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleRoleAssignmentTicket) *string { return v.Number }).(pulumi.StringPtrOutput)
@@ -955,6 +1094,12 @@ func (o EligibleRoleAssignmentTicketPtrOutput) ToEligibleRoleAssignmentTicketPtr
 
 func (o EligibleRoleAssignmentTicketPtrOutput) ToEligibleRoleAssignmentTicketPtrOutputWithContext(ctx context.Context) EligibleRoleAssignmentTicketPtrOutput {
 	return o
+}
+
+func (o EligibleRoleAssignmentTicketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignmentTicket] {
+	return pulumix.Output[*EligibleRoleAssignmentTicket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EligibleRoleAssignmentTicketPtrOutput) Elem() EligibleRoleAssignmentTicketOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EventGrid Domain Topic
@@ -177,6 +178,12 @@ func (i *DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) Domain
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
 }
 
+func (i *DomainTopic) ToOutput(ctx context.Context) pulumix.Output[*DomainTopic] {
+	return pulumix.Output[*DomainTopic]{
+		OutputState: i.ToDomainTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainTopicArrayInput is an input type that accepts DomainTopicArray and DomainTopicArrayOutput values.
 // You can construct a concrete instance of `DomainTopicArrayInput` via:
 //
@@ -200,6 +207,12 @@ func (i DomainTopicArray) ToDomainTopicArrayOutput() DomainTopicArrayOutput {
 
 func (i DomainTopicArray) ToDomainTopicArrayOutputWithContext(ctx context.Context) DomainTopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicArrayOutput)
+}
+
+func (i DomainTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainTopic] {
+	return pulumix.Output[[]*DomainTopic]{
+		OutputState: i.ToDomainTopicArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainTopicMapInput is an input type that accepts DomainTopicMap and DomainTopicMapOutput values.
@@ -227,6 +240,12 @@ func (i DomainTopicMap) ToDomainTopicMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicMapOutput)
 }
 
+func (i DomainTopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainTopic] {
+	return pulumix.Output[map[string]*DomainTopic]{
+		OutputState: i.ToDomainTopicMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainTopicOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicOutput) ElementType() reflect.Type {
@@ -239,6 +258,12 @@ func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {
 
 func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) DomainTopicOutput {
 	return o
+}
+
+func (o DomainTopicOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainTopic] {
+	return pulumix.Output[*DomainTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
@@ -270,6 +295,12 @@ func (o DomainTopicArrayOutput) ToDomainTopicArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o DomainTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainTopic] {
+	return pulumix.Output[[]*DomainTopic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainTopicArrayOutput) Index(i pulumi.IntInput) DomainTopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainTopic {
 		return vs[0].([]*DomainTopic)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o DomainTopicMapOutput) ToDomainTopicMapOutput() DomainTopicMapOutput {
 
 func (o DomainTopicMapOutput) ToDomainTopicMapOutputWithContext(ctx context.Context) DomainTopicMapOutput {
 	return o
+}
+
+func (o DomainTopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainTopic] {
+	return pulumix.Output[map[string]*DomainTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainTopicMapOutput) MapIndex(k pulumi.StringInput) DomainTopicOutput {

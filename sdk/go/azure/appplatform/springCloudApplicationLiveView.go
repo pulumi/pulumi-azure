@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -163,6 +164,12 @@ func (i *SpringCloudApplicationLiveView) ToSpringCloudApplicationLiveViewOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApplicationLiveViewOutput)
 }
 
+func (i *SpringCloudApplicationLiveView) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApplicationLiveView] {
+	return pulumix.Output[*SpringCloudApplicationLiveView]{
+		OutputState: i.ToSpringCloudApplicationLiveViewOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudApplicationLiveViewArrayInput is an input type that accepts SpringCloudApplicationLiveViewArray and SpringCloudApplicationLiveViewArrayOutput values.
 // You can construct a concrete instance of `SpringCloudApplicationLiveViewArrayInput` via:
 //
@@ -186,6 +193,12 @@ func (i SpringCloudApplicationLiveViewArray) ToSpringCloudApplicationLiveViewArr
 
 func (i SpringCloudApplicationLiveViewArray) ToSpringCloudApplicationLiveViewArrayOutputWithContext(ctx context.Context) SpringCloudApplicationLiveViewArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApplicationLiveViewArrayOutput)
+}
+
+func (i SpringCloudApplicationLiveViewArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApplicationLiveView] {
+	return pulumix.Output[[]*SpringCloudApplicationLiveView]{
+		OutputState: i.ToSpringCloudApplicationLiveViewArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudApplicationLiveViewMapInput is an input type that accepts SpringCloudApplicationLiveViewMap and SpringCloudApplicationLiveViewMapOutput values.
@@ -213,6 +226,12 @@ func (i SpringCloudApplicationLiveViewMap) ToSpringCloudApplicationLiveViewMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApplicationLiveViewMapOutput)
 }
 
+func (i SpringCloudApplicationLiveViewMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApplicationLiveView] {
+	return pulumix.Output[map[string]*SpringCloudApplicationLiveView]{
+		OutputState: i.ToSpringCloudApplicationLiveViewMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudApplicationLiveViewOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudApplicationLiveViewOutput) ElementType() reflect.Type {
@@ -225,6 +244,12 @@ func (o SpringCloudApplicationLiveViewOutput) ToSpringCloudApplicationLiveViewOu
 
 func (o SpringCloudApplicationLiveViewOutput) ToSpringCloudApplicationLiveViewOutputWithContext(ctx context.Context) SpringCloudApplicationLiveViewOutput {
 	return o
+}
+
+func (o SpringCloudApplicationLiveViewOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApplicationLiveView] {
+	return pulumix.Output[*SpringCloudApplicationLiveView]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
@@ -251,6 +276,12 @@ func (o SpringCloudApplicationLiveViewArrayOutput) ToSpringCloudApplicationLiveV
 	return o
 }
 
+func (o SpringCloudApplicationLiveViewArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApplicationLiveView] {
+	return pulumix.Output[[]*SpringCloudApplicationLiveView]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudApplicationLiveViewArrayOutput) Index(i pulumi.IntInput) SpringCloudApplicationLiveViewOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudApplicationLiveView {
 		return vs[0].([]*SpringCloudApplicationLiveView)[vs[1].(int)]
@@ -269,6 +300,12 @@ func (o SpringCloudApplicationLiveViewMapOutput) ToSpringCloudApplicationLiveVie
 
 func (o SpringCloudApplicationLiveViewMapOutput) ToSpringCloudApplicationLiveViewMapOutputWithContext(ctx context.Context) SpringCloudApplicationLiveViewMapOutput {
 	return o
+}
+
+func (o SpringCloudApplicationLiveViewMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApplicationLiveView] {
+	return pulumix.Output[map[string]*SpringCloudApplicationLiveView]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudApplicationLiveViewMapOutput) MapIndex(k pulumi.StringInput) SpringCloudApplicationLiveViewOutput {

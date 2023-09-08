@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Digital Twins Event Hub Endpoint.
@@ -242,6 +243,12 @@ func (i *EndpointEventHub) ToEndpointEventHubOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventHubOutput)
 }
 
+func (i *EndpointEventHub) ToOutput(ctx context.Context) pulumix.Output[*EndpointEventHub] {
+	return pulumix.Output[*EndpointEventHub]{
+		OutputState: i.ToEndpointEventHubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointEventHubArrayInput is an input type that accepts EndpointEventHubArray and EndpointEventHubArrayOutput values.
 // You can construct a concrete instance of `EndpointEventHubArrayInput` via:
 //
@@ -265,6 +272,12 @@ func (i EndpointEventHubArray) ToEndpointEventHubArrayOutput() EndpointEventHubA
 
 func (i EndpointEventHubArray) ToEndpointEventHubArrayOutputWithContext(ctx context.Context) EndpointEventHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventHubArrayOutput)
+}
+
+func (i EndpointEventHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointEventHub] {
+	return pulumix.Output[[]*EndpointEventHub]{
+		OutputState: i.ToEndpointEventHubArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointEventHubMapInput is an input type that accepts EndpointEventHubMap and EndpointEventHubMapOutput values.
@@ -292,6 +305,12 @@ func (i EndpointEventHubMap) ToEndpointEventHubMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventHubMapOutput)
 }
 
+func (i EndpointEventHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointEventHub] {
+	return pulumix.Output[map[string]*EndpointEventHub]{
+		OutputState: i.ToEndpointEventHubMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointEventHubOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventHubOutput) ElementType() reflect.Type {
@@ -304,6 +323,12 @@ func (o EndpointEventHubOutput) ToEndpointEventHubOutput() EndpointEventHubOutpu
 
 func (o EndpointEventHubOutput) ToEndpointEventHubOutputWithContext(ctx context.Context) EndpointEventHubOutput {
 	return o
+}
+
+func (o EndpointEventHubOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointEventHub] {
+	return pulumix.Output[*EndpointEventHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -345,6 +370,12 @@ func (o EndpointEventHubArrayOutput) ToEndpointEventHubArrayOutputWithContext(ct
 	return o
 }
 
+func (o EndpointEventHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointEventHub] {
+	return pulumix.Output[[]*EndpointEventHub]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointEventHubArrayOutput) Index(i pulumi.IntInput) EndpointEventHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointEventHub {
 		return vs[0].([]*EndpointEventHub)[vs[1].(int)]
@@ -363,6 +394,12 @@ func (o EndpointEventHubMapOutput) ToEndpointEventHubMapOutput() EndpointEventHu
 
 func (o EndpointEventHubMapOutput) ToEndpointEventHubMapOutputWithContext(ctx context.Context) EndpointEventHubMapOutput {
 	return o
+}
+
+func (o EndpointEventHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointEventHub] {
+	return pulumix.Output[map[string]*EndpointEventHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointEventHubMapOutput) MapIndex(k pulumi.StringInput) EndpointEventHubOutput {

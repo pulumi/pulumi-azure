@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an iSCSI Target.
@@ -287,6 +288,12 @@ func (i *DiskPoolIscsiTarget) ToDiskPoolIscsiTargetOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolIscsiTargetOutput)
 }
 
+func (i *DiskPoolIscsiTarget) ToOutput(ctx context.Context) pulumix.Output[*DiskPoolIscsiTarget] {
+	return pulumix.Output[*DiskPoolIscsiTarget]{
+		OutputState: i.ToDiskPoolIscsiTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiskPoolIscsiTargetArrayInput is an input type that accepts DiskPoolIscsiTargetArray and DiskPoolIscsiTargetArrayOutput values.
 // You can construct a concrete instance of `DiskPoolIscsiTargetArrayInput` via:
 //
@@ -310,6 +317,12 @@ func (i DiskPoolIscsiTargetArray) ToDiskPoolIscsiTargetArrayOutput() DiskPoolIsc
 
 func (i DiskPoolIscsiTargetArray) ToDiskPoolIscsiTargetArrayOutputWithContext(ctx context.Context) DiskPoolIscsiTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolIscsiTargetArrayOutput)
+}
+
+func (i DiskPoolIscsiTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPoolIscsiTarget] {
+	return pulumix.Output[[]*DiskPoolIscsiTarget]{
+		OutputState: i.ToDiskPoolIscsiTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DiskPoolIscsiTargetMapInput is an input type that accepts DiskPoolIscsiTargetMap and DiskPoolIscsiTargetMapOutput values.
@@ -337,6 +350,12 @@ func (i DiskPoolIscsiTargetMap) ToDiskPoolIscsiTargetMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolIscsiTargetMapOutput)
 }
 
+func (i DiskPoolIscsiTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPoolIscsiTarget] {
+	return pulumix.Output[map[string]*DiskPoolIscsiTarget]{
+		OutputState: i.ToDiskPoolIscsiTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiskPoolIscsiTargetOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolIscsiTargetOutput) ElementType() reflect.Type {
@@ -349,6 +368,12 @@ func (o DiskPoolIscsiTargetOutput) ToDiskPoolIscsiTargetOutput() DiskPoolIscsiTa
 
 func (o DiskPoolIscsiTargetOutput) ToDiskPoolIscsiTargetOutputWithContext(ctx context.Context) DiskPoolIscsiTargetOutput {
 	return o
+}
+
+func (o DiskPoolIscsiTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskPoolIscsiTarget] {
+	return pulumix.Output[*DiskPoolIscsiTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Mode for Target connectivity. The only supported value is `Dynamic` for now. Changing this forces a new iSCSI Target to be created.
@@ -395,6 +420,12 @@ func (o DiskPoolIscsiTargetArrayOutput) ToDiskPoolIscsiTargetArrayOutputWithCont
 	return o
 }
 
+func (o DiskPoolIscsiTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPoolIscsiTarget] {
+	return pulumix.Output[[]*DiskPoolIscsiTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DiskPoolIscsiTargetArrayOutput) Index(i pulumi.IntInput) DiskPoolIscsiTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskPoolIscsiTarget {
 		return vs[0].([]*DiskPoolIscsiTarget)[vs[1].(int)]
@@ -413,6 +444,12 @@ func (o DiskPoolIscsiTargetMapOutput) ToDiskPoolIscsiTargetMapOutput() DiskPoolI
 
 func (o DiskPoolIscsiTargetMapOutput) ToDiskPoolIscsiTargetMapOutputWithContext(ctx context.Context) DiskPoolIscsiTargetMapOutput {
 	return o
+}
+
+func (o DiskPoolIscsiTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPoolIscsiTarget] {
+	return pulumix.Output[map[string]*DiskPoolIscsiTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiskPoolIscsiTargetMapOutput) MapIndex(k pulumi.StringInput) DiskPoolIscsiTargetOutput {

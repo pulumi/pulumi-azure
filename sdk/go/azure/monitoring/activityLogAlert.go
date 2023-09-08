@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Activity Log Alert within Azure Monitor.
@@ -259,6 +260,12 @@ func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
 }
 
+func (i *ActivityLogAlert) ToOutput(ctx context.Context) pulumix.Output[*ActivityLogAlert] {
+	return pulumix.Output[*ActivityLogAlert]{
+		OutputState: i.ToActivityLogAlertOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActivityLogAlertArrayInput is an input type that accepts ActivityLogAlertArray and ActivityLogAlertArrayOutput values.
 // You can construct a concrete instance of `ActivityLogAlertArrayInput` via:
 //
@@ -282,6 +289,12 @@ func (i ActivityLogAlertArray) ToActivityLogAlertArrayOutput() ActivityLogAlertA
 
 func (i ActivityLogAlertArray) ToActivityLogAlertArrayOutputWithContext(ctx context.Context) ActivityLogAlertArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertArrayOutput)
+}
+
+func (i ActivityLogAlertArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActivityLogAlert] {
+	return pulumix.Output[[]*ActivityLogAlert]{
+		OutputState: i.ToActivityLogAlertArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActivityLogAlertMapInput is an input type that accepts ActivityLogAlertMap and ActivityLogAlertMapOutput values.
@@ -309,6 +322,12 @@ func (i ActivityLogAlertMap) ToActivityLogAlertMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertMapOutput)
 }
 
+func (i ActivityLogAlertMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActivityLogAlert] {
+	return pulumix.Output[map[string]*ActivityLogAlert]{
+		OutputState: i.ToActivityLogAlertMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActivityLogAlertOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
@@ -321,6 +340,12 @@ func (o ActivityLogAlertOutput) ToActivityLogAlertOutput() ActivityLogAlertOutpu
 
 func (o ActivityLogAlertOutput) ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput {
 	return o
+}
+
+func (o ActivityLogAlertOutput) ToOutput(ctx context.Context) pulumix.Output[*ActivityLogAlert] {
+	return pulumix.Output[*ActivityLogAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `action` blocks as defined below.
@@ -377,6 +402,12 @@ func (o ActivityLogAlertArrayOutput) ToActivityLogAlertArrayOutputWithContext(ct
 	return o
 }
 
+func (o ActivityLogAlertArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActivityLogAlert] {
+	return pulumix.Output[[]*ActivityLogAlert]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActivityLogAlertArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActivityLogAlert {
 		return vs[0].([]*ActivityLogAlert)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o ActivityLogAlertMapOutput) ToActivityLogAlertMapOutput() ActivityLogAler
 
 func (o ActivityLogAlertMapOutput) ToActivityLogAlertMapOutputWithContext(ctx context.Context) ActivityLogAlertMapOutput {
 	return o
+}
+
+func (o ActivityLogAlertMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActivityLogAlert] {
+	return pulumix.Output[map[string]*ActivityLogAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActivityLogAlertMapOutput) MapIndex(k pulumi.StringInput) ActivityLogAlertOutput {

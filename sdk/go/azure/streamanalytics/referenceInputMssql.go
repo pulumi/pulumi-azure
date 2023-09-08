@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
@@ -314,6 +315,12 @@ func (i *ReferenceInputMssql) ToReferenceInputMssqlOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputMssqlOutput)
 }
 
+func (i *ReferenceInputMssql) ToOutput(ctx context.Context) pulumix.Output[*ReferenceInputMssql] {
+	return pulumix.Output[*ReferenceInputMssql]{
+		OutputState: i.ToReferenceInputMssqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReferenceInputMssqlArrayInput is an input type that accepts ReferenceInputMssqlArray and ReferenceInputMssqlArrayOutput values.
 // You can construct a concrete instance of `ReferenceInputMssqlArrayInput` via:
 //
@@ -337,6 +344,12 @@ func (i ReferenceInputMssqlArray) ToReferenceInputMssqlArrayOutput() ReferenceIn
 
 func (i ReferenceInputMssqlArray) ToReferenceInputMssqlArrayOutputWithContext(ctx context.Context) ReferenceInputMssqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputMssqlArrayOutput)
+}
+
+func (i ReferenceInputMssqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReferenceInputMssql] {
+	return pulumix.Output[[]*ReferenceInputMssql]{
+		OutputState: i.ToReferenceInputMssqlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReferenceInputMssqlMapInput is an input type that accepts ReferenceInputMssqlMap and ReferenceInputMssqlMapOutput values.
@@ -364,6 +377,12 @@ func (i ReferenceInputMssqlMap) ToReferenceInputMssqlMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputMssqlMapOutput)
 }
 
+func (i ReferenceInputMssqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReferenceInputMssql] {
+	return pulumix.Output[map[string]*ReferenceInputMssql]{
+		OutputState: i.ToReferenceInputMssqlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReferenceInputMssqlOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputMssqlOutput) ElementType() reflect.Type {
@@ -376,6 +395,12 @@ func (o ReferenceInputMssqlOutput) ToReferenceInputMssqlOutput() ReferenceInputM
 
 func (o ReferenceInputMssqlOutput) ToReferenceInputMssqlOutputWithContext(ctx context.Context) ReferenceInputMssqlOutput {
 	return o
+}
+
+func (o ReferenceInputMssqlOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceInputMssql] {
+	return pulumix.Output[*ReferenceInputMssql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The MS SQL database name where the reference data exists.
@@ -452,6 +477,12 @@ func (o ReferenceInputMssqlArrayOutput) ToReferenceInputMssqlArrayOutputWithCont
 	return o
 }
 
+func (o ReferenceInputMssqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReferenceInputMssql] {
+	return pulumix.Output[[]*ReferenceInputMssql]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReferenceInputMssqlArrayOutput) Index(i pulumi.IntInput) ReferenceInputMssqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReferenceInputMssql {
 		return vs[0].([]*ReferenceInputMssql)[vs[1].(int)]
@@ -470,6 +501,12 @@ func (o ReferenceInputMssqlMapOutput) ToReferenceInputMssqlMapOutput() Reference
 
 func (o ReferenceInputMssqlMapOutput) ToReferenceInputMssqlMapOutputWithContext(ctx context.Context) ReferenceInputMssqlMapOutput {
 	return o
+}
+
+func (o ReferenceInputMssqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReferenceInputMssql] {
+	return pulumix.Output[map[string]*ReferenceInputMssql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReferenceInputMssqlMapOutput) MapIndex(k pulumi.StringInput) ReferenceInputMssqlOutput {

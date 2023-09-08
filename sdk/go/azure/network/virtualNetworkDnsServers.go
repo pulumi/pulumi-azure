@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -172,6 +173,12 @@ func (i *VirtualNetworkDnsServers) ToVirtualNetworkDnsServersOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkDnsServersOutput)
 }
 
+func (i *VirtualNetworkDnsServers) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkDnsServers] {
+	return pulumix.Output[*VirtualNetworkDnsServers]{
+		OutputState: i.ToVirtualNetworkDnsServersOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNetworkDnsServersArrayInput is an input type that accepts VirtualNetworkDnsServersArray and VirtualNetworkDnsServersArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkDnsServersArrayInput` via:
 //
@@ -195,6 +202,12 @@ func (i VirtualNetworkDnsServersArray) ToVirtualNetworkDnsServersArrayOutput() V
 
 func (i VirtualNetworkDnsServersArray) ToVirtualNetworkDnsServersArrayOutputWithContext(ctx context.Context) VirtualNetworkDnsServersArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkDnsServersArrayOutput)
+}
+
+func (i VirtualNetworkDnsServersArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkDnsServers] {
+	return pulumix.Output[[]*VirtualNetworkDnsServers]{
+		OutputState: i.ToVirtualNetworkDnsServersArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNetworkDnsServersMapInput is an input type that accepts VirtualNetworkDnsServersMap and VirtualNetworkDnsServersMapOutput values.
@@ -222,6 +235,12 @@ func (i VirtualNetworkDnsServersMap) ToVirtualNetworkDnsServersMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkDnsServersMapOutput)
 }
 
+func (i VirtualNetworkDnsServersMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkDnsServers] {
+	return pulumix.Output[map[string]*VirtualNetworkDnsServers]{
+		OutputState: i.ToVirtualNetworkDnsServersMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNetworkDnsServersOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkDnsServersOutput) ElementType() reflect.Type {
@@ -234,6 +253,12 @@ func (o VirtualNetworkDnsServersOutput) ToVirtualNetworkDnsServersOutput() Virtu
 
 func (o VirtualNetworkDnsServersOutput) ToVirtualNetworkDnsServersOutputWithContext(ctx context.Context) VirtualNetworkDnsServersOutput {
 	return o
+}
+
+func (o VirtualNetworkDnsServersOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkDnsServers] {
+	return pulumix.Output[*VirtualNetworkDnsServers]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of IP addresses of DNS servers
@@ -260,6 +285,12 @@ func (o VirtualNetworkDnsServersArrayOutput) ToVirtualNetworkDnsServersArrayOutp
 	return o
 }
 
+func (o VirtualNetworkDnsServersArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkDnsServers] {
+	return pulumix.Output[[]*VirtualNetworkDnsServers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNetworkDnsServersArrayOutput) Index(i pulumi.IntInput) VirtualNetworkDnsServersOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkDnsServers {
 		return vs[0].([]*VirtualNetworkDnsServers)[vs[1].(int)]
@@ -278,6 +309,12 @@ func (o VirtualNetworkDnsServersMapOutput) ToVirtualNetworkDnsServersMapOutput()
 
 func (o VirtualNetworkDnsServersMapOutput) ToVirtualNetworkDnsServersMapOutputWithContext(ctx context.Context) VirtualNetworkDnsServersMapOutput {
 	return o
+}
+
+func (o VirtualNetworkDnsServersMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkDnsServers] {
+	return pulumix.Output[map[string]*VirtualNetworkDnsServers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkDnsServersMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkDnsServersOutput {

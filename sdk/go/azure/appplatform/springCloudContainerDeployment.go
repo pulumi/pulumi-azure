@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Container Deployment.
@@ -280,6 +281,12 @@ func (i *SpringCloudContainerDeployment) ToSpringCloudContainerDeploymentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudContainerDeploymentOutput)
 }
 
+func (i *SpringCloudContainerDeployment) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudContainerDeployment] {
+	return pulumix.Output[*SpringCloudContainerDeployment]{
+		OutputState: i.ToSpringCloudContainerDeploymentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudContainerDeploymentArrayInput is an input type that accepts SpringCloudContainerDeploymentArray and SpringCloudContainerDeploymentArrayOutput values.
 // You can construct a concrete instance of `SpringCloudContainerDeploymentArrayInput` via:
 //
@@ -303,6 +310,12 @@ func (i SpringCloudContainerDeploymentArray) ToSpringCloudContainerDeploymentArr
 
 func (i SpringCloudContainerDeploymentArray) ToSpringCloudContainerDeploymentArrayOutputWithContext(ctx context.Context) SpringCloudContainerDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudContainerDeploymentArrayOutput)
+}
+
+func (i SpringCloudContainerDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudContainerDeployment] {
+	return pulumix.Output[[]*SpringCloudContainerDeployment]{
+		OutputState: i.ToSpringCloudContainerDeploymentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudContainerDeploymentMapInput is an input type that accepts SpringCloudContainerDeploymentMap and SpringCloudContainerDeploymentMapOutput values.
@@ -330,6 +343,12 @@ func (i SpringCloudContainerDeploymentMap) ToSpringCloudContainerDeploymentMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudContainerDeploymentMapOutput)
 }
 
+func (i SpringCloudContainerDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudContainerDeployment] {
+	return pulumix.Output[map[string]*SpringCloudContainerDeployment]{
+		OutputState: i.ToSpringCloudContainerDeploymentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudContainerDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudContainerDeploymentOutput) ElementType() reflect.Type {
@@ -342,6 +361,12 @@ func (o SpringCloudContainerDeploymentOutput) ToSpringCloudContainerDeploymentOu
 
 func (o SpringCloudContainerDeploymentOutput) ToSpringCloudContainerDeploymentOutputWithContext(ctx context.Context) SpringCloudContainerDeploymentOutput {
 	return o
+}
+
+func (o SpringCloudContainerDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudContainerDeployment] {
+	return pulumix.Output[*SpringCloudContainerDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
@@ -413,6 +438,12 @@ func (o SpringCloudContainerDeploymentArrayOutput) ToSpringCloudContainerDeploym
 	return o
 }
 
+func (o SpringCloudContainerDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudContainerDeployment] {
+	return pulumix.Output[[]*SpringCloudContainerDeployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudContainerDeploymentArrayOutput) Index(i pulumi.IntInput) SpringCloudContainerDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudContainerDeployment {
 		return vs[0].([]*SpringCloudContainerDeployment)[vs[1].(int)]
@@ -431,6 +462,12 @@ func (o SpringCloudContainerDeploymentMapOutput) ToSpringCloudContainerDeploymen
 
 func (o SpringCloudContainerDeploymentMapOutput) ToSpringCloudContainerDeploymentMapOutputWithContext(ctx context.Context) SpringCloudContainerDeploymentMapOutput {
 	return o
+}
+
+func (o SpringCloudContainerDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudContainerDeployment] {
+	return pulumix.Output[map[string]*SpringCloudContainerDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudContainerDeploymentMapOutput) MapIndex(k pulumi.StringInput) SpringCloudContainerDeploymentOutput {

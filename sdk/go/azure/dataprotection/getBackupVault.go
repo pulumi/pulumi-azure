@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Backup Vault.
@@ -115,6 +116,12 @@ func (o LookupBackupVaultResultOutput) ToLookupBackupVaultResultOutput() LookupB
 
 func (o LookupBackupVaultResultOutput) ToLookupBackupVaultResultOutputWithContext(ctx context.Context) LookupBackupVaultResultOutput {
 	return o
+}
+
+func (o LookupBackupVaultResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBackupVaultResult] {
+	return pulumix.Output[LookupBackupVaultResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the type of the data store.

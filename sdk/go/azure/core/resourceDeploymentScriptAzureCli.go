@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Deployment Script of Azure Cli.
@@ -339,6 +340,12 @@ func (i *ResourceDeploymentScriptAzureCli) ToResourceDeploymentScriptAzureCliOut
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliOutput)
 }
 
+func (i *ResourceDeploymentScriptAzureCli) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCli] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCli]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceDeploymentScriptAzureCliArrayInput is an input type that accepts ResourceDeploymentScriptAzureCliArray and ResourceDeploymentScriptAzureCliArrayOutput values.
 // You can construct a concrete instance of `ResourceDeploymentScriptAzureCliArrayInput` via:
 //
@@ -362,6 +369,12 @@ func (i ResourceDeploymentScriptAzureCliArray) ToResourceDeploymentScriptAzureCl
 
 func (i ResourceDeploymentScriptAzureCliArray) ToResourceDeploymentScriptAzureCliArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliArrayOutput)
+}
+
+func (i ResourceDeploymentScriptAzureCliArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceDeploymentScriptAzureCli] {
+	return pulumix.Output[[]*ResourceDeploymentScriptAzureCli]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceDeploymentScriptAzureCliMapInput is an input type that accepts ResourceDeploymentScriptAzureCliMap and ResourceDeploymentScriptAzureCliMapOutput values.
@@ -389,6 +402,12 @@ func (i ResourceDeploymentScriptAzureCliMap) ToResourceDeploymentScriptAzureCliM
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliMapOutput)
 }
 
+func (i ResourceDeploymentScriptAzureCliMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceDeploymentScriptAzureCli] {
+	return pulumix.Output[map[string]*ResourceDeploymentScriptAzureCli]{
+		OutputState: i.ToResourceDeploymentScriptAzureCliMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceDeploymentScriptAzureCliOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptAzureCliOutput) ElementType() reflect.Type {
@@ -401,6 +420,12 @@ func (o ResourceDeploymentScriptAzureCliOutput) ToResourceDeploymentScriptAzureC
 
 func (o ResourceDeploymentScriptAzureCliOutput) ToResourceDeploymentScriptAzureCliOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptAzureCli] {
+	return pulumix.Output[*ResourceDeploymentScriptAzureCli]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
@@ -515,6 +540,12 @@ func (o ResourceDeploymentScriptAzureCliArrayOutput) ToResourceDeploymentScriptA
 	return o
 }
 
+func (o ResourceDeploymentScriptAzureCliArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceDeploymentScriptAzureCli] {
+	return pulumix.Output[[]*ResourceDeploymentScriptAzureCli]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceDeploymentScriptAzureCliArrayOutput) Index(i pulumi.IntInput) ResourceDeploymentScriptAzureCliOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceDeploymentScriptAzureCli {
 		return vs[0].([]*ResourceDeploymentScriptAzureCli)[vs[1].(int)]
@@ -533,6 +564,12 @@ func (o ResourceDeploymentScriptAzureCliMapOutput) ToResourceDeploymentScriptAzu
 
 func (o ResourceDeploymentScriptAzureCliMapOutput) ToResourceDeploymentScriptAzureCliMapOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliMapOutput {
 	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceDeploymentScriptAzureCli] {
+	return pulumix.Output[map[string]*ResourceDeploymentScriptAzureCli]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceDeploymentScriptAzureCliMapOutput) MapIndex(k pulumi.StringInput) ResourceDeploymentScriptAzureCliOutput {

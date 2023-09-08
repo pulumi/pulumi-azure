@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing resources.
@@ -91,6 +92,12 @@ func (o GetResourcesResultOutput) ToGetResourcesResultOutput() GetResourcesResul
 
 func (o GetResourcesResultOutput) ToGetResourcesResultOutputWithContext(ctx context.Context) GetResourcesResultOutput {
 	return o
+}
+
+func (o GetResourcesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResult] {
+	return pulumix.Output[GetResourcesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

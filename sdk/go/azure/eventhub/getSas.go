@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
@@ -78,6 +79,12 @@ func (o GetSasResultOutput) ToGetSasResultOutput() GetSasResultOutput {
 
 func (o GetSasResultOutput) ToGetSasResultOutputWithContext(ctx context.Context) GetSasResultOutput {
 	return o
+}
+
+func (o GetSasResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSasResult] {
+	return pulumix.Output[GetSasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSasResultOutput) ConnectionString() pulumi.StringOutput {

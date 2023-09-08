@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -62,6 +63,12 @@ func (i GroupPolicyAssignmentIdentityArgs) ToGroupPolicyAssignmentIdentityOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentIdentityOutput)
 }
 
+func (i GroupPolicyAssignmentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentIdentity] {
+	return pulumix.Output[GroupPolicyAssignmentIdentity]{
+		OutputState: i.ToGroupPolicyAssignmentIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupPolicyAssignmentIdentityArgs) ToGroupPolicyAssignmentIdentityPtrOutput() GroupPolicyAssignmentIdentityPtrOutput {
 	return i.ToGroupPolicyAssignmentIdentityPtrOutputWithContext(context.Background())
 }
@@ -103,6 +110,12 @@ func (i *groupPolicyAssignmentIdentityPtrType) ToGroupPolicyAssignmentIdentityPt
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentIdentityPtrOutput)
 }
 
+func (i *groupPolicyAssignmentIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicyAssignmentIdentity] {
+	return pulumix.Output[*GroupPolicyAssignmentIdentity]{
+		OutputState: i.ToGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
@@ -125,6 +138,12 @@ func (o GroupPolicyAssignmentIdentityOutput) ToGroupPolicyAssignmentIdentityPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupPolicyAssignmentIdentity) *GroupPolicyAssignmentIdentity {
 		return &v
 	}).(GroupPolicyAssignmentIdentityPtrOutput)
+}
+
+func (o GroupPolicyAssignmentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentIdentity] {
+	return pulumix.Output[GroupPolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -161,6 +180,12 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) ToGroupPolicyAssignmentIdentityP
 
 func (o GroupPolicyAssignmentIdentityPtrOutput) ToGroupPolicyAssignmentIdentityPtrOutputWithContext(ctx context.Context) GroupPolicyAssignmentIdentityPtrOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicyAssignmentIdentity] {
+	return pulumix.Output[*GroupPolicyAssignmentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyAssignmentIdentityPtrOutput) Elem() GroupPolicyAssignmentIdentityOutput {
@@ -252,6 +277,12 @@ func (i GroupPolicyAssignmentNonComplianceMessageArgs) ToGroupPolicyAssignmentNo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentNonComplianceMessageOutput)
 }
 
+func (i GroupPolicyAssignmentNonComplianceMessageArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[GroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts GroupPolicyAssignmentNonComplianceMessageArray and GroupPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
@@ -277,6 +308,12 @@ func (i GroupPolicyAssignmentNonComplianceMessageArray) ToGroupPolicyAssignmentN
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentNonComplianceMessageArrayOutput)
 }
 
+func (i GroupPolicyAssignmentNonComplianceMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]GroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: i.ToGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
@@ -289,6 +326,12 @@ func (o GroupPolicyAssignmentNonComplianceMessageOutput) ToGroupPolicyAssignment
 
 func (o GroupPolicyAssignmentNonComplianceMessageOutput) ToGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) GroupPolicyAssignmentNonComplianceMessageOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[GroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
@@ -313,6 +356,12 @@ func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) ToGroupPolicyAssig
 
 func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) ToGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentNonComplianceMessageArrayOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentNonComplianceMessage] {
+	return pulumix.Output[[]GroupPolicyAssignmentNonComplianceMessage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentNonComplianceMessageOutput {
@@ -358,6 +407,12 @@ func (i GroupPolicyAssignmentOverrideArgs) ToGroupPolicyAssignmentOverrideOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideOutput)
 }
 
+func (i GroupPolicyAssignmentOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentOverride] {
+	return pulumix.Output[GroupPolicyAssignmentOverride]{
+		OutputState: i.ToGroupPolicyAssignmentOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyAssignmentOverrideArrayInput is an input type that accepts GroupPolicyAssignmentOverrideArray and GroupPolicyAssignmentOverrideArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentOverrideArrayInput` via:
 //
@@ -383,6 +438,12 @@ func (i GroupPolicyAssignmentOverrideArray) ToGroupPolicyAssignmentOverrideArray
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideArrayOutput)
 }
 
+func (i GroupPolicyAssignmentOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentOverride] {
+	return pulumix.Output[[]GroupPolicyAssignmentOverride]{
+		OutputState: i.ToGroupPolicyAssignmentOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyAssignmentOverrideOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentOverrideOutput) ElementType() reflect.Type {
@@ -395,6 +456,12 @@ func (o GroupPolicyAssignmentOverrideOutput) ToGroupPolicyAssignmentOverrideOutp
 
 func (o GroupPolicyAssignmentOverrideOutput) ToGroupPolicyAssignmentOverrideOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentOverride] {
+	return pulumix.Output[GroupPolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `overrideSelector` as defined below.
@@ -419,6 +486,12 @@ func (o GroupPolicyAssignmentOverrideArrayOutput) ToGroupPolicyAssignmentOverrid
 
 func (o GroupPolicyAssignmentOverrideArrayOutput) ToGroupPolicyAssignmentOverrideArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideArrayOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentOverride] {
+	return pulumix.Output[[]GroupPolicyAssignmentOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyAssignmentOverrideArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentOverrideOutput {
@@ -468,6 +541,12 @@ func (i GroupPolicyAssignmentOverrideSelectorArgs) ToGroupPolicyAssignmentOverri
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideSelectorOutput)
 }
 
+func (i GroupPolicyAssignmentOverrideSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[GroupPolicyAssignmentOverrideSelector]{
+		OutputState: i.ToGroupPolicyAssignmentOverrideSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyAssignmentOverrideSelectorArrayInput is an input type that accepts GroupPolicyAssignmentOverrideSelectorArray and GroupPolicyAssignmentOverrideSelectorArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentOverrideSelectorArrayInput` via:
 //
@@ -493,6 +572,12 @@ func (i GroupPolicyAssignmentOverrideSelectorArray) ToGroupPolicyAssignmentOverr
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideSelectorArrayOutput)
 }
 
+func (i GroupPolicyAssignmentOverrideSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]GroupPolicyAssignmentOverrideSelector]{
+		OutputState: i.ToGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyAssignmentOverrideSelectorOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentOverrideSelectorOutput) ElementType() reflect.Type {
@@ -505,6 +590,12 @@ func (o GroupPolicyAssignmentOverrideSelectorOutput) ToGroupPolicyAssignmentOver
 
 func (o GroupPolicyAssignmentOverrideSelectorOutput) ToGroupPolicyAssignmentOverrideSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideSelectorOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[GroupPolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -534,6 +625,12 @@ func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) ToGroupPolicyAssignmen
 
 func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) ToGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideSelectorArrayOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentOverrideSelector] {
+	return pulumix.Output[[]GroupPolicyAssignmentOverrideSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentOverrideSelectorOutput {
@@ -579,6 +676,12 @@ func (i GroupPolicyAssignmentResourceSelectorArgs) ToGroupPolicyAssignmentResour
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorOutput)
 }
 
+func (i GroupPolicyAssignmentResourceSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[GroupPolicyAssignmentResourceSelector]{
+		OutputState: i.ToGroupPolicyAssignmentResourceSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyAssignmentResourceSelectorArrayInput is an input type that accepts GroupPolicyAssignmentResourceSelectorArray and GroupPolicyAssignmentResourceSelectorArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentResourceSelectorArrayInput` via:
 //
@@ -604,6 +707,12 @@ func (i GroupPolicyAssignmentResourceSelectorArray) ToGroupPolicyAssignmentResou
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorArrayOutput)
 }
 
+func (i GroupPolicyAssignmentResourceSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]GroupPolicyAssignmentResourceSelector]{
+		OutputState: i.ToGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyAssignmentResourceSelectorOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentResourceSelectorOutput) ElementType() reflect.Type {
@@ -616,6 +725,12 @@ func (o GroupPolicyAssignmentResourceSelectorOutput) ToGroupPolicyAssignmentReso
 
 func (o GroupPolicyAssignmentResourceSelectorOutput) ToGroupPolicyAssignmentResourceSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[GroupPolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a name for the resource selector.
@@ -642,6 +757,12 @@ func (o GroupPolicyAssignmentResourceSelectorArrayOutput) ToGroupPolicyAssignmen
 
 func (o GroupPolicyAssignmentResourceSelectorArrayOutput) ToGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorArrayOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentResourceSelector] {
+	return pulumix.Output[[]GroupPolicyAssignmentResourceSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyAssignmentResourceSelectorArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentResourceSelectorOutput {
@@ -691,6 +812,12 @@ func (i GroupPolicyAssignmentResourceSelectorSelectorArgs) ToGroupPolicyAssignme
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorSelectorOutput)
 }
 
+func (i GroupPolicyAssignmentResourceSelectorSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[GroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyAssignmentResourceSelectorSelectorArrayInput is an input type that accepts GroupPolicyAssignmentResourceSelectorSelectorArray and GroupPolicyAssignmentResourceSelectorSelectorArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentResourceSelectorSelectorArrayInput` via:
 //
@@ -716,6 +843,12 @@ func (i GroupPolicyAssignmentResourceSelectorSelectorArray) ToGroupPolicyAssignm
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorSelectorArrayOutput)
 }
 
+func (i GroupPolicyAssignmentResourceSelectorSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]GroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: i.ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyAssignmentResourceSelectorSelectorOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentResourceSelectorSelectorOutput) ElementType() reflect.Type {
@@ -728,6 +861,12 @@ func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) ToGroupPolicyAssign
 
 func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) ToGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorSelectorOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[GroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[GroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
@@ -757,6 +896,12 @@ func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToGroupPolicyA
 
 func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
 	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupPolicyAssignmentResourceSelectorSelector] {
+	return pulumix.Output[[]GroupPolicyAssignmentResourceSelectorSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentResourceSelectorSelectorOutput {

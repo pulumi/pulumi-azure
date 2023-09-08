@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Load Balancer Outbound Rule.
@@ -256,6 +257,12 @@ func (i *OutboundRule) ToOutboundRuleOutputWithContext(ctx context.Context) Outb
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleOutput)
 }
 
+func (i *OutboundRule) ToOutput(ctx context.Context) pulumix.Output[*OutboundRule] {
+	return pulumix.Output[*OutboundRule]{
+		OutputState: i.ToOutboundRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutboundRuleArrayInput is an input type that accepts OutboundRuleArray and OutboundRuleArrayOutput values.
 // You can construct a concrete instance of `OutboundRuleArrayInput` via:
 //
@@ -279,6 +286,12 @@ func (i OutboundRuleArray) ToOutboundRuleArrayOutput() OutboundRuleArrayOutput {
 
 func (i OutboundRuleArray) ToOutboundRuleArrayOutputWithContext(ctx context.Context) OutboundRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleArrayOutput)
+}
+
+func (i OutboundRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutboundRule] {
+	return pulumix.Output[[]*OutboundRule]{
+		OutputState: i.ToOutboundRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutboundRuleMapInput is an input type that accepts OutboundRuleMap and OutboundRuleMapOutput values.
@@ -306,6 +319,12 @@ func (i OutboundRuleMap) ToOutboundRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleMapOutput)
 }
 
+func (i OutboundRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutboundRule] {
+	return pulumix.Output[map[string]*OutboundRule]{
+		OutputState: i.ToOutboundRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutboundRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundRuleOutput) ElementType() reflect.Type {
@@ -318,6 +337,12 @@ func (o OutboundRuleOutput) ToOutboundRuleOutput() OutboundRuleOutput {
 
 func (o OutboundRuleOutput) ToOutboundRuleOutputWithContext(ctx context.Context) OutboundRuleOutput {
 	return o
+}
+
+func (o OutboundRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundRule] {
+	return pulumix.Output[*OutboundRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of outbound ports to be used for NAT. Defaults to `1024`.
@@ -376,6 +401,12 @@ func (o OutboundRuleArrayOutput) ToOutboundRuleArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o OutboundRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutboundRule] {
+	return pulumix.Output[[]*OutboundRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutboundRuleArrayOutput) Index(i pulumi.IntInput) OutboundRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutboundRule {
 		return vs[0].([]*OutboundRule)[vs[1].(int)]
@@ -394,6 +425,12 @@ func (o OutboundRuleMapOutput) ToOutboundRuleMapOutput() OutboundRuleMapOutput {
 
 func (o OutboundRuleMapOutput) ToOutboundRuleMapOutputWithContext(ctx context.Context) OutboundRuleMapOutput {
 	return o
+}
+
+func (o OutboundRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutboundRule] {
+	return pulumix.Output[map[string]*OutboundRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutboundRuleMapOutput) MapIndex(k pulumi.StringInput) OutboundRuleOutput {

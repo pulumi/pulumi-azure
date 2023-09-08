@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Alert Policy for a Synapse Workspace.
@@ -279,6 +280,12 @@ func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSecurityAlertPolicyOutput)
 }
 
+func (i *WorkspaceSecurityAlertPolicy) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSecurityAlertPolicy] {
+	return pulumix.Output[*WorkspaceSecurityAlertPolicy]{
+		OutputState: i.ToWorkspaceSecurityAlertPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceSecurityAlertPolicyArrayInput is an input type that accepts WorkspaceSecurityAlertPolicyArray and WorkspaceSecurityAlertPolicyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceSecurityAlertPolicyArrayInput` via:
 //
@@ -302,6 +309,12 @@ func (i WorkspaceSecurityAlertPolicyArray) ToWorkspaceSecurityAlertPolicyArrayOu
 
 func (i WorkspaceSecurityAlertPolicyArray) ToWorkspaceSecurityAlertPolicyArrayOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSecurityAlertPolicyArrayOutput)
+}
+
+func (i WorkspaceSecurityAlertPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceSecurityAlertPolicy] {
+	return pulumix.Output[[]*WorkspaceSecurityAlertPolicy]{
+		OutputState: i.ToWorkspaceSecurityAlertPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceSecurityAlertPolicyMapInput is an input type that accepts WorkspaceSecurityAlertPolicyMap and WorkspaceSecurityAlertPolicyMapOutput values.
@@ -329,6 +342,12 @@ func (i WorkspaceSecurityAlertPolicyMap) ToWorkspaceSecurityAlertPolicyMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSecurityAlertPolicyMapOutput)
 }
 
+func (i WorkspaceSecurityAlertPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*WorkspaceSecurityAlertPolicy]{
+		OutputState: i.ToWorkspaceSecurityAlertPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSecurityAlertPolicyOutput) ElementType() reflect.Type {
@@ -341,6 +360,12 @@ func (o WorkspaceSecurityAlertPolicyOutput) ToWorkspaceSecurityAlertPolicyOutput
 
 func (o WorkspaceSecurityAlertPolicyOutput) ToWorkspaceSecurityAlertPolicyOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyOutput {
 	return o
+}
+
+func (o WorkspaceSecurityAlertPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSecurityAlertPolicy] {
+	return pulumix.Output[*WorkspaceSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
@@ -397,6 +422,12 @@ func (o WorkspaceSecurityAlertPolicyArrayOutput) ToWorkspaceSecurityAlertPolicyA
 	return o
 }
 
+func (o WorkspaceSecurityAlertPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceSecurityAlertPolicy] {
+	return pulumix.Output[[]*WorkspaceSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceSecurityAlertPolicyArrayOutput) Index(i pulumi.IntInput) WorkspaceSecurityAlertPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceSecurityAlertPolicy {
 		return vs[0].([]*WorkspaceSecurityAlertPolicy)[vs[1].(int)]
@@ -415,6 +446,12 @@ func (o WorkspaceSecurityAlertPolicyMapOutput) ToWorkspaceSecurityAlertPolicyMap
 
 func (o WorkspaceSecurityAlertPolicyMapOutput) ToWorkspaceSecurityAlertPolicyMapOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyMapOutput {
 	return o
+}
+
+func (o WorkspaceSecurityAlertPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*WorkspaceSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceSecurityAlertPolicyOutput {

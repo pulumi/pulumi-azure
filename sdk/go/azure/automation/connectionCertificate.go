@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Automation Connection with type `Azure`.
@@ -236,6 +237,12 @@ func (i *ConnectionCertificate) ToConnectionCertificateOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionCertificateOutput)
 }
 
+func (i *ConnectionCertificate) ToOutput(ctx context.Context) pulumix.Output[*ConnectionCertificate] {
+	return pulumix.Output[*ConnectionCertificate]{
+		OutputState: i.ToConnectionCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionCertificateArrayInput is an input type that accepts ConnectionCertificateArray and ConnectionCertificateArrayOutput values.
 // You can construct a concrete instance of `ConnectionCertificateArrayInput` via:
 //
@@ -259,6 +266,12 @@ func (i ConnectionCertificateArray) ToConnectionCertificateArrayOutput() Connect
 
 func (i ConnectionCertificateArray) ToConnectionCertificateArrayOutputWithContext(ctx context.Context) ConnectionCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionCertificateArrayOutput)
+}
+
+func (i ConnectionCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionCertificate] {
+	return pulumix.Output[[]*ConnectionCertificate]{
+		OutputState: i.ToConnectionCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectionCertificateMapInput is an input type that accepts ConnectionCertificateMap and ConnectionCertificateMapOutput values.
@@ -286,6 +299,12 @@ func (i ConnectionCertificateMap) ToConnectionCertificateMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionCertificateMapOutput)
 }
 
+func (i ConnectionCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionCertificate] {
+	return pulumix.Output[map[string]*ConnectionCertificate]{
+		OutputState: i.ToConnectionCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionCertificateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionCertificateOutput) ElementType() reflect.Type {
@@ -298,6 +317,12 @@ func (o ConnectionCertificateOutput) ToConnectionCertificateOutput() ConnectionC
 
 func (o ConnectionCertificateOutput) ToConnectionCertificateOutputWithContext(ctx context.Context) ConnectionCertificateOutput {
 	return o
+}
+
+func (o ConnectionCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionCertificate] {
+	return pulumix.Output[*ConnectionCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -344,6 +369,12 @@ func (o ConnectionCertificateArrayOutput) ToConnectionCertificateArrayOutputWith
 	return o
 }
 
+func (o ConnectionCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionCertificate] {
+	return pulumix.Output[[]*ConnectionCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionCertificateArrayOutput) Index(i pulumi.IntInput) ConnectionCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionCertificate {
 		return vs[0].([]*ConnectionCertificate)[vs[1].(int)]
@@ -362,6 +393,12 @@ func (o ConnectionCertificateMapOutput) ToConnectionCertificateMapOutput() Conne
 
 func (o ConnectionCertificateMapOutput) ToConnectionCertificateMapOutputWithContext(ctx context.Context) ConnectionCertificateMapOutput {
 	return o
+}
+
+func (o ConnectionCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionCertificate] {
+	return pulumix.Output[map[string]*ConnectionCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionCertificateMapOutput) MapIndex(k pulumi.StringInput) ConnectionCertificateOutput {

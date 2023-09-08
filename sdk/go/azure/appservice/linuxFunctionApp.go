@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Function App.
@@ -576,6 +577,12 @@ func (i *LinuxFunctionApp) ToLinuxFunctionAppOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppOutput)
 }
 
+func (i *LinuxFunctionApp) ToOutput(ctx context.Context) pulumix.Output[*LinuxFunctionApp] {
+	return pulumix.Output[*LinuxFunctionApp]{
+		OutputState: i.ToLinuxFunctionAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinuxFunctionAppArrayInput is an input type that accepts LinuxFunctionAppArray and LinuxFunctionAppArrayOutput values.
 // You can construct a concrete instance of `LinuxFunctionAppArrayInput` via:
 //
@@ -599,6 +606,12 @@ func (i LinuxFunctionAppArray) ToLinuxFunctionAppArrayOutput() LinuxFunctionAppA
 
 func (i LinuxFunctionAppArray) ToLinuxFunctionAppArrayOutputWithContext(ctx context.Context) LinuxFunctionAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppArrayOutput)
+}
+
+func (i LinuxFunctionAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxFunctionApp] {
+	return pulumix.Output[[]*LinuxFunctionApp]{
+		OutputState: i.ToLinuxFunctionAppArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinuxFunctionAppMapInput is an input type that accepts LinuxFunctionAppMap and LinuxFunctionAppMapOutput values.
@@ -626,6 +639,12 @@ func (i LinuxFunctionAppMap) ToLinuxFunctionAppMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppMapOutput)
 }
 
+func (i LinuxFunctionAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxFunctionApp] {
+	return pulumix.Output[map[string]*LinuxFunctionApp]{
+		OutputState: i.ToLinuxFunctionAppMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinuxFunctionAppOutput struct{ *pulumi.OutputState }
 
 func (LinuxFunctionAppOutput) ElementType() reflect.Type {
@@ -638,6 +657,12 @@ func (o LinuxFunctionAppOutput) ToLinuxFunctionAppOutput() LinuxFunctionAppOutpu
 
 func (o LinuxFunctionAppOutput) ToLinuxFunctionAppOutputWithContext(ctx context.Context) LinuxFunctionAppOutput {
 	return o
+}
+
+func (o LinuxFunctionAppOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxFunctionApp] {
+	return pulumix.Output[*LinuxFunctionApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of key-value pairs for [App
@@ -862,6 +887,12 @@ func (o LinuxFunctionAppArrayOutput) ToLinuxFunctionAppArrayOutputWithContext(ct
 	return o
 }
 
+func (o LinuxFunctionAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxFunctionApp] {
+	return pulumix.Output[[]*LinuxFunctionApp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinuxFunctionAppArrayOutput) Index(i pulumi.IntInput) LinuxFunctionAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxFunctionApp {
 		return vs[0].([]*LinuxFunctionApp)[vs[1].(int)]
@@ -880,6 +911,12 @@ func (o LinuxFunctionAppMapOutput) ToLinuxFunctionAppMapOutput() LinuxFunctionAp
 
 func (o LinuxFunctionAppMapOutput) ToLinuxFunctionAppMapOutputWithContext(ctx context.Context) LinuxFunctionAppMapOutput {
 	return o
+}
+
+func (o LinuxFunctionAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxFunctionApp] {
+	return pulumix.Output[map[string]*LinuxFunctionApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinuxFunctionAppMapOutput) MapIndex(k pulumi.StringInput) LinuxFunctionAppOutput {

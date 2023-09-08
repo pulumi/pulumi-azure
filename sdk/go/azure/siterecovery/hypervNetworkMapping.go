@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
@@ -215,6 +216,12 @@ func (i *HypervNetworkMapping) ToHypervNetworkMappingOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(HypervNetworkMappingOutput)
 }
 
+func (i *HypervNetworkMapping) ToOutput(ctx context.Context) pulumix.Output[*HypervNetworkMapping] {
+	return pulumix.Output[*HypervNetworkMapping]{
+		OutputState: i.ToHypervNetworkMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HypervNetworkMappingArrayInput is an input type that accepts HypervNetworkMappingArray and HypervNetworkMappingArrayOutput values.
 // You can construct a concrete instance of `HypervNetworkMappingArrayInput` via:
 //
@@ -238,6 +245,12 @@ func (i HypervNetworkMappingArray) ToHypervNetworkMappingArrayOutput() HypervNet
 
 func (i HypervNetworkMappingArray) ToHypervNetworkMappingArrayOutputWithContext(ctx context.Context) HypervNetworkMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HypervNetworkMappingArrayOutput)
+}
+
+func (i HypervNetworkMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*HypervNetworkMapping] {
+	return pulumix.Output[[]*HypervNetworkMapping]{
+		OutputState: i.ToHypervNetworkMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HypervNetworkMappingMapInput is an input type that accepts HypervNetworkMappingMap and HypervNetworkMappingMapOutput values.
@@ -265,6 +278,12 @@ func (i HypervNetworkMappingMap) ToHypervNetworkMappingMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(HypervNetworkMappingMapOutput)
 }
 
+func (i HypervNetworkMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HypervNetworkMapping] {
+	return pulumix.Output[map[string]*HypervNetworkMapping]{
+		OutputState: i.ToHypervNetworkMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HypervNetworkMappingOutput struct{ *pulumi.OutputState }
 
 func (HypervNetworkMappingOutput) ElementType() reflect.Type {
@@ -277,6 +296,12 @@ func (o HypervNetworkMappingOutput) ToHypervNetworkMappingOutput() HypervNetwork
 
 func (o HypervNetworkMappingOutput) ToHypervNetworkMappingOutputWithContext(ctx context.Context) HypervNetworkMappingOutput {
 	return o
+}
+
+func (o HypervNetworkMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*HypervNetworkMapping] {
+	return pulumix.Output[*HypervNetworkMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the HyperV network mapping. Changing this forces a new resource to be created.
@@ -320,6 +345,12 @@ func (o HypervNetworkMappingArrayOutput) ToHypervNetworkMappingArrayOutputWithCo
 	return o
 }
 
+func (o HypervNetworkMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HypervNetworkMapping] {
+	return pulumix.Output[[]*HypervNetworkMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HypervNetworkMappingArrayOutput) Index(i pulumi.IntInput) HypervNetworkMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HypervNetworkMapping {
 		return vs[0].([]*HypervNetworkMapping)[vs[1].(int)]
@@ -338,6 +369,12 @@ func (o HypervNetworkMappingMapOutput) ToHypervNetworkMappingMapOutput() HypervN
 
 func (o HypervNetworkMappingMapOutput) ToHypervNetworkMappingMapOutputWithContext(ctx context.Context) HypervNetworkMappingMapOutput {
 	return o
+}
+
+func (o HypervNetworkMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HypervNetworkMapping] {
+	return pulumix.Output[map[string]*HypervNetworkMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HypervNetworkMappingMapOutput) MapIndex(k pulumi.StringInput) HypervNetworkMappingOutput {

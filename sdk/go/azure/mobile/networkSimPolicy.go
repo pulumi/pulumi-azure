@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Sim Policy.
@@ -319,6 +320,12 @@ func (i *NetworkSimPolicy) ToNetworkSimPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyOutput)
 }
 
+func (i *NetworkSimPolicy) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimPolicy] {
+	return pulumix.Output[*NetworkSimPolicy]{
+		OutputState: i.ToNetworkSimPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkSimPolicyArrayInput is an input type that accepts NetworkSimPolicyArray and NetworkSimPolicyArrayOutput values.
 // You can construct a concrete instance of `NetworkSimPolicyArrayInput` via:
 //
@@ -342,6 +349,12 @@ func (i NetworkSimPolicyArray) ToNetworkSimPolicyArrayOutput() NetworkSimPolicyA
 
 func (i NetworkSimPolicyArray) ToNetworkSimPolicyArrayOutputWithContext(ctx context.Context) NetworkSimPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyArrayOutput)
+}
+
+func (i NetworkSimPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSimPolicy] {
+	return pulumix.Output[[]*NetworkSimPolicy]{
+		OutputState: i.ToNetworkSimPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkSimPolicyMapInput is an input type that accepts NetworkSimPolicyMap and NetworkSimPolicyMapOutput values.
@@ -369,6 +382,12 @@ func (i NetworkSimPolicyMap) ToNetworkSimPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyMapOutput)
 }
 
+func (i NetworkSimPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSimPolicy] {
+	return pulumix.Output[map[string]*NetworkSimPolicy]{
+		OutputState: i.ToNetworkSimPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkSimPolicyOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimPolicyOutput) ElementType() reflect.Type {
@@ -381,6 +400,12 @@ func (o NetworkSimPolicyOutput) ToNetworkSimPolicyOutput() NetworkSimPolicyOutpu
 
 func (o NetworkSimPolicyOutput) ToNetworkSimPolicyOutputWithContext(ctx context.Context) NetworkSimPolicyOutput {
 	return o
+}
+
+func (o NetworkSimPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimPolicy] {
+	return pulumix.Output[*NetworkSimPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
@@ -444,6 +469,12 @@ func (o NetworkSimPolicyArrayOutput) ToNetworkSimPolicyArrayOutputWithContext(ct
 	return o
 }
 
+func (o NetworkSimPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSimPolicy] {
+	return pulumix.Output[[]*NetworkSimPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkSimPolicyArrayOutput) Index(i pulumi.IntInput) NetworkSimPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSimPolicy {
 		return vs[0].([]*NetworkSimPolicy)[vs[1].(int)]
@@ -462,6 +493,12 @@ func (o NetworkSimPolicyMapOutput) ToNetworkSimPolicyMapOutput() NetworkSimPolic
 
 func (o NetworkSimPolicyMapOutput) ToNetworkSimPolicyMapOutputWithContext(ctx context.Context) NetworkSimPolicyMapOutput {
 	return o
+}
+
+func (o NetworkSimPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSimPolicy] {
+	return pulumix.Output[map[string]*NetworkSimPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkSimPolicyMapOutput) MapIndex(k pulumi.StringInput) NetworkSimPolicyOutput {

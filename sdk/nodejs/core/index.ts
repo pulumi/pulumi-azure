@@ -12,7 +12,8 @@ utilities.lazyLoad(exports, ["CustomProvider"], () => require("./customProvider"
 
 export { GetClientConfigResult } from "./getClientConfig";
 export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
-utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
+export const getClientConfigOutput: typeof import("./getClientConfig").getClientConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getClientConfig","getClientConfigOutput"], () => require("./getClientConfig"));
 
 export { GetExtendedLocationsArgs, GetExtendedLocationsResult, GetExtendedLocationsOutputArgs } from "./getExtendedLocations";
 export const getExtendedLocations: typeof import("./getExtendedLocations").getExtendedLocations = null as any;

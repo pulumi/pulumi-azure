@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Streaming Endpoint.
@@ -409,6 +410,12 @@ func (i *StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointOutput)
 }
 
+func (i *StreamingEndpoint) ToOutput(ctx context.Context) pulumix.Output[*StreamingEndpoint] {
+	return pulumix.Output[*StreamingEndpoint]{
+		OutputState: i.ToStreamingEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamingEndpointArrayInput is an input type that accepts StreamingEndpointArray and StreamingEndpointArrayOutput values.
 // You can construct a concrete instance of `StreamingEndpointArrayInput` via:
 //
@@ -432,6 +439,12 @@ func (i StreamingEndpointArray) ToStreamingEndpointArrayOutput() StreamingEndpoi
 
 func (i StreamingEndpointArray) ToStreamingEndpointArrayOutputWithContext(ctx context.Context) StreamingEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointArrayOutput)
+}
+
+func (i StreamingEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamingEndpoint] {
+	return pulumix.Output[[]*StreamingEndpoint]{
+		OutputState: i.ToStreamingEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StreamingEndpointMapInput is an input type that accepts StreamingEndpointMap and StreamingEndpointMapOutput values.
@@ -459,6 +472,12 @@ func (i StreamingEndpointMap) ToStreamingEndpointMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointMapOutput)
 }
 
+func (i StreamingEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamingEndpoint] {
+	return pulumix.Output[map[string]*StreamingEndpoint]{
+		OutputState: i.ToStreamingEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamingEndpointOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointOutput) ElementType() reflect.Type {
@@ -471,6 +490,12 @@ func (o StreamingEndpointOutput) ToStreamingEndpointOutput() StreamingEndpointOu
 
 func (o StreamingEndpointOutput) ToStreamingEndpointOutputWithContext(ctx context.Context) StreamingEndpointOutput {
 	return o
+}
+
+func (o StreamingEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingEndpoint] {
+	return pulumix.Output[*StreamingEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `accessControl` block as defined below.
@@ -574,6 +599,12 @@ func (o StreamingEndpointArrayOutput) ToStreamingEndpointArrayOutputWithContext(
 	return o
 }
 
+func (o StreamingEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamingEndpoint] {
+	return pulumix.Output[[]*StreamingEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamingEndpointArrayOutput) Index(i pulumi.IntInput) StreamingEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamingEndpoint {
 		return vs[0].([]*StreamingEndpoint)[vs[1].(int)]
@@ -592,6 +623,12 @@ func (o StreamingEndpointMapOutput) ToStreamingEndpointMapOutput() StreamingEndp
 
 func (o StreamingEndpointMapOutput) ToStreamingEndpointMapOutputWithContext(ctx context.Context) StreamingEndpointMapOutput {
 	return o
+}
+
+func (o StreamingEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamingEndpoint] {
+	return pulumix.Output[map[string]*StreamingEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamingEndpointMapOutput) MapIndex(k pulumi.StringInput) StreamingEndpointOutput {

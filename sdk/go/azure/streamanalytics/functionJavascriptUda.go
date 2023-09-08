@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
@@ -223,6 +224,12 @@ func (i *FunctionJavascriptUda) ToFunctionJavascriptUdaOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaOutput)
 }
 
+func (i *FunctionJavascriptUda) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavascriptUda] {
+	return pulumix.Output[*FunctionJavascriptUda]{
+		OutputState: i.ToFunctionJavascriptUdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionJavascriptUdaArrayInput is an input type that accepts FunctionJavascriptUdaArray and FunctionJavascriptUdaArrayOutput values.
 // You can construct a concrete instance of `FunctionJavascriptUdaArrayInput` via:
 //
@@ -246,6 +253,12 @@ func (i FunctionJavascriptUdaArray) ToFunctionJavascriptUdaArrayOutput() Functio
 
 func (i FunctionJavascriptUdaArray) ToFunctionJavascriptUdaArrayOutputWithContext(ctx context.Context) FunctionJavascriptUdaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaArrayOutput)
+}
+
+func (i FunctionJavascriptUdaArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionJavascriptUda] {
+	return pulumix.Output[[]*FunctionJavascriptUda]{
+		OutputState: i.ToFunctionJavascriptUdaArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionJavascriptUdaMapInput is an input type that accepts FunctionJavascriptUdaMap and FunctionJavascriptUdaMapOutput values.
@@ -273,6 +286,12 @@ func (i FunctionJavascriptUdaMap) ToFunctionJavascriptUdaMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavascriptUdaMapOutput)
 }
 
+func (i FunctionJavascriptUdaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionJavascriptUda] {
+	return pulumix.Output[map[string]*FunctionJavascriptUda]{
+		OutputState: i.ToFunctionJavascriptUdaMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionJavascriptUdaOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavascriptUdaOutput) ElementType() reflect.Type {
@@ -285,6 +304,12 @@ func (o FunctionJavascriptUdaOutput) ToFunctionJavascriptUdaOutput() FunctionJav
 
 func (o FunctionJavascriptUdaOutput) ToFunctionJavascriptUdaOutputWithContext(ctx context.Context) FunctionJavascriptUdaOutput {
 	return o
+}
+
+func (o FunctionJavascriptUdaOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavascriptUda] {
+	return pulumix.Output[*FunctionJavascriptUda]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `input` blocks as defined below.
@@ -326,6 +351,12 @@ func (o FunctionJavascriptUdaArrayOutput) ToFunctionJavascriptUdaArrayOutputWith
 	return o
 }
 
+func (o FunctionJavascriptUdaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionJavascriptUda] {
+	return pulumix.Output[[]*FunctionJavascriptUda]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionJavascriptUdaArrayOutput) Index(i pulumi.IntInput) FunctionJavascriptUdaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionJavascriptUda {
 		return vs[0].([]*FunctionJavascriptUda)[vs[1].(int)]
@@ -344,6 +375,12 @@ func (o FunctionJavascriptUdaMapOutput) ToFunctionJavascriptUdaMapOutput() Funct
 
 func (o FunctionJavascriptUdaMapOutput) ToFunctionJavascriptUdaMapOutputWithContext(ctx context.Context) FunctionJavascriptUdaMapOutput {
 	return o
+}
+
+func (o FunctionJavascriptUdaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionJavascriptUda] {
+	return pulumix.Output[map[string]*FunctionJavascriptUda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionJavascriptUdaMapOutput) MapIndex(k pulumi.StringInput) FunctionJavascriptUdaOutput {

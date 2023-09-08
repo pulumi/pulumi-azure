@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -176,6 +177,12 @@ func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupOutput)
 }
 
+func (i *ManagedInstanceFailoverGroup) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceFailoverGroup] {
+	return pulumix.Output[*ManagedInstanceFailoverGroup]{
+		OutputState: i.ToManagedInstanceFailoverGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedInstanceFailoverGroupArrayInput is an input type that accepts ManagedInstanceFailoverGroupArray and ManagedInstanceFailoverGroupArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceFailoverGroupArrayInput` via:
 //
@@ -199,6 +206,12 @@ func (i ManagedInstanceFailoverGroupArray) ToManagedInstanceFailoverGroupArrayOu
 
 func (i ManagedInstanceFailoverGroupArray) ToManagedInstanceFailoverGroupArrayOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupArrayOutput)
+}
+
+func (i ManagedInstanceFailoverGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceFailoverGroup] {
+	return pulumix.Output[[]*ManagedInstanceFailoverGroup]{
+		OutputState: i.ToManagedInstanceFailoverGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedInstanceFailoverGroupMapInput is an input type that accepts ManagedInstanceFailoverGroupMap and ManagedInstanceFailoverGroupMapOutput values.
@@ -226,6 +239,12 @@ func (i ManagedInstanceFailoverGroupMap) ToManagedInstanceFailoverGroupMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupMapOutput)
 }
 
+func (i ManagedInstanceFailoverGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceFailoverGroup] {
+	return pulumix.Output[map[string]*ManagedInstanceFailoverGroup]{
+		OutputState: i.ToManagedInstanceFailoverGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceFailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupOutput) ElementType() reflect.Type {
@@ -238,6 +257,12 @@ func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupOutput
 
 func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupOutput {
 	return o
+}
+
+func (o ManagedInstanceFailoverGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceFailoverGroup] {
+	return pulumix.Output[*ManagedInstanceFailoverGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -300,6 +325,12 @@ func (o ManagedInstanceFailoverGroupArrayOutput) ToManagedInstanceFailoverGroupA
 	return o
 }
 
+func (o ManagedInstanceFailoverGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceFailoverGroup] {
+	return pulumix.Output[[]*ManagedInstanceFailoverGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedInstanceFailoverGroupArrayOutput) Index(i pulumi.IntInput) ManagedInstanceFailoverGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstanceFailoverGroup {
 		return vs[0].([]*ManagedInstanceFailoverGroup)[vs[1].(int)]
@@ -318,6 +349,12 @@ func (o ManagedInstanceFailoverGroupMapOutput) ToManagedInstanceFailoverGroupMap
 
 func (o ManagedInstanceFailoverGroupMapOutput) ToManagedInstanceFailoverGroupMapOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupMapOutput {
 	return o
+}
+
+func (o ManagedInstanceFailoverGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceFailoverGroup] {
+	return pulumix.Output[map[string]*ManagedInstanceFailoverGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceFailoverGroupMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceFailoverGroupOutput {

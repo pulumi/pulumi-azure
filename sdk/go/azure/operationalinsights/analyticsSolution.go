@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics (formally Operational Insights) Solution.
@@ -241,6 +242,12 @@ func (i *AnalyticsSolution) ToAnalyticsSolutionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionOutput)
 }
 
+func (i *AnalyticsSolution) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsSolution] {
+	return pulumix.Output[*AnalyticsSolution]{
+		OutputState: i.ToAnalyticsSolutionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyticsSolutionArrayInput is an input type that accepts AnalyticsSolutionArray and AnalyticsSolutionArrayOutput values.
 // You can construct a concrete instance of `AnalyticsSolutionArrayInput` via:
 //
@@ -264,6 +271,12 @@ func (i AnalyticsSolutionArray) ToAnalyticsSolutionArrayOutput() AnalyticsSoluti
 
 func (i AnalyticsSolutionArray) ToAnalyticsSolutionArrayOutputWithContext(ctx context.Context) AnalyticsSolutionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionArrayOutput)
+}
+
+func (i AnalyticsSolutionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsSolution] {
+	return pulumix.Output[[]*AnalyticsSolution]{
+		OutputState: i.ToAnalyticsSolutionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnalyticsSolutionMapInput is an input type that accepts AnalyticsSolutionMap and AnalyticsSolutionMapOutput values.
@@ -291,6 +304,12 @@ func (i AnalyticsSolutionMap) ToAnalyticsSolutionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionMapOutput)
 }
 
+func (i AnalyticsSolutionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsSolution] {
+	return pulumix.Output[map[string]*AnalyticsSolution]{
+		OutputState: i.ToAnalyticsSolutionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsSolutionOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionOutput) ElementType() reflect.Type {
@@ -303,6 +322,12 @@ func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutput() AnalyticsSolutionOu
 
 func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutputWithContext(ctx context.Context) AnalyticsSolutionOutput {
 	return o
+}
+
+func (o AnalyticsSolutionOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsSolution] {
+	return pulumix.Output[*AnalyticsSolution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -354,6 +379,12 @@ func (o AnalyticsSolutionArrayOutput) ToAnalyticsSolutionArrayOutputWithContext(
 	return o
 }
 
+func (o AnalyticsSolutionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsSolution] {
+	return pulumix.Output[[]*AnalyticsSolution]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnalyticsSolutionArrayOutput) Index(i pulumi.IntInput) AnalyticsSolutionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsSolution {
 		return vs[0].([]*AnalyticsSolution)[vs[1].(int)]
@@ -372,6 +403,12 @@ func (o AnalyticsSolutionMapOutput) ToAnalyticsSolutionMapOutput() AnalyticsSolu
 
 func (o AnalyticsSolutionMapOutput) ToAnalyticsSolutionMapOutputWithContext(ctx context.Context) AnalyticsSolutionMapOutput {
 	return o
+}
+
+func (o AnalyticsSolutionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsSolution] {
+	return pulumix.Output[map[string]*AnalyticsSolution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsSolutionMapOutput) MapIndex(k pulumi.StringInput) AnalyticsSolutionOutput {

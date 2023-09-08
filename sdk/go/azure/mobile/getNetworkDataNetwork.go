@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Data Network.
@@ -116,6 +117,12 @@ func (o LookupNetworkDataNetworkResultOutput) ToLookupNetworkDataNetworkResultOu
 
 func (o LookupNetworkDataNetworkResultOutput) ToLookupNetworkDataNetworkResultOutputWithContext(ctx context.Context) LookupNetworkDataNetworkResultOutput {
 	return o
+}
+
+func (o LookupNetworkDataNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkDataNetworkResult] {
+	return pulumix.Output[LookupNetworkDataNetworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description for this Mobile Network Data Network.

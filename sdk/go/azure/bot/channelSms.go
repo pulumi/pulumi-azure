@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SMS integration for a Bot Channel
@@ -232,6 +233,12 @@ func (i *ChannelSms) ToChannelSmsOutputWithContext(ctx context.Context) ChannelS
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsOutput)
 }
 
+func (i *ChannelSms) ToOutput(ctx context.Context) pulumix.Output[*ChannelSms] {
+	return pulumix.Output[*ChannelSms]{
+		OutputState: i.ToChannelSmsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelSmsArrayInput is an input type that accepts ChannelSmsArray and ChannelSmsArrayOutput values.
 // You can construct a concrete instance of `ChannelSmsArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i ChannelSmsArray) ToChannelSmsArrayOutput() ChannelSmsArrayOutput {
 
 func (i ChannelSmsArray) ToChannelSmsArrayOutputWithContext(ctx context.Context) ChannelSmsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsArrayOutput)
+}
+
+func (i ChannelSmsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelSms] {
+	return pulumix.Output[[]*ChannelSms]{
+		OutputState: i.ToChannelSmsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ChannelSmsMapInput is an input type that accepts ChannelSmsMap and ChannelSmsMapOutput values.
@@ -282,6 +295,12 @@ func (i ChannelSmsMap) ToChannelSmsMapOutputWithContext(ctx context.Context) Cha
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSmsMapOutput)
 }
 
+func (i ChannelSmsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelSms] {
+	return pulumix.Output[map[string]*ChannelSms]{
+		OutputState: i.ToChannelSmsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelSmsOutput struct{ *pulumi.OutputState }
 
 func (ChannelSmsOutput) ElementType() reflect.Type {
@@ -294,6 +313,12 @@ func (o ChannelSmsOutput) ToChannelSmsOutput() ChannelSmsOutput {
 
 func (o ChannelSmsOutput) ToChannelSmsOutputWithContext(ctx context.Context) ChannelSmsOutput {
 	return o
+}
+
+func (o ChannelSmsOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelSms] {
+	return pulumix.Output[*ChannelSms]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -340,6 +365,12 @@ func (o ChannelSmsArrayOutput) ToChannelSmsArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ChannelSmsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelSms] {
+	return pulumix.Output[[]*ChannelSms]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelSmsArrayOutput) Index(i pulumi.IntInput) ChannelSmsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelSms {
 		return vs[0].([]*ChannelSms)[vs[1].(int)]
@@ -358,6 +389,12 @@ func (o ChannelSmsMapOutput) ToChannelSmsMapOutput() ChannelSmsMapOutput {
 
 func (o ChannelSmsMapOutput) ToChannelSmsMapOutputWithContext(ctx context.Context) ChannelSmsMapOutput {
 	return o
+}
+
+func (o ChannelSmsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelSms] {
+	return pulumix.Output[map[string]*ChannelSms]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelSmsMapOutput) MapIndex(k pulumi.StringInput) ChannelSmsOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Storage Account Management Policy.
@@ -224,6 +225,12 @@ func (i *ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
 }
 
+func (i *ManagementPolicy) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicy] {
+	return pulumix.Output[*ManagementPolicy]{
+		OutputState: i.ToManagementPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagementPolicyArrayInput is an input type that accepts ManagementPolicyArray and ManagementPolicyArrayOutput values.
 // You can construct a concrete instance of `ManagementPolicyArrayInput` via:
 //
@@ -247,6 +254,12 @@ func (i ManagementPolicyArray) ToManagementPolicyArrayOutput() ManagementPolicyA
 
 func (i ManagementPolicyArray) ToManagementPolicyArrayOutputWithContext(ctx context.Context) ManagementPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyArrayOutput)
+}
+
+func (i ManagementPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagementPolicy] {
+	return pulumix.Output[[]*ManagementPolicy]{
+		OutputState: i.ToManagementPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagementPolicyMapInput is an input type that accepts ManagementPolicyMap and ManagementPolicyMapOutput values.
@@ -274,6 +287,12 @@ func (i ManagementPolicyMap) ToManagementPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyMapOutput)
 }
 
+func (i ManagementPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagementPolicy] {
+	return pulumix.Output[map[string]*ManagementPolicy]{
+		OutputState: i.ToManagementPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagementPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyOutput) ElementType() reflect.Type {
@@ -286,6 +305,12 @@ func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutpu
 
 func (o ManagementPolicyOutput) ToManagementPolicyOutputWithContext(ctx context.Context) ManagementPolicyOutput {
 	return o
+}
+
+func (o ManagementPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicy] {
+	return pulumix.Output[*ManagementPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `rule` block as documented below.
@@ -312,6 +337,12 @@ func (o ManagementPolicyArrayOutput) ToManagementPolicyArrayOutputWithContext(ct
 	return o
 }
 
+func (o ManagementPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagementPolicy] {
+	return pulumix.Output[[]*ManagementPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagementPolicyArrayOutput) Index(i pulumi.IntInput) ManagementPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagementPolicy {
 		return vs[0].([]*ManagementPolicy)[vs[1].(int)]
@@ -330,6 +361,12 @@ func (o ManagementPolicyMapOutput) ToManagementPolicyMapOutput() ManagementPolic
 
 func (o ManagementPolicyMapOutput) ToManagementPolicyMapOutputWithContext(ctx context.Context) ManagementPolicyMapOutput {
 	return o
+}
+
+func (o ManagementPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagementPolicy] {
+	return pulumix.Output[map[string]*ManagementPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagementPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagementPolicyOutput {

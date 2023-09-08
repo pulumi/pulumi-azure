@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Alert Processing Rule which apply action group.
@@ -282,6 +283,12 @@ func (i *AlertProcessingRuleActionGroup) ToAlertProcessingRuleActionGroupOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupOutput)
 }
 
+func (i *AlertProcessingRuleActionGroup) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroup] {
+	return pulumix.Output[*AlertProcessingRuleActionGroup]{
+		OutputState: i.ToAlertProcessingRuleActionGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertProcessingRuleActionGroupArrayInput is an input type that accepts AlertProcessingRuleActionGroupArray and AlertProcessingRuleActionGroupArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleActionGroupArrayInput` via:
 //
@@ -305,6 +312,12 @@ func (i AlertProcessingRuleActionGroupArray) ToAlertProcessingRuleActionGroupArr
 
 func (i AlertProcessingRuleActionGroupArray) ToAlertProcessingRuleActionGroupArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupArrayOutput)
+}
+
+func (i AlertProcessingRuleActionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertProcessingRuleActionGroup] {
+	return pulumix.Output[[]*AlertProcessingRuleActionGroup]{
+		OutputState: i.ToAlertProcessingRuleActionGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertProcessingRuleActionGroupMapInput is an input type that accepts AlertProcessingRuleActionGroupMap and AlertProcessingRuleActionGroupMapOutput values.
@@ -332,6 +345,12 @@ func (i AlertProcessingRuleActionGroupMap) ToAlertProcessingRuleActionGroupMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupMapOutput)
 }
 
+func (i AlertProcessingRuleActionGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertProcessingRuleActionGroup] {
+	return pulumix.Output[map[string]*AlertProcessingRuleActionGroup]{
+		OutputState: i.ToAlertProcessingRuleActionGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertProcessingRuleActionGroupOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupOutput) ElementType() reflect.Type {
@@ -344,6 +363,12 @@ func (o AlertProcessingRuleActionGroupOutput) ToAlertProcessingRuleActionGroupOu
 
 func (o AlertProcessingRuleActionGroupOutput) ToAlertProcessingRuleActionGroupOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupOutput {
 	return o
+}
+
+func (o AlertProcessingRuleActionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroup] {
+	return pulumix.Output[*AlertProcessingRuleActionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of Action Group IDs.
@@ -409,6 +434,12 @@ func (o AlertProcessingRuleActionGroupArrayOutput) ToAlertProcessingRuleActionGr
 	return o
 }
 
+func (o AlertProcessingRuleActionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertProcessingRuleActionGroup] {
+	return pulumix.Output[[]*AlertProcessingRuleActionGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertProcessingRuleActionGroupArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertProcessingRuleActionGroup {
 		return vs[0].([]*AlertProcessingRuleActionGroup)[vs[1].(int)]
@@ -427,6 +458,12 @@ func (o AlertProcessingRuleActionGroupMapOutput) ToAlertProcessingRuleActionGrou
 
 func (o AlertProcessingRuleActionGroupMapOutput) ToAlertProcessingRuleActionGroupMapOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupMapOutput {
 	return o
+}
+
+func (o AlertProcessingRuleActionGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertProcessingRuleActionGroup] {
+	return pulumix.Output[map[string]*AlertProcessingRuleActionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertProcessingRuleActionGroupMapOutput) MapIndex(k pulumi.StringInput) AlertProcessingRuleActionGroupOutput {

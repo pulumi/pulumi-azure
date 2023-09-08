@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Machine.
@@ -510,6 +511,12 @@ func (i *VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOutput)
 }
 
+func (i *VirtualMachine) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachine] {
+	return pulumix.Output[*VirtualMachine]{
+		OutputState: i.ToVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualMachineArrayInput is an input type that accepts VirtualMachineArray and VirtualMachineArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineArrayInput` via:
 //
@@ -533,6 +540,12 @@ func (i VirtualMachineArray) ToVirtualMachineArrayOutput() VirtualMachineArrayOu
 
 func (i VirtualMachineArray) ToVirtualMachineArrayOutputWithContext(ctx context.Context) VirtualMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineArrayOutput)
+}
+
+func (i VirtualMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachine] {
+	return pulumix.Output[[]*VirtualMachine]{
+		OutputState: i.ToVirtualMachineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualMachineMapInput is an input type that accepts VirtualMachineMap and VirtualMachineMapOutput values.
@@ -560,6 +573,12 @@ func (i VirtualMachineMap) ToVirtualMachineMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineMapOutput)
 }
 
+func (i VirtualMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachine] {
+	return pulumix.Output[map[string]*VirtualMachine]{
+		OutputState: i.ToVirtualMachineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
@@ -572,6 +591,12 @@ func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {
 
 func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Context) VirtualMachineOutput {
 	return o
+}
+
+func (o VirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachine] {
+	return pulumix.Output[*VirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `additionalCapabilities` block as defined below.
@@ -718,6 +743,12 @@ func (o VirtualMachineArrayOutput) ToVirtualMachineArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o VirtualMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachine] {
+	return pulumix.Output[[]*VirtualMachine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualMachineArrayOutput) Index(i pulumi.IntInput) VirtualMachineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachine {
 		return vs[0].([]*VirtualMachine)[vs[1].(int)]
@@ -736,6 +767,12 @@ func (o VirtualMachineMapOutput) ToVirtualMachineMapOutput() VirtualMachineMapOu
 
 func (o VirtualMachineMapOutput) ToVirtualMachineMapOutputWithContext(ctx context.Context) VirtualMachineMapOutput {
 	return o
+}
+
+func (o VirtualMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachine] {
+	return pulumix.Output[map[string]*VirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualMachineMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineOutput {

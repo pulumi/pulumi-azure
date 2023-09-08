@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
@@ -232,6 +233,12 @@ func (i *DataSourceWindowsPerformanceCounter) ToDataSourceWindowsPerformanceCoun
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsPerformanceCounterOutput)
 }
 
+func (i *DataSourceWindowsPerformanceCounter) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWindowsPerformanceCounter] {
+	return pulumix.Output[*DataSourceWindowsPerformanceCounter]{
+		OutputState: i.ToDataSourceWindowsPerformanceCounterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataSourceWindowsPerformanceCounterArrayInput is an input type that accepts DataSourceWindowsPerformanceCounterArray and DataSourceWindowsPerformanceCounterArrayOutput values.
 // You can construct a concrete instance of `DataSourceWindowsPerformanceCounterArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i DataSourceWindowsPerformanceCounterArray) ToDataSourceWindowsPerformance
 
 func (i DataSourceWindowsPerformanceCounterArray) ToDataSourceWindowsPerformanceCounterArrayOutputWithContext(ctx context.Context) DataSourceWindowsPerformanceCounterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsPerformanceCounterArrayOutput)
+}
+
+func (i DataSourceWindowsPerformanceCounterArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataSourceWindowsPerformanceCounter] {
+	return pulumix.Output[[]*DataSourceWindowsPerformanceCounter]{
+		OutputState: i.ToDataSourceWindowsPerformanceCounterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataSourceWindowsPerformanceCounterMapInput is an input type that accepts DataSourceWindowsPerformanceCounterMap and DataSourceWindowsPerformanceCounterMapOutput values.
@@ -282,6 +295,12 @@ func (i DataSourceWindowsPerformanceCounterMap) ToDataSourceWindowsPerformanceCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWindowsPerformanceCounterMapOutput)
 }
 
+func (i DataSourceWindowsPerformanceCounterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSourceWindowsPerformanceCounter] {
+	return pulumix.Output[map[string]*DataSourceWindowsPerformanceCounter]{
+		OutputState: i.ToDataSourceWindowsPerformanceCounterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceWindowsPerformanceCounterOutput struct{ *pulumi.OutputState }
 
 func (DataSourceWindowsPerformanceCounterOutput) ElementType() reflect.Type {
@@ -294,6 +313,12 @@ func (o DataSourceWindowsPerformanceCounterOutput) ToDataSourceWindowsPerformanc
 
 func (o DataSourceWindowsPerformanceCounterOutput) ToDataSourceWindowsPerformanceCounterOutputWithContext(ctx context.Context) DataSourceWindowsPerformanceCounterOutput {
 	return o
+}
+
+func (o DataSourceWindowsPerformanceCounterOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceWindowsPerformanceCounter] {
+	return pulumix.Output[*DataSourceWindowsPerformanceCounter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The friendly name of the performance counter.
@@ -345,6 +370,12 @@ func (o DataSourceWindowsPerformanceCounterArrayOutput) ToDataSourceWindowsPerfo
 	return o
 }
 
+func (o DataSourceWindowsPerformanceCounterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataSourceWindowsPerformanceCounter] {
+	return pulumix.Output[[]*DataSourceWindowsPerformanceCounter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataSourceWindowsPerformanceCounterArrayOutput) Index(i pulumi.IntInput) DataSourceWindowsPerformanceCounterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSourceWindowsPerformanceCounter {
 		return vs[0].([]*DataSourceWindowsPerformanceCounter)[vs[1].(int)]
@@ -363,6 +394,12 @@ func (o DataSourceWindowsPerformanceCounterMapOutput) ToDataSourceWindowsPerform
 
 func (o DataSourceWindowsPerformanceCounterMapOutput) ToDataSourceWindowsPerformanceCounterMapOutputWithContext(ctx context.Context) DataSourceWindowsPerformanceCounterMapOutput {
 	return o
+}
+
+func (o DataSourceWindowsPerformanceCounterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSourceWindowsPerformanceCounter] {
+	return pulumix.Output[map[string]*DataSourceWindowsPerformanceCounter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataSourceWindowsPerformanceCounterMapOutput) MapIndex(k pulumi.StringInput) DataSourceWindowsPerformanceCounterOutput {

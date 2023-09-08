@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Availability Set for Virtual Machines.
@@ -237,6 +238,12 @@ func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetOutput)
 }
 
+func (i *AvailabilitySet) ToOutput(ctx context.Context) pulumix.Output[*AvailabilitySet] {
+	return pulumix.Output[*AvailabilitySet]{
+		OutputState: i.ToAvailabilitySetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AvailabilitySetArrayInput is an input type that accepts AvailabilitySetArray and AvailabilitySetArrayOutput values.
 // You can construct a concrete instance of `AvailabilitySetArrayInput` via:
 //
@@ -260,6 +267,12 @@ func (i AvailabilitySetArray) ToAvailabilitySetArrayOutput() AvailabilitySetArra
 
 func (i AvailabilitySetArray) ToAvailabilitySetArrayOutputWithContext(ctx context.Context) AvailabilitySetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetArrayOutput)
+}
+
+func (i AvailabilitySetArray) ToOutput(ctx context.Context) pulumix.Output[[]*AvailabilitySet] {
+	return pulumix.Output[[]*AvailabilitySet]{
+		OutputState: i.ToAvailabilitySetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AvailabilitySetMapInput is an input type that accepts AvailabilitySetMap and AvailabilitySetMapOutput values.
@@ -287,6 +300,12 @@ func (i AvailabilitySetMap) ToAvailabilitySetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetMapOutput)
 }
 
+func (i AvailabilitySetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AvailabilitySet] {
+	return pulumix.Output[map[string]*AvailabilitySet]{
+		OutputState: i.ToAvailabilitySetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AvailabilitySetOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
@@ -299,6 +318,12 @@ func (o AvailabilitySetOutput) ToAvailabilitySetOutput() AvailabilitySetOutput {
 
 func (o AvailabilitySetOutput) ToAvailabilitySetOutputWithContext(ctx context.Context) AvailabilitySetOutput {
 	return o
+}
+
+func (o AvailabilitySetOutput) ToOutput(ctx context.Context) pulumix.Output[*AvailabilitySet] {
+	return pulumix.Output[*AvailabilitySet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -359,6 +384,12 @@ func (o AvailabilitySetArrayOutput) ToAvailabilitySetArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o AvailabilitySetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AvailabilitySet] {
+	return pulumix.Output[[]*AvailabilitySet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AvailabilitySetArrayOutput) Index(i pulumi.IntInput) AvailabilitySetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AvailabilitySet {
 		return vs[0].([]*AvailabilitySet)[vs[1].(int)]
@@ -377,6 +408,12 @@ func (o AvailabilitySetMapOutput) ToAvailabilitySetMapOutput() AvailabilitySetMa
 
 func (o AvailabilitySetMapOutput) ToAvailabilitySetMapOutputWithContext(ctx context.Context) AvailabilitySetMapOutput {
 	return o
+}
+
+func (o AvailabilitySetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AvailabilitySet] {
+	return pulumix.Output[map[string]*AvailabilitySet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AvailabilitySetMapOutput) MapIndex(k pulumi.StringInput) AvailabilitySetOutput {

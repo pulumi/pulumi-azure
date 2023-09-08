@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs) ToGetLinuxWebAppSiteCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput)
 }
 
+func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput is an input type that accepts GetLinuxWebAppSiteConfigIpRestrictionHeaderArray and GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput values.
 // You can construct a concrete instance of `GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArray) ToGetLinuxWebAppSiteCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput)
 }
 
+func (i GetLinuxWebAppSiteConfigIpRestrictionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteC
 
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -117,6 +136,12 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetLinuxWebApp
 
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput {
@@ -174,6 +199,12 @@ func (i GetLinuxWebAppSiteConfigScmIpRestrictionArgs) ToGetLinuxWebAppSiteConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionOutput)
 }
 
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestriction]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigScmIpRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetLinuxWebAppSiteConfigScmIpRestrictionArray and GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput` via:
 //
@@ -199,6 +230,12 @@ func (i GetLinuxWebAppSiteConfigScmIpRestrictionArray) ToGetLinuxWebAppSiteConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput)
 }
 
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestriction]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLinuxWebAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
@@ -211,6 +248,12 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ToGetLinuxWebAppSiteConf
 
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `action` block as defined above.
@@ -260,6 +303,12 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) ToGetLinuxWebAppSit
 	return o
 }
 
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigScmIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigScmIpRestriction {
 		return vs[0].([]GetLinuxWebAppSiteConfigScmIpRestriction)[vs[1].(int)]
@@ -303,6 +352,12 @@ func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs) ToGetLinuxWebAppSite
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput)
 }
 
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput is an input type that accepts GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray and GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput values.
 // You can construct a concrete instance of `GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput` via:
 //
@@ -328,6 +383,12 @@ func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray) ToGetLinuxWebAppSit
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput)
 }
 
+func (i GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ElementType() reflect.Type {
@@ -340,6 +401,12 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetLinuxWebAppSi
 
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -370,6 +437,12 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetLinuxWeb
 
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput {
@@ -415,6 +488,12 @@ func (i GetLinuxWebAppSiteCredentialArgs) ToGetLinuxWebAppSiteCredentialOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteCredentialOutput)
 }
 
+func (i GetLinuxWebAppSiteCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteCredential] {
+	return pulumix.Output[GetLinuxWebAppSiteCredential]{
+		OutputState: i.ToGetLinuxWebAppSiteCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLinuxWebAppSiteCredentialArrayInput is an input type that accepts GetLinuxWebAppSiteCredentialArray and GetLinuxWebAppSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `GetLinuxWebAppSiteCredentialArrayInput` via:
 //
@@ -440,6 +519,12 @@ func (i GetLinuxWebAppSiteCredentialArray) ToGetLinuxWebAppSiteCredentialArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteCredentialArrayOutput)
 }
 
+func (i GetLinuxWebAppSiteCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteCredential] {
+	return pulumix.Output[[]GetLinuxWebAppSiteCredential]{
+		OutputState: i.ToGetLinuxWebAppSiteCredentialArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLinuxWebAppSiteCredentialOutput struct{ *pulumi.OutputState }
 
 func (GetLinuxWebAppSiteCredentialOutput) ElementType() reflect.Type {
@@ -452,6 +537,12 @@ func (o GetLinuxWebAppSiteCredentialOutput) ToGetLinuxWebAppSiteCredentialOutput
 
 func (o GetLinuxWebAppSiteCredentialOutput) ToGetLinuxWebAppSiteCredentialOutputWithContext(ctx context.Context) GetLinuxWebAppSiteCredentialOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteCredential] {
+	return pulumix.Output[GetLinuxWebAppSiteCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Linux Web App.
@@ -476,6 +567,12 @@ func (o GetLinuxWebAppSiteCredentialArrayOutput) ToGetLinuxWebAppSiteCredentialA
 
 func (o GetLinuxWebAppSiteCredentialArrayOutput) ToGetLinuxWebAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteCredentialArrayOutput {
 	return o
+}
+
+func (o GetLinuxWebAppSiteCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteCredential] {
+	return pulumix.Output[[]GetLinuxWebAppSiteCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteCredentialOutput {
@@ -521,6 +618,12 @@ func (i GetLinuxWebAppStickySettingArgs) ToGetLinuxWebAppStickySettingOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStickySettingOutput)
 }
 
+func (i GetLinuxWebAppStickySettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppStickySetting] {
+	return pulumix.Output[GetLinuxWebAppStickySetting]{
+		OutputState: i.ToGetLinuxWebAppStickySettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLinuxWebAppStickySettingArrayInput is an input type that accepts GetLinuxWebAppStickySettingArray and GetLinuxWebAppStickySettingArrayOutput values.
 // You can construct a concrete instance of `GetLinuxWebAppStickySettingArrayInput` via:
 //
@@ -546,6 +649,12 @@ func (i GetLinuxWebAppStickySettingArray) ToGetLinuxWebAppStickySettingArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStickySettingArrayOutput)
 }
 
+func (i GetLinuxWebAppStickySettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppStickySetting] {
+	return pulumix.Output[[]GetLinuxWebAppStickySetting]{
+		OutputState: i.ToGetLinuxWebAppStickySettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLinuxWebAppStickySettingOutput struct{ *pulumi.OutputState }
 
 func (GetLinuxWebAppStickySettingOutput) ElementType() reflect.Type {
@@ -558,6 +667,12 @@ func (o GetLinuxWebAppStickySettingOutput) ToGetLinuxWebAppStickySettingOutput()
 
 func (o GetLinuxWebAppStickySettingOutput) ToGetLinuxWebAppStickySettingOutputWithContext(ctx context.Context) GetLinuxWebAppStickySettingOutput {
 	return o
+}
+
+func (o GetLinuxWebAppStickySettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppStickySetting] {
+	return pulumix.Output[GetLinuxWebAppStickySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
@@ -582,6 +697,12 @@ func (o GetLinuxWebAppStickySettingArrayOutput) ToGetLinuxWebAppStickySettingArr
 
 func (o GetLinuxWebAppStickySettingArrayOutput) ToGetLinuxWebAppStickySettingArrayOutputWithContext(ctx context.Context) GetLinuxWebAppStickySettingArrayOutput {
 	return o
+}
+
+func (o GetLinuxWebAppStickySettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppStickySetting] {
+	return pulumix.Output[[]GetLinuxWebAppStickySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppStickySettingArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppStickySettingOutput {
@@ -643,6 +764,12 @@ func (i GetLinuxWebAppStorageAccountArgs) ToGetLinuxWebAppStorageAccountOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStorageAccountOutput)
 }
 
+func (i GetLinuxWebAppStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppStorageAccount] {
+	return pulumix.Output[GetLinuxWebAppStorageAccount]{
+		OutputState: i.ToGetLinuxWebAppStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLinuxWebAppStorageAccountArrayInput is an input type that accepts GetLinuxWebAppStorageAccountArray and GetLinuxWebAppStorageAccountArrayOutput values.
 // You can construct a concrete instance of `GetLinuxWebAppStorageAccountArrayInput` via:
 //
@@ -668,6 +795,12 @@ func (i GetLinuxWebAppStorageAccountArray) ToGetLinuxWebAppStorageAccountArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppStorageAccountArrayOutput)
 }
 
+func (i GetLinuxWebAppStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppStorageAccount] {
+	return pulumix.Output[[]GetLinuxWebAppStorageAccount]{
+		OutputState: i.ToGetLinuxWebAppStorageAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLinuxWebAppStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (GetLinuxWebAppStorageAccountOutput) ElementType() reflect.Type {
@@ -680,6 +813,12 @@ func (o GetLinuxWebAppStorageAccountOutput) ToGetLinuxWebAppStorageAccountOutput
 
 func (o GetLinuxWebAppStorageAccountOutput) ToGetLinuxWebAppStorageAccountOutputWithContext(ctx context.Context) GetLinuxWebAppStorageAccountOutput {
 	return o
+}
+
+func (o GetLinuxWebAppStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppStorageAccount] {
+	return pulumix.Output[GetLinuxWebAppStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Access key for the storage account.
@@ -724,6 +863,12 @@ func (o GetLinuxWebAppStorageAccountArrayOutput) ToGetLinuxWebAppStorageAccountA
 
 func (o GetLinuxWebAppStorageAccountArrayOutput) ToGetLinuxWebAppStorageAccountArrayOutputWithContext(ctx context.Context) GetLinuxWebAppStorageAccountArrayOutput {
 	return o
+}
+
+func (o GetLinuxWebAppStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppStorageAccount] {
+	return pulumix.Output[[]GetLinuxWebAppStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLinuxWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppStorageAccountOutput {
@@ -821,6 +966,12 @@ func (i GetWindowsFunctionAppAuthSettingArgs) ToGetWindowsFunctionAppAuthSetting
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSetting] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSetting]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingArray and GetWindowsFunctionAppAuthSettingArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingArrayInput` via:
 //
@@ -846,6 +997,12 @@ func (i GetWindowsFunctionAppAuthSettingArray) ToGetWindowsFunctionAppAuthSettin
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSetting] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSetting]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingOutput) ElementType() reflect.Type {
@@ -858,6 +1015,12 @@ func (o GetWindowsFunctionAppAuthSettingOutput) ToGetWindowsFunctionAppAuthSetti
 
 func (o GetWindowsFunctionAppAuthSettingOutput) ToGetWindowsFunctionAppAuthSettingOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSetting] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `activeDirectory` block as defined above.
@@ -955,6 +1118,12 @@ func (o GetWindowsFunctionAppAuthSettingArrayOutput) ToGetWindowsFunctionAppAuth
 	return o
 }
 
+func (o GetWindowsFunctionAppAuthSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSetting] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppAuthSettingArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSetting {
 		return vs[0].([]GetWindowsFunctionAppAuthSetting)[vs[1].(int)]
@@ -1006,6 +1175,12 @@ func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArgs) ToGetWindowsFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingActiveDirectoryOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingActiveDirectory] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingActiveDirectory]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingActiveDirectoryArray and GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingActiveDirectoryArrayInput` via:
 //
@@ -1031,6 +1206,12 @@ func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArray) ToGetWindowsFuncti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingActiveDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingActiveDirectory] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingActiveDirectory]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ElementType() reflect.Type {
@@ -1043,6 +1224,12 @@ func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ToGetWindowsFunct
 
 func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ToGetWindowsFunctionAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingActiveDirectory] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingActiveDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -1077,6 +1264,12 @@ func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) ToGetWindows
 
 func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingActiveDirectory] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingActiveDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingActiveDirectoryOutput {
@@ -1130,6 +1323,12 @@ func (i GetWindowsFunctionAppAuthSettingFacebookArgs) ToGetWindowsFunctionAppAut
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingFacebookOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingFacebookArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingFacebook] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingFacebook]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingFacebookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingFacebookArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingFacebookArray and GetWindowsFunctionAppAuthSettingFacebookArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingFacebookArrayInput` via:
 //
@@ -1155,6 +1354,12 @@ func (i GetWindowsFunctionAppAuthSettingFacebookArray) ToGetWindowsFunctionAppAu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingFacebookArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingFacebookArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingFacebook] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingFacebook]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingFacebookArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingFacebookOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingFacebookOutput) ElementType() reflect.Type {
@@ -1167,6 +1372,12 @@ func (o GetWindowsFunctionAppAuthSettingFacebookOutput) ToGetWindowsFunctionAppA
 
 func (o GetWindowsFunctionAppAuthSettingFacebookOutput) ToGetWindowsFunctionAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingFacebookOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingFacebook] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The App ID of the Facebook app used for login.
@@ -1201,6 +1412,12 @@ func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) ToGetWindowsFunctio
 
 func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) ToGetWindowsFunctionAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingFacebookArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingFacebook] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingFacebookArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingFacebookOutput {
@@ -1254,6 +1471,12 @@ func (i GetWindowsFunctionAppAuthSettingGithubArgs) ToGetWindowsFunctionAppAuthS
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGithubOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingGithubArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingGithub] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingGithub]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingGithubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingGithubArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingGithubArray and GetWindowsFunctionAppAuthSettingGithubArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingGithubArrayInput` via:
 //
@@ -1279,6 +1502,12 @@ func (i GetWindowsFunctionAppAuthSettingGithubArray) ToGetWindowsFunctionAppAuth
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGithubArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingGithubArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingGithub] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingGithub]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingGithubArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingGithubOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingGithubOutput) ElementType() reflect.Type {
@@ -1291,6 +1520,12 @@ func (o GetWindowsFunctionAppAuthSettingGithubOutput) ToGetWindowsFunctionAppAut
 
 func (o GetWindowsFunctionAppAuthSettingGithubOutput) ToGetWindowsFunctionAppAuthSettingGithubOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGithubOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingGithub] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingGithub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -1325,6 +1560,12 @@ func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) ToGetWindowsFunctionA
 
 func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) ToGetWindowsFunctionAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGithubArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingGithub] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingGithub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingGithubArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingGithubOutput {
@@ -1378,6 +1619,12 @@ func (i GetWindowsFunctionAppAuthSettingGoogleArgs) ToGetWindowsFunctionAppAuthS
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGoogleOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingGoogleArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingGoogle] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingGoogle]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingGoogleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingGoogleArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingGoogleArray and GetWindowsFunctionAppAuthSettingGoogleArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingGoogleArrayInput` via:
 //
@@ -1403,6 +1650,12 @@ func (i GetWindowsFunctionAppAuthSettingGoogleArray) ToGetWindowsFunctionAppAuth
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingGoogleArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingGoogleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingGoogle] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingGoogle]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingGoogleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingGoogleOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingGoogleOutput) ElementType() reflect.Type {
@@ -1415,6 +1668,12 @@ func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ToGetWindowsFunctionAppAut
 
 func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ToGetWindowsFunctionAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGoogleOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingGoogle] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingGoogle]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -1449,6 +1708,12 @@ func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) ToGetWindowsFunctionA
 
 func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) ToGetWindowsFunctionAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingGoogleArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingGoogle] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingGoogle]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingGoogleArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingGoogleOutput {
@@ -1502,6 +1767,12 @@ func (i GetWindowsFunctionAppAuthSettingMicrosoftArgs) ToGetWindowsFunctionAppAu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingMicrosoftOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingMicrosoftArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingMicrosoft] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingMicrosoft]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingMicrosoftOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingMicrosoftArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingMicrosoftArray and GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingMicrosoftArrayInput` via:
 //
@@ -1527,6 +1798,12 @@ func (i GetWindowsFunctionAppAuthSettingMicrosoftArray) ToGetWindowsFunctionAppA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingMicrosoftArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingMicrosoft] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingMicrosoft]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingMicrosoftOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingMicrosoftOutput) ElementType() reflect.Type {
@@ -1539,6 +1816,12 @@ func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ToGetWindowsFunctionApp
 
 func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ToGetWindowsFunctionAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingMicrosoftOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingMicrosoft] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingMicrosoft]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -1573,6 +1856,12 @@ func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) ToGetWindowsFuncti
 
 func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) ToGetWindowsFunctionAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingMicrosoft] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingMicrosoft]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingMicrosoftArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingMicrosoftOutput {
@@ -1622,6 +1911,12 @@ func (i GetWindowsFunctionAppAuthSettingTwitterArgs) ToGetWindowsFunctionAppAuth
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingTwitterOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingTwitterArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingTwitter] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingTwitter]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingTwitterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingTwitterArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingTwitterArray and GetWindowsFunctionAppAuthSettingTwitterArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingTwitterArrayInput` via:
 //
@@ -1647,6 +1942,12 @@ func (i GetWindowsFunctionAppAuthSettingTwitterArray) ToGetWindowsFunctionAppAut
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingTwitterArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingTwitterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingTwitter] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingTwitter]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingTwitterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingTwitterOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingTwitterOutput) ElementType() reflect.Type {
@@ -1659,6 +1960,12 @@ func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ToGetWindowsFunctionAppAu
 
 func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ToGetWindowsFunctionAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingTwitterOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingTwitter] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingTwitter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -1688,6 +1995,12 @@ func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) ToGetWindowsFunction
 
 func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) ToGetWindowsFunctionAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingTwitterArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingTwitter] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingTwitter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingTwitterArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingTwitterOutput {
@@ -1813,6 +2126,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2Args) ToGetWindowsFunctionAppAuthSett
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2Array and GetWindowsFunctionAppAuthSettingsV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2ArrayInput` via:
 //
@@ -1838,6 +2157,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2Array) ToGetWindowsFunctionAppAuthSet
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2Output) ElementType() reflect.Type {
@@ -1850,6 +2175,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2Output) ToGetWindowsFunctionAppAuthSe
 
 func (o GetWindowsFunctionAppAuthSettingsV2Output) ToGetWindowsFunctionAppAuthSettingsV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `activeDirectoryV2` block as defined below.
@@ -1996,6 +2327,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2ArrayOutput) ToGetWindowsFunctionAppA
 	return o
 }
 
+func (o GetWindowsFunctionAppAuthSettingsV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppAuthSettingsV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2 {
 		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2)[vs[1].(int)]
@@ -2079,6 +2416,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args) ToGetWindowsFu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array and GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayInput` via:
 //
@@ -2104,6 +2447,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array) ToGetWindowsF
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ElementType() reflect.Type {
@@ -2116,6 +2465,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindows
 
 func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of allowed Applications for the Default Authorisation Policy.
@@ -2198,6 +2553,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetWi
 	return o
 }
 
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 {
 		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2)[vs[1].(int)]
@@ -2245,6 +2606,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Args) ToGetWindowsFunctionAppA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AppleV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AppleV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2AppleV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2AppleV2Array and GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayInput` via:
 //
@@ -2270,6 +2637,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Array) ToGetWindowsFunctionApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2AppleV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AppleV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2AppleV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ElementType() reflect.Type {
@@ -2282,6 +2655,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ToGetWindowsFunctionAp
 
 func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ToGetWindowsFunctionAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AppleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -2311,6 +2690,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsFunct
 
 func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AppleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2AppleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2AppleV2Output {
@@ -2352,6 +2737,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetWindows
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array and GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayInput` via:
 //
@@ -2377,6 +2768,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetWindow
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ElementType() reflect.Type {
@@ -2389,6 +2786,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindo
 
 func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -2408,6 +2811,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGet
 
 func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Output {
@@ -2489,6 +2898,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args) ToGetWindowsFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2CustomOidcV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array and GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayInput` via:
 //
@@ -2514,6 +2929,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array) ToGetWindowsFuncti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ElementType() reflect.Type {
@@ -2526,6 +2947,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsFunct
 
 func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsFunctionAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2CustomOidcV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
@@ -2597,6 +3024,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetWindows
 	return o
 }
 
+func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppAuthSettingsV2CustomOidcV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
 		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2CustomOidcV2)[vs[1].(int)]
@@ -2648,6 +3081,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Args) ToGetWindowsFunctionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2FacebookV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2FacebookV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2FacebookV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2FacebookV2Array and GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayInput` via:
 //
@@ -2673,6 +3112,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Array) ToGetWindowsFunction
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2FacebookV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2FacebookV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2FacebookV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ElementType() reflect.Type {
@@ -2685,6 +3130,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ToGetWindowsFunctio
 
 func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2FacebookV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The App ID of the Facebook app used for login.
@@ -2719,6 +3170,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsFu
 
 func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2FacebookV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2FacebookV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2FacebookV2Output {
@@ -2768,6 +3225,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Args) ToGetWindowsFunctionApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GithubV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GithubV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2GithubV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2GithubV2Array and GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayInput` via:
 //
@@ -2793,6 +3256,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Array) ToGetWindowsFunctionAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2GithubV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GithubV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2GithubV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ElementType() reflect.Type {
@@ -2805,6 +3274,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ToGetWindowsFunctionA
 
 func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ToGetWindowsFunctionAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GithubV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -2834,6 +3309,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsFunc
 
 func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GithubV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2GithubV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2GithubV2Output {
@@ -2887,6 +3368,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Args) ToGetWindowsFunctionApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GoogleV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GoogleV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2GoogleV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2GoogleV2Array and GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayInput` via:
 //
@@ -2912,6 +3399,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Array) ToGetWindowsFunctionAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2GoogleV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GoogleV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2GoogleV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ElementType() reflect.Type {
@@ -2924,6 +3417,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ToGetWindowsFunctionA
 
 func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2GoogleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -2958,6 +3457,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsFunc
 
 func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2GoogleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2GoogleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2GoogleV2Output {
@@ -3039,6 +3544,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2LoginArgs) ToGetWindowsFunctionAppAut
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2LoginOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2LoginArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2Login] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2Login]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2LoginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2LoginArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2LoginArray and GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2LoginArrayInput` via:
 //
@@ -3064,6 +3575,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2LoginArray) ToGetWindowsFunctionAppAu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2LoginArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2Login] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2Login]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2LoginArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2LoginOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2LoginOutput) ElementType() reflect.Type {
@@ -3076,6 +3593,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) ToGetWindowsFunctionAppA
 
 func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) ToGetWindowsFunctionAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2LoginOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2LoginOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2Login] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2Login]{
+		OutputState: o.OutputState,
+	}
 }
 
 // External URLs that can be redirected to as part of logging in or logging out of the app.
@@ -3147,6 +3670,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) ToGetWindowsFunctio
 	return o
 }
 
+func (o GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2Login] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2Login]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppAuthSettingsV2LoginArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2LoginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppAuthSettingsV2Login {
 		return vs[0].([]GetWindowsFunctionAppAuthSettingsV2Login)[vs[1].(int)]
@@ -3198,6 +3727,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args) ToGetWindowsFunction
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2MicrosoftV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array and GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayInput` via:
 //
@@ -3223,6 +3758,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array) ToGetWindowsFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ElementType() reflect.Type {
@@ -3235,6 +3776,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsFuncti
 
 func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2MicrosoftV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -3269,6 +3816,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsF
 
 func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2MicrosoftV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2MicrosoftV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Output {
@@ -3314,6 +3867,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Args) ToGetWindowsFunctionAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2TwitterV2Output)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2TwitterV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2TwitterV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput is an input type that accepts GetWindowsFunctionAppAuthSettingsV2TwitterV2Array and GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayInput` via:
 //
@@ -3339,6 +3898,12 @@ func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Array) ToGetWindowsFunctionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput)
 }
 
+func (i GetWindowsFunctionAppAuthSettingsV2TwitterV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2TwitterV2]{
+		OutputState: i.ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppAuthSettingsV2TwitterV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ElementType() reflect.Type {
@@ -3351,6 +3916,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ToGetWindowsFunction
 
 func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[GetWindowsFunctionAppAuthSettingsV2TwitterV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -3375,6 +3946,12 @@ func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsFun
 
 func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[[]GetWindowsFunctionAppAuthSettingsV2TwitterV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppAuthSettingsV2TwitterV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppAuthSettingsV2TwitterV2Output {
@@ -3428,6 +4005,12 @@ func (i GetWindowsFunctionAppBackupArgs) ToGetWindowsFunctionAppBackupOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupOutput)
 }
 
+func (i GetWindowsFunctionAppBackupArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppBackup] {
+	return pulumix.Output[GetWindowsFunctionAppBackup]{
+		OutputState: i.ToGetWindowsFunctionAppBackupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppBackupArrayInput is an input type that accepts GetWindowsFunctionAppBackupArray and GetWindowsFunctionAppBackupArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppBackupArrayInput` via:
 //
@@ -3453,6 +4036,12 @@ func (i GetWindowsFunctionAppBackupArray) ToGetWindowsFunctionAppBackupArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupArrayOutput)
 }
 
+func (i GetWindowsFunctionAppBackupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppBackup] {
+	return pulumix.Output[[]GetWindowsFunctionAppBackup]{
+		OutputState: i.ToGetWindowsFunctionAppBackupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppBackupOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppBackupOutput) ElementType() reflect.Type {
@@ -3465,6 +4054,12 @@ func (o GetWindowsFunctionAppBackupOutput) ToGetWindowsFunctionAppBackupOutput()
 
 func (o GetWindowsFunctionAppBackupOutput) ToGetWindowsFunctionAppBackupOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppBackupOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppBackup] {
+	return pulumix.Output[GetWindowsFunctionAppBackup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the Backup Job enabled?
@@ -3499,6 +4094,12 @@ func (o GetWindowsFunctionAppBackupArrayOutput) ToGetWindowsFunctionAppBackupArr
 
 func (o GetWindowsFunctionAppBackupArrayOutput) ToGetWindowsFunctionAppBackupArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppBackupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppBackup] {
+	return pulumix.Output[[]GetWindowsFunctionAppBackup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppBackupArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppBackupOutput {
@@ -3558,6 +4159,12 @@ func (i GetWindowsFunctionAppBackupScheduleArgs) ToGetWindowsFunctionAppBackupSc
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupScheduleOutput)
 }
 
+func (i GetWindowsFunctionAppBackupScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppBackupSchedule] {
+	return pulumix.Output[GetWindowsFunctionAppBackupSchedule]{
+		OutputState: i.ToGetWindowsFunctionAppBackupScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppBackupScheduleArrayInput is an input type that accepts GetWindowsFunctionAppBackupScheduleArray and GetWindowsFunctionAppBackupScheduleArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppBackupScheduleArrayInput` via:
 //
@@ -3583,6 +4190,12 @@ func (i GetWindowsFunctionAppBackupScheduleArray) ToGetWindowsFunctionAppBackupS
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppBackupScheduleArrayOutput)
 }
 
+func (i GetWindowsFunctionAppBackupScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppBackupSchedule] {
+	return pulumix.Output[[]GetWindowsFunctionAppBackupSchedule]{
+		OutputState: i.ToGetWindowsFunctionAppBackupScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppBackupScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppBackupScheduleOutput) ElementType() reflect.Type {
@@ -3595,6 +4208,12 @@ func (o GetWindowsFunctionAppBackupScheduleOutput) ToGetWindowsFunctionAppBackup
 
 func (o GetWindowsFunctionAppBackupScheduleOutput) ToGetWindowsFunctionAppBackupScheduleOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupScheduleOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppBackupScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppBackupSchedule] {
+	return pulumix.Output[GetWindowsFunctionAppBackupSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // How often the backup is executed.
@@ -3638,6 +4257,12 @@ func (o GetWindowsFunctionAppBackupScheduleArrayOutput) ToGetWindowsFunctionAppB
 
 func (o GetWindowsFunctionAppBackupScheduleArrayOutput) ToGetWindowsFunctionAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppBackupScheduleArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppBackupScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppBackupSchedule] {
+	return pulumix.Output[[]GetWindowsFunctionAppBackupSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppBackupScheduleOutput {
@@ -3687,6 +4312,12 @@ func (i GetWindowsFunctionAppConnectionStringArgs) ToGetWindowsFunctionAppConnec
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppConnectionStringOutput)
 }
 
+func (i GetWindowsFunctionAppConnectionStringArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppConnectionString] {
+	return pulumix.Output[GetWindowsFunctionAppConnectionString]{
+		OutputState: i.ToGetWindowsFunctionAppConnectionStringOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppConnectionStringArrayInput is an input type that accepts GetWindowsFunctionAppConnectionStringArray and GetWindowsFunctionAppConnectionStringArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppConnectionStringArrayInput` via:
 //
@@ -3712,6 +4343,12 @@ func (i GetWindowsFunctionAppConnectionStringArray) ToGetWindowsFunctionAppConne
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppConnectionStringArrayOutput)
 }
 
+func (i GetWindowsFunctionAppConnectionStringArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppConnectionString] {
+	return pulumix.Output[[]GetWindowsFunctionAppConnectionString]{
+		OutputState: i.ToGetWindowsFunctionAppConnectionStringArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppConnectionStringOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppConnectionStringOutput) ElementType() reflect.Type {
@@ -3724,6 +4361,12 @@ func (o GetWindowsFunctionAppConnectionStringOutput) ToGetWindowsFunctionAppConn
 
 func (o GetWindowsFunctionAppConnectionStringOutput) ToGetWindowsFunctionAppConnectionStringOutputWithContext(ctx context.Context) GetWindowsFunctionAppConnectionStringOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppConnectionStringOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppConnectionString] {
+	return pulumix.Output[GetWindowsFunctionAppConnectionString]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Windows Function App.
@@ -3753,6 +4396,12 @@ func (o GetWindowsFunctionAppConnectionStringArrayOutput) ToGetWindowsFunctionAp
 
 func (o GetWindowsFunctionAppConnectionStringArrayOutput) ToGetWindowsFunctionAppConnectionStringArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppConnectionStringArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppConnectionStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppConnectionString] {
+	return pulumix.Output[[]GetWindowsFunctionAppConnectionString]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppConnectionStringOutput {
@@ -3806,6 +4455,12 @@ func (i GetWindowsFunctionAppIdentityArgs) ToGetWindowsFunctionAppIdentityOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppIdentityOutput)
 }
 
+func (i GetWindowsFunctionAppIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppIdentity] {
+	return pulumix.Output[GetWindowsFunctionAppIdentity]{
+		OutputState: i.ToGetWindowsFunctionAppIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppIdentityArrayInput is an input type that accepts GetWindowsFunctionAppIdentityArray and GetWindowsFunctionAppIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppIdentityArrayInput` via:
 //
@@ -3831,6 +4486,12 @@ func (i GetWindowsFunctionAppIdentityArray) ToGetWindowsFunctionAppIdentityArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppIdentityArrayOutput)
 }
 
+func (i GetWindowsFunctionAppIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppIdentity] {
+	return pulumix.Output[[]GetWindowsFunctionAppIdentity]{
+		OutputState: i.ToGetWindowsFunctionAppIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppIdentityOutput) ElementType() reflect.Type {
@@ -3843,6 +4504,12 @@ func (o GetWindowsFunctionAppIdentityOutput) ToGetWindowsFunctionAppIdentityOutp
 
 func (o GetWindowsFunctionAppIdentityOutput) ToGetWindowsFunctionAppIdentityOutputWithContext(ctx context.Context) GetWindowsFunctionAppIdentityOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppIdentity] {
+	return pulumix.Output[GetWindowsFunctionAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Windows Function App.
@@ -3877,6 +4544,12 @@ func (o GetWindowsFunctionAppIdentityArrayOutput) ToGetWindowsFunctionAppIdentit
 
 func (o GetWindowsFunctionAppIdentityArrayOutput) ToGetWindowsFunctionAppIdentityArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppIdentityArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppIdentity] {
+	return pulumix.Output[[]GetWindowsFunctionAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppIdentityArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppIdentityOutput {
@@ -4050,6 +4723,12 @@ func (i GetWindowsFunctionAppSiteConfigArgs) ToGetWindowsFunctionAppSiteConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfig] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfig]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigArray and GetWindowsFunctionAppSiteConfigArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigArrayInput` via:
 //
@@ -4075,6 +4754,12 @@ func (i GetWindowsFunctionAppSiteConfigArray) ToGetWindowsFunctionAppSiteConfigA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfig] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfig]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigOutput) ElementType() reflect.Type {
@@ -4087,6 +4772,12 @@ func (o GetWindowsFunctionAppSiteConfigOutput) ToGetWindowsFunctionAppSiteConfig
 
 func (o GetWindowsFunctionAppSiteConfigOutput) ToGetWindowsFunctionAppSiteConfigOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfig] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is this Windows Function App Always On?.
@@ -4281,6 +4972,12 @@ func (o GetWindowsFunctionAppSiteConfigArrayOutput) ToGetWindowsFunctionAppSiteC
 	return o
 }
 
+func (o GetWindowsFunctionAppSiteConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfig] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfig {
 		return vs[0].([]GetWindowsFunctionAppSiteConfig)[vs[1].(int)]
@@ -4324,6 +5021,12 @@ func (i GetWindowsFunctionAppSiteConfigAppServiceLogArgs) ToGetWindowsFunctionAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigAppServiceLogOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigAppServiceLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigAppServiceLog] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigAppServiceLog]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigAppServiceLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigAppServiceLogArray and GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigAppServiceLogArrayInput` via:
 //
@@ -4349,6 +5052,12 @@ func (i GetWindowsFunctionAppSiteConfigAppServiceLogArray) ToGetWindowsFunctionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigAppServiceLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigAppServiceLog] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigAppServiceLog]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigAppServiceLogOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ElementType() reflect.Type {
@@ -4361,6 +5070,12 @@ func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ToGetWindowsFunction
 
 func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ToGetWindowsFunctionAppSiteConfigAppServiceLogOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigAppServiceLog] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigAppServiceLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The amount of disk space to use for logs.
@@ -4385,6 +5100,12 @@ func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) ToGetWindowsFun
 
 func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) ToGetWindowsFunctionAppSiteConfigAppServiceLogArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigAppServiceLog] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigAppServiceLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigAppServiceLogArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigAppServiceLogOutput {
@@ -4444,6 +5165,12 @@ func (i GetWindowsFunctionAppSiteConfigApplicationStackArgs) ToGetWindowsFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigApplicationStackOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigApplicationStackArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigApplicationStack] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigApplicationStack]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigApplicationStackOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigApplicationStackArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigApplicationStackArray and GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigApplicationStackArrayInput` via:
 //
@@ -4469,6 +5196,12 @@ func (i GetWindowsFunctionAppSiteConfigApplicationStackArray) ToGetWindowsFuncti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigApplicationStackArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigApplicationStack] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigApplicationStack]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigApplicationStackArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigApplicationStackOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigApplicationStackOutput) ElementType() reflect.Type {
@@ -4481,6 +5214,12 @@ func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) ToGetWindowsFunct
 
 func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) ToGetWindowsFunctionAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigApplicationStackOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigApplicationStackOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigApplicationStack] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigApplicationStack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of .Net to use.
@@ -4526,6 +5265,12 @@ func (o GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) ToGetWindows
 	return o
 }
 
+func (o GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigApplicationStack] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigApplicationStack]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppSiteConfigApplicationStackArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigApplicationStackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigApplicationStack {
 		return vs[0].([]GetWindowsFunctionAppSiteConfigApplicationStack)[vs[1].(int)]
@@ -4569,6 +5314,12 @@ func (i GetWindowsFunctionAppSiteConfigCorArgs) ToGetWindowsFunctionAppSiteConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigCorOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigCorArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigCor] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigCor]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigCorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigCorArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigCorArray and GetWindowsFunctionAppSiteConfigCorArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigCorArrayInput` via:
 //
@@ -4594,6 +5345,12 @@ func (i GetWindowsFunctionAppSiteConfigCorArray) ToGetWindowsFunctionAppSiteConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigCorArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigCorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigCor] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigCor]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigCorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigCorOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigCorOutput) ElementType() reflect.Type {
@@ -4606,6 +5363,12 @@ func (o GetWindowsFunctionAppSiteConfigCorOutput) ToGetWindowsFunctionAppSiteCon
 
 func (o GetWindowsFunctionAppSiteConfigCorOutput) ToGetWindowsFunctionAppSiteConfigCorOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigCorOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigCor] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigCor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of origins that should be allowed to make cross-origin calls.
@@ -4630,6 +5393,12 @@ func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) ToGetWindowsFunctionAppSi
 
 func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) ToGetWindowsFunctionAppSiteConfigCorArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigCorArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigCor] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigCor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigCorOutput {
@@ -4685,6 +5454,12 @@ func (i GetWindowsFunctionAppSiteConfigIpRestrictionArgs) ToGetWindowsFunctionAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestriction] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestriction]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigIpRestrictionArray and GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigIpRestrictionArrayInput` via:
 //
@@ -4710,6 +5485,12 @@ func (i GetWindowsFunctionAppSiteConfigIpRestrictionArray) ToGetWindowsFunctionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestriction] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestriction]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
@@ -4722,6 +5503,12 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToGetWindowsFunction
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestriction] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
@@ -4770,6 +5557,12 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) ToGetWindowsFun
 	return o
 }
 
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestriction] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigIpRestriction {
 		return vs[0].([]GetWindowsFunctionAppSiteConfigIpRestriction)[vs[1].(int)]
@@ -4813,6 +5606,12 @@ func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs) ToGetWindowsFunc
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray and GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput` via:
 //
@@ -4838,6 +5637,12 @@ func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray) ToGetWindowsFun
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ElementType() reflect.Type {
@@ -4850,6 +5655,12 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsFu
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -4880,6 +5691,12 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetWind
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput {
@@ -4935,6 +5752,12 @@ func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs) ToGetWindowsFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestriction]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigScmIpRestrictionArray and GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayInput` via:
 //
@@ -4960,6 +5783,12 @@ func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArray) ToGetWindowsFuncti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestriction]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
@@ -4972,6 +5801,12 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToGetWindowsFunct
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
@@ -5020,6 +5855,12 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) ToGetWindows
 	return o
 }
 
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFunctionAppSiteConfigScmIpRestriction {
 		return vs[0].([]GetWindowsFunctionAppSiteConfigScmIpRestriction)[vs[1].(int)]
@@ -5063,6 +5904,12 @@ func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs) ToGetWindowsF
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput is an input type that accepts GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray and GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput` via:
 //
@@ -5088,6 +5935,12 @@ func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray) ToGetWindows
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ElementType() reflect.Type {
@@ -5100,6 +5953,12 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindow
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -5130,6 +5989,12 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetW
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput {
@@ -5175,6 +6040,12 @@ func (i GetWindowsFunctionAppSiteCredentialArgs) ToGetWindowsFunctionAppSiteCred
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteCredentialOutput)
 }
 
+func (i GetWindowsFunctionAppSiteCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteCredential] {
+	return pulumix.Output[GetWindowsFunctionAppSiteCredential]{
+		OutputState: i.ToGetWindowsFunctionAppSiteCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppSiteCredentialArrayInput is an input type that accepts GetWindowsFunctionAppSiteCredentialArray and GetWindowsFunctionAppSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppSiteCredentialArrayInput` via:
 //
@@ -5200,6 +6071,12 @@ func (i GetWindowsFunctionAppSiteCredentialArray) ToGetWindowsFunctionAppSiteCre
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppSiteCredentialArrayOutput)
 }
 
+func (i GetWindowsFunctionAppSiteCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteCredential] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteCredential]{
+		OutputState: i.ToGetWindowsFunctionAppSiteCredentialArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppSiteCredentialOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppSiteCredentialOutput) ElementType() reflect.Type {
@@ -5212,6 +6089,12 @@ func (o GetWindowsFunctionAppSiteCredentialOutput) ToGetWindowsFunctionAppSiteCr
 
 func (o GetWindowsFunctionAppSiteCredentialOutput) ToGetWindowsFunctionAppSiteCredentialOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteCredentialOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppSiteCredential] {
+	return pulumix.Output[GetWindowsFunctionAppSiteCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Windows Function App.
@@ -5236,6 +6119,12 @@ func (o GetWindowsFunctionAppSiteCredentialArrayOutput) ToGetWindowsFunctionAppS
 
 func (o GetWindowsFunctionAppSiteCredentialArrayOutput) ToGetWindowsFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppSiteCredentialArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppSiteCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppSiteCredential] {
+	return pulumix.Output[[]GetWindowsFunctionAppSiteCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppSiteCredentialOutput {
@@ -5281,6 +6170,12 @@ func (i GetWindowsFunctionAppStickySettingArgs) ToGetWindowsFunctionAppStickySet
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppStickySettingOutput)
 }
 
+func (i GetWindowsFunctionAppStickySettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppStickySetting] {
+	return pulumix.Output[GetWindowsFunctionAppStickySetting]{
+		OutputState: i.ToGetWindowsFunctionAppStickySettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsFunctionAppStickySettingArrayInput is an input type that accepts GetWindowsFunctionAppStickySettingArray and GetWindowsFunctionAppStickySettingArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFunctionAppStickySettingArrayInput` via:
 //
@@ -5306,6 +6201,12 @@ func (i GetWindowsFunctionAppStickySettingArray) ToGetWindowsFunctionAppStickySe
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFunctionAppStickySettingArrayOutput)
 }
 
+func (i GetWindowsFunctionAppStickySettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppStickySetting] {
+	return pulumix.Output[[]GetWindowsFunctionAppStickySetting]{
+		OutputState: i.ToGetWindowsFunctionAppStickySettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsFunctionAppStickySettingOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFunctionAppStickySettingOutput) ElementType() reflect.Type {
@@ -5318,6 +6219,12 @@ func (o GetWindowsFunctionAppStickySettingOutput) ToGetWindowsFunctionAppStickyS
 
 func (o GetWindowsFunctionAppStickySettingOutput) ToGetWindowsFunctionAppStickySettingOutputWithContext(ctx context.Context) GetWindowsFunctionAppStickySettingOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppStickySettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFunctionAppStickySetting] {
+	return pulumix.Output[GetWindowsFunctionAppStickySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `appSetting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
@@ -5342,6 +6249,12 @@ func (o GetWindowsFunctionAppStickySettingArrayOutput) ToGetWindowsFunctionAppSt
 
 func (o GetWindowsFunctionAppStickySettingArrayOutput) ToGetWindowsFunctionAppStickySettingArrayOutputWithContext(ctx context.Context) GetWindowsFunctionAppStickySettingArrayOutput {
 	return o
+}
+
+func (o GetWindowsFunctionAppStickySettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFunctionAppStickySetting] {
+	return pulumix.Output[[]GetWindowsFunctionAppStickySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsFunctionAppStickySettingArrayOutput) Index(i pulumi.IntInput) GetWindowsFunctionAppStickySettingOutput {
@@ -5439,6 +6352,12 @@ func (i GetWindowsWebAppAuthSettingArgs) ToGetWindowsWebAppAuthSettingOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSetting] {
+	return pulumix.Output[GetWindowsWebAppAuthSetting]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingArrayInput is an input type that accepts GetWindowsWebAppAuthSettingArray and GetWindowsWebAppAuthSettingArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingArrayInput` via:
 //
@@ -5464,6 +6383,12 @@ func (i GetWindowsWebAppAuthSettingArray) ToGetWindowsWebAppAuthSettingArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSetting] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSetting]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingOutput) ElementType() reflect.Type {
@@ -5476,6 +6401,12 @@ func (o GetWindowsWebAppAuthSettingOutput) ToGetWindowsWebAppAuthSettingOutput()
 
 func (o GetWindowsWebAppAuthSettingOutput) ToGetWindowsWebAppAuthSettingOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSetting] {
+	return pulumix.Output[GetWindowsWebAppAuthSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `activeDirectory` block as defined above.
@@ -5569,6 +6500,12 @@ func (o GetWindowsWebAppAuthSettingArrayOutput) ToGetWindowsWebAppAuthSettingArr
 	return o
 }
 
+func (o GetWindowsWebAppAuthSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSetting] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppAuthSettingArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSetting {
 		return vs[0].([]GetWindowsWebAppAuthSetting)[vs[1].(int)]
@@ -5620,6 +6557,12 @@ func (i GetWindowsWebAppAuthSettingActiveDirectoryArgs) ToGetWindowsWebAppAuthSe
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingActiveDirectoryOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingActiveDirectory] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingActiveDirectory]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingActiveDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingActiveDirectoryArrayInput is an input type that accepts GetWindowsWebAppAuthSettingActiveDirectoryArray and GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingActiveDirectoryArrayInput` via:
 //
@@ -5645,6 +6588,12 @@ func (i GetWindowsWebAppAuthSettingActiveDirectoryArray) ToGetWindowsWebAppAuthS
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingActiveDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingActiveDirectory] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingActiveDirectory]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingActiveDirectoryOutput) ElementType() reflect.Type {
@@ -5657,6 +6606,12 @@ func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ToGetWindowsWebAppAuth
 
 func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ToGetWindowsWebAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingActiveDirectoryOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingActiveDirectory] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingActiveDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -5691,6 +6646,12 @@ func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsWebAp
 
 func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) ToGetWindowsWebAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingActiveDirectory] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingActiveDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingActiveDirectoryOutput {
@@ -5744,6 +6705,12 @@ func (i GetWindowsWebAppAuthSettingFacebookArgs) ToGetWindowsWebAppAuthSettingFa
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingFacebookOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingFacebookArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingFacebook] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingFacebook]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingFacebookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingFacebookArrayInput is an input type that accepts GetWindowsWebAppAuthSettingFacebookArray and GetWindowsWebAppAuthSettingFacebookArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingFacebookArrayInput` via:
 //
@@ -5769,6 +6736,12 @@ func (i GetWindowsWebAppAuthSettingFacebookArray) ToGetWindowsWebAppAuthSettingF
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingFacebookArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingFacebookArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingFacebook] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingFacebook]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingFacebookArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingFacebookOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingFacebookOutput) ElementType() reflect.Type {
@@ -5781,6 +6754,12 @@ func (o GetWindowsWebAppAuthSettingFacebookOutput) ToGetWindowsWebAppAuthSetting
 
 func (o GetWindowsWebAppAuthSettingFacebookOutput) ToGetWindowsWebAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingFacebookOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingFacebook] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The App ID of the Facebook app used for login.
@@ -5815,6 +6794,12 @@ func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) ToGetWindowsWebAppAuthSe
 
 func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) ToGetWindowsWebAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingFacebookArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingFacebook] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingFacebook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingFacebookArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingFacebookOutput {
@@ -5868,6 +6853,12 @@ func (i GetWindowsWebAppAuthSettingGithubArgs) ToGetWindowsWebAppAuthSettingGith
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGithubOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingGithubArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingGithub] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingGithub]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingGithubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingGithubArrayInput is an input type that accepts GetWindowsWebAppAuthSettingGithubArray and GetWindowsWebAppAuthSettingGithubArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingGithubArrayInput` via:
 //
@@ -5893,6 +6884,12 @@ func (i GetWindowsWebAppAuthSettingGithubArray) ToGetWindowsWebAppAuthSettingGit
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGithubArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingGithubArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingGithub] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingGithub]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingGithubArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingGithubOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingGithubOutput) ElementType() reflect.Type {
@@ -5905,6 +6902,12 @@ func (o GetWindowsWebAppAuthSettingGithubOutput) ToGetWindowsWebAppAuthSettingGi
 
 func (o GetWindowsWebAppAuthSettingGithubOutput) ToGetWindowsWebAppAuthSettingGithubOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGithubOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGithubOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingGithub] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingGithub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID used by the app for authentication.
@@ -5939,6 +6942,12 @@ func (o GetWindowsWebAppAuthSettingGithubArrayOutput) ToGetWindowsWebAppAuthSett
 
 func (o GetWindowsWebAppAuthSettingGithubArrayOutput) ToGetWindowsWebAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGithubArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGithubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingGithub] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingGithub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingGithubArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingGithubOutput {
@@ -5992,6 +7001,12 @@ func (i GetWindowsWebAppAuthSettingGoogleArgs) ToGetWindowsWebAppAuthSettingGoog
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGoogleOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingGoogleArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingGoogle] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingGoogle]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingGoogleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingGoogleArrayInput is an input type that accepts GetWindowsWebAppAuthSettingGoogleArray and GetWindowsWebAppAuthSettingGoogleArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingGoogleArrayInput` via:
 //
@@ -6017,6 +7032,12 @@ func (i GetWindowsWebAppAuthSettingGoogleArray) ToGetWindowsWebAppAuthSettingGoo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingGoogleArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingGoogleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingGoogle] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingGoogle]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingGoogleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingGoogleOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingGoogleOutput) ElementType() reflect.Type {
@@ -6029,6 +7050,12 @@ func (o GetWindowsWebAppAuthSettingGoogleOutput) ToGetWindowsWebAppAuthSettingGo
 
 func (o GetWindowsWebAppAuthSettingGoogleOutput) ToGetWindowsWebAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGoogleOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingGoogle] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingGoogle]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID used by the app for authentication.
@@ -6063,6 +7090,12 @@ func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) ToGetWindowsWebAppAuthSett
 
 func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) ToGetWindowsWebAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingGoogleArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingGoogle] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingGoogle]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingGoogleArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingGoogleOutput {
@@ -6116,6 +7149,12 @@ func (i GetWindowsWebAppAuthSettingMicrosoftArgs) ToGetWindowsWebAppAuthSettingM
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingMicrosoftOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingMicrosoftArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingMicrosoft] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingMicrosoft]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingMicrosoftOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingMicrosoftArrayInput is an input type that accepts GetWindowsWebAppAuthSettingMicrosoftArray and GetWindowsWebAppAuthSettingMicrosoftArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingMicrosoftArrayInput` via:
 //
@@ -6141,6 +7180,12 @@ func (i GetWindowsWebAppAuthSettingMicrosoftArray) ToGetWindowsWebAppAuthSetting
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingMicrosoftArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingMicrosoftArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingMicrosoft] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingMicrosoft]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingMicrosoftArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingMicrosoftOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingMicrosoftOutput) ElementType() reflect.Type {
@@ -6153,6 +7198,12 @@ func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ToGetWindowsWebAppAuthSettin
 
 func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ToGetWindowsWebAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingMicrosoftOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingMicrosoft] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingMicrosoft]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID used by the app for authentication.
@@ -6187,6 +7238,12 @@ func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) ToGetWindowsWebAppAuthS
 
 func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) ToGetWindowsWebAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingMicrosoftArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingMicrosoft] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingMicrosoft]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingMicrosoftArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingMicrosoftOutput {
@@ -6236,6 +7293,12 @@ func (i GetWindowsWebAppAuthSettingTwitterArgs) ToGetWindowsWebAppAuthSettingTwi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingTwitterOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingTwitterArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingTwitter] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingTwitter]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingTwitterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingTwitterArrayInput is an input type that accepts GetWindowsWebAppAuthSettingTwitterArray and GetWindowsWebAppAuthSettingTwitterArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingTwitterArrayInput` via:
 //
@@ -6261,6 +7324,12 @@ func (i GetWindowsWebAppAuthSettingTwitterArray) ToGetWindowsWebAppAuthSettingTw
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingTwitterArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingTwitterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingTwitter] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingTwitter]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingTwitterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingTwitterOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingTwitterOutput) ElementType() reflect.Type {
@@ -6273,6 +7342,12 @@ func (o GetWindowsWebAppAuthSettingTwitterOutput) ToGetWindowsWebAppAuthSettingT
 
 func (o GetWindowsWebAppAuthSettingTwitterOutput) ToGetWindowsWebAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingTwitterOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingTwitter] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingTwitter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -6302,6 +7377,12 @@ func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) ToGetWindowsWebAppAuthSet
 
 func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) ToGetWindowsWebAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingTwitterArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingTwitter] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingTwitter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingTwitterArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingTwitterOutput {
@@ -6427,6 +7508,12 @@ func (i GetWindowsWebAppAuthSettingsV2Args) ToGetWindowsWebAppAuthSettingsV2Outp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2Array and GetWindowsWebAppAuthSettingsV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2ArrayInput` via:
 //
@@ -6452,6 +7539,12 @@ func (i GetWindowsWebAppAuthSettingsV2Array) ToGetWindowsWebAppAuthSettingsV2Arr
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2Output) ElementType() reflect.Type {
@@ -6464,6 +7557,12 @@ func (o GetWindowsWebAppAuthSettingsV2Output) ToGetWindowsWebAppAuthSettingsV2Ou
 
 func (o GetWindowsWebAppAuthSettingsV2Output) ToGetWindowsWebAppAuthSettingsV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `activeDirectoryV2` block as defined below.
@@ -6600,6 +7699,12 @@ func (o GetWindowsWebAppAuthSettingsV2ArrayOutput) ToGetWindowsWebAppAuthSetting
 	return o
 }
 
+func (o GetWindowsWebAppAuthSettingsV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppAuthSettingsV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2 {
 		return vs[0].([]GetWindowsWebAppAuthSettingsV2)[vs[1].(int)]
@@ -6683,6 +7788,12 @@ func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args) ToGetWindowsWebAppA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array and GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput` via:
 //
@@ -6708,6 +7819,12 @@ func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array) ToGetWindowsWebApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ElementType() reflect.Type {
@@ -6720,6 +7837,12 @@ func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsWebAp
 
 func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ToGetWindowsWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of allowed Applications for the Default Authorisation Policy.
@@ -6800,6 +7923,12 @@ func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetWindows
 	return o
 }
 
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
 		return vs[0].([]GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2)[vs[1].(int)]
@@ -6847,6 +7976,12 @@ func (i GetWindowsWebAppAuthSettingsV2AppleV2Args) ToGetWindowsWebAppAuthSetting
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AppleV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2AppleV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2AppleV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2AppleV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2AppleV2Array and GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2AppleV2ArrayInput` via:
 //
@@ -6872,6 +8007,12 @@ func (i GetWindowsWebAppAuthSettingsV2AppleV2Array) ToGetWindowsWebAppAuthSettin
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2AppleV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AppleV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2AppleV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2AppleV2Output) ElementType() reflect.Type {
@@ -6884,6 +8025,12 @@ func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ToGetWindowsWebAppAuthSetti
 
 func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ToGetWindowsWebAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AppleV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2AppleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID used by the app for authentication.
@@ -6913,6 +8060,12 @@ func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsWebAppAuth
 
 func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AppleV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AppleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2AppleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2AppleV2Output {
@@ -6954,6 +8107,12 @@ func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetWindowsWebAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array and GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput` via:
 //
@@ -6979,6 +8138,12 @@ func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetWindowsWebA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ElementType() reflect.Type {
@@ -6991,6 +8156,12 @@ func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsWeb
 
 func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID used by the app for authentication.
@@ -7010,6 +8181,12 @@ func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindo
 
 func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Output {
@@ -7091,6 +8268,12 @@ func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Args) ToGetWindowsWebAppAuthSe
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2CustomOidcV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2CustomOidcV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2CustomOidcV2Array and GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayInput` via:
 //
@@ -7116,6 +8299,12 @@ func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Array) ToGetWindowsWebAppAuthS
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2CustomOidcV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2CustomOidcV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2CustomOidcV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ElementType() reflect.Type {
@@ -7128,6 +8317,12 @@ func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsWebAppAuth
 
 func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ToGetWindowsWebAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2CustomOidcV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
@@ -7199,6 +8394,12 @@ func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetWindowsWebAp
 	return o
 }
 
+func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2CustomOidcV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2CustomOidcV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppAuthSettingsV2CustomOidcV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2CustomOidcV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2CustomOidcV2 {
 		return vs[0].([]GetWindowsWebAppAuthSettingsV2CustomOidcV2)[vs[1].(int)]
@@ -7250,6 +8451,12 @@ func (i GetWindowsWebAppAuthSettingsV2FacebookV2Args) ToGetWindowsWebAppAuthSett
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2FacebookV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2FacebookV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2FacebookV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2FacebookV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2FacebookV2Array and GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2FacebookV2ArrayInput` via:
 //
@@ -7275,6 +8482,12 @@ func (i GetWindowsWebAppAuthSettingsV2FacebookV2Array) ToGetWindowsWebAppAuthSet
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2FacebookV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2FacebookV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2FacebookV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2FacebookV2Output) ElementType() reflect.Type {
@@ -7287,6 +8500,12 @@ func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) ToGetWindowsWebAppAuthSe
 
 func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) ToGetWindowsWebAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2FacebookV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The App ID of the Facebook app used for login.
@@ -7321,6 +8540,12 @@ func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsWebAppA
 
 func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2FacebookV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2FacebookV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2FacebookV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2FacebookV2Output {
@@ -7370,6 +8595,12 @@ func (i GetWindowsWebAppAuthSettingsV2GithubV2Args) ToGetWindowsWebAppAuthSettin
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GithubV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2GithubV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2GithubV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2GithubV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2GithubV2Array and GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2GithubV2ArrayInput` via:
 //
@@ -7395,6 +8626,12 @@ func (i GetWindowsWebAppAuthSettingsV2GithubV2Array) ToGetWindowsWebAppAuthSetti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2GithubV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GithubV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2GithubV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2GithubV2Output) ElementType() reflect.Type {
@@ -7407,6 +8644,12 @@ func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ToGetWindowsWebAppAuthSett
 
 func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ToGetWindowsWebAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GithubV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2GithubV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 2.0 client ID used by the app for authentication.
@@ -7436,6 +8679,12 @@ func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsWebAppAut
 
 func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GithubV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GithubV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2GithubV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2GithubV2Output {
@@ -7489,6 +8738,12 @@ func (i GetWindowsWebAppAuthSettingsV2GoogleV2Args) ToGetWindowsWebAppAuthSettin
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GoogleV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2GoogleV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2GoogleV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2GoogleV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2GoogleV2Array and GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2GoogleV2ArrayInput` via:
 //
@@ -7514,6 +8769,12 @@ func (i GetWindowsWebAppAuthSettingsV2GoogleV2Array) ToGetWindowsWebAppAuthSetti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2GoogleV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GoogleV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2GoogleV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2GoogleV2Output) ElementType() reflect.Type {
@@ -7526,6 +8787,12 @@ func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ToGetWindowsWebAppAuthSett
 
 func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ToGetWindowsWebAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2GoogleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -7560,6 +8827,12 @@ func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsWebAppAut
 
 func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GoogleV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2GoogleV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2GoogleV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2GoogleV2Output {
@@ -7641,6 +8914,12 @@ func (i GetWindowsWebAppAuthSettingsV2LoginArgs) ToGetWindowsWebAppAuthSettingsV
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2LoginOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2LoginArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2Login] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2Login]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2LoginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2LoginArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2LoginArray and GetWindowsWebAppAuthSettingsV2LoginArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2LoginArrayInput` via:
 //
@@ -7666,6 +8945,12 @@ func (i GetWindowsWebAppAuthSettingsV2LoginArray) ToGetWindowsWebAppAuthSettings
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2LoginArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2LoginArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2Login] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2Login]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2LoginArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2LoginOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2LoginOutput) ElementType() reflect.Type {
@@ -7678,6 +8963,12 @@ func (o GetWindowsWebAppAuthSettingsV2LoginOutput) ToGetWindowsWebAppAuthSetting
 
 func (o GetWindowsWebAppAuthSettingsV2LoginOutput) ToGetWindowsWebAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2LoginOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2LoginOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2Login] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2Login]{
+		OutputState: o.OutputState,
+	}
 }
 
 // External URLs that can be redirected to as part of logging in or logging out of the app.
@@ -7749,6 +9040,12 @@ func (o GetWindowsWebAppAuthSettingsV2LoginArrayOutput) ToGetWindowsWebAppAuthSe
 	return o
 }
 
+func (o GetWindowsWebAppAuthSettingsV2LoginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2Login] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2Login]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppAuthSettingsV2LoginArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2LoginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppAuthSettingsV2Login {
 		return vs[0].([]GetWindowsWebAppAuthSettingsV2Login)[vs[1].(int)]
@@ -7800,6 +9097,12 @@ func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Args) ToGetWindowsWebAppAuthSet
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2MicrosoftV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2MicrosoftV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2MicrosoftV2Array and GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayInput` via:
 //
@@ -7825,6 +9128,12 @@ func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Array) ToGetWindowsWebAppAuthSe
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2MicrosoftV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2MicrosoftV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2MicrosoftV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ElementType() reflect.Type {
@@ -7837,6 +9146,12 @@ func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsWebAppAuthS
 
 func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2MicrosoftV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -7871,6 +9186,12 @@ func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsWebApp
 
 func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2MicrosoftV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2MicrosoftV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2MicrosoftV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2MicrosoftV2Output {
@@ -7916,6 +9237,12 @@ func (i GetWindowsWebAppAuthSettingsV2TwitterV2Args) ToGetWindowsWebAppAuthSetti
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2TwitterV2Output)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2TwitterV2Args) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2TwitterV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2TwitterV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput is an input type that accepts GetWindowsWebAppAuthSettingsV2TwitterV2Array and GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppAuthSettingsV2TwitterV2ArrayInput` via:
 //
@@ -7941,6 +9268,12 @@ func (i GetWindowsWebAppAuthSettingsV2TwitterV2Array) ToGetWindowsWebAppAuthSett
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput)
 }
 
+func (i GetWindowsWebAppAuthSettingsV2TwitterV2Array) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2TwitterV2]{
+		OutputState: i.ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppAuthSettingsV2TwitterV2Output struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppAuthSettingsV2TwitterV2Output) ElementType() reflect.Type {
@@ -7953,6 +9286,12 @@ func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ToGetWindowsWebAppAuthSet
 
 func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ToGetWindowsWebAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2Output {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2Output) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[GetWindowsWebAppAuthSettingsV2TwitterV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -7977,6 +9316,12 @@ func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsWebAppAu
 
 func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) ToGetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppAuthSettingsV2TwitterV2] {
+	return pulumix.Output[[]GetWindowsWebAppAuthSettingsV2TwitterV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppAuthSettingsV2TwitterV2ArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppAuthSettingsV2TwitterV2Output {
@@ -8030,6 +9375,12 @@ func (i GetWindowsWebAppBackupArgs) ToGetWindowsWebAppBackupOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupOutput)
 }
 
+func (i GetWindowsWebAppBackupArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppBackup] {
+	return pulumix.Output[GetWindowsWebAppBackup]{
+		OutputState: i.ToGetWindowsWebAppBackupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppBackupArrayInput is an input type that accepts GetWindowsWebAppBackupArray and GetWindowsWebAppBackupArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppBackupArrayInput` via:
 //
@@ -8055,6 +9406,12 @@ func (i GetWindowsWebAppBackupArray) ToGetWindowsWebAppBackupArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupArrayOutput)
 }
 
+func (i GetWindowsWebAppBackupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppBackup] {
+	return pulumix.Output[[]GetWindowsWebAppBackup]{
+		OutputState: i.ToGetWindowsWebAppBackupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppBackupOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppBackupOutput) ElementType() reflect.Type {
@@ -8067,6 +9424,12 @@ func (o GetWindowsWebAppBackupOutput) ToGetWindowsWebAppBackupOutput() GetWindow
 
 func (o GetWindowsWebAppBackupOutput) ToGetWindowsWebAppBackupOutputWithContext(ctx context.Context) GetWindowsWebAppBackupOutput {
 	return o
+}
+
+func (o GetWindowsWebAppBackupOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppBackup] {
+	return pulumix.Output[GetWindowsWebAppBackup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the Backup enabled?
@@ -8101,6 +9464,12 @@ func (o GetWindowsWebAppBackupArrayOutput) ToGetWindowsWebAppBackupArrayOutput()
 
 func (o GetWindowsWebAppBackupArrayOutput) ToGetWindowsWebAppBackupArrayOutputWithContext(ctx context.Context) GetWindowsWebAppBackupArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppBackupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppBackup] {
+	return pulumix.Output[[]GetWindowsWebAppBackup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppBackupArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppBackupOutput {
@@ -8162,6 +9531,12 @@ func (i GetWindowsWebAppBackupScheduleArgs) ToGetWindowsWebAppBackupScheduleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupScheduleOutput)
 }
 
+func (i GetWindowsWebAppBackupScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppBackupSchedule] {
+	return pulumix.Output[GetWindowsWebAppBackupSchedule]{
+		OutputState: i.ToGetWindowsWebAppBackupScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppBackupScheduleArrayInput is an input type that accepts GetWindowsWebAppBackupScheduleArray and GetWindowsWebAppBackupScheduleArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppBackupScheduleArrayInput` via:
 //
@@ -8187,6 +9562,12 @@ func (i GetWindowsWebAppBackupScheduleArray) ToGetWindowsWebAppBackupScheduleArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppBackupScheduleArrayOutput)
 }
 
+func (i GetWindowsWebAppBackupScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppBackupSchedule] {
+	return pulumix.Output[[]GetWindowsWebAppBackupSchedule]{
+		OutputState: i.ToGetWindowsWebAppBackupScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppBackupScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppBackupScheduleOutput) ElementType() reflect.Type {
@@ -8199,6 +9580,12 @@ func (o GetWindowsWebAppBackupScheduleOutput) ToGetWindowsWebAppBackupScheduleOu
 
 func (o GetWindowsWebAppBackupScheduleOutput) ToGetWindowsWebAppBackupScheduleOutputWithContext(ctx context.Context) GetWindowsWebAppBackupScheduleOutput {
 	return o
+}
+
+func (o GetWindowsWebAppBackupScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppBackupSchedule] {
+	return pulumix.Output[GetWindowsWebAppBackupSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // How often the backup will be executed.
@@ -8243,6 +9630,12 @@ func (o GetWindowsWebAppBackupScheduleArrayOutput) ToGetWindowsWebAppBackupSched
 
 func (o GetWindowsWebAppBackupScheduleArrayOutput) ToGetWindowsWebAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetWindowsWebAppBackupScheduleArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppBackupScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppBackupSchedule] {
+	return pulumix.Output[[]GetWindowsWebAppBackupSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppBackupScheduleOutput {
@@ -8292,6 +9685,12 @@ func (i GetWindowsWebAppConnectionStringArgs) ToGetWindowsWebAppConnectionString
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppConnectionStringOutput)
 }
 
+func (i GetWindowsWebAppConnectionStringArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppConnectionString] {
+	return pulumix.Output[GetWindowsWebAppConnectionString]{
+		OutputState: i.ToGetWindowsWebAppConnectionStringOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppConnectionStringArrayInput is an input type that accepts GetWindowsWebAppConnectionStringArray and GetWindowsWebAppConnectionStringArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppConnectionStringArrayInput` via:
 //
@@ -8317,6 +9716,12 @@ func (i GetWindowsWebAppConnectionStringArray) ToGetWindowsWebAppConnectionStrin
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppConnectionStringArrayOutput)
 }
 
+func (i GetWindowsWebAppConnectionStringArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppConnectionString] {
+	return pulumix.Output[[]GetWindowsWebAppConnectionString]{
+		OutputState: i.ToGetWindowsWebAppConnectionStringArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppConnectionStringOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppConnectionStringOutput) ElementType() reflect.Type {
@@ -8329,6 +9734,12 @@ func (o GetWindowsWebAppConnectionStringOutput) ToGetWindowsWebAppConnectionStri
 
 func (o GetWindowsWebAppConnectionStringOutput) ToGetWindowsWebAppConnectionStringOutputWithContext(ctx context.Context) GetWindowsWebAppConnectionStringOutput {
 	return o
+}
+
+func (o GetWindowsWebAppConnectionStringOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppConnectionString] {
+	return pulumix.Output[GetWindowsWebAppConnectionString]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Windows Web App.
@@ -8358,6 +9769,12 @@ func (o GetWindowsWebAppConnectionStringArrayOutput) ToGetWindowsWebAppConnectio
 
 func (o GetWindowsWebAppConnectionStringArrayOutput) ToGetWindowsWebAppConnectionStringArrayOutputWithContext(ctx context.Context) GetWindowsWebAppConnectionStringArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppConnectionStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppConnectionString] {
+	return pulumix.Output[[]GetWindowsWebAppConnectionString]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppConnectionStringOutput {
@@ -8411,6 +9828,12 @@ func (i GetWindowsWebAppIdentityArgs) ToGetWindowsWebAppIdentityOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppIdentityOutput)
 }
 
+func (i GetWindowsWebAppIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppIdentity] {
+	return pulumix.Output[GetWindowsWebAppIdentity]{
+		OutputState: i.ToGetWindowsWebAppIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppIdentityArrayInput is an input type that accepts GetWindowsWebAppIdentityArray and GetWindowsWebAppIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppIdentityArrayInput` via:
 //
@@ -8436,6 +9859,12 @@ func (i GetWindowsWebAppIdentityArray) ToGetWindowsWebAppIdentityArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppIdentityArrayOutput)
 }
 
+func (i GetWindowsWebAppIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppIdentity] {
+	return pulumix.Output[[]GetWindowsWebAppIdentity]{
+		OutputState: i.ToGetWindowsWebAppIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppIdentityOutput) ElementType() reflect.Type {
@@ -8448,6 +9877,12 @@ func (o GetWindowsWebAppIdentityOutput) ToGetWindowsWebAppIdentityOutput() GetWi
 
 func (o GetWindowsWebAppIdentityOutput) ToGetWindowsWebAppIdentityOutputWithContext(ctx context.Context) GetWindowsWebAppIdentityOutput {
 	return o
+}
+
+func (o GetWindowsWebAppIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppIdentity] {
+	return pulumix.Output[GetWindowsWebAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `identityIds` block as defined below.
@@ -8482,6 +9917,12 @@ func (o GetWindowsWebAppIdentityArrayOutput) ToGetWindowsWebAppIdentityArrayOutp
 
 func (o GetWindowsWebAppIdentityArrayOutput) ToGetWindowsWebAppIdentityArrayOutputWithContext(ctx context.Context) GetWindowsWebAppIdentityArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppIdentity] {
+	return pulumix.Output[[]GetWindowsWebAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppIdentityArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppIdentityOutput {
@@ -8535,6 +9976,12 @@ func (i GetWindowsWebAppLogArgs) ToGetWindowsWebAppLogOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogOutput)
 }
 
+func (i GetWindowsWebAppLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLog] {
+	return pulumix.Output[GetWindowsWebAppLog]{
+		OutputState: i.ToGetWindowsWebAppLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppLogArrayInput is an input type that accepts GetWindowsWebAppLogArray and GetWindowsWebAppLogArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppLogArrayInput` via:
 //
@@ -8560,6 +10007,12 @@ func (i GetWindowsWebAppLogArray) ToGetWindowsWebAppLogArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogArrayOutput)
 }
 
+func (i GetWindowsWebAppLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLog] {
+	return pulumix.Output[[]GetWindowsWebAppLog]{
+		OutputState: i.ToGetWindowsWebAppLogArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppLogOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppLogOutput) ElementType() reflect.Type {
@@ -8572,6 +10025,12 @@ func (o GetWindowsWebAppLogOutput) ToGetWindowsWebAppLogOutput() GetWindowsWebAp
 
 func (o GetWindowsWebAppLogOutput) ToGetWindowsWebAppLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLog] {
+	return pulumix.Output[GetWindowsWebAppLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `applicationLogs` block as defined above.
@@ -8606,6 +10065,12 @@ func (o GetWindowsWebAppLogArrayOutput) ToGetWindowsWebAppLogArrayOutput() GetWi
 
 func (o GetWindowsWebAppLogArrayOutput) ToGetWindowsWebAppLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLog] {
+	return pulumix.Output[[]GetWindowsWebAppLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppLogArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogOutput {
@@ -8651,6 +10116,12 @@ func (i GetWindowsWebAppLogApplicationLogArgs) ToGetWindowsWebAppLogApplicationL
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogOutput)
 }
 
+func (i GetWindowsWebAppLogApplicationLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogApplicationLog] {
+	return pulumix.Output[GetWindowsWebAppLogApplicationLog]{
+		OutputState: i.ToGetWindowsWebAppLogApplicationLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppLogApplicationLogArrayInput is an input type that accepts GetWindowsWebAppLogApplicationLogArray and GetWindowsWebAppLogApplicationLogArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppLogApplicationLogArrayInput` via:
 //
@@ -8676,6 +10147,12 @@ func (i GetWindowsWebAppLogApplicationLogArray) ToGetWindowsWebAppLogApplication
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogArrayOutput)
 }
 
+func (i GetWindowsWebAppLogApplicationLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogApplicationLog] {
+	return pulumix.Output[[]GetWindowsWebAppLogApplicationLog]{
+		OutputState: i.ToGetWindowsWebAppLogApplicationLogArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppLogApplicationLogOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppLogApplicationLogOutput) ElementType() reflect.Type {
@@ -8688,6 +10165,12 @@ func (o GetWindowsWebAppLogApplicationLogOutput) ToGetWindowsWebAppLogApplicatio
 
 func (o GetWindowsWebAppLogApplicationLogOutput) ToGetWindowsWebAppLogApplicationLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogApplicationLog] {
+	return pulumix.Output[GetWindowsWebAppLogApplicationLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `azureBlobStorage` block as defined above.
@@ -8714,6 +10197,12 @@ func (o GetWindowsWebAppLogApplicationLogArrayOutput) ToGetWindowsWebAppLogAppli
 
 func (o GetWindowsWebAppLogApplicationLogArrayOutput) ToGetWindowsWebAppLogApplicationLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogApplicationLog] {
+	return pulumix.Output[[]GetWindowsWebAppLogApplicationLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppLogApplicationLogArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogApplicationLogOutput {
@@ -8763,6 +10252,12 @@ func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs) ToGetWindowsWebAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput)
 }
 
+func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogApplicationLogAzureBlobStorage] {
+	return pulumix.Output[GetWindowsWebAppLogApplicationLogAzureBlobStorage]{
+		OutputState: i.ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput is an input type that accepts GetWindowsWebAppLogApplicationLogAzureBlobStorageArray and GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayInput` via:
 //
@@ -8788,6 +10283,12 @@ func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArray) ToGetWindowsWebA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput)
 }
 
+func (i GetWindowsWebAppLogApplicationLogAzureBlobStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogApplicationLogAzureBlobStorage] {
+	return pulumix.Output[[]GetWindowsWebAppLogApplicationLogAzureBlobStorage]{
+		OutputState: i.ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ElementType() reflect.Type {
@@ -8800,6 +10301,12 @@ func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ToGetWindowsWeb
 
 func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogApplicationLogAzureBlobStorage] {
+	return pulumix.Output[GetWindowsWebAppLogApplicationLogAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
@@ -8829,6 +10336,12 @@ func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToGetWindo
 
 func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToGetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogApplicationLogAzureBlobStorage] {
+	return pulumix.Output[[]GetWindowsWebAppLogApplicationLogAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppLogApplicationLogAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogApplicationLogAzureBlobStorageOutput {
@@ -8874,6 +10387,12 @@ func (i GetWindowsWebAppLogHttpLogArgs) ToGetWindowsWebAppLogHttpLogOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogOutput)
 }
 
+func (i GetWindowsWebAppLogHttpLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogHttpLog] {
+	return pulumix.Output[GetWindowsWebAppLogHttpLog]{
+		OutputState: i.ToGetWindowsWebAppLogHttpLogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppLogHttpLogArrayInput is an input type that accepts GetWindowsWebAppLogHttpLogArray and GetWindowsWebAppLogHttpLogArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppLogHttpLogArrayInput` via:
 //
@@ -8899,6 +10418,12 @@ func (i GetWindowsWebAppLogHttpLogArray) ToGetWindowsWebAppLogHttpLogArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogArrayOutput)
 }
 
+func (i GetWindowsWebAppLogHttpLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogHttpLog] {
+	return pulumix.Output[[]GetWindowsWebAppLogHttpLog]{
+		OutputState: i.ToGetWindowsWebAppLogHttpLogArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppLogHttpLogOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppLogHttpLogOutput) ElementType() reflect.Type {
@@ -8911,6 +10436,12 @@ func (o GetWindowsWebAppLogHttpLogOutput) ToGetWindowsWebAppLogHttpLogOutput() G
 
 func (o GetWindowsWebAppLogHttpLogOutput) ToGetWindowsWebAppLogHttpLogOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogHttpLog] {
+	return pulumix.Output[GetWindowsWebAppLogHttpLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `azureBlobStorage` block as defined above.
@@ -8937,6 +10468,12 @@ func (o GetWindowsWebAppLogHttpLogArrayOutput) ToGetWindowsWebAppLogHttpLogArray
 
 func (o GetWindowsWebAppLogHttpLogArrayOutput) ToGetWindowsWebAppLogHttpLogArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogHttpLog] {
+	return pulumix.Output[[]GetWindowsWebAppLogHttpLog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppLogHttpLogArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogHttpLogOutput {
@@ -8982,6 +10519,12 @@ func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArgs) ToGetWindowsWebAppLogHtt
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogAzureBlobStorageOutput)
 }
 
+func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogHttpLogAzureBlobStorage] {
+	return pulumix.Output[GetWindowsWebAppLogHttpLogAzureBlobStorage]{
+		OutputState: i.ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput is an input type that accepts GetWindowsWebAppLogHttpLogAzureBlobStorageArray and GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppLogHttpLogAzureBlobStorageArrayInput` via:
 //
@@ -9007,6 +10550,12 @@ func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArray) ToGetWindowsWebAppLogHt
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput)
 }
 
+func (i GetWindowsWebAppLogHttpLogAzureBlobStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogHttpLogAzureBlobStorage] {
+	return pulumix.Output[[]GetWindowsWebAppLogHttpLogAzureBlobStorage]{
+		OutputState: i.ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppLogHttpLogAzureBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ElementType() reflect.Type {
@@ -9019,6 +10568,12 @@ func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ToGetWindowsWebAppLogH
 
 func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ToGetWindowsWebAppLogHttpLogAzureBlobStorageOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogHttpLogAzureBlobStorage] {
+	return pulumix.Output[GetWindowsWebAppLogHttpLogAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The retention period in days.
@@ -9043,6 +10598,12 @@ func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) ToGetWindowsWebAp
 
 func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) ToGetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogHttpLogAzureBlobStorage] {
+	return pulumix.Output[[]GetWindowsWebAppLogHttpLogAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppLogHttpLogAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogHttpLogAzureBlobStorageOutput {
@@ -9088,6 +10649,12 @@ func (i GetWindowsWebAppLogHttpLogFileSystemArgs) ToGetWindowsWebAppLogHttpLogFi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogFileSystemOutput)
 }
 
+func (i GetWindowsWebAppLogHttpLogFileSystemArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogHttpLogFileSystem] {
+	return pulumix.Output[GetWindowsWebAppLogHttpLogFileSystem]{
+		OutputState: i.ToGetWindowsWebAppLogHttpLogFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppLogHttpLogFileSystemArrayInput is an input type that accepts GetWindowsWebAppLogHttpLogFileSystemArray and GetWindowsWebAppLogHttpLogFileSystemArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppLogHttpLogFileSystemArrayInput` via:
 //
@@ -9113,6 +10680,12 @@ func (i GetWindowsWebAppLogHttpLogFileSystemArray) ToGetWindowsWebAppLogHttpLogF
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppLogHttpLogFileSystemArrayOutput)
 }
 
+func (i GetWindowsWebAppLogHttpLogFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogHttpLogFileSystem] {
+	return pulumix.Output[[]GetWindowsWebAppLogHttpLogFileSystem]{
+		OutputState: i.ToGetWindowsWebAppLogHttpLogFileSystemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppLogHttpLogFileSystemOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppLogHttpLogFileSystemOutput) ElementType() reflect.Type {
@@ -9125,6 +10698,12 @@ func (o GetWindowsWebAppLogHttpLogFileSystemOutput) ToGetWindowsWebAppLogHttpLog
 
 func (o GetWindowsWebAppLogHttpLogFileSystemOutput) ToGetWindowsWebAppLogHttpLogFileSystemOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogFileSystemOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppLogHttpLogFileSystem] {
+	return pulumix.Output[GetWindowsWebAppLogHttpLogFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The retention period in days.
@@ -9149,6 +10728,12 @@ func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) ToGetWindowsWebAppLogHt
 
 func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) ToGetWindowsWebAppLogHttpLogFileSystemArrayOutputWithContext(ctx context.Context) GetWindowsWebAppLogHttpLogFileSystemArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppLogHttpLogFileSystem] {
+	return pulumix.Output[[]GetWindowsWebAppLogHttpLogFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppLogHttpLogFileSystemArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppLogHttpLogFileSystemOutput {
@@ -9316,6 +10901,12 @@ func (i GetWindowsWebAppSiteConfigArgs) ToGetWindowsWebAppSiteConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfig] {
+	return pulumix.Output[GetWindowsWebAppSiteConfig]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigArrayInput is an input type that accepts GetWindowsWebAppSiteConfigArray and GetWindowsWebAppSiteConfigArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigArrayInput` via:
 //
@@ -9341,6 +10932,12 @@ func (i GetWindowsWebAppSiteConfigArray) ToGetWindowsWebAppSiteConfigArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfig] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfig]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigOutput) ElementType() reflect.Type {
@@ -9353,6 +10950,12 @@ func (o GetWindowsWebAppSiteConfigOutput) ToGetWindowsWebAppSiteConfigOutput() G
 
 func (o GetWindowsWebAppSiteConfigOutput) ToGetWindowsWebAppSiteConfigOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfig] {
+	return pulumix.Output[GetWindowsWebAppSiteConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is this Windows Web App is Always On enabled.
@@ -9541,6 +11144,12 @@ func (o GetWindowsWebAppSiteConfigArrayOutput) ToGetWindowsWebAppSiteConfigArray
 	return o
 }
 
+func (o GetWindowsWebAppSiteConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfig] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfig {
 		return vs[0].([]GetWindowsWebAppSiteConfig)[vs[1].(int)]
@@ -9638,6 +11247,12 @@ func (i GetWindowsWebAppSiteConfigApplicationStackArgs) ToGetWindowsWebAppSiteCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigApplicationStackOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigApplicationStackArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigApplicationStack] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigApplicationStack]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigApplicationStackOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigApplicationStackArrayInput is an input type that accepts GetWindowsWebAppSiteConfigApplicationStackArray and GetWindowsWebAppSiteConfigApplicationStackArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigApplicationStackArrayInput` via:
 //
@@ -9663,6 +11278,12 @@ func (i GetWindowsWebAppSiteConfigApplicationStackArray) ToGetWindowsWebAppSiteC
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigApplicationStackArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigApplicationStackArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigApplicationStack] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigApplicationStack]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigApplicationStackArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigApplicationStackOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigApplicationStackOutput) ElementType() reflect.Type {
@@ -9675,6 +11296,12 @@ func (o GetWindowsWebAppSiteConfigApplicationStackOutput) ToGetWindowsWebAppSite
 
 func (o GetWindowsWebAppSiteConfigApplicationStackOutput) ToGetWindowsWebAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigApplicationStackOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigApplicationStackOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigApplicationStack] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigApplicationStack]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Current Stack value of the Windows Web App.
@@ -9779,6 +11406,12 @@ func (o GetWindowsWebAppSiteConfigApplicationStackArrayOutput) ToGetWindowsWebAp
 	return o
 }
 
+func (o GetWindowsWebAppSiteConfigApplicationStackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigApplicationStack] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigApplicationStack]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppSiteConfigApplicationStackArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigApplicationStackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfigApplicationStack {
 		return vs[0].([]GetWindowsWebAppSiteConfigApplicationStack)[vs[1].(int)]
@@ -9822,6 +11455,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingArgs) ToGetWindowsWebAppSiteCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSetting] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSetting]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingArray and GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingArrayInput` via:
 //
@@ -9847,6 +11486,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingArray) ToGetWindowsWebAppSiteCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSetting] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSetting]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingOutput) ElementType() reflect.Type {
@@ -9859,6 +11504,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingOutput) ToGetWindowsWebAppSiteC
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSetting] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `action` block as defined above.
@@ -9887,6 +11538,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput) ToGetWindowsWebApp
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSetting] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingOutput {
@@ -9936,6 +11593,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingActionArgs) ToGetWindowsWebAppS
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingActionOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingAction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingAction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingActionArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingActionArray and GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingActionArrayInput` via:
 //
@@ -9961,6 +11624,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingActionArray) ToGetWindowsWebApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingAction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingAction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingActionOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingActionOutput) ElementType() reflect.Type {
@@ -9973,6 +11642,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingActionOutput) ToGetWindowsWebAp
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingActionOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingActionOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingActionOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingAction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The predefined action to be taken to an Auto Heal trigger.
@@ -10004,6 +11679,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput) ToGetWindows
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingAction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingActionArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingActionOutput {
@@ -10049,6 +11730,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs) ToGetWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArray and GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayInput` via:
 //
@@ -10074,6 +11761,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArray) ToGetW
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput) ElementType() reflect.Type {
@@ -10086,6 +11779,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput) ToGet
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The command run when this `autoHeal` action is triggered.
@@ -10110,6 +11809,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput) 
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionOutput {
@@ -10163,6 +11868,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerArgs) ToGetWindowsWebApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTrigger] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTrigger]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingTriggerArray and GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayInput` via:
 //
@@ -10188,6 +11899,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerArray) ToGetWindowsWebAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTrigger] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTrigger]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput) ElementType() reflect.Type {
@@ -10200,6 +11917,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput) ToGetWindowsWebA
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTrigger] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The amount of Private Memory used.
@@ -10240,6 +11963,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput) ToGetWindow
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTrigger] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingTriggerOutput {
@@ -10285,6 +12014,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArgs) ToGetWindow
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArray and GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayInput` via:
 //
@@ -10310,6 +12045,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArray) ToGetWindo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ElementType() reflect.Type {
@@ -10322,6 +12063,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ToGetWind
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
@@ -10346,6 +12093,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) ToGe
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestOutput {
@@ -10399,6 +12152,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs) ToGetWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray and GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayInput` via:
 //
@@ -10424,6 +12183,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray) ToGetW
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ElementType() reflect.Type {
@@ -10436,6 +12201,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ToGet
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
@@ -10470,6 +12241,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) 
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput {
@@ -10531,6 +12308,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ToGetWin
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput is an input type that accepts GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray and GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayInput` via:
 //
@@ -10556,6 +12339,12 @@ func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray) ToGetWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ElementType() reflect.Type {
@@ -10568,6 +12357,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ToGetW
 
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ToGetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
@@ -10614,6 +12409,12 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) T
 	return o
 }
 
+func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
 		return vs[0].([]GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode)[vs[1].(int)]
@@ -10657,6 +12458,12 @@ func (i GetWindowsWebAppSiteConfigCorArgs) ToGetWindowsWebAppSiteConfigCorOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigCorOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigCorArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigCor] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigCor]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigCorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigCorArrayInput is an input type that accepts GetWindowsWebAppSiteConfigCorArray and GetWindowsWebAppSiteConfigCorArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigCorArrayInput` via:
 //
@@ -10682,6 +12489,12 @@ func (i GetWindowsWebAppSiteConfigCorArray) ToGetWindowsWebAppSiteConfigCorArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigCorArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigCorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigCor] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigCor]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigCorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigCorOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigCorOutput) ElementType() reflect.Type {
@@ -10694,6 +12507,12 @@ func (o GetWindowsWebAppSiteConfigCorOutput) ToGetWindowsWebAppSiteConfigCorOutp
 
 func (o GetWindowsWebAppSiteConfigCorOutput) ToGetWindowsWebAppSiteConfigCorOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigCorOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigCorOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigCor] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigCor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `allowedOrigins` block as defined above.
@@ -10718,6 +12537,12 @@ func (o GetWindowsWebAppSiteConfigCorArrayOutput) ToGetWindowsWebAppSiteConfigCo
 
 func (o GetWindowsWebAppSiteConfigCorArrayOutput) ToGetWindowsWebAppSiteConfigCorArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigCorArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigCorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigCor] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigCor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigCorOutput {
@@ -10775,6 +12600,12 @@ func (i GetWindowsWebAppSiteConfigIpRestrictionArgs) ToGetWindowsWebAppSiteConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigIpRestrictionOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigIpRestriction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigIpRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigIpRestrictionArrayInput is an input type that accepts GetWindowsWebAppSiteConfigIpRestrictionArray and GetWindowsWebAppSiteConfigIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigIpRestrictionArrayInput` via:
 //
@@ -10800,6 +12631,12 @@ func (i GetWindowsWebAppSiteConfigIpRestrictionArray) ToGetWindowsWebAppSiteConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigIpRestrictionArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestriction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigIpRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
@@ -10812,6 +12649,12 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) ToGetWindowsWebAppSiteCon
 
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) ToGetWindowsWebAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigIpRestrictionOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigIpRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `action` block as defined above.
@@ -10861,6 +12704,12 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionArrayOutput) ToGetWindowsWebAppSi
 	return o
 }
 
+func (o GetWindowsWebAppSiteConfigIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfigIpRestriction {
 		return vs[0].([]GetWindowsWebAppSiteConfigIpRestriction)[vs[1].(int)]
@@ -10904,6 +12753,12 @@ func (i GetWindowsWebAppSiteConfigIpRestrictionHeaderArgs) ToGetWindowsWebAppSit
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigIpRestrictionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput is an input type that accepts GetWindowsWebAppSiteConfigIpRestrictionHeaderArray and GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput` via:
 //
@@ -10929,6 +12784,12 @@ func (i GetWindowsWebAppSiteConfigIpRestrictionHeaderArray) ToGetWindowsWebAppSi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigIpRestrictionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) ElementType() reflect.Type {
@@ -10941,6 +12802,12 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsWebAppS
 
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsWebAppSiteConfigIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -10971,6 +12838,12 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetWindowsWe
 
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToGetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput {
@@ -11028,6 +12901,12 @@ func (i GetWindowsWebAppSiteConfigScmIpRestrictionArgs) ToGetWindowsWebAppSiteCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigScmIpRestrictionOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigScmIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestriction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigScmIpRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetWindowsWebAppSiteConfigScmIpRestrictionArray and GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigScmIpRestrictionArrayInput` via:
 //
@@ -11053,6 +12932,12 @@ func (i GetWindowsWebAppSiteConfigScmIpRestrictionArray) ToGetWindowsWebAppSiteC
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigScmIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestriction]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
@@ -11065,6 +12950,12 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) ToGetWindowsWebAppSite
 
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) ToGetWindowsWebAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigScmIpRestrictionOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `action` block as defined above.
@@ -11114,6 +13005,12 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput) ToGetWindowsWebAp
 	return o
 }
 
+func (o GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestriction] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigScmIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsWebAppSiteConfigScmIpRestriction {
 		return vs[0].([]GetWindowsWebAppSiteConfigScmIpRestriction)[vs[1].(int)]
@@ -11157,6 +13054,12 @@ func (i GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArgs) ToGetWindowsWebApp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput is an input type that accepts GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArray and GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput` via:
 //
@@ -11182,6 +13085,12 @@ func (i GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArray) ToGetWindowsWebAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) ElementType() reflect.Type {
@@ -11194,6 +13103,12 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindowsWebA
 
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -11224,6 +13139,12 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetWindow
 
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToGetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestrictionHeader] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigScmIpRestrictionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput {
@@ -11277,6 +13198,12 @@ func (i GetWindowsWebAppSiteConfigVirtualApplicationArgs) ToGetWindowsWebAppSite
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigVirtualApplicationOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigVirtualApplicationArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplication] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplication]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigVirtualApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigVirtualApplicationArrayInput is an input type that accepts GetWindowsWebAppSiteConfigVirtualApplicationArray and GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigVirtualApplicationArrayInput` via:
 //
@@ -11302,6 +13229,12 @@ func (i GetWindowsWebAppSiteConfigVirtualApplicationArray) ToGetWindowsWebAppSit
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigVirtualApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplication] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplication]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigVirtualApplicationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigVirtualApplicationOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigVirtualApplicationOutput) ElementType() reflect.Type {
@@ -11314,6 +13247,12 @@ func (o GetWindowsWebAppSiteConfigVirtualApplicationOutput) ToGetWindowsWebAppSi
 
 func (o GetWindowsWebAppSiteConfigVirtualApplicationOutput) ToGetWindowsWebAppSiteConfigVirtualApplicationOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigVirtualApplicationOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigVirtualApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplication] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The path on disk to the Virtual Directory
@@ -11350,6 +13289,12 @@ func (o GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput) ToGetWindowsWeb
 
 func (o GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput) ToGetWindowsWebAppSiteConfigVirtualApplicationArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplication] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigVirtualApplicationArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigVirtualApplicationOutput {
@@ -11395,6 +13340,12 @@ func (i GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs) ToGetW
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayInput is an input type that accepts GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArray and GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayInput` via:
 //
@@ -11420,6 +13371,12 @@ func (i GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArray) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory]{
+		OutputState: i.ToGetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput) ElementType() reflect.Type {
@@ -11432,6 +13389,12 @@ func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput) ToGe
 
 func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput) ToGetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory] {
+	return pulumix.Output[GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The path on disk to the Virtual Directory
@@ -11456,6 +13419,12 @@ func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput)
 
 func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput) ToGetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory] {
+	return pulumix.Output[[]GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryOutput {
@@ -11501,6 +13470,12 @@ func (i GetWindowsWebAppSiteCredentialArgs) ToGetWindowsWebAppSiteCredentialOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteCredentialOutput)
 }
 
+func (i GetWindowsWebAppSiteCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteCredential] {
+	return pulumix.Output[GetWindowsWebAppSiteCredential]{
+		OutputState: i.ToGetWindowsWebAppSiteCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppSiteCredentialArrayInput is an input type that accepts GetWindowsWebAppSiteCredentialArray and GetWindowsWebAppSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppSiteCredentialArrayInput` via:
 //
@@ -11526,6 +13501,12 @@ func (i GetWindowsWebAppSiteCredentialArray) ToGetWindowsWebAppSiteCredentialArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppSiteCredentialArrayOutput)
 }
 
+func (i GetWindowsWebAppSiteCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteCredential] {
+	return pulumix.Output[[]GetWindowsWebAppSiteCredential]{
+		OutputState: i.ToGetWindowsWebAppSiteCredentialArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppSiteCredentialOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppSiteCredentialOutput) ElementType() reflect.Type {
@@ -11538,6 +13519,12 @@ func (o GetWindowsWebAppSiteCredentialOutput) ToGetWindowsWebAppSiteCredentialOu
 
 func (o GetWindowsWebAppSiteCredentialOutput) ToGetWindowsWebAppSiteCredentialOutputWithContext(ctx context.Context) GetWindowsWebAppSiteCredentialOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppSiteCredential] {
+	return pulumix.Output[GetWindowsWebAppSiteCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Windows Web App.
@@ -11562,6 +13549,12 @@ func (o GetWindowsWebAppSiteCredentialArrayOutput) ToGetWindowsWebAppSiteCredent
 
 func (o GetWindowsWebAppSiteCredentialArrayOutput) ToGetWindowsWebAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetWindowsWebAppSiteCredentialArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppSiteCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppSiteCredential] {
+	return pulumix.Output[[]GetWindowsWebAppSiteCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppSiteCredentialOutput {
@@ -11607,6 +13600,12 @@ func (i GetWindowsWebAppStickySettingArgs) ToGetWindowsWebAppStickySettingOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppStickySettingOutput)
 }
 
+func (i GetWindowsWebAppStickySettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppStickySetting] {
+	return pulumix.Output[GetWindowsWebAppStickySetting]{
+		OutputState: i.ToGetWindowsWebAppStickySettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppStickySettingArrayInput is an input type that accepts GetWindowsWebAppStickySettingArray and GetWindowsWebAppStickySettingArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppStickySettingArrayInput` via:
 //
@@ -11632,6 +13631,12 @@ func (i GetWindowsWebAppStickySettingArray) ToGetWindowsWebAppStickySettingArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppStickySettingArrayOutput)
 }
 
+func (i GetWindowsWebAppStickySettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppStickySetting] {
+	return pulumix.Output[[]GetWindowsWebAppStickySetting]{
+		OutputState: i.ToGetWindowsWebAppStickySettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppStickySettingOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppStickySettingOutput) ElementType() reflect.Type {
@@ -11644,6 +13649,12 @@ func (o GetWindowsWebAppStickySettingOutput) ToGetWindowsWebAppStickySettingOutp
 
 func (o GetWindowsWebAppStickySettingOutput) ToGetWindowsWebAppStickySettingOutputWithContext(ctx context.Context) GetWindowsWebAppStickySettingOutput {
 	return o
+}
+
+func (o GetWindowsWebAppStickySettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppStickySetting] {
+	return pulumix.Output[GetWindowsWebAppStickySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
@@ -11668,6 +13679,12 @@ func (o GetWindowsWebAppStickySettingArrayOutput) ToGetWindowsWebAppStickySettin
 
 func (o GetWindowsWebAppStickySettingArrayOutput) ToGetWindowsWebAppStickySettingArrayOutputWithContext(ctx context.Context) GetWindowsWebAppStickySettingArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppStickySettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppStickySetting] {
+	return pulumix.Output[[]GetWindowsWebAppStickySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppStickySettingArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppStickySettingOutput {
@@ -11729,6 +13746,12 @@ func (i GetWindowsWebAppStorageAccountArgs) ToGetWindowsWebAppStorageAccountOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppStorageAccountOutput)
 }
 
+func (i GetWindowsWebAppStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppStorageAccount] {
+	return pulumix.Output[GetWindowsWebAppStorageAccount]{
+		OutputState: i.ToGetWindowsWebAppStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWindowsWebAppStorageAccountArrayInput is an input type that accepts GetWindowsWebAppStorageAccountArray and GetWindowsWebAppStorageAccountArrayOutput values.
 // You can construct a concrete instance of `GetWindowsWebAppStorageAccountArrayInput` via:
 //
@@ -11754,6 +13777,12 @@ func (i GetWindowsWebAppStorageAccountArray) ToGetWindowsWebAppStorageAccountArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsWebAppStorageAccountArrayOutput)
 }
 
+func (i GetWindowsWebAppStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppStorageAccount] {
+	return pulumix.Output[[]GetWindowsWebAppStorageAccount]{
+		OutputState: i.ToGetWindowsWebAppStorageAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWindowsWebAppStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsWebAppStorageAccountOutput) ElementType() reflect.Type {
@@ -11766,6 +13795,12 @@ func (o GetWindowsWebAppStorageAccountOutput) ToGetWindowsWebAppStorageAccountOu
 
 func (o GetWindowsWebAppStorageAccountOutput) ToGetWindowsWebAppStorageAccountOutputWithContext(ctx context.Context) GetWindowsWebAppStorageAccountOutput {
 	return o
+}
+
+func (o GetWindowsWebAppStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsWebAppStorageAccount] {
+	return pulumix.Output[GetWindowsWebAppStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Access key for the storage account.
@@ -11810,6 +13845,12 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) ToGetWindowsWebAppStorageAcco
 
 func (o GetWindowsWebAppStorageAccountArrayOutput) ToGetWindowsWebAppStorageAccountArrayOutputWithContext(ctx context.Context) GetWindowsWebAppStorageAccountArrayOutput {
 	return o
+}
+
+func (o GetWindowsWebAppStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsWebAppStorageAccount] {
+	return pulumix.Output[[]GetWindowsWebAppStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetWindowsWebAppStorageAccountOutput {

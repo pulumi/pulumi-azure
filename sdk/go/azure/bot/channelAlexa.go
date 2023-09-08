@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Alexa integration for a Bot Channel
@@ -197,6 +198,12 @@ func (i *ChannelAlexa) ToChannelAlexaOutputWithContext(ctx context.Context) Chan
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaOutput)
 }
 
+func (i *ChannelAlexa) ToOutput(ctx context.Context) pulumix.Output[*ChannelAlexa] {
+	return pulumix.Output[*ChannelAlexa]{
+		OutputState: i.ToChannelAlexaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelAlexaArrayInput is an input type that accepts ChannelAlexaArray and ChannelAlexaArrayOutput values.
 // You can construct a concrete instance of `ChannelAlexaArrayInput` via:
 //
@@ -220,6 +227,12 @@ func (i ChannelAlexaArray) ToChannelAlexaArrayOutput() ChannelAlexaArrayOutput {
 
 func (i ChannelAlexaArray) ToChannelAlexaArrayOutputWithContext(ctx context.Context) ChannelAlexaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaArrayOutput)
+}
+
+func (i ChannelAlexaArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelAlexa] {
+	return pulumix.Output[[]*ChannelAlexa]{
+		OutputState: i.ToChannelAlexaArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ChannelAlexaMapInput is an input type that accepts ChannelAlexaMap and ChannelAlexaMapOutput values.
@@ -247,6 +260,12 @@ func (i ChannelAlexaMap) ToChannelAlexaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelAlexaMapOutput)
 }
 
+func (i ChannelAlexaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelAlexa] {
+	return pulumix.Output[map[string]*ChannelAlexa]{
+		OutputState: i.ToChannelAlexaMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelAlexaOutput struct{ *pulumi.OutputState }
 
 func (ChannelAlexaOutput) ElementType() reflect.Type {
@@ -259,6 +278,12 @@ func (o ChannelAlexaOutput) ToChannelAlexaOutput() ChannelAlexaOutput {
 
 func (o ChannelAlexaOutput) ToChannelAlexaOutputWithContext(ctx context.Context) ChannelAlexaOutput {
 	return o
+}
+
+func (o ChannelAlexaOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelAlexa] {
+	return pulumix.Output[*ChannelAlexa]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -295,6 +320,12 @@ func (o ChannelAlexaArrayOutput) ToChannelAlexaArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ChannelAlexaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelAlexa] {
+	return pulumix.Output[[]*ChannelAlexa]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelAlexaArrayOutput) Index(i pulumi.IntInput) ChannelAlexaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelAlexa {
 		return vs[0].([]*ChannelAlexa)[vs[1].(int)]
@@ -313,6 +344,12 @@ func (o ChannelAlexaMapOutput) ToChannelAlexaMapOutput() ChannelAlexaMapOutput {
 
 func (o ChannelAlexaMapOutput) ToChannelAlexaMapOutputWithContext(ctx context.Context) ChannelAlexaMapOutput {
 	return o
+}
+
+func (o ChannelAlexaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelAlexa] {
+	return pulumix.Output[map[string]*ChannelAlexa]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelAlexaMapOutput) MapIndex(k pulumi.StringInput) ChannelAlexaOutput {

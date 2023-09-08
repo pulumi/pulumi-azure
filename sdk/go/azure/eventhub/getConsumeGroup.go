@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
@@ -117,6 +118,12 @@ func (o GetConsumeGroupResultOutput) ToGetConsumeGroupResultOutput() GetConsumeG
 
 func (o GetConsumeGroupResultOutput) ToGetConsumeGroupResultOutputWithContext(ctx context.Context) GetConsumeGroupResultOutput {
 	return o
+}
+
+func (o GetConsumeGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConsumeGroupResult] {
+	return pulumix.Output[GetConsumeGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetConsumeGroupResultOutput) EventhubName() pulumi.StringOutput {

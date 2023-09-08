@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalSsoOutput)
 }
 
+func (i SpringCloudApiPortalSsoArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudApiPortalSso] {
+	return pulumix.Output[SpringCloudApiPortalSso]{
+		OutputState: i.ToSpringCloudApiPortalSsoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudApiPortalSsoArgs) ToSpringCloudApiPortalSsoPtrOutput() SpringCloudApiPortalSsoPtrOutput {
 	return i.ToSpringCloudApiPortalSsoPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *springCloudApiPortalSsoPtrType) ToSpringCloudApiPortalSsoPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalSsoPtrOutput)
 }
 
+func (i *springCloudApiPortalSsoPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApiPortalSso] {
+	return pulumix.Output[*SpringCloudApiPortalSso]{
+		OutputState: i.ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudApiPortalSsoOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudApiPortalSsoOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o SpringCloudApiPortalSsoOutput) ToSpringCloudApiPortalSsoPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudApiPortalSso) *SpringCloudApiPortalSso {
 		return &v
 	}).(SpringCloudApiPortalSsoPtrOutput)
+}
+
+func (o SpringCloudApiPortalSsoOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudApiPortalSso] {
+	return pulumix.Output[SpringCloudApiPortalSso]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The public identifier for the application.
@@ -155,6 +174,12 @@ func (o SpringCloudApiPortalSsoPtrOutput) ToSpringCloudApiPortalSsoPtrOutput() S
 
 func (o SpringCloudApiPortalSsoPtrOutput) ToSpringCloudApiPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudApiPortalSsoPtrOutput {
 	return o
+}
+
+func (o SpringCloudApiPortalSsoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApiPortalSso] {
+	return pulumix.Output[*SpringCloudApiPortalSso]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudApiPortalSsoPtrOutput) Elem() SpringCloudApiPortalSsoOutput {
@@ -256,6 +281,12 @@ func (i SpringCloudAppCustomPersistentDiskArgs) ToSpringCloudAppCustomPersistent
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCustomPersistentDiskOutput)
 }
 
+func (i SpringCloudAppCustomPersistentDiskArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppCustomPersistentDisk] {
+	return pulumix.Output[SpringCloudAppCustomPersistentDisk]{
+		OutputState: i.ToSpringCloudAppCustomPersistentDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudAppCustomPersistentDiskArrayInput is an input type that accepts SpringCloudAppCustomPersistentDiskArray and SpringCloudAppCustomPersistentDiskArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppCustomPersistentDiskArrayInput` via:
 //
@@ -281,6 +312,12 @@ func (i SpringCloudAppCustomPersistentDiskArray) ToSpringCloudAppCustomPersisten
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCustomPersistentDiskArrayOutput)
 }
 
+func (i SpringCloudAppCustomPersistentDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudAppCustomPersistentDisk] {
+	return pulumix.Output[[]SpringCloudAppCustomPersistentDisk]{
+		OutputState: i.ToSpringCloudAppCustomPersistentDiskArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudAppCustomPersistentDiskOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppCustomPersistentDiskOutput) ElementType() reflect.Type {
@@ -293,6 +330,12 @@ func (o SpringCloudAppCustomPersistentDiskOutput) ToSpringCloudAppCustomPersiste
 
 func (o SpringCloudAppCustomPersistentDiskOutput) ToSpringCloudAppCustomPersistentDiskOutputWithContext(ctx context.Context) SpringCloudAppCustomPersistentDiskOutput {
 	return o
+}
+
+func (o SpringCloudAppCustomPersistentDiskOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppCustomPersistentDisk] {
+	return pulumix.Output[SpringCloudAppCustomPersistentDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // These are the mount options for a persistent disk.
@@ -332,6 +375,12 @@ func (o SpringCloudAppCustomPersistentDiskArrayOutput) ToSpringCloudAppCustomPer
 
 func (o SpringCloudAppCustomPersistentDiskArrayOutput) ToSpringCloudAppCustomPersistentDiskArrayOutputWithContext(ctx context.Context) SpringCloudAppCustomPersistentDiskArrayOutput {
 	return o
+}
+
+func (o SpringCloudAppCustomPersistentDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudAppCustomPersistentDisk] {
+	return pulumix.Output[[]SpringCloudAppCustomPersistentDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudAppCustomPersistentDiskArrayOutput) Index(i pulumi.IntInput) SpringCloudAppCustomPersistentDiskOutput {
@@ -389,6 +438,12 @@ func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIdentityOutput)
 }
 
+func (i SpringCloudAppIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppIdentity] {
+	return pulumix.Output[SpringCloudAppIdentity]{
+		OutputState: i.ToSpringCloudAppIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityPtrOutput() SpringCloudAppIdentityPtrOutput {
 	return i.ToSpringCloudAppIdentityPtrOutputWithContext(context.Background())
 }
@@ -430,6 +485,12 @@ func (i *springCloudAppIdentityPtrType) ToSpringCloudAppIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIdentityPtrOutput)
 }
 
+func (i *springCloudAppIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppIdentity] {
+	return pulumix.Output[*SpringCloudAppIdentity]{
+		OutputState: i.ToSpringCloudAppIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudAppIdentityOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppIdentityOutput) ElementType() reflect.Type {
@@ -452,6 +513,12 @@ func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppIdentity) *SpringCloudAppIdentity {
 		return &v
 	}).(SpringCloudAppIdentityPtrOutput)
+}
+
+func (o SpringCloudAppIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppIdentity] {
+	return pulumix.Output[SpringCloudAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
@@ -488,6 +555,12 @@ func (o SpringCloudAppIdentityPtrOutput) ToSpringCloudAppIdentityPtrOutput() Spr
 
 func (o SpringCloudAppIdentityPtrOutput) ToSpringCloudAppIdentityPtrOutputWithContext(ctx context.Context) SpringCloudAppIdentityPtrOutput {
 	return o
+}
+
+func (o SpringCloudAppIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppIdentity] {
+	return pulumix.Output[*SpringCloudAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudAppIdentityPtrOutput) Elem() SpringCloudAppIdentityOutput {
@@ -591,6 +664,12 @@ func (i SpringCloudAppIngressSettingsArgs) ToSpringCloudAppIngressSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIngressSettingsOutput)
 }
 
+func (i SpringCloudAppIngressSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppIngressSettings] {
+	return pulumix.Output[SpringCloudAppIngressSettings]{
+		OutputState: i.ToSpringCloudAppIngressSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudAppIngressSettingsArgs) ToSpringCloudAppIngressSettingsPtrOutput() SpringCloudAppIngressSettingsPtrOutput {
 	return i.ToSpringCloudAppIngressSettingsPtrOutputWithContext(context.Background())
 }
@@ -632,6 +711,12 @@ func (i *springCloudAppIngressSettingsPtrType) ToSpringCloudAppIngressSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIngressSettingsPtrOutput)
 }
 
+func (i *springCloudAppIngressSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppIngressSettings] {
+	return pulumix.Output[*SpringCloudAppIngressSettings]{
+		OutputState: i.ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudAppIngressSettingsOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppIngressSettingsOutput) ElementType() reflect.Type {
@@ -654,6 +739,12 @@ func (o SpringCloudAppIngressSettingsOutput) ToSpringCloudAppIngressSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppIngressSettings) *SpringCloudAppIngressSettings {
 		return &v
 	}).(SpringCloudAppIngressSettingsPtrOutput)
+}
+
+func (o SpringCloudAppIngressSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppIngressSettings] {
+	return pulumix.Output[SpringCloudAppIngressSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
@@ -693,6 +784,12 @@ func (o SpringCloudAppIngressSettingsPtrOutput) ToSpringCloudAppIngressSettingsP
 
 func (o SpringCloudAppIngressSettingsPtrOutput) ToSpringCloudAppIngressSettingsPtrOutputWithContext(ctx context.Context) SpringCloudAppIngressSettingsPtrOutput {
 	return o
+}
+
+func (o SpringCloudAppIngressSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppIngressSettings] {
+	return pulumix.Output[*SpringCloudAppIngressSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudAppIngressSettingsPtrOutput) Elem() SpringCloudAppIngressSettingsOutput {
@@ -792,6 +889,12 @@ func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPersistentDiskOutput)
 }
 
+func (i SpringCloudAppPersistentDiskArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppPersistentDisk] {
+	return pulumix.Output[SpringCloudAppPersistentDisk]{
+		OutputState: i.ToSpringCloudAppPersistentDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudAppPersistentDiskArgs) ToSpringCloudAppPersistentDiskPtrOutput() SpringCloudAppPersistentDiskPtrOutput {
 	return i.ToSpringCloudAppPersistentDiskPtrOutputWithContext(context.Background())
 }
@@ -833,6 +936,12 @@ func (i *springCloudAppPersistentDiskPtrType) ToSpringCloudAppPersistentDiskPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPersistentDiskPtrOutput)
 }
 
+func (i *springCloudAppPersistentDiskPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppPersistentDisk] {
+	return pulumix.Output[*SpringCloudAppPersistentDisk]{
+		OutputState: i.ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudAppPersistentDiskOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppPersistentDiskOutput) ElementType() reflect.Type {
@@ -857,6 +966,12 @@ func (o SpringCloudAppPersistentDiskOutput) ToSpringCloudAppPersistentDiskPtrOut
 	}).(SpringCloudAppPersistentDiskPtrOutput)
 }
 
+func (o SpringCloudAppPersistentDiskOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudAppPersistentDisk] {
+	return pulumix.Output[SpringCloudAppPersistentDisk]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the mount path of the persistent disk. Defaults to `/persistent`.
 func (o SpringCloudAppPersistentDiskOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudAppPersistentDisk) *string { return v.MountPath }).(pulumi.StringPtrOutput)
@@ -879,6 +994,12 @@ func (o SpringCloudAppPersistentDiskPtrOutput) ToSpringCloudAppPersistentDiskPtr
 
 func (o SpringCloudAppPersistentDiskPtrOutput) ToSpringCloudAppPersistentDiskPtrOutputWithContext(ctx context.Context) SpringCloudAppPersistentDiskPtrOutput {
 	return o
+}
+
+func (o SpringCloudAppPersistentDiskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppPersistentDisk] {
+	return pulumix.Output[*SpringCloudAppPersistentDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudAppPersistentDiskPtrOutput) Elem() SpringCloudAppPersistentDiskOutput {
@@ -956,6 +1077,12 @@ func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaOu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentQuotaOutput)
 }
 
+func (i SpringCloudBuildDeploymentQuotaArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuildDeploymentQuota] {
+	return pulumix.Output[SpringCloudBuildDeploymentQuota]{
+		OutputState: i.ToSpringCloudBuildDeploymentQuotaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudBuildDeploymentQuotaArgs) ToSpringCloudBuildDeploymentQuotaPtrOutput() SpringCloudBuildDeploymentQuotaPtrOutput {
 	return i.ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(context.Background())
 }
@@ -997,6 +1124,12 @@ func (i *springCloudBuildDeploymentQuotaPtrType) ToSpringCloudBuildDeploymentQuo
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentQuotaPtrOutput)
 }
 
+func (i *springCloudBuildDeploymentQuotaPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildDeploymentQuota] {
+	return pulumix.Output[*SpringCloudBuildDeploymentQuota]{
+		OutputState: i.ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudBuildDeploymentQuotaOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuildDeploymentQuotaOutput) ElementType() reflect.Type {
@@ -1019,6 +1152,12 @@ func (o SpringCloudBuildDeploymentQuotaOutput) ToSpringCloudBuildDeploymentQuota
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudBuildDeploymentQuota) *SpringCloudBuildDeploymentQuota {
 		return &v
 	}).(SpringCloudBuildDeploymentQuotaPtrOutput)
+}
+
+func (o SpringCloudBuildDeploymentQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuildDeploymentQuota] {
+	return pulumix.Output[SpringCloudBuildDeploymentQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -1047,6 +1186,12 @@ func (o SpringCloudBuildDeploymentQuotaPtrOutput) ToSpringCloudBuildDeploymentQu
 
 func (o SpringCloudBuildDeploymentQuotaPtrOutput) ToSpringCloudBuildDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentQuotaPtrOutput {
 	return o
+}
+
+func (o SpringCloudBuildDeploymentQuotaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildDeploymentQuota] {
+	return pulumix.Output[*SpringCloudBuildDeploymentQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudBuildDeploymentQuotaPtrOutput) Elem() SpringCloudBuildDeploymentQuotaOutput {
@@ -1120,6 +1265,12 @@ func (i SpringCloudBuildPackBindingLaunchArgs) ToSpringCloudBuildPackBindingLaun
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildPackBindingLaunchOutput)
 }
 
+func (i SpringCloudBuildPackBindingLaunchArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuildPackBindingLaunch] {
+	return pulumix.Output[SpringCloudBuildPackBindingLaunch]{
+		OutputState: i.ToSpringCloudBuildPackBindingLaunchOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudBuildPackBindingLaunchArgs) ToSpringCloudBuildPackBindingLaunchPtrOutput() SpringCloudBuildPackBindingLaunchPtrOutput {
 	return i.ToSpringCloudBuildPackBindingLaunchPtrOutputWithContext(context.Background())
 }
@@ -1161,6 +1312,12 @@ func (i *springCloudBuildPackBindingLaunchPtrType) ToSpringCloudBuildPackBinding
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildPackBindingLaunchPtrOutput)
 }
 
+func (i *springCloudBuildPackBindingLaunchPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildPackBindingLaunch] {
+	return pulumix.Output[*SpringCloudBuildPackBindingLaunch]{
+		OutputState: i.ToSpringCloudBuildPackBindingLaunchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudBuildPackBindingLaunchOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuildPackBindingLaunchOutput) ElementType() reflect.Type {
@@ -1185,6 +1342,12 @@ func (o SpringCloudBuildPackBindingLaunchOutput) ToSpringCloudBuildPackBindingLa
 	}).(SpringCloudBuildPackBindingLaunchPtrOutput)
 }
 
+func (o SpringCloudBuildPackBindingLaunchOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuildPackBindingLaunch] {
+	return pulumix.Output[SpringCloudBuildPackBindingLaunch]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a map of non-sensitive properties for launchProperties.
 func (o SpringCloudBuildPackBindingLaunchOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpringCloudBuildPackBindingLaunch) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
@@ -1207,6 +1370,12 @@ func (o SpringCloudBuildPackBindingLaunchPtrOutput) ToSpringCloudBuildPackBindin
 
 func (o SpringCloudBuildPackBindingLaunchPtrOutput) ToSpringCloudBuildPackBindingLaunchPtrOutputWithContext(ctx context.Context) SpringCloudBuildPackBindingLaunchPtrOutput {
 	return o
+}
+
+func (o SpringCloudBuildPackBindingLaunchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildPackBindingLaunch] {
+	return pulumix.Output[*SpringCloudBuildPackBindingLaunch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudBuildPackBindingLaunchPtrOutput) Elem() SpringCloudBuildPackBindingLaunchOutput {
@@ -1276,6 +1445,12 @@ func (i SpringCloudBuilderBuildPackGroupArgs) ToSpringCloudBuilderBuildPackGroup
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderBuildPackGroupOutput)
 }
 
+func (i SpringCloudBuilderBuildPackGroupArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuilderBuildPackGroup] {
+	return pulumix.Output[SpringCloudBuilderBuildPackGroup]{
+		OutputState: i.ToSpringCloudBuilderBuildPackGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudBuilderBuildPackGroupArrayInput is an input type that accepts SpringCloudBuilderBuildPackGroupArray and SpringCloudBuilderBuildPackGroupArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuilderBuildPackGroupArrayInput` via:
 //
@@ -1301,6 +1476,12 @@ func (i SpringCloudBuilderBuildPackGroupArray) ToSpringCloudBuilderBuildPackGrou
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderBuildPackGroupArrayOutput)
 }
 
+func (i SpringCloudBuilderBuildPackGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudBuilderBuildPackGroup] {
+	return pulumix.Output[[]SpringCloudBuilderBuildPackGroup]{
+		OutputState: i.ToSpringCloudBuilderBuildPackGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudBuilderBuildPackGroupOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuilderBuildPackGroupOutput) ElementType() reflect.Type {
@@ -1313,6 +1494,12 @@ func (o SpringCloudBuilderBuildPackGroupOutput) ToSpringCloudBuilderBuildPackGro
 
 func (o SpringCloudBuilderBuildPackGroupOutput) ToSpringCloudBuilderBuildPackGroupOutputWithContext(ctx context.Context) SpringCloudBuilderBuildPackGroupOutput {
 	return o
+}
+
+func (o SpringCloudBuilderBuildPackGroupOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuilderBuildPackGroup] {
+	return pulumix.Output[SpringCloudBuilderBuildPackGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of the build pack's ID.
@@ -1337,6 +1524,12 @@ func (o SpringCloudBuilderBuildPackGroupArrayOutput) ToSpringCloudBuilderBuildPa
 
 func (o SpringCloudBuilderBuildPackGroupArrayOutput) ToSpringCloudBuilderBuildPackGroupArrayOutputWithContext(ctx context.Context) SpringCloudBuilderBuildPackGroupArrayOutput {
 	return o
+}
+
+func (o SpringCloudBuilderBuildPackGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudBuilderBuildPackGroup] {
+	return pulumix.Output[[]SpringCloudBuilderBuildPackGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudBuilderBuildPackGroupArrayOutput) Index(i pulumi.IntInput) SpringCloudBuilderBuildPackGroupOutput {
@@ -1382,6 +1575,12 @@ func (i SpringCloudBuilderStackArgs) ToSpringCloudBuilderStackOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderStackOutput)
 }
 
+func (i SpringCloudBuilderStackArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuilderStack] {
+	return pulumix.Output[SpringCloudBuilderStack]{
+		OutputState: i.ToSpringCloudBuilderStackOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudBuilderStackArgs) ToSpringCloudBuilderStackPtrOutput() SpringCloudBuilderStackPtrOutput {
 	return i.ToSpringCloudBuilderStackPtrOutputWithContext(context.Background())
 }
@@ -1423,6 +1622,12 @@ func (i *springCloudBuilderStackPtrType) ToSpringCloudBuilderStackPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderStackPtrOutput)
 }
 
+func (i *springCloudBuilderStackPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuilderStack] {
+	return pulumix.Output[*SpringCloudBuilderStack]{
+		OutputState: i.ToSpringCloudBuilderStackPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudBuilderStackOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuilderStackOutput) ElementType() reflect.Type {
@@ -1447,6 +1652,12 @@ func (o SpringCloudBuilderStackOutput) ToSpringCloudBuilderStackPtrOutputWithCon
 	}).(SpringCloudBuilderStackPtrOutput)
 }
 
+func (o SpringCloudBuilderStackOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudBuilderStack] {
+	return pulumix.Output[SpringCloudBuilderStack]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the ID of the ClusterStack.
 func (o SpringCloudBuilderStackOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudBuilderStack) string { return v.Id }).(pulumi.StringOutput)
@@ -1469,6 +1680,12 @@ func (o SpringCloudBuilderStackPtrOutput) ToSpringCloudBuilderStackPtrOutput() S
 
 func (o SpringCloudBuilderStackPtrOutput) ToSpringCloudBuilderStackPtrOutputWithContext(ctx context.Context) SpringCloudBuilderStackPtrOutput {
 	return o
+}
+
+func (o SpringCloudBuilderStackPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuilderStack] {
+	return pulumix.Output[*SpringCloudBuilderStack]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudBuilderStackPtrOutput) Elem() SpringCloudBuilderStackOutput {
@@ -1578,6 +1795,12 @@ func (i SpringCloudConfigurationServiceRepositoryArgs) ToSpringCloudConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConfigurationServiceRepositoryOutput)
 }
 
+func (i SpringCloudConfigurationServiceRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudConfigurationServiceRepository] {
+	return pulumix.Output[SpringCloudConfigurationServiceRepository]{
+		OutputState: i.ToSpringCloudConfigurationServiceRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudConfigurationServiceRepositoryArrayInput is an input type that accepts SpringCloudConfigurationServiceRepositoryArray and SpringCloudConfigurationServiceRepositoryArrayOutput values.
 // You can construct a concrete instance of `SpringCloudConfigurationServiceRepositoryArrayInput` via:
 //
@@ -1603,6 +1826,12 @@ func (i SpringCloudConfigurationServiceRepositoryArray) ToSpringCloudConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConfigurationServiceRepositoryArrayOutput)
 }
 
+func (i SpringCloudConfigurationServiceRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudConfigurationServiceRepository] {
+	return pulumix.Output[[]SpringCloudConfigurationServiceRepository]{
+		OutputState: i.ToSpringCloudConfigurationServiceRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudConfigurationServiceRepositoryOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudConfigurationServiceRepositoryOutput) ElementType() reflect.Type {
@@ -1615,6 +1844,12 @@ func (o SpringCloudConfigurationServiceRepositoryOutput) ToSpringCloudConfigurat
 
 func (o SpringCloudConfigurationServiceRepositoryOutput) ToSpringCloudConfigurationServiceRepositoryOutputWithContext(ctx context.Context) SpringCloudConfigurationServiceRepositoryOutput {
 	return o
+}
+
+func (o SpringCloudConfigurationServiceRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudConfigurationServiceRepository] {
+	return pulumix.Output[SpringCloudConfigurationServiceRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
@@ -1691,6 +1926,12 @@ func (o SpringCloudConfigurationServiceRepositoryArrayOutput) ToSpringCloudConfi
 	return o
 }
 
+func (o SpringCloudConfigurationServiceRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudConfigurationServiceRepository] {
+	return pulumix.Output[[]SpringCloudConfigurationServiceRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudConfigurationServiceRepositoryArrayOutput) Index(i pulumi.IntInput) SpringCloudConfigurationServiceRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudConfigurationServiceRepository {
 		return vs[0].([]SpringCloudConfigurationServiceRepository)[vs[1].(int)]
@@ -1754,6 +1995,12 @@ func (i SpringCloudConnectionAuthenticationArgs) ToSpringCloudConnectionAuthenti
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionAuthenticationOutput)
 }
 
+func (i SpringCloudConnectionAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudConnectionAuthentication] {
+	return pulumix.Output[SpringCloudConnectionAuthentication]{
+		OutputState: i.ToSpringCloudConnectionAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudConnectionAuthenticationArgs) ToSpringCloudConnectionAuthenticationPtrOutput() SpringCloudConnectionAuthenticationPtrOutput {
 	return i.ToSpringCloudConnectionAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -1795,6 +2042,12 @@ func (i *springCloudConnectionAuthenticationPtrType) ToSpringCloudConnectionAuth
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionAuthenticationPtrOutput)
 }
 
+func (i *springCloudConnectionAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConnectionAuthentication] {
+	return pulumix.Output[*SpringCloudConnectionAuthentication]{
+		OutputState: i.ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudConnectionAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudConnectionAuthenticationOutput) ElementType() reflect.Type {
@@ -1817,6 +2070,12 @@ func (o SpringCloudConnectionAuthenticationOutput) ToSpringCloudConnectionAuthen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudConnectionAuthentication) *SpringCloudConnectionAuthentication {
 		return &v
 	}).(SpringCloudConnectionAuthenticationPtrOutput)
+}
+
+func (o SpringCloudConnectionAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudConnectionAuthentication] {
+	return pulumix.Output[SpringCloudConnectionAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
@@ -1866,6 +2125,12 @@ func (o SpringCloudConnectionAuthenticationPtrOutput) ToSpringCloudConnectionAut
 
 func (o SpringCloudConnectionAuthenticationPtrOutput) ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationPtrOutput {
 	return o
+}
+
+func (o SpringCloudConnectionAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConnectionAuthentication] {
+	return pulumix.Output[*SpringCloudConnectionAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudConnectionAuthenticationPtrOutput) Elem() SpringCloudConnectionAuthenticationOutput {
@@ -1981,6 +2246,12 @@ func (i SpringCloudConnectionSecretStoreArgs) ToSpringCloudConnectionSecretStore
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionSecretStoreOutput)
 }
 
+func (i SpringCloudConnectionSecretStoreArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudConnectionSecretStore] {
+	return pulumix.Output[SpringCloudConnectionSecretStore]{
+		OutputState: i.ToSpringCloudConnectionSecretStoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudConnectionSecretStoreArgs) ToSpringCloudConnectionSecretStorePtrOutput() SpringCloudConnectionSecretStorePtrOutput {
 	return i.ToSpringCloudConnectionSecretStorePtrOutputWithContext(context.Background())
 }
@@ -2022,6 +2293,12 @@ func (i *springCloudConnectionSecretStorePtrType) ToSpringCloudConnectionSecretS
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionSecretStorePtrOutput)
 }
 
+func (i *springCloudConnectionSecretStorePtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConnectionSecretStore] {
+	return pulumix.Output[*SpringCloudConnectionSecretStore]{
+		OutputState: i.ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudConnectionSecretStoreOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudConnectionSecretStoreOutput) ElementType() reflect.Type {
@@ -2046,6 +2323,12 @@ func (o SpringCloudConnectionSecretStoreOutput) ToSpringCloudConnectionSecretSto
 	}).(SpringCloudConnectionSecretStorePtrOutput)
 }
 
+func (o SpringCloudConnectionSecretStoreOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudConnectionSecretStore] {
+	return pulumix.Output[SpringCloudConnectionSecretStore]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The key vault id to store secret.
 func (o SpringCloudConnectionSecretStoreOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudConnectionSecretStore) string { return v.KeyVaultId }).(pulumi.StringOutput)
@@ -2063,6 +2346,12 @@ func (o SpringCloudConnectionSecretStorePtrOutput) ToSpringCloudConnectionSecret
 
 func (o SpringCloudConnectionSecretStorePtrOutput) ToSpringCloudConnectionSecretStorePtrOutputWithContext(ctx context.Context) SpringCloudConnectionSecretStorePtrOutput {
 	return o
+}
+
+func (o SpringCloudConnectionSecretStorePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConnectionSecretStore] {
+	return pulumix.Output[*SpringCloudConnectionSecretStore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudConnectionSecretStorePtrOutput) Elem() SpringCloudConnectionSecretStoreOutput {
@@ -2130,6 +2419,12 @@ func (i SpringCloudContainerDeploymentQuotaArgs) ToSpringCloudContainerDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudContainerDeploymentQuotaOutput)
 }
 
+func (i SpringCloudContainerDeploymentQuotaArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudContainerDeploymentQuota] {
+	return pulumix.Output[SpringCloudContainerDeploymentQuota]{
+		OutputState: i.ToSpringCloudContainerDeploymentQuotaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudContainerDeploymentQuotaArgs) ToSpringCloudContainerDeploymentQuotaPtrOutput() SpringCloudContainerDeploymentQuotaPtrOutput {
 	return i.ToSpringCloudContainerDeploymentQuotaPtrOutputWithContext(context.Background())
 }
@@ -2171,6 +2466,12 @@ func (i *springCloudContainerDeploymentQuotaPtrType) ToSpringCloudContainerDeplo
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudContainerDeploymentQuotaPtrOutput)
 }
 
+func (i *springCloudContainerDeploymentQuotaPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudContainerDeploymentQuota] {
+	return pulumix.Output[*SpringCloudContainerDeploymentQuota]{
+		OutputState: i.ToSpringCloudContainerDeploymentQuotaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudContainerDeploymentQuotaOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudContainerDeploymentQuotaOutput) ElementType() reflect.Type {
@@ -2193,6 +2494,12 @@ func (o SpringCloudContainerDeploymentQuotaOutput) ToSpringCloudContainerDeploym
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudContainerDeploymentQuota) *SpringCloudContainerDeploymentQuota {
 		return &v
 	}).(SpringCloudContainerDeploymentQuotaPtrOutput)
+}
+
+func (o SpringCloudContainerDeploymentQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudContainerDeploymentQuota] {
+	return pulumix.Output[SpringCloudContainerDeploymentQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -2221,6 +2528,12 @@ func (o SpringCloudContainerDeploymentQuotaPtrOutput) ToSpringCloudContainerDepl
 
 func (o SpringCloudContainerDeploymentQuotaPtrOutput) ToSpringCloudContainerDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudContainerDeploymentQuotaPtrOutput {
 	return o
+}
+
+func (o SpringCloudContainerDeploymentQuotaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudContainerDeploymentQuota] {
+	return pulumix.Output[*SpringCloudContainerDeploymentQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudContainerDeploymentQuotaPtrOutput) Elem() SpringCloudContainerDeploymentQuotaOutput {
@@ -2318,6 +2631,12 @@ func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToSpringCloudCustomiz
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryOutput)
 }
 
+func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudCustomizedAcceleratorGitRepository] {
+	return pulumix.Output[SpringCloudCustomizedAcceleratorGitRepository]{
+		OutputState: i.ToSpringCloudCustomizedAcceleratorGitRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
 	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(context.Background())
 }
@@ -2359,6 +2678,12 @@ func (i *springCloudCustomizedAcceleratorGitRepositoryPtrType) ToSpringCloudCust
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput)
 }
 
+func (i *springCloudCustomizedAcceleratorGitRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepository] {
+	return pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepository]{
+		OutputState: i.ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudCustomizedAcceleratorGitRepositoryOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomizedAcceleratorGitRepositoryOutput) ElementType() reflect.Type {
@@ -2381,6 +2706,12 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToSpringCloudCustom
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepository {
 		return &v
 	}).(SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput)
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudCustomizedAcceleratorGitRepository] {
+	return pulumix.Output[SpringCloudCustomizedAcceleratorGitRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
@@ -2439,6 +2770,12 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) ToSpringCloudCus
 
 func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
 	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepository] {
+	return pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Elem() SpringCloudCustomizedAcceleratorGitRepositoryOutput {
@@ -2568,6 +2905,12 @@ func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToSpringClou
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput)
 }
 
+func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth] {
+	return pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth]{
+		OutputState: i.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
 	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(context.Background())
 }
@@ -2609,6 +2952,12 @@ func (i *springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType) ToSpring
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput)
 }
 
+func (i *springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth] {
+	return pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth]{
+		OutputState: i.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ElementType() reflect.Type {
@@ -2633,6 +2982,12 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ToSpringCl
 	}).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput)
 }
 
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth] {
+	return pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the password of git repository basic auth.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) string { return v.Password }).(pulumi.StringOutput)
@@ -2655,6 +3010,12 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) ToSprin
 
 func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
 	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth] {
+	return pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) Elem() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput {
@@ -2728,6 +3089,12 @@ func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToSpringCloudC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput)
 }
 
+func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositorySshAuth] {
+	return pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositorySshAuth]{
+		OutputState: i.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
 	return i.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(context.Background())
 }
@@ -2769,6 +3136,12 @@ func (i *springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType) ToSpringCl
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput)
 }
 
+func (i *springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositorySshAuth] {
+	return pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositorySshAuth]{
+		OutputState: i.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ElementType() reflect.Type {
@@ -2791,6 +3164,12 @@ func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ToSpringClou
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
 		return &v
 	}).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput)
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositorySshAuth] {
+	return pulumix.Output[SpringCloudCustomizedAcceleratorGitRepositorySshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Public SSH Key of git repository basic auth.
@@ -2820,6 +3199,12 @@ func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) ToSpringC
 
 func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
 	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositorySshAuth] {
+	return pulumix.Output[*SpringCloudCustomizedAcceleratorGitRepositorySshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) Elem() SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput {
@@ -2907,6 +3292,12 @@ func (i SpringCloudDevToolPortalSsoArgs) ToSpringCloudDevToolPortalSsoOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalSsoOutput)
 }
 
+func (i SpringCloudDevToolPortalSsoArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudDevToolPortalSso] {
+	return pulumix.Output[SpringCloudDevToolPortalSso]{
+		OutputState: i.ToSpringCloudDevToolPortalSsoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudDevToolPortalSsoArgs) ToSpringCloudDevToolPortalSsoPtrOutput() SpringCloudDevToolPortalSsoPtrOutput {
 	return i.ToSpringCloudDevToolPortalSsoPtrOutputWithContext(context.Background())
 }
@@ -2948,6 +3339,12 @@ func (i *springCloudDevToolPortalSsoPtrType) ToSpringCloudDevToolPortalSsoPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalSsoPtrOutput)
 }
 
+func (i *springCloudDevToolPortalSsoPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudDevToolPortalSso] {
+	return pulumix.Output[*SpringCloudDevToolPortalSso]{
+		OutputState: i.ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudDevToolPortalSsoOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudDevToolPortalSsoOutput) ElementType() reflect.Type {
@@ -2970,6 +3367,12 @@ func (o SpringCloudDevToolPortalSsoOutput) ToSpringCloudDevToolPortalSsoPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudDevToolPortalSso) *SpringCloudDevToolPortalSso {
 		return &v
 	}).(SpringCloudDevToolPortalSsoPtrOutput)
+}
+
+func (o SpringCloudDevToolPortalSsoOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudDevToolPortalSso] {
+	return pulumix.Output[SpringCloudDevToolPortalSso]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the public identifier for the application.
@@ -3004,6 +3407,12 @@ func (o SpringCloudDevToolPortalSsoPtrOutput) ToSpringCloudDevToolPortalSsoPtrOu
 
 func (o SpringCloudDevToolPortalSsoPtrOutput) ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoPtrOutput {
 	return o
+}
+
+func (o SpringCloudDevToolPortalSsoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudDevToolPortalSso] {
+	return pulumix.Output[*SpringCloudDevToolPortalSso]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudDevToolPortalSsoPtrOutput) Elem() SpringCloudDevToolPortalSsoOutput {
@@ -3105,6 +3514,12 @@ func (i SpringCloudGatewayApiMetadataArgs) ToSpringCloudGatewayApiMetadataOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayApiMetadataOutput)
 }
 
+func (i SpringCloudGatewayApiMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayApiMetadata] {
+	return pulumix.Output[SpringCloudGatewayApiMetadata]{
+		OutputState: i.ToSpringCloudGatewayApiMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudGatewayApiMetadataArgs) ToSpringCloudGatewayApiMetadataPtrOutput() SpringCloudGatewayApiMetadataPtrOutput {
 	return i.ToSpringCloudGatewayApiMetadataPtrOutputWithContext(context.Background())
 }
@@ -3146,6 +3561,12 @@ func (i *springCloudGatewayApiMetadataPtrType) ToSpringCloudGatewayApiMetadataPt
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayApiMetadataPtrOutput)
 }
 
+func (i *springCloudGatewayApiMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayApiMetadata] {
+	return pulumix.Output[*SpringCloudGatewayApiMetadata]{
+		OutputState: i.ToSpringCloudGatewayApiMetadataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayApiMetadataOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayApiMetadataOutput) ElementType() reflect.Type {
@@ -3168,6 +3589,12 @@ func (o SpringCloudGatewayApiMetadataOutput) ToSpringCloudGatewayApiMetadataPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayApiMetadata) *SpringCloudGatewayApiMetadata {
 		return &v
 	}).(SpringCloudGatewayApiMetadataPtrOutput)
+}
+
+func (o SpringCloudGatewayApiMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayApiMetadata] {
+	return pulumix.Output[SpringCloudGatewayApiMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Detailed description of the APIs available on the Gateway instance.
@@ -3207,6 +3634,12 @@ func (o SpringCloudGatewayApiMetadataPtrOutput) ToSpringCloudGatewayApiMetadataP
 
 func (o SpringCloudGatewayApiMetadataPtrOutput) ToSpringCloudGatewayApiMetadataPtrOutputWithContext(ctx context.Context) SpringCloudGatewayApiMetadataPtrOutput {
 	return o
+}
+
+func (o SpringCloudGatewayApiMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayApiMetadata] {
+	return pulumix.Output[*SpringCloudGatewayApiMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayApiMetadataPtrOutput) Elem() SpringCloudGatewayApiMetadataOutput {
@@ -3306,6 +3739,12 @@ func (i SpringCloudGatewayClientAuthorizationArgs) ToSpringCloudGatewayClientAut
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayClientAuthorizationOutput)
 }
 
+func (i SpringCloudGatewayClientAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayClientAuthorization] {
+	return pulumix.Output[SpringCloudGatewayClientAuthorization]{
+		OutputState: i.ToSpringCloudGatewayClientAuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudGatewayClientAuthorizationArgs) ToSpringCloudGatewayClientAuthorizationPtrOutput() SpringCloudGatewayClientAuthorizationPtrOutput {
 	return i.ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(context.Background())
 }
@@ -3347,6 +3786,12 @@ func (i *springCloudGatewayClientAuthorizationPtrType) ToSpringCloudGatewayClien
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayClientAuthorizationPtrOutput)
 }
 
+func (i *springCloudGatewayClientAuthorizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayClientAuthorization] {
+	return pulumix.Output[*SpringCloudGatewayClientAuthorization]{
+		OutputState: i.ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayClientAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayClientAuthorizationOutput) ElementType() reflect.Type {
@@ -3371,6 +3816,12 @@ func (o SpringCloudGatewayClientAuthorizationOutput) ToSpringCloudGatewayClientA
 	}).(SpringCloudGatewayClientAuthorizationPtrOutput)
 }
 
+func (o SpringCloudGatewayClientAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayClientAuthorization] {
+	return pulumix.Output[SpringCloudGatewayClientAuthorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
 func (o SpringCloudGatewayClientAuthorizationOutput) CertificateIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudGatewayClientAuthorization) []string { return v.CertificateIds }).(pulumi.StringArrayOutput)
@@ -3393,6 +3844,12 @@ func (o SpringCloudGatewayClientAuthorizationPtrOutput) ToSpringCloudGatewayClie
 
 func (o SpringCloudGatewayClientAuthorizationPtrOutput) ToSpringCloudGatewayClientAuthorizationPtrOutputWithContext(ctx context.Context) SpringCloudGatewayClientAuthorizationPtrOutput {
 	return o
+}
+
+func (o SpringCloudGatewayClientAuthorizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayClientAuthorization] {
+	return pulumix.Output[*SpringCloudGatewayClientAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayClientAuthorizationPtrOutput) Elem() SpringCloudGatewayClientAuthorizationOutput {
@@ -3482,6 +3939,12 @@ func (i SpringCloudGatewayCorsArgs) ToSpringCloudGatewayCorsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayCorsOutput)
 }
 
+func (i SpringCloudGatewayCorsArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayCors] {
+	return pulumix.Output[SpringCloudGatewayCors]{
+		OutputState: i.ToSpringCloudGatewayCorsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudGatewayCorsArgs) ToSpringCloudGatewayCorsPtrOutput() SpringCloudGatewayCorsPtrOutput {
 	return i.ToSpringCloudGatewayCorsPtrOutputWithContext(context.Background())
 }
@@ -3523,6 +3986,12 @@ func (i *springCloudGatewayCorsPtrType) ToSpringCloudGatewayCorsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayCorsPtrOutput)
 }
 
+func (i *springCloudGatewayCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayCors] {
+	return pulumix.Output[*SpringCloudGatewayCors]{
+		OutputState: i.ToSpringCloudGatewayCorsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayCorsOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayCorsOutput) ElementType() reflect.Type {
@@ -3545,6 +4014,12 @@ func (o SpringCloudGatewayCorsOutput) ToSpringCloudGatewayCorsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayCors) *SpringCloudGatewayCors {
 		return &v
 	}).(SpringCloudGatewayCorsPtrOutput)
+}
+
+func (o SpringCloudGatewayCorsOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayCors] {
+	return pulumix.Output[SpringCloudGatewayCors]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
@@ -3594,6 +4069,12 @@ func (o SpringCloudGatewayCorsPtrOutput) ToSpringCloudGatewayCorsPtrOutput() Spr
 
 func (o SpringCloudGatewayCorsPtrOutput) ToSpringCloudGatewayCorsPtrOutputWithContext(ctx context.Context) SpringCloudGatewayCorsPtrOutput {
 	return o
+}
+
+func (o SpringCloudGatewayCorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayCors] {
+	return pulumix.Output[*SpringCloudGatewayCors]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayCorsPtrOutput) Elem() SpringCloudGatewayCorsOutput {
@@ -3721,6 +4202,12 @@ func (i SpringCloudGatewayQuotaArgs) ToSpringCloudGatewayQuotaOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayQuotaOutput)
 }
 
+func (i SpringCloudGatewayQuotaArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayQuota] {
+	return pulumix.Output[SpringCloudGatewayQuota]{
+		OutputState: i.ToSpringCloudGatewayQuotaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudGatewayQuotaArgs) ToSpringCloudGatewayQuotaPtrOutput() SpringCloudGatewayQuotaPtrOutput {
 	return i.ToSpringCloudGatewayQuotaPtrOutputWithContext(context.Background())
 }
@@ -3762,6 +4249,12 @@ func (i *springCloudGatewayQuotaPtrType) ToSpringCloudGatewayQuotaPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayQuotaPtrOutput)
 }
 
+func (i *springCloudGatewayQuotaPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayQuota] {
+	return pulumix.Output[*SpringCloudGatewayQuota]{
+		OutputState: i.ToSpringCloudGatewayQuotaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayQuotaOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayQuotaOutput) ElementType() reflect.Type {
@@ -3784,6 +4277,12 @@ func (o SpringCloudGatewayQuotaOutput) ToSpringCloudGatewayQuotaPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayQuota) *SpringCloudGatewayQuota {
 		return &v
 	}).(SpringCloudGatewayQuotaPtrOutput)
+}
+
+func (o SpringCloudGatewayQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayQuota] {
+	return pulumix.Output[SpringCloudGatewayQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -3812,6 +4311,12 @@ func (o SpringCloudGatewayQuotaPtrOutput) ToSpringCloudGatewayQuotaPtrOutput() S
 
 func (o SpringCloudGatewayQuotaPtrOutput) ToSpringCloudGatewayQuotaPtrOutputWithContext(ctx context.Context) SpringCloudGatewayQuotaPtrOutput {
 	return o
+}
+
+func (o SpringCloudGatewayQuotaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayQuota] {
+	return pulumix.Output[*SpringCloudGatewayQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayQuotaPtrOutput) Elem() SpringCloudGatewayQuotaOutput {
@@ -3881,6 +4386,12 @@ func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToSpringCloudGatewayRouteConfi
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigOpenApiOutput)
 }
 
+func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayRouteConfigOpenApi] {
+	return pulumix.Output[SpringCloudGatewayRouteConfigOpenApi]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigOpenApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToSpringCloudGatewayRouteConfigOpenApiPtrOutput() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
 	return i.ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(context.Background())
 }
@@ -3922,6 +4433,12 @@ func (i *springCloudGatewayRouteConfigOpenApiPtrType) ToSpringCloudGatewayRouteC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
 }
 
+func (i *springCloudGatewayRouteConfigOpenApiPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayRouteConfigOpenApi] {
+	return pulumix.Output[*SpringCloudGatewayRouteConfigOpenApi]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayRouteConfigOpenApiOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayRouteConfigOpenApiOutput) ElementType() reflect.Type {
@@ -3946,6 +4463,12 @@ func (o SpringCloudGatewayRouteConfigOpenApiOutput) ToSpringCloudGatewayRouteCon
 	}).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
 }
 
+func (o SpringCloudGatewayRouteConfigOpenApiOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayRouteConfigOpenApi] {
+	return pulumix.Output[SpringCloudGatewayRouteConfigOpenApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The URI of OpenAPI specification.
 func (o SpringCloudGatewayRouteConfigOpenApiOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudGatewayRouteConfigOpenApi) *string { return v.Uri }).(pulumi.StringPtrOutput)
@@ -3963,6 +4486,12 @@ func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) ToSpringCloudGatewayRoute
 
 func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiPtrOutput {
 	return o
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayRouteConfigOpenApi] {
+	return pulumix.Output[*SpringCloudGatewayRouteConfigOpenApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) Elem() SpringCloudGatewayRouteConfigOpenApiOutput {
@@ -4050,6 +4579,12 @@ func (i SpringCloudGatewayRouteConfigRouteArgs) ToSpringCloudGatewayRouteConfigR
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigRouteOutput)
 }
 
+func (i SpringCloudGatewayRouteConfigRouteArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayRouteConfigRoute] {
+	return pulumix.Output[SpringCloudGatewayRouteConfigRoute]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudGatewayRouteConfigRouteArrayInput is an input type that accepts SpringCloudGatewayRouteConfigRouteArray and SpringCloudGatewayRouteConfigRouteArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayRouteConfigRouteArrayInput` via:
 //
@@ -4075,6 +4610,12 @@ func (i SpringCloudGatewayRouteConfigRouteArray) ToSpringCloudGatewayRouteConfig
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigRouteArrayOutput)
 }
 
+func (i SpringCloudGatewayRouteConfigRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudGatewayRouteConfigRoute] {
+	return pulumix.Output[[]SpringCloudGatewayRouteConfigRoute]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigRouteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayRouteConfigRouteOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayRouteConfigRouteOutput) ElementType() reflect.Type {
@@ -4087,6 +4628,12 @@ func (o SpringCloudGatewayRouteConfigRouteOutput) ToSpringCloudGatewayRouteConfi
 
 func (o SpringCloudGatewayRouteConfigRouteOutput) ToSpringCloudGatewayRouteConfigRouteOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigRouteOutput {
 	return o
+}
+
+func (o SpringCloudGatewayRouteConfigRouteOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewayRouteConfigRoute] {
+	return pulumix.Output[SpringCloudGatewayRouteConfigRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
@@ -4148,6 +4695,12 @@ func (o SpringCloudGatewayRouteConfigRouteArrayOutput) ToSpringCloudGatewayRoute
 	return o
 }
 
+func (o SpringCloudGatewayRouteConfigRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudGatewayRouteConfigRoute] {
+	return pulumix.Output[[]SpringCloudGatewayRouteConfigRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudGatewayRouteConfigRouteArrayOutput) Index(i pulumi.IntInput) SpringCloudGatewayRouteConfigRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudGatewayRouteConfigRoute {
 		return vs[0].([]SpringCloudGatewayRouteConfigRoute)[vs[1].(int)]
@@ -4199,6 +4752,12 @@ func (i SpringCloudGatewaySsoArgs) ToSpringCloudGatewaySsoOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewaySsoOutput)
 }
 
+func (i SpringCloudGatewaySsoArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewaySso] {
+	return pulumix.Output[SpringCloudGatewaySso]{
+		OutputState: i.ToSpringCloudGatewaySsoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudGatewaySsoArgs) ToSpringCloudGatewaySsoPtrOutput() SpringCloudGatewaySsoPtrOutput {
 	return i.ToSpringCloudGatewaySsoPtrOutputWithContext(context.Background())
 }
@@ -4240,6 +4799,12 @@ func (i *springCloudGatewaySsoPtrType) ToSpringCloudGatewaySsoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewaySsoPtrOutput)
 }
 
+func (i *springCloudGatewaySsoPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewaySso] {
+	return pulumix.Output[*SpringCloudGatewaySso]{
+		OutputState: i.ToSpringCloudGatewaySsoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewaySsoOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewaySsoOutput) ElementType() reflect.Type {
@@ -4262,6 +4827,12 @@ func (o SpringCloudGatewaySsoOutput) ToSpringCloudGatewaySsoPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewaySso) *SpringCloudGatewaySso {
 		return &v
 	}).(SpringCloudGatewaySsoPtrOutput)
+}
+
+func (o SpringCloudGatewaySsoOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudGatewaySso] {
+	return pulumix.Output[SpringCloudGatewaySso]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The public identifier for the application.
@@ -4296,6 +4867,12 @@ func (o SpringCloudGatewaySsoPtrOutput) ToSpringCloudGatewaySsoPtrOutput() Sprin
 
 func (o SpringCloudGatewaySsoPtrOutput) ToSpringCloudGatewaySsoPtrOutputWithContext(ctx context.Context) SpringCloudGatewaySsoPtrOutput {
 	return o
+}
+
+func (o SpringCloudGatewaySsoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewaySso] {
+	return pulumix.Output[*SpringCloudGatewaySso]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewaySsoPtrOutput) Elem() SpringCloudGatewaySsoOutput {
@@ -4393,6 +4970,12 @@ func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentQuotaOutput)
 }
 
+func (i SpringCloudJavaDeploymentQuotaArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudJavaDeploymentQuota] {
+	return pulumix.Output[SpringCloudJavaDeploymentQuota]{
+		OutputState: i.ToSpringCloudJavaDeploymentQuotaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaPtrOutput() SpringCloudJavaDeploymentQuotaPtrOutput {
 	return i.ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(context.Background())
 }
@@ -4434,6 +5017,12 @@ func (i *springCloudJavaDeploymentQuotaPtrType) ToSpringCloudJavaDeploymentQuota
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentQuotaPtrOutput)
 }
 
+func (i *springCloudJavaDeploymentQuotaPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudJavaDeploymentQuota] {
+	return pulumix.Output[*SpringCloudJavaDeploymentQuota]{
+		OutputState: i.ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudJavaDeploymentQuotaOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentQuotaOutput) ElementType() reflect.Type {
@@ -4456,6 +5045,12 @@ func (o SpringCloudJavaDeploymentQuotaOutput) ToSpringCloudJavaDeploymentQuotaPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudJavaDeploymentQuota) *SpringCloudJavaDeploymentQuota {
 		return &v
 	}).(SpringCloudJavaDeploymentQuotaPtrOutput)
+}
+
+func (o SpringCloudJavaDeploymentQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudJavaDeploymentQuota] {
+	return pulumix.Output[SpringCloudJavaDeploymentQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -4484,6 +5079,12 @@ func (o SpringCloudJavaDeploymentQuotaPtrOutput) ToSpringCloudJavaDeploymentQuot
 
 func (o SpringCloudJavaDeploymentQuotaPtrOutput) ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaPtrOutput {
 	return o
+}
+
+func (o SpringCloudJavaDeploymentQuotaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudJavaDeploymentQuota] {
+	return pulumix.Output[*SpringCloudJavaDeploymentQuota]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudJavaDeploymentQuotaPtrOutput) Elem() SpringCloudJavaDeploymentQuotaOutput {
@@ -4573,6 +5174,12 @@ func (i SpringCloudServiceConfigServerGitSettingArgs) ToSpringCloudServiceConfig
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSetting]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceConfigServerGitSettingArgs) ToSpringCloudServiceConfigServerGitSettingPtrOutput() SpringCloudServiceConfigServerGitSettingPtrOutput {
 	return i.ToSpringCloudServiceConfigServerGitSettingPtrOutputWithContext(context.Background())
 }
@@ -4614,6 +5221,12 @@ func (i *springCloudServiceConfigServerGitSettingPtrType) ToSpringCloudServiceCo
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingPtrOutput)
 }
 
+func (i *springCloudServiceConfigServerGitSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSetting]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceConfigServerGitSettingOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceConfigServerGitSettingOutput) ElementType() reflect.Type {
@@ -4636,6 +5249,12 @@ func (o SpringCloudServiceConfigServerGitSettingOutput) ToSpringCloudServiceConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSetting {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingPtrOutput)
+}
+
+func (o SpringCloudServiceConfigServerGitSettingOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `httpBasicAuth` block as defined below.
@@ -4686,6 +5305,12 @@ func (o SpringCloudServiceConfigServerGitSettingPtrOutput) ToSpringCloudServiceC
 
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) ToSpringCloudServiceConfigServerGitSettingPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingPtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceConfigServerGitSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingOutput {
@@ -4795,6 +5420,12 @@ func (i SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToSpringCloud
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToSpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput() SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput {
 	return i.ToSpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutputWithContext(context.Background())
 }
@@ -4836,6 +5467,12 @@ func (i *springCloudServiceConfigServerGitSettingHttpBasicAuthPtrType) ToSpringC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput)
 }
 
+func (i *springCloudServiceConfigServerGitSettingHttpBasicAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ElementType() reflect.Type {
@@ -4860,6 +5497,12 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToSpringClo
 	}).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput)
 }
 
+func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
@@ -4882,6 +5525,12 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) ToSpring
 
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) ToSpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
@@ -4971,6 +5620,12 @@ func (i SpringCloudServiceConfigServerGitSettingRepositoryArgs) ToSpringCloudSer
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingRepositoryOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudServiceConfigServerGitSettingRepositoryArrayInput is an input type that accepts SpringCloudServiceConfigServerGitSettingRepositoryArray and SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceConfigServerGitSettingRepositoryArrayInput` via:
 //
@@ -4996,6 +5651,12 @@ func (i SpringCloudServiceConfigServerGitSettingRepositoryArray) ToSpringCloudSe
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[[]SpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceConfigServerGitSettingRepositoryOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceConfigServerGitSettingRepositoryOutput) ElementType() reflect.Type {
@@ -5008,6 +5669,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) ToSpringCloudS
 
 func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) ToSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingRepositoryOutput {
 	return o
+}
+
+func (o SpringCloudServiceConfigServerGitSettingRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `httpBasicAuth` block as defined below.
@@ -5063,6 +5730,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ToSpringC
 	return o
 }
 
+func (o SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[[]SpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceConfigServerGitSettingRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudServiceConfigServerGitSettingRepository {
 		return vs[0].([]SpringCloudServiceConfigServerGitSettingRepository)[vs[1].(int)]
@@ -5106,6 +5779,12 @@ func (i SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToS
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput() SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput {
 	return i.ToSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutputWithContext(context.Background())
 }
@@ -5147,6 +5826,12 @@ func (i *springCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput)
 }
 
+func (i *springCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ElementType() reflect.Type {
@@ -5171,6 +5856,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) T
 	}).(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput)
 }
 
+func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
@@ -5193,6 +5884,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput
 
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) ToSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
@@ -5270,6 +5967,12 @@ func (i SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToSpringC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToSpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput() SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput {
 	return i.ToSpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutputWithContext(context.Background())
 }
@@ -5311,6 +6014,12 @@ func (i *springCloudServiceConfigServerGitSettingRepositorySshAuthPtrType) ToSpr
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput)
 }
 
+func (i *springCloudServiceConfigServerGitSettingRepositorySshAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ElementType() reflect.Type {
@@ -5333,6 +6042,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToSprin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput)
+}
+
+func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
@@ -5369,6 +6084,12 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) ToSp
 
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) ToSpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
@@ -5466,6 +6187,12 @@ func (i SpringCloudServiceConfigServerGitSettingSshAuthArgs) ToSpringCloudServic
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingSshAuthOutput)
 }
 
+func (i SpringCloudServiceConfigServerGitSettingSshAuthArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceConfigServerGitSettingSshAuthArgs) ToSpringCloudServiceConfigServerGitSettingSshAuthPtrOutput() SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput {
 	return i.ToSpringCloudServiceConfigServerGitSettingSshAuthPtrOutputWithContext(context.Background())
 }
@@ -5507,6 +6234,12 @@ func (i *springCloudServiceConfigServerGitSettingSshAuthPtrType) ToSpringCloudSe
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput)
 }
 
+func (i *springCloudServiceConfigServerGitSettingSshAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: i.ToSpringCloudServiceConfigServerGitSettingSshAuthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceConfigServerGitSettingSshAuthOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceConfigServerGitSettingSshAuthOutput) ElementType() reflect.Type {
@@ -5529,6 +6262,12 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthOutput) ToSpringCloudServ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceConfigServerGitSettingSshAuth) *SpringCloudServiceConfigServerGitSettingSshAuth {
 		return &v
 	}).(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput)
+}
+
+func (o SpringCloudServiceConfigServerGitSettingSshAuthOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[SpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
@@ -5563,6 +6302,12 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) ToSpringCloudS
 
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) ToSpringCloudServiceConfigServerGitSettingSshAuthPtrOutputWithContext(ctx context.Context) SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[*SpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) Elem() SpringCloudServiceConfigServerGitSettingSshAuthOutput {
@@ -5660,6 +6405,12 @@ func (i SpringCloudServiceContainerRegistryArgs) ToSpringCloudServiceContainerRe
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceContainerRegistryOutput)
 }
 
+func (i SpringCloudServiceContainerRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceContainerRegistry] {
+	return pulumix.Output[SpringCloudServiceContainerRegistry]{
+		OutputState: i.ToSpringCloudServiceContainerRegistryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudServiceContainerRegistryArrayInput is an input type that accepts SpringCloudServiceContainerRegistryArray and SpringCloudServiceContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceContainerRegistryArrayInput` via:
 //
@@ -5685,6 +6436,12 @@ func (i SpringCloudServiceContainerRegistryArray) ToSpringCloudServiceContainerR
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceContainerRegistryArrayOutput)
 }
 
+func (i SpringCloudServiceContainerRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudServiceContainerRegistry] {
+	return pulumix.Output[[]SpringCloudServiceContainerRegistry]{
+		OutputState: i.ToSpringCloudServiceContainerRegistryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceContainerRegistryOutput) ElementType() reflect.Type {
@@ -5697,6 +6454,12 @@ func (o SpringCloudServiceContainerRegistryOutput) ToSpringCloudServiceContainer
 
 func (o SpringCloudServiceContainerRegistryOutput) ToSpringCloudServiceContainerRegistryOutputWithContext(ctx context.Context) SpringCloudServiceContainerRegistryOutput {
 	return o
+}
+
+func (o SpringCloudServiceContainerRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceContainerRegistry] {
+	return pulumix.Output[SpringCloudServiceContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the container registry.
@@ -5731,6 +6494,12 @@ func (o SpringCloudServiceContainerRegistryArrayOutput) ToSpringCloudServiceCont
 
 func (o SpringCloudServiceContainerRegistryArrayOutput) ToSpringCloudServiceContainerRegistryArrayOutputWithContext(ctx context.Context) SpringCloudServiceContainerRegistryArrayOutput {
 	return o
+}
+
+func (o SpringCloudServiceContainerRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudServiceContainerRegistry] {
+	return pulumix.Output[[]SpringCloudServiceContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceContainerRegistryArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceContainerRegistryOutput {
@@ -5770,6 +6539,12 @@ func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBu
 
 func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBuildServiceOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceDefaultBuildServiceOutput)
+}
+
+func (i SpringCloudServiceDefaultBuildServiceArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceDefaultBuildService] {
+	return pulumix.Output[SpringCloudServiceDefaultBuildService]{
+		OutputState: i.ToSpringCloudServiceDefaultBuildServiceOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i SpringCloudServiceDefaultBuildServiceArgs) ToSpringCloudServiceDefaultBuildServicePtrOutput() SpringCloudServiceDefaultBuildServicePtrOutput {
@@ -5813,6 +6588,12 @@ func (i *springCloudServiceDefaultBuildServicePtrType) ToSpringCloudServiceDefau
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceDefaultBuildServicePtrOutput)
 }
 
+func (i *springCloudServiceDefaultBuildServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceDefaultBuildService] {
+	return pulumix.Output[*SpringCloudServiceDefaultBuildService]{
+		OutputState: i.ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceDefaultBuildServiceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceDefaultBuildServiceOutput) ElementType() reflect.Type {
@@ -5837,6 +6618,12 @@ func (o SpringCloudServiceDefaultBuildServiceOutput) ToSpringCloudServiceDefault
 	}).(SpringCloudServiceDefaultBuildServicePtrOutput)
 }
 
+func (o SpringCloudServiceDefaultBuildServiceOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceDefaultBuildService] {
+	return pulumix.Output[SpringCloudServiceDefaultBuildService]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the name of the container registry used in the default build service.
 func (o SpringCloudServiceDefaultBuildServiceOutput) ContainerRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceDefaultBuildService) *string { return v.ContainerRegistryName }).(pulumi.StringPtrOutput)
@@ -5854,6 +6641,12 @@ func (o SpringCloudServiceDefaultBuildServicePtrOutput) ToSpringCloudServiceDefa
 
 func (o SpringCloudServiceDefaultBuildServicePtrOutput) ToSpringCloudServiceDefaultBuildServicePtrOutputWithContext(ctx context.Context) SpringCloudServiceDefaultBuildServicePtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceDefaultBuildServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceDefaultBuildService] {
+	return pulumix.Output[*SpringCloudServiceDefaultBuildService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceDefaultBuildServicePtrOutput) Elem() SpringCloudServiceDefaultBuildServiceOutput {
@@ -5917,6 +6710,12 @@ func (i SpringCloudServiceMarketplaceArgs) ToSpringCloudServiceMarketplaceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMarketplaceOutput)
 }
 
+func (i SpringCloudServiceMarketplaceArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceMarketplace] {
+	return pulumix.Output[SpringCloudServiceMarketplace]{
+		OutputState: i.ToSpringCloudServiceMarketplaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceMarketplaceArgs) ToSpringCloudServiceMarketplacePtrOutput() SpringCloudServiceMarketplacePtrOutput {
 	return i.ToSpringCloudServiceMarketplacePtrOutputWithContext(context.Background())
 }
@@ -5958,6 +6757,12 @@ func (i *springCloudServiceMarketplacePtrType) ToSpringCloudServiceMarketplacePt
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMarketplacePtrOutput)
 }
 
+func (i *springCloudServiceMarketplacePtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceMarketplace] {
+	return pulumix.Output[*SpringCloudServiceMarketplace]{
+		OutputState: i.ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceMarketplaceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceMarketplaceOutput) ElementType() reflect.Type {
@@ -5980,6 +6785,12 @@ func (o SpringCloudServiceMarketplaceOutput) ToSpringCloudServiceMarketplacePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceMarketplace) *SpringCloudServiceMarketplace {
 		return &v
 	}).(SpringCloudServiceMarketplacePtrOutput)
+}
+
+func (o SpringCloudServiceMarketplaceOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceMarketplace] {
+	return pulumix.Output[SpringCloudServiceMarketplace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the plan ID of the 3rd Party Artifact that is being procured.
@@ -6009,6 +6820,12 @@ func (o SpringCloudServiceMarketplacePtrOutput) ToSpringCloudServiceMarketplaceP
 
 func (o SpringCloudServiceMarketplacePtrOutput) ToSpringCloudServiceMarketplacePtrOutputWithContext(ctx context.Context) SpringCloudServiceMarketplacePtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceMarketplacePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceMarketplace] {
+	return pulumix.Output[*SpringCloudServiceMarketplace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceMarketplacePtrOutput) Elem() SpringCloudServiceMarketplaceOutput {
@@ -6108,6 +6925,12 @@ func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceNetworkOutput)
 }
 
+func (i SpringCloudServiceNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceNetwork] {
+	return pulumix.Output[SpringCloudServiceNetwork]{
+		OutputState: i.ToSpringCloudServiceNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkPtrOutput() SpringCloudServiceNetworkPtrOutput {
 	return i.ToSpringCloudServiceNetworkPtrOutputWithContext(context.Background())
 }
@@ -6149,6 +6972,12 @@ func (i *springCloudServiceNetworkPtrType) ToSpringCloudServiceNetworkPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceNetworkPtrOutput)
 }
 
+func (i *springCloudServiceNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceNetwork] {
+	return pulumix.Output[*SpringCloudServiceNetwork]{
+		OutputState: i.ToSpringCloudServiceNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceNetworkOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceNetworkOutput) ElementType() reflect.Type {
@@ -6171,6 +7000,12 @@ func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudServiceNetwork) *SpringCloudServiceNetwork {
 		return &v
 	}).(SpringCloudServiceNetworkPtrOutput)
+}
+
+func (o SpringCloudServiceNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceNetwork] {
+	return pulumix.Output[SpringCloudServiceNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
@@ -6220,6 +7055,12 @@ func (o SpringCloudServiceNetworkPtrOutput) ToSpringCloudServiceNetworkPtrOutput
 
 func (o SpringCloudServiceNetworkPtrOutput) ToSpringCloudServiceNetworkPtrOutputWithContext(ctx context.Context) SpringCloudServiceNetworkPtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceNetwork] {
+	return pulumix.Output[*SpringCloudServiceNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceNetworkPtrOutput) Elem() SpringCloudServiceNetworkOutput {
@@ -6351,6 +7192,12 @@ func (i SpringCloudServiceRequiredNetworkTrafficRuleArgs) ToSpringCloudServiceRe
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceRequiredNetworkTrafficRuleOutput)
 }
 
+func (i SpringCloudServiceRequiredNetworkTrafficRuleArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[SpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: i.ToSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudServiceRequiredNetworkTrafficRuleArrayInput is an input type that accepts SpringCloudServiceRequiredNetworkTrafficRuleArray and SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceRequiredNetworkTrafficRuleArrayInput` via:
 //
@@ -6376,6 +7223,12 @@ func (i SpringCloudServiceRequiredNetworkTrafficRuleArray) ToSpringCloudServiceR
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput)
 }
 
+func (i SpringCloudServiceRequiredNetworkTrafficRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[[]SpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: i.ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceRequiredNetworkTrafficRuleOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceRequiredNetworkTrafficRuleOutput) ElementType() reflect.Type {
@@ -6388,6 +7241,12 @@ func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) ToSpringCloudService
 
 func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) ToSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx context.Context) SpringCloudServiceRequiredNetworkTrafficRuleOutput {
 	return o
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[SpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The direction of required traffic. Possible values are `Inbound`, `Outbound`.
@@ -6427,6 +7286,12 @@ func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToSpringCloudSe
 
 func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx context.Context) SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
 	return o
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[[]SpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceRequiredNetworkTrafficRuleOutput {
@@ -6472,6 +7337,12 @@ func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTraceOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceTraceOutput)
 }
 
+func (i SpringCloudServiceTraceArgs) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceTrace] {
+	return pulumix.Output[SpringCloudServiceTrace]{
+		OutputState: i.ToSpringCloudServiceTraceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTracePtrOutput() SpringCloudServiceTracePtrOutput {
 	return i.ToSpringCloudServiceTracePtrOutputWithContext(context.Background())
 }
@@ -6513,6 +7384,12 @@ func (i *springCloudServiceTracePtrType) ToSpringCloudServiceTracePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceTracePtrOutput)
 }
 
+func (i *springCloudServiceTracePtrType) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceTrace] {
+	return pulumix.Output[*SpringCloudServiceTrace]{
+		OutputState: i.ToSpringCloudServiceTracePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceTraceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceTraceOutput) ElementType() reflect.Type {
@@ -6537,6 +7414,12 @@ func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTracePtrOutputWithCon
 	}).(SpringCloudServiceTracePtrOutput)
 }
 
+func (o SpringCloudServiceTraceOutput) ToOutput(ctx context.Context) pulumix.Output[SpringCloudServiceTrace] {
+	return pulumix.Output[SpringCloudServiceTrace]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The connection string used for Application Insights.
 func (o SpringCloudServiceTraceOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceTrace) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
@@ -6559,6 +7442,12 @@ func (o SpringCloudServiceTracePtrOutput) ToSpringCloudServiceTracePtrOutput() S
 
 func (o SpringCloudServiceTracePtrOutput) ToSpringCloudServiceTracePtrOutputWithContext(ctx context.Context) SpringCloudServiceTracePtrOutput {
 	return o
+}
+
+func (o SpringCloudServiceTracePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudServiceTrace] {
+	return pulumix.Output[*SpringCloudServiceTrace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceTracePtrOutput) Elem() SpringCloudServiceTraceOutput {
@@ -6634,6 +7523,12 @@ func (i GetSpringCloudAppIdentityArgs) ToGetSpringCloudAppIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppIdentityOutput)
 }
 
+func (i GetSpringCloudAppIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudAppIdentity] {
+	return pulumix.Output[GetSpringCloudAppIdentity]{
+		OutputState: i.ToGetSpringCloudAppIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudAppIdentityArrayInput is an input type that accepts GetSpringCloudAppIdentityArray and GetSpringCloudAppIdentityArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudAppIdentityArrayInput` via:
 //
@@ -6659,6 +7554,12 @@ func (i GetSpringCloudAppIdentityArray) ToGetSpringCloudAppIdentityArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppIdentityArrayOutput)
 }
 
+func (i GetSpringCloudAppIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudAppIdentity] {
+	return pulumix.Output[[]GetSpringCloudAppIdentity]{
+		OutputState: i.ToGetSpringCloudAppIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudAppIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudAppIdentityOutput) ElementType() reflect.Type {
@@ -6671,6 +7572,12 @@ func (o GetSpringCloudAppIdentityOutput) ToGetSpringCloudAppIdentityOutput() Get
 
 func (o GetSpringCloudAppIdentityOutput) ToGetSpringCloudAppIdentityOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityOutput {
 	return o
+}
+
+func (o GetSpringCloudAppIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudAppIdentity] {
+	return pulumix.Output[GetSpringCloudAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -6704,6 +7611,12 @@ func (o GetSpringCloudAppIdentityArrayOutput) ToGetSpringCloudAppIdentityArrayOu
 
 func (o GetSpringCloudAppIdentityArrayOutput) ToGetSpringCloudAppIdentityArrayOutputWithContext(ctx context.Context) GetSpringCloudAppIdentityArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudAppIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudAppIdentity] {
+	return pulumix.Output[[]GetSpringCloudAppIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudAppIdentityArrayOutput) Index(i pulumi.IntInput) GetSpringCloudAppIdentityOutput {
@@ -6749,6 +7662,12 @@ func (i GetSpringCloudAppPersistentDiskArgs) ToGetSpringCloudAppPersistentDiskOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppPersistentDiskOutput)
 }
 
+func (i GetSpringCloudAppPersistentDiskArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudAppPersistentDisk] {
+	return pulumix.Output[GetSpringCloudAppPersistentDisk]{
+		OutputState: i.ToGetSpringCloudAppPersistentDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudAppPersistentDiskArrayInput is an input type that accepts GetSpringCloudAppPersistentDiskArray and GetSpringCloudAppPersistentDiskArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudAppPersistentDiskArrayInput` via:
 //
@@ -6774,6 +7693,12 @@ func (i GetSpringCloudAppPersistentDiskArray) ToGetSpringCloudAppPersistentDiskA
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudAppPersistentDiskArrayOutput)
 }
 
+func (i GetSpringCloudAppPersistentDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudAppPersistentDisk] {
+	return pulumix.Output[[]GetSpringCloudAppPersistentDisk]{
+		OutputState: i.ToGetSpringCloudAppPersistentDiskArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudAppPersistentDiskOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudAppPersistentDiskOutput) ElementType() reflect.Type {
@@ -6786,6 +7711,12 @@ func (o GetSpringCloudAppPersistentDiskOutput) ToGetSpringCloudAppPersistentDisk
 
 func (o GetSpringCloudAppPersistentDiskOutput) ToGetSpringCloudAppPersistentDiskOutputWithContext(ctx context.Context) GetSpringCloudAppPersistentDiskOutput {
 	return o
+}
+
+func (o GetSpringCloudAppPersistentDiskOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudAppPersistentDisk] {
+	return pulumix.Output[GetSpringCloudAppPersistentDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The mount path of the persistent disk.
@@ -6810,6 +7741,12 @@ func (o GetSpringCloudAppPersistentDiskArrayOutput) ToGetSpringCloudAppPersisten
 
 func (o GetSpringCloudAppPersistentDiskArrayOutput) ToGetSpringCloudAppPersistentDiskArrayOutputWithContext(ctx context.Context) GetSpringCloudAppPersistentDiskArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudAppPersistentDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudAppPersistentDisk] {
+	return pulumix.Output[[]GetSpringCloudAppPersistentDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudAppPersistentDiskArrayOutput) Index(i pulumi.IntInput) GetSpringCloudAppPersistentDiskOutput {
@@ -6871,6 +7808,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingArgs) ToGetSpringCloudService
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSetting]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceConfigServerGitSettingArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingArray and GetSpringCloudServiceConfigServerGitSettingArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingArrayInput` via:
 //
@@ -6896,6 +7839,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingArray) ToGetSpringCloudServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingArrayOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSetting]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceConfigServerGitSettingOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceConfigServerGitSettingOutput) ElementType() reflect.Type {
@@ -6908,6 +7857,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingOutput) ToGetSpringCloudServi
 
 func (o GetSpringCloudServiceConfigServerGitSettingOutput) ToGetSpringCloudServiceConfigServerGitSettingOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `httpBasicAuth` block as defined below.
@@ -6960,6 +7915,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) ToGetSpringCloud
 	return o
 }
 
+func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSetting] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSetting {
 		return vs[0].([]GetSpringCloudServiceConfigServerGitSetting)[vs[1].(int)]
@@ -7003,6 +7964,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToGetSprin
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray and GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput` via:
 //
@@ -7028,6 +7995,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray) ToGetSpri
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ElementType() reflect.Type {
@@ -7040,6 +8013,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToGetSpr
 
 func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password used to access the HTTP Basic Authentication Git repository server.
@@ -7064,6 +8043,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) ToG
 
 func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
@@ -7129,6 +8114,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArgs) ToGetSpringCl
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryArray and GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput` via:
 //
@@ -7154,6 +8145,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArray) ToGetSpringC
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceConfigServerGitSettingRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ElementType() reflect.Type {
@@ -7166,6 +8163,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ToGetSpring
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `httpBasicAuth` block as defined below.
@@ -7221,6 +8224,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ToGetS
 	return o
 }
 
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepository] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSettingRepository {
 		return vs[0].([]GetSpringCloudServiceConfigServerGitSettingRepository)[vs[1].(int)]
@@ -7264,6 +8273,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray and GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput` via:
 //
@@ -7289,6 +8304,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray)
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ElementType() reflect.Type {
@@ -7301,6 +8322,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password used to access the HTTP Basic Authentication Git repository server.
@@ -7325,6 +8352,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayO
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
@@ -7378,6 +8411,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToGetS
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray and GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput` via:
 //
@@ -7403,6 +8442,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ElementType() reflect.Type {
@@ -7415,6 +8460,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToGe
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The host key of the Git repository server.
@@ -7451,6 +8502,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput)
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
@@ -7504,6 +8561,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArgs) ToGetSpringCloud
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingSshAuthOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingSshAuthArray and GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput` via:
 //
@@ -7529,6 +8592,12 @@ func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArray) ToGetSpringClou
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput)
 }
 
+func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: i.ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceConfigServerGitSettingSshAuthOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ElementType() reflect.Type {
@@ -7541,6 +8610,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ToGetSpringClo
 
 func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[GetSpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The host key of the Git repository server.
@@ -7575,6 +8650,12 @@ func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) ToGetSpri
 
 func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingSshAuth] {
+	return pulumix.Output[[]GetSpringCloudServiceConfigServerGitSettingSshAuth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
@@ -7632,6 +8713,12 @@ func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArgs) ToGetSpringCloudSer
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceRequiredNetworkTrafficRuleOutput)
 }
 
+func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[GetSpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: i.ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput is an input type that accepts GetSpringCloudServiceRequiredNetworkTrafficRuleArray and GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput values.
 // You can construct a concrete instance of `GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput` via:
 //
@@ -7657,6 +8744,12 @@ func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArray) ToGetSpringCloudSe
 	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput)
 }
 
+func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[[]GetSpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: i.ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSpringCloudServiceRequiredNetworkTrafficRuleOutput struct{ *pulumi.OutputState }
 
 func (GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ElementType() reflect.Type {
@@ -7669,6 +8762,12 @@ func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ToGetSpringCloudS
 
 func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[GetSpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The direction of required traffic. Possible values are `Inbound`, `Outbound`.
@@ -7708,6 +8807,12 @@ func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToGetSpringC
 
 func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
 	return o
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSpringCloudServiceRequiredNetworkTrafficRule] {
+	return pulumix.Output[[]GetSpringCloudServiceRequiredNetworkTrafficRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {

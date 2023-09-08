@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Storage Table Entity.
@@ -117,6 +118,12 @@ func (o LookupTableEntityResultOutput) ToLookupTableEntityResultOutput() LookupT
 
 func (o LookupTableEntityResultOutput) ToLookupTableEntityResultOutputWithContext(ctx context.Context) LookupTableEntityResultOutput {
 	return o
+}
+
+func (o LookupTableEntityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTableEntityResult] {
+	return pulumix.Output[LookupTableEntityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of key/value pairs that describe the entity to be stored in the storage table.

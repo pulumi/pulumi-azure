@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a DateTime variable in Azure Automation
@@ -206,6 +207,12 @@ func (i *DateTimeVariable) ToDateTimeVariableOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DateTimeVariableOutput)
 }
 
+func (i *DateTimeVariable) ToOutput(ctx context.Context) pulumix.Output[*DateTimeVariable] {
+	return pulumix.Output[*DateTimeVariable]{
+		OutputState: i.ToDateTimeVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DateTimeVariableArrayInput is an input type that accepts DateTimeVariableArray and DateTimeVariableArrayOutput values.
 // You can construct a concrete instance of `DateTimeVariableArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i DateTimeVariableArray) ToDateTimeVariableArrayOutput() DateTimeVariableA
 
 func (i DateTimeVariableArray) ToDateTimeVariableArrayOutputWithContext(ctx context.Context) DateTimeVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DateTimeVariableArrayOutput)
+}
+
+func (i DateTimeVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*DateTimeVariable] {
+	return pulumix.Output[[]*DateTimeVariable]{
+		OutputState: i.ToDateTimeVariableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DateTimeVariableMapInput is an input type that accepts DateTimeVariableMap and DateTimeVariableMapOutput values.
@@ -256,6 +269,12 @@ func (i DateTimeVariableMap) ToDateTimeVariableMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DateTimeVariableMapOutput)
 }
 
+func (i DateTimeVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DateTimeVariable] {
+	return pulumix.Output[map[string]*DateTimeVariable]{
+		OutputState: i.ToDateTimeVariableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DateTimeVariableOutput struct{ *pulumi.OutputState }
 
 func (DateTimeVariableOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o DateTimeVariableOutput) ToDateTimeVariableOutput() DateTimeVariableOutpu
 
 func (o DateTimeVariableOutput) ToDateTimeVariableOutputWithContext(ctx context.Context) DateTimeVariableOutput {
 	return o
+}
+
+func (o DateTimeVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*DateTimeVariable] {
+	return pulumix.Output[*DateTimeVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -314,6 +339,12 @@ func (o DateTimeVariableArrayOutput) ToDateTimeVariableArrayOutputWithContext(ct
 	return o
 }
 
+func (o DateTimeVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DateTimeVariable] {
+	return pulumix.Output[[]*DateTimeVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DateTimeVariableArrayOutput) Index(i pulumi.IntInput) DateTimeVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DateTimeVariable {
 		return vs[0].([]*DateTimeVariable)[vs[1].(int)]
@@ -332,6 +363,12 @@ func (o DateTimeVariableMapOutput) ToDateTimeVariableMapOutput() DateTimeVariabl
 
 func (o DateTimeVariableMapOutput) ToDateTimeVariableMapOutputWithContext(ctx context.Context) DateTimeVariableMapOutput {
 	return o
+}
+
+func (o DateTimeVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DateTimeVariable] {
+	return pulumix.Output[map[string]*DateTimeVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DateTimeVariableMapOutput) MapIndex(k pulumi.StringInput) DateTimeVariableOutput {

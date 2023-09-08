@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Security Center Data Connector.
@@ -178,6 +179,12 @@ func (i *DataConnectorAzureSecurityCenter) ToDataConnectorAzureSecurityCenterOut
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureSecurityCenterOutput)
 }
 
+func (i *DataConnectorAzureSecurityCenter) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAzureSecurityCenter] {
+	return pulumix.Output[*DataConnectorAzureSecurityCenter]{
+		OutputState: i.ToDataConnectorAzureSecurityCenterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataConnectorAzureSecurityCenterArrayInput is an input type that accepts DataConnectorAzureSecurityCenterArray and DataConnectorAzureSecurityCenterArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAzureSecurityCenterArrayInput` via:
 //
@@ -201,6 +208,12 @@ func (i DataConnectorAzureSecurityCenterArray) ToDataConnectorAzureSecurityCente
 
 func (i DataConnectorAzureSecurityCenterArray) ToDataConnectorAzureSecurityCenterArrayOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureSecurityCenterArrayOutput)
+}
+
+func (i DataConnectorAzureSecurityCenterArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAzureSecurityCenter] {
+	return pulumix.Output[[]*DataConnectorAzureSecurityCenter]{
+		OutputState: i.ToDataConnectorAzureSecurityCenterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataConnectorAzureSecurityCenterMapInput is an input type that accepts DataConnectorAzureSecurityCenterMap and DataConnectorAzureSecurityCenterMapOutput values.
@@ -228,6 +241,12 @@ func (i DataConnectorAzureSecurityCenterMap) ToDataConnectorAzureSecurityCenterM
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureSecurityCenterMapOutput)
 }
 
+func (i DataConnectorAzureSecurityCenterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAzureSecurityCenter] {
+	return pulumix.Output[map[string]*DataConnectorAzureSecurityCenter]{
+		OutputState: i.ToDataConnectorAzureSecurityCenterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataConnectorAzureSecurityCenterOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureSecurityCenterOutput) ElementType() reflect.Type {
@@ -240,6 +259,12 @@ func (o DataConnectorAzureSecurityCenterOutput) ToDataConnectorAzureSecurityCent
 
 func (o DataConnectorAzureSecurityCenterOutput) ToDataConnectorAzureSecurityCenterOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterOutput {
 	return o
+}
+
+func (o DataConnectorAzureSecurityCenterOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAzureSecurityCenter] {
+	return pulumix.Output[*DataConnectorAzureSecurityCenter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace that this Azure Security Center Data Connector resides in. Changing this forces a new Azure Security Center Data Connector to be created.
@@ -271,6 +296,12 @@ func (o DataConnectorAzureSecurityCenterArrayOutput) ToDataConnectorAzureSecurit
 	return o
 }
 
+func (o DataConnectorAzureSecurityCenterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAzureSecurityCenter] {
+	return pulumix.Output[[]*DataConnectorAzureSecurityCenter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataConnectorAzureSecurityCenterArrayOutput) Index(i pulumi.IntInput) DataConnectorAzureSecurityCenterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAzureSecurityCenter {
 		return vs[0].([]*DataConnectorAzureSecurityCenter)[vs[1].(int)]
@@ -289,6 +320,12 @@ func (o DataConnectorAzureSecurityCenterMapOutput) ToDataConnectorAzureSecurityC
 
 func (o DataConnectorAzureSecurityCenterMapOutput) ToDataConnectorAzureSecurityCenterMapOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterMapOutput {
 	return o
+}
+
+func (o DataConnectorAzureSecurityCenterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAzureSecurityCenter] {
+	return pulumix.Output[map[string]*DataConnectorAzureSecurityCenter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataConnectorAzureSecurityCenterMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAzureSecurityCenterOutput {

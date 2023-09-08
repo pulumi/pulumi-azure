@@ -9,26 +9,6 @@ from subprocess import check_call
 
 
 VERSION = "0.0.0"
-PLUGIN_VERSION = "0.0.0"
-
-class InstallPluginCommand(install):
-    def run(self):
-        install.run(self)
-        try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'azure', PLUGIN_VERSION])
-        except OSError as error:
-            if error.errno == errno.ENOENT:
-                print(f"""
-                There was an error installing the azure resource provider plugin.
-                It looks like `pulumi` is not installed on your system.
-                Please visit https://pulumi.com/ to install the Pulumi CLI.
-                You may try manually installing the plugin by running
-                `pulumi plugin install resource azure {PLUGIN_VERSION}`
-                """)
-            else:
-                raise
-
-
 def readme():
     try:
         with open('README.md', encoding='utf-8') as f:
@@ -43,9 +23,6 @@ setup(name='pulumi_azure',
       description="A Pulumi package for creating and managing Microsoft Azure cloud resources, based on the Terraform azurerm provider. We recommend using the [Azure Native provider](https://github.com/pulumi/pulumi-azure-native) to provision Azure infrastructure. Azure Native provides complete coverage of Azure resources and same-day access to new resources and resource updates.",
       long_description=readme(),
       long_description_content_type='text/markdown',
-      cmdclass={
-          'install': InstallPluginCommand,
-      },
       keywords='pulumi azure',
       url='https://pulumi.io',
       project_urls={

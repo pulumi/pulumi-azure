@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Map.
@@ -223,6 +224,12 @@ func (i *IntegrationAccountMapResource) ToIntegrationAccountMapResourceOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapResourceOutput)
 }
 
+func (i *IntegrationAccountMapResource) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountMapResource] {
+	return pulumix.Output[*IntegrationAccountMapResource]{
+		OutputState: i.ToIntegrationAccountMapResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationAccountMapResourceArrayInput is an input type that accepts IntegrationAccountMapResourceArray and IntegrationAccountMapResourceArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountMapResourceArrayInput` via:
 //
@@ -246,6 +253,12 @@ func (i IntegrationAccountMapResourceArray) ToIntegrationAccountMapResourceArray
 
 func (i IntegrationAccountMapResourceArray) ToIntegrationAccountMapResourceArrayOutputWithContext(ctx context.Context) IntegrationAccountMapResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapResourceArrayOutput)
+}
+
+func (i IntegrationAccountMapResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountMapResource] {
+	return pulumix.Output[[]*IntegrationAccountMapResource]{
+		OutputState: i.ToIntegrationAccountMapResourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationAccountMapResourceMapInput is an input type that accepts IntegrationAccountMapResourceMap and IntegrationAccountMapResourceMapOutput values.
@@ -273,6 +286,12 @@ func (i IntegrationAccountMapResourceMap) ToIntegrationAccountMapResourceMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapResourceMapOutput)
 }
 
+func (i IntegrationAccountMapResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountMapResource] {
+	return pulumix.Output[map[string]*IntegrationAccountMapResource]{
+		OutputState: i.ToIntegrationAccountMapResourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationAccountMapResourceOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapResourceOutput) ElementType() reflect.Type {
@@ -285,6 +304,12 @@ func (o IntegrationAccountMapResourceOutput) ToIntegrationAccountMapResourceOutp
 
 func (o IntegrationAccountMapResourceOutput) ToIntegrationAccountMapResourceOutputWithContext(ctx context.Context) IntegrationAccountMapResourceOutput {
 	return o
+}
+
+func (o IntegrationAccountMapResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountMapResource] {
+	return pulumix.Output[*IntegrationAccountMapResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The content of the Logic App Integration Account Map.
@@ -331,6 +356,12 @@ func (o IntegrationAccountMapResourceArrayOutput) ToIntegrationAccountMapResourc
 	return o
 }
 
+func (o IntegrationAccountMapResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountMapResource] {
+	return pulumix.Output[[]*IntegrationAccountMapResource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationAccountMapResourceArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMapResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountMapResource {
 		return vs[0].([]*IntegrationAccountMapResource)[vs[1].(int)]
@@ -349,6 +380,12 @@ func (o IntegrationAccountMapResourceMapOutput) ToIntegrationAccountMapResourceM
 
 func (o IntegrationAccountMapResourceMapOutput) ToIntegrationAccountMapResourceMapOutputWithContext(ctx context.Context) IntegrationAccountMapResourceMapOutput {
 	return o
+}
+
+func (o IntegrationAccountMapResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountMapResource] {
+	return pulumix.Output[map[string]*IntegrationAccountMapResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationAccountMapResourceMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountMapResourceOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
@@ -241,6 +242,12 @@ func (i *FlexibleServerActiveDirectoryAdministrator) ToFlexibleServerActiveDirec
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerActiveDirectoryAdministratorOutput)
 }
 
+func (i *FlexibleServerActiveDirectoryAdministrator) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerActiveDirectoryAdministrator] {
+	return pulumix.Output[*FlexibleServerActiveDirectoryAdministrator]{
+		OutputState: i.ToFlexibleServerActiveDirectoryAdministratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FlexibleServerActiveDirectoryAdministratorArrayInput is an input type that accepts FlexibleServerActiveDirectoryAdministratorArray and FlexibleServerActiveDirectoryAdministratorArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerActiveDirectoryAdministratorArrayInput` via:
 //
@@ -264,6 +271,12 @@ func (i FlexibleServerActiveDirectoryAdministratorArray) ToFlexibleServerActiveD
 
 func (i FlexibleServerActiveDirectoryAdministratorArray) ToFlexibleServerActiveDirectoryAdministratorArrayOutputWithContext(ctx context.Context) FlexibleServerActiveDirectoryAdministratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerActiveDirectoryAdministratorArrayOutput)
+}
+
+func (i FlexibleServerActiveDirectoryAdministratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerActiveDirectoryAdministrator] {
+	return pulumix.Output[[]*FlexibleServerActiveDirectoryAdministrator]{
+		OutputState: i.ToFlexibleServerActiveDirectoryAdministratorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FlexibleServerActiveDirectoryAdministratorMapInput is an input type that accepts FlexibleServerActiveDirectoryAdministratorMap and FlexibleServerActiveDirectoryAdministratorMapOutput values.
@@ -291,6 +304,12 @@ func (i FlexibleServerActiveDirectoryAdministratorMap) ToFlexibleServerActiveDir
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerActiveDirectoryAdministratorMapOutput)
 }
 
+func (i FlexibleServerActiveDirectoryAdministratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministrator] {
+	return pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministrator]{
+		OutputState: i.ToFlexibleServerActiveDirectoryAdministratorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerActiveDirectoryAdministratorOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
@@ -303,6 +322,12 @@ func (o FlexibleServerActiveDirectoryAdministratorOutput) ToFlexibleServerActive
 
 func (o FlexibleServerActiveDirectoryAdministratorOutput) ToFlexibleServerActiveDirectoryAdministratorOutputWithContext(ctx context.Context) FlexibleServerActiveDirectoryAdministratorOutput {
 	return o
+}
+
+func (o FlexibleServerActiveDirectoryAdministratorOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerActiveDirectoryAdministrator] {
+	return pulumix.Output[*FlexibleServerActiveDirectoryAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
@@ -349,6 +374,12 @@ func (o FlexibleServerActiveDirectoryAdministratorArrayOutput) ToFlexibleServerA
 	return o
 }
 
+func (o FlexibleServerActiveDirectoryAdministratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerActiveDirectoryAdministrator] {
+	return pulumix.Output[[]*FlexibleServerActiveDirectoryAdministrator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlexibleServerActiveDirectoryAdministratorArrayOutput) Index(i pulumi.IntInput) FlexibleServerActiveDirectoryAdministratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServerActiveDirectoryAdministrator {
 		return vs[0].([]*FlexibleServerActiveDirectoryAdministrator)[vs[1].(int)]
@@ -367,6 +398,12 @@ func (o FlexibleServerActiveDirectoryAdministratorMapOutput) ToFlexibleServerAct
 
 func (o FlexibleServerActiveDirectoryAdministratorMapOutput) ToFlexibleServerActiveDirectoryAdministratorMapOutputWithContext(ctx context.Context) FlexibleServerActiveDirectoryAdministratorMapOutput {
 	return o
+}
+
+func (o FlexibleServerActiveDirectoryAdministratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministrator] {
+	return pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerActiveDirectoryAdministratorMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerActiveDirectoryAdministratorOutput {

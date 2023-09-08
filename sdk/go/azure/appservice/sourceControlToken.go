@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -179,6 +180,12 @@ func (i *SourceControlToken) ToSourceControlTokenOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlTokenOutput)
 }
 
+func (i *SourceControlToken) ToOutput(ctx context.Context) pulumix.Output[*SourceControlToken] {
+	return pulumix.Output[*SourceControlToken]{
+		OutputState: i.ToSourceControlTokenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SourceControlTokenArrayInput is an input type that accepts SourceControlTokenArray and SourceControlTokenArrayOutput values.
 // You can construct a concrete instance of `SourceControlTokenArrayInput` via:
 //
@@ -202,6 +209,12 @@ func (i SourceControlTokenArray) ToSourceControlTokenArrayOutput() SourceControl
 
 func (i SourceControlTokenArray) ToSourceControlTokenArrayOutputWithContext(ctx context.Context) SourceControlTokenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlTokenArrayOutput)
+}
+
+func (i SourceControlTokenArray) ToOutput(ctx context.Context) pulumix.Output[[]*SourceControlToken] {
+	return pulumix.Output[[]*SourceControlToken]{
+		OutputState: i.ToSourceControlTokenArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SourceControlTokenMapInput is an input type that accepts SourceControlTokenMap and SourceControlTokenMapOutput values.
@@ -229,6 +242,12 @@ func (i SourceControlTokenMap) ToSourceControlTokenMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlTokenMapOutput)
 }
 
+func (i SourceControlTokenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceControlToken] {
+	return pulumix.Output[map[string]*SourceControlToken]{
+		OutputState: i.ToSourceControlTokenMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SourceControlTokenOutput struct{ *pulumi.OutputState }
 
 func (SourceControlTokenOutput) ElementType() reflect.Type {
@@ -241,6 +260,12 @@ func (o SourceControlTokenOutput) ToSourceControlTokenOutput() SourceControlToke
 
 func (o SourceControlTokenOutput) ToSourceControlTokenOutputWithContext(ctx context.Context) SourceControlTokenOutput {
 	return o
+}
+
+func (o SourceControlTokenOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceControlToken] {
+	return pulumix.Output[*SourceControlToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Access Token.
@@ -274,6 +299,12 @@ func (o SourceControlTokenArrayOutput) ToSourceControlTokenArrayOutputWithContex
 	return o
 }
 
+func (o SourceControlTokenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SourceControlToken] {
+	return pulumix.Output[[]*SourceControlToken]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SourceControlTokenArrayOutput) Index(i pulumi.IntInput) SourceControlTokenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceControlToken {
 		return vs[0].([]*SourceControlToken)[vs[1].(int)]
@@ -292,6 +323,12 @@ func (o SourceControlTokenMapOutput) ToSourceControlTokenMapOutput() SourceContr
 
 func (o SourceControlTokenMapOutput) ToSourceControlTokenMapOutputWithContext(ctx context.Context) SourceControlTokenMapOutput {
 	return o
+}
+
+func (o SourceControlTokenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceControlToken] {
+	return pulumix.Output[map[string]*SourceControlToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SourceControlTokenMapOutput) MapIndex(k pulumi.StringInput) SourceControlTokenOutput {

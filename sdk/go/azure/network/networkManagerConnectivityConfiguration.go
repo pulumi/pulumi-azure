@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Connectivity Configuration.
@@ -270,6 +271,12 @@ func (i *NetworkManagerConnectivityConfiguration) ToNetworkManagerConnectivityCo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerConnectivityConfigurationOutput)
 }
 
+func (i *NetworkManagerConnectivityConfiguration) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerConnectivityConfiguration] {
+	return pulumix.Output[*NetworkManagerConnectivityConfiguration]{
+		OutputState: i.ToNetworkManagerConnectivityConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkManagerConnectivityConfigurationArrayInput is an input type that accepts NetworkManagerConnectivityConfigurationArray and NetworkManagerConnectivityConfigurationArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerConnectivityConfigurationArrayInput` via:
 //
@@ -293,6 +300,12 @@ func (i NetworkManagerConnectivityConfigurationArray) ToNetworkManagerConnectivi
 
 func (i NetworkManagerConnectivityConfigurationArray) ToNetworkManagerConnectivityConfigurationArrayOutputWithContext(ctx context.Context) NetworkManagerConnectivityConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerConnectivityConfigurationArrayOutput)
+}
+
+func (i NetworkManagerConnectivityConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerConnectivityConfiguration] {
+	return pulumix.Output[[]*NetworkManagerConnectivityConfiguration]{
+		OutputState: i.ToNetworkManagerConnectivityConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkManagerConnectivityConfigurationMapInput is an input type that accepts NetworkManagerConnectivityConfigurationMap and NetworkManagerConnectivityConfigurationMapOutput values.
@@ -320,6 +333,12 @@ func (i NetworkManagerConnectivityConfigurationMap) ToNetworkManagerConnectivity
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerConnectivityConfigurationMapOutput)
 }
 
+func (i NetworkManagerConnectivityConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerConnectivityConfiguration] {
+	return pulumix.Output[map[string]*NetworkManagerConnectivityConfiguration]{
+		OutputState: i.ToNetworkManagerConnectivityConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkManagerConnectivityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerConnectivityConfigurationOutput) ElementType() reflect.Type {
@@ -332,6 +351,12 @@ func (o NetworkManagerConnectivityConfigurationOutput) ToNetworkManagerConnectiv
 
 func (o NetworkManagerConnectivityConfigurationOutput) ToNetworkManagerConnectivityConfigurationOutputWithContext(ctx context.Context) NetworkManagerConnectivityConfigurationOutput {
 	return o
+}
+
+func (o NetworkManagerConnectivityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerConnectivityConfiguration] {
+	return pulumix.Output[*NetworkManagerConnectivityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `appliesToGroup` block as defined below.
@@ -394,6 +419,12 @@ func (o NetworkManagerConnectivityConfigurationArrayOutput) ToNetworkManagerConn
 	return o
 }
 
+func (o NetworkManagerConnectivityConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerConnectivityConfiguration] {
+	return pulumix.Output[[]*NetworkManagerConnectivityConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkManagerConnectivityConfigurationArrayOutput) Index(i pulumi.IntInput) NetworkManagerConnectivityConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerConnectivityConfiguration {
 		return vs[0].([]*NetworkManagerConnectivityConfiguration)[vs[1].(int)]
@@ -412,6 +443,12 @@ func (o NetworkManagerConnectivityConfigurationMapOutput) ToNetworkManagerConnec
 
 func (o NetworkManagerConnectivityConfigurationMapOutput) ToNetworkManagerConnectivityConfigurationMapOutputWithContext(ctx context.Context) NetworkManagerConnectivityConfigurationMapOutput {
 	return o
+}
+
+func (o NetworkManagerConnectivityConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerConnectivityConfiguration] {
+	return pulumix.Output[map[string]*NetworkManagerConnectivityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkManagerConnectivityConfigurationMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerConnectivityConfigurationOutput {

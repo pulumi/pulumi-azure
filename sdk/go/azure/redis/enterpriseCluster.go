@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Redis Enterprise Cluster.
@@ -214,6 +215,12 @@ func (i *EnterpriseCluster) ToEnterpriseClusterOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseClusterOutput)
 }
 
+func (i *EnterpriseCluster) ToOutput(ctx context.Context) pulumix.Output[*EnterpriseCluster] {
+	return pulumix.Output[*EnterpriseCluster]{
+		OutputState: i.ToEnterpriseClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnterpriseClusterArrayInput is an input type that accepts EnterpriseClusterArray and EnterpriseClusterArrayOutput values.
 // You can construct a concrete instance of `EnterpriseClusterArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i EnterpriseClusterArray) ToEnterpriseClusterArrayOutput() EnterpriseClust
 
 func (i EnterpriseClusterArray) ToEnterpriseClusterArrayOutputWithContext(ctx context.Context) EnterpriseClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseClusterArrayOutput)
+}
+
+func (i EnterpriseClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnterpriseCluster] {
+	return pulumix.Output[[]*EnterpriseCluster]{
+		OutputState: i.ToEnterpriseClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnterpriseClusterMapInput is an input type that accepts EnterpriseClusterMap and EnterpriseClusterMapOutput values.
@@ -264,6 +277,12 @@ func (i EnterpriseClusterMap) ToEnterpriseClusterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseClusterMapOutput)
 }
 
+func (i EnterpriseClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnterpriseCluster] {
+	return pulumix.Output[map[string]*EnterpriseCluster]{
+		OutputState: i.ToEnterpriseClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnterpriseClusterOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseClusterOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o EnterpriseClusterOutput) ToEnterpriseClusterOutput() EnterpriseClusterOu
 
 func (o EnterpriseClusterOutput) ToEnterpriseClusterOutputWithContext(ctx context.Context) EnterpriseClusterOutput {
 	return o
+}
+
+func (o EnterpriseClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*EnterpriseCluster] {
+	return pulumix.Output[*EnterpriseCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // DNS name of the cluster endpoint.
@@ -332,6 +357,12 @@ func (o EnterpriseClusterArrayOutput) ToEnterpriseClusterArrayOutputWithContext(
 	return o
 }
 
+func (o EnterpriseClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnterpriseCluster] {
+	return pulumix.Output[[]*EnterpriseCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnterpriseClusterArrayOutput) Index(i pulumi.IntInput) EnterpriseClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnterpriseCluster {
 		return vs[0].([]*EnterpriseCluster)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o EnterpriseClusterMapOutput) ToEnterpriseClusterMapOutput() EnterpriseClu
 
 func (o EnterpriseClusterMapOutput) ToEnterpriseClusterMapOutputWithContext(ctx context.Context) EnterpriseClusterMapOutput {
 	return o
+}
+
+func (o EnterpriseClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnterpriseCluster] {
+	return pulumix.Output[map[string]*EnterpriseCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnterpriseClusterMapOutput) MapIndex(k pulumi.StringInput) EnterpriseClusterOutput {

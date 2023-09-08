@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Alert Management Prometheus Rule Group.
@@ -206,6 +207,12 @@ func (i *AlertPrometheusRuleGroup) ToAlertPrometheusRuleGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupOutput)
 }
 
+func (i *AlertPrometheusRuleGroup) ToOutput(ctx context.Context) pulumix.Output[*AlertPrometheusRuleGroup] {
+	return pulumix.Output[*AlertPrometheusRuleGroup]{
+		OutputState: i.ToAlertPrometheusRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertPrometheusRuleGroupArrayInput is an input type that accepts AlertPrometheusRuleGroupArray and AlertPrometheusRuleGroupArrayOutput values.
 // You can construct a concrete instance of `AlertPrometheusRuleGroupArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i AlertPrometheusRuleGroupArray) ToAlertPrometheusRuleGroupArrayOutput() A
 
 func (i AlertPrometheusRuleGroupArray) ToAlertPrometheusRuleGroupArrayOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupArrayOutput)
+}
+
+func (i AlertPrometheusRuleGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertPrometheusRuleGroup] {
+	return pulumix.Output[[]*AlertPrometheusRuleGroup]{
+		OutputState: i.ToAlertPrometheusRuleGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertPrometheusRuleGroupMapInput is an input type that accepts AlertPrometheusRuleGroupMap and AlertPrometheusRuleGroupMapOutput values.
@@ -256,6 +269,12 @@ func (i AlertPrometheusRuleGroupMap) ToAlertPrometheusRuleGroupMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupMapOutput)
 }
 
+func (i AlertPrometheusRuleGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertPrometheusRuleGroup] {
+	return pulumix.Output[map[string]*AlertPrometheusRuleGroup]{
+		OutputState: i.ToAlertPrometheusRuleGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertPrometheusRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (AlertPrometheusRuleGroupOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o AlertPrometheusRuleGroupOutput) ToAlertPrometheusRuleGroupOutput() Alert
 
 func (o AlertPrometheusRuleGroupOutput) ToAlertPrometheusRuleGroupOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupOutput {
 	return o
+}
+
+func (o AlertPrometheusRuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertPrometheusRuleGroup] {
+	return pulumix.Output[*AlertPrometheusRuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Managed Kubernetes Cluster.
@@ -334,6 +359,12 @@ func (o AlertPrometheusRuleGroupArrayOutput) ToAlertPrometheusRuleGroupArrayOutp
 	return o
 }
 
+func (o AlertPrometheusRuleGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertPrometheusRuleGroup] {
+	return pulumix.Output[[]*AlertPrometheusRuleGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertPrometheusRuleGroupArrayOutput) Index(i pulumi.IntInput) AlertPrometheusRuleGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertPrometheusRuleGroup {
 		return vs[0].([]*AlertPrometheusRuleGroup)[vs[1].(int)]
@@ -352,6 +383,12 @@ func (o AlertPrometheusRuleGroupMapOutput) ToAlertPrometheusRuleGroupMapOutput()
 
 func (o AlertPrometheusRuleGroupMapOutput) ToAlertPrometheusRuleGroupMapOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupMapOutput {
 	return o
+}
+
+func (o AlertPrometheusRuleGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertPrometheusRuleGroup] {
+	return pulumix.Output[map[string]*AlertPrometheusRuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertPrometheusRuleGroupMapOutput) MapIndex(k pulumi.StringInput) AlertPrometheusRuleGroupOutput {

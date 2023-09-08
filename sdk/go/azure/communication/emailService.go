@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Email Communication Service.
@@ -177,6 +178,12 @@ func (i *EmailService) ToEmailServiceOutputWithContext(ctx context.Context) Emai
 	return pulumi.ToOutputWithContext(ctx, i).(EmailServiceOutput)
 }
 
+func (i *EmailService) ToOutput(ctx context.Context) pulumix.Output[*EmailService] {
+	return pulumix.Output[*EmailService]{
+		OutputState: i.ToEmailServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EmailServiceArrayInput is an input type that accepts EmailServiceArray and EmailServiceArrayOutput values.
 // You can construct a concrete instance of `EmailServiceArrayInput` via:
 //
@@ -200,6 +207,12 @@ func (i EmailServiceArray) ToEmailServiceArrayOutput() EmailServiceArrayOutput {
 
 func (i EmailServiceArray) ToEmailServiceArrayOutputWithContext(ctx context.Context) EmailServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailServiceArrayOutput)
+}
+
+func (i EmailServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailService] {
+	return pulumix.Output[[]*EmailService]{
+		OutputState: i.ToEmailServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EmailServiceMapInput is an input type that accepts EmailServiceMap and EmailServiceMapOutput values.
@@ -227,6 +240,12 @@ func (i EmailServiceMap) ToEmailServiceMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EmailServiceMapOutput)
 }
 
+func (i EmailServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailService] {
+	return pulumix.Output[map[string]*EmailService]{
+		OutputState: i.ToEmailServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailServiceOutput struct{ *pulumi.OutputState }
 
 func (EmailServiceOutput) ElementType() reflect.Type {
@@ -239,6 +258,12 @@ func (o EmailServiceOutput) ToEmailServiceOutput() EmailServiceOutput {
 
 func (o EmailServiceOutput) ToEmailServiceOutputWithContext(ctx context.Context) EmailServiceOutput {
 	return o
+}
+
+func (o EmailServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailService] {
+	return pulumix.Output[*EmailService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Defaults to `United States`. Changing this forces a new Email Communication Service to be created.
@@ -275,6 +300,12 @@ func (o EmailServiceArrayOutput) ToEmailServiceArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o EmailServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailService] {
+	return pulumix.Output[[]*EmailService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EmailServiceArrayOutput) Index(i pulumi.IntInput) EmailServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailService {
 		return vs[0].([]*EmailService)[vs[1].(int)]
@@ -293,6 +324,12 @@ func (o EmailServiceMapOutput) ToEmailServiceMapOutput() EmailServiceMapOutput {
 
 func (o EmailServiceMapOutput) ToEmailServiceMapOutputWithContext(ctx context.Context) EmailServiceMapOutput {
 	return o
+}
+
+func (o EmailServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailService] {
+	return pulumix.Output[map[string]*EmailService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailServiceMapOutput) MapIndex(k pulumi.StringInput) EmailServiceOutput {

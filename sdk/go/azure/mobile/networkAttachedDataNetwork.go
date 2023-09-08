@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Attached Data Network.
@@ -216,6 +217,12 @@ func (i *NetworkAttachedDataNetwork) ToNetworkAttachedDataNetworkOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkOutput)
 }
 
+func (i *NetworkAttachedDataNetwork) ToOutput(ctx context.Context) pulumix.Output[*NetworkAttachedDataNetwork] {
+	return pulumix.Output[*NetworkAttachedDataNetwork]{
+		OutputState: i.ToNetworkAttachedDataNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAttachedDataNetworkArrayInput is an input type that accepts NetworkAttachedDataNetworkArray and NetworkAttachedDataNetworkArrayOutput values.
 // You can construct a concrete instance of `NetworkAttachedDataNetworkArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i NetworkAttachedDataNetworkArray) ToNetworkAttachedDataNetworkArrayOutput
 
 func (i NetworkAttachedDataNetworkArray) ToNetworkAttachedDataNetworkArrayOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkArrayOutput)
+}
+
+func (i NetworkAttachedDataNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAttachedDataNetwork] {
+	return pulumix.Output[[]*NetworkAttachedDataNetwork]{
+		OutputState: i.ToNetworkAttachedDataNetworkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkAttachedDataNetworkMapInput is an input type that accepts NetworkAttachedDataNetworkMap and NetworkAttachedDataNetworkMapOutput values.
@@ -266,6 +279,12 @@ func (i NetworkAttachedDataNetworkMap) ToNetworkAttachedDataNetworkMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkMapOutput)
 }
 
+func (i NetworkAttachedDataNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAttachedDataNetwork] {
+	return pulumix.Output[map[string]*NetworkAttachedDataNetwork]{
+		OutputState: i.ToNetworkAttachedDataNetworkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAttachedDataNetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkAttachedDataNetworkOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o NetworkAttachedDataNetworkOutput) ToNetworkAttachedDataNetworkOutput() N
 
 func (o NetworkAttachedDataNetworkOutput) ToNetworkAttachedDataNetworkOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkOutput {
 	return o
+}
+
+func (o NetworkAttachedDataNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAttachedDataNetwork] {
+	return pulumix.Output[*NetworkAttachedDataNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the DNS servers to signal to UEs to use for this attached data network.
@@ -358,6 +383,12 @@ func (o NetworkAttachedDataNetworkArrayOutput) ToNetworkAttachedDataNetworkArray
 	return o
 }
 
+func (o NetworkAttachedDataNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAttachedDataNetwork] {
+	return pulumix.Output[[]*NetworkAttachedDataNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkAttachedDataNetworkArrayOutput) Index(i pulumi.IntInput) NetworkAttachedDataNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkAttachedDataNetwork {
 		return vs[0].([]*NetworkAttachedDataNetwork)[vs[1].(int)]
@@ -376,6 +407,12 @@ func (o NetworkAttachedDataNetworkMapOutput) ToNetworkAttachedDataNetworkMapOutp
 
 func (o NetworkAttachedDataNetworkMapOutput) ToNetworkAttachedDataNetworkMapOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkMapOutput {
 	return o
+}
+
+func (o NetworkAttachedDataNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAttachedDataNetwork] {
+	return pulumix.Output[map[string]*NetworkAttachedDataNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAttachedDataNetworkMapOutput) MapIndex(k pulumi.StringInput) NetworkAttachedDataNetworkOutput {

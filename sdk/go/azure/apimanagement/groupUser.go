@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management User Assignment to a Group.
@@ -186,6 +187,12 @@ func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
 }
 
+func (i *GroupUser) ToOutput(ctx context.Context) pulumix.Output[*GroupUser] {
+	return pulumix.Output[*GroupUser]{
+		OutputState: i.ToGroupUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupUserArrayInput is an input type that accepts GroupUserArray and GroupUserArrayOutput values.
 // You can construct a concrete instance of `GroupUserArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i GroupUserArray) ToGroupUserArrayOutput() GroupUserArrayOutput {
 
 func (i GroupUserArray) ToGroupUserArrayOutputWithContext(ctx context.Context) GroupUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserArrayOutput)
+}
+
+func (i GroupUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupUser] {
+	return pulumix.Output[[]*GroupUser]{
+		OutputState: i.ToGroupUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GroupUserMapInput is an input type that accepts GroupUserMap and GroupUserMapOutput values.
@@ -236,6 +249,12 @@ func (i GroupUserMap) ToGroupUserMapOutputWithContext(ctx context.Context) Group
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserMapOutput)
 }
 
+func (i GroupUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupUser] {
+	return pulumix.Output[map[string]*GroupUser]{
+		OutputState: i.ToGroupUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupUserOutput struct{ *pulumi.OutputState }
 
 func (GroupUserOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o GroupUserOutput) ToGroupUserOutput() GroupUserOutput {
 
 func (o GroupUserOutput) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
 	return o
+}
+
+func (o GroupUserOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupUser] {
+	return pulumix.Output[*GroupUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
@@ -284,6 +309,12 @@ func (o GroupUserArrayOutput) ToGroupUserArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o GroupUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupUser] {
+	return pulumix.Output[[]*GroupUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupUserArrayOutput) Index(i pulumi.IntInput) GroupUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupUser {
 		return vs[0].([]*GroupUser)[vs[1].(int)]
@@ -302,6 +333,12 @@ func (o GroupUserMapOutput) ToGroupUserMapOutput() GroupUserMapOutput {
 
 func (o GroupUserMapOutput) ToGroupUserMapOutputWithContext(ctx context.Context) GroupUserMapOutput {
 	return o
+}
+
+func (o GroupUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupUser] {
+	return pulumix.Output[map[string]*GroupUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupUserMapOutput) MapIndex(k pulumi.StringInput) GroupUserOutput {

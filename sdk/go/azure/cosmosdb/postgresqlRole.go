@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Cosmos DB for PostgreSQL Role.
@@ -185,6 +186,12 @@ func (i *PostgresqlRole) ToPostgresqlRoleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlRoleOutput)
 }
 
+func (i *PostgresqlRole) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlRole] {
+	return pulumix.Output[*PostgresqlRole]{
+		OutputState: i.ToPostgresqlRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PostgresqlRoleArrayInput is an input type that accepts PostgresqlRoleArray and PostgresqlRoleArrayOutput values.
 // You can construct a concrete instance of `PostgresqlRoleArrayInput` via:
 //
@@ -208,6 +215,12 @@ func (i PostgresqlRoleArray) ToPostgresqlRoleArrayOutput() PostgresqlRoleArrayOu
 
 func (i PostgresqlRoleArray) ToPostgresqlRoleArrayOutputWithContext(ctx context.Context) PostgresqlRoleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlRoleArrayOutput)
+}
+
+func (i PostgresqlRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlRole] {
+	return pulumix.Output[[]*PostgresqlRole]{
+		OutputState: i.ToPostgresqlRoleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PostgresqlRoleMapInput is an input type that accepts PostgresqlRoleMap and PostgresqlRoleMapOutput values.
@@ -235,6 +248,12 @@ func (i PostgresqlRoleMap) ToPostgresqlRoleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlRoleMapOutput)
 }
 
+func (i PostgresqlRoleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlRole] {
+	return pulumix.Output[map[string]*PostgresqlRole]{
+		OutputState: i.ToPostgresqlRoleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PostgresqlRoleOutput struct{ *pulumi.OutputState }
 
 func (PostgresqlRoleOutput) ElementType() reflect.Type {
@@ -247,6 +266,12 @@ func (o PostgresqlRoleOutput) ToPostgresqlRoleOutput() PostgresqlRoleOutput {
 
 func (o PostgresqlRoleOutput) ToPostgresqlRoleOutputWithContext(ctx context.Context) PostgresqlRoleOutput {
 	return o
+}
+
+func (o PostgresqlRoleOutput) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlRole] {
+	return pulumix.Output[*PostgresqlRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
@@ -278,6 +303,12 @@ func (o PostgresqlRoleArrayOutput) ToPostgresqlRoleArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o PostgresqlRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlRole] {
+	return pulumix.Output[[]*PostgresqlRole]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PostgresqlRoleArrayOutput) Index(i pulumi.IntInput) PostgresqlRoleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PostgresqlRole {
 		return vs[0].([]*PostgresqlRole)[vs[1].(int)]
@@ -296,6 +327,12 @@ func (o PostgresqlRoleMapOutput) ToPostgresqlRoleMapOutput() PostgresqlRoleMapOu
 
 func (o PostgresqlRoleMapOutput) ToPostgresqlRoleMapOutputWithContext(ctx context.Context) PostgresqlRoleMapOutput {
 	return o
+}
+
+func (o PostgresqlRoleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlRole] {
+	return pulumix.Output[map[string]*PostgresqlRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PostgresqlRoleMapOutput) MapIndex(k pulumi.StringInput) PostgresqlRoleOutput {

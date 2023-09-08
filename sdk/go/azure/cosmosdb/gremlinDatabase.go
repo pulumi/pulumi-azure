@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Gremlin Database within a Cosmos DB Account.
@@ -208,6 +209,12 @@ func (i *GremlinDatabase) ToGremlinDatabaseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseOutput)
 }
 
+func (i *GremlinDatabase) ToOutput(ctx context.Context) pulumix.Output[*GremlinDatabase] {
+	return pulumix.Output[*GremlinDatabase]{
+		OutputState: i.ToGremlinDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GremlinDatabaseArrayInput is an input type that accepts GremlinDatabaseArray and GremlinDatabaseArrayOutput values.
 // You can construct a concrete instance of `GremlinDatabaseArrayInput` via:
 //
@@ -231,6 +238,12 @@ func (i GremlinDatabaseArray) ToGremlinDatabaseArrayOutput() GremlinDatabaseArra
 
 func (i GremlinDatabaseArray) ToGremlinDatabaseArrayOutputWithContext(ctx context.Context) GremlinDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseArrayOutput)
+}
+
+func (i GremlinDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*GremlinDatabase] {
+	return pulumix.Output[[]*GremlinDatabase]{
+		OutputState: i.ToGremlinDatabaseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GremlinDatabaseMapInput is an input type that accepts GremlinDatabaseMap and GremlinDatabaseMapOutput values.
@@ -258,6 +271,12 @@ func (i GremlinDatabaseMap) ToGremlinDatabaseMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseMapOutput)
 }
 
+func (i GremlinDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GremlinDatabase] {
+	return pulumix.Output[map[string]*GremlinDatabase]{
+		OutputState: i.ToGremlinDatabaseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GremlinDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GremlinDatabaseOutput) ElementType() reflect.Type {
@@ -270,6 +289,12 @@ func (o GremlinDatabaseOutput) ToGremlinDatabaseOutput() GremlinDatabaseOutput {
 
 func (o GremlinDatabaseOutput) ToGremlinDatabaseOutputWithContext(ctx context.Context) GremlinDatabaseOutput {
 	return o
+}
+
+func (o GremlinDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*GremlinDatabase] {
+	return pulumix.Output[*GremlinDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
@@ -315,6 +340,12 @@ func (o GremlinDatabaseArrayOutput) ToGremlinDatabaseArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o GremlinDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GremlinDatabase] {
+	return pulumix.Output[[]*GremlinDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GremlinDatabaseArrayOutput) Index(i pulumi.IntInput) GremlinDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GremlinDatabase {
 		return vs[0].([]*GremlinDatabase)[vs[1].(int)]
@@ -333,6 +364,12 @@ func (o GremlinDatabaseMapOutput) ToGremlinDatabaseMapOutput() GremlinDatabaseMa
 
 func (o GremlinDatabaseMapOutput) ToGremlinDatabaseMapOutputWithContext(ctx context.Context) GremlinDatabaseMapOutput {
 	return o
+}
+
+func (o GremlinDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GremlinDatabase] {
+	return pulumix.Output[map[string]*GremlinDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GremlinDatabaseMapOutput) MapIndex(k pulumi.StringInput) GremlinDatabaseOutput {

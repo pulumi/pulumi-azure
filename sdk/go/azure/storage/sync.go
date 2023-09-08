@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Sync.
@@ -187,6 +188,12 @@ func (i *Sync) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncOutput)
 }
 
+func (i *Sync) ToOutput(ctx context.Context) pulumix.Output[*Sync] {
+	return pulumix.Output[*Sync]{
+		OutputState: i.ToSyncOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SyncArrayInput is an input type that accepts SyncArray and SyncArrayOutput values.
 // You can construct a concrete instance of `SyncArrayInput` via:
 //
@@ -210,6 +217,12 @@ func (i SyncArray) ToSyncArrayOutput() SyncArrayOutput {
 
 func (i SyncArray) ToSyncArrayOutputWithContext(ctx context.Context) SyncArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncArrayOutput)
+}
+
+func (i SyncArray) ToOutput(ctx context.Context) pulumix.Output[[]*Sync] {
+	return pulumix.Output[[]*Sync]{
+		OutputState: i.ToSyncArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SyncMapInput is an input type that accepts SyncMap and SyncMapOutput values.
@@ -237,6 +250,12 @@ func (i SyncMap) ToSyncMapOutputWithContext(ctx context.Context) SyncMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncMapOutput)
 }
 
+func (i SyncMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sync] {
+	return pulumix.Output[map[string]*Sync]{
+		OutputState: i.ToSyncMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SyncOutput struct{ *pulumi.OutputState }
 
 func (SyncOutput) ElementType() reflect.Type {
@@ -249,6 +268,12 @@ func (o SyncOutput) ToSyncOutput() SyncOutput {
 
 func (o SyncOutput) ToSyncOutputWithContext(ctx context.Context) SyncOutput {
 	return o
+}
+
+func (o SyncOutput) ToOutput(ctx context.Context) pulumix.Output[*Sync] {
+	return pulumix.Output[*Sync]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
@@ -290,6 +315,12 @@ func (o SyncArrayOutput) ToSyncArrayOutputWithContext(ctx context.Context) SyncA
 	return o
 }
 
+func (o SyncArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Sync] {
+	return pulumix.Output[[]*Sync]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SyncArrayOutput) Index(i pulumi.IntInput) SyncOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Sync {
 		return vs[0].([]*Sync)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o SyncMapOutput) ToSyncMapOutput() SyncMapOutput {
 
 func (o SyncMapOutput) ToSyncMapOutputWithContext(ctx context.Context) SyncMapOutput {
 	return o
+}
+
+func (o SyncMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sync] {
+	return pulumix.Output[map[string]*Sync]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SyncMapOutput) MapIndex(k pulumi.StringInput) SyncOutput {

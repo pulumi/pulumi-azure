@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -22,6 +23,7 @@ type ProviderFeatures struct {
 	LogAnalyticsWorkspace  *ProviderFeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk            *ProviderFeaturesManagedDisk            `pulumi:"managedDisk"`
 	ResourceGroup          *ProviderFeaturesResourceGroup          `pulumi:"resourceGroup"`
+	Subscription           *ProviderFeaturesSubscription           `pulumi:"subscription"`
 	TemplateDeployment     *ProviderFeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *ProviderFeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *ProviderFeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
@@ -47,6 +49,7 @@ type ProviderFeaturesArgs struct {
 	LogAnalyticsWorkspace  ProviderFeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
 	ManagedDisk            ProviderFeaturesManagedDiskPtrInput            `pulumi:"managedDisk"`
 	ResourceGroup          ProviderFeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
+	Subscription           ProviderFeaturesSubscriptionPtrInput           `pulumi:"subscription"`
 	TemplateDeployment     ProviderFeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         ProviderFeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet ProviderFeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
@@ -62,6 +65,12 @@ func (i ProviderFeaturesArgs) ToProviderFeaturesOutput() ProviderFeaturesOutput 
 
 func (i ProviderFeaturesArgs) ToProviderFeaturesOutputWithContext(ctx context.Context) ProviderFeaturesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesOutput)
+}
+
+func (i ProviderFeaturesArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeatures] {
+	return pulumix.Output[ProviderFeatures]{
+		OutputState: i.ToProviderFeaturesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProviderFeaturesArgs) ToProviderFeaturesPtrOutput() ProviderFeaturesPtrOutput {
@@ -105,6 +114,12 @@ func (i *providerFeaturesPtrType) ToProviderFeaturesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesPtrOutput)
 }
 
+func (i *providerFeaturesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeatures] {
+	return pulumix.Output[*ProviderFeatures]{
+		OutputState: i.ToProviderFeaturesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesOutput) ElementType() reflect.Type {
@@ -127,6 +142,12 @@ func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeatures) *ProviderFeatures {
 		return &v
 	}).(ProviderFeaturesPtrOutput)
+}
+
+func (o ProviderFeaturesOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeatures] {
+	return pulumix.Output[ProviderFeatures]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesOutput) ApiManagement() ProviderFeaturesApiManagementPtrOutput {
@@ -161,6 +182,10 @@ func (o ProviderFeaturesOutput) ResourceGroup() ProviderFeaturesResourceGroupPtr
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesResourceGroup { return v.ResourceGroup }).(ProviderFeaturesResourceGroupPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) Subscription() ProviderFeaturesSubscriptionPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesSubscription { return v.Subscription }).(ProviderFeaturesSubscriptionPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) TemplateDeployment() ProviderFeaturesTemplateDeploymentPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesTemplateDeployment { return v.TemplateDeployment }).(ProviderFeaturesTemplateDeploymentPtrOutput)
 }
@@ -185,6 +210,12 @@ func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutput() ProviderFeature
 
 func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutputWithContext(ctx context.Context) ProviderFeaturesPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeatures] {
+	return pulumix.Output[*ProviderFeatures]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesPtrOutput) Elem() ProviderFeaturesOutput {
@@ -269,6 +300,15 @@ func (o ProviderFeaturesPtrOutput) ResourceGroup() ProviderFeaturesResourceGroup
 	}).(ProviderFeaturesResourceGroupPtrOutput)
 }
 
+func (o ProviderFeaturesPtrOutput) Subscription() ProviderFeaturesSubscriptionPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesSubscription {
+		if v == nil {
+			return nil
+		}
+		return v.Subscription
+	}).(ProviderFeaturesSubscriptionPtrOutput)
+}
+
 func (o ProviderFeaturesPtrOutput) TemplateDeployment() ProviderFeaturesTemplateDeploymentPtrOutput {
 	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesTemplateDeployment {
 		if v == nil {
@@ -329,6 +369,12 @@ func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApiManagementOutput)
 }
 
+func (i ProviderFeaturesApiManagementArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesApiManagement] {
+	return pulumix.Output[ProviderFeaturesApiManagement]{
+		OutputState: i.ToProviderFeaturesApiManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementPtrOutput() ProviderFeaturesApiManagementPtrOutput {
 	return i.ToProviderFeaturesApiManagementPtrOutputWithContext(context.Background())
 }
@@ -370,6 +416,12 @@ func (i *providerFeaturesApiManagementPtrType) ToProviderFeaturesApiManagementPt
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApiManagementPtrOutput)
 }
 
+func (i *providerFeaturesApiManagementPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesApiManagement] {
+	return pulumix.Output[*ProviderFeaturesApiManagement]{
+		OutputState: i.ToProviderFeaturesApiManagementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesApiManagementOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesApiManagementOutput) ElementType() reflect.Type {
@@ -394,6 +446,12 @@ func (o ProviderFeaturesApiManagementOutput) ToProviderFeaturesApiManagementPtrO
 	}).(ProviderFeaturesApiManagementPtrOutput)
 }
 
+func (o ProviderFeaturesApiManagementOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesApiManagement] {
+	return pulumix.Output[ProviderFeaturesApiManagement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesApiManagementOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesApiManagement) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -414,6 +472,12 @@ func (o ProviderFeaturesApiManagementPtrOutput) ToProviderFeaturesApiManagementP
 
 func (o ProviderFeaturesApiManagementPtrOutput) ToProviderFeaturesApiManagementPtrOutputWithContext(ctx context.Context) ProviderFeaturesApiManagementPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesApiManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesApiManagement] {
+	return pulumix.Output[*ProviderFeaturesApiManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesApiManagementPtrOutput) Elem() ProviderFeaturesApiManagementOutput {
@@ -477,6 +541,12 @@ func (i ProviderFeaturesAppConfigurationArgs) ToProviderFeaturesAppConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesAppConfigurationOutput)
 }
 
+func (i ProviderFeaturesAppConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesAppConfiguration] {
+	return pulumix.Output[ProviderFeaturesAppConfiguration]{
+		OutputState: i.ToProviderFeaturesAppConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesAppConfigurationArgs) ToProviderFeaturesAppConfigurationPtrOutput() ProviderFeaturesAppConfigurationPtrOutput {
 	return i.ToProviderFeaturesAppConfigurationPtrOutputWithContext(context.Background())
 }
@@ -518,6 +588,12 @@ func (i *providerFeaturesAppConfigurationPtrType) ToProviderFeaturesAppConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesAppConfigurationPtrOutput)
 }
 
+func (i *providerFeaturesAppConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesAppConfiguration] {
+	return pulumix.Output[*ProviderFeaturesAppConfiguration]{
+		OutputState: i.ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesAppConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesAppConfigurationOutput) ElementType() reflect.Type {
@@ -542,6 +618,12 @@ func (o ProviderFeaturesAppConfigurationOutput) ToProviderFeaturesAppConfigurati
 	}).(ProviderFeaturesAppConfigurationPtrOutput)
 }
 
+func (o ProviderFeaturesAppConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesAppConfiguration] {
+	return pulumix.Output[ProviderFeaturesAppConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesAppConfigurationOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesAppConfiguration) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -562,6 +644,12 @@ func (o ProviderFeaturesAppConfigurationPtrOutput) ToProviderFeaturesAppConfigur
 
 func (o ProviderFeaturesAppConfigurationPtrOutput) ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesAppConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesAppConfiguration] {
+	return pulumix.Output[*ProviderFeaturesAppConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesAppConfigurationPtrOutput) Elem() ProviderFeaturesAppConfigurationOutput {
@@ -623,6 +711,12 @@ func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationIn
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApplicationInsightsOutput)
 }
 
+func (i ProviderFeaturesApplicationInsightsArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesApplicationInsights] {
+	return pulumix.Output[ProviderFeaturesApplicationInsights]{
+		OutputState: i.ToProviderFeaturesApplicationInsightsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationInsightsPtrOutput() ProviderFeaturesApplicationInsightsPtrOutput {
 	return i.ToProviderFeaturesApplicationInsightsPtrOutputWithContext(context.Background())
 }
@@ -664,6 +758,12 @@ func (i *providerFeaturesApplicationInsightsPtrType) ToProviderFeaturesApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesApplicationInsightsPtrOutput)
 }
 
+func (i *providerFeaturesApplicationInsightsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesApplicationInsights] {
+	return pulumix.Output[*ProviderFeaturesApplicationInsights]{
+		OutputState: i.ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesApplicationInsightsOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesApplicationInsightsOutput) ElementType() reflect.Type {
@@ -688,6 +788,12 @@ func (o ProviderFeaturesApplicationInsightsOutput) ToProviderFeaturesApplication
 	}).(ProviderFeaturesApplicationInsightsPtrOutput)
 }
 
+func (o ProviderFeaturesApplicationInsightsOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesApplicationInsights] {
+	return pulumix.Output[ProviderFeaturesApplicationInsights]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesApplicationInsightsOutput) DisableGeneratedRule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesApplicationInsights) *bool { return v.DisableGeneratedRule }).(pulumi.BoolPtrOutput)
 }
@@ -704,6 +810,12 @@ func (o ProviderFeaturesApplicationInsightsPtrOutput) ToProviderFeaturesApplicat
 
 func (o ProviderFeaturesApplicationInsightsPtrOutput) ToProviderFeaturesApplicationInsightsPtrOutputWithContext(ctx context.Context) ProviderFeaturesApplicationInsightsPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesApplicationInsightsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesApplicationInsights] {
+	return pulumix.Output[*ProviderFeaturesApplicationInsights]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesApplicationInsightsPtrOutput) Elem() ProviderFeaturesApplicationInsightsOutput {
@@ -756,6 +868,12 @@ func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccount
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesCognitiveAccountOutput)
 }
 
+func (i ProviderFeaturesCognitiveAccountArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesCognitiveAccount] {
+	return pulumix.Output[ProviderFeaturesCognitiveAccount]{
+		OutputState: i.ToProviderFeaturesCognitiveAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccountPtrOutput() ProviderFeaturesCognitiveAccountPtrOutput {
 	return i.ToProviderFeaturesCognitiveAccountPtrOutputWithContext(context.Background())
 }
@@ -797,6 +915,12 @@ func (i *providerFeaturesCognitiveAccountPtrType) ToProviderFeaturesCognitiveAcc
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesCognitiveAccountPtrOutput)
 }
 
+func (i *providerFeaturesCognitiveAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesCognitiveAccount] {
+	return pulumix.Output[*ProviderFeaturesCognitiveAccount]{
+		OutputState: i.ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesCognitiveAccountOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesCognitiveAccountOutput) ElementType() reflect.Type {
@@ -821,6 +945,12 @@ func (o ProviderFeaturesCognitiveAccountOutput) ToProviderFeaturesCognitiveAccou
 	}).(ProviderFeaturesCognitiveAccountPtrOutput)
 }
 
+func (o ProviderFeaturesCognitiveAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesCognitiveAccount] {
+	return pulumix.Output[ProviderFeaturesCognitiveAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesCognitiveAccountOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesCognitiveAccount) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -837,6 +967,12 @@ func (o ProviderFeaturesCognitiveAccountPtrOutput) ToProviderFeaturesCognitiveAc
 
 func (o ProviderFeaturesCognitiveAccountPtrOutput) ToProviderFeaturesCognitiveAccountPtrOutputWithContext(ctx context.Context) ProviderFeaturesCognitiveAccountPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesCognitiveAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesCognitiveAccount] {
+	return pulumix.Output[*ProviderFeaturesCognitiveAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesCognitiveAccountPtrOutput) Elem() ProviderFeaturesCognitiveAccountOutput {
@@ -905,6 +1041,12 @@ func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesKeyVaultOutput)
 }
 
+func (i ProviderFeaturesKeyVaultArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesKeyVault] {
+	return pulumix.Output[ProviderFeaturesKeyVault]{
+		OutputState: i.ToProviderFeaturesKeyVaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultPtrOutput() ProviderFeaturesKeyVaultPtrOutput {
 	return i.ToProviderFeaturesKeyVaultPtrOutputWithContext(context.Background())
 }
@@ -946,6 +1088,12 @@ func (i *providerFeaturesKeyVaultPtrType) ToProviderFeaturesKeyVaultPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesKeyVaultPtrOutput)
 }
 
+func (i *providerFeaturesKeyVaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesKeyVault] {
+	return pulumix.Output[*ProviderFeaturesKeyVault]{
+		OutputState: i.ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesKeyVaultOutput) ElementType() reflect.Type {
@@ -968,6 +1116,12 @@ func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesKeyVault) *ProviderFeaturesKeyVault {
 		return &v
 	}).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesKeyVault] {
+	return pulumix.Output[ProviderFeaturesKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
@@ -1018,6 +1172,12 @@ func (o ProviderFeaturesKeyVaultPtrOutput) ToProviderFeaturesKeyVaultPtrOutput()
 
 func (o ProviderFeaturesKeyVaultPtrOutput) ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesKeyVault] {
+	return pulumix.Output[*ProviderFeaturesKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesKeyVaultPtrOutput) Elem() ProviderFeaturesKeyVaultOutput {
@@ -1142,6 +1302,12 @@ func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalytic
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesLogAnalyticsWorkspaceOutput)
 }
 
+func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[ProviderFeaturesLogAnalyticsWorkspace]{
+		OutputState: i.ToProviderFeaturesLogAnalyticsWorkspaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalyticsWorkspacePtrOutput() ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
 	return i.ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(context.Background())
 }
@@ -1183,6 +1349,12 @@ func (i *providerFeaturesLogAnalyticsWorkspacePtrType) ToProviderFeaturesLogAnal
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
+func (i *providerFeaturesLogAnalyticsWorkspacePtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[*ProviderFeaturesLogAnalyticsWorkspace]{
+		OutputState: i.ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesLogAnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesLogAnalyticsWorkspaceOutput) ElementType() reflect.Type {
@@ -1207,6 +1379,12 @@ func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToProviderFeaturesLogAnalyt
 	}).(ProviderFeaturesLogAnalyticsWorkspacePtrOutput)
 }
 
+func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[ProviderFeaturesLogAnalyticsWorkspace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesLogAnalyticsWorkspaceOutput) PermanentlyDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesLogAnalyticsWorkspace) *bool { return v.PermanentlyDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
@@ -1223,6 +1401,12 @@ func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ToProviderFeaturesLogAna
 
 func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ToProviderFeaturesLogAnalyticsWorkspacePtrOutputWithContext(ctx context.Context) ProviderFeaturesLogAnalyticsWorkspacePtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesLogAnalyticsWorkspace] {
+	return pulumix.Output[*ProviderFeaturesLogAnalyticsWorkspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesLogAnalyticsWorkspacePtrOutput) Elem() ProviderFeaturesLogAnalyticsWorkspaceOutput {
@@ -1275,6 +1459,12 @@ func (i ProviderFeaturesManagedDiskArgs) ToProviderFeaturesManagedDiskOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesManagedDiskOutput)
 }
 
+func (i ProviderFeaturesManagedDiskArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesManagedDisk] {
+	return pulumix.Output[ProviderFeaturesManagedDisk]{
+		OutputState: i.ToProviderFeaturesManagedDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesManagedDiskArgs) ToProviderFeaturesManagedDiskPtrOutput() ProviderFeaturesManagedDiskPtrOutput {
 	return i.ToProviderFeaturesManagedDiskPtrOutputWithContext(context.Background())
 }
@@ -1316,6 +1506,12 @@ func (i *providerFeaturesManagedDiskPtrType) ToProviderFeaturesManagedDiskPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesManagedDiskPtrOutput)
 }
 
+func (i *providerFeaturesManagedDiskPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesManagedDisk] {
+	return pulumix.Output[*ProviderFeaturesManagedDisk]{
+		OutputState: i.ToProviderFeaturesManagedDiskPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesManagedDiskOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesManagedDiskOutput) ElementType() reflect.Type {
@@ -1340,6 +1536,12 @@ func (o ProviderFeaturesManagedDiskOutput) ToProviderFeaturesManagedDiskPtrOutpu
 	}).(ProviderFeaturesManagedDiskPtrOutput)
 }
 
+func (o ProviderFeaturesManagedDiskOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesManagedDisk] {
+	return pulumix.Output[ProviderFeaturesManagedDisk]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesManagedDiskOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesManagedDisk) *bool { return v.ExpandWithoutDowntime }).(pulumi.BoolPtrOutput)
 }
@@ -1356,6 +1558,12 @@ func (o ProviderFeaturesManagedDiskPtrOutput) ToProviderFeaturesManagedDiskPtrOu
 
 func (o ProviderFeaturesManagedDiskPtrOutput) ToProviderFeaturesManagedDiskPtrOutputWithContext(ctx context.Context) ProviderFeaturesManagedDiskPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesManagedDiskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesManagedDisk] {
+	return pulumix.Output[*ProviderFeaturesManagedDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesManagedDiskPtrOutput) Elem() ProviderFeaturesManagedDiskOutput {
@@ -1408,6 +1616,12 @@ func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesResourceGroupOutput)
 }
 
+func (i ProviderFeaturesResourceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesResourceGroup] {
+	return pulumix.Output[ProviderFeaturesResourceGroup]{
+		OutputState: i.ToProviderFeaturesResourceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupPtrOutput() ProviderFeaturesResourceGroupPtrOutput {
 	return i.ToProviderFeaturesResourceGroupPtrOutputWithContext(context.Background())
 }
@@ -1449,6 +1663,12 @@ func (i *providerFeaturesResourceGroupPtrType) ToProviderFeaturesResourceGroupPt
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesResourceGroupPtrOutput)
 }
 
+func (i *providerFeaturesResourceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesResourceGroup] {
+	return pulumix.Output[*ProviderFeaturesResourceGroup]{
+		OutputState: i.ToProviderFeaturesResourceGroupPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesResourceGroupOutput) ElementType() reflect.Type {
@@ -1473,6 +1693,12 @@ func (o ProviderFeaturesResourceGroupOutput) ToProviderFeaturesResourceGroupPtrO
 	}).(ProviderFeaturesResourceGroupPtrOutput)
 }
 
+func (o ProviderFeaturesResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesResourceGroup] {
+	return pulumix.Output[ProviderFeaturesResourceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesResourceGroupOutput) PreventDeletionIfContainsResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesResourceGroup) *bool { return v.PreventDeletionIfContainsResources }).(pulumi.BoolPtrOutput)
 }
@@ -1491,6 +1717,12 @@ func (o ProviderFeaturesResourceGroupPtrOutput) ToProviderFeaturesResourceGroupP
 	return o
 }
 
+func (o ProviderFeaturesResourceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesResourceGroup] {
+	return pulumix.Output[*ProviderFeaturesResourceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesResourceGroupPtrOutput) Elem() ProviderFeaturesResourceGroupOutput {
 	return o.ApplyT(func(v *ProviderFeaturesResourceGroup) ProviderFeaturesResourceGroup {
 		if v != nil {
@@ -1507,6 +1739,163 @@ func (o ProviderFeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResourc
 			return nil
 		}
 		return v.PreventDeletionIfContainsResources
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesSubscription struct {
+	PreventCancellationOnDestroy *bool `pulumi:"preventCancellationOnDestroy"`
+}
+
+// ProviderFeaturesSubscriptionInput is an input type that accepts ProviderFeaturesSubscriptionArgs and ProviderFeaturesSubscriptionOutput values.
+// You can construct a concrete instance of `ProviderFeaturesSubscriptionInput` via:
+//
+//	ProviderFeaturesSubscriptionArgs{...}
+type ProviderFeaturesSubscriptionInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesSubscriptionOutput() ProviderFeaturesSubscriptionOutput
+	ToProviderFeaturesSubscriptionOutputWithContext(context.Context) ProviderFeaturesSubscriptionOutput
+}
+
+type ProviderFeaturesSubscriptionArgs struct {
+	PreventCancellationOnDestroy pulumi.BoolPtrInput `pulumi:"preventCancellationOnDestroy"`
+}
+
+func (ProviderFeaturesSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesSubscription)(nil)).Elem()
+}
+
+func (i ProviderFeaturesSubscriptionArgs) ToProviderFeaturesSubscriptionOutput() ProviderFeaturesSubscriptionOutput {
+	return i.ToProviderFeaturesSubscriptionOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesSubscriptionArgs) ToProviderFeaturesSubscriptionOutputWithContext(ctx context.Context) ProviderFeaturesSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesSubscriptionOutput)
+}
+
+func (i ProviderFeaturesSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesSubscription] {
+	return pulumix.Output[ProviderFeaturesSubscription]{
+		OutputState: i.ToProviderFeaturesSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ProviderFeaturesSubscriptionArgs) ToProviderFeaturesSubscriptionPtrOutput() ProviderFeaturesSubscriptionPtrOutput {
+	return i.ToProviderFeaturesSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesSubscriptionArgs) ToProviderFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) ProviderFeaturesSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesSubscriptionOutput).ToProviderFeaturesSubscriptionPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesSubscriptionPtrInput is an input type that accepts ProviderFeaturesSubscriptionArgs, ProviderFeaturesSubscriptionPtr and ProviderFeaturesSubscriptionPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesSubscriptionPtrInput` via:
+//
+//	        ProviderFeaturesSubscriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderFeaturesSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesSubscriptionPtrOutput() ProviderFeaturesSubscriptionPtrOutput
+	ToProviderFeaturesSubscriptionPtrOutputWithContext(context.Context) ProviderFeaturesSubscriptionPtrOutput
+}
+
+type providerFeaturesSubscriptionPtrType ProviderFeaturesSubscriptionArgs
+
+func ProviderFeaturesSubscriptionPtr(v *ProviderFeaturesSubscriptionArgs) ProviderFeaturesSubscriptionPtrInput {
+	return (*providerFeaturesSubscriptionPtrType)(v)
+}
+
+func (*providerFeaturesSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesSubscription)(nil)).Elem()
+}
+
+func (i *providerFeaturesSubscriptionPtrType) ToProviderFeaturesSubscriptionPtrOutput() ProviderFeaturesSubscriptionPtrOutput {
+	return i.ToProviderFeaturesSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesSubscriptionPtrType) ToProviderFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) ProviderFeaturesSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesSubscriptionPtrOutput)
+}
+
+func (i *providerFeaturesSubscriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesSubscription] {
+	return pulumix.Output[*ProviderFeaturesSubscription]{
+		OutputState: i.ToProviderFeaturesSubscriptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ProviderFeaturesSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesSubscription)(nil)).Elem()
+}
+
+func (o ProviderFeaturesSubscriptionOutput) ToProviderFeaturesSubscriptionOutput() ProviderFeaturesSubscriptionOutput {
+	return o
+}
+
+func (o ProviderFeaturesSubscriptionOutput) ToProviderFeaturesSubscriptionOutputWithContext(ctx context.Context) ProviderFeaturesSubscriptionOutput {
+	return o
+}
+
+func (o ProviderFeaturesSubscriptionOutput) ToProviderFeaturesSubscriptionPtrOutput() ProviderFeaturesSubscriptionPtrOutput {
+	return o.ToProviderFeaturesSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesSubscriptionOutput) ToProviderFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) ProviderFeaturesSubscriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesSubscription) *ProviderFeaturesSubscription {
+		return &v
+	}).(ProviderFeaturesSubscriptionPtrOutput)
+}
+
+func (o ProviderFeaturesSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesSubscription] {
+	return pulumix.Output[ProviderFeaturesSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProviderFeaturesSubscriptionOutput) PreventCancellationOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesSubscription) *bool { return v.PreventCancellationOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesSubscriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesSubscription)(nil)).Elem()
+}
+
+func (o ProviderFeaturesSubscriptionPtrOutput) ToProviderFeaturesSubscriptionPtrOutput() ProviderFeaturesSubscriptionPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesSubscriptionPtrOutput) ToProviderFeaturesSubscriptionPtrOutputWithContext(ctx context.Context) ProviderFeaturesSubscriptionPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesSubscriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesSubscription] {
+	return pulumix.Output[*ProviderFeaturesSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProviderFeaturesSubscriptionPtrOutput) Elem() ProviderFeaturesSubscriptionOutput {
+	return o.ApplyT(func(v *ProviderFeaturesSubscription) ProviderFeaturesSubscription {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesSubscription
+		return ret
+	}).(ProviderFeaturesSubscriptionOutput)
+}
+
+func (o ProviderFeaturesSubscriptionPtrOutput) PreventCancellationOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesSubscription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventCancellationOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1539,6 +1928,12 @@ func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploy
 
 func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploymentOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesTemplateDeploymentOutput)
+}
+
+func (i ProviderFeaturesTemplateDeploymentArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesTemplateDeployment] {
+	return pulumix.Output[ProviderFeaturesTemplateDeployment]{
+		OutputState: i.ToProviderFeaturesTemplateDeploymentOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploymentPtrOutput() ProviderFeaturesTemplateDeploymentPtrOutput {
@@ -1582,6 +1977,12 @@ func (i *providerFeaturesTemplateDeploymentPtrType) ToProviderFeaturesTemplateDe
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesTemplateDeploymentPtrOutput)
 }
 
+func (i *providerFeaturesTemplateDeploymentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesTemplateDeployment] {
+	return pulumix.Output[*ProviderFeaturesTemplateDeployment]{
+		OutputState: i.ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesTemplateDeploymentOutput) ElementType() reflect.Type {
@@ -1606,6 +2007,12 @@ func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDepl
 	}).(ProviderFeaturesTemplateDeploymentPtrOutput)
 }
 
+func (o ProviderFeaturesTemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesTemplateDeployment] {
+	return pulumix.Output[ProviderFeaturesTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderFeaturesTemplateDeploymentOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProviderFeaturesTemplateDeployment) bool { return v.DeleteNestedItemsDuringDeletion }).(pulumi.BoolOutput)
 }
@@ -1622,6 +2029,12 @@ func (o ProviderFeaturesTemplateDeploymentPtrOutput) ToProviderFeaturesTemplateD
 
 func (o ProviderFeaturesTemplateDeploymentPtrOutput) ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesTemplateDeploymentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesTemplateDeployment] {
+	return pulumix.Output[*ProviderFeaturesTemplateDeployment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesTemplateDeploymentPtrOutput) Elem() ProviderFeaturesTemplateDeploymentOutput {
@@ -1678,6 +2091,12 @@ func (i ProviderFeaturesVirtualMachineArgs) ToProviderFeaturesVirtualMachineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesVirtualMachineOutput)
 }
 
+func (i ProviderFeaturesVirtualMachineArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesVirtualMachine] {
+	return pulumix.Output[ProviderFeaturesVirtualMachine]{
+		OutputState: i.ToProviderFeaturesVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesVirtualMachineArgs) ToProviderFeaturesVirtualMachinePtrOutput() ProviderFeaturesVirtualMachinePtrOutput {
 	return i.ToProviderFeaturesVirtualMachinePtrOutputWithContext(context.Background())
 }
@@ -1719,6 +2138,12 @@ func (i *providerFeaturesVirtualMachinePtrType) ToProviderFeaturesVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesVirtualMachinePtrOutput)
 }
 
+func (i *providerFeaturesVirtualMachinePtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesVirtualMachine] {
+	return pulumix.Output[*ProviderFeaturesVirtualMachine]{
+		OutputState: i.ToProviderFeaturesVirtualMachinePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesVirtualMachineOutput) ElementType() reflect.Type {
@@ -1741,6 +2166,12 @@ func (o ProviderFeaturesVirtualMachineOutput) ToProviderFeaturesVirtualMachinePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesVirtualMachine) *ProviderFeaturesVirtualMachine {
 		return &v
 	}).(ProviderFeaturesVirtualMachinePtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesVirtualMachine] {
+	return pulumix.Output[ProviderFeaturesVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesVirtualMachineOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
@@ -1767,6 +2198,12 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) ToProviderFeaturesVirtualMachin
 
 func (o ProviderFeaturesVirtualMachinePtrOutput) ToProviderFeaturesVirtualMachinePtrOutputWithContext(ctx context.Context) ProviderFeaturesVirtualMachinePtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesVirtualMachinePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesVirtualMachine] {
+	return pulumix.Output[*ProviderFeaturesVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesVirtualMachinePtrOutput) Elem() ProviderFeaturesVirtualMachineOutput {
@@ -1841,6 +2278,12 @@ func (i ProviderFeaturesVirtualMachineScaleSetArgs) ToProviderFeaturesVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesVirtualMachineScaleSetOutput)
 }
 
+func (i ProviderFeaturesVirtualMachineScaleSetArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[ProviderFeaturesVirtualMachineScaleSet]{
+		OutputState: i.ToProviderFeaturesVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderFeaturesVirtualMachineScaleSetArgs) ToProviderFeaturesVirtualMachineScaleSetPtrOutput() ProviderFeaturesVirtualMachineScaleSetPtrOutput {
 	return i.ToProviderFeaturesVirtualMachineScaleSetPtrOutputWithContext(context.Background())
 }
@@ -1882,6 +2325,12 @@ func (i *providerFeaturesVirtualMachineScaleSetPtrType) ToProviderFeaturesVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
 }
 
+func (i *providerFeaturesVirtualMachineScaleSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[*ProviderFeaturesVirtualMachineScaleSet]{
+		OutputState: i.ToProviderFeaturesVirtualMachineScaleSetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderFeaturesVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -1904,6 +2353,12 @@ func (o ProviderFeaturesVirtualMachineScaleSetOutput) ToProviderFeaturesVirtualM
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesVirtualMachineScaleSet) *ProviderFeaturesVirtualMachineScaleSet {
 		return &v
 	}).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderFeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[ProviderFeaturesVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolPtrOutput {
@@ -1930,6 +2385,12 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ToProviderFeaturesVirtu
 
 func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ToProviderFeaturesVirtualMachineScaleSetPtrOutputWithContext(ctx context.Context) ProviderFeaturesVirtualMachineScaleSetPtrOutput {
 	return o
+}
+
+func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderFeaturesVirtualMachineScaleSet] {
+	return pulumix.Output[*ProviderFeaturesVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) Elem() ProviderFeaturesVirtualMachineScaleSetOutput {
@@ -1988,6 +2449,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesManagedDiskPtrInput)(nil)).Elem(), ProviderFeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesResourceGroupInput)(nil)).Elem(), ProviderFeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesResourceGroupPtrInput)(nil)).Elem(), ProviderFeaturesResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesSubscriptionInput)(nil)).Elem(), ProviderFeaturesSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesSubscriptionPtrInput)(nil)).Elem(), ProviderFeaturesSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesTemplateDeploymentInput)(nil)).Elem(), ProviderFeaturesTemplateDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesTemplateDeploymentPtrInput)(nil)).Elem(), ProviderFeaturesTemplateDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesVirtualMachineInput)(nil)).Elem(), ProviderFeaturesVirtualMachineArgs{})
@@ -2012,6 +2475,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesManagedDiskPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesSubscriptionOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineOutput{})

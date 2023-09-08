@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Virtual Desktop Host Pool.
@@ -129,6 +130,12 @@ func (o LookupHostPoolResultOutput) ToLookupHostPoolResultOutput() LookupHostPoo
 
 func (o LookupHostPoolResultOutput) ToLookupHostPoolResultOutputWithContext(ctx context.Context) LookupHostPoolResultOutput {
 	return o
+}
+
+func (o LookupHostPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHostPoolResult] {
+	return pulumix.Output[LookupHostPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The custom RDP properties string for the Virtual Desktop Host Pool.

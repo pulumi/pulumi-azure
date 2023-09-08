@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
@@ -116,6 +117,12 @@ func (o GetSharedImageVersionsResultOutput) ToGetSharedImageVersionsResultOutput
 
 func (o GetSharedImageVersionsResultOutput) ToGetSharedImageVersionsResultOutputWithContext(ctx context.Context) GetSharedImageVersionsResultOutput {
 	return o
+}
+
+func (o GetSharedImageVersionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSharedImageVersionsResult] {
+	return pulumix.Output[GetSharedImageVersionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSharedImageVersionsResultOutput) GalleryName() pulumi.StringOutput {

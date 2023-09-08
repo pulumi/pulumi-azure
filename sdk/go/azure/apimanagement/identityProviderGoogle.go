@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Google Identity Provider.
@@ -202,6 +203,12 @@ func (i *IdentityProviderGoogle) ToIdentityProviderGoogleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderGoogleOutput)
 }
 
+func (i *IdentityProviderGoogle) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderGoogle] {
+	return pulumix.Output[*IdentityProviderGoogle]{
+		OutputState: i.ToIdentityProviderGoogleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IdentityProviderGoogleArrayInput is an input type that accepts IdentityProviderGoogleArray and IdentityProviderGoogleArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderGoogleArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i IdentityProviderGoogleArray) ToIdentityProviderGoogleArrayOutput() Ident
 
 func (i IdentityProviderGoogleArray) ToIdentityProviderGoogleArrayOutputWithContext(ctx context.Context) IdentityProviderGoogleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderGoogleArrayOutput)
+}
+
+func (i IdentityProviderGoogleArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderGoogle] {
+	return pulumix.Output[[]*IdentityProviderGoogle]{
+		OutputState: i.ToIdentityProviderGoogleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IdentityProviderGoogleMapInput is an input type that accepts IdentityProviderGoogleMap and IdentityProviderGoogleMapOutput values.
@@ -252,6 +265,12 @@ func (i IdentityProviderGoogleMap) ToIdentityProviderGoogleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderGoogleMapOutput)
 }
 
+func (i IdentityProviderGoogleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderGoogle] {
+	return pulumix.Output[map[string]*IdentityProviderGoogle]{
+		OutputState: i.ToIdentityProviderGoogleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityProviderGoogleOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderGoogleOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o IdentityProviderGoogleOutput) ToIdentityProviderGoogleOutput() IdentityP
 
 func (o IdentityProviderGoogleOutput) ToIdentityProviderGoogleOutputWithContext(ctx context.Context) IdentityProviderGoogleOutput {
 	return o
+}
+
+func (o IdentityProviderGoogleOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderGoogle] {
+	return pulumix.Output[*IdentityProviderGoogle]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Name of the API Management Service where this Google Identity Provider should be created. Changing this forces a new resource to be created.
@@ -300,6 +325,12 @@ func (o IdentityProviderGoogleArrayOutput) ToIdentityProviderGoogleArrayOutputWi
 	return o
 }
 
+func (o IdentityProviderGoogleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderGoogle] {
+	return pulumix.Output[[]*IdentityProviderGoogle]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentityProviderGoogleArrayOutput) Index(i pulumi.IntInput) IdentityProviderGoogleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderGoogle {
 		return vs[0].([]*IdentityProviderGoogle)[vs[1].(int)]
@@ -318,6 +349,12 @@ func (o IdentityProviderGoogleMapOutput) ToIdentityProviderGoogleMapOutput() Ide
 
 func (o IdentityProviderGoogleMapOutput) ToIdentityProviderGoogleMapOutputWithContext(ctx context.Context) IdentityProviderGoogleMapOutput {
 	return o
+}
+
+func (o IdentityProviderGoogleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderGoogle] {
+	return pulumix.Output[map[string]*IdentityProviderGoogle]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderGoogleMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderGoogleOutput {

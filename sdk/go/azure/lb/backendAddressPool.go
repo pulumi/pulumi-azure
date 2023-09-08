@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Load Balancer Backend Address Pool.
@@ -221,6 +222,12 @@ func (i *BackendAddressPool) ToBackendAddressPoolOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolOutput)
 }
 
+func (i *BackendAddressPool) ToOutput(ctx context.Context) pulumix.Output[*BackendAddressPool] {
+	return pulumix.Output[*BackendAddressPool]{
+		OutputState: i.ToBackendAddressPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackendAddressPoolArrayInput is an input type that accepts BackendAddressPoolArray and BackendAddressPoolArrayOutput values.
 // You can construct a concrete instance of `BackendAddressPoolArrayInput` via:
 //
@@ -244,6 +251,12 @@ func (i BackendAddressPoolArray) ToBackendAddressPoolArrayOutput() BackendAddres
 
 func (i BackendAddressPoolArray) ToBackendAddressPoolArrayOutputWithContext(ctx context.Context) BackendAddressPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolArrayOutput)
+}
+
+func (i BackendAddressPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackendAddressPool] {
+	return pulumix.Output[[]*BackendAddressPool]{
+		OutputState: i.ToBackendAddressPoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BackendAddressPoolMapInput is an input type that accepts BackendAddressPoolMap and BackendAddressPoolMapOutput values.
@@ -271,6 +284,12 @@ func (i BackendAddressPoolMap) ToBackendAddressPoolMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolMapOutput)
 }
 
+func (i BackendAddressPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackendAddressPool] {
+	return pulumix.Output[map[string]*BackendAddressPool]{
+		OutputState: i.ToBackendAddressPoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolOutput) ElementType() reflect.Type {
@@ -283,6 +302,12 @@ func (o BackendAddressPoolOutput) ToBackendAddressPoolOutput() BackendAddressPoo
 
 func (o BackendAddressPoolOutput) ToBackendAddressPoolOutputWithContext(ctx context.Context) BackendAddressPoolOutput {
 	return o
+}
+
+func (o BackendAddressPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendAddressPool] {
+	return pulumix.Output[*BackendAddressPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Backend IP Configurations associated with this Backend Address Pool.
@@ -339,6 +364,12 @@ func (o BackendAddressPoolArrayOutput) ToBackendAddressPoolArrayOutputWithContex
 	return o
 }
 
+func (o BackendAddressPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackendAddressPool] {
+	return pulumix.Output[[]*BackendAddressPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackendAddressPoolArrayOutput) Index(i pulumi.IntInput) BackendAddressPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackendAddressPool {
 		return vs[0].([]*BackendAddressPool)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o BackendAddressPoolMapOutput) ToBackendAddressPoolMapOutput() BackendAddr
 
 func (o BackendAddressPoolMapOutput) ToBackendAddressPoolMapOutputWithContext(ctx context.Context) BackendAddressPoolMapOutput {
 	return o
+}
+
+func (o BackendAddressPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackendAddressPool] {
+	return pulumix.Output[map[string]*BackendAddressPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendAddressPoolMapOutput) MapIndex(k pulumi.StringInput) BackendAddressPoolOutput {

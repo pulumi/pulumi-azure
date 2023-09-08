@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Trigger Schedule inside a Azure Data Factory.
@@ -289,6 +290,12 @@ func (i *TriggerSchedule) ToTriggerScheduleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleOutput)
 }
 
+func (i *TriggerSchedule) ToOutput(ctx context.Context) pulumix.Output[*TriggerSchedule] {
+	return pulumix.Output[*TriggerSchedule]{
+		OutputState: i.ToTriggerScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TriggerScheduleArrayInput is an input type that accepts TriggerScheduleArray and TriggerScheduleArrayOutput values.
 // You can construct a concrete instance of `TriggerScheduleArrayInput` via:
 //
@@ -312,6 +319,12 @@ func (i TriggerScheduleArray) ToTriggerScheduleArrayOutput() TriggerScheduleArra
 
 func (i TriggerScheduleArray) ToTriggerScheduleArrayOutputWithContext(ctx context.Context) TriggerScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleArrayOutput)
+}
+
+func (i TriggerScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerSchedule] {
+	return pulumix.Output[[]*TriggerSchedule]{
+		OutputState: i.ToTriggerScheduleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TriggerScheduleMapInput is an input type that accepts TriggerScheduleMap and TriggerScheduleMapOutput values.
@@ -339,6 +352,12 @@ func (i TriggerScheduleMap) ToTriggerScheduleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleMapOutput)
 }
 
+func (i TriggerScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerSchedule] {
+	return pulumix.Output[map[string]*TriggerSchedule]{
+		OutputState: i.ToTriggerScheduleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TriggerScheduleOutput struct{ *pulumi.OutputState }
 
 func (TriggerScheduleOutput) ElementType() reflect.Type {
@@ -351,6 +370,12 @@ func (o TriggerScheduleOutput) ToTriggerScheduleOutput() TriggerScheduleOutput {
 
 func (o TriggerScheduleOutput) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
 	return o
+}
+
+func (o TriggerScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerSchedule] {
+	return pulumix.Output[*TriggerSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
@@ -437,6 +462,12 @@ func (o TriggerScheduleArrayOutput) ToTriggerScheduleArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o TriggerScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerSchedule] {
+	return pulumix.Output[[]*TriggerSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TriggerScheduleArrayOutput) Index(i pulumi.IntInput) TriggerScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerSchedule {
 		return vs[0].([]*TriggerSchedule)[vs[1].(int)]
@@ -455,6 +486,12 @@ func (o TriggerScheduleMapOutput) ToTriggerScheduleMapOutput() TriggerScheduleMa
 
 func (o TriggerScheduleMapOutput) ToTriggerScheduleMapOutputWithContext(ctx context.Context) TriggerScheduleMapOutput {
 	return o
+}
+
+func (o TriggerScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerSchedule] {
+	return pulumix.Output[map[string]*TriggerSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TriggerScheduleMapOutput) MapIndex(k pulumi.StringInput) TriggerScheduleOutput {

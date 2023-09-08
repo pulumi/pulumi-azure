@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
@@ -1297,6 +1298,12 @@ func (i *KubernetesCluster) ToKubernetesClusterOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOutput)
 }
 
+func (i *KubernetesCluster) ToOutput(ctx context.Context) pulumix.Output[*KubernetesCluster] {
+	return pulumix.Output[*KubernetesCluster]{
+		OutputState: i.ToKubernetesClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterArrayInput is an input type that accepts KubernetesClusterArray and KubernetesClusterArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterArrayInput` via:
 //
@@ -1320,6 +1327,12 @@ func (i KubernetesClusterArray) ToKubernetesClusterArrayOutput() KubernetesClust
 
 func (i KubernetesClusterArray) ToKubernetesClusterArrayOutputWithContext(ctx context.Context) KubernetesClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterArrayOutput)
+}
+
+func (i KubernetesClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesCluster] {
+	return pulumix.Output[[]*KubernetesCluster]{
+		OutputState: i.ToKubernetesClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KubernetesClusterMapInput is an input type that accepts KubernetesClusterMap and KubernetesClusterMapOutput values.
@@ -1347,6 +1360,12 @@ func (i KubernetesClusterMap) ToKubernetesClusterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMapOutput)
 }
 
+func (i KubernetesClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesCluster] {
+	return pulumix.Output[map[string]*KubernetesCluster]{
+		OutputState: i.ToKubernetesClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterOutput) ElementType() reflect.Type {
@@ -1359,6 +1378,12 @@ func (o KubernetesClusterOutput) ToKubernetesClusterOutput() KubernetesClusterOu
 
 func (o KubernetesClusterOutput) ToKubernetesClusterOutputWithContext(ctx context.Context) KubernetesClusterOutput {
 	return o
+}
+
+func (o KubernetesClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesCluster] {
+	return pulumix.Output[*KubernetesCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -1829,6 +1854,12 @@ func (o KubernetesClusterArrayOutput) ToKubernetesClusterArrayOutputWithContext(
 	return o
 }
 
+func (o KubernetesClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesCluster] {
+	return pulumix.Output[[]*KubernetesCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KubernetesClusterArrayOutput) Index(i pulumi.IntInput) KubernetesClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KubernetesCluster {
 		return vs[0].([]*KubernetesCluster)[vs[1].(int)]
@@ -1847,6 +1878,12 @@ func (o KubernetesClusterMapOutput) ToKubernetesClusterMapOutput() KubernetesClu
 
 func (o KubernetesClusterMapOutput) ToKubernetesClusterMapOutputWithContext(ctx context.Context) KubernetesClusterMapOutput {
 	return o
+}
+
+func (o KubernetesClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesCluster] {
+	return pulumix.Output[map[string]*KubernetesCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMapOutput) MapIndex(k pulumi.StringInput) KubernetesClusterOutput {

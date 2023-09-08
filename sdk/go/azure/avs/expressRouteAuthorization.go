@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Express Route VMware Authorization.
@@ -184,6 +185,12 @@ func (i *ExpressRouteAuthorization) ToExpressRouteAuthorizationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteAuthorizationOutput)
 }
 
+func (i *ExpressRouteAuthorization) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteAuthorization] {
+	return pulumix.Output[*ExpressRouteAuthorization]{
+		OutputState: i.ToExpressRouteAuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExpressRouteAuthorizationArrayInput is an input type that accepts ExpressRouteAuthorizationArray and ExpressRouteAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteAuthorizationArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i ExpressRouteAuthorizationArray) ToExpressRouteAuthorizationArrayOutput()
 
 func (i ExpressRouteAuthorizationArray) ToExpressRouteAuthorizationArrayOutputWithContext(ctx context.Context) ExpressRouteAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteAuthorizationArrayOutput)
+}
+
+func (i ExpressRouteAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteAuthorization] {
+	return pulumix.Output[[]*ExpressRouteAuthorization]{
+		OutputState: i.ToExpressRouteAuthorizationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExpressRouteAuthorizationMapInput is an input type that accepts ExpressRouteAuthorizationMap and ExpressRouteAuthorizationMapOutput values.
@@ -234,6 +247,12 @@ func (i ExpressRouteAuthorizationMap) ToExpressRouteAuthorizationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteAuthorizationMapOutput)
 }
 
+func (i ExpressRouteAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteAuthorization] {
+	return pulumix.Output[map[string]*ExpressRouteAuthorization]{
+		OutputState: i.ToExpressRouteAuthorizationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExpressRouteAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteAuthorizationOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o ExpressRouteAuthorizationOutput) ToExpressRouteAuthorizationOutput() Exp
 
 func (o ExpressRouteAuthorizationOutput) ToExpressRouteAuthorizationOutputWithContext(ctx context.Context) ExpressRouteAuthorizationOutput {
 	return o
+}
+
+func (o ExpressRouteAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteAuthorization] {
+	return pulumix.Output[*ExpressRouteAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Express Route Circuit Authorization.
@@ -282,6 +307,12 @@ func (o ExpressRouteAuthorizationArrayOutput) ToExpressRouteAuthorizationArrayOu
 	return o
 }
 
+func (o ExpressRouteAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteAuthorization] {
+	return pulumix.Output[[]*ExpressRouteAuthorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExpressRouteAuthorizationArrayOutput) Index(i pulumi.IntInput) ExpressRouteAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteAuthorization {
 		return vs[0].([]*ExpressRouteAuthorization)[vs[1].(int)]
@@ -300,6 +331,12 @@ func (o ExpressRouteAuthorizationMapOutput) ToExpressRouteAuthorizationMapOutput
 
 func (o ExpressRouteAuthorizationMapOutput) ToExpressRouteAuthorizationMapOutputWithContext(ctx context.Context) ExpressRouteAuthorizationMapOutput {
 	return o
+}
+
+func (o ExpressRouteAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteAuthorization] {
+	return pulumix.Output[map[string]*ExpressRouteAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExpressRouteAuthorizationMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteAuthorizationOutput {

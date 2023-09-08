@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Key Vault Certificate Issuer.
@@ -119,6 +120,12 @@ func (o LookupCertificateIssuerResultOutput) ToLookupCertificateIssuerResultOutp
 
 func (o LookupCertificateIssuerResultOutput) ToLookupCertificateIssuerResultOutputWithContext(ctx context.Context) LookupCertificateIssuerResultOutput {
 	return o
+}
+
+func (o LookupCertificateIssuerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateIssuerResult] {
+	return pulumix.Output[LookupCertificateIssuerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account number with the third-party Certificate Issuer.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a ServiceBus Namespace Network Rule Set.
@@ -251,6 +252,12 @@ func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput)
 }
 
+func (i *NamespaceNetworkRuleSet) ToOutput(ctx context.Context) pulumix.Output[*NamespaceNetworkRuleSet] {
+	return pulumix.Output[*NamespaceNetworkRuleSet]{
+		OutputState: i.ToNamespaceNetworkRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamespaceNetworkRuleSetArrayInput is an input type that accepts NamespaceNetworkRuleSetArray and NamespaceNetworkRuleSetArrayOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetArrayInput` via:
 //
@@ -274,6 +281,12 @@ func (i NamespaceNetworkRuleSetArray) ToNamespaceNetworkRuleSetArrayOutput() Nam
 
 func (i NamespaceNetworkRuleSetArray) ToNamespaceNetworkRuleSetArrayOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetArrayOutput)
+}
+
+func (i NamespaceNetworkRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceNetworkRuleSet] {
+	return pulumix.Output[[]*NamespaceNetworkRuleSet]{
+		OutputState: i.ToNamespaceNetworkRuleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NamespaceNetworkRuleSetMapInput is an input type that accepts NamespaceNetworkRuleSetMap and NamespaceNetworkRuleSetMapOutput values.
@@ -301,6 +314,12 @@ func (i NamespaceNetworkRuleSetMap) ToNamespaceNetworkRuleSetMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetMapOutput)
 }
 
+func (i NamespaceNetworkRuleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceNetworkRuleSet] {
+	return pulumix.Output[map[string]*NamespaceNetworkRuleSet]{
+		OutputState: i.ToNamespaceNetworkRuleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
@@ -313,6 +332,12 @@ func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutput() Namespa
 
 func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceNetworkRuleSet] {
+	return pulumix.Output[*NamespaceNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -361,6 +386,12 @@ func (o NamespaceNetworkRuleSetArrayOutput) ToNamespaceNetworkRuleSetArrayOutput
 	return o
 }
 
+func (o NamespaceNetworkRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceNetworkRuleSet] {
+	return pulumix.Output[[]*NamespaceNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NamespaceNetworkRuleSetArrayOutput) Index(i pulumi.IntInput) NamespaceNetworkRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamespaceNetworkRuleSet {
 		return vs[0].([]*NamespaceNetworkRuleSet)[vs[1].(int)]
@@ -379,6 +410,12 @@ func (o NamespaceNetworkRuleSetMapOutput) ToNamespaceNetworkRuleSetMapOutput() N
 
 func (o NamespaceNetworkRuleSetMapOutput) ToNamespaceNetworkRuleSetMapOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetMapOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceNetworkRuleSet] {
+	return pulumix.Output[map[string]*NamespaceNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceNetworkRuleSetMapOutput) MapIndex(k pulumi.StringInput) NamespaceNetworkRuleSetOutput {

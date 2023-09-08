@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
@@ -180,6 +181,12 @@ func (i *PostgresqlNodeConfiguration) ToPostgresqlNodeConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlNodeConfigurationOutput)
 }
 
+func (i *PostgresqlNodeConfiguration) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlNodeConfiguration] {
+	return pulumix.Output[*PostgresqlNodeConfiguration]{
+		OutputState: i.ToPostgresqlNodeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PostgresqlNodeConfigurationArrayInput is an input type that accepts PostgresqlNodeConfigurationArray and PostgresqlNodeConfigurationArrayOutput values.
 // You can construct a concrete instance of `PostgresqlNodeConfigurationArrayInput` via:
 //
@@ -203,6 +210,12 @@ func (i PostgresqlNodeConfigurationArray) ToPostgresqlNodeConfigurationArrayOutp
 
 func (i PostgresqlNodeConfigurationArray) ToPostgresqlNodeConfigurationArrayOutputWithContext(ctx context.Context) PostgresqlNodeConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlNodeConfigurationArrayOutput)
+}
+
+func (i PostgresqlNodeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlNodeConfiguration] {
+	return pulumix.Output[[]*PostgresqlNodeConfiguration]{
+		OutputState: i.ToPostgresqlNodeConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PostgresqlNodeConfigurationMapInput is an input type that accepts PostgresqlNodeConfigurationMap and PostgresqlNodeConfigurationMapOutput values.
@@ -230,6 +243,12 @@ func (i PostgresqlNodeConfigurationMap) ToPostgresqlNodeConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlNodeConfigurationMapOutput)
 }
 
+func (i PostgresqlNodeConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlNodeConfiguration] {
+	return pulumix.Output[map[string]*PostgresqlNodeConfiguration]{
+		OutputState: i.ToPostgresqlNodeConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PostgresqlNodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PostgresqlNodeConfigurationOutput) ElementType() reflect.Type {
@@ -242,6 +261,12 @@ func (o PostgresqlNodeConfigurationOutput) ToPostgresqlNodeConfigurationOutput()
 
 func (o PostgresqlNodeConfigurationOutput) ToPostgresqlNodeConfigurationOutputWithContext(ctx context.Context) PostgresqlNodeConfigurationOutput {
 	return o
+}
+
+func (o PostgresqlNodeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlNodeConfiguration] {
+	return pulumix.Output[*PostgresqlNodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
@@ -273,6 +298,12 @@ func (o PostgresqlNodeConfigurationArrayOutput) ToPostgresqlNodeConfigurationArr
 	return o
 }
 
+func (o PostgresqlNodeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlNodeConfiguration] {
+	return pulumix.Output[[]*PostgresqlNodeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PostgresqlNodeConfigurationArrayOutput) Index(i pulumi.IntInput) PostgresqlNodeConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PostgresqlNodeConfiguration {
 		return vs[0].([]*PostgresqlNodeConfiguration)[vs[1].(int)]
@@ -291,6 +322,12 @@ func (o PostgresqlNodeConfigurationMapOutput) ToPostgresqlNodeConfigurationMapOu
 
 func (o PostgresqlNodeConfigurationMapOutput) ToPostgresqlNodeConfigurationMapOutputWithContext(ctx context.Context) PostgresqlNodeConfigurationMapOutput {
 	return o
+}
+
+func (o PostgresqlNodeConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlNodeConfiguration] {
+	return pulumix.Output[map[string]*PostgresqlNodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PostgresqlNodeConfigurationMapOutput) MapIndex(k pulumi.StringInput) PostgresqlNodeConfigurationOutput {

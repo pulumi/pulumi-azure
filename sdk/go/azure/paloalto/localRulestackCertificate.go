@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Networks Rulestack Certificate.
@@ -211,6 +212,12 @@ func (i *LocalRulestackCertificate) ToLocalRulestackCertificateOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackCertificateOutput)
 }
 
+func (i *LocalRulestackCertificate) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackCertificate] {
+	return pulumix.Output[*LocalRulestackCertificate]{
+		OutputState: i.ToLocalRulestackCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalRulestackCertificateArrayInput is an input type that accepts LocalRulestackCertificateArray and LocalRulestackCertificateArrayOutput values.
 // You can construct a concrete instance of `LocalRulestackCertificateArrayInput` via:
 //
@@ -234,6 +241,12 @@ func (i LocalRulestackCertificateArray) ToLocalRulestackCertificateArrayOutput()
 
 func (i LocalRulestackCertificateArray) ToLocalRulestackCertificateArrayOutputWithContext(ctx context.Context) LocalRulestackCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackCertificateArrayOutput)
+}
+
+func (i LocalRulestackCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackCertificate] {
+	return pulumix.Output[[]*LocalRulestackCertificate]{
+		OutputState: i.ToLocalRulestackCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalRulestackCertificateMapInput is an input type that accepts LocalRulestackCertificateMap and LocalRulestackCertificateMapOutput values.
@@ -261,6 +274,12 @@ func (i LocalRulestackCertificateMap) ToLocalRulestackCertificateMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackCertificateMapOutput)
 }
 
+func (i LocalRulestackCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackCertificate] {
+	return pulumix.Output[map[string]*LocalRulestackCertificate]{
+		OutputState: i.ToLocalRulestackCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRulestackCertificateOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackCertificateOutput) ElementType() reflect.Type {
@@ -273,6 +292,12 @@ func (o LocalRulestackCertificateOutput) ToLocalRulestackCertificateOutput() Loc
 
 func (o LocalRulestackCertificateOutput) ToLocalRulestackCertificateOutputWithContext(ctx context.Context) LocalRulestackCertificateOutput {
 	return o
+}
+
+func (o LocalRulestackCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackCertificate] {
+	return pulumix.Output[*LocalRulestackCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The comment for Audit purposes.
@@ -321,6 +346,12 @@ func (o LocalRulestackCertificateArrayOutput) ToLocalRulestackCertificateArrayOu
 	return o
 }
 
+func (o LocalRulestackCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackCertificate] {
+	return pulumix.Output[[]*LocalRulestackCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalRulestackCertificateArrayOutput) Index(i pulumi.IntInput) LocalRulestackCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRulestackCertificate {
 		return vs[0].([]*LocalRulestackCertificate)[vs[1].(int)]
@@ -339,6 +370,12 @@ func (o LocalRulestackCertificateMapOutput) ToLocalRulestackCertificateMapOutput
 
 func (o LocalRulestackCertificateMapOutput) ToLocalRulestackCertificateMapOutputWithContext(ctx context.Context) LocalRulestackCertificateMapOutput {
 	return o
+}
+
+func (o LocalRulestackCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackCertificate] {
+	return pulumix.Output[map[string]*LocalRulestackCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRulestackCertificateMapOutput) MapIndex(k pulumi.StringInput) LocalRulestackCertificateOutput {

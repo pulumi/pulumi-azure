@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Container Registry scope map.
@@ -113,6 +114,12 @@ func (o LookupRegistryScopeMapResultOutput) ToLookupRegistryScopeMapResultOutput
 
 func (o LookupRegistryScopeMapResultOutput) ToLookupRegistryScopeMapResultOutputWithContext(ctx context.Context) LookupRegistryScopeMapResultOutput {
 	return o
+}
+
+func (o LookupRegistryScopeMapResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRegistryScopeMapResult] {
+	return pulumix.Output[LookupRegistryScopeMapResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The actions for the Scope Map.

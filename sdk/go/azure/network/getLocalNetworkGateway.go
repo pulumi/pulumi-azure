@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Local Network Gateway.
@@ -116,6 +117,12 @@ func (o LookupLocalNetworkGatewayResultOutput) ToLookupLocalNetworkGatewayResult
 
 func (o LookupLocalNetworkGatewayResultOutput) ToLookupLocalNetworkGatewayResultOutputWithContext(ctx context.Context) LookupLocalNetworkGatewayResultOutput {
 	return o
+}
+
+func (o LookupLocalNetworkGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalNetworkGatewayResult] {
+	return pulumix.Output[LookupLocalNetworkGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of string CIDRs representing the address spaces the gateway exposes.

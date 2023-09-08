@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Packet Core Control Plane.
@@ -130,6 +131,12 @@ func (o LookupNetworkPacketCoreControlPlaneResultOutput) ToLookupNetworkPacketCo
 
 func (o LookupNetworkPacketCoreControlPlaneResultOutput) ToLookupNetworkPacketCoreControlPlaneResultOutputWithContext(ctx context.Context) LookupNetworkPacketCoreControlPlaneResultOutput {
 	return o
+}
+
+func (o LookupNetworkPacketCoreControlPlaneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkPacketCoreControlPlaneResult] {
+	return pulumix.Output[LookupNetworkPacketCoreControlPlaneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkPacketCoreControlPlaneResultOutput) ControlPlaneAccessIpv4Address() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel NRT Alert Rule.
@@ -370,6 +371,12 @@ func (i *AlertRuleNrt) ToAlertRuleNrtOutputWithContext(ctx context.Context) Aler
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtOutput)
 }
 
+func (i *AlertRuleNrt) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrt] {
+	return pulumix.Output[*AlertRuleNrt]{
+		OutputState: i.ToAlertRuleNrtOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleNrtArrayInput is an input type that accepts AlertRuleNrtArray and AlertRuleNrtArrayOutput values.
 // You can construct a concrete instance of `AlertRuleNrtArrayInput` via:
 //
@@ -393,6 +400,12 @@ func (i AlertRuleNrtArray) ToAlertRuleNrtArrayOutput() AlertRuleNrtArrayOutput {
 
 func (i AlertRuleNrtArray) ToAlertRuleNrtArrayOutputWithContext(ctx context.Context) AlertRuleNrtArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtArrayOutput)
+}
+
+func (i AlertRuleNrtArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleNrt] {
+	return pulumix.Output[[]*AlertRuleNrt]{
+		OutputState: i.ToAlertRuleNrtArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertRuleNrtMapInput is an input type that accepts AlertRuleNrtMap and AlertRuleNrtMapOutput values.
@@ -420,6 +433,12 @@ func (i AlertRuleNrtMap) ToAlertRuleNrtMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtMapOutput)
 }
 
+func (i AlertRuleNrtMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleNrt] {
+	return pulumix.Output[map[string]*AlertRuleNrt]{
+		OutputState: i.ToAlertRuleNrtMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleNrtOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleNrtOutput) ElementType() reflect.Type {
@@ -432,6 +451,12 @@ func (o AlertRuleNrtOutput) ToAlertRuleNrtOutput() AlertRuleNrtOutput {
 
 func (o AlertRuleNrtOutput) ToAlertRuleNrtOutputWithContext(ctx context.Context) AlertRuleNrtOutput {
 	return o
+}
+
+func (o AlertRuleNrtOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleNrt] {
+	return pulumix.Output[*AlertRuleNrt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `alertDetailsOverride` block as defined below.
@@ -547,6 +572,12 @@ func (o AlertRuleNrtArrayOutput) ToAlertRuleNrtArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o AlertRuleNrtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleNrt] {
+	return pulumix.Output[[]*AlertRuleNrt]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertRuleNrtArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleNrt {
 		return vs[0].([]*AlertRuleNrt)[vs[1].(int)]
@@ -565,6 +596,12 @@ func (o AlertRuleNrtMapOutput) ToAlertRuleNrtMapOutput() AlertRuleNrtMapOutput {
 
 func (o AlertRuleNrtMapOutput) ToAlertRuleNrtMapOutputWithContext(ctx context.Context) AlertRuleNrtMapOutput {
 	return o
+}
+
+func (o AlertRuleNrtMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleNrt] {
+	return pulumix.Output[map[string]*AlertRuleNrt]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleNrtMapOutput) MapIndex(k pulumi.StringInput) AlertRuleNrtOutput {

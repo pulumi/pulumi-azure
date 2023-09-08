@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
@@ -360,6 +361,12 @@ func (i *ScheduledQueryRulesAlertV2) ToScheduledQueryRulesAlertV2OutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2Output)
 }
 
+func (i *ScheduledQueryRulesAlertV2) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertV2] {
+	return pulumix.Output[*ScheduledQueryRulesAlertV2]{
+		OutputState: i.ToScheduledQueryRulesAlertV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduledQueryRulesAlertV2ArrayInput is an input type that accepts ScheduledQueryRulesAlertV2Array and ScheduledQueryRulesAlertV2ArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesAlertV2ArrayInput` via:
 //
@@ -383,6 +390,12 @@ func (i ScheduledQueryRulesAlertV2Array) ToScheduledQueryRulesAlertV2ArrayOutput
 
 func (i ScheduledQueryRulesAlertV2Array) ToScheduledQueryRulesAlertV2ArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2ArrayOutput)
+}
+
+func (i ScheduledQueryRulesAlertV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledQueryRulesAlertV2] {
+	return pulumix.Output[[]*ScheduledQueryRulesAlertV2]{
+		OutputState: i.ToScheduledQueryRulesAlertV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScheduledQueryRulesAlertV2MapInput is an input type that accepts ScheduledQueryRulesAlertV2Map and ScheduledQueryRulesAlertV2MapOutput values.
@@ -410,6 +423,12 @@ func (i ScheduledQueryRulesAlertV2Map) ToScheduledQueryRulesAlertV2MapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2MapOutput)
 }
 
+func (i ScheduledQueryRulesAlertV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledQueryRulesAlertV2] {
+	return pulumix.Output[map[string]*ScheduledQueryRulesAlertV2]{
+		OutputState: i.ToScheduledQueryRulesAlertV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduledQueryRulesAlertV2Output struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertV2Output) ElementType() reflect.Type {
@@ -422,6 +441,12 @@ func (o ScheduledQueryRulesAlertV2Output) ToScheduledQueryRulesAlertV2Output() S
 
 func (o ScheduledQueryRulesAlertV2Output) ToScheduledQueryRulesAlertV2OutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2Output {
 	return o
+}
+
+func (o ScheduledQueryRulesAlertV2Output) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertV2] {
+	return pulumix.Output[*ScheduledQueryRulesAlertV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `action` block as defined below.
@@ -556,6 +581,12 @@ func (o ScheduledQueryRulesAlertV2ArrayOutput) ToScheduledQueryRulesAlertV2Array
 	return o
 }
 
+func (o ScheduledQueryRulesAlertV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledQueryRulesAlertV2] {
+	return pulumix.Output[[]*ScheduledQueryRulesAlertV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduledQueryRulesAlertV2ArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledQueryRulesAlertV2 {
 		return vs[0].([]*ScheduledQueryRulesAlertV2)[vs[1].(int)]
@@ -574,6 +605,12 @@ func (o ScheduledQueryRulesAlertV2MapOutput) ToScheduledQueryRulesAlertV2MapOutp
 
 func (o ScheduledQueryRulesAlertV2MapOutput) ToScheduledQueryRulesAlertV2MapOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2MapOutput {
 	return o
+}
+
+func (o ScheduledQueryRulesAlertV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledQueryRulesAlertV2] {
+	return pulumix.Output[map[string]*ScheduledQueryRulesAlertV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledQueryRulesAlertV2MapOutput) MapIndex(k pulumi.StringInput) ScheduledQueryRulesAlertV2Output {

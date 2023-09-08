@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Action Group within Azure Monitor.
@@ -414,6 +415,12 @@ func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) Action
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupOutput)
 }
 
+func (i *ActionGroup) ToOutput(ctx context.Context) pulumix.Output[*ActionGroup] {
+	return pulumix.Output[*ActionGroup]{
+		OutputState: i.ToActionGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionGroupArrayInput is an input type that accepts ActionGroupArray and ActionGroupArrayOutput values.
 // You can construct a concrete instance of `ActionGroupArrayInput` via:
 //
@@ -437,6 +444,12 @@ func (i ActionGroupArray) ToActionGroupArrayOutput() ActionGroupArrayOutput {
 
 func (i ActionGroupArray) ToActionGroupArrayOutputWithContext(ctx context.Context) ActionGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupArrayOutput)
+}
+
+func (i ActionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionGroup] {
+	return pulumix.Output[[]*ActionGroup]{
+		OutputState: i.ToActionGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionGroupMapInput is an input type that accepts ActionGroupMap and ActionGroupMapOutput values.
@@ -464,6 +477,12 @@ func (i ActionGroupMap) ToActionGroupMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupMapOutput)
 }
 
+func (i ActionGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionGroup] {
+	return pulumix.Output[map[string]*ActionGroup]{
+		OutputState: i.ToActionGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupOutput) ElementType() reflect.Type {
@@ -476,6 +495,12 @@ func (o ActionGroupOutput) ToActionGroupOutput() ActionGroupOutput {
 
 func (o ActionGroupOutput) ToActionGroupOutputWithContext(ctx context.Context) ActionGroupOutput {
 	return o
+}
+
+func (o ActionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionGroup] {
+	return pulumix.Output[*ActionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `armRoleReceiver` blocks as defined below.
@@ -579,6 +604,12 @@ func (o ActionGroupArrayOutput) ToActionGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ActionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionGroup] {
+	return pulumix.Output[[]*ActionGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionGroupArrayOutput) Index(i pulumi.IntInput) ActionGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionGroup {
 		return vs[0].([]*ActionGroup)[vs[1].(int)]
@@ -597,6 +628,12 @@ func (o ActionGroupMapOutput) ToActionGroupMapOutput() ActionGroupMapOutput {
 
 func (o ActionGroupMapOutput) ToActionGroupMapOutputWithContext(ctx context.Context) ActionGroupMapOutput {
 	return o
+}
+
+func (o ActionGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionGroup] {
+	return pulumix.Output[map[string]*ActionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionGroupMapOutput) MapIndex(k pulumi.StringInput) ActionGroupOutput {

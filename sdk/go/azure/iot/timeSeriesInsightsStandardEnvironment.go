@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure IoT Time Series Insights Standard Environment.
@@ -222,6 +223,12 @@ func (i *TimeSeriesInsightsStandardEnvironment) ToTimeSeriesInsightsStandardEnvi
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentOutput)
 }
 
+func (i *TimeSeriesInsightsStandardEnvironment) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsStandardEnvironment] {
+	return pulumix.Output[*TimeSeriesInsightsStandardEnvironment]{
+		OutputState: i.ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TimeSeriesInsightsStandardEnvironmentArrayInput is an input type that accepts TimeSeriesInsightsStandardEnvironmentArray and TimeSeriesInsightsStandardEnvironmentArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsStandardEnvironmentArrayInput` via:
 //
@@ -245,6 +252,12 @@ func (i TimeSeriesInsightsStandardEnvironmentArray) ToTimeSeriesInsightsStandard
 
 func (i TimeSeriesInsightsStandardEnvironmentArray) ToTimeSeriesInsightsStandardEnvironmentArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentArrayOutput)
+}
+
+func (i TimeSeriesInsightsStandardEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsStandardEnvironment] {
+	return pulumix.Output[[]*TimeSeriesInsightsStandardEnvironment]{
+		OutputState: i.ToTimeSeriesInsightsStandardEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TimeSeriesInsightsStandardEnvironmentMapInput is an input type that accepts TimeSeriesInsightsStandardEnvironmentMap and TimeSeriesInsightsStandardEnvironmentMapOutput values.
@@ -272,6 +285,12 @@ func (i TimeSeriesInsightsStandardEnvironmentMap) ToTimeSeriesInsightsStandardEn
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsStandardEnvironmentMapOutput)
 }
 
+func (i TimeSeriesInsightsStandardEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsStandardEnvironment] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsStandardEnvironment]{
+		OutputState: i.ToTimeSeriesInsightsStandardEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TimeSeriesInsightsStandardEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsStandardEnvironmentOutput) ElementType() reflect.Type {
@@ -284,6 +303,12 @@ func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandar
 
 func (o TimeSeriesInsightsStandardEnvironmentOutput) ToTimeSeriesInsightsStandardEnvironmentOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsStandardEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsStandardEnvironment] {
+	return pulumix.Output[*TimeSeriesInsightsStandardEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
@@ -342,6 +367,12 @@ func (o TimeSeriesInsightsStandardEnvironmentArrayOutput) ToTimeSeriesInsightsSt
 	return o
 }
 
+func (o TimeSeriesInsightsStandardEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsStandardEnvironment] {
+	return pulumix.Output[[]*TimeSeriesInsightsStandardEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TimeSeriesInsightsStandardEnvironmentArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsStandardEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsStandardEnvironment {
 		return vs[0].([]*TimeSeriesInsightsStandardEnvironment)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o TimeSeriesInsightsStandardEnvironmentMapOutput) ToTimeSeriesInsightsStan
 
 func (o TimeSeriesInsightsStandardEnvironmentMapOutput) ToTimeSeriesInsightsStandardEnvironmentMapOutputWithContext(ctx context.Context) TimeSeriesInsightsStandardEnvironmentMapOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsStandardEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsStandardEnvironment] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsStandardEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TimeSeriesInsightsStandardEnvironmentMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsStandardEnvironmentOutput {

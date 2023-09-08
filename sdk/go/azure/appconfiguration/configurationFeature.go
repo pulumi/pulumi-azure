@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure App Configuration Feature.
@@ -281,6 +282,12 @@ func (i *ConfigurationFeature) ToConfigurationFeatureOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureOutput)
 }
 
+func (i *ConfigurationFeature) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationFeature] {
+	return pulumix.Output[*ConfigurationFeature]{
+		OutputState: i.ToConfigurationFeatureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationFeatureArrayInput is an input type that accepts ConfigurationFeatureArray and ConfigurationFeatureArrayOutput values.
 // You can construct a concrete instance of `ConfigurationFeatureArrayInput` via:
 //
@@ -304,6 +311,12 @@ func (i ConfigurationFeatureArray) ToConfigurationFeatureArrayOutput() Configura
 
 func (i ConfigurationFeatureArray) ToConfigurationFeatureArrayOutputWithContext(ctx context.Context) ConfigurationFeatureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureArrayOutput)
+}
+
+func (i ConfigurationFeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationFeature] {
+	return pulumix.Output[[]*ConfigurationFeature]{
+		OutputState: i.ToConfigurationFeatureArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfigurationFeatureMapInput is an input type that accepts ConfigurationFeatureMap and ConfigurationFeatureMapOutput values.
@@ -331,6 +344,12 @@ func (i ConfigurationFeatureMap) ToConfigurationFeatureMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureMapOutput)
 }
 
+func (i ConfigurationFeatureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationFeature] {
+	return pulumix.Output[map[string]*ConfigurationFeature]{
+		OutputState: i.ToConfigurationFeatureMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationFeatureOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureOutput) ElementType() reflect.Type {
@@ -343,6 +362,12 @@ func (o ConfigurationFeatureOutput) ToConfigurationFeatureOutput() Configuration
 
 func (o ConfigurationFeatureOutput) ToConfigurationFeatureOutputWithContext(ctx context.Context) ConfigurationFeatureOutput {
 	return o
+}
+
+func (o ConfigurationFeatureOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationFeature] {
+	return pulumix.Output[*ConfigurationFeature]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -422,6 +447,12 @@ func (o ConfigurationFeatureArrayOutput) ToConfigurationFeatureArrayOutputWithCo
 	return o
 }
 
+func (o ConfigurationFeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationFeature] {
+	return pulumix.Output[[]*ConfigurationFeature]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationFeatureArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationFeature {
 		return vs[0].([]*ConfigurationFeature)[vs[1].(int)]
@@ -440,6 +471,12 @@ func (o ConfigurationFeatureMapOutput) ToConfigurationFeatureMapOutput() Configu
 
 func (o ConfigurationFeatureMapOutput) ToConfigurationFeatureMapOutputWithContext(ctx context.Context) ConfigurationFeatureMapOutput {
 	return o
+}
+
+func (o ConfigurationFeatureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationFeature] {
+	return pulumix.Output[map[string]*ConfigurationFeature]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationFeatureMapOutput) MapIndex(k pulumi.StringInput) ConfigurationFeatureOutput {

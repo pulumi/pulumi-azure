@@ -1606,6 +1606,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/python3Package",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/python3Package:Python3Package": "Python3Package"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "automation/runBook",
   "fqn": "pulumi_azure.automation",
   "classes": {
@@ -6066,6 +6074,14 @@ _utilities.register(
   "fqn": "pulumi_azure.netapp",
   "classes": {
    "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana": "VolumeGroupSapHana"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "netapp/volumeQuotaRule",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/volumeQuotaRule:VolumeQuotaRule": "VolumeQuotaRule"
   }
  },
  {

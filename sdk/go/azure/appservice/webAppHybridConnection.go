@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Web App Hybrid Connection.
@@ -263,6 +264,12 @@ func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionOutput)
 }
 
+func (i *WebAppHybridConnection) ToOutput(ctx context.Context) pulumix.Output[*WebAppHybridConnection] {
+	return pulumix.Output[*WebAppHybridConnection]{
+		OutputState: i.ToWebAppHybridConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebAppHybridConnectionArrayInput is an input type that accepts WebAppHybridConnectionArray and WebAppHybridConnectionArrayOutput values.
 // You can construct a concrete instance of `WebAppHybridConnectionArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i WebAppHybridConnectionArray) ToWebAppHybridConnectionArrayOutput() WebAp
 
 func (i WebAppHybridConnectionArray) ToWebAppHybridConnectionArrayOutputWithContext(ctx context.Context) WebAppHybridConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionArrayOutput)
+}
+
+func (i WebAppHybridConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebAppHybridConnection] {
+	return pulumix.Output[[]*WebAppHybridConnection]{
+		OutputState: i.ToWebAppHybridConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebAppHybridConnectionMapInput is an input type that accepts WebAppHybridConnectionMap and WebAppHybridConnectionMapOutput values.
@@ -313,6 +326,12 @@ func (i WebAppHybridConnectionMap) ToWebAppHybridConnectionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionMapOutput)
 }
 
+func (i WebAppHybridConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAppHybridConnection] {
+	return pulumix.Output[map[string]*WebAppHybridConnection]{
+		OutputState: i.ToWebAppHybridConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAppHybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppHybridConnectionOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutput() WebAppHyb
 
 func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutputWithContext(ctx context.Context) WebAppHybridConnectionOutput {
 	return o
+}
+
+func (o WebAppHybridConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAppHybridConnection] {
+	return pulumix.Output[*WebAppHybridConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The hostname of the endpoint.
@@ -391,6 +416,12 @@ func (o WebAppHybridConnectionArrayOutput) ToWebAppHybridConnectionArrayOutputWi
 	return o
 }
 
+func (o WebAppHybridConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebAppHybridConnection] {
+	return pulumix.Output[[]*WebAppHybridConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebAppHybridConnectionArrayOutput) Index(i pulumi.IntInput) WebAppHybridConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebAppHybridConnection {
 		return vs[0].([]*WebAppHybridConnection)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o WebAppHybridConnectionMapOutput) ToWebAppHybridConnectionMapOutput() Web
 
 func (o WebAppHybridConnectionMapOutput) ToWebAppHybridConnectionMapOutputWithContext(ctx context.Context) WebAppHybridConnectionMapOutput {
 	return o
+}
+
+func (o WebAppHybridConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAppHybridConnection] {
+	return pulumix.Output[map[string]*WebAppHybridConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAppHybridConnectionMapOutput) MapIndex(k pulumi.StringInput) WebAppHybridConnectionOutput {

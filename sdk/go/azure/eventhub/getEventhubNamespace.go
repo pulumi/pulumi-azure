@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing EventHub Namespace.
@@ -139,6 +140,12 @@ func (o GetEventhubNamespaceResultOutput) ToGetEventhubNamespaceResultOutput() G
 
 func (o GetEventhubNamespaceResultOutput) ToGetEventhubNamespaceResultOutputWithContext(ctx context.Context) GetEventhubNamespaceResultOutput {
 	return o
+}
+
+func (o GetEventhubNamespaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventhubNamespaceResult] {
+	return pulumix.Output[GetEventhubNamespaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is Auto Inflate enabled for the EventHub Namespace?

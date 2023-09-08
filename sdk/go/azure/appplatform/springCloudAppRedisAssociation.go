@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Spring Cloud Application with a Redis Cache.
@@ -218,6 +219,12 @@ func (i *SpringCloudAppRedisAssociation) ToSpringCloudAppRedisAssociationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppRedisAssociationOutput)
 }
 
+func (i *SpringCloudAppRedisAssociation) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppRedisAssociation] {
+	return pulumix.Output[*SpringCloudAppRedisAssociation]{
+		OutputState: i.ToSpringCloudAppRedisAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudAppRedisAssociationArrayInput is an input type that accepts SpringCloudAppRedisAssociationArray and SpringCloudAppRedisAssociationArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppRedisAssociationArrayInput` via:
 //
@@ -241,6 +248,12 @@ func (i SpringCloudAppRedisAssociationArray) ToSpringCloudAppRedisAssociationArr
 
 func (i SpringCloudAppRedisAssociationArray) ToSpringCloudAppRedisAssociationArrayOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppRedisAssociationArrayOutput)
+}
+
+func (i SpringCloudAppRedisAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAppRedisAssociation] {
+	return pulumix.Output[[]*SpringCloudAppRedisAssociation]{
+		OutputState: i.ToSpringCloudAppRedisAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudAppRedisAssociationMapInput is an input type that accepts SpringCloudAppRedisAssociationMap and SpringCloudAppRedisAssociationMapOutput values.
@@ -268,6 +281,12 @@ func (i SpringCloudAppRedisAssociationMap) ToSpringCloudAppRedisAssociationMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppRedisAssociationMapOutput)
 }
 
+func (i SpringCloudAppRedisAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAppRedisAssociation] {
+	return pulumix.Output[map[string]*SpringCloudAppRedisAssociation]{
+		OutputState: i.ToSpringCloudAppRedisAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudAppRedisAssociationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppRedisAssociationOutput) ElementType() reflect.Type {
@@ -280,6 +299,12 @@ func (o SpringCloudAppRedisAssociationOutput) ToSpringCloudAppRedisAssociationOu
 
 func (o SpringCloudAppRedisAssociationOutput) ToSpringCloudAppRedisAssociationOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationOutput {
 	return o
+}
+
+func (o SpringCloudAppRedisAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppRedisAssociation] {
+	return pulumix.Output[*SpringCloudAppRedisAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
@@ -321,6 +346,12 @@ func (o SpringCloudAppRedisAssociationArrayOutput) ToSpringCloudAppRedisAssociat
 	return o
 }
 
+func (o SpringCloudAppRedisAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAppRedisAssociation] {
+	return pulumix.Output[[]*SpringCloudAppRedisAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudAppRedisAssociationArrayOutput) Index(i pulumi.IntInput) SpringCloudAppRedisAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAppRedisAssociation {
 		return vs[0].([]*SpringCloudAppRedisAssociation)[vs[1].(int)]
@@ -339,6 +370,12 @@ func (o SpringCloudAppRedisAssociationMapOutput) ToSpringCloudAppRedisAssociatio
 
 func (o SpringCloudAppRedisAssociationMapOutput) ToSpringCloudAppRedisAssociationMapOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationMapOutput {
 	return o
+}
+
+func (o SpringCloudAppRedisAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAppRedisAssociation] {
+	return pulumix.Output[map[string]*SpringCloudAppRedisAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudAppRedisAssociationMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppRedisAssociationOutput {

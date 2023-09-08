@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -62,6 +63,12 @@ func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterIdentityOutput)
 }
 
+func (i ComputeClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeClusterIdentity] {
+	return pulumix.Output[ComputeClusterIdentity]{
+		OutputState: i.ToComputeClusterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityPtrOutput() ComputeClusterIdentityPtrOutput {
 	return i.ToComputeClusterIdentityPtrOutputWithContext(context.Background())
 }
@@ -103,6 +110,12 @@ func (i *computeClusterIdentityPtrType) ToComputeClusterIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterIdentityPtrOutput)
 }
 
+func (i *computeClusterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeClusterIdentity] {
+	return pulumix.Output[*ComputeClusterIdentity]{
+		OutputState: i.ToComputeClusterIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterIdentityOutput) ElementType() reflect.Type {
@@ -125,6 +138,12 @@ func (o ComputeClusterIdentityOutput) ToComputeClusterIdentityPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterIdentity) *ComputeClusterIdentity {
 		return &v
 	}).(ComputeClusterIdentityPtrOutput)
+}
+
+func (o ComputeClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeClusterIdentity] {
+	return pulumix.Output[ComputeClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
@@ -161,6 +180,12 @@ func (o ComputeClusterIdentityPtrOutput) ToComputeClusterIdentityPtrOutput() Com
 
 func (o ComputeClusterIdentityPtrOutput) ToComputeClusterIdentityPtrOutputWithContext(ctx context.Context) ComputeClusterIdentityPtrOutput {
 	return o
+}
+
+func (o ComputeClusterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeClusterIdentity] {
+	return pulumix.Output[*ComputeClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeClusterIdentityPtrOutput) Elem() ComputeClusterIdentityOutput {
@@ -256,6 +281,12 @@ func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsOutput)
 }
 
+func (i ComputeClusterScaleSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeClusterScaleSettings] {
+	return pulumix.Output[ComputeClusterScaleSettings]{
+		OutputState: i.ToComputeClusterScaleSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
 	return i.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
 }
@@ -297,6 +328,12 @@ func (i *computeClusterScaleSettingsPtrType) ToComputeClusterScaleSettingsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsPtrOutput)
 }
 
+func (i *computeClusterScaleSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeClusterScaleSettings] {
+	return pulumix.Output[*ComputeClusterScaleSettings]{
+		OutputState: i.ToComputeClusterScaleSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeClusterScaleSettingsOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterScaleSettingsOutput) ElementType() reflect.Type {
@@ -319,6 +356,12 @@ func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterScaleSettings) *ComputeClusterScaleSettings {
 		return &v
 	}).(ComputeClusterScaleSettingsPtrOutput)
+}
+
+func (o ComputeClusterScaleSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeClusterScaleSettings] {
+	return pulumix.Output[ComputeClusterScaleSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -348,6 +391,12 @@ func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOu
 
 func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
 	return o
+}
+
+func (o ComputeClusterScaleSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeClusterScaleSettings] {
+	return pulumix.Output[*ComputeClusterScaleSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeClusterScaleSettingsPtrOutput) Elem() ComputeClusterScaleSettingsOutput {
@@ -435,6 +484,12 @@ func (i ComputeClusterSshArgs) ToComputeClusterSshOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterSshOutput)
 }
 
+func (i ComputeClusterSshArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeClusterSsh] {
+	return pulumix.Output[ComputeClusterSsh]{
+		OutputState: i.ToComputeClusterSshOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ComputeClusterSshArgs) ToComputeClusterSshPtrOutput() ComputeClusterSshPtrOutput {
 	return i.ToComputeClusterSshPtrOutputWithContext(context.Background())
 }
@@ -476,6 +531,12 @@ func (i *computeClusterSshPtrType) ToComputeClusterSshPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterSshPtrOutput)
 }
 
+func (i *computeClusterSshPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeClusterSsh] {
+	return pulumix.Output[*ComputeClusterSsh]{
+		OutputState: i.ToComputeClusterSshPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeClusterSshOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterSshOutput) ElementType() reflect.Type {
@@ -498,6 +559,12 @@ func (o ComputeClusterSshOutput) ToComputeClusterSshPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterSsh) *ComputeClusterSsh {
 		return &v
 	}).(ComputeClusterSshPtrOutput)
+}
+
+func (o ComputeClusterSshOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeClusterSsh] {
+	return pulumix.Output[ComputeClusterSsh]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -529,6 +596,12 @@ func (o ComputeClusterSshPtrOutput) ToComputeClusterSshPtrOutput() ComputeCluste
 
 func (o ComputeClusterSshPtrOutput) ToComputeClusterSshPtrOutputWithContext(ctx context.Context) ComputeClusterSshPtrOutput {
 	return o
+}
+
+func (o ComputeClusterSshPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeClusterSsh] {
+	return pulumix.Output[*ComputeClusterSsh]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeClusterSshPtrOutput) Elem() ComputeClusterSshOutput {
@@ -610,6 +683,12 @@ func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceAssignToUserOutput)
 }
 
+func (i ComputeInstanceAssignToUserArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeInstanceAssignToUser] {
+	return pulumix.Output[ComputeInstanceAssignToUser]{
+		OutputState: i.ToComputeInstanceAssignToUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserPtrOutput() ComputeInstanceAssignToUserPtrOutput {
 	return i.ToComputeInstanceAssignToUserPtrOutputWithContext(context.Background())
 }
@@ -651,6 +730,12 @@ func (i *computeInstanceAssignToUserPtrType) ToComputeInstanceAssignToUserPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceAssignToUserPtrOutput)
 }
 
+func (i *computeInstanceAssignToUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeInstanceAssignToUser] {
+	return pulumix.Output[*ComputeInstanceAssignToUser]{
+		OutputState: i.ToComputeInstanceAssignToUserPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeInstanceAssignToUserOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceAssignToUserOutput) ElementType() reflect.Type {
@@ -675,6 +760,12 @@ func (o ComputeInstanceAssignToUserOutput) ToComputeInstanceAssignToUserPtrOutpu
 	}).(ComputeInstanceAssignToUserPtrOutput)
 }
 
+func (o ComputeInstanceAssignToUserOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeInstanceAssignToUser] {
+	return pulumix.Output[ComputeInstanceAssignToUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 // User’s AAD Object Id.
 func (o ComputeInstanceAssignToUserOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceAssignToUser) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
@@ -697,6 +788,12 @@ func (o ComputeInstanceAssignToUserPtrOutput) ToComputeInstanceAssignToUserPtrOu
 
 func (o ComputeInstanceAssignToUserPtrOutput) ToComputeInstanceAssignToUserPtrOutputWithContext(ctx context.Context) ComputeInstanceAssignToUserPtrOutput {
 	return o
+}
+
+func (o ComputeInstanceAssignToUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeInstanceAssignToUser] {
+	return pulumix.Output[*ComputeInstanceAssignToUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeInstanceAssignToUserPtrOutput) Elem() ComputeInstanceAssignToUserOutput {
@@ -778,6 +875,12 @@ func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceIdentityOutput)
 }
 
+func (i ComputeInstanceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeInstanceIdentity] {
+	return pulumix.Output[ComputeInstanceIdentity]{
+		OutputState: i.ToComputeInstanceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityPtrOutput() ComputeInstanceIdentityPtrOutput {
 	return i.ToComputeInstanceIdentityPtrOutputWithContext(context.Background())
 }
@@ -819,6 +922,12 @@ func (i *computeInstanceIdentityPtrType) ToComputeInstanceIdentityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceIdentityPtrOutput)
 }
 
+func (i *computeInstanceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeInstanceIdentity] {
+	return pulumix.Output[*ComputeInstanceIdentity]{
+		OutputState: i.ToComputeInstanceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeInstanceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceIdentityOutput) ElementType() reflect.Type {
@@ -841,6 +950,12 @@ func (o ComputeInstanceIdentityOutput) ToComputeInstanceIdentityPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceIdentity) *ComputeInstanceIdentity {
 		return &v
 	}).(ComputeInstanceIdentityPtrOutput)
+}
+
+func (o ComputeInstanceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeInstanceIdentity] {
+	return pulumix.Output[ComputeInstanceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
@@ -877,6 +992,12 @@ func (o ComputeInstanceIdentityPtrOutput) ToComputeInstanceIdentityPtrOutput() C
 
 func (o ComputeInstanceIdentityPtrOutput) ToComputeInstanceIdentityPtrOutputWithContext(ctx context.Context) ComputeInstanceIdentityPtrOutput {
 	return o
+}
+
+func (o ComputeInstanceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeInstanceIdentity] {
+	return pulumix.Output[*ComputeInstanceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeInstanceIdentityPtrOutput) Elem() ComputeInstanceIdentityOutput {
@@ -972,6 +1093,12 @@ func (i ComputeInstanceSshArgs) ToComputeInstanceSshOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshOutput)
 }
 
+func (i ComputeInstanceSshArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeInstanceSsh] {
+	return pulumix.Output[ComputeInstanceSsh]{
+		OutputState: i.ToComputeInstanceSshOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ComputeInstanceSshArgs) ToComputeInstanceSshPtrOutput() ComputeInstanceSshPtrOutput {
 	return i.ToComputeInstanceSshPtrOutputWithContext(context.Background())
 }
@@ -1013,6 +1140,12 @@ func (i *computeInstanceSshPtrType) ToComputeInstanceSshPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshPtrOutput)
 }
 
+func (i *computeInstanceSshPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeInstanceSsh] {
+	return pulumix.Output[*ComputeInstanceSsh]{
+		OutputState: i.ToComputeInstanceSshPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeInstanceSshOutput struct{ *pulumi.OutputState }
 
 func (ComputeInstanceSshOutput) ElementType() reflect.Type {
@@ -1035,6 +1168,12 @@ func (o ComputeInstanceSshOutput) ToComputeInstanceSshPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceSsh) *ComputeInstanceSsh {
 		return &v
 	}).(ComputeInstanceSshPtrOutput)
+}
+
+func (o ComputeInstanceSshOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeInstanceSsh] {
+	return pulumix.Output[ComputeInstanceSsh]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the port for connecting through SSH.
@@ -1064,6 +1203,12 @@ func (o ComputeInstanceSshPtrOutput) ToComputeInstanceSshPtrOutput() ComputeInst
 
 func (o ComputeInstanceSshPtrOutput) ToComputeInstanceSshPtrOutputWithContext(ctx context.Context) ComputeInstanceSshPtrOutput {
 	return o
+}
+
+func (o ComputeInstanceSshPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeInstanceSsh] {
+	return pulumix.Output[*ComputeInstanceSsh]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeInstanceSshPtrOutput) Elem() ComputeInstanceSshOutput {
@@ -1155,6 +1300,12 @@ func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterIdentityOutput)
 }
 
+func (i InferenceClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[InferenceClusterIdentity] {
+	return pulumix.Output[InferenceClusterIdentity]{
+		OutputState: i.ToInferenceClusterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityPtrOutput() InferenceClusterIdentityPtrOutput {
 	return i.ToInferenceClusterIdentityPtrOutputWithContext(context.Background())
 }
@@ -1196,6 +1347,12 @@ func (i *inferenceClusterIdentityPtrType) ToInferenceClusterIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterIdentityPtrOutput)
 }
 
+func (i *inferenceClusterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*InferenceClusterIdentity] {
+	return pulumix.Output[*InferenceClusterIdentity]{
+		OutputState: i.ToInferenceClusterIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InferenceClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (InferenceClusterIdentityOutput) ElementType() reflect.Type {
@@ -1218,6 +1375,12 @@ func (o InferenceClusterIdentityOutput) ToInferenceClusterIdentityPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceClusterIdentity) *InferenceClusterIdentity {
 		return &v
 	}).(InferenceClusterIdentityPtrOutput)
+}
+
+func (o InferenceClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceClusterIdentity] {
+	return pulumix.Output[InferenceClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
@@ -1254,6 +1417,12 @@ func (o InferenceClusterIdentityPtrOutput) ToInferenceClusterIdentityPtrOutput()
 
 func (o InferenceClusterIdentityPtrOutput) ToInferenceClusterIdentityPtrOutputWithContext(ctx context.Context) InferenceClusterIdentityPtrOutput {
 	return o
+}
+
+func (o InferenceClusterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceClusterIdentity] {
+	return pulumix.Output[*InferenceClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InferenceClusterIdentityPtrOutput) Elem() InferenceClusterIdentityOutput {
@@ -1357,6 +1526,12 @@ func (i InferenceClusterSslArgs) ToInferenceClusterSslOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterSslOutput)
 }
 
+func (i InferenceClusterSslArgs) ToOutput(ctx context.Context) pulumix.Output[InferenceClusterSsl] {
+	return pulumix.Output[InferenceClusterSsl]{
+		OutputState: i.ToInferenceClusterSslOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InferenceClusterSslArgs) ToInferenceClusterSslPtrOutput() InferenceClusterSslPtrOutput {
 	return i.ToInferenceClusterSslPtrOutputWithContext(context.Background())
 }
@@ -1398,6 +1573,12 @@ func (i *inferenceClusterSslPtrType) ToInferenceClusterSslPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterSslPtrOutput)
 }
 
+func (i *inferenceClusterSslPtrType) ToOutput(ctx context.Context) pulumix.Output[*InferenceClusterSsl] {
+	return pulumix.Output[*InferenceClusterSsl]{
+		OutputState: i.ToInferenceClusterSslPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InferenceClusterSslOutput struct{ *pulumi.OutputState }
 
 func (InferenceClusterSslOutput) ElementType() reflect.Type {
@@ -1420,6 +1601,12 @@ func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceClusterSsl) *InferenceClusterSsl {
 		return &v
 	}).(InferenceClusterSslPtrOutput)
+}
+
+func (o InferenceClusterSslOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceClusterSsl] {
+	return pulumix.Output[InferenceClusterSsl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
@@ -1459,6 +1646,12 @@ func (o InferenceClusterSslPtrOutput) ToInferenceClusterSslPtrOutput() Inference
 
 func (o InferenceClusterSslPtrOutput) ToInferenceClusterSslPtrOutputWithContext(ctx context.Context) InferenceClusterSslPtrOutput {
 	return o
+}
+
+func (o InferenceClusterSslPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceClusterSsl] {
+	return pulumix.Output[*InferenceClusterSsl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InferenceClusterSslPtrOutput) Elem() InferenceClusterSslOutput {
@@ -1570,6 +1763,12 @@ func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkIdentityOutput)
 }
 
+func (i SynapseSparkIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SynapseSparkIdentity] {
+	return pulumix.Output[SynapseSparkIdentity]{
+		OutputState: i.ToSynapseSparkIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityPtrOutput() SynapseSparkIdentityPtrOutput {
 	return i.ToSynapseSparkIdentityPtrOutputWithContext(context.Background())
 }
@@ -1611,6 +1810,12 @@ func (i *synapseSparkIdentityPtrType) ToSynapseSparkIdentityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkIdentityPtrOutput)
 }
 
+func (i *synapseSparkIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SynapseSparkIdentity] {
+	return pulumix.Output[*SynapseSparkIdentity]{
+		OutputState: i.ToSynapseSparkIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SynapseSparkIdentityOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkIdentityOutput) ElementType() reflect.Type {
@@ -1633,6 +1838,12 @@ func (o SynapseSparkIdentityOutput) ToSynapseSparkIdentityPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SynapseSparkIdentity) *SynapseSparkIdentity {
 		return &v
 	}).(SynapseSparkIdentityPtrOutput)
+}
+
+func (o SynapseSparkIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SynapseSparkIdentity] {
+	return pulumix.Output[SynapseSparkIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
@@ -1669,6 +1880,12 @@ func (o SynapseSparkIdentityPtrOutput) ToSynapseSparkIdentityPtrOutput() Synapse
 
 func (o SynapseSparkIdentityPtrOutput) ToSynapseSparkIdentityPtrOutputWithContext(ctx context.Context) SynapseSparkIdentityPtrOutput {
 	return o
+}
+
+func (o SynapseSparkIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SynapseSparkIdentity] {
+	return pulumix.Output[*SynapseSparkIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SynapseSparkIdentityPtrOutput) Elem() SynapseSparkIdentityOutput {
@@ -1768,6 +1985,12 @@ func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionOutput)
 }
 
+func (i WorkspaceEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceEncryption] {
+	return pulumix.Output[WorkspaceEncryption]{
+		OutputState: i.ToWorkspaceEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionPtrOutput() WorkspaceEncryptionPtrOutput {
 	return i.ToWorkspaceEncryptionPtrOutputWithContext(context.Background())
 }
@@ -1809,6 +2032,12 @@ func (i *workspaceEncryptionPtrType) ToWorkspaceEncryptionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionPtrOutput)
 }
 
+func (i *workspaceEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceEncryption] {
+	return pulumix.Output[*WorkspaceEncryption]{
+		OutputState: i.ToWorkspaceEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceEncryptionOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceEncryptionOutput) ElementType() reflect.Type {
@@ -1831,6 +2060,12 @@ func (o WorkspaceEncryptionOutput) ToWorkspaceEncryptionPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceEncryption) *WorkspaceEncryption {
 		return &v
 	}).(WorkspaceEncryptionPtrOutput)
+}
+
+func (o WorkspaceEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceEncryption] {
+	return pulumix.Output[WorkspaceEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Key Vault URI to access the encryption key.
@@ -1862,6 +2097,12 @@ func (o WorkspaceEncryptionPtrOutput) ToWorkspaceEncryptionPtrOutput() Workspace
 
 func (o WorkspaceEncryptionPtrOutput) ToWorkspaceEncryptionPtrOutputWithContext(ctx context.Context) WorkspaceEncryptionPtrOutput {
 	return o
+}
+
+func (o WorkspaceEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceEncryption] {
+	return pulumix.Output[*WorkspaceEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceEncryptionPtrOutput) Elem() WorkspaceEncryptionOutput {
@@ -1955,6 +2196,12 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityOutput)
 }
 
+func (i WorkspaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceIdentity] {
+	return pulumix.Output[WorkspaceIdentity]{
+		OutputState: i.ToWorkspaceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
 	return i.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
 }
@@ -1996,6 +2243,12 @@ func (i *workspaceIdentityPtrType) ToWorkspaceIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityPtrOutput)
 }
 
+func (i *workspaceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceIdentity] {
+	return pulumix.Output[*WorkspaceIdentity]{
+		OutputState: i.ToWorkspaceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceIdentityOutput) ElementType() reflect.Type {
@@ -2018,6 +2271,12 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceIdentity) *WorkspaceIdentity {
 		return &v
 	}).(WorkspaceIdentityPtrOutput)
+}
+
+func (o WorkspaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceIdentity] {
+	return pulumix.Output[WorkspaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
@@ -2054,6 +2313,12 @@ func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIden
 
 func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
 	return o
+}
+
+func (o WorkspaceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceIdentity] {
+	return pulumix.Output[*WorkspaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
@@ -2153,6 +2418,12 @@ func (i GetWorkspaceIdentityArgs) ToGetWorkspaceIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceIdentityOutput)
 }
 
+func (i GetWorkspaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceIdentity] {
+	return pulumix.Output[GetWorkspaceIdentity]{
+		OutputState: i.ToGetWorkspaceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWorkspaceIdentityArrayInput is an input type that accepts GetWorkspaceIdentityArray and GetWorkspaceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceIdentityArrayInput` via:
 //
@@ -2178,6 +2449,12 @@ func (i GetWorkspaceIdentityArray) ToGetWorkspaceIdentityArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceIdentityArrayOutput)
 }
 
+func (i GetWorkspaceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceIdentity] {
+	return pulumix.Output[[]GetWorkspaceIdentity]{
+		OutputState: i.ToGetWorkspaceIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWorkspaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspaceIdentityOutput) ElementType() reflect.Type {
@@ -2190,6 +2467,12 @@ func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutput() GetWorkspaceI
 
 func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutputWithContext(ctx context.Context) GetWorkspaceIdentityOutput {
 	return o
+}
+
+func (o GetWorkspaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceIdentity] {
+	return pulumix.Output[GetWorkspaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
@@ -2224,6 +2507,12 @@ func (o GetWorkspaceIdentityArrayOutput) ToGetWorkspaceIdentityArrayOutput() Get
 
 func (o GetWorkspaceIdentityArrayOutput) ToGetWorkspaceIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceIdentityArrayOutput {
 	return o
+}
+
+func (o GetWorkspaceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceIdentity] {
+	return pulumix.Output[[]GetWorkspaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceIdentityOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets information about an existing Private DNS Resolver Virtual Network Link.
@@ -107,6 +108,12 @@ func (o LookupResolverVirtualNetworkLinkResultOutput) ToLookupResolverVirtualNet
 
 func (o LookupResolverVirtualNetworkLinkResultOutput) ToLookupResolverVirtualNetworkLinkResultOutputWithContext(ctx context.Context) LookupResolverVirtualNetworkLinkResultOutput {
 	return o
+}
+
+func (o LookupResolverVirtualNetworkLinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverVirtualNetworkLinkResult] {
+	return pulumix.Output[LookupResolverVirtualNetworkLinkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResolverVirtualNetworkLinkResultOutput) DnsForwardingRulesetId() pulumi.StringOutput {

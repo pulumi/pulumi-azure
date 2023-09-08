@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route Filter.
@@ -185,6 +186,12 @@ func (i *RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteF
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterOutput)
 }
 
+func (i *RouteFilter) ToOutput(ctx context.Context) pulumix.Output[*RouteFilter] {
+	return pulumix.Output[*RouteFilter]{
+		OutputState: i.ToRouteFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteFilterArrayInput is an input type that accepts RouteFilterArray and RouteFilterArrayOutput values.
 // You can construct a concrete instance of `RouteFilterArrayInput` via:
 //
@@ -208,6 +215,12 @@ func (i RouteFilterArray) ToRouteFilterArrayOutput() RouteFilterArrayOutput {
 
 func (i RouteFilterArray) ToRouteFilterArrayOutputWithContext(ctx context.Context) RouteFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterArrayOutput)
+}
+
+func (i RouteFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteFilter] {
+	return pulumix.Output[[]*RouteFilter]{
+		OutputState: i.ToRouteFilterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteFilterMapInput is an input type that accepts RouteFilterMap and RouteFilterMapOutput values.
@@ -235,6 +248,12 @@ func (i RouteFilterMap) ToRouteFilterMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterMapOutput)
 }
 
+func (i RouteFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteFilter] {
+	return pulumix.Output[map[string]*RouteFilter]{
+		OutputState: i.ToRouteFilterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteFilterOutput struct{ *pulumi.OutputState }
 
 func (RouteFilterOutput) ElementType() reflect.Type {
@@ -247,6 +266,12 @@ func (o RouteFilterOutput) ToRouteFilterOutput() RouteFilterOutput {
 
 func (o RouteFilterOutput) ToRouteFilterOutputWithContext(ctx context.Context) RouteFilterOutput {
 	return o
+}
+
+func (o RouteFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteFilter] {
+	return pulumix.Output[*RouteFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
@@ -288,6 +313,12 @@ func (o RouteFilterArrayOutput) ToRouteFilterArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o RouteFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteFilter] {
+	return pulumix.Output[[]*RouteFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteFilterArrayOutput) Index(i pulumi.IntInput) RouteFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteFilter {
 		return vs[0].([]*RouteFilter)[vs[1].(int)]
@@ -306,6 +337,12 @@ func (o RouteFilterMapOutput) ToRouteFilterMapOutput() RouteFilterMapOutput {
 
 func (o RouteFilterMapOutput) ToRouteFilterMapOutputWithContext(ctx context.Context) RouteFilterMapOutput {
 	return o
+}
+
+func (o RouteFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteFilter] {
+	return pulumix.Output[map[string]*RouteFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteFilterMapOutput) MapIndex(k pulumi.StringInput) RouteFilterOutput {
