@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Batch.Outputs
     [OutputType]
     public sealed class GetPoolNetworkConfigurationResult
     {
+        public readonly bool AcceleratedNetworkingEnabled;
         /// <summary>
         /// The scope of dynamic vnet assignment.
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.Azure.Batch.Outputs
 
         [OutputConstructor]
         private GetPoolNetworkConfigurationResult(
+            bool acceleratedNetworkingEnabled,
+
             string dynamicVnetAssignmentScope,
 
             ImmutableArray<Outputs.GetPoolNetworkConfigurationEndpointConfigurationResult> endpointConfigurations,
@@ -46,6 +49,7 @@ namespace Pulumi.Azure.Batch.Outputs
 
             string subnetId)
         {
+            AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             DynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             EndpointConfigurations = endpointConfigurations;
             PublicAddressProvisioningType = publicAddressProvisioningType;

@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.PoolNetworkConfigurationEndpointConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PoolNetworkConfiguration {
+    /**
+     * @return Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable Boolean acceleratedNetworkingEnabled;
     /**
      * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
      * 
@@ -37,9 +43,16 @@ public final class PoolNetworkConfiguration {
      * @return The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
      * 
      */
-    private String subnetId;
+    private @Nullable String subnetId;
 
     private PoolNetworkConfiguration() {}
+    /**
+     * @return Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Boolean> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
     /**
      * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
      * 
@@ -72,8 +85,8 @@ public final class PoolNetworkConfiguration {
      * @return The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
      * 
      */
-    public String subnetId() {
-        return this.subnetId;
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     public static Builder builder() {
@@ -85,14 +98,16 @@ public final class PoolNetworkConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean acceleratedNetworkingEnabled;
         private @Nullable String dynamicVnetAssignmentScope;
         private @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
         private @Nullable String publicAddressProvisioningType;
         private @Nullable List<String> publicIps;
-        private String subnetId;
+        private @Nullable String subnetId;
         public Builder() {}
         public Builder(PoolNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.dynamicVnetAssignmentScope = defaults.dynamicVnetAssignmentScope;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.publicAddressProvisioningType = defaults.publicAddressProvisioningType;
@@ -100,6 +115,11 @@ public final class PoolNetworkConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkingEnabled(@Nullable Boolean acceleratedNetworkingEnabled) {
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder dynamicVnetAssignmentScope(@Nullable String dynamicVnetAssignmentScope) {
             this.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
@@ -127,12 +147,13 @@ public final class PoolNetworkConfiguration {
             return publicIps(List.of(publicIps));
         }
         @CustomType.Setter
-        public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+        public Builder subnetId(@Nullable String subnetId) {
+            this.subnetId = subnetId;
             return this;
         }
         public PoolNetworkConfiguration build() {
             final var o = new PoolNetworkConfiguration();
+            o.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             o.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             o.endpointConfigurations = endpointConfigurations;
             o.publicAddressProvisioningType = publicAddressProvisioningType;

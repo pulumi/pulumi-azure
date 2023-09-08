@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("acceleratedNetworkingEnabled")]
+        public Input<bool>? AcceleratedNetworkingEnabled { get; set; }
+
+        /// <summary>
         /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dynamicVnetAssignmentScope")]
@@ -51,8 +57,8 @@ namespace Pulumi.Azure.Batch.Inputs
         /// <summary>
         /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         public PoolNetworkConfigurationArgs()
         {

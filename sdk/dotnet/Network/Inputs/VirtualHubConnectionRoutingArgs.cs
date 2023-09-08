@@ -19,10 +19,28 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? AssociatedRouteTableId { get; set; }
 
         /// <summary>
+        /// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        /// </summary>
+        [Input("inboundRouteMapId")]
+        public Input<string>? InboundRouteMapId { get; set; }
+
+        /// <summary>
+        /// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        /// </summary>
+        [Input("outboundRouteMapId")]
+        public Input<string>? OutboundRouteMapId { get; set; }
+
+        /// <summary>
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         [Input("propagatedRouteTable")]
         public Input<Inputs.VirtualHubConnectionRoutingPropagatedRouteTableArgs>? PropagatedRouteTable { get; set; }
+
+        /// <summary>
+        /// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("staticVnetLocalRouteOverrideCriteria")]
+        public Input<string>? StaticVnetLocalRouteOverrideCriteria { get; set; }
 
         [Input("staticVnetRoutes")]
         private InputList<Inputs.VirtualHubConnectionRoutingStaticVnetRouteArgs>? _staticVnetRoutes;

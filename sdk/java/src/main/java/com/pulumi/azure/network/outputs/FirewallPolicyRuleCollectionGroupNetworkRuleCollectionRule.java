@@ -37,7 +37,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
      */
     private String name;
     /**
-     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+     * @return One or more `protocols` blocks as defined below.
      * 
      */
     private List<String> protocols;
@@ -89,7 +89,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         return this.name;
     }
     /**
-     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+     * @return One or more `protocols` blocks as defined below.
      * 
      */
     public List<String> protocols() {

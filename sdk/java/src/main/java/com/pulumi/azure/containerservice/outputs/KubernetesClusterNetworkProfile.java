@@ -82,9 +82,9 @@ public final class KubernetesClusterNetworkProfile {
      */
     private String networkPlugin;
     /**
-     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
      * 
-     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
      * 
      */
     private @Nullable String networkPluginMode;
@@ -210,9 +210,9 @@ public final class KubernetesClusterNetworkProfile {
         return this.networkPlugin;
     }
     /**
-     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
      * 
-     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
      * 
      */
     public Optional<String> networkPluginMode() {

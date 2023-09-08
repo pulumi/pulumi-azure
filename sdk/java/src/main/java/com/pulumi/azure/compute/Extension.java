@@ -235,6 +235,20 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.protectedSettingsFromKeyVault);
     }
     /**
+     * Specifies the collection of extension names after which this extension needs to be provisioned.
+     * 
+     */
+    @Export(name="provisionAfterExtensions", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> provisionAfterExtensions;
+
+    /**
+     * @return Specifies the collection of extension names after which this extension needs to be provisioned.
+     * 
+     */
+    public Output<Optional<List<String>>> provisionAfterExtensions() {
+        return Codegen.optional(this.provisionAfterExtensions);
+    }
+    /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      * 
      */

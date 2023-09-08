@@ -109,6 +109,12 @@ namespace Pulumi.Azure.Bot
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Is local authentication enabled? Defaults to `true`.
+        /// </summary>
+        [Output("localAuthenticationEnabled")]
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -272,6 +278,12 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
+        /// Is local authentication enabled? Defaults to `true`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -412,6 +424,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// Is local authentication enabled? Defaults to `true`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        /// One or more `protocols` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>

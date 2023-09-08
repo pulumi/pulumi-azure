@@ -380,14 +380,18 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.publicIpAddresses;
     }
     /**
-     * Is public access to the service allowed?. Defaults to `true`
+     * Is public access to the service allowed? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Is public access to the service allowed?. Defaults to `true`
+     * @return Is public access to the service allowed? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

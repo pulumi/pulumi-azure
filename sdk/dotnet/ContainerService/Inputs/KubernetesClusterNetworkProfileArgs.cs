@@ -91,9 +91,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> NetworkPlugin { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
         /// 
-        /// &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+        /// &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
         /// </summary>
         [Input("networkPluginMode")]
         public Input<string>? NetworkPluginMode { get; set; }

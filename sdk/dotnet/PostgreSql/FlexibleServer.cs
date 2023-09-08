@@ -135,6 +135,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<Outputs.FlexibleServerAuthentication> Authentication { get; private set; } = null!;
 
         /// <summary>
+        /// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+        /// </summary>
+        [Output("autoGrowEnabled")]
+        public Output<bool?> AutoGrowEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         /// </summary>
         [Output("backupRetentionDays")]
@@ -356,6 +362,12 @@ namespace Pulumi.Azure.PostgreSql
         public Input<Inputs.FlexibleServerAuthenticationArgs>? Authentication { get; set; }
 
         /// <summary>
+        /// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+        /// </summary>
+        [Input("autoGrowEnabled")]
+        public Input<bool>? AutoGrowEnabled { get; set; }
+
+        /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         /// </summary>
         [Input("backupRetentionDays")]
@@ -527,6 +539,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.FlexibleServerAuthenticationGetArgs>? Authentication { get; set; }
+
+        /// <summary>
+        /// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+        /// </summary>
+        [Input("autoGrowEnabled")]
+        public Input<bool>? AutoGrowEnabled { get; set; }
 
         /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.

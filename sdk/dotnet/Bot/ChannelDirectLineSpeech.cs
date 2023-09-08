@@ -75,6 +75,12 @@ namespace Pulumi.Azure.Bot
         public Output<string> BotName { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Cognitive Account this Bot Channel should be associated with.
+        /// </summary>
+        [Output("cognitiveAccountId")]
+        public Output<string?> CognitiveAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// The access key to access the Cognitive Service.
         /// </summary>
         [Output("cognitiveServiceAccessKey")]
@@ -166,6 +172,12 @@ namespace Pulumi.Azure.Bot
         [Input("botName", required: true)]
         public Input<string> BotName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Cognitive Account this Bot Channel should be associated with.
+        /// </summary>
+        [Input("cognitiveAccountId")]
+        public Input<string>? CognitiveAccountId { get; set; }
+
         [Input("cognitiveServiceAccessKey", required: true)]
         private Input<string>? _cognitiveServiceAccessKey;
 
@@ -225,6 +237,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("botName")]
         public Input<string>? BotName { get; set; }
+
+        /// <summary>
+        /// The ID of the Cognitive Account this Bot Channel should be associated with.
+        /// </summary>
+        [Input("cognitiveAccountId")]
+        public Input<string>? CognitiveAccountId { get; set; }
 
         [Input("cognitiveServiceAccessKey")]
         private Input<string>? _cognitiveServiceAccessKey;

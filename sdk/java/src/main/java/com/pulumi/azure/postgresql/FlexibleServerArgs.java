@@ -77,6 +77,21 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="autoGrowEnabled")
+    private @Nullable Output<Boolean> autoGrowEnabled;
+
+    /**
+     * @return Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> autoGrowEnabled() {
+        return Optional.ofNullable(this.autoGrowEnabled);
+    }
+
+    /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      * 
      */
@@ -394,6 +409,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         this.administratorLogin = $.administratorLogin;
         this.administratorPassword = $.administratorPassword;
         this.authentication = $.authentication;
+        this.autoGrowEnabled = $.autoGrowEnabled;
         this.backupRetentionDays = $.backupRetentionDays;
         this.createMode = $.createMode;
         this.customerManagedKey = $.customerManagedKey;
@@ -503,6 +519,27 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder authentication(FlexibleServerAuthenticationArgs authentication) {
             return authentication(Output.of(authentication));
+        }
+
+        /**
+         * @param autoGrowEnabled Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoGrowEnabled(@Nullable Output<Boolean> autoGrowEnabled) {
+            $.autoGrowEnabled = autoGrowEnabled;
+            return this;
+        }
+
+        /**
+         * @param autoGrowEnabled Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
+            return autoGrowEnabled(Output.of(autoGrowEnabled));
         }
 
         /**

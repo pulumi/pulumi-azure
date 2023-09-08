@@ -109,14 +109,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+     * One or more `protocols` blocks as defined below.
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs>> protocols;
 
     /**
-     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+     * @return One or more `protocols` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs>>> protocols() {
@@ -384,7 +384,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+         * @param protocols One or more `protocols` blocks as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+         * @param protocols One or more `protocols` blocks as defined below.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+         * @param protocols One or more `protocols` blocks as defined below.
          * 
          * @return builder
          * 

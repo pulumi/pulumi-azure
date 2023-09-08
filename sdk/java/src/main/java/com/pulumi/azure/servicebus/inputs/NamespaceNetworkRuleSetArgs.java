@@ -64,14 +64,14 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -205,7 +205,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         * @param publicNetworkAccessEnabled Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         * @param publicNetworkAccessEnabled Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
          * 
          * @return builder
          * 

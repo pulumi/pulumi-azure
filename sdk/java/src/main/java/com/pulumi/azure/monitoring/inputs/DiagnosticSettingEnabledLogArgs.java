@@ -57,14 +57,22 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
     /**
      * A `retention_policy` block as defined below.
      * 
+     * @deprecated
+     * `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * 
      */
+    @Deprecated /* `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention */
     @Import(name="retentionPolicy")
     private @Nullable Output<DiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy;
 
     /**
      * @return A `retention_policy` block as defined below.
      * 
+     * @deprecated
+     * `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * 
      */
+    @Deprecated /* `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention */
     public Optional<Output<DiagnosticSettingEnabledLogRetentionPolicyArgs>> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
@@ -150,7 +158,11 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
+         * @deprecated
+         * `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * 
          */
+        @Deprecated /* `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention */
         public Builder retentionPolicy(@Nullable Output<DiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
@@ -161,7 +173,11 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
+         * @deprecated
+         * `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * 
          */
+        @Deprecated /* `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention */
         public Builder retentionPolicy(DiagnosticSettingEnabledLogRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }

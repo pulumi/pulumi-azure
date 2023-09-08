@@ -198,18 +198,18 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
      * 
-     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
      * 
      */
     @Import(name="networkPluginMode")
     private @Nullable Output<String> networkPluginMode;
 
     /**
-     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
      * 
-     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+     * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
      * 
      */
     public Optional<Output<String>> networkPluginMode() {
@@ -601,9 +601,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
          * 
-         * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+         * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
          * 
          * @return builder
          * 
@@ -614,9 +614,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
          * 
-         * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`.
+         * &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
          * 
          * @return builder
          * 

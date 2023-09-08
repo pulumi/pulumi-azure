@@ -18,6 +18,12 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        /// </summary>
+        public readonly bool? AutomaticUpgradeEnabled;
+        /// <summary>
         /// The name of the virtual machine extension.
         /// </summary>
         public readonly string Name;
@@ -50,6 +56,8 @@ namespace Pulumi.Azure.Batch.Outputs
         private PoolExtension(
             bool? autoUpgradeMinorVersion,
 
+            bool? automaticUpgradeEnabled,
+
             string name,
 
             string? protectedSettings,
@@ -65,6 +73,7 @@ namespace Pulumi.Azure.Batch.Outputs
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            AutomaticUpgradeEnabled = automaticUpgradeEnabled;
             Name = name;
             ProtectedSettings = protectedSettings;
             ProvisionAfterExtensions = provisionAfterExtensions;

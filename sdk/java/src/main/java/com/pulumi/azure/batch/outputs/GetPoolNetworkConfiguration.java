@@ -5,12 +5,14 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolNetworkConfigurationEndpointConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetPoolNetworkConfiguration {
+    private Boolean acceleratedNetworkingEnabled;
     /**
      * @return The scope of dynamic vnet assignment.
      * 
@@ -38,6 +40,9 @@ public final class GetPoolNetworkConfiguration {
     private String subnetId;
 
     private GetPoolNetworkConfiguration() {}
+    public Boolean acceleratedNetworkingEnabled() {
+        return this.acceleratedNetworkingEnabled;
+    }
     /**
      * @return The scope of dynamic vnet assignment.
      * 
@@ -83,6 +88,7 @@ public final class GetPoolNetworkConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean acceleratedNetworkingEnabled;
         private String dynamicVnetAssignmentScope;
         private List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
         private String publicAddressProvisioningType;
@@ -91,6 +97,7 @@ public final class GetPoolNetworkConfiguration {
         public Builder() {}
         public Builder(GetPoolNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.dynamicVnetAssignmentScope = defaults.dynamicVnetAssignmentScope;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.publicAddressProvisioningType = defaults.publicAddressProvisioningType;
@@ -98,6 +105,11 @@ public final class GetPoolNetworkConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            this.acceleratedNetworkingEnabled = Objects.requireNonNull(acceleratedNetworkingEnabled);
+            return this;
+        }
         @CustomType.Setter
         public Builder dynamicVnetAssignmentScope(String dynamicVnetAssignmentScope) {
             this.dynamicVnetAssignmentScope = Objects.requireNonNull(dynamicVnetAssignmentScope);
@@ -131,6 +143,7 @@ public final class GetPoolNetworkConfiguration {
         }
         public GetPoolNetworkConfiguration build() {
             final var o = new GetPoolNetworkConfiguration();
+            o.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             o.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             o.endpointConfigurations = endpointConfigurations;
             o.publicAddressProvisioningType = publicAddressProvisioningType;

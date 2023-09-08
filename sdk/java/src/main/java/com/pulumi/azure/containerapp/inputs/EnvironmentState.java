@@ -18,6 +18,21 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     public static final EnvironmentState Empty = new EnvironmentState();
 
     /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * 
+     */
+    @Import(name="daprApplicationInsightsConnectionString")
+    private @Nullable Output<String> daprApplicationInsightsConnectionString;
+
+    /**
+     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * 
+     */
+    public Optional<Output<String>> daprApplicationInsightsConnectionString() {
+        return Optional.ofNullable(this.daprApplicationInsightsConnectionString);
+    }
+
+    /**
      * The default, publicly resolvable, name of this Container App Environment.
      * 
      */
@@ -208,6 +223,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     private EnvironmentState() {}
 
     private EnvironmentState(EnvironmentState $) {
+        this.daprApplicationInsightsConnectionString = $.daprApplicationInsightsConnectionString;
         this.defaultDomain = $.defaultDomain;
         this.dockerBridgeCidr = $.dockerBridgeCidr;
         this.infrastructureSubnetId = $.infrastructureSubnetId;
@@ -238,6 +254,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EnvironmentState defaults) {
             $ = new EnvironmentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daprApplicationInsightsConnectionString(@Nullable Output<String> daprApplicationInsightsConnectionString) {
+            $.daprApplicationInsightsConnectionString = daprApplicationInsightsConnectionString;
+            return this;
+        }
+
+        /**
+         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daprApplicationInsightsConnectionString(String daprApplicationInsightsConnectionString) {
+            return daprApplicationInsightsConnectionString(Output.of(daprApplicationInsightsConnectionString));
         }
 
         /**

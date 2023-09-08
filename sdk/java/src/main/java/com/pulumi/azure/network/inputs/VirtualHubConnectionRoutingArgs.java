@@ -34,6 +34,36 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
     }
 
     /**
+     * The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    @Import(name="inboundRouteMapId")
+    private @Nullable Output<String> inboundRouteMapId;
+
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    public Optional<Output<String>> inboundRouteMapId() {
+        return Optional.ofNullable(this.inboundRouteMapId);
+    }
+
+    /**
+     * The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    @Import(name="outboundRouteMapId")
+    private @Nullable Output<String> outboundRouteMapId;
+
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    public Optional<Output<String>> outboundRouteMapId() {
+        return Optional.ofNullable(this.outboundRouteMapId);
+    }
+
+    /**
      * A `propagated_route_table` block as defined below.
      * 
      */
@@ -46,6 +76,21 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
      */
     public Optional<Output<VirtualHubConnectionRoutingPropagatedRouteTableArgs>> propagatedRouteTable() {
         return Optional.ofNullable(this.propagatedRouteTable);
+    }
+
+    /**
+     * The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="staticVnetLocalRouteOverrideCriteria")
+    private @Nullable Output<String> staticVnetLocalRouteOverrideCriteria;
+
+    /**
+     * @return The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> staticVnetLocalRouteOverrideCriteria() {
+        return Optional.ofNullable(this.staticVnetLocalRouteOverrideCriteria);
     }
 
     /**
@@ -67,7 +112,10 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
 
     private VirtualHubConnectionRoutingArgs(VirtualHubConnectionRoutingArgs $) {
         this.associatedRouteTableId = $.associatedRouteTableId;
+        this.inboundRouteMapId = $.inboundRouteMapId;
+        this.outboundRouteMapId = $.outboundRouteMapId;
         this.propagatedRouteTable = $.propagatedRouteTable;
+        this.staticVnetLocalRouteOverrideCriteria = $.staticVnetLocalRouteOverrideCriteria;
         this.staticVnetRoutes = $.staticVnetRoutes;
     }
 
@@ -111,6 +159,48 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param inboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundRouteMapId(@Nullable Output<String> inboundRouteMapId) {
+            $.inboundRouteMapId = inboundRouteMapId;
+            return this;
+        }
+
+        /**
+         * @param inboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundRouteMapId(String inboundRouteMapId) {
+            return inboundRouteMapId(Output.of(inboundRouteMapId));
+        }
+
+        /**
+         * @param outboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundRouteMapId(@Nullable Output<String> outboundRouteMapId) {
+            $.outboundRouteMapId = outboundRouteMapId;
+            return this;
+        }
+
+        /**
+         * @param outboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundRouteMapId(String outboundRouteMapId) {
+            return outboundRouteMapId(Output.of(outboundRouteMapId));
+        }
+
+        /**
          * @param propagatedRouteTable A `propagated_route_table` block as defined below.
          * 
          * @return builder
@@ -129,6 +219,27 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
          */
         public Builder propagatedRouteTable(VirtualHubConnectionRoutingPropagatedRouteTableArgs propagatedRouteTable) {
             return propagatedRouteTable(Output.of(propagatedRouteTable));
+        }
+
+        /**
+         * @param staticVnetLocalRouteOverrideCriteria The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticVnetLocalRouteOverrideCriteria(@Nullable Output<String> staticVnetLocalRouteOverrideCriteria) {
+            $.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
+            return this;
+        }
+
+        /**
+         * @param staticVnetLocalRouteOverrideCriteria The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticVnetLocalRouteOverrideCriteria(String staticVnetLocalRouteOverrideCriteria) {
+            return staticVnetLocalRouteOverrideCriteria(Output.of(staticVnetLocalRouteOverrideCriteria));
         }
 
         /**

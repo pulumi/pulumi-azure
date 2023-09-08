@@ -31,6 +31,21 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
     }
 
     /**
+     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * 
+     */
+    @Import(name="cognitiveAccountId")
+    private @Nullable Output<String> cognitiveAccountId;
+
+    /**
+     * @return The ID of the Cognitive Account this Bot Channel should be associated with.
+     * 
+     */
+    public Optional<Output<String>> cognitiveAccountId() {
+        return Optional.ofNullable(this.cognitiveAccountId);
+    }
+
+    /**
      * The access key to access the Cognitive Service.
      * 
      */
@@ -124,6 +139,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
 
     private ChannelDirectLineSpeechState(ChannelDirectLineSpeechState $) {
         this.botName = $.botName;
+        this.cognitiveAccountId = $.cognitiveAccountId;
         this.cognitiveServiceAccessKey = $.cognitiveServiceAccessKey;
         this.cognitiveServiceLocation = $.cognitiveServiceLocation;
         this.customSpeechModelId = $.customSpeechModelId;
@@ -169,6 +185,27 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
          */
         public Builder botName(String botName) {
             return botName(Output.of(botName));
+        }
+
+        /**
+         * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cognitiveAccountId(@Nullable Output<String> cognitiveAccountId) {
+            $.cognitiveAccountId = cognitiveAccountId;
+            return this;
+        }
+
+        /**
+         * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cognitiveAccountId(String cognitiveAccountId) {
+            return cognitiveAccountId(Output.of(cognitiveAccountId));
         }
 
         /**
