@@ -30,7 +30,7 @@ public final class NamespaceNetworkRuleSet {
      */
     private @Nullable List<NamespaceNetworkRuleSetNetworkRule> networkRules;
     /**
-     * @return Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
     private @Nullable Boolean publicNetworkAccessEnabled;
@@ -63,7 +63,7 @@ public final class NamespaceNetworkRuleSet {
         return this.networkRules == null ? List.of() : this.networkRules;
     }
     /**
-     * @return Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
     public Optional<Boolean> publicNetworkAccessEnabled() {

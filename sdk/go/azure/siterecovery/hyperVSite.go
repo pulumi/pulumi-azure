@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HyperV Site in Recovery Service Vault.
@@ -163,6 +164,12 @@ func (i *HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSi
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteOutput)
 }
 
+func (i *HyperVSite) ToOutput(ctx context.Context) pulumix.Output[*HyperVSite] {
+	return pulumix.Output[*HyperVSite]{
+		OutputState: i.ToHyperVSiteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HyperVSiteArrayInput is an input type that accepts HyperVSiteArray and HyperVSiteArrayOutput values.
 // You can construct a concrete instance of `HyperVSiteArrayInput` via:
 //
@@ -186,6 +193,12 @@ func (i HyperVSiteArray) ToHyperVSiteArrayOutput() HyperVSiteArrayOutput {
 
 func (i HyperVSiteArray) ToHyperVSiteArrayOutputWithContext(ctx context.Context) HyperVSiteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteArrayOutput)
+}
+
+func (i HyperVSiteArray) ToOutput(ctx context.Context) pulumix.Output[[]*HyperVSite] {
+	return pulumix.Output[[]*HyperVSite]{
+		OutputState: i.ToHyperVSiteArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HyperVSiteMapInput is an input type that accepts HyperVSiteMap and HyperVSiteMapOutput values.
@@ -213,6 +226,12 @@ func (i HyperVSiteMap) ToHyperVSiteMapOutputWithContext(ctx context.Context) Hyp
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteMapOutput)
 }
 
+func (i HyperVSiteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HyperVSite] {
+	return pulumix.Output[map[string]*HyperVSite]{
+		OutputState: i.ToHyperVSiteMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HyperVSiteOutput struct{ *pulumi.OutputState }
 
 func (HyperVSiteOutput) ElementType() reflect.Type {
@@ -225,6 +244,12 @@ func (o HyperVSiteOutput) ToHyperVSiteOutput() HyperVSiteOutput {
 
 func (o HyperVSiteOutput) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSiteOutput {
 	return o
+}
+
+func (o HyperVSiteOutput) ToOutput(ctx context.Context) pulumix.Output[*HyperVSite] {
+	return pulumix.Output[*HyperVSite]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
@@ -251,6 +276,12 @@ func (o HyperVSiteArrayOutput) ToHyperVSiteArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o HyperVSiteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HyperVSite] {
+	return pulumix.Output[[]*HyperVSite]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HyperVSiteArrayOutput) Index(i pulumi.IntInput) HyperVSiteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HyperVSite {
 		return vs[0].([]*HyperVSite)[vs[1].(int)]
@@ -269,6 +300,12 @@ func (o HyperVSiteMapOutput) ToHyperVSiteMapOutput() HyperVSiteMapOutput {
 
 func (o HyperVSiteMapOutput) ToHyperVSiteMapOutputWithContext(ctx context.Context) HyperVSiteMapOutput {
 	return o
+}
+
+func (o HyperVSiteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HyperVSite] {
+	return pulumix.Output[map[string]*HyperVSite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HyperVSiteMapOutput) MapIndex(k pulumi.StringInput) HyperVSiteOutput {

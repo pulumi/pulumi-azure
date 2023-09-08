@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Key.
@@ -18,7 +19,7 @@ import (
 //
 // > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 //
-// > **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedKeysOnDestroy` for more information.
+// > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedKeysOnDestroy` for more information.
 // ### Additional Examples
 //
 // ```go
@@ -354,6 +355,12 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
+func (i *Key) ToOutput(ctx context.Context) pulumix.Output[*Key] {
+	return pulumix.Output[*Key]{
+		OutputState: i.ToKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KeyArrayInput is an input type that accepts KeyArray and KeyArrayOutput values.
 // You can construct a concrete instance of `KeyArrayInput` via:
 //
@@ -377,6 +384,12 @@ func (i KeyArray) ToKeyArrayOutput() KeyArrayOutput {
 
 func (i KeyArray) ToKeyArrayOutputWithContext(ctx context.Context) KeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyArrayOutput)
+}
+
+func (i KeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Key] {
+	return pulumix.Output[[]*Key]{
+		OutputState: i.ToKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KeyMapInput is an input type that accepts KeyMap and KeyMapOutput values.
@@ -404,6 +417,12 @@ func (i KeyMap) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyMapOutput)
 }
 
+func (i KeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Key] {
+	return pulumix.Output[map[string]*Key]{
+		OutputState: i.ToKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
@@ -416,6 +435,12 @@ func (o KeyOutput) ToKeyOutput() KeyOutput {
 
 func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
+}
+
+func (o KeyOutput) ToOutput(ctx context.Context) pulumix.Output[*Key] {
+	return pulumix.Output[*Key]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -532,6 +557,12 @@ func (o KeyArrayOutput) ToKeyArrayOutputWithContext(ctx context.Context) KeyArra
 	return o
 }
 
+func (o KeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Key] {
+	return pulumix.Output[[]*Key]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyArrayOutput) Index(i pulumi.IntInput) KeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Key {
 		return vs[0].([]*Key)[vs[1].(int)]
@@ -550,6 +581,12 @@ func (o KeyMapOutput) ToKeyMapOutput() KeyMapOutput {
 
 func (o KeyMapOutput) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
 	return o
+}
+
+func (o KeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Key] {
+	return pulumix.Output[map[string]*Key]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyMapOutput) MapIndex(k pulumi.StringInput) KeyOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Insights Sentinel Onboarding.
@@ -215,6 +216,12 @@ func (i *LogAnalyticsWorkspaceOnboarding) ToLogAnalyticsWorkspaceOnboardingOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceOnboardingOutput)
 }
 
+func (i *LogAnalyticsWorkspaceOnboarding) ToOutput(ctx context.Context) pulumix.Output[*LogAnalyticsWorkspaceOnboarding] {
+	return pulumix.Output[*LogAnalyticsWorkspaceOnboarding]{
+		OutputState: i.ToLogAnalyticsWorkspaceOnboardingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogAnalyticsWorkspaceOnboardingArrayInput is an input type that accepts LogAnalyticsWorkspaceOnboardingArray and LogAnalyticsWorkspaceOnboardingArrayOutput values.
 // You can construct a concrete instance of `LogAnalyticsWorkspaceOnboardingArrayInput` via:
 //
@@ -238,6 +245,12 @@ func (i LogAnalyticsWorkspaceOnboardingArray) ToLogAnalyticsWorkspaceOnboardingA
 
 func (i LogAnalyticsWorkspaceOnboardingArray) ToLogAnalyticsWorkspaceOnboardingArrayOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceOnboardingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceOnboardingArrayOutput)
+}
+
+func (i LogAnalyticsWorkspaceOnboardingArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogAnalyticsWorkspaceOnboarding] {
+	return pulumix.Output[[]*LogAnalyticsWorkspaceOnboarding]{
+		OutputState: i.ToLogAnalyticsWorkspaceOnboardingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogAnalyticsWorkspaceOnboardingMapInput is an input type that accepts LogAnalyticsWorkspaceOnboardingMap and LogAnalyticsWorkspaceOnboardingMapOutput values.
@@ -265,6 +278,12 @@ func (i LogAnalyticsWorkspaceOnboardingMap) ToLogAnalyticsWorkspaceOnboardingMap
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceOnboardingMapOutput)
 }
 
+func (i LogAnalyticsWorkspaceOnboardingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogAnalyticsWorkspaceOnboarding] {
+	return pulumix.Output[map[string]*LogAnalyticsWorkspaceOnboarding]{
+		OutputState: i.ToLogAnalyticsWorkspaceOnboardingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogAnalyticsWorkspaceOnboardingOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsWorkspaceOnboardingOutput) ElementType() reflect.Type {
@@ -277,6 +296,12 @@ func (o LogAnalyticsWorkspaceOnboardingOutput) ToLogAnalyticsWorkspaceOnboarding
 
 func (o LogAnalyticsWorkspaceOnboardingOutput) ToLogAnalyticsWorkspaceOnboardingOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceOnboardingOutput {
 	return o
+}
+
+func (o LogAnalyticsWorkspaceOnboardingOutput) ToOutput(ctx context.Context) pulumix.Output[*LogAnalyticsWorkspaceOnboarding] {
+	return pulumix.Output[*LogAnalyticsWorkspaceOnboarding]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
@@ -320,6 +345,12 @@ func (o LogAnalyticsWorkspaceOnboardingArrayOutput) ToLogAnalyticsWorkspaceOnboa
 	return o
 }
 
+func (o LogAnalyticsWorkspaceOnboardingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogAnalyticsWorkspaceOnboarding] {
+	return pulumix.Output[[]*LogAnalyticsWorkspaceOnboarding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogAnalyticsWorkspaceOnboardingArrayOutput) Index(i pulumi.IntInput) LogAnalyticsWorkspaceOnboardingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogAnalyticsWorkspaceOnboarding {
 		return vs[0].([]*LogAnalyticsWorkspaceOnboarding)[vs[1].(int)]
@@ -338,6 +369,12 @@ func (o LogAnalyticsWorkspaceOnboardingMapOutput) ToLogAnalyticsWorkspaceOnboard
 
 func (o LogAnalyticsWorkspaceOnboardingMapOutput) ToLogAnalyticsWorkspaceOnboardingMapOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceOnboardingMapOutput {
 	return o
+}
+
+func (o LogAnalyticsWorkspaceOnboardingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogAnalyticsWorkspaceOnboarding] {
+	return pulumix.Output[map[string]*LogAnalyticsWorkspaceOnboarding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogAnalyticsWorkspaceOnboardingMapOutput) MapIndex(k pulumi.StringInput) LogAnalyticsWorkspaceOnboardingOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Duplicated Anomaly Alert Rule.
@@ -337,6 +338,12 @@ func (i *AlertRuleAnomalyDuplicate) ToAlertRuleAnomalyDuplicateOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateOutput)
 }
 
+func (i *AlertRuleAnomalyDuplicate) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleAnomalyDuplicate] {
+	return pulumix.Output[*AlertRuleAnomalyDuplicate]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AlertRuleAnomalyDuplicateArrayInput is an input type that accepts AlertRuleAnomalyDuplicateArray and AlertRuleAnomalyDuplicateArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyDuplicateArrayInput` via:
 //
@@ -360,6 +367,12 @@ func (i AlertRuleAnomalyDuplicateArray) ToAlertRuleAnomalyDuplicateArrayOutput()
 
 func (i AlertRuleAnomalyDuplicateArray) ToAlertRuleAnomalyDuplicateArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateArrayOutput)
+}
+
+func (i AlertRuleAnomalyDuplicateArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleAnomalyDuplicate] {
+	return pulumix.Output[[]*AlertRuleAnomalyDuplicate]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AlertRuleAnomalyDuplicateMapInput is an input type that accepts AlertRuleAnomalyDuplicateMap and AlertRuleAnomalyDuplicateMapOutput values.
@@ -387,6 +400,12 @@ func (i AlertRuleAnomalyDuplicateMap) ToAlertRuleAnomalyDuplicateMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyDuplicateMapOutput)
 }
 
+func (i AlertRuleAnomalyDuplicateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleAnomalyDuplicate] {
+	return pulumix.Output[map[string]*AlertRuleAnomalyDuplicate]{
+		OutputState: i.ToAlertRuleAnomalyDuplicateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlertRuleAnomalyDuplicateOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyDuplicateOutput) ElementType() reflect.Type {
@@ -399,6 +418,12 @@ func (o AlertRuleAnomalyDuplicateOutput) ToAlertRuleAnomalyDuplicateOutput() Ale
 
 func (o AlertRuleAnomalyDuplicateOutput) ToAlertRuleAnomalyDuplicateOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleAnomalyDuplicate] {
+	return pulumix.Output[*AlertRuleAnomalyDuplicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of the Anomaly Security ML Analytics Settings.
@@ -522,6 +547,12 @@ func (o AlertRuleAnomalyDuplicateArrayOutput) ToAlertRuleAnomalyDuplicateArrayOu
 	return o
 }
 
+func (o AlertRuleAnomalyDuplicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleAnomalyDuplicate] {
+	return pulumix.Output[[]*AlertRuleAnomalyDuplicate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AlertRuleAnomalyDuplicateArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyDuplicateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleAnomalyDuplicate {
 		return vs[0].([]*AlertRuleAnomalyDuplicate)[vs[1].(int)]
@@ -540,6 +571,12 @@ func (o AlertRuleAnomalyDuplicateMapOutput) ToAlertRuleAnomalyDuplicateMapOutput
 
 func (o AlertRuleAnomalyDuplicateMapOutput) ToAlertRuleAnomalyDuplicateMapOutputWithContext(ctx context.Context) AlertRuleAnomalyDuplicateMapOutput {
 	return o
+}
+
+func (o AlertRuleAnomalyDuplicateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleAnomalyDuplicate] {
+	return pulumix.Output[map[string]*AlertRuleAnomalyDuplicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlertRuleAnomalyDuplicateMapOutput) MapIndex(k pulumi.StringInput) AlertRuleAnomalyDuplicateOutput {

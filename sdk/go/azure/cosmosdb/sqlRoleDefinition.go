@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cosmos DB SQL Role Definition.
@@ -260,6 +261,12 @@ func (i *SqlRoleDefinition) ToSqlRoleDefinitionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlRoleDefinitionOutput)
 }
 
+func (i *SqlRoleDefinition) ToOutput(ctx context.Context) pulumix.Output[*SqlRoleDefinition] {
+	return pulumix.Output[*SqlRoleDefinition]{
+		OutputState: i.ToSqlRoleDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlRoleDefinitionArrayInput is an input type that accepts SqlRoleDefinitionArray and SqlRoleDefinitionArrayOutput values.
 // You can construct a concrete instance of `SqlRoleDefinitionArrayInput` via:
 //
@@ -283,6 +290,12 @@ func (i SqlRoleDefinitionArray) ToSqlRoleDefinitionArrayOutput() SqlRoleDefiniti
 
 func (i SqlRoleDefinitionArray) ToSqlRoleDefinitionArrayOutputWithContext(ctx context.Context) SqlRoleDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlRoleDefinitionArrayOutput)
+}
+
+func (i SqlRoleDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlRoleDefinition] {
+	return pulumix.Output[[]*SqlRoleDefinition]{
+		OutputState: i.ToSqlRoleDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlRoleDefinitionMapInput is an input type that accepts SqlRoleDefinitionMap and SqlRoleDefinitionMapOutput values.
@@ -310,6 +323,12 @@ func (i SqlRoleDefinitionMap) ToSqlRoleDefinitionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SqlRoleDefinitionMapOutput)
 }
 
+func (i SqlRoleDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlRoleDefinition] {
+	return pulumix.Output[map[string]*SqlRoleDefinition]{
+		OutputState: i.ToSqlRoleDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SqlRoleDefinitionOutput) ElementType() reflect.Type {
@@ -322,6 +341,12 @@ func (o SqlRoleDefinitionOutput) ToSqlRoleDefinitionOutput() SqlRoleDefinitionOu
 
 func (o SqlRoleDefinitionOutput) ToSqlRoleDefinitionOutputWithContext(ctx context.Context) SqlRoleDefinitionOutput {
 	return o
+}
+
+func (o SqlRoleDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlRoleDefinition] {
+	return pulumix.Output[*SqlRoleDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -375,6 +400,12 @@ func (o SqlRoleDefinitionArrayOutput) ToSqlRoleDefinitionArrayOutputWithContext(
 	return o
 }
 
+func (o SqlRoleDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlRoleDefinition] {
+	return pulumix.Output[[]*SqlRoleDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlRoleDefinitionArrayOutput) Index(i pulumi.IntInput) SqlRoleDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlRoleDefinition {
 		return vs[0].([]*SqlRoleDefinition)[vs[1].(int)]
@@ -393,6 +424,12 @@ func (o SqlRoleDefinitionMapOutput) ToSqlRoleDefinitionMapOutput() SqlRoleDefini
 
 func (o SqlRoleDefinitionMapOutput) ToSqlRoleDefinitionMapOutputWithContext(ctx context.Context) SqlRoleDefinitionMapOutput {
 	return o
+}
+
+func (o SqlRoleDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlRoleDefinition] {
+	return pulumix.Output[map[string]*SqlRoleDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlRoleDefinitionMapOutput) MapIndex(k pulumi.StringInput) SqlRoleDefinitionOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Threat Intelligence Data Connector.
@@ -198,6 +199,12 @@ func (i *DataConnectorThreatIntelligence) ToDataConnectorThreatIntelligenceOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorThreatIntelligenceOutput)
 }
 
+func (i *DataConnectorThreatIntelligence) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorThreatIntelligence] {
+	return pulumix.Output[*DataConnectorThreatIntelligence]{
+		OutputState: i.ToDataConnectorThreatIntelligenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataConnectorThreatIntelligenceArrayInput is an input type that accepts DataConnectorThreatIntelligenceArray and DataConnectorThreatIntelligenceArrayOutput values.
 // You can construct a concrete instance of `DataConnectorThreatIntelligenceArrayInput` via:
 //
@@ -221,6 +228,12 @@ func (i DataConnectorThreatIntelligenceArray) ToDataConnectorThreatIntelligenceA
 
 func (i DataConnectorThreatIntelligenceArray) ToDataConnectorThreatIntelligenceArrayOutputWithContext(ctx context.Context) DataConnectorThreatIntelligenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorThreatIntelligenceArrayOutput)
+}
+
+func (i DataConnectorThreatIntelligenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorThreatIntelligence] {
+	return pulumix.Output[[]*DataConnectorThreatIntelligence]{
+		OutputState: i.ToDataConnectorThreatIntelligenceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataConnectorThreatIntelligenceMapInput is an input type that accepts DataConnectorThreatIntelligenceMap and DataConnectorThreatIntelligenceMapOutput values.
@@ -248,6 +261,12 @@ func (i DataConnectorThreatIntelligenceMap) ToDataConnectorThreatIntelligenceMap
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorThreatIntelligenceMapOutput)
 }
 
+func (i DataConnectorThreatIntelligenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorThreatIntelligence] {
+	return pulumix.Output[map[string]*DataConnectorThreatIntelligence]{
+		OutputState: i.ToDataConnectorThreatIntelligenceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataConnectorThreatIntelligenceOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorThreatIntelligenceOutput) ElementType() reflect.Type {
@@ -260,6 +279,12 @@ func (o DataConnectorThreatIntelligenceOutput) ToDataConnectorThreatIntelligence
 
 func (o DataConnectorThreatIntelligenceOutput) ToDataConnectorThreatIntelligenceOutputWithContext(ctx context.Context) DataConnectorThreatIntelligenceOutput {
 	return o
+}
+
+func (o DataConnectorThreatIntelligenceOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorThreatIntelligence] {
+	return pulumix.Output[*DataConnectorThreatIntelligence]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
@@ -298,6 +323,12 @@ func (o DataConnectorThreatIntelligenceArrayOutput) ToDataConnectorThreatIntelli
 	return o
 }
 
+func (o DataConnectorThreatIntelligenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorThreatIntelligence] {
+	return pulumix.Output[[]*DataConnectorThreatIntelligence]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataConnectorThreatIntelligenceArrayOutput) Index(i pulumi.IntInput) DataConnectorThreatIntelligenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorThreatIntelligence {
 		return vs[0].([]*DataConnectorThreatIntelligence)[vs[1].(int)]
@@ -316,6 +347,12 @@ func (o DataConnectorThreatIntelligenceMapOutput) ToDataConnectorThreatIntellige
 
 func (o DataConnectorThreatIntelligenceMapOutput) ToDataConnectorThreatIntelligenceMapOutputWithContext(ctx context.Context) DataConnectorThreatIntelligenceMapOutput {
 	return o
+}
+
+func (o DataConnectorThreatIntelligenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorThreatIntelligence] {
+	return pulumix.Output[map[string]*DataConnectorThreatIntelligence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataConnectorThreatIntelligenceMapOutput) MapIndex(k pulumi.StringInput) DataConnectorThreatIntelligenceOutput {

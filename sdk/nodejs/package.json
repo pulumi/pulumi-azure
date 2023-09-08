@@ -10,8 +10,7 @@
     "repository": "https://github.com/pulumi/pulumi-azure",
     "license": "Apache-2.0",
     "scripts": {
-        "build": "tsc",
-        "install": "node scripts/install-pulumi-plugin.js resource azure ${VERSION}"
+        "build": "tsc"
     },
     "dependencies": {
         "@azure/eventgrid": "^4.6.0",

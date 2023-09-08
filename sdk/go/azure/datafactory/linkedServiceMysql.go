@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between MySQL and Azure Data Factory.
@@ -224,6 +225,12 @@ func (i *LinkedServiceMysql) ToLinkedServiceMysqlOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlOutput)
 }
 
+func (i *LinkedServiceMysql) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceMysql] {
+	return pulumix.Output[*LinkedServiceMysql]{
+		OutputState: i.ToLinkedServiceMysqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceMysqlArrayInput is an input type that accepts LinkedServiceMysqlArray and LinkedServiceMysqlArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceMysqlArrayInput` via:
 //
@@ -247,6 +254,12 @@ func (i LinkedServiceMysqlArray) ToLinkedServiceMysqlArrayOutput() LinkedService
 
 func (i LinkedServiceMysqlArray) ToLinkedServiceMysqlArrayOutputWithContext(ctx context.Context) LinkedServiceMysqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlArrayOutput)
+}
+
+func (i LinkedServiceMysqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceMysql] {
+	return pulumix.Output[[]*LinkedServiceMysql]{
+		OutputState: i.ToLinkedServiceMysqlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceMysqlMapInput is an input type that accepts LinkedServiceMysqlMap and LinkedServiceMysqlMapOutput values.
@@ -274,6 +287,12 @@ func (i LinkedServiceMysqlMap) ToLinkedServiceMysqlMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceMysqlMapOutput)
 }
 
+func (i LinkedServiceMysqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceMysql] {
+	return pulumix.Output[map[string]*LinkedServiceMysql]{
+		OutputState: i.ToLinkedServiceMysqlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceMysqlOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceMysqlOutput) ElementType() reflect.Type {
@@ -286,6 +305,12 @@ func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutput() LinkedServiceMysq
 
 func (o LinkedServiceMysqlOutput) ToLinkedServiceMysqlOutputWithContext(ctx context.Context) LinkedServiceMysqlOutput {
 	return o
+}
+
+func (o LinkedServiceMysqlOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceMysql] {
+	return pulumix.Output[*LinkedServiceMysql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service MySQL.
@@ -342,6 +367,12 @@ func (o LinkedServiceMysqlArrayOutput) ToLinkedServiceMysqlArrayOutputWithContex
 	return o
 }
 
+func (o LinkedServiceMysqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceMysql] {
+	return pulumix.Output[[]*LinkedServiceMysql]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceMysqlArrayOutput) Index(i pulumi.IntInput) LinkedServiceMysqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceMysql {
 		return vs[0].([]*LinkedServiceMysql)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o LinkedServiceMysqlMapOutput) ToLinkedServiceMysqlMapOutput() LinkedServi
 
 func (o LinkedServiceMysqlMapOutput) ToLinkedServiceMysqlMapOutputWithContext(ctx context.Context) LinkedServiceMysqlMapOutput {
 	return o
+}
+
+func (o LinkedServiceMysqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceMysql] {
+	return pulumix.Output[map[string]*LinkedServiceMysql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceMysqlMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceMysqlOutput {

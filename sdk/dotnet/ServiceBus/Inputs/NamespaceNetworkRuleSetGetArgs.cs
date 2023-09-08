@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ServiceBus.Inputs
         }
 
         /// <summary>
-        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

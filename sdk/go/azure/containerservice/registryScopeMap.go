@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
@@ -209,6 +210,12 @@ func (i *RegistryScopeMap) ToRegistryScopeMapOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapOutput)
 }
 
+func (i *RegistryScopeMap) ToOutput(ctx context.Context) pulumix.Output[*RegistryScopeMap] {
+	return pulumix.Output[*RegistryScopeMap]{
+		OutputState: i.ToRegistryScopeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryScopeMapArrayInput is an input type that accepts RegistryScopeMapArray and RegistryScopeMapArrayOutput values.
 // You can construct a concrete instance of `RegistryScopeMapArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i RegistryScopeMapArray) ToRegistryScopeMapArrayOutput() RegistryScopeMapA
 
 func (i RegistryScopeMapArray) ToRegistryScopeMapArrayOutputWithContext(ctx context.Context) RegistryScopeMapArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapArrayOutput)
+}
+
+func (i RegistryScopeMapArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryScopeMap] {
+	return pulumix.Output[[]*RegistryScopeMap]{
+		OutputState: i.ToRegistryScopeMapArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryScopeMapMapInput is an input type that accepts RegistryScopeMapMap and RegistryScopeMapMapOutput values.
@@ -259,6 +272,12 @@ func (i RegistryScopeMapMap) ToRegistryScopeMapMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScopeMapMapOutput)
 }
 
+func (i RegistryScopeMapMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryScopeMap] {
+	return pulumix.Output[map[string]*RegistryScopeMap]{
+		OutputState: i.ToRegistryScopeMapMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryScopeMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryScopeMapOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o RegistryScopeMapOutput) ToRegistryScopeMapOutput() RegistryScopeMapOutpu
 
 func (o RegistryScopeMapOutput) ToRegistryScopeMapOutputWithContext(ctx context.Context) RegistryScopeMapOutput {
 	return o
+}
+
+func (o RegistryScopeMapOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryScopeMap] {
+	return pulumix.Output[*RegistryScopeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
@@ -312,6 +337,12 @@ func (o RegistryScopeMapArrayOutput) ToRegistryScopeMapArrayOutputWithContext(ct
 	return o
 }
 
+func (o RegistryScopeMapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryScopeMap] {
+	return pulumix.Output[[]*RegistryScopeMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryScopeMapArrayOutput) Index(i pulumi.IntInput) RegistryScopeMapOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryScopeMap {
 		return vs[0].([]*RegistryScopeMap)[vs[1].(int)]
@@ -330,6 +361,12 @@ func (o RegistryScopeMapMapOutput) ToRegistryScopeMapMapOutput() RegistryScopeMa
 
 func (o RegistryScopeMapMapOutput) ToRegistryScopeMapMapOutputWithContext(ctx context.Context) RegistryScopeMapMapOutput {
 	return o
+}
+
+func (o RegistryScopeMapMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryScopeMap] {
+	return pulumix.Output[map[string]*RegistryScopeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryScopeMapMapOutput) MapIndex(k pulumi.StringInput) RegistryScopeMapOutput {

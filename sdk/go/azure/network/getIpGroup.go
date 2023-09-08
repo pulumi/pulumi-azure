@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing IP Group.
@@ -110,6 +111,12 @@ func (o GetIpGroupResultOutput) ToGetIpGroupResultOutput() GetIpGroupResultOutpu
 
 func (o GetIpGroupResultOutput) ToGetIpGroupResultOutputWithContext(ctx context.Context) GetIpGroupResultOutput {
 	return o
+}
+
+func (o GetIpGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpGroupResult] {
+	return pulumix.Output[GetIpGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of CIDRs or IP addresses.

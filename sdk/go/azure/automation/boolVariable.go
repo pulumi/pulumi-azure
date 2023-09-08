@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a boolean variable in Azure Automation
@@ -206,6 +207,12 @@ func (i *BoolVariable) ToBoolVariableOutputWithContext(ctx context.Context) Bool
 	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableOutput)
 }
 
+func (i *BoolVariable) ToOutput(ctx context.Context) pulumix.Output[*BoolVariable] {
+	return pulumix.Output[*BoolVariable]{
+		OutputState: i.ToBoolVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BoolVariableArrayInput is an input type that accepts BoolVariableArray and BoolVariableArrayOutput values.
 // You can construct a concrete instance of `BoolVariableArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i BoolVariableArray) ToBoolVariableArrayOutput() BoolVariableArrayOutput {
 
 func (i BoolVariableArray) ToBoolVariableArrayOutputWithContext(ctx context.Context) BoolVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableArrayOutput)
+}
+
+func (i BoolVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*BoolVariable] {
+	return pulumix.Output[[]*BoolVariable]{
+		OutputState: i.ToBoolVariableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BoolVariableMapInput is an input type that accepts BoolVariableMap and BoolVariableMapOutput values.
@@ -256,6 +269,12 @@ func (i BoolVariableMap) ToBoolVariableMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BoolVariableMapOutput)
 }
 
+func (i BoolVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BoolVariable] {
+	return pulumix.Output[map[string]*BoolVariable]{
+		OutputState: i.ToBoolVariableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BoolVariableOutput struct{ *pulumi.OutputState }
 
 func (BoolVariableOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o BoolVariableOutput) ToBoolVariableOutput() BoolVariableOutput {
 
 func (o BoolVariableOutput) ToBoolVariableOutputWithContext(ctx context.Context) BoolVariableOutput {
 	return o
+}
+
+func (o BoolVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*BoolVariable] {
+	return pulumix.Output[*BoolVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -314,6 +339,12 @@ func (o BoolVariableArrayOutput) ToBoolVariableArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o BoolVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BoolVariable] {
+	return pulumix.Output[[]*BoolVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BoolVariableArrayOutput) Index(i pulumi.IntInput) BoolVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BoolVariable {
 		return vs[0].([]*BoolVariable)[vs[1].(int)]
@@ -332,6 +363,12 @@ func (o BoolVariableMapOutput) ToBoolVariableMapOutput() BoolVariableMapOutput {
 
 func (o BoolVariableMapOutput) ToBoolVariableMapOutputWithContext(ctx context.Context) BoolVariableMapOutput {
 	return o
+}
+
+func (o BoolVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BoolVariable] {
+	return pulumix.Output[map[string]*BoolVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BoolVariableMapOutput) MapIndex(k pulumi.StringInput) BoolVariableOutput {

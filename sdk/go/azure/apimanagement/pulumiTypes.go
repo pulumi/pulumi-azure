@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i ApiContactArgs) ToApiContactOutputWithContext(ctx context.Context) ApiCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiContactOutput)
 }
 
+func (i ApiContactArgs) ToOutput(ctx context.Context) pulumix.Output[ApiContact] {
+	return pulumix.Output[ApiContact]{
+		OutputState: i.ToApiContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiContactArgs) ToApiContactPtrOutput() ApiContactPtrOutput {
 	return i.ToApiContactPtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *apiContactPtrType) ToApiContactPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApiContactPtrOutput)
 }
 
+func (i *apiContactPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiContact] {
+	return pulumix.Output[*ApiContact]{
+		OutputState: i.ToApiContactPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiContactOutput struct{ *pulumi.OutputState }
 
 func (ApiContactOutput) ElementType() reflect.Type {
@@ -117,6 +130,12 @@ func (o ApiContactOutput) ToApiContactPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiContact) *ApiContact {
 		return &v
 	}).(ApiContactPtrOutput)
+}
+
+func (o ApiContactOutput) ToOutput(ctx context.Context) pulumix.Output[ApiContact] {
+	return pulumix.Output[ApiContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The email address of the contact person/organization.
@@ -146,6 +165,12 @@ func (o ApiContactPtrOutput) ToApiContactPtrOutput() ApiContactPtrOutput {
 
 func (o ApiContactPtrOutput) ToApiContactPtrOutputWithContext(ctx context.Context) ApiContactPtrOutput {
 	return o
+}
+
+func (o ApiContactPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiContact] {
+	return pulumix.Output[*ApiContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiContactPtrOutput) Elem() ApiContactOutput {
@@ -229,6 +254,12 @@ func (i ApiDiagnosticBackendRequestArgs) ToApiDiagnosticBackendRequestOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestOutput)
 }
 
+func (i ApiDiagnosticBackendRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequest] {
+	return pulumix.Output[ApiDiagnosticBackendRequest]{
+		OutputState: i.ToApiDiagnosticBackendRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticBackendRequestArgs) ToApiDiagnosticBackendRequestPtrOutput() ApiDiagnosticBackendRequestPtrOutput {
 	return i.ToApiDiagnosticBackendRequestPtrOutputWithContext(context.Background())
 }
@@ -270,6 +301,12 @@ func (i *apiDiagnosticBackendRequestPtrType) ToApiDiagnosticBackendRequestPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestPtrOutput)
 }
 
+func (i *apiDiagnosticBackendRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendRequest] {
+	return pulumix.Output[*ApiDiagnosticBackendRequest]{
+		OutputState: i.ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendRequestOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendRequestOutput) ElementType() reflect.Type {
@@ -292,6 +329,12 @@ func (o ApiDiagnosticBackendRequestOutput) ToApiDiagnosticBackendRequestPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendRequest) *ApiDiagnosticBackendRequest {
 		return &v
 	}).(ApiDiagnosticBackendRequestPtrOutput)
+}
+
+func (o ApiDiagnosticBackendRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequest] {
+	return pulumix.Output[ApiDiagnosticBackendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -321,6 +364,12 @@ func (o ApiDiagnosticBackendRequestPtrOutput) ToApiDiagnosticBackendRequestPtrOu
 
 func (o ApiDiagnosticBackendRequestPtrOutput) ToApiDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendRequest] {
+	return pulumix.Output[*ApiDiagnosticBackendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendRequestPtrOutput) Elem() ApiDiagnosticBackendRequestOutput {
@@ -400,6 +449,12 @@ func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToApiDiagnosticBackendReques
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingOutput)
 }
 
+func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[ApiDiagnosticBackendRequestDataMasking]{
+		OutputState: i.ToApiDiagnosticBackendRequestDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticBackendRequestDataMaskingArgs) ToApiDiagnosticBackendRequestDataMaskingPtrOutput() ApiDiagnosticBackendRequestDataMaskingPtrOutput {
 	return i.ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -441,6 +496,12 @@ func (i *apiDiagnosticBackendRequestDataMaskingPtrType) ToApiDiagnosticBackendRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
 }
 
+func (i *apiDiagnosticBackendRequestDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[*ApiDiagnosticBackendRequestDataMasking]{
+		OutputState: i.ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendRequestDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendRequestDataMaskingOutput) ElementType() reflect.Type {
@@ -463,6 +524,12 @@ func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToApiDiagnosticBackendRequ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendRequestDataMasking) *ApiDiagnosticBackendRequestDataMasking {
 		return &v
 	}).(ApiDiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[ApiDiagnosticBackendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -491,6 +558,12 @@ func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) ToApiDiagnosticBackendR
 
 func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) ToApiDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[*ApiDiagnosticBackendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendRequestDataMaskingPtrOutput) Elem() ApiDiagnosticBackendRequestDataMaskingOutput {
@@ -560,6 +633,12 @@ func (i ApiDiagnosticBackendRequestDataMaskingHeaderArgs) ToApiDiagnosticBackend
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingHeaderOutput)
 }
 
+func (i ApiDiagnosticBackendRequestDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticBackendRequestDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingHeaderArray and ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingHeaderArrayInput` via:
 //
@@ -585,6 +664,12 @@ func (i ApiDiagnosticBackendRequestDataMaskingHeaderArray) ToApiDiagnosticBacken
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput)
 }
 
+func (i ApiDiagnosticBackendRequestDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -597,6 +682,12 @@ func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ToApiDiagnosticBacke
 
 func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ToApiDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -621,6 +712,12 @@ func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToApiDiagnostic
 
 func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendRequestDataMaskingHeaderOutput {
@@ -666,6 +763,12 @@ func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArgs) ToApiDiagnosticBac
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingQueryParamOutput)
 }
 
+func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticBackendRequestDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticBackendRequestDataMaskingQueryParamArray and ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticBackendRequestDataMaskingQueryParamArrayInput` via:
 //
@@ -691,6 +794,12 @@ func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArray) ToApiDiagnosticBa
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
 }
 
+func (i ApiDiagnosticBackendRequestDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -703,6 +812,12 @@ func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ToApiDiagnosticB
 
 func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ToApiDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -727,6 +842,12 @@ func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToApiDiagno
 
 func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendRequestDataMaskingQueryParamOutput {
@@ -776,6 +897,12 @@ func (i ApiDiagnosticBackendResponseArgs) ToApiDiagnosticBackendResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseOutput)
 }
 
+func (i ApiDiagnosticBackendResponseArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponse] {
+	return pulumix.Output[ApiDiagnosticBackendResponse]{
+		OutputState: i.ToApiDiagnosticBackendResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticBackendResponseArgs) ToApiDiagnosticBackendResponsePtrOutput() ApiDiagnosticBackendResponsePtrOutput {
 	return i.ToApiDiagnosticBackendResponsePtrOutputWithContext(context.Background())
 }
@@ -817,6 +944,12 @@ func (i *apiDiagnosticBackendResponsePtrType) ToApiDiagnosticBackendResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponsePtrOutput)
 }
 
+func (i *apiDiagnosticBackendResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendResponse] {
+	return pulumix.Output[*ApiDiagnosticBackendResponse]{
+		OutputState: i.ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendResponseOutput) ElementType() reflect.Type {
@@ -839,6 +972,12 @@ func (o ApiDiagnosticBackendResponseOutput) ToApiDiagnosticBackendResponsePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendResponse) *ApiDiagnosticBackendResponse {
 		return &v
 	}).(ApiDiagnosticBackendResponsePtrOutput)
+}
+
+func (o ApiDiagnosticBackendResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponse] {
+	return pulumix.Output[ApiDiagnosticBackendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -868,6 +1007,12 @@ func (o ApiDiagnosticBackendResponsePtrOutput) ToApiDiagnosticBackendResponsePtr
 
 func (o ApiDiagnosticBackendResponsePtrOutput) ToApiDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponsePtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendResponse] {
+	return pulumix.Output[*ApiDiagnosticBackendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendResponsePtrOutput) Elem() ApiDiagnosticBackendResponseOutput {
@@ -947,6 +1092,12 @@ func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToApiDiagnosticBackendRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingOutput)
 }
 
+func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[ApiDiagnosticBackendResponseDataMasking]{
+		OutputState: i.ToApiDiagnosticBackendResponseDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticBackendResponseDataMaskingArgs) ToApiDiagnosticBackendResponseDataMaskingPtrOutput() ApiDiagnosticBackendResponseDataMaskingPtrOutput {
 	return i.ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -988,6 +1139,12 @@ func (i *apiDiagnosticBackendResponseDataMaskingPtrType) ToApiDiagnosticBackendR
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
 }
 
+func (i *apiDiagnosticBackendResponseDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[*ApiDiagnosticBackendResponseDataMasking]{
+		OutputState: i.ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendResponseDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendResponseDataMaskingOutput) ElementType() reflect.Type {
@@ -1010,6 +1167,12 @@ func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToApiDiagnosticBackendRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticBackendResponseDataMasking) *ApiDiagnosticBackendResponseDataMasking {
 		return &v
 	}).(ApiDiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[ApiDiagnosticBackendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -1038,6 +1201,12 @@ func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) ToApiDiagnosticBackend
 
 func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) ToApiDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[*ApiDiagnosticBackendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendResponseDataMaskingPtrOutput) Elem() ApiDiagnosticBackendResponseDataMaskingOutput {
@@ -1107,6 +1276,12 @@ func (i ApiDiagnosticBackendResponseDataMaskingHeaderArgs) ToApiDiagnosticBacken
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingHeaderOutput)
 }
 
+func (i ApiDiagnosticBackendResponseDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticBackendResponseDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingHeaderArray and ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingHeaderArrayInput` via:
 //
@@ -1132,6 +1307,12 @@ func (i ApiDiagnosticBackendResponseDataMaskingHeaderArray) ToApiDiagnosticBacke
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput)
 }
 
+func (i ApiDiagnosticBackendResponseDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -1144,6 +1325,12 @@ func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ToApiDiagnosticBack
 
 func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ToApiDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -1168,6 +1355,12 @@ func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosti
 
 func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendResponseDataMaskingHeaderOutput {
@@ -1213,6 +1406,12 @@ func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArgs) ToApiDiagnosticBa
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingQueryParamOutput)
 }
 
+func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticBackendResponseDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticBackendResponseDataMaskingQueryParamArray and ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticBackendResponseDataMaskingQueryParamArrayInput` via:
 //
@@ -1238,6 +1437,12 @@ func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArray) ToApiDiagnosticB
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
 }
 
+func (i ApiDiagnosticBackendResponseDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticBackendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -1250,6 +1455,12 @@ func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ToApiDiagnostic
 
 func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ToApiDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -1274,6 +1485,12 @@ func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToApiDiagn
 
 func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticBackendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticBackendResponseDataMaskingQueryParamOutput {
@@ -1323,6 +1540,12 @@ func (i ApiDiagnosticFrontendRequestArgs) ToApiDiagnosticFrontendRequestOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestOutput)
 }
 
+func (i ApiDiagnosticFrontendRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequest] {
+	return pulumix.Output[ApiDiagnosticFrontendRequest]{
+		OutputState: i.ToApiDiagnosticFrontendRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticFrontendRequestArgs) ToApiDiagnosticFrontendRequestPtrOutput() ApiDiagnosticFrontendRequestPtrOutput {
 	return i.ToApiDiagnosticFrontendRequestPtrOutputWithContext(context.Background())
 }
@@ -1364,6 +1587,12 @@ func (i *apiDiagnosticFrontendRequestPtrType) ToApiDiagnosticFrontendRequestPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestPtrOutput)
 }
 
+func (i *apiDiagnosticFrontendRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendRequest] {
+	return pulumix.Output[*ApiDiagnosticFrontendRequest]{
+		OutputState: i.ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendRequestOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendRequestOutput) ElementType() reflect.Type {
@@ -1386,6 +1615,12 @@ func (o ApiDiagnosticFrontendRequestOutput) ToApiDiagnosticFrontendRequestPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendRequest) *ApiDiagnosticFrontendRequest {
 		return &v
 	}).(ApiDiagnosticFrontendRequestPtrOutput)
+}
+
+func (o ApiDiagnosticFrontendRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequest] {
+	return pulumix.Output[ApiDiagnosticFrontendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -1415,6 +1650,12 @@ func (o ApiDiagnosticFrontendRequestPtrOutput) ToApiDiagnosticFrontendRequestPtr
 
 func (o ApiDiagnosticFrontendRequestPtrOutput) ToApiDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendRequest] {
+	return pulumix.Output[*ApiDiagnosticFrontendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendRequestPtrOutput) Elem() ApiDiagnosticFrontendRequestOutput {
@@ -1494,6 +1735,12 @@ func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToApiDiagnosticFrontendRequ
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingOutput)
 }
 
+func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[ApiDiagnosticFrontendRequestDataMasking]{
+		OutputState: i.ToApiDiagnosticFrontendRequestDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticFrontendRequestDataMaskingArgs) ToApiDiagnosticFrontendRequestDataMaskingPtrOutput() ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
 	return i.ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -1535,6 +1782,12 @@ func (i *apiDiagnosticFrontendRequestDataMaskingPtrType) ToApiDiagnosticFrontend
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
 }
 
+func (i *apiDiagnosticFrontendRequestDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[*ApiDiagnosticFrontendRequestDataMasking]{
+		OutputState: i.ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendRequestDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendRequestDataMaskingOutput) ElementType() reflect.Type {
@@ -1557,6 +1810,12 @@ func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToApiDiagnosticFrontendRe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendRequestDataMasking) *ApiDiagnosticFrontendRequestDataMasking {
 		return &v
 	}).(ApiDiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[ApiDiagnosticFrontendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -1585,6 +1844,12 @@ func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ToApiDiagnosticFronten
 
 func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ToApiDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[*ApiDiagnosticFrontendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendRequestDataMaskingPtrOutput) Elem() ApiDiagnosticFrontendRequestDataMaskingOutput {
@@ -1654,6 +1919,12 @@ func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArgs) ToApiDiagnosticFronte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingHeaderOutput)
 }
 
+func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticFrontendRequestDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingHeaderArray and ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingHeaderArrayInput` via:
 //
@@ -1679,6 +1950,12 @@ func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArray) ToApiDiagnosticFront
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
 }
 
+func (i ApiDiagnosticFrontendRequestDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -1691,6 +1968,12 @@ func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ToApiDiagnosticFron
 
 func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ToApiDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -1715,6 +1998,12 @@ func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosti
 
 func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendRequestDataMaskingHeaderOutput {
@@ -1760,6 +2049,12 @@ func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs) ToApiDiagnosticFr
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput)
 }
 
+func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticFrontendRequestDataMaskingQueryParamArray and ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayInput` via:
 //
@@ -1785,6 +2080,12 @@ func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArray) ToApiDiagnosticF
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
 }
 
+func (i ApiDiagnosticFrontendRequestDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -1797,6 +2098,12 @@ func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ToApiDiagnostic
 
 func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ToApiDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -1821,6 +2128,12 @@ func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToApiDiagn
 
 func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendRequestDataMaskingQueryParamOutput {
@@ -1870,6 +2183,12 @@ func (i ApiDiagnosticFrontendResponseArgs) ToApiDiagnosticFrontendResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseOutput)
 }
 
+func (i ApiDiagnosticFrontendResponseArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponse] {
+	return pulumix.Output[ApiDiagnosticFrontendResponse]{
+		OutputState: i.ToApiDiagnosticFrontendResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticFrontendResponseArgs) ToApiDiagnosticFrontendResponsePtrOutput() ApiDiagnosticFrontendResponsePtrOutput {
 	return i.ToApiDiagnosticFrontendResponsePtrOutputWithContext(context.Background())
 }
@@ -1911,6 +2230,12 @@ func (i *apiDiagnosticFrontendResponsePtrType) ToApiDiagnosticFrontendResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponsePtrOutput)
 }
 
+func (i *apiDiagnosticFrontendResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendResponse] {
+	return pulumix.Output[*ApiDiagnosticFrontendResponse]{
+		OutputState: i.ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendResponseOutput) ElementType() reflect.Type {
@@ -1933,6 +2258,12 @@ func (o ApiDiagnosticFrontendResponseOutput) ToApiDiagnosticFrontendResponsePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendResponse) *ApiDiagnosticFrontendResponse {
 		return &v
 	}).(ApiDiagnosticFrontendResponsePtrOutput)
+}
+
+func (o ApiDiagnosticFrontendResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponse] {
+	return pulumix.Output[ApiDiagnosticFrontendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -1962,6 +2293,12 @@ func (o ApiDiagnosticFrontendResponsePtrOutput) ToApiDiagnosticFrontendResponseP
 
 func (o ApiDiagnosticFrontendResponsePtrOutput) ToApiDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponsePtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendResponse] {
+	return pulumix.Output[*ApiDiagnosticFrontendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendResponsePtrOutput) Elem() ApiDiagnosticFrontendResponseOutput {
@@ -2041,6 +2378,12 @@ func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToApiDiagnosticFrontendRes
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingOutput)
 }
 
+func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[ApiDiagnosticFrontendResponseDataMasking]{
+		OutputState: i.ToApiDiagnosticFrontendResponseDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiDiagnosticFrontendResponseDataMaskingArgs) ToApiDiagnosticFrontendResponseDataMaskingPtrOutput() ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
 	return i.ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -2082,6 +2425,12 @@ func (i *apiDiagnosticFrontendResponseDataMaskingPtrType) ToApiDiagnosticFronten
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
 }
 
+func (i *apiDiagnosticFrontendResponseDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[*ApiDiagnosticFrontendResponseDataMasking]{
+		OutputState: i.ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendResponseDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendResponseDataMaskingOutput) ElementType() reflect.Type {
@@ -2104,6 +2453,12 @@ func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToApiDiagnosticFrontendR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDiagnosticFrontendResponseDataMasking) *ApiDiagnosticFrontendResponseDataMasking {
 		return &v
 	}).(ApiDiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[ApiDiagnosticFrontendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -2132,6 +2487,12 @@ func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ToApiDiagnosticFronte
 
 func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ToApiDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingPtrOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[*ApiDiagnosticFrontendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendResponseDataMaskingPtrOutput) Elem() ApiDiagnosticFrontendResponseDataMaskingOutput {
@@ -2201,6 +2562,12 @@ func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArgs) ToApiDiagnosticFront
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingHeaderOutput)
 }
 
+func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticFrontendResponseDataMaskingHeaderArrayInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingHeaderArray and ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingHeaderArrayInput` via:
 //
@@ -2226,6 +2593,12 @@ func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArray) ToApiDiagnosticFron
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
 }
 
+func (i ApiDiagnosticFrontendResponseDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: i.ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -2238,6 +2611,12 @@ func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ToApiDiagnosticFro
 
 func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ToApiDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -2262,6 +2641,12 @@ func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToApiDiagnost
 
 func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendResponseDataMaskingHeaderOutput {
@@ -2307,6 +2692,12 @@ func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs) ToApiDiagnosticF
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput)
 }
 
+func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayInput is an input type that accepts ApiDiagnosticFrontendResponseDataMaskingQueryParamArray and ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayInput` via:
 //
@@ -2332,6 +2723,12 @@ func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArray) ToApiDiagnostic
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
 }
 
+func (i ApiDiagnosticFrontendResponseDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: i.ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -2344,6 +2741,12 @@ func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ToApiDiagnosti
 
 func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ToApiDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[ApiDiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -2368,6 +2771,12 @@ func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToApiDiag
 
 func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]ApiDiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticFrontendResponseDataMaskingQueryParamOutput {
@@ -2417,6 +2826,12 @@ func (i ApiImportArgs) ToApiImportOutputWithContext(ctx context.Context) ApiImpo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiImportOutput)
 }
 
+func (i ApiImportArgs) ToOutput(ctx context.Context) pulumix.Output[ApiImport] {
+	return pulumix.Output[ApiImport]{
+		OutputState: i.ToApiImportOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiImportArgs) ToApiImportPtrOutput() ApiImportPtrOutput {
 	return i.ToApiImportPtrOutputWithContext(context.Background())
 }
@@ -2458,6 +2873,12 @@ func (i *apiImportPtrType) ToApiImportPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiImportPtrOutput)
 }
 
+func (i *apiImportPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiImport] {
+	return pulumix.Output[*ApiImport]{
+		OutputState: i.ToApiImportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiImportOutput struct{ *pulumi.OutputState }
 
 func (ApiImportOutput) ElementType() reflect.Type {
@@ -2480,6 +2901,12 @@ func (o ApiImportOutput) ToApiImportPtrOutputWithContext(ctx context.Context) Ap
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiImport) *ApiImport {
 		return &v
 	}).(ApiImportPtrOutput)
+}
+
+func (o ApiImportOutput) ToOutput(ctx context.Context) pulumix.Output[ApiImport] {
+	return pulumix.Output[ApiImport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
@@ -2509,6 +2936,12 @@ func (o ApiImportPtrOutput) ToApiImportPtrOutput() ApiImportPtrOutput {
 
 func (o ApiImportPtrOutput) ToApiImportPtrOutputWithContext(ctx context.Context) ApiImportPtrOutput {
 	return o
+}
+
+func (o ApiImportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiImport] {
+	return pulumix.Output[*ApiImport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiImportPtrOutput) Elem() ApiImportOutput {
@@ -2588,6 +3021,12 @@ func (i ApiImportWsdlSelectorArgs) ToApiImportWsdlSelectorOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiImportWsdlSelectorOutput)
 }
 
+func (i ApiImportWsdlSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[ApiImportWsdlSelector] {
+	return pulumix.Output[ApiImportWsdlSelector]{
+		OutputState: i.ToApiImportWsdlSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiImportWsdlSelectorArgs) ToApiImportWsdlSelectorPtrOutput() ApiImportWsdlSelectorPtrOutput {
 	return i.ToApiImportWsdlSelectorPtrOutputWithContext(context.Background())
 }
@@ -2629,6 +3068,12 @@ func (i *apiImportWsdlSelectorPtrType) ToApiImportWsdlSelectorPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiImportWsdlSelectorPtrOutput)
 }
 
+func (i *apiImportWsdlSelectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiImportWsdlSelector] {
+	return pulumix.Output[*ApiImportWsdlSelector]{
+		OutputState: i.ToApiImportWsdlSelectorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiImportWsdlSelectorOutput struct{ *pulumi.OutputState }
 
 func (ApiImportWsdlSelectorOutput) ElementType() reflect.Type {
@@ -2653,6 +3098,12 @@ func (o ApiImportWsdlSelectorOutput) ToApiImportWsdlSelectorPtrOutputWithContext
 	}).(ApiImportWsdlSelectorPtrOutput)
 }
 
+func (o ApiImportWsdlSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[ApiImportWsdlSelector] {
+	return pulumix.Output[ApiImportWsdlSelector]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of endpoint (port) to import from WSDL.
 func (o ApiImportWsdlSelectorOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiImportWsdlSelector) string { return v.EndpointName }).(pulumi.StringOutput)
@@ -2675,6 +3126,12 @@ func (o ApiImportWsdlSelectorPtrOutput) ToApiImportWsdlSelectorPtrOutput() ApiIm
 
 func (o ApiImportWsdlSelectorPtrOutput) ToApiImportWsdlSelectorPtrOutputWithContext(ctx context.Context) ApiImportWsdlSelectorPtrOutput {
 	return o
+}
+
+func (o ApiImportWsdlSelectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiImportWsdlSelector] {
+	return pulumix.Output[*ApiImportWsdlSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiImportWsdlSelectorPtrOutput) Elem() ApiImportWsdlSelectorOutput {
@@ -2744,6 +3201,12 @@ func (i ApiLicenseArgs) ToApiLicenseOutputWithContext(ctx context.Context) ApiLi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiLicenseOutput)
 }
 
+func (i ApiLicenseArgs) ToOutput(ctx context.Context) pulumix.Output[ApiLicense] {
+	return pulumix.Output[ApiLicense]{
+		OutputState: i.ToApiLicenseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiLicenseArgs) ToApiLicensePtrOutput() ApiLicensePtrOutput {
 	return i.ToApiLicensePtrOutputWithContext(context.Background())
 }
@@ -2785,6 +3248,12 @@ func (i *apiLicensePtrType) ToApiLicensePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApiLicensePtrOutput)
 }
 
+func (i *apiLicensePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiLicense] {
+	return pulumix.Output[*ApiLicense]{
+		OutputState: i.ToApiLicensePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiLicenseOutput struct{ *pulumi.OutputState }
 
 func (ApiLicenseOutput) ElementType() reflect.Type {
@@ -2809,6 +3278,12 @@ func (o ApiLicenseOutput) ToApiLicensePtrOutputWithContext(ctx context.Context) 
 	}).(ApiLicensePtrOutput)
 }
 
+func (o ApiLicenseOutput) ToOutput(ctx context.Context) pulumix.Output[ApiLicense] {
+	return pulumix.Output[ApiLicense]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the license .
 func (o ApiLicenseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiLicense) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -2831,6 +3306,12 @@ func (o ApiLicensePtrOutput) ToApiLicensePtrOutput() ApiLicensePtrOutput {
 
 func (o ApiLicensePtrOutput) ToApiLicensePtrOutputWithContext(ctx context.Context) ApiLicensePtrOutput {
 	return o
+}
+
+func (o ApiLicensePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiLicense] {
+	return pulumix.Output[*ApiLicense]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiLicensePtrOutput) Elem() ApiLicenseOutput {
@@ -2900,6 +3381,12 @@ func (i ApiOauth2AuthorizationArgs) ToApiOauth2AuthorizationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOauth2AuthorizationOutput)
 }
 
+func (i ApiOauth2AuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOauth2Authorization] {
+	return pulumix.Output[ApiOauth2Authorization]{
+		OutputState: i.ToApiOauth2AuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiOauth2AuthorizationArgs) ToApiOauth2AuthorizationPtrOutput() ApiOauth2AuthorizationPtrOutput {
 	return i.ToApiOauth2AuthorizationPtrOutputWithContext(context.Background())
 }
@@ -2941,6 +3428,12 @@ func (i *apiOauth2AuthorizationPtrType) ToApiOauth2AuthorizationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOauth2AuthorizationPtrOutput)
 }
 
+func (i *apiOauth2AuthorizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiOauth2Authorization] {
+	return pulumix.Output[*ApiOauth2Authorization]{
+		OutputState: i.ToApiOauth2AuthorizationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOauth2AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ApiOauth2AuthorizationOutput) ElementType() reflect.Type {
@@ -2965,6 +3458,12 @@ func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationPtrOutputWithConte
 	}).(ApiOauth2AuthorizationPtrOutput)
 }
 
+func (o ApiOauth2AuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOauth2Authorization] {
+	return pulumix.Output[ApiOauth2Authorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 // OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
 func (o ApiOauth2AuthorizationOutput) AuthorizationServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiOauth2Authorization) string { return v.AuthorizationServerName }).(pulumi.StringOutput)
@@ -2987,6 +3486,12 @@ func (o ApiOauth2AuthorizationPtrOutput) ToApiOauth2AuthorizationPtrOutput() Api
 
 func (o ApiOauth2AuthorizationPtrOutput) ToApiOauth2AuthorizationPtrOutputWithContext(ctx context.Context) ApiOauth2AuthorizationPtrOutput {
 	return o
+}
+
+func (o ApiOauth2AuthorizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiOauth2Authorization] {
+	return pulumix.Output[*ApiOauth2Authorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOauth2AuthorizationPtrOutput) Elem() ApiOauth2AuthorizationOutput {
@@ -3056,6 +3561,12 @@ func (i ApiOpenidAuthenticationArgs) ToApiOpenidAuthenticationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenidAuthenticationOutput)
 }
 
+func (i ApiOpenidAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOpenidAuthentication] {
+	return pulumix.Output[ApiOpenidAuthentication]{
+		OutputState: i.ToApiOpenidAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiOpenidAuthenticationArgs) ToApiOpenidAuthenticationPtrOutput() ApiOpenidAuthenticationPtrOutput {
 	return i.ToApiOpenidAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -3097,6 +3608,12 @@ func (i *apiOpenidAuthenticationPtrType) ToApiOpenidAuthenticationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenidAuthenticationPtrOutput)
 }
 
+func (i *apiOpenidAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiOpenidAuthentication] {
+	return pulumix.Output[*ApiOpenidAuthentication]{
+		OutputState: i.ToApiOpenidAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOpenidAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ApiOpenidAuthenticationOutput) ElementType() reflect.Type {
@@ -3121,6 +3638,12 @@ func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationPtrOutputWithCon
 	}).(ApiOpenidAuthenticationPtrOutput)
 }
 
+func (o ApiOpenidAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOpenidAuthentication] {
+	return pulumix.Output[ApiOpenidAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
 // How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
 func (o ApiOpenidAuthenticationOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiOpenidAuthentication) []string { return v.BearerTokenSendingMethods }).(pulumi.StringArrayOutput)
@@ -3143,6 +3666,12 @@ func (o ApiOpenidAuthenticationPtrOutput) ToApiOpenidAuthenticationPtrOutput() A
 
 func (o ApiOpenidAuthenticationPtrOutput) ToApiOpenidAuthenticationPtrOutputWithContext(ctx context.Context) ApiOpenidAuthenticationPtrOutput {
 	return o
+}
+
+func (o ApiOpenidAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiOpenidAuthentication] {
+	return pulumix.Output[*ApiOpenidAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOpenidAuthenticationPtrOutput) Elem() ApiOpenidAuthenticationOutput {
@@ -3220,6 +3749,12 @@ func (i ApiOperationRequestArgs) ToApiOperationRequestOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestOutput)
 }
 
+func (i ApiOperationRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequest] {
+	return pulumix.Output[ApiOperationRequest]{
+		OutputState: i.ToApiOperationRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiOperationRequestArgs) ToApiOperationRequestPtrOutput() ApiOperationRequestPtrOutput {
 	return i.ToApiOperationRequestPtrOutputWithContext(context.Background())
 }
@@ -3261,6 +3796,12 @@ func (i *apiOperationRequestPtrType) ToApiOperationRequestPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestPtrOutput)
 }
 
+func (i *apiOperationRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiOperationRequest] {
+	return pulumix.Output[*ApiOperationRequest]{
+		OutputState: i.ToApiOperationRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestOutput) ElementType() reflect.Type {
@@ -3283,6 +3824,12 @@ func (o ApiOperationRequestOutput) ToApiOperationRequestPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOperationRequest) *ApiOperationRequest {
 		return &v
 	}).(ApiOperationRequestPtrOutput)
+}
+
+func (o ApiOperationRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequest] {
+	return pulumix.Output[ApiOperationRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the HTTP Request, which may include HTML tags.
@@ -3317,6 +3864,12 @@ func (o ApiOperationRequestPtrOutput) ToApiOperationRequestPtrOutput() ApiOperat
 
 func (o ApiOperationRequestPtrOutput) ToApiOperationRequestPtrOutputWithContext(ctx context.Context) ApiOperationRequestPtrOutput {
 	return o
+}
+
+func (o ApiOperationRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiOperationRequest] {
+	return pulumix.Output[*ApiOperationRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationRequestPtrOutput) Elem() ApiOperationRequestOutput {
@@ -3434,6 +3987,12 @@ func (i ApiOperationRequestHeaderArgs) ToApiOperationRequestHeaderOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestHeaderOutput)
 }
 
+func (i ApiOperationRequestHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestHeader] {
+	return pulumix.Output[ApiOperationRequestHeader]{
+		OutputState: i.ToApiOperationRequestHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestHeaderArrayInput is an input type that accepts ApiOperationRequestHeaderArray and ApiOperationRequestHeaderArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestHeaderArrayInput` via:
 //
@@ -3459,6 +4018,12 @@ func (i ApiOperationRequestHeaderArray) ToApiOperationRequestHeaderArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestHeaderArrayOutput)
 }
 
+func (i ApiOperationRequestHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestHeader] {
+	return pulumix.Output[[]ApiOperationRequestHeader]{
+		OutputState: i.ToApiOperationRequestHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestHeaderOutput) ElementType() reflect.Type {
@@ -3471,6 +4036,12 @@ func (o ApiOperationRequestHeaderOutput) ToApiOperationRequestHeaderOutput() Api
 
 func (o ApiOperationRequestHeaderOutput) ToApiOperationRequestHeaderOutputWithContext(ctx context.Context) ApiOperationRequestHeaderOutput {
 	return o
+}
+
+func (o ApiOperationRequestHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestHeader] {
+	return pulumix.Output[ApiOperationRequestHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for this Header.
@@ -3532,6 +4103,12 @@ func (o ApiOperationRequestHeaderArrayOutput) ToApiOperationRequestHeaderArrayOu
 	return o
 }
 
+func (o ApiOperationRequestHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestHeader] {
+	return pulumix.Output[[]ApiOperationRequestHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationRequestHeaderArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestHeaderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestHeader {
 		return vs[0].([]ApiOperationRequestHeader)[vs[1].(int)]
@@ -3587,6 +4164,12 @@ func (i ApiOperationRequestHeaderExampleArgs) ToApiOperationRequestHeaderExample
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestHeaderExampleOutput)
 }
 
+func (i ApiOperationRequestHeaderExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestHeaderExample] {
+	return pulumix.Output[ApiOperationRequestHeaderExample]{
+		OutputState: i.ToApiOperationRequestHeaderExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestHeaderExampleArrayInput is an input type that accepts ApiOperationRequestHeaderExampleArray and ApiOperationRequestHeaderExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestHeaderExampleArrayInput` via:
 //
@@ -3612,6 +4195,12 @@ func (i ApiOperationRequestHeaderExampleArray) ToApiOperationRequestHeaderExampl
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestHeaderExampleArrayOutput)
 }
 
+func (i ApiOperationRequestHeaderExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestHeaderExample] {
+	return pulumix.Output[[]ApiOperationRequestHeaderExample]{
+		OutputState: i.ToApiOperationRequestHeaderExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestHeaderExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestHeaderExampleOutput) ElementType() reflect.Type {
@@ -3624,6 +4213,12 @@ func (o ApiOperationRequestHeaderExampleOutput) ToApiOperationRequestHeaderExamp
 
 func (o ApiOperationRequestHeaderExampleOutput) ToApiOperationRequestHeaderExampleOutputWithContext(ctx context.Context) ApiOperationRequestHeaderExampleOutput {
 	return o
+}
+
+func (o ApiOperationRequestHeaderExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestHeaderExample] {
+	return pulumix.Output[ApiOperationRequestHeaderExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -3663,6 +4258,12 @@ func (o ApiOperationRequestHeaderExampleArrayOutput) ToApiOperationRequestHeader
 
 func (o ApiOperationRequestHeaderExampleArrayOutput) ToApiOperationRequestHeaderExampleArrayOutputWithContext(ctx context.Context) ApiOperationRequestHeaderExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationRequestHeaderExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestHeaderExample] {
+	return pulumix.Output[[]ApiOperationRequestHeaderExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationRequestHeaderExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestHeaderExampleOutput {
@@ -3736,6 +4337,12 @@ func (i ApiOperationRequestQueryParameterArgs) ToApiOperationRequestQueryParamet
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestQueryParameterOutput)
 }
 
+func (i ApiOperationRequestQueryParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestQueryParameter] {
+	return pulumix.Output[ApiOperationRequestQueryParameter]{
+		OutputState: i.ToApiOperationRequestQueryParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestQueryParameterArrayInput is an input type that accepts ApiOperationRequestQueryParameterArray and ApiOperationRequestQueryParameterArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestQueryParameterArrayInput` via:
 //
@@ -3761,6 +4368,12 @@ func (i ApiOperationRequestQueryParameterArray) ToApiOperationRequestQueryParame
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestQueryParameterArrayOutput)
 }
 
+func (i ApiOperationRequestQueryParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestQueryParameter] {
+	return pulumix.Output[[]ApiOperationRequestQueryParameter]{
+		OutputState: i.ToApiOperationRequestQueryParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestQueryParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestQueryParameterOutput) ElementType() reflect.Type {
@@ -3773,6 +4386,12 @@ func (o ApiOperationRequestQueryParameterOutput) ToApiOperationRequestQueryParam
 
 func (o ApiOperationRequestQueryParameterOutput) ToApiOperationRequestQueryParameterOutputWithContext(ctx context.Context) ApiOperationRequestQueryParameterOutput {
 	return o
+}
+
+func (o ApiOperationRequestQueryParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestQueryParameter] {
+	return pulumix.Output[ApiOperationRequestQueryParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for this Query Parameter.
@@ -3836,6 +4455,12 @@ func (o ApiOperationRequestQueryParameterArrayOutput) ToApiOperationRequestQuery
 	return o
 }
 
+func (o ApiOperationRequestQueryParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestQueryParameter] {
+	return pulumix.Output[[]ApiOperationRequestQueryParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationRequestQueryParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestQueryParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestQueryParameter {
 		return vs[0].([]ApiOperationRequestQueryParameter)[vs[1].(int)]
@@ -3891,6 +4516,12 @@ func (i ApiOperationRequestQueryParameterExampleArgs) ToApiOperationRequestQuery
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestQueryParameterExampleOutput)
 }
 
+func (i ApiOperationRequestQueryParameterExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestQueryParameterExample] {
+	return pulumix.Output[ApiOperationRequestQueryParameterExample]{
+		OutputState: i.ToApiOperationRequestQueryParameterExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestQueryParameterExampleArrayInput is an input type that accepts ApiOperationRequestQueryParameterExampleArray and ApiOperationRequestQueryParameterExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestQueryParameterExampleArrayInput` via:
 //
@@ -3916,6 +4547,12 @@ func (i ApiOperationRequestQueryParameterExampleArray) ToApiOperationRequestQuer
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestQueryParameterExampleArrayOutput)
 }
 
+func (i ApiOperationRequestQueryParameterExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestQueryParameterExample] {
+	return pulumix.Output[[]ApiOperationRequestQueryParameterExample]{
+		OutputState: i.ToApiOperationRequestQueryParameterExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestQueryParameterExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestQueryParameterExampleOutput) ElementType() reflect.Type {
@@ -3928,6 +4565,12 @@ func (o ApiOperationRequestQueryParameterExampleOutput) ToApiOperationRequestQue
 
 func (o ApiOperationRequestQueryParameterExampleOutput) ToApiOperationRequestQueryParameterExampleOutputWithContext(ctx context.Context) ApiOperationRequestQueryParameterExampleOutput {
 	return o
+}
+
+func (o ApiOperationRequestQueryParameterExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestQueryParameterExample] {
+	return pulumix.Output[ApiOperationRequestQueryParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -3967,6 +4610,12 @@ func (o ApiOperationRequestQueryParameterExampleArrayOutput) ToApiOperationReque
 
 func (o ApiOperationRequestQueryParameterExampleArrayOutput) ToApiOperationRequestQueryParameterExampleArrayOutputWithContext(ctx context.Context) ApiOperationRequestQueryParameterExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationRequestQueryParameterExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestQueryParameterExample] {
+	return pulumix.Output[[]ApiOperationRequestQueryParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationRequestQueryParameterExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestQueryParameterExampleOutput {
@@ -4036,6 +4685,12 @@ func (i ApiOperationRequestRepresentationArgs) ToApiOperationRequestRepresentati
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationOutput)
 }
 
+func (i ApiOperationRequestRepresentationArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentation] {
+	return pulumix.Output[ApiOperationRequestRepresentation]{
+		OutputState: i.ToApiOperationRequestRepresentationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestRepresentationArrayInput is an input type that accepts ApiOperationRequestRepresentationArray and ApiOperationRequestRepresentationArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestRepresentationArrayInput` via:
 //
@@ -4061,6 +4716,12 @@ func (i ApiOperationRequestRepresentationArray) ToApiOperationRequestRepresentat
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationArrayOutput)
 }
 
+func (i ApiOperationRequestRepresentationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentation] {
+	return pulumix.Output[[]ApiOperationRequestRepresentation]{
+		OutputState: i.ToApiOperationRequestRepresentationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestRepresentationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationOutput) ElementType() reflect.Type {
@@ -4073,6 +4734,12 @@ func (o ApiOperationRequestRepresentationOutput) ToApiOperationRequestRepresenta
 
 func (o ApiOperationRequestRepresentationOutput) ToApiOperationRequestRepresentationOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentation] {
+	return pulumix.Output[ApiOperationRequestRepresentation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Content Type of this representation, such as `application/json`.
@@ -4122,6 +4789,12 @@ func (o ApiOperationRequestRepresentationArrayOutput) ToApiOperationRequestRepre
 
 func (o ApiOperationRequestRepresentationArrayOutput) ToApiOperationRequestRepresentationArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationArrayOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentation] {
+	return pulumix.Output[[]ApiOperationRequestRepresentation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationRequestRepresentationArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationOutput {
@@ -4179,6 +4852,12 @@ func (i ApiOperationRequestRepresentationExampleArgs) ToApiOperationRequestRepre
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationExampleOutput)
 }
 
+func (i ApiOperationRequestRepresentationExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentationExample] {
+	return pulumix.Output[ApiOperationRequestRepresentationExample]{
+		OutputState: i.ToApiOperationRequestRepresentationExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestRepresentationExampleArrayInput is an input type that accepts ApiOperationRequestRepresentationExampleArray and ApiOperationRequestRepresentationExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestRepresentationExampleArrayInput` via:
 //
@@ -4204,6 +4883,12 @@ func (i ApiOperationRequestRepresentationExampleArray) ToApiOperationRequestRepr
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationExampleArrayOutput)
 }
 
+func (i ApiOperationRequestRepresentationExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentationExample] {
+	return pulumix.Output[[]ApiOperationRequestRepresentationExample]{
+		OutputState: i.ToApiOperationRequestRepresentationExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestRepresentationExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationExampleOutput) ElementType() reflect.Type {
@@ -4216,6 +4901,12 @@ func (o ApiOperationRequestRepresentationExampleOutput) ToApiOperationRequestRep
 
 func (o ApiOperationRequestRepresentationExampleOutput) ToApiOperationRequestRepresentationExampleOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationExampleOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentationExample] {
+	return pulumix.Output[ApiOperationRequestRepresentationExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -4255,6 +4946,12 @@ func (o ApiOperationRequestRepresentationExampleArrayOutput) ToApiOperationReque
 
 func (o ApiOperationRequestRepresentationExampleArrayOutput) ToApiOperationRequestRepresentationExampleArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentationExample] {
+	return pulumix.Output[[]ApiOperationRequestRepresentationExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationRequestRepresentationExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationExampleOutput {
@@ -4328,6 +5025,12 @@ func (i ApiOperationRequestRepresentationFormParameterArgs) ToApiOperationReques
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationFormParameterOutput)
 }
 
+func (i ApiOperationRequestRepresentationFormParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentationFormParameter] {
+	return pulumix.Output[ApiOperationRequestRepresentationFormParameter]{
+		OutputState: i.ToApiOperationRequestRepresentationFormParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestRepresentationFormParameterArrayInput is an input type that accepts ApiOperationRequestRepresentationFormParameterArray and ApiOperationRequestRepresentationFormParameterArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestRepresentationFormParameterArrayInput` via:
 //
@@ -4353,6 +5056,12 @@ func (i ApiOperationRequestRepresentationFormParameterArray) ToApiOperationReque
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationFormParameterArrayOutput)
 }
 
+func (i ApiOperationRequestRepresentationFormParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentationFormParameter] {
+	return pulumix.Output[[]ApiOperationRequestRepresentationFormParameter]{
+		OutputState: i.ToApiOperationRequestRepresentationFormParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestRepresentationFormParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationFormParameterOutput) ElementType() reflect.Type {
@@ -4365,6 +5074,12 @@ func (o ApiOperationRequestRepresentationFormParameterOutput) ToApiOperationRequ
 
 func (o ApiOperationRequestRepresentationFormParameterOutput) ToApiOperationRequestRepresentationFormParameterOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationFormParameterOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationFormParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentationFormParameter] {
+	return pulumix.Output[ApiOperationRequestRepresentationFormParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for this Form Parameter.
@@ -4428,6 +5143,12 @@ func (o ApiOperationRequestRepresentationFormParameterArrayOutput) ToApiOperatio
 	return o
 }
 
+func (o ApiOperationRequestRepresentationFormParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentationFormParameter] {
+	return pulumix.Output[[]ApiOperationRequestRepresentationFormParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationRequestRepresentationFormParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationFormParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestRepresentationFormParameter {
 		return vs[0].([]ApiOperationRequestRepresentationFormParameter)[vs[1].(int)]
@@ -4483,6 +5204,12 @@ func (i ApiOperationRequestRepresentationFormParameterExampleArgs) ToApiOperatio
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationFormParameterExampleOutput)
 }
 
+func (i ApiOperationRequestRepresentationFormParameterExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentationFormParameterExample] {
+	return pulumix.Output[ApiOperationRequestRepresentationFormParameterExample]{
+		OutputState: i.ToApiOperationRequestRepresentationFormParameterExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationRequestRepresentationFormParameterExampleArrayInput is an input type that accepts ApiOperationRequestRepresentationFormParameterExampleArray and ApiOperationRequestRepresentationFormParameterExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationRequestRepresentationFormParameterExampleArrayInput` via:
 //
@@ -4508,6 +5235,12 @@ func (i ApiOperationRequestRepresentationFormParameterExampleArray) ToApiOperati
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationFormParameterExampleArrayOutput)
 }
 
+func (i ApiOperationRequestRepresentationFormParameterExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentationFormParameterExample] {
+	return pulumix.Output[[]ApiOperationRequestRepresentationFormParameterExample]{
+		OutputState: i.ToApiOperationRequestRepresentationFormParameterExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationRequestRepresentationFormParameterExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationRequestRepresentationFormParameterExampleOutput) ElementType() reflect.Type {
@@ -4520,6 +5253,12 @@ func (o ApiOperationRequestRepresentationFormParameterExampleOutput) ToApiOperat
 
 func (o ApiOperationRequestRepresentationFormParameterExampleOutput) ToApiOperationRequestRepresentationFormParameterExampleOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationFormParameterExampleOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationFormParameterExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationRequestRepresentationFormParameterExample] {
+	return pulumix.Output[ApiOperationRequestRepresentationFormParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -4559,6 +5298,12 @@ func (o ApiOperationRequestRepresentationFormParameterExampleArrayOutput) ToApiO
 
 func (o ApiOperationRequestRepresentationFormParameterExampleArrayOutput) ToApiOperationRequestRepresentationFormParameterExampleArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationFormParameterExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationRequestRepresentationFormParameterExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationRequestRepresentationFormParameterExample] {
+	return pulumix.Output[[]ApiOperationRequestRepresentationFormParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationRequestRepresentationFormParameterExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationFormParameterExampleOutput {
@@ -4612,6 +5357,12 @@ func (i ApiOperationResponseArgs) ToApiOperationResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseOutput)
 }
 
+func (i ApiOperationResponseArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponse] {
+	return pulumix.Output[ApiOperationResponse]{
+		OutputState: i.ToApiOperationResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseArrayInput is an input type that accepts ApiOperationResponseArray and ApiOperationResponseArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseArrayInput` via:
 //
@@ -4637,6 +5388,12 @@ func (i ApiOperationResponseArray) ToApiOperationResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseArrayOutput)
 }
 
+func (i ApiOperationResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponse] {
+	return pulumix.Output[[]ApiOperationResponse]{
+		OutputState: i.ToApiOperationResponseArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseOutput) ElementType() reflect.Type {
@@ -4649,6 +5406,12 @@ func (o ApiOperationResponseOutput) ToApiOperationResponseOutput() ApiOperationR
 
 func (o ApiOperationResponseOutput) ToApiOperationResponseOutputWithContext(ctx context.Context) ApiOperationResponseOutput {
 	return o
+}
+
+func (o ApiOperationResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponse] {
+	return pulumix.Output[ApiOperationResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description of the HTTP Response, which may include HTML tags.
@@ -4683,6 +5446,12 @@ func (o ApiOperationResponseArrayOutput) ToApiOperationResponseArrayOutput() Api
 
 func (o ApiOperationResponseArrayOutput) ToApiOperationResponseArrayOutputWithContext(ctx context.Context) ApiOperationResponseArrayOutput {
 	return o
+}
+
+func (o ApiOperationResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponse] {
+	return pulumix.Output[[]ApiOperationResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationResponseArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseOutput {
@@ -4756,6 +5525,12 @@ func (i ApiOperationResponseHeaderArgs) ToApiOperationResponseHeaderOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseHeaderOutput)
 }
 
+func (i ApiOperationResponseHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseHeader] {
+	return pulumix.Output[ApiOperationResponseHeader]{
+		OutputState: i.ToApiOperationResponseHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseHeaderArrayInput is an input type that accepts ApiOperationResponseHeaderArray and ApiOperationResponseHeaderArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseHeaderArrayInput` via:
 //
@@ -4781,6 +5556,12 @@ func (i ApiOperationResponseHeaderArray) ToApiOperationResponseHeaderArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseHeaderArrayOutput)
 }
 
+func (i ApiOperationResponseHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseHeader] {
+	return pulumix.Output[[]ApiOperationResponseHeader]{
+		OutputState: i.ToApiOperationResponseHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseHeaderOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseHeaderOutput) ElementType() reflect.Type {
@@ -4793,6 +5574,12 @@ func (o ApiOperationResponseHeaderOutput) ToApiOperationResponseHeaderOutput() A
 
 func (o ApiOperationResponseHeaderOutput) ToApiOperationResponseHeaderOutputWithContext(ctx context.Context) ApiOperationResponseHeaderOutput {
 	return o
+}
+
+func (o ApiOperationResponseHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseHeader] {
+	return pulumix.Output[ApiOperationResponseHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for this Header.
@@ -4854,6 +5641,12 @@ func (o ApiOperationResponseHeaderArrayOutput) ToApiOperationResponseHeaderArray
 	return o
 }
 
+func (o ApiOperationResponseHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseHeader] {
+	return pulumix.Output[[]ApiOperationResponseHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationResponseHeaderArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseHeaderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseHeader {
 		return vs[0].([]ApiOperationResponseHeader)[vs[1].(int)]
@@ -4909,6 +5702,12 @@ func (i ApiOperationResponseHeaderExampleArgs) ToApiOperationResponseHeaderExamp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseHeaderExampleOutput)
 }
 
+func (i ApiOperationResponseHeaderExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseHeaderExample] {
+	return pulumix.Output[ApiOperationResponseHeaderExample]{
+		OutputState: i.ToApiOperationResponseHeaderExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseHeaderExampleArrayInput is an input type that accepts ApiOperationResponseHeaderExampleArray and ApiOperationResponseHeaderExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseHeaderExampleArrayInput` via:
 //
@@ -4934,6 +5733,12 @@ func (i ApiOperationResponseHeaderExampleArray) ToApiOperationResponseHeaderExam
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseHeaderExampleArrayOutput)
 }
 
+func (i ApiOperationResponseHeaderExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseHeaderExample] {
+	return pulumix.Output[[]ApiOperationResponseHeaderExample]{
+		OutputState: i.ToApiOperationResponseHeaderExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseHeaderExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseHeaderExampleOutput) ElementType() reflect.Type {
@@ -4946,6 +5751,12 @@ func (o ApiOperationResponseHeaderExampleOutput) ToApiOperationResponseHeaderExa
 
 func (o ApiOperationResponseHeaderExampleOutput) ToApiOperationResponseHeaderExampleOutputWithContext(ctx context.Context) ApiOperationResponseHeaderExampleOutput {
 	return o
+}
+
+func (o ApiOperationResponseHeaderExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseHeaderExample] {
+	return pulumix.Output[ApiOperationResponseHeaderExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -4985,6 +5796,12 @@ func (o ApiOperationResponseHeaderExampleArrayOutput) ToApiOperationResponseHead
 
 func (o ApiOperationResponseHeaderExampleArrayOutput) ToApiOperationResponseHeaderExampleArrayOutputWithContext(ctx context.Context) ApiOperationResponseHeaderExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationResponseHeaderExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseHeaderExample] {
+	return pulumix.Output[[]ApiOperationResponseHeaderExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationResponseHeaderExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseHeaderExampleOutput {
@@ -5054,6 +5871,12 @@ func (i ApiOperationResponseRepresentationArgs) ToApiOperationResponseRepresenta
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationOutput)
 }
 
+func (i ApiOperationResponseRepresentationArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentation] {
+	return pulumix.Output[ApiOperationResponseRepresentation]{
+		OutputState: i.ToApiOperationResponseRepresentationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseRepresentationArrayInput is an input type that accepts ApiOperationResponseRepresentationArray and ApiOperationResponseRepresentationArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseRepresentationArrayInput` via:
 //
@@ -5079,6 +5902,12 @@ func (i ApiOperationResponseRepresentationArray) ToApiOperationResponseRepresent
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationArrayOutput)
 }
 
+func (i ApiOperationResponseRepresentationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentation] {
+	return pulumix.Output[[]ApiOperationResponseRepresentation]{
+		OutputState: i.ToApiOperationResponseRepresentationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseRepresentationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationOutput) ElementType() reflect.Type {
@@ -5091,6 +5920,12 @@ func (o ApiOperationResponseRepresentationOutput) ToApiOperationResponseRepresen
 
 func (o ApiOperationResponseRepresentationOutput) ToApiOperationResponseRepresentationOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentation] {
+	return pulumix.Output[ApiOperationResponseRepresentation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Content Type of this representation, such as `application/json`.
@@ -5140,6 +5975,12 @@ func (o ApiOperationResponseRepresentationArrayOutput) ToApiOperationResponseRep
 
 func (o ApiOperationResponseRepresentationArrayOutput) ToApiOperationResponseRepresentationArrayOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationArrayOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentation] {
+	return pulumix.Output[[]ApiOperationResponseRepresentation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationResponseRepresentationArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationOutput {
@@ -5197,6 +6038,12 @@ func (i ApiOperationResponseRepresentationExampleArgs) ToApiOperationResponseRep
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationExampleOutput)
 }
 
+func (i ApiOperationResponseRepresentationExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentationExample] {
+	return pulumix.Output[ApiOperationResponseRepresentationExample]{
+		OutputState: i.ToApiOperationResponseRepresentationExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseRepresentationExampleArrayInput is an input type that accepts ApiOperationResponseRepresentationExampleArray and ApiOperationResponseRepresentationExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseRepresentationExampleArrayInput` via:
 //
@@ -5222,6 +6069,12 @@ func (i ApiOperationResponseRepresentationExampleArray) ToApiOperationResponseRe
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationExampleArrayOutput)
 }
 
+func (i ApiOperationResponseRepresentationExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentationExample] {
+	return pulumix.Output[[]ApiOperationResponseRepresentationExample]{
+		OutputState: i.ToApiOperationResponseRepresentationExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseRepresentationExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationExampleOutput) ElementType() reflect.Type {
@@ -5234,6 +6087,12 @@ func (o ApiOperationResponseRepresentationExampleOutput) ToApiOperationResponseR
 
 func (o ApiOperationResponseRepresentationExampleOutput) ToApiOperationResponseRepresentationExampleOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationExampleOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentationExample] {
+	return pulumix.Output[ApiOperationResponseRepresentationExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -5273,6 +6132,12 @@ func (o ApiOperationResponseRepresentationExampleArrayOutput) ToApiOperationResp
 
 func (o ApiOperationResponseRepresentationExampleArrayOutput) ToApiOperationResponseRepresentationExampleArrayOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentationExample] {
+	return pulumix.Output[[]ApiOperationResponseRepresentationExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationResponseRepresentationExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationExampleOutput {
@@ -5346,6 +6211,12 @@ func (i ApiOperationResponseRepresentationFormParameterArgs) ToApiOperationRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationFormParameterOutput)
 }
 
+func (i ApiOperationResponseRepresentationFormParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentationFormParameter] {
+	return pulumix.Output[ApiOperationResponseRepresentationFormParameter]{
+		OutputState: i.ToApiOperationResponseRepresentationFormParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseRepresentationFormParameterArrayInput is an input type that accepts ApiOperationResponseRepresentationFormParameterArray and ApiOperationResponseRepresentationFormParameterArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseRepresentationFormParameterArrayInput` via:
 //
@@ -5371,6 +6242,12 @@ func (i ApiOperationResponseRepresentationFormParameterArray) ToApiOperationResp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationFormParameterArrayOutput)
 }
 
+func (i ApiOperationResponseRepresentationFormParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentationFormParameter] {
+	return pulumix.Output[[]ApiOperationResponseRepresentationFormParameter]{
+		OutputState: i.ToApiOperationResponseRepresentationFormParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseRepresentationFormParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationFormParameterOutput) ElementType() reflect.Type {
@@ -5383,6 +6260,12 @@ func (o ApiOperationResponseRepresentationFormParameterOutput) ToApiOperationRes
 
 func (o ApiOperationResponseRepresentationFormParameterOutput) ToApiOperationResponseRepresentationFormParameterOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationFormParameterOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationFormParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentationFormParameter] {
+	return pulumix.Output[ApiOperationResponseRepresentationFormParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for this Form Parameter.
@@ -5446,6 +6329,12 @@ func (o ApiOperationResponseRepresentationFormParameterArrayOutput) ToApiOperati
 	return o
 }
 
+func (o ApiOperationResponseRepresentationFormParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentationFormParameter] {
+	return pulumix.Output[[]ApiOperationResponseRepresentationFormParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationResponseRepresentationFormParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationFormParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseRepresentationFormParameter {
 		return vs[0].([]ApiOperationResponseRepresentationFormParameter)[vs[1].(int)]
@@ -5501,6 +6390,12 @@ func (i ApiOperationResponseRepresentationFormParameterExampleArgs) ToApiOperati
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationFormParameterExampleOutput)
 }
 
+func (i ApiOperationResponseRepresentationFormParameterExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentationFormParameterExample] {
+	return pulumix.Output[ApiOperationResponseRepresentationFormParameterExample]{
+		OutputState: i.ToApiOperationResponseRepresentationFormParameterExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationResponseRepresentationFormParameterExampleArrayInput is an input type that accepts ApiOperationResponseRepresentationFormParameterExampleArray and ApiOperationResponseRepresentationFormParameterExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationResponseRepresentationFormParameterExampleArrayInput` via:
 //
@@ -5526,6 +6421,12 @@ func (i ApiOperationResponseRepresentationFormParameterExampleArray) ToApiOperat
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationFormParameterExampleArrayOutput)
 }
 
+func (i ApiOperationResponseRepresentationFormParameterExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentationFormParameterExample] {
+	return pulumix.Output[[]ApiOperationResponseRepresentationFormParameterExample]{
+		OutputState: i.ToApiOperationResponseRepresentationFormParameterExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationResponseRepresentationFormParameterExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationResponseRepresentationFormParameterExampleOutput) ElementType() reflect.Type {
@@ -5538,6 +6439,12 @@ func (o ApiOperationResponseRepresentationFormParameterExampleOutput) ToApiOpera
 
 func (o ApiOperationResponseRepresentationFormParameterExampleOutput) ToApiOperationResponseRepresentationFormParameterExampleOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationFormParameterExampleOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationFormParameterExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationResponseRepresentationFormParameterExample] {
+	return pulumix.Output[ApiOperationResponseRepresentationFormParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -5577,6 +6484,12 @@ func (o ApiOperationResponseRepresentationFormParameterExampleArrayOutput) ToApi
 
 func (o ApiOperationResponseRepresentationFormParameterExampleArrayOutput) ToApiOperationResponseRepresentationFormParameterExampleArrayOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationFormParameterExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationResponseRepresentationFormParameterExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationResponseRepresentationFormParameterExample] {
+	return pulumix.Output[[]ApiOperationResponseRepresentationFormParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationResponseRepresentationFormParameterExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationFormParameterExampleOutput {
@@ -5650,6 +6563,12 @@ func (i ApiOperationTemplateParameterArgs) ToApiOperationTemplateParameterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTemplateParameterOutput)
 }
 
+func (i ApiOperationTemplateParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationTemplateParameter] {
+	return pulumix.Output[ApiOperationTemplateParameter]{
+		OutputState: i.ToApiOperationTemplateParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationTemplateParameterArrayInput is an input type that accepts ApiOperationTemplateParameterArray and ApiOperationTemplateParameterArrayOutput values.
 // You can construct a concrete instance of `ApiOperationTemplateParameterArrayInput` via:
 //
@@ -5675,6 +6594,12 @@ func (i ApiOperationTemplateParameterArray) ToApiOperationTemplateParameterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTemplateParameterArrayOutput)
 }
 
+func (i ApiOperationTemplateParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationTemplateParameter] {
+	return pulumix.Output[[]ApiOperationTemplateParameter]{
+		OutputState: i.ToApiOperationTemplateParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationTemplateParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTemplateParameterOutput) ElementType() reflect.Type {
@@ -5687,6 +6612,12 @@ func (o ApiOperationTemplateParameterOutput) ToApiOperationTemplateParameterOutp
 
 func (o ApiOperationTemplateParameterOutput) ToApiOperationTemplateParameterOutputWithContext(ctx context.Context) ApiOperationTemplateParameterOutput {
 	return o
+}
+
+func (o ApiOperationTemplateParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationTemplateParameter] {
+	return pulumix.Output[ApiOperationTemplateParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for this Template Parameter.
@@ -5748,6 +6679,12 @@ func (o ApiOperationTemplateParameterArrayOutput) ToApiOperationTemplateParamete
 	return o
 }
 
+func (o ApiOperationTemplateParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationTemplateParameter] {
+	return pulumix.Output[[]ApiOperationTemplateParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiOperationTemplateParameterArrayOutput) Index(i pulumi.IntInput) ApiOperationTemplateParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationTemplateParameter {
 		return vs[0].([]ApiOperationTemplateParameter)[vs[1].(int)]
@@ -5803,6 +6740,12 @@ func (i ApiOperationTemplateParameterExampleArgs) ToApiOperationTemplateParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTemplateParameterExampleOutput)
 }
 
+func (i ApiOperationTemplateParameterExampleArgs) ToOutput(ctx context.Context) pulumix.Output[ApiOperationTemplateParameterExample] {
+	return pulumix.Output[ApiOperationTemplateParameterExample]{
+		OutputState: i.ToApiOperationTemplateParameterExampleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiOperationTemplateParameterExampleArrayInput is an input type that accepts ApiOperationTemplateParameterExampleArray and ApiOperationTemplateParameterExampleArrayOutput values.
 // You can construct a concrete instance of `ApiOperationTemplateParameterExampleArrayInput` via:
 //
@@ -5828,6 +6771,12 @@ func (i ApiOperationTemplateParameterExampleArray) ToApiOperationTemplateParamet
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTemplateParameterExampleArrayOutput)
 }
 
+func (i ApiOperationTemplateParameterExampleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationTemplateParameterExample] {
+	return pulumix.Output[[]ApiOperationTemplateParameterExample]{
+		OutputState: i.ToApiOperationTemplateParameterExampleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiOperationTemplateParameterExampleOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTemplateParameterExampleOutput) ElementType() reflect.Type {
@@ -5840,6 +6789,12 @@ func (o ApiOperationTemplateParameterExampleOutput) ToApiOperationTemplateParame
 
 func (o ApiOperationTemplateParameterExampleOutput) ToApiOperationTemplateParameterExampleOutputWithContext(ctx context.Context) ApiOperationTemplateParameterExampleOutput {
 	return o
+}
+
+func (o ApiOperationTemplateParameterExampleOutput) ToOutput(ctx context.Context) pulumix.Output[ApiOperationTemplateParameterExample] {
+	return pulumix.Output[ApiOperationTemplateParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A long description for this example.
@@ -5879,6 +6834,12 @@ func (o ApiOperationTemplateParameterExampleArrayOutput) ToApiOperationTemplateP
 
 func (o ApiOperationTemplateParameterExampleArrayOutput) ToApiOperationTemplateParameterExampleArrayOutputWithContext(ctx context.Context) ApiOperationTemplateParameterExampleArrayOutput {
 	return o
+}
+
+func (o ApiOperationTemplateParameterExampleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApiOperationTemplateParameterExample] {
+	return pulumix.Output[[]ApiOperationTemplateParameterExample]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiOperationTemplateParameterExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationTemplateParameterExampleOutput {
@@ -5924,6 +6885,12 @@ func (i ApiSubscriptionKeyParameterNamesArgs) ToApiSubscriptionKeyParameterNames
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSubscriptionKeyParameterNamesOutput)
 }
 
+func (i ApiSubscriptionKeyParameterNamesArgs) ToOutput(ctx context.Context) pulumix.Output[ApiSubscriptionKeyParameterNames] {
+	return pulumix.Output[ApiSubscriptionKeyParameterNames]{
+		OutputState: i.ToApiSubscriptionKeyParameterNamesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiSubscriptionKeyParameterNamesArgs) ToApiSubscriptionKeyParameterNamesPtrOutput() ApiSubscriptionKeyParameterNamesPtrOutput {
 	return i.ToApiSubscriptionKeyParameterNamesPtrOutputWithContext(context.Background())
 }
@@ -5965,6 +6932,12 @@ func (i *apiSubscriptionKeyParameterNamesPtrType) ToApiSubscriptionKeyParameterN
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSubscriptionKeyParameterNamesPtrOutput)
 }
 
+func (i *apiSubscriptionKeyParameterNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiSubscriptionKeyParameterNames] {
+	return pulumix.Output[*ApiSubscriptionKeyParameterNames]{
+		OutputState: i.ToApiSubscriptionKeyParameterNamesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiSubscriptionKeyParameterNamesOutput struct{ *pulumi.OutputState }
 
 func (ApiSubscriptionKeyParameterNamesOutput) ElementType() reflect.Type {
@@ -5989,6 +6962,12 @@ func (o ApiSubscriptionKeyParameterNamesOutput) ToApiSubscriptionKeyParameterNam
 	}).(ApiSubscriptionKeyParameterNamesPtrOutput)
 }
 
+func (o ApiSubscriptionKeyParameterNamesOutput) ToOutput(ctx context.Context) pulumix.Output[ApiSubscriptionKeyParameterNames] {
+	return pulumix.Output[ApiSubscriptionKeyParameterNames]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the HTTP Header which should be used for the Subscription Key.
 func (o ApiSubscriptionKeyParameterNamesOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiSubscriptionKeyParameterNames) string { return v.Header }).(pulumi.StringOutput)
@@ -6011,6 +6990,12 @@ func (o ApiSubscriptionKeyParameterNamesPtrOutput) ToApiSubscriptionKeyParameter
 
 func (o ApiSubscriptionKeyParameterNamesPtrOutput) ToApiSubscriptionKeyParameterNamesPtrOutputWithContext(ctx context.Context) ApiSubscriptionKeyParameterNamesPtrOutput {
 	return o
+}
+
+func (o ApiSubscriptionKeyParameterNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiSubscriptionKeyParameterNames] {
+	return pulumix.Output[*ApiSubscriptionKeyParameterNames]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiSubscriptionKeyParameterNamesPtrOutput) Elem() ApiSubscriptionKeyParameterNamesOutput {
@@ -6080,6 +7065,12 @@ func (i AuthorizationServerTokenBodyParameterArgs) ToAuthorizationServerTokenBod
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerTokenBodyParameterOutput)
 }
 
+func (i AuthorizationServerTokenBodyParameterArgs) ToOutput(ctx context.Context) pulumix.Output[AuthorizationServerTokenBodyParameter] {
+	return pulumix.Output[AuthorizationServerTokenBodyParameter]{
+		OutputState: i.ToAuthorizationServerTokenBodyParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthorizationServerTokenBodyParameterArrayInput is an input type that accepts AuthorizationServerTokenBodyParameterArray and AuthorizationServerTokenBodyParameterArrayOutput values.
 // You can construct a concrete instance of `AuthorizationServerTokenBodyParameterArrayInput` via:
 //
@@ -6105,6 +7096,12 @@ func (i AuthorizationServerTokenBodyParameterArray) ToAuthorizationServerTokenBo
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerTokenBodyParameterArrayOutput)
 }
 
+func (i AuthorizationServerTokenBodyParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]AuthorizationServerTokenBodyParameter] {
+	return pulumix.Output[[]AuthorizationServerTokenBodyParameter]{
+		OutputState: i.ToAuthorizationServerTokenBodyParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthorizationServerTokenBodyParameterOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerTokenBodyParameterOutput) ElementType() reflect.Type {
@@ -6117,6 +7114,12 @@ func (o AuthorizationServerTokenBodyParameterOutput) ToAuthorizationServerTokenB
 
 func (o AuthorizationServerTokenBodyParameterOutput) ToAuthorizationServerTokenBodyParameterOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParameterOutput {
 	return o
+}
+
+func (o AuthorizationServerTokenBodyParameterOutput) ToOutput(ctx context.Context) pulumix.Output[AuthorizationServerTokenBodyParameter] {
+	return pulumix.Output[AuthorizationServerTokenBodyParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Name of the Parameter.
@@ -6141,6 +7144,12 @@ func (o AuthorizationServerTokenBodyParameterArrayOutput) ToAuthorizationServerT
 
 func (o AuthorizationServerTokenBodyParameterArrayOutput) ToAuthorizationServerTokenBodyParameterArrayOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParameterArrayOutput {
 	return o
+}
+
+func (o AuthorizationServerTokenBodyParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AuthorizationServerTokenBodyParameter] {
+	return pulumix.Output[[]AuthorizationServerTokenBodyParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthorizationServerTokenBodyParameterArrayOutput) Index(i pulumi.IntInput) AuthorizationServerTokenBodyParameterOutput {
@@ -6194,6 +7203,12 @@ func (i BackendCredentialsArgs) ToBackendCredentialsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsOutput)
 }
 
+func (i BackendCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[BackendCredentials] {
+	return pulumix.Output[BackendCredentials]{
+		OutputState: i.ToBackendCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackendCredentialsArgs) ToBackendCredentialsPtrOutput() BackendCredentialsPtrOutput {
 	return i.ToBackendCredentialsPtrOutputWithContext(context.Background())
 }
@@ -6235,6 +7250,12 @@ func (i *backendCredentialsPtrType) ToBackendCredentialsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsPtrOutput)
 }
 
+func (i *backendCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackendCredentials] {
+	return pulumix.Output[*BackendCredentials]{
+		OutputState: i.ToBackendCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendCredentialsOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsOutput) ElementType() reflect.Type {
@@ -6257,6 +7278,12 @@ func (o BackendCredentialsOutput) ToBackendCredentialsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentials) *BackendCredentials {
 		return &v
 	}).(BackendCredentialsPtrOutput)
+}
+
+func (o BackendCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[BackendCredentials] {
+	return pulumix.Output[BackendCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `authorization` block as defined below.
@@ -6291,6 +7318,12 @@ func (o BackendCredentialsPtrOutput) ToBackendCredentialsPtrOutput() BackendCred
 
 func (o BackendCredentialsPtrOutput) ToBackendCredentialsPtrOutputWithContext(ctx context.Context) BackendCredentialsPtrOutput {
 	return o
+}
+
+func (o BackendCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendCredentials] {
+	return pulumix.Output[*BackendCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendCredentialsPtrOutput) Elem() BackendCredentialsOutput {
@@ -6380,6 +7413,12 @@ func (i BackendCredentialsAuthorizationArgs) ToBackendCredentialsAuthorizationOu
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsAuthorizationOutput)
 }
 
+func (i BackendCredentialsAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[BackendCredentialsAuthorization] {
+	return pulumix.Output[BackendCredentialsAuthorization]{
+		OutputState: i.ToBackendCredentialsAuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackendCredentialsAuthorizationArgs) ToBackendCredentialsAuthorizationPtrOutput() BackendCredentialsAuthorizationPtrOutput {
 	return i.ToBackendCredentialsAuthorizationPtrOutputWithContext(context.Background())
 }
@@ -6421,6 +7460,12 @@ func (i *backendCredentialsAuthorizationPtrType) ToBackendCredentialsAuthorizati
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsAuthorizationPtrOutput)
 }
 
+func (i *backendCredentialsAuthorizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackendCredentialsAuthorization] {
+	return pulumix.Output[*BackendCredentialsAuthorization]{
+		OutputState: i.ToBackendCredentialsAuthorizationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendCredentialsAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsAuthorizationOutput) ElementType() reflect.Type {
@@ -6445,6 +7490,12 @@ func (o BackendCredentialsAuthorizationOutput) ToBackendCredentialsAuthorization
 	}).(BackendCredentialsAuthorizationPtrOutput)
 }
 
+func (o BackendCredentialsAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[BackendCredentialsAuthorization] {
+	return pulumix.Output[BackendCredentialsAuthorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The authentication Parameter value.
 func (o BackendCredentialsAuthorizationOutput) Parameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendCredentialsAuthorization) *string { return v.Parameter }).(pulumi.StringPtrOutput)
@@ -6467,6 +7518,12 @@ func (o BackendCredentialsAuthorizationPtrOutput) ToBackendCredentialsAuthorizat
 
 func (o BackendCredentialsAuthorizationPtrOutput) ToBackendCredentialsAuthorizationPtrOutputWithContext(ctx context.Context) BackendCredentialsAuthorizationPtrOutput {
 	return o
+}
+
+func (o BackendCredentialsAuthorizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendCredentialsAuthorization] {
+	return pulumix.Output[*BackendCredentialsAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendCredentialsAuthorizationPtrOutput) Elem() BackendCredentialsAuthorizationOutput {
@@ -6540,6 +7597,12 @@ func (i BackendProxyArgs) ToBackendProxyOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BackendProxyOutput)
 }
 
+func (i BackendProxyArgs) ToOutput(ctx context.Context) pulumix.Output[BackendProxy] {
+	return pulumix.Output[BackendProxy]{
+		OutputState: i.ToBackendProxyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackendProxyArgs) ToBackendProxyPtrOutput() BackendProxyPtrOutput {
 	return i.ToBackendProxyPtrOutputWithContext(context.Background())
 }
@@ -6581,6 +7644,12 @@ func (i *backendProxyPtrType) ToBackendProxyPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BackendProxyPtrOutput)
 }
 
+func (i *backendProxyPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackendProxy] {
+	return pulumix.Output[*BackendProxy]{
+		OutputState: i.ToBackendProxyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendProxyOutput struct{ *pulumi.OutputState }
 
 func (BackendProxyOutput) ElementType() reflect.Type {
@@ -6603,6 +7672,12 @@ func (o BackendProxyOutput) ToBackendProxyPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProxy) *BackendProxy {
 		return &v
 	}).(BackendProxyPtrOutput)
+}
+
+func (o BackendProxyOutput) ToOutput(ctx context.Context) pulumix.Output[BackendProxy] {
+	return pulumix.Output[BackendProxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password to connect to the proxy server.
@@ -6632,6 +7707,12 @@ func (o BackendProxyPtrOutput) ToBackendProxyPtrOutput() BackendProxyPtrOutput {
 
 func (o BackendProxyPtrOutput) ToBackendProxyPtrOutputWithContext(ctx context.Context) BackendProxyPtrOutput {
 	return o
+}
+
+func (o BackendProxyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendProxy] {
+	return pulumix.Output[*BackendProxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendProxyPtrOutput) Elem() BackendProxyOutput {
@@ -6731,6 +7812,12 @@ func (i BackendServiceFabricClusterArgs) ToBackendServiceFabricClusterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterOutput)
 }
 
+func (i BackendServiceFabricClusterArgs) ToOutput(ctx context.Context) pulumix.Output[BackendServiceFabricCluster] {
+	return pulumix.Output[BackendServiceFabricCluster]{
+		OutputState: i.ToBackendServiceFabricClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackendServiceFabricClusterArgs) ToBackendServiceFabricClusterPtrOutput() BackendServiceFabricClusterPtrOutput {
 	return i.ToBackendServiceFabricClusterPtrOutputWithContext(context.Background())
 }
@@ -6772,6 +7859,12 @@ func (i *backendServiceFabricClusterPtrType) ToBackendServiceFabricClusterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterPtrOutput)
 }
 
+func (i *backendServiceFabricClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackendServiceFabricCluster] {
+	return pulumix.Output[*BackendServiceFabricCluster]{
+		OutputState: i.ToBackendServiceFabricClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendServiceFabricClusterOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterOutput) ElementType() reflect.Type {
@@ -6794,6 +7887,12 @@ func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceFabricCluster) *BackendServiceFabricCluster {
 		return &v
 	}).(BackendServiceFabricClusterPtrOutput)
+}
+
+func (o BackendServiceFabricClusterOutput) ToOutput(ctx context.Context) pulumix.Output[BackendServiceFabricCluster] {
+	return pulumix.Output[BackendServiceFabricCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The client certificate resource id for the management endpoint.
@@ -6842,6 +7941,12 @@ func (o BackendServiceFabricClusterPtrOutput) ToBackendServiceFabricClusterPtrOu
 
 func (o BackendServiceFabricClusterPtrOutput) ToBackendServiceFabricClusterPtrOutputWithContext(ctx context.Context) BackendServiceFabricClusterPtrOutput {
 	return o
+}
+
+func (o BackendServiceFabricClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendServiceFabricCluster] {
+	return pulumix.Output[*BackendServiceFabricCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendServiceFabricClusterPtrOutput) Elem() BackendServiceFabricClusterOutput {
@@ -6953,6 +8058,12 @@ func (i BackendServiceFabricClusterServerX509NameArgs) ToBackendServiceFabricClu
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterServerX509NameOutput)
 }
 
+func (i BackendServiceFabricClusterServerX509NameArgs) ToOutput(ctx context.Context) pulumix.Output[BackendServiceFabricClusterServerX509Name] {
+	return pulumix.Output[BackendServiceFabricClusterServerX509Name]{
+		OutputState: i.ToBackendServiceFabricClusterServerX509NameOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackendServiceFabricClusterServerX509NameArrayInput is an input type that accepts BackendServiceFabricClusterServerX509NameArray and BackendServiceFabricClusterServerX509NameArrayOutput values.
 // You can construct a concrete instance of `BackendServiceFabricClusterServerX509NameArrayInput` via:
 //
@@ -6978,6 +8089,12 @@ func (i BackendServiceFabricClusterServerX509NameArray) ToBackendServiceFabricCl
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterServerX509NameArrayOutput)
 }
 
+func (i BackendServiceFabricClusterServerX509NameArray) ToOutput(ctx context.Context) pulumix.Output[[]BackendServiceFabricClusterServerX509Name] {
+	return pulumix.Output[[]BackendServiceFabricClusterServerX509Name]{
+		OutputState: i.ToBackendServiceFabricClusterServerX509NameArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendServiceFabricClusterServerX509NameOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterServerX509NameOutput) ElementType() reflect.Type {
@@ -6990,6 +8107,12 @@ func (o BackendServiceFabricClusterServerX509NameOutput) ToBackendServiceFabricC
 
 func (o BackendServiceFabricClusterServerX509NameOutput) ToBackendServiceFabricClusterServerX509NameOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NameOutput {
 	return o
+}
+
+func (o BackendServiceFabricClusterServerX509NameOutput) ToOutput(ctx context.Context) pulumix.Output[BackendServiceFabricClusterServerX509Name] {
+	return pulumix.Output[BackendServiceFabricClusterServerX509Name]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The thumbprint for the issuer of the certificate.
@@ -7014,6 +8137,12 @@ func (o BackendServiceFabricClusterServerX509NameArrayOutput) ToBackendServiceFa
 
 func (o BackendServiceFabricClusterServerX509NameArrayOutput) ToBackendServiceFabricClusterServerX509NameArrayOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NameArrayOutput {
 	return o
+}
+
+func (o BackendServiceFabricClusterServerX509NameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackendServiceFabricClusterServerX509Name] {
+	return pulumix.Output[[]BackendServiceFabricClusterServerX509Name]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendServiceFabricClusterServerX509NameArrayOutput) Index(i pulumi.IntInput) BackendServiceFabricClusterServerX509NameOutput {
@@ -7059,6 +8188,12 @@ func (i BackendTlsArgs) ToBackendTlsOutputWithContext(ctx context.Context) Backe
 	return pulumi.ToOutputWithContext(ctx, i).(BackendTlsOutput)
 }
 
+func (i BackendTlsArgs) ToOutput(ctx context.Context) pulumix.Output[BackendTls] {
+	return pulumix.Output[BackendTls]{
+		OutputState: i.ToBackendTlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BackendTlsArgs) ToBackendTlsPtrOutput() BackendTlsPtrOutput {
 	return i.ToBackendTlsPtrOutputWithContext(context.Background())
 }
@@ -7100,6 +8235,12 @@ func (i *backendTlsPtrType) ToBackendTlsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BackendTlsPtrOutput)
 }
 
+func (i *backendTlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackendTls] {
+	return pulumix.Output[*BackendTls]{
+		OutputState: i.ToBackendTlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackendTlsOutput struct{ *pulumi.OutputState }
 
 func (BackendTlsOutput) ElementType() reflect.Type {
@@ -7124,6 +8265,12 @@ func (o BackendTlsOutput) ToBackendTlsPtrOutputWithContext(ctx context.Context) 
 	}).(BackendTlsPtrOutput)
 }
 
+func (o BackendTlsOutput) ToOutput(ctx context.Context) pulumix.Output[BackendTls] {
+	return pulumix.Output[BackendTls]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
 func (o BackendTlsOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackendTls) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
@@ -7146,6 +8293,12 @@ func (o BackendTlsPtrOutput) ToBackendTlsPtrOutput() BackendTlsPtrOutput {
 
 func (o BackendTlsPtrOutput) ToBackendTlsPtrOutputWithContext(ctx context.Context) BackendTlsPtrOutput {
 	return o
+}
+
+func (o BackendTlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackendTls] {
+	return pulumix.Output[*BackendTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackendTlsPtrOutput) Elem() BackendTlsOutput {
@@ -7245,6 +8398,12 @@ func (i CustomDomainDeveloperPortalArgs) ToCustomDomainDeveloperPortalOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainDeveloperPortalOutput)
 }
 
+func (i CustomDomainDeveloperPortalArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDomainDeveloperPortal] {
+	return pulumix.Output[CustomDomainDeveloperPortal]{
+		OutputState: i.ToCustomDomainDeveloperPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDomainDeveloperPortalArrayInput is an input type that accepts CustomDomainDeveloperPortalArray and CustomDomainDeveloperPortalArrayOutput values.
 // You can construct a concrete instance of `CustomDomainDeveloperPortalArrayInput` via:
 //
@@ -7270,6 +8429,12 @@ func (i CustomDomainDeveloperPortalArray) ToCustomDomainDeveloperPortalArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainDeveloperPortalArrayOutput)
 }
 
+func (i CustomDomainDeveloperPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainDeveloperPortal] {
+	return pulumix.Output[[]CustomDomainDeveloperPortal]{
+		OutputState: i.ToCustomDomainDeveloperPortalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDomainDeveloperPortalOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainDeveloperPortalOutput) ElementType() reflect.Type {
@@ -7282,6 +8447,12 @@ func (o CustomDomainDeveloperPortalOutput) ToCustomDomainDeveloperPortalOutput()
 
 func (o CustomDomainDeveloperPortalOutput) ToCustomDomainDeveloperPortalOutputWithContext(ctx context.Context) CustomDomainDeveloperPortalOutput {
 	return o
+}
+
+func (o CustomDomainDeveloperPortalOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDomainDeveloperPortal] {
+	return pulumix.Output[CustomDomainDeveloperPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -7348,6 +8519,12 @@ func (o CustomDomainDeveloperPortalArrayOutput) ToCustomDomainDeveloperPortalArr
 
 func (o CustomDomainDeveloperPortalArrayOutput) ToCustomDomainDeveloperPortalArrayOutputWithContext(ctx context.Context) CustomDomainDeveloperPortalArrayOutput {
 	return o
+}
+
+func (o CustomDomainDeveloperPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainDeveloperPortal] {
+	return pulumix.Output[[]CustomDomainDeveloperPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDomainDeveloperPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainDeveloperPortalOutput {
@@ -7427,6 +8604,12 @@ func (i CustomDomainGatewayArgs) ToCustomDomainGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainGatewayOutput)
 }
 
+func (i CustomDomainGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDomainGateway] {
+	return pulumix.Output[CustomDomainGateway]{
+		OutputState: i.ToCustomDomainGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDomainGatewayArrayInput is an input type that accepts CustomDomainGatewayArray and CustomDomainGatewayArrayOutput values.
 // You can construct a concrete instance of `CustomDomainGatewayArrayInput` via:
 //
@@ -7452,6 +8635,12 @@ func (i CustomDomainGatewayArray) ToCustomDomainGatewayArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainGatewayArrayOutput)
 }
 
+func (i CustomDomainGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainGateway] {
+	return pulumix.Output[[]CustomDomainGateway]{
+		OutputState: i.ToCustomDomainGatewayArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDomainGatewayOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainGatewayOutput) ElementType() reflect.Type {
@@ -7464,6 +8653,12 @@ func (o CustomDomainGatewayOutput) ToCustomDomainGatewayOutput() CustomDomainGat
 
 func (o CustomDomainGatewayOutput) ToCustomDomainGatewayOutputWithContext(ctx context.Context) CustomDomainGatewayOutput {
 	return o
+}
+
+func (o CustomDomainGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDomainGateway] {
+	return pulumix.Output[CustomDomainGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -7535,6 +8730,12 @@ func (o CustomDomainGatewayArrayOutput) ToCustomDomainGatewayArrayOutput() Custo
 
 func (o CustomDomainGatewayArrayOutput) ToCustomDomainGatewayArrayOutputWithContext(ctx context.Context) CustomDomainGatewayArrayOutput {
 	return o
+}
+
+func (o CustomDomainGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainGateway] {
+	return pulumix.Output[[]CustomDomainGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDomainGatewayArrayOutput) Index(i pulumi.IntInput) CustomDomainGatewayOutput {
@@ -7614,6 +8815,12 @@ func (i CustomDomainManagementArgs) ToCustomDomainManagementOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainManagementOutput)
 }
 
+func (i CustomDomainManagementArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDomainManagement] {
+	return pulumix.Output[CustomDomainManagement]{
+		OutputState: i.ToCustomDomainManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDomainManagementArrayInput is an input type that accepts CustomDomainManagementArray and CustomDomainManagementArrayOutput values.
 // You can construct a concrete instance of `CustomDomainManagementArrayInput` via:
 //
@@ -7639,6 +8846,12 @@ func (i CustomDomainManagementArray) ToCustomDomainManagementArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainManagementArrayOutput)
 }
 
+func (i CustomDomainManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainManagement] {
+	return pulumix.Output[[]CustomDomainManagement]{
+		OutputState: i.ToCustomDomainManagementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDomainManagementOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainManagementOutput) ElementType() reflect.Type {
@@ -7651,6 +8864,12 @@ func (o CustomDomainManagementOutput) ToCustomDomainManagementOutput() CustomDom
 
 func (o CustomDomainManagementOutput) ToCustomDomainManagementOutputWithContext(ctx context.Context) CustomDomainManagementOutput {
 	return o
+}
+
+func (o CustomDomainManagementOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDomainManagement] {
+	return pulumix.Output[CustomDomainManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -7719,6 +8938,12 @@ func (o CustomDomainManagementArrayOutput) ToCustomDomainManagementArrayOutput()
 
 func (o CustomDomainManagementArrayOutput) ToCustomDomainManagementArrayOutputWithContext(ctx context.Context) CustomDomainManagementArrayOutput {
 	return o
+}
+
+func (o CustomDomainManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainManagement] {
+	return pulumix.Output[[]CustomDomainManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDomainManagementArrayOutput) Index(i pulumi.IntInput) CustomDomainManagementOutput {
@@ -7798,6 +9023,12 @@ func (i CustomDomainPortalArgs) ToCustomDomainPortalOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPortalOutput)
 }
 
+func (i CustomDomainPortalArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDomainPortal] {
+	return pulumix.Output[CustomDomainPortal]{
+		OutputState: i.ToCustomDomainPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDomainPortalArrayInput is an input type that accepts CustomDomainPortalArray and CustomDomainPortalArrayOutput values.
 // You can construct a concrete instance of `CustomDomainPortalArrayInput` via:
 //
@@ -7823,6 +9054,12 @@ func (i CustomDomainPortalArray) ToCustomDomainPortalArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPortalArrayOutput)
 }
 
+func (i CustomDomainPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainPortal] {
+	return pulumix.Output[[]CustomDomainPortal]{
+		OutputState: i.ToCustomDomainPortalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDomainPortalOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainPortalOutput) ElementType() reflect.Type {
@@ -7835,6 +9072,12 @@ func (o CustomDomainPortalOutput) ToCustomDomainPortalOutput() CustomDomainPorta
 
 func (o CustomDomainPortalOutput) ToCustomDomainPortalOutputWithContext(ctx context.Context) CustomDomainPortalOutput {
 	return o
+}
+
+func (o CustomDomainPortalOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDomainPortal] {
+	return pulumix.Output[CustomDomainPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -7903,6 +9146,12 @@ func (o CustomDomainPortalArrayOutput) ToCustomDomainPortalArrayOutput() CustomD
 
 func (o CustomDomainPortalArrayOutput) ToCustomDomainPortalArrayOutputWithContext(ctx context.Context) CustomDomainPortalArrayOutput {
 	return o
+}
+
+func (o CustomDomainPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainPortal] {
+	return pulumix.Output[[]CustomDomainPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDomainPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainPortalOutput {
@@ -7982,6 +9231,12 @@ func (i CustomDomainScmArgs) ToCustomDomainScmOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainScmOutput)
 }
 
+func (i CustomDomainScmArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDomainScm] {
+	return pulumix.Output[CustomDomainScm]{
+		OutputState: i.ToCustomDomainScmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDomainScmArrayInput is an input type that accepts CustomDomainScmArray and CustomDomainScmArrayOutput values.
 // You can construct a concrete instance of `CustomDomainScmArrayInput` via:
 //
@@ -8007,6 +9262,12 @@ func (i CustomDomainScmArray) ToCustomDomainScmArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainScmArrayOutput)
 }
 
+func (i CustomDomainScmArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainScm] {
+	return pulumix.Output[[]CustomDomainScm]{
+		OutputState: i.ToCustomDomainScmArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDomainScmOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainScmOutput) ElementType() reflect.Type {
@@ -8019,6 +9280,12 @@ func (o CustomDomainScmOutput) ToCustomDomainScmOutput() CustomDomainScmOutput {
 
 func (o CustomDomainScmOutput) ToCustomDomainScmOutputWithContext(ctx context.Context) CustomDomainScmOutput {
 	return o
+}
+
+func (o CustomDomainScmOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDomainScm] {
+	return pulumix.Output[CustomDomainScm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
@@ -8089,6 +9356,12 @@ func (o CustomDomainScmArrayOutput) ToCustomDomainScmArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o CustomDomainScmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDomainScm] {
+	return pulumix.Output[[]CustomDomainScm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomDomainScmArrayOutput) Index(i pulumi.IntInput) CustomDomainScmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainScm {
 		return vs[0].([]CustomDomainScm)[vs[1].(int)]
@@ -8136,6 +9409,12 @@ func (i DiagnosticBackendRequestArgs) ToDiagnosticBackendRequestOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestOutput)
 }
 
+func (i DiagnosticBackendRequestArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequest] {
+	return pulumix.Output[DiagnosticBackendRequest]{
+		OutputState: i.ToDiagnosticBackendRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticBackendRequestArgs) ToDiagnosticBackendRequestPtrOutput() DiagnosticBackendRequestPtrOutput {
 	return i.ToDiagnosticBackendRequestPtrOutputWithContext(context.Background())
 }
@@ -8177,6 +9456,12 @@ func (i *diagnosticBackendRequestPtrType) ToDiagnosticBackendRequestPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestPtrOutput)
 }
 
+func (i *diagnosticBackendRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendRequest] {
+	return pulumix.Output[*DiagnosticBackendRequest]{
+		OutputState: i.ToDiagnosticBackendRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendRequestOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendRequestOutput) ElementType() reflect.Type {
@@ -8199,6 +9484,12 @@ func (o DiagnosticBackendRequestOutput) ToDiagnosticBackendRequestPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendRequest) *DiagnosticBackendRequest {
 		return &v
 	}).(DiagnosticBackendRequestPtrOutput)
+}
+
+func (o DiagnosticBackendRequestOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequest] {
+	return pulumix.Output[DiagnosticBackendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -8228,6 +9519,12 @@ func (o DiagnosticBackendRequestPtrOutput) ToDiagnosticBackendRequestPtrOutput()
 
 func (o DiagnosticBackendRequestPtrOutput) ToDiagnosticBackendRequestPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestPtrOutput {
 	return o
+}
+
+func (o DiagnosticBackendRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendRequest] {
+	return pulumix.Output[*DiagnosticBackendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendRequestPtrOutput) Elem() DiagnosticBackendRequestOutput {
@@ -8307,6 +9604,12 @@ func (i DiagnosticBackendRequestDataMaskingArgs) ToDiagnosticBackendRequestDataM
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingOutput)
 }
 
+func (i DiagnosticBackendRequestDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[DiagnosticBackendRequestDataMasking]{
+		OutputState: i.ToDiagnosticBackendRequestDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticBackendRequestDataMaskingArgs) ToDiagnosticBackendRequestDataMaskingPtrOutput() DiagnosticBackendRequestDataMaskingPtrOutput {
 	return i.ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -8348,6 +9651,12 @@ func (i *diagnosticBackendRequestDataMaskingPtrType) ToDiagnosticBackendRequestD
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingPtrOutput)
 }
 
+func (i *diagnosticBackendRequestDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[*DiagnosticBackendRequestDataMasking]{
+		OutputState: i.ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendRequestDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendRequestDataMaskingOutput) ElementType() reflect.Type {
@@ -8370,6 +9679,12 @@ func (o DiagnosticBackendRequestDataMaskingOutput) ToDiagnosticBackendRequestDat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendRequestDataMasking) *DiagnosticBackendRequestDataMasking {
 		return &v
 	}).(DiagnosticBackendRequestDataMaskingPtrOutput)
+}
+
+func (o DiagnosticBackendRequestDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[DiagnosticBackendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -8398,6 +9713,12 @@ func (o DiagnosticBackendRequestDataMaskingPtrOutput) ToDiagnosticBackendRequest
 
 func (o DiagnosticBackendRequestDataMaskingPtrOutput) ToDiagnosticBackendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingPtrOutput {
 	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendRequestDataMasking] {
+	return pulumix.Output[*DiagnosticBackendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendRequestDataMaskingPtrOutput) Elem() DiagnosticBackendRequestDataMaskingOutput {
@@ -8467,6 +9788,12 @@ func (i DiagnosticBackendRequestDataMaskingHeaderArgs) ToDiagnosticBackendReques
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingHeaderOutput)
 }
 
+func (i DiagnosticBackendRequestDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[DiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: i.ToDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticBackendRequestDataMaskingHeaderArrayInput is an input type that accepts DiagnosticBackendRequestDataMaskingHeaderArray and DiagnosticBackendRequestDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingHeaderArrayInput` via:
 //
@@ -8492,6 +9819,12 @@ func (i DiagnosticBackendRequestDataMaskingHeaderArray) ToDiagnosticBackendReque
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingHeaderArrayOutput)
 }
 
+func (i DiagnosticBackendRequestDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: i.ToDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -8504,6 +9837,12 @@ func (o DiagnosticBackendRequestDataMaskingHeaderOutput) ToDiagnosticBackendRequ
 
 func (o DiagnosticBackendRequestDataMaskingHeaderOutput) ToDiagnosticBackendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingHeaderOutput {
 	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[DiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -8528,6 +9867,12 @@ func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToDiagnosticBacken
 
 func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToDiagnosticBackendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendRequestDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticBackendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendRequestDataMaskingHeaderOutput {
@@ -8573,6 +9918,12 @@ func (i DiagnosticBackendRequestDataMaskingQueryParamArgs) ToDiagnosticBackendRe
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingQueryParamOutput)
 }
 
+func (i DiagnosticBackendRequestDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticBackendRequestDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticBackendRequestDataMaskingQueryParamArray and DiagnosticBackendRequestDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `DiagnosticBackendRequestDataMaskingQueryParamArrayInput` via:
 //
@@ -8598,6 +9949,12 @@ func (i DiagnosticBackendRequestDataMaskingQueryParamArray) ToDiagnosticBackendR
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendRequestDataMaskingQueryParamArrayOutput)
 }
 
+func (i DiagnosticBackendRequestDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -8610,6 +9967,12 @@ func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) ToDiagnosticBackend
 
 func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) ToDiagnosticBackendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -8634,6 +9997,12 @@ func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticBa
 
 func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticBackendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticBackendRequestDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticBackendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendRequestDataMaskingQueryParamOutput {
@@ -8683,6 +10052,12 @@ func (i DiagnosticBackendResponseArgs) ToDiagnosticBackendResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseOutput)
 }
 
+func (i DiagnosticBackendResponseArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponse] {
+	return pulumix.Output[DiagnosticBackendResponse]{
+		OutputState: i.ToDiagnosticBackendResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticBackendResponseArgs) ToDiagnosticBackendResponsePtrOutput() DiagnosticBackendResponsePtrOutput {
 	return i.ToDiagnosticBackendResponsePtrOutputWithContext(context.Background())
 }
@@ -8724,6 +10099,12 @@ func (i *diagnosticBackendResponsePtrType) ToDiagnosticBackendResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponsePtrOutput)
 }
 
+func (i *diagnosticBackendResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendResponse] {
+	return pulumix.Output[*DiagnosticBackendResponse]{
+		OutputState: i.ToDiagnosticBackendResponsePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendResponseOutput) ElementType() reflect.Type {
@@ -8746,6 +10127,12 @@ func (o DiagnosticBackendResponseOutput) ToDiagnosticBackendResponsePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendResponse) *DiagnosticBackendResponse {
 		return &v
 	}).(DiagnosticBackendResponsePtrOutput)
+}
+
+func (o DiagnosticBackendResponseOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponse] {
+	return pulumix.Output[DiagnosticBackendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -8775,6 +10162,12 @@ func (o DiagnosticBackendResponsePtrOutput) ToDiagnosticBackendResponsePtrOutput
 
 func (o DiagnosticBackendResponsePtrOutput) ToDiagnosticBackendResponsePtrOutputWithContext(ctx context.Context) DiagnosticBackendResponsePtrOutput {
 	return o
+}
+
+func (o DiagnosticBackendResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendResponse] {
+	return pulumix.Output[*DiagnosticBackendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendResponsePtrOutput) Elem() DiagnosticBackendResponseOutput {
@@ -8854,6 +10247,12 @@ func (i DiagnosticBackendResponseDataMaskingArgs) ToDiagnosticBackendResponseDat
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingOutput)
 }
 
+func (i DiagnosticBackendResponseDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[DiagnosticBackendResponseDataMasking]{
+		OutputState: i.ToDiagnosticBackendResponseDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticBackendResponseDataMaskingArgs) ToDiagnosticBackendResponseDataMaskingPtrOutput() DiagnosticBackendResponseDataMaskingPtrOutput {
 	return i.ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -8895,6 +10294,12 @@ func (i *diagnosticBackendResponseDataMaskingPtrType) ToDiagnosticBackendRespons
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingPtrOutput)
 }
 
+func (i *diagnosticBackendResponseDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[*DiagnosticBackendResponseDataMasking]{
+		OutputState: i.ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendResponseDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendResponseDataMaskingOutput) ElementType() reflect.Type {
@@ -8917,6 +10322,12 @@ func (o DiagnosticBackendResponseDataMaskingOutput) ToDiagnosticBackendResponseD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticBackendResponseDataMasking) *DiagnosticBackendResponseDataMasking {
 		return &v
 	}).(DiagnosticBackendResponseDataMaskingPtrOutput)
+}
+
+func (o DiagnosticBackendResponseDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[DiagnosticBackendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -8945,6 +10356,12 @@ func (o DiagnosticBackendResponseDataMaskingPtrOutput) ToDiagnosticBackendRespon
 
 func (o DiagnosticBackendResponseDataMaskingPtrOutput) ToDiagnosticBackendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingPtrOutput {
 	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticBackendResponseDataMasking] {
+	return pulumix.Output[*DiagnosticBackendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendResponseDataMaskingPtrOutput) Elem() DiagnosticBackendResponseDataMaskingOutput {
@@ -9014,6 +10431,12 @@ func (i DiagnosticBackendResponseDataMaskingHeaderArgs) ToDiagnosticBackendRespo
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingHeaderOutput)
 }
 
+func (i DiagnosticBackendResponseDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[DiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: i.ToDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticBackendResponseDataMaskingHeaderArrayInput is an input type that accepts DiagnosticBackendResponseDataMaskingHeaderArray and DiagnosticBackendResponseDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingHeaderArrayInput` via:
 //
@@ -9039,6 +10462,12 @@ func (i DiagnosticBackendResponseDataMaskingHeaderArray) ToDiagnosticBackendResp
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingHeaderArrayOutput)
 }
 
+func (i DiagnosticBackendResponseDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: i.ToDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -9051,6 +10480,12 @@ func (o DiagnosticBackendResponseDataMaskingHeaderOutput) ToDiagnosticBackendRes
 
 func (o DiagnosticBackendResponseDataMaskingHeaderOutput) ToDiagnosticBackendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingHeaderOutput {
 	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[DiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -9075,6 +10510,12 @@ func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToDiagnosticBacke
 
 func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToDiagnosticBackendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendResponseDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticBackendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendResponseDataMaskingHeaderOutput {
@@ -9120,6 +10561,12 @@ func (i DiagnosticBackendResponseDataMaskingQueryParamArgs) ToDiagnosticBackendR
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingQueryParamOutput)
 }
 
+func (i DiagnosticBackendResponseDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticBackendResponseDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticBackendResponseDataMaskingQueryParamArray and DiagnosticBackendResponseDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `DiagnosticBackendResponseDataMaskingQueryParamArrayInput` via:
 //
@@ -9145,6 +10592,12 @@ func (i DiagnosticBackendResponseDataMaskingQueryParamArray) ToDiagnosticBackend
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticBackendResponseDataMaskingQueryParamArrayOutput)
 }
 
+func (i DiagnosticBackendResponseDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticBackendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticBackendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -9157,6 +10610,12 @@ func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) ToDiagnosticBacken
 
 func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) ToDiagnosticBackendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -9181,6 +10640,12 @@ func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticB
 
 func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticBackendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticBackendResponseDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticBackendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticBackendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticBackendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticBackendResponseDataMaskingQueryParamOutput {
@@ -9230,6 +10695,12 @@ func (i DiagnosticFrontendRequestArgs) ToDiagnosticFrontendRequestOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestOutput)
 }
 
+func (i DiagnosticFrontendRequestArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequest] {
+	return pulumix.Output[DiagnosticFrontendRequest]{
+		OutputState: i.ToDiagnosticFrontendRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticFrontendRequestArgs) ToDiagnosticFrontendRequestPtrOutput() DiagnosticFrontendRequestPtrOutput {
 	return i.ToDiagnosticFrontendRequestPtrOutputWithContext(context.Background())
 }
@@ -9271,6 +10742,12 @@ func (i *diagnosticFrontendRequestPtrType) ToDiagnosticFrontendRequestPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestPtrOutput)
 }
 
+func (i *diagnosticFrontendRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendRequest] {
+	return pulumix.Output[*DiagnosticFrontendRequest]{
+		OutputState: i.ToDiagnosticFrontendRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendRequestOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendRequestOutput) ElementType() reflect.Type {
@@ -9293,6 +10770,12 @@ func (o DiagnosticFrontendRequestOutput) ToDiagnosticFrontendRequestPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendRequest) *DiagnosticFrontendRequest {
 		return &v
 	}).(DiagnosticFrontendRequestPtrOutput)
+}
+
+func (o DiagnosticFrontendRequestOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequest] {
+	return pulumix.Output[DiagnosticFrontendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -9322,6 +10805,12 @@ func (o DiagnosticFrontendRequestPtrOutput) ToDiagnosticFrontendRequestPtrOutput
 
 func (o DiagnosticFrontendRequestPtrOutput) ToDiagnosticFrontendRequestPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestPtrOutput {
 	return o
+}
+
+func (o DiagnosticFrontendRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendRequest] {
+	return pulumix.Output[*DiagnosticFrontendRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendRequestPtrOutput) Elem() DiagnosticFrontendRequestOutput {
@@ -9401,6 +10890,12 @@ func (i DiagnosticFrontendRequestDataMaskingArgs) ToDiagnosticFrontendRequestDat
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingOutput)
 }
 
+func (i DiagnosticFrontendRequestDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[DiagnosticFrontendRequestDataMasking]{
+		OutputState: i.ToDiagnosticFrontendRequestDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticFrontendRequestDataMaskingArgs) ToDiagnosticFrontendRequestDataMaskingPtrOutput() DiagnosticFrontendRequestDataMaskingPtrOutput {
 	return i.ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -9442,6 +10937,12 @@ func (i *diagnosticFrontendRequestDataMaskingPtrType) ToDiagnosticFrontendReques
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingPtrOutput)
 }
 
+func (i *diagnosticFrontendRequestDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[*DiagnosticFrontendRequestDataMasking]{
+		OutputState: i.ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendRequestDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendRequestDataMaskingOutput) ElementType() reflect.Type {
@@ -9464,6 +10965,12 @@ func (o DiagnosticFrontendRequestDataMaskingOutput) ToDiagnosticFrontendRequestD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendRequestDataMasking) *DiagnosticFrontendRequestDataMasking {
 		return &v
 	}).(DiagnosticFrontendRequestDataMaskingPtrOutput)
+}
+
+func (o DiagnosticFrontendRequestDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[DiagnosticFrontendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -9492,6 +10999,12 @@ func (o DiagnosticFrontendRequestDataMaskingPtrOutput) ToDiagnosticFrontendReque
 
 func (o DiagnosticFrontendRequestDataMaskingPtrOutput) ToDiagnosticFrontendRequestDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingPtrOutput {
 	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendRequestDataMasking] {
+	return pulumix.Output[*DiagnosticFrontendRequestDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendRequestDataMaskingPtrOutput) Elem() DiagnosticFrontendRequestDataMaskingOutput {
@@ -9561,6 +11074,12 @@ func (i DiagnosticFrontendRequestDataMaskingHeaderArgs) ToDiagnosticFrontendRequ
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingHeaderOutput)
 }
 
+func (i DiagnosticFrontendRequestDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[DiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: i.ToDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticFrontendRequestDataMaskingHeaderArrayInput is an input type that accepts DiagnosticFrontendRequestDataMaskingHeaderArray and DiagnosticFrontendRequestDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingHeaderArrayInput` via:
 //
@@ -9586,6 +11105,12 @@ func (i DiagnosticFrontendRequestDataMaskingHeaderArray) ToDiagnosticFrontendReq
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingHeaderArrayOutput)
 }
 
+func (i DiagnosticFrontendRequestDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: i.ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendRequestDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendRequestDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -9598,6 +11123,12 @@ func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) ToDiagnosticFrontendRe
 
 func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) ToDiagnosticFrontendRequestDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingHeaderOutput {
 	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[DiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -9622,6 +11153,12 @@ func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToDiagnosticFront
 
 func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToDiagnosticFrontendRequestDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendRequestDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticFrontendRequestDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendRequestDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendRequestDataMaskingHeaderOutput {
@@ -9667,6 +11204,12 @@ func (i DiagnosticFrontendRequestDataMaskingQueryParamArgs) ToDiagnosticFrontend
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingQueryParamOutput)
 }
 
+func (i DiagnosticFrontendRequestDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticFrontendRequestDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticFrontendRequestDataMaskingQueryParamArray and DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `DiagnosticFrontendRequestDataMaskingQueryParamArrayInput` via:
 //
@@ -9692,6 +11235,12 @@ func (i DiagnosticFrontendRequestDataMaskingQueryParamArray) ToDiagnosticFronten
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput)
 }
 
+func (i DiagnosticFrontendRequestDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendRequestDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendRequestDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -9704,6 +11253,12 @@ func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) ToDiagnosticFronte
 
 func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) ToDiagnosticFrontendRequestDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -9728,6 +11283,12 @@ func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticF
 
 func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToDiagnosticFrontendRequestDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendRequestDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticFrontendRequestDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendRequestDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendRequestDataMaskingQueryParamOutput {
@@ -9777,6 +11338,12 @@ func (i DiagnosticFrontendResponseArgs) ToDiagnosticFrontendResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseOutput)
 }
 
+func (i DiagnosticFrontendResponseArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponse] {
+	return pulumix.Output[DiagnosticFrontendResponse]{
+		OutputState: i.ToDiagnosticFrontendResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticFrontendResponseArgs) ToDiagnosticFrontendResponsePtrOutput() DiagnosticFrontendResponsePtrOutput {
 	return i.ToDiagnosticFrontendResponsePtrOutputWithContext(context.Background())
 }
@@ -9818,6 +11385,12 @@ func (i *diagnosticFrontendResponsePtrType) ToDiagnosticFrontendResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponsePtrOutput)
 }
 
+func (i *diagnosticFrontendResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendResponse] {
+	return pulumix.Output[*DiagnosticFrontendResponse]{
+		OutputState: i.ToDiagnosticFrontendResponsePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendResponseOutput) ElementType() reflect.Type {
@@ -9840,6 +11413,12 @@ func (o DiagnosticFrontendResponseOutput) ToDiagnosticFrontendResponsePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendResponse) *DiagnosticFrontendResponse {
 		return &v
 	}).(DiagnosticFrontendResponsePtrOutput)
+}
+
+func (o DiagnosticFrontendResponseOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponse] {
+	return pulumix.Output[DiagnosticFrontendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of payload bytes to log (up to 8192).
@@ -9869,6 +11448,12 @@ func (o DiagnosticFrontendResponsePtrOutput) ToDiagnosticFrontendResponsePtrOutp
 
 func (o DiagnosticFrontendResponsePtrOutput) ToDiagnosticFrontendResponsePtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponsePtrOutput {
 	return o
+}
+
+func (o DiagnosticFrontendResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendResponse] {
+	return pulumix.Output[*DiagnosticFrontendResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendResponsePtrOutput) Elem() DiagnosticFrontendResponseOutput {
@@ -9948,6 +11533,12 @@ func (i DiagnosticFrontendResponseDataMaskingArgs) ToDiagnosticFrontendResponseD
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingOutput)
 }
 
+func (i DiagnosticFrontendResponseDataMaskingArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[DiagnosticFrontendResponseDataMasking]{
+		OutputState: i.ToDiagnosticFrontendResponseDataMaskingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DiagnosticFrontendResponseDataMaskingArgs) ToDiagnosticFrontendResponseDataMaskingPtrOutput() DiagnosticFrontendResponseDataMaskingPtrOutput {
 	return i.ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(context.Background())
 }
@@ -9989,6 +11580,12 @@ func (i *diagnosticFrontendResponseDataMaskingPtrType) ToDiagnosticFrontendRespo
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingPtrOutput)
 }
 
+func (i *diagnosticFrontendResponseDataMaskingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[*DiagnosticFrontendResponseDataMasking]{
+		OutputState: i.ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendResponseDataMaskingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendResponseDataMaskingOutput) ElementType() reflect.Type {
@@ -10011,6 +11608,12 @@ func (o DiagnosticFrontendResponseDataMaskingOutput) ToDiagnosticFrontendRespons
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticFrontendResponseDataMasking) *DiagnosticFrontendResponseDataMasking {
 		return &v
 	}).(DiagnosticFrontendResponseDataMaskingPtrOutput)
+}
+
+func (o DiagnosticFrontendResponseDataMaskingOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[DiagnosticFrontendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `headers` block as defined below.
@@ -10039,6 +11642,12 @@ func (o DiagnosticFrontendResponseDataMaskingPtrOutput) ToDiagnosticFrontendResp
 
 func (o DiagnosticFrontendResponseDataMaskingPtrOutput) ToDiagnosticFrontendResponseDataMaskingPtrOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingPtrOutput {
 	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticFrontendResponseDataMasking] {
+	return pulumix.Output[*DiagnosticFrontendResponseDataMasking]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendResponseDataMaskingPtrOutput) Elem() DiagnosticFrontendResponseDataMaskingOutput {
@@ -10108,6 +11717,12 @@ func (i DiagnosticFrontendResponseDataMaskingHeaderArgs) ToDiagnosticFrontendRes
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingHeaderOutput)
 }
 
+func (i DiagnosticFrontendResponseDataMaskingHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[DiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: i.ToDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticFrontendResponseDataMaskingHeaderArrayInput is an input type that accepts DiagnosticFrontendResponseDataMaskingHeaderArray and DiagnosticFrontendResponseDataMaskingHeaderArrayOutput values.
 // You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingHeaderArrayInput` via:
 //
@@ -10133,6 +11748,12 @@ func (i DiagnosticFrontendResponseDataMaskingHeaderArray) ToDiagnosticFrontendRe
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingHeaderArrayOutput)
 }
 
+func (i DiagnosticFrontendResponseDataMaskingHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: i.ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendResponseDataMaskingHeaderOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendResponseDataMaskingHeaderOutput) ElementType() reflect.Type {
@@ -10145,6 +11766,12 @@ func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) ToDiagnosticFrontendR
 
 func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) ToDiagnosticFrontendResponseDataMaskingHeaderOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingHeaderOutput {
 	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[DiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -10169,6 +11796,12 @@ func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToDiagnosticFron
 
 func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToDiagnosticFrontendResponseDataMaskingHeaderArrayOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingHeaderArrayOutput {
 	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendResponseDataMaskingHeader] {
+	return pulumix.Output[[]DiagnosticFrontendResponseDataMaskingHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendResponseDataMaskingHeaderArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendResponseDataMaskingHeaderOutput {
@@ -10214,6 +11847,12 @@ func (i DiagnosticFrontendResponseDataMaskingQueryParamArgs) ToDiagnosticFronten
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingQueryParamOutput)
 }
 
+func (i DiagnosticFrontendResponseDataMaskingQueryParamArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiagnosticFrontendResponseDataMaskingQueryParamArrayInput is an input type that accepts DiagnosticFrontendResponseDataMaskingQueryParamArray and DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput values.
 // You can construct a concrete instance of `DiagnosticFrontendResponseDataMaskingQueryParamArrayInput` via:
 //
@@ -10239,6 +11878,12 @@ func (i DiagnosticFrontendResponseDataMaskingQueryParamArray) ToDiagnosticFronte
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput)
 }
 
+func (i DiagnosticFrontendResponseDataMaskingQueryParamArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: i.ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiagnosticFrontendResponseDataMaskingQueryParamOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticFrontendResponseDataMaskingQueryParamOutput) ElementType() reflect.Type {
@@ -10251,6 +11896,12 @@ func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) ToDiagnosticFront
 
 func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) ToDiagnosticFrontendResponseDataMaskingQueryParamOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingQueryParamOutput {
 	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[DiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
@@ -10275,6 +11926,12 @@ func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToDiagnostic
 
 func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToDiagnosticFrontendResponseDataMaskingQueryParamArrayOutputWithContext(ctx context.Context) DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput {
 	return o
+}
+
+func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticFrontendResponseDataMaskingQueryParam] {
+	return pulumix.Output[[]DiagnosticFrontendResponseDataMaskingQueryParam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) Index(i pulumi.IntInput) DiagnosticFrontendResponseDataMaskingQueryParamOutput {
@@ -10328,6 +11985,12 @@ func (i GatewayLocationDataArgs) ToGatewayLocationDataOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayLocationDataOutput)
 }
 
+func (i GatewayLocationDataArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayLocationData] {
+	return pulumix.Output[GatewayLocationData]{
+		OutputState: i.ToGatewayLocationDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayLocationDataArgs) ToGatewayLocationDataPtrOutput() GatewayLocationDataPtrOutput {
 	return i.ToGatewayLocationDataPtrOutputWithContext(context.Background())
 }
@@ -10369,6 +12032,12 @@ func (i *gatewayLocationDataPtrType) ToGatewayLocationDataPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayLocationDataPtrOutput)
 }
 
+func (i *gatewayLocationDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayLocationData] {
+	return pulumix.Output[*GatewayLocationData]{
+		OutputState: i.ToGatewayLocationDataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayLocationDataOutput struct{ *pulumi.OutputState }
 
 func (GatewayLocationDataOutput) ElementType() reflect.Type {
@@ -10391,6 +12060,12 @@ func (o GatewayLocationDataOutput) ToGatewayLocationDataPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayLocationData) *GatewayLocationData {
 		return &v
 	}).(GatewayLocationDataPtrOutput)
+}
+
+func (o GatewayLocationDataOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayLocationData] {
+	return pulumix.Output[GatewayLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The city or locality where the resource is located.
@@ -10425,6 +12100,12 @@ func (o GatewayLocationDataPtrOutput) ToGatewayLocationDataPtrOutput() GatewayLo
 
 func (o GatewayLocationDataPtrOutput) ToGatewayLocationDataPtrOutputWithContext(ctx context.Context) GatewayLocationDataPtrOutput {
 	return o
+}
+
+func (o GatewayLocationDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayLocationData] {
+	return pulumix.Output[*GatewayLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayLocationDataPtrOutput) Elem() GatewayLocationDataOutput {
@@ -10510,6 +12191,12 @@ func (i LoggerApplicationInsightsArgs) ToLoggerApplicationInsightsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerApplicationInsightsOutput)
 }
 
+func (i LoggerApplicationInsightsArgs) ToOutput(ctx context.Context) pulumix.Output[LoggerApplicationInsights] {
+	return pulumix.Output[LoggerApplicationInsights]{
+		OutputState: i.ToLoggerApplicationInsightsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoggerApplicationInsightsArgs) ToLoggerApplicationInsightsPtrOutput() LoggerApplicationInsightsPtrOutput {
 	return i.ToLoggerApplicationInsightsPtrOutputWithContext(context.Background())
 }
@@ -10551,6 +12238,12 @@ func (i *loggerApplicationInsightsPtrType) ToLoggerApplicationInsightsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerApplicationInsightsPtrOutput)
 }
 
+func (i *loggerApplicationInsightsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggerApplicationInsights] {
+	return pulumix.Output[*LoggerApplicationInsights]{
+		OutputState: i.ToLoggerApplicationInsightsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggerApplicationInsightsOutput struct{ *pulumi.OutputState }
 
 func (LoggerApplicationInsightsOutput) ElementType() reflect.Type {
@@ -10575,6 +12268,12 @@ func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsPtrOutputWit
 	}).(LoggerApplicationInsightsPtrOutput)
 }
 
+func (o LoggerApplicationInsightsOutput) ToOutput(ctx context.Context) pulumix.Output[LoggerApplicationInsights] {
+	return pulumix.Output[LoggerApplicationInsights]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The instrumentation key used to push data to Application Insights.
 func (o LoggerApplicationInsightsOutput) InstrumentationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggerApplicationInsights) string { return v.InstrumentationKey }).(pulumi.StringOutput)
@@ -10592,6 +12291,12 @@ func (o LoggerApplicationInsightsPtrOutput) ToLoggerApplicationInsightsPtrOutput
 
 func (o LoggerApplicationInsightsPtrOutput) ToLoggerApplicationInsightsPtrOutputWithContext(ctx context.Context) LoggerApplicationInsightsPtrOutput {
 	return o
+}
+
+func (o LoggerApplicationInsightsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggerApplicationInsights] {
+	return pulumix.Output[*LoggerApplicationInsights]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggerApplicationInsightsPtrOutput) Elem() LoggerApplicationInsightsOutput {
@@ -10651,6 +12356,12 @@ func (i LoggerEventhubArgs) ToLoggerEventhubOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerEventhubOutput)
 }
 
+func (i LoggerEventhubArgs) ToOutput(ctx context.Context) pulumix.Output[LoggerEventhub] {
+	return pulumix.Output[LoggerEventhub]{
+		OutputState: i.ToLoggerEventhubOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoggerEventhubArgs) ToLoggerEventhubPtrOutput() LoggerEventhubPtrOutput {
 	return i.ToLoggerEventhubPtrOutputWithContext(context.Background())
 }
@@ -10692,6 +12403,12 @@ func (i *loggerEventhubPtrType) ToLoggerEventhubPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerEventhubPtrOutput)
 }
 
+func (i *loggerEventhubPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggerEventhub] {
+	return pulumix.Output[*LoggerEventhub]{
+		OutputState: i.ToLoggerEventhubPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggerEventhubOutput struct{ *pulumi.OutputState }
 
 func (LoggerEventhubOutput) ElementType() reflect.Type {
@@ -10716,6 +12433,12 @@ func (o LoggerEventhubOutput) ToLoggerEventhubPtrOutputWithContext(ctx context.C
 	}).(LoggerEventhubPtrOutput)
 }
 
+func (o LoggerEventhubOutput) ToOutput(ctx context.Context) pulumix.Output[LoggerEventhub] {
+	return pulumix.Output[LoggerEventhub]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The connection string of an EventHub Namespace.
 func (o LoggerEventhubOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggerEventhub) string { return v.ConnectionString }).(pulumi.StringOutput)
@@ -10738,6 +12461,12 @@ func (o LoggerEventhubPtrOutput) ToLoggerEventhubPtrOutput() LoggerEventhubPtrOu
 
 func (o LoggerEventhubPtrOutput) ToLoggerEventhubPtrOutputWithContext(ctx context.Context) LoggerEventhubPtrOutput {
 	return o
+}
+
+func (o LoggerEventhubPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggerEventhub] {
+	return pulumix.Output[*LoggerEventhub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggerEventhubPtrOutput) Elem() LoggerEventhubOutput {
@@ -10807,6 +12536,12 @@ func (i NamedValueValueFromKeyVaultArgs) ToNamedValueValueFromKeyVaultOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueValueFromKeyVaultOutput)
 }
 
+func (i NamedValueValueFromKeyVaultArgs) ToOutput(ctx context.Context) pulumix.Output[NamedValueValueFromKeyVault] {
+	return pulumix.Output[NamedValueValueFromKeyVault]{
+		OutputState: i.ToNamedValueValueFromKeyVaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NamedValueValueFromKeyVaultArgs) ToNamedValueValueFromKeyVaultPtrOutput() NamedValueValueFromKeyVaultPtrOutput {
 	return i.ToNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
 }
@@ -10848,6 +12583,12 @@ func (i *namedValueValueFromKeyVaultPtrType) ToNamedValueValueFromKeyVaultPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueValueFromKeyVaultPtrOutput)
 }
 
+func (i *namedValueValueFromKeyVaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*NamedValueValueFromKeyVault] {
+	return pulumix.Output[*NamedValueValueFromKeyVault]{
+		OutputState: i.ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamedValueValueFromKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (NamedValueValueFromKeyVaultOutput) ElementType() reflect.Type {
@@ -10872,6 +12613,12 @@ func (o NamedValueValueFromKeyVaultOutput) ToNamedValueValueFromKeyVaultPtrOutpu
 	}).(NamedValueValueFromKeyVaultPtrOutput)
 }
 
+func (o NamedValueValueFromKeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[NamedValueValueFromKeyVault] {
+	return pulumix.Output[NamedValueValueFromKeyVault]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
 func (o NamedValueValueFromKeyVaultOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamedValueValueFromKeyVault) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
@@ -10894,6 +12641,12 @@ func (o NamedValueValueFromKeyVaultPtrOutput) ToNamedValueValueFromKeyVaultPtrOu
 
 func (o NamedValueValueFromKeyVaultPtrOutput) ToNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) NamedValueValueFromKeyVaultPtrOutput {
 	return o
+}
+
+func (o NamedValueValueFromKeyVaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamedValueValueFromKeyVault] {
+	return pulumix.Output[*NamedValueValueFromKeyVault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamedValueValueFromKeyVaultPtrOutput) Elem() NamedValueValueFromKeyVaultOutput {
@@ -10995,6 +12748,12 @@ func (i ServiceAdditionalLocationArgs) ToServiceAdditionalLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationOutput)
 }
 
+func (i ServiceAdditionalLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAdditionalLocation] {
+	return pulumix.Output[ServiceAdditionalLocation]{
+		OutputState: i.ToServiceAdditionalLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceAdditionalLocationArrayInput is an input type that accepts ServiceAdditionalLocationArray and ServiceAdditionalLocationArrayOutput values.
 // You can construct a concrete instance of `ServiceAdditionalLocationArrayInput` via:
 //
@@ -11020,6 +12779,12 @@ func (i ServiceAdditionalLocationArray) ToServiceAdditionalLocationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationArrayOutput)
 }
 
+func (i ServiceAdditionalLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceAdditionalLocation] {
+	return pulumix.Output[[]ServiceAdditionalLocation]{
+		OutputState: i.ToServiceAdditionalLocationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceAdditionalLocationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAdditionalLocationOutput) ElementType() reflect.Type {
@@ -11032,6 +12797,12 @@ func (o ServiceAdditionalLocationOutput) ToServiceAdditionalLocationOutput() Ser
 
 func (o ServiceAdditionalLocationOutput) ToServiceAdditionalLocationOutputWithContext(ctx context.Context) ServiceAdditionalLocationOutput {
 	return o
+}
+
+func (o ServiceAdditionalLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAdditionalLocation] {
+	return pulumix.Output[ServiceAdditionalLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of compute units in this region. Defaults to the capacity of the main region.
@@ -11097,6 +12868,12 @@ func (o ServiceAdditionalLocationArrayOutput) ToServiceAdditionalLocationArrayOu
 	return o
 }
 
+func (o ServiceAdditionalLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceAdditionalLocation] {
+	return pulumix.Output[[]ServiceAdditionalLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) ServiceAdditionalLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAdditionalLocation {
 		return vs[0].([]ServiceAdditionalLocation)[vs[1].(int)]
@@ -11134,6 +12911,12 @@ func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAddit
 
 func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAdditionalLocationVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationVirtualNetworkConfigurationOutput)
+}
+
+func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAdditionalLocationVirtualNetworkConfiguration] {
+	return pulumix.Output[ServiceAdditionalLocationVirtualNetworkConfiguration]{
+		OutputState: i.ToServiceAdditionalLocationVirtualNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
@@ -11177,6 +12960,12 @@ func (i *serviceAdditionalLocationVirtualNetworkConfigurationPtrType) ToServiceA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
 }
 
+func (i *serviceAdditionalLocationVirtualNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAdditionalLocationVirtualNetworkConfiguration] {
+	return pulumix.Output[*ServiceAdditionalLocationVirtualNetworkConfiguration]{
+		OutputState: i.ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceAdditionalLocationVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -11201,6 +12990,12 @@ func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdd
 	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
 }
 
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAdditionalLocationVirtualNetworkConfiguration] {
+	return pulumix.Output[ServiceAdditionalLocationVirtualNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The id of the subnet that will be used for the API Management.
 func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocationVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
@@ -11218,6 +13013,12 @@ func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ToService
 
 func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
 	return o
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAdditionalLocationVirtualNetworkConfiguration] {
+	return pulumix.Output[*ServiceAdditionalLocationVirtualNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) Elem() ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
@@ -11293,6 +13094,12 @@ func (i ServiceCertificateArgs) ToServiceCertificateOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCertificateOutput)
 }
 
+func (i ServiceCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceCertificate] {
+	return pulumix.Output[ServiceCertificate]{
+		OutputState: i.ToServiceCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceCertificateArrayInput is an input type that accepts ServiceCertificateArray and ServiceCertificateArrayOutput values.
 // You can construct a concrete instance of `ServiceCertificateArrayInput` via:
 //
@@ -11318,6 +13125,12 @@ func (i ServiceCertificateArray) ToServiceCertificateArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCertificateArrayOutput)
 }
 
+func (i ServiceCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceCertificate] {
+	return pulumix.Output[[]ServiceCertificate]{
+		OutputState: i.ToServiceCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServiceCertificateOutput) ElementType() reflect.Type {
@@ -11330,6 +13143,12 @@ func (o ServiceCertificateOutput) ToServiceCertificateOutput() ServiceCertificat
 
 func (o ServiceCertificateOutput) ToServiceCertificateOutputWithContext(ctx context.Context) ServiceCertificateOutput {
 	return o
+}
+
+func (o ServiceCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCertificate] {
+	return pulumix.Output[ServiceCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password for the certificate.
@@ -11374,6 +13193,12 @@ func (o ServiceCertificateArrayOutput) ToServiceCertificateArrayOutput() Service
 
 func (o ServiceCertificateArrayOutput) ToServiceCertificateArrayOutputWithContext(ctx context.Context) ServiceCertificateArrayOutput {
 	return o
+}
+
+func (o ServiceCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceCertificate] {
+	return pulumix.Output[[]ServiceCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceCertificateArrayOutput) Index(i pulumi.IntInput) ServiceCertificateOutput {
@@ -11427,6 +13252,12 @@ func (i ServiceDelegationArgs) ToServiceDelegationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDelegationOutput)
 }
 
+func (i ServiceDelegationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDelegation] {
+	return pulumix.Output[ServiceDelegation]{
+		OutputState: i.ToServiceDelegationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceDelegationArgs) ToServiceDelegationPtrOutput() ServiceDelegationPtrOutput {
 	return i.ToServiceDelegationPtrOutputWithContext(context.Background())
 }
@@ -11468,6 +13299,12 @@ func (i *serviceDelegationPtrType) ToServiceDelegationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDelegationPtrOutput)
 }
 
+func (i *serviceDelegationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceDelegation] {
+	return pulumix.Output[*ServiceDelegation]{
+		OutputState: i.ToServiceDelegationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceDelegationOutput struct{ *pulumi.OutputState }
 
 func (ServiceDelegationOutput) ElementType() reflect.Type {
@@ -11490,6 +13327,12 @@ func (o ServiceDelegationOutput) ToServiceDelegationPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDelegation) *ServiceDelegation {
 		return &v
 	}).(ServiceDelegationPtrOutput)
+}
+
+func (o ServiceDelegationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDelegation] {
+	return pulumix.Output[ServiceDelegation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should subscription requests be delegated to an external url? Defaults to `false`.
@@ -11524,6 +13367,12 @@ func (o ServiceDelegationPtrOutput) ToServiceDelegationPtrOutput() ServiceDelega
 
 func (o ServiceDelegationPtrOutput) ToServiceDelegationPtrOutputWithContext(ctx context.Context) ServiceDelegationPtrOutput {
 	return o
+}
+
+func (o ServiceDelegationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDelegation] {
+	return pulumix.Output[*ServiceDelegation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceDelegationPtrOutput) Elem() ServiceDelegationOutput {
@@ -11625,6 +13474,12 @@ func (i ServiceHostnameConfigurationArgs) ToServiceHostnameConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationOutput)
 }
 
+func (i ServiceHostnameConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfiguration] {
+	return pulumix.Output[ServiceHostnameConfiguration]{
+		OutputState: i.ToServiceHostnameConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceHostnameConfigurationArgs) ToServiceHostnameConfigurationPtrOutput() ServiceHostnameConfigurationPtrOutput {
 	return i.ToServiceHostnameConfigurationPtrOutputWithContext(context.Background())
 }
@@ -11666,6 +13521,12 @@ func (i *serviceHostnameConfigurationPtrType) ToServiceHostnameConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationPtrOutput)
 }
 
+func (i *serviceHostnameConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceHostnameConfiguration] {
+	return pulumix.Output[*ServiceHostnameConfiguration]{
+		OutputState: i.ToServiceHostnameConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationOutput) ElementType() reflect.Type {
@@ -11688,6 +13549,12 @@ func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHostnameConfiguration) *ServiceHostnameConfiguration {
 		return &v
 	}).(ServiceHostnameConfigurationPtrOutput)
+}
+
+func (o ServiceHostnameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfiguration] {
+	return pulumix.Output[ServiceHostnameConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `developerPortal` blocks as documented below.
@@ -11729,6 +13596,12 @@ func (o ServiceHostnameConfigurationPtrOutput) ToServiceHostnameConfigurationPtr
 
 func (o ServiceHostnameConfigurationPtrOutput) ToServiceHostnameConfigurationPtrOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPtrOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHostnameConfiguration] {
+	return pulumix.Output[*ServiceHostnameConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceHostnameConfigurationPtrOutput) Elem() ServiceHostnameConfigurationOutput {
@@ -11884,6 +13757,12 @@ func (i ServiceHostnameConfigurationDeveloperPortalArgs) ToServiceHostnameConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationDeveloperPortalOutput)
 }
 
+func (i ServiceHostnameConfigurationDeveloperPortalArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[ServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: i.ToServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceHostnameConfigurationDeveloperPortalArrayInput is an input type that accepts ServiceHostnameConfigurationDeveloperPortalArray and ServiceHostnameConfigurationDeveloperPortalArrayOutput values.
 // You can construct a concrete instance of `ServiceHostnameConfigurationDeveloperPortalArrayInput` via:
 //
@@ -11909,6 +13788,12 @@ func (i ServiceHostnameConfigurationDeveloperPortalArray) ToServiceHostnameConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationDeveloperPortalArrayOutput)
 }
 
+func (i ServiceHostnameConfigurationDeveloperPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[[]ServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: i.ToServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceHostnameConfigurationDeveloperPortalOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationDeveloperPortalOutput) ElementType() reflect.Type {
@@ -11921,6 +13806,12 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToServiceHostnameConf
 
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx context.Context) ServiceHostnameConfigurationDeveloperPortalOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[ServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more (up to 10) `certificate` blocks as defined below.
@@ -12000,6 +13891,12 @@ func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) ToServiceHostnam
 
 func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) ToServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationDeveloperPortalArrayOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[[]ServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationDeveloperPortalOutput {
@@ -12093,6 +13990,12 @@ func (i ServiceHostnameConfigurationManagementArgs) ToServiceHostnameConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationManagementOutput)
 }
 
+func (i ServiceHostnameConfigurationManagementArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationManagement] {
+	return pulumix.Output[ServiceHostnameConfigurationManagement]{
+		OutputState: i.ToServiceHostnameConfigurationManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceHostnameConfigurationManagementArrayInput is an input type that accepts ServiceHostnameConfigurationManagementArray and ServiceHostnameConfigurationManagementArrayOutput values.
 // You can construct a concrete instance of `ServiceHostnameConfigurationManagementArrayInput` via:
 //
@@ -12118,6 +14021,12 @@ func (i ServiceHostnameConfigurationManagementArray) ToServiceHostnameConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationManagementArrayOutput)
 }
 
+func (i ServiceHostnameConfigurationManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationManagement] {
+	return pulumix.Output[[]ServiceHostnameConfigurationManagement]{
+		OutputState: i.ToServiceHostnameConfigurationManagementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceHostnameConfigurationManagementOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationManagementOutput) ElementType() reflect.Type {
@@ -12130,6 +14039,12 @@ func (o ServiceHostnameConfigurationManagementOutput) ToServiceHostnameConfigura
 
 func (o ServiceHostnameConfigurationManagementOutput) ToServiceHostnameConfigurationManagementOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationManagementOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationManagement] {
+	return pulumix.Output[ServiceHostnameConfigurationManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate.
@@ -12205,6 +14120,12 @@ func (o ServiceHostnameConfigurationManagementArrayOutput) ToServiceHostnameConf
 
 func (o ServiceHostnameConfigurationManagementArrayOutput) ToServiceHostnameConfigurationManagementArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementArrayOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationManagement] {
+	return pulumix.Output[[]ServiceHostnameConfigurationManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationManagementOutput {
@@ -12306,6 +14227,12 @@ func (i ServiceHostnameConfigurationPortalArgs) ToServiceHostnameConfigurationPo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationPortalOutput)
 }
 
+func (i ServiceHostnameConfigurationPortalArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationPortal] {
+	return pulumix.Output[ServiceHostnameConfigurationPortal]{
+		OutputState: i.ToServiceHostnameConfigurationPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceHostnameConfigurationPortalArrayInput is an input type that accepts ServiceHostnameConfigurationPortalArray and ServiceHostnameConfigurationPortalArrayOutput values.
 // You can construct a concrete instance of `ServiceHostnameConfigurationPortalArrayInput` via:
 //
@@ -12331,6 +14258,12 @@ func (i ServiceHostnameConfigurationPortalArray) ToServiceHostnameConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationPortalArrayOutput)
 }
 
+func (i ServiceHostnameConfigurationPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationPortal] {
+	return pulumix.Output[[]ServiceHostnameConfigurationPortal]{
+		OutputState: i.ToServiceHostnameConfigurationPortalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceHostnameConfigurationPortalOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationPortalOutput) ElementType() reflect.Type {
@@ -12343,6 +14276,12 @@ func (o ServiceHostnameConfigurationPortalOutput) ToServiceHostnameConfiguration
 
 func (o ServiceHostnameConfigurationPortalOutput) ToServiceHostnameConfigurationPortalOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationPortalOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationPortal] {
+	return pulumix.Output[ServiceHostnameConfigurationPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more (up to 10) `certificate` blocks as defined below.
@@ -12422,6 +14361,12 @@ func (o ServiceHostnameConfigurationPortalArrayOutput) ToServiceHostnameConfigur
 
 func (o ServiceHostnameConfigurationPortalArrayOutput) ToServiceHostnameConfigurationPortalArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalArrayOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationPortal] {
+	return pulumix.Output[[]ServiceHostnameConfigurationPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceHostnameConfigurationPortalArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationPortalOutput {
@@ -12515,6 +14460,12 @@ func (i ServiceHostnameConfigurationProxyArgs) ToServiceHostnameConfigurationPro
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationProxyOutput)
 }
 
+func (i ServiceHostnameConfigurationProxyArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationProxy] {
+	return pulumix.Output[ServiceHostnameConfigurationProxy]{
+		OutputState: i.ToServiceHostnameConfigurationProxyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceHostnameConfigurationProxyArrayInput is an input type that accepts ServiceHostnameConfigurationProxyArray and ServiceHostnameConfigurationProxyArrayOutput values.
 // You can construct a concrete instance of `ServiceHostnameConfigurationProxyArrayInput` via:
 //
@@ -12540,6 +14491,12 @@ func (i ServiceHostnameConfigurationProxyArray) ToServiceHostnameConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationProxyArrayOutput)
 }
 
+func (i ServiceHostnameConfigurationProxyArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationProxy] {
+	return pulumix.Output[[]ServiceHostnameConfigurationProxy]{
+		OutputState: i.ToServiceHostnameConfigurationProxyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceHostnameConfigurationProxyOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationProxyOutput) ElementType() reflect.Type {
@@ -12552,6 +14509,12 @@ func (o ServiceHostnameConfigurationProxyOutput) ToServiceHostnameConfigurationP
 
 func (o ServiceHostnameConfigurationProxyOutput) ToServiceHostnameConfigurationProxyOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxyOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationProxyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationProxy] {
+	return pulumix.Output[ServiceHostnameConfigurationProxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base64 Encoded Certificate.
@@ -12630,6 +14593,12 @@ func (o ServiceHostnameConfigurationProxyArrayOutput) ToServiceHostnameConfigura
 
 func (o ServiceHostnameConfigurationProxyArrayOutput) ToServiceHostnameConfigurationProxyArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxyArrayOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationProxyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationProxy] {
+	return pulumix.Output[[]ServiceHostnameConfigurationProxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationProxyOutput {
@@ -12731,6 +14700,12 @@ func (i ServiceHostnameConfigurationScmArgs) ToServiceHostnameConfigurationScmOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationScmOutput)
 }
 
+func (i ServiceHostnameConfigurationScmArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationScm] {
+	return pulumix.Output[ServiceHostnameConfigurationScm]{
+		OutputState: i.ToServiceHostnameConfigurationScmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceHostnameConfigurationScmArrayInput is an input type that accepts ServiceHostnameConfigurationScmArray and ServiceHostnameConfigurationScmArrayOutput values.
 // You can construct a concrete instance of `ServiceHostnameConfigurationScmArrayInput` via:
 //
@@ -12756,6 +14731,12 @@ func (i ServiceHostnameConfigurationScmArray) ToServiceHostnameConfigurationScmA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationScmArrayOutput)
 }
 
+func (i ServiceHostnameConfigurationScmArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationScm] {
+	return pulumix.Output[[]ServiceHostnameConfigurationScm]{
+		OutputState: i.ToServiceHostnameConfigurationScmArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceHostnameConfigurationScmOutput struct{ *pulumi.OutputState }
 
 func (ServiceHostnameConfigurationScmOutput) ElementType() reflect.Type {
@@ -12768,6 +14749,12 @@ func (o ServiceHostnameConfigurationScmOutput) ToServiceHostnameConfigurationScm
 
 func (o ServiceHostnameConfigurationScmOutput) ToServiceHostnameConfigurationScmOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmOutput {
 	return o
+}
+
+func (o ServiceHostnameConfigurationScmOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHostnameConfigurationScm] {
+	return pulumix.Output[ServiceHostnameConfigurationScm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more (up to 10) `certificate` blocks as defined below.
@@ -12849,6 +14836,12 @@ func (o ServiceHostnameConfigurationScmArrayOutput) ToServiceHostnameConfigurati
 	return o
 }
 
+func (o ServiceHostnameConfigurationScmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceHostnameConfigurationScm] {
+	return pulumix.Output[[]ServiceHostnameConfigurationScm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationScmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceHostnameConfigurationScm {
 		return vs[0].([]ServiceHostnameConfigurationScm)[vs[1].(int)]
@@ -12904,6 +14897,12 @@ func (i ServiceIdentityArgs) ToServiceIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityOutput)
 }
 
+func (i ServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
+	return pulumix.Output[ServiceIdentity]{
+		OutputState: i.ToServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceIdentityArgs) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
 	return i.ToServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -12945,6 +14944,12 @@ func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityPtrOutput)
 }
 
+func (i *serviceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
+	return pulumix.Output[*ServiceIdentity]{
+		OutputState: i.ToServiceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceIdentityOutput) ElementType() reflect.Type {
@@ -12967,6 +14972,12 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
 		return &v
 	}).(ServiceIdentityPtrOutput)
+}
+
+func (o ServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
+	return pulumix.Output[ServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
@@ -13003,6 +15014,12 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutput() ServiceIdentityPt
 
 func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
 	return o
+}
+
+func (o ServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
+	return pulumix.Output[*ServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
@@ -13094,6 +15111,12 @@ func (i ServicePolicyArgs) ToServicePolicyOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyOutput)
 }
 
+func (i ServicePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ServicePolicy] {
+	return pulumix.Output[ServicePolicy]{
+		OutputState: i.ToServicePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServicePolicyArgs) ToServicePolicyPtrOutput() ServicePolicyPtrOutput {
 	return i.ToServicePolicyPtrOutputWithContext(context.Background())
 }
@@ -13135,6 +15158,12 @@ func (i *servicePolicyPtrType) ToServicePolicyPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyPtrOutput)
 }
 
+func (i *servicePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServicePolicy] {
+	return pulumix.Output[*ServicePolicy]{
+		OutputState: i.ToServicePolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServicePolicyOutput struct{ *pulumi.OutputState }
 
 func (ServicePolicyOutput) ElementType() reflect.Type {
@@ -13159,6 +15188,12 @@ func (o ServicePolicyOutput) ToServicePolicyPtrOutputWithContext(ctx context.Con
 	}).(ServicePolicyPtrOutput)
 }
 
+func (o ServicePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePolicy] {
+	return pulumix.Output[ServicePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The XML Content for this Policy.
 func (o ServicePolicyOutput) XmlContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
@@ -13181,6 +15216,12 @@ func (o ServicePolicyPtrOutput) ToServicePolicyPtrOutput() ServicePolicyPtrOutpu
 
 func (o ServicePolicyPtrOutput) ToServicePolicyPtrOutputWithContext(ctx context.Context) ServicePolicyPtrOutput {
 	return o
+}
+
+func (o ServicePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePolicy] {
+	return pulumix.Output[*ServicePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServicePolicyPtrOutput) Elem() ServicePolicyOutput {
@@ -13246,6 +15287,12 @@ func (i ServiceProtocolsArgs) ToServiceProtocolsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProtocolsOutput)
 }
 
+func (i ServiceProtocolsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceProtocols] {
+	return pulumix.Output[ServiceProtocols]{
+		OutputState: i.ToServiceProtocolsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceProtocolsArgs) ToServiceProtocolsPtrOutput() ServiceProtocolsPtrOutput {
 	return i.ToServiceProtocolsPtrOutputWithContext(context.Background())
 }
@@ -13287,6 +15334,12 @@ func (i *serviceProtocolsPtrType) ToServiceProtocolsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProtocolsPtrOutput)
 }
 
+func (i *serviceProtocolsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceProtocols] {
+	return pulumix.Output[*ServiceProtocols]{
+		OutputState: i.ToServiceProtocolsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceProtocolsOutput struct{ *pulumi.OutputState }
 
 func (ServiceProtocolsOutput) ElementType() reflect.Type {
@@ -13311,6 +15364,12 @@ func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutputWithContext(ctx conte
 	}).(ServiceProtocolsPtrOutput)
 }
 
+func (o ServiceProtocolsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceProtocols] {
+	return pulumix.Output[ServiceProtocols]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
 func (o ServiceProtocolsOutput) EnableHttp2() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
@@ -13328,6 +15387,12 @@ func (o ServiceProtocolsPtrOutput) ToServiceProtocolsPtrOutput() ServiceProtocol
 
 func (o ServiceProtocolsPtrOutput) ToServiceProtocolsPtrOutputWithContext(ctx context.Context) ServiceProtocolsPtrOutput {
 	return o
+}
+
+func (o ServiceProtocolsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceProtocols] {
+	return pulumix.Output[*ServiceProtocols]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceProtocolsPtrOutput) Elem() ServiceProtocolsOutput {
@@ -13515,6 +15580,12 @@ func (i ServiceSecurityArgs) ToServiceSecurityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecurityOutput)
 }
 
+func (i ServiceSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSecurity] {
+	return pulumix.Output[ServiceSecurity]{
+		OutputState: i.ToServiceSecurityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceSecurityArgs) ToServiceSecurityPtrOutput() ServiceSecurityPtrOutput {
 	return i.ToServiceSecurityPtrOutputWithContext(context.Background())
 }
@@ -13556,6 +15627,12 @@ func (i *serviceSecurityPtrType) ToServiceSecurityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecurityPtrOutput)
 }
 
+func (i *serviceSecurityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSecurity] {
+	return pulumix.Output[*ServiceSecurity]{
+		OutputState: i.ToServiceSecurityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceSecurityOutput struct{ *pulumi.OutputState }
 
 func (ServiceSecurityOutput) ElementType() reflect.Type {
@@ -13578,6 +15655,12 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSecurity) *ServiceSecurity {
 		return &v
 	}).(ServiceSecurityPtrOutput)
+}
+
+func (o ServiceSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSecurity] {
+	return pulumix.Output[ServiceSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
@@ -13711,6 +15794,12 @@ func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutput() ServiceSecurityPt
 
 func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutputWithContext(ctx context.Context) ServiceSecurityPtrOutput {
 	return o
+}
+
+func (o ServiceSecurityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSecurity] {
+	return pulumix.Output[*ServiceSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
@@ -13960,6 +16049,12 @@ func (i ServiceSignInArgs) ToServiceSignInOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignInOutput)
 }
 
+func (i ServiceSignInArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSignIn] {
+	return pulumix.Output[ServiceSignIn]{
+		OutputState: i.ToServiceSignInOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceSignInArgs) ToServiceSignInPtrOutput() ServiceSignInPtrOutput {
 	return i.ToServiceSignInPtrOutputWithContext(context.Background())
 }
@@ -14001,6 +16096,12 @@ func (i *serviceSignInPtrType) ToServiceSignInPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignInPtrOutput)
 }
 
+func (i *serviceSignInPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSignIn] {
+	return pulumix.Output[*ServiceSignIn]{
+		OutputState: i.ToServiceSignInPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceSignInOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignInOutput) ElementType() reflect.Type {
@@ -14025,6 +16126,12 @@ func (o ServiceSignInOutput) ToServiceSignInPtrOutputWithContext(ctx context.Con
 	}).(ServiceSignInPtrOutput)
 }
 
+func (o ServiceSignInOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSignIn] {
+	return pulumix.Output[ServiceSignIn]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Should anonymous users be redirected to the sign in page?
 func (o ServiceSignInOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceSignIn) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -14042,6 +16149,12 @@ func (o ServiceSignInPtrOutput) ToServiceSignInPtrOutput() ServiceSignInPtrOutpu
 
 func (o ServiceSignInPtrOutput) ToServiceSignInPtrOutputWithContext(ctx context.Context) ServiceSignInPtrOutput {
 	return o
+}
+
+func (o ServiceSignInPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSignIn] {
+	return pulumix.Output[*ServiceSignIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSignInPtrOutput) Elem() ServiceSignInOutput {
@@ -14101,6 +16214,12 @@ func (i ServiceSignUpArgs) ToServiceSignUpOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignUpOutput)
 }
 
+func (i ServiceSignUpArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSignUp] {
+	return pulumix.Output[ServiceSignUp]{
+		OutputState: i.ToServiceSignUpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceSignUpArgs) ToServiceSignUpPtrOutput() ServiceSignUpPtrOutput {
 	return i.ToServiceSignUpPtrOutputWithContext(context.Background())
 }
@@ -14142,6 +16261,12 @@ func (i *serviceSignUpPtrType) ToServiceSignUpPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignUpPtrOutput)
 }
 
+func (i *serviceSignUpPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSignUp] {
+	return pulumix.Output[*ServiceSignUp]{
+		OutputState: i.ToServiceSignUpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceSignUpOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignUpOutput) ElementType() reflect.Type {
@@ -14166,6 +16291,12 @@ func (o ServiceSignUpOutput) ToServiceSignUpPtrOutputWithContext(ctx context.Con
 	}).(ServiceSignUpPtrOutput)
 }
 
+func (o ServiceSignUpOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSignUp] {
+	return pulumix.Output[ServiceSignUp]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Can users sign up on the development portal?
 func (o ServiceSignUpOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceSignUp) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -14188,6 +16319,12 @@ func (o ServiceSignUpPtrOutput) ToServiceSignUpPtrOutput() ServiceSignUpPtrOutpu
 
 func (o ServiceSignUpPtrOutput) ToServiceSignUpPtrOutputWithContext(ctx context.Context) ServiceSignUpPtrOutput {
 	return o
+}
+
+func (o ServiceSignUpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSignUp] {
+	return pulumix.Output[*ServiceSignUp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSignUpPtrOutput) Elem() ServiceSignUpOutput {
@@ -14261,6 +16398,12 @@ func (i ServiceSignUpTermsOfServiceArgs) ToServiceSignUpTermsOfServiceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignUpTermsOfServiceOutput)
 }
 
+func (i ServiceSignUpTermsOfServiceArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSignUpTermsOfService] {
+	return pulumix.Output[ServiceSignUpTermsOfService]{
+		OutputState: i.ToServiceSignUpTermsOfServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceSignUpTermsOfServiceArgs) ToServiceSignUpTermsOfServicePtrOutput() ServiceSignUpTermsOfServicePtrOutput {
 	return i.ToServiceSignUpTermsOfServicePtrOutputWithContext(context.Background())
 }
@@ -14302,6 +16445,12 @@ func (i *serviceSignUpTermsOfServicePtrType) ToServiceSignUpTermsOfServicePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSignUpTermsOfServicePtrOutput)
 }
 
+func (i *serviceSignUpTermsOfServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSignUpTermsOfService] {
+	return pulumix.Output[*ServiceSignUpTermsOfService]{
+		OutputState: i.ToServiceSignUpTermsOfServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceSignUpTermsOfServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceSignUpTermsOfServiceOutput) ElementType() reflect.Type {
@@ -14324,6 +16473,12 @@ func (o ServiceSignUpTermsOfServiceOutput) ToServiceSignUpTermsOfServicePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSignUpTermsOfService) *ServiceSignUpTermsOfService {
 		return &v
 	}).(ServiceSignUpTermsOfServicePtrOutput)
+}
+
+func (o ServiceSignUpTermsOfServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSignUpTermsOfService] {
+	return pulumix.Output[ServiceSignUpTermsOfService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the user be asked for consent during sign up?
@@ -14353,6 +16508,12 @@ func (o ServiceSignUpTermsOfServicePtrOutput) ToServiceSignUpTermsOfServicePtrOu
 
 func (o ServiceSignUpTermsOfServicePtrOutput) ToServiceSignUpTermsOfServicePtrOutputWithContext(ctx context.Context) ServiceSignUpTermsOfServicePtrOutput {
 	return o
+}
+
+func (o ServiceSignUpTermsOfServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSignUpTermsOfService] {
+	return pulumix.Output[*ServiceSignUpTermsOfService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSignUpTermsOfServicePtrOutput) Elem() ServiceSignUpTermsOfServiceOutput {
@@ -14440,6 +16601,12 @@ func (i ServiceTenantAccessArgs) ToServiceTenantAccessOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTenantAccessOutput)
 }
 
+func (i ServiceTenantAccessArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceTenantAccess] {
+	return pulumix.Output[ServiceTenantAccess]{
+		OutputState: i.ToServiceTenantAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceTenantAccessArgs) ToServiceTenantAccessPtrOutput() ServiceTenantAccessPtrOutput {
 	return i.ToServiceTenantAccessPtrOutputWithContext(context.Background())
 }
@@ -14481,6 +16648,12 @@ func (i *serviceTenantAccessPtrType) ToServiceTenantAccessPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTenantAccessPtrOutput)
 }
 
+func (i *serviceTenantAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceTenantAccess] {
+	return pulumix.Output[*ServiceTenantAccess]{
+		OutputState: i.ToServiceTenantAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceTenantAccessOutput struct{ *pulumi.OutputState }
 
 func (ServiceTenantAccessOutput) ElementType() reflect.Type {
@@ -14503,6 +16676,12 @@ func (o ServiceTenantAccessOutput) ToServiceTenantAccessPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTenantAccess) *ServiceTenantAccess {
 		return &v
 	}).(ServiceTenantAccessPtrOutput)
+}
+
+func (o ServiceTenantAccessOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTenantAccess] {
+	return pulumix.Output[ServiceTenantAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the access to the management API be enabled?
@@ -14537,6 +16716,12 @@ func (o ServiceTenantAccessPtrOutput) ToServiceTenantAccessPtrOutput() ServiceTe
 
 func (o ServiceTenantAccessPtrOutput) ToServiceTenantAccessPtrOutputWithContext(ctx context.Context) ServiceTenantAccessPtrOutput {
 	return o
+}
+
+func (o ServiceTenantAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceTenantAccess] {
+	return pulumix.Output[*ServiceTenantAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceTenantAccessPtrOutput) Elem() ServiceTenantAccessOutput {
@@ -14622,6 +16807,12 @@ func (i ServiceVirtualNetworkConfigurationArgs) ToServiceVirtualNetworkConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceVirtualNetworkConfigurationOutput)
 }
 
+func (i ServiceVirtualNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceVirtualNetworkConfiguration] {
+	return pulumix.Output[ServiceVirtualNetworkConfiguration]{
+		OutputState: i.ToServiceVirtualNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceVirtualNetworkConfigurationArgs) ToServiceVirtualNetworkConfigurationPtrOutput() ServiceVirtualNetworkConfigurationPtrOutput {
 	return i.ToServiceVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -14663,6 +16854,12 @@ func (i *serviceVirtualNetworkConfigurationPtrType) ToServiceVirtualNetworkConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceVirtualNetworkConfigurationPtrOutput)
 }
 
+func (i *serviceVirtualNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceVirtualNetworkConfiguration] {
+	return pulumix.Output[*ServiceVirtualNetworkConfiguration]{
+		OutputState: i.ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -14687,6 +16884,12 @@ func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigu
 	}).(ServiceVirtualNetworkConfigurationPtrOutput)
 }
 
+func (o ServiceVirtualNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceVirtualNetworkConfiguration] {
+	return pulumix.Output[ServiceVirtualNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The id of the subnet that will be used for the API Management.
 func (o ServiceVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
@@ -14704,6 +16907,12 @@ func (o ServiceVirtualNetworkConfigurationPtrOutput) ToServiceVirtualNetworkConf
 
 func (o ServiceVirtualNetworkConfigurationPtrOutput) ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationPtrOutput {
 	return o
+}
+
+func (o ServiceVirtualNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceVirtualNetworkConfiguration] {
+	return pulumix.Output[*ServiceVirtualNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceVirtualNetworkConfigurationPtrOutput) Elem() ServiceVirtualNetworkConfigurationOutput {
@@ -14763,6 +16972,12 @@ func (i GetApiSubscriptionKeyParameterNameArgs) ToGetApiSubscriptionKeyParameter
 	return pulumi.ToOutputWithContext(ctx, i).(GetApiSubscriptionKeyParameterNameOutput)
 }
 
+func (i GetApiSubscriptionKeyParameterNameArgs) ToOutput(ctx context.Context) pulumix.Output[GetApiSubscriptionKeyParameterName] {
+	return pulumix.Output[GetApiSubscriptionKeyParameterName]{
+		OutputState: i.ToGetApiSubscriptionKeyParameterNameOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetApiSubscriptionKeyParameterNameArrayInput is an input type that accepts GetApiSubscriptionKeyParameterNameArray and GetApiSubscriptionKeyParameterNameArrayOutput values.
 // You can construct a concrete instance of `GetApiSubscriptionKeyParameterNameArrayInput` via:
 //
@@ -14788,6 +17003,12 @@ func (i GetApiSubscriptionKeyParameterNameArray) ToGetApiSubscriptionKeyParamete
 	return pulumi.ToOutputWithContext(ctx, i).(GetApiSubscriptionKeyParameterNameArrayOutput)
 }
 
+func (i GetApiSubscriptionKeyParameterNameArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApiSubscriptionKeyParameterName] {
+	return pulumix.Output[[]GetApiSubscriptionKeyParameterName]{
+		OutputState: i.ToGetApiSubscriptionKeyParameterNameArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetApiSubscriptionKeyParameterNameOutput struct{ *pulumi.OutputState }
 
 func (GetApiSubscriptionKeyParameterNameOutput) ElementType() reflect.Type {
@@ -14800,6 +17021,12 @@ func (o GetApiSubscriptionKeyParameterNameOutput) ToGetApiSubscriptionKeyParamet
 
 func (o GetApiSubscriptionKeyParameterNameOutput) ToGetApiSubscriptionKeyParameterNameOutputWithContext(ctx context.Context) GetApiSubscriptionKeyParameterNameOutput {
 	return o
+}
+
+func (o GetApiSubscriptionKeyParameterNameOutput) ToOutput(ctx context.Context) pulumix.Output[GetApiSubscriptionKeyParameterName] {
+	return pulumix.Output[GetApiSubscriptionKeyParameterName]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the HTTP Header which should be used for the Subscription Key.
@@ -14824,6 +17051,12 @@ func (o GetApiSubscriptionKeyParameterNameArrayOutput) ToGetApiSubscriptionKeyPa
 
 func (o GetApiSubscriptionKeyParameterNameArrayOutput) ToGetApiSubscriptionKeyParameterNameArrayOutputWithContext(ctx context.Context) GetApiSubscriptionKeyParameterNameArrayOutput {
 	return o
+}
+
+func (o GetApiSubscriptionKeyParameterNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApiSubscriptionKeyParameterName] {
+	return pulumix.Output[[]GetApiSubscriptionKeyParameterName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetApiSubscriptionKeyParameterNameArrayOutput) Index(i pulumi.IntInput) GetApiSubscriptionKeyParameterNameOutput {
@@ -14875,6 +17108,12 @@ func (i GetGatewayLocationDataArgs) ToGetGatewayLocationDataOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayLocationDataOutput)
 }
 
+func (i GetGatewayLocationDataArgs) ToOutput(ctx context.Context) pulumix.Output[GetGatewayLocationData] {
+	return pulumix.Output[GetGatewayLocationData]{
+		OutputState: i.ToGetGatewayLocationDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGatewayLocationDataArrayInput is an input type that accepts GetGatewayLocationDataArray and GetGatewayLocationDataArrayOutput values.
 // You can construct a concrete instance of `GetGatewayLocationDataArrayInput` via:
 //
@@ -14900,6 +17139,12 @@ func (i GetGatewayLocationDataArray) ToGetGatewayLocationDataArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayLocationDataArrayOutput)
 }
 
+func (i GetGatewayLocationDataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGatewayLocationData] {
+	return pulumix.Output[[]GetGatewayLocationData]{
+		OutputState: i.ToGetGatewayLocationDataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGatewayLocationDataOutput struct{ *pulumi.OutputState }
 
 func (GetGatewayLocationDataOutput) ElementType() reflect.Type {
@@ -14912,6 +17157,12 @@ func (o GetGatewayLocationDataOutput) ToGetGatewayLocationDataOutput() GetGatewa
 
 func (o GetGatewayLocationDataOutput) ToGetGatewayLocationDataOutputWithContext(ctx context.Context) GetGatewayLocationDataOutput {
 	return o
+}
+
+func (o GetGatewayLocationDataOutput) ToOutput(ctx context.Context) pulumix.Output[GetGatewayLocationData] {
+	return pulumix.Output[GetGatewayLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The city or locality where the resource is located.
@@ -14945,6 +17196,12 @@ func (o GetGatewayLocationDataArrayOutput) ToGetGatewayLocationDataArrayOutput()
 
 func (o GetGatewayLocationDataArrayOutput) ToGetGatewayLocationDataArrayOutputWithContext(ctx context.Context) GetGatewayLocationDataArrayOutput {
 	return o
+}
+
+func (o GetGatewayLocationDataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGatewayLocationData] {
+	return pulumix.Output[[]GetGatewayLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGatewayLocationDataArrayOutput) Index(i pulumi.IntInput) GetGatewayLocationDataOutput {
@@ -15010,6 +17267,12 @@ func (i GetServiceAdditionalLocationArgs) ToGetServiceAdditionalLocationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceAdditionalLocationOutput)
 }
 
+func (i GetServiceAdditionalLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceAdditionalLocation] {
+	return pulumix.Output[GetServiceAdditionalLocation]{
+		OutputState: i.ToGetServiceAdditionalLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceAdditionalLocationArrayInput is an input type that accepts GetServiceAdditionalLocationArray and GetServiceAdditionalLocationArrayOutput values.
 // You can construct a concrete instance of `GetServiceAdditionalLocationArrayInput` via:
 //
@@ -15035,6 +17298,12 @@ func (i GetServiceAdditionalLocationArray) ToGetServiceAdditionalLocationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceAdditionalLocationArrayOutput)
 }
 
+func (i GetServiceAdditionalLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceAdditionalLocation] {
+	return pulumix.Output[[]GetServiceAdditionalLocation]{
+		OutputState: i.ToGetServiceAdditionalLocationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceAdditionalLocationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceAdditionalLocationOutput) ElementType() reflect.Type {
@@ -15047,6 +17316,12 @@ func (o GetServiceAdditionalLocationOutput) ToGetServiceAdditionalLocationOutput
 
 func (o GetServiceAdditionalLocationOutput) ToGetServiceAdditionalLocationOutputWithContext(ctx context.Context) GetServiceAdditionalLocationOutput {
 	return o
+}
+
+func (o GetServiceAdditionalLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceAdditionalLocation] {
+	return pulumix.Output[GetServiceAdditionalLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of units associated with this API Management service.
@@ -15096,6 +17371,12 @@ func (o GetServiceAdditionalLocationArrayOutput) ToGetServiceAdditionalLocationA
 
 func (o GetServiceAdditionalLocationArrayOutput) ToGetServiceAdditionalLocationArrayOutputWithContext(ctx context.Context) GetServiceAdditionalLocationArrayOutput {
 	return o
+}
+
+func (o GetServiceAdditionalLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceAdditionalLocation] {
+	return pulumix.Output[[]GetServiceAdditionalLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) GetServiceAdditionalLocationOutput {
@@ -15153,6 +17434,12 @@ func (i GetServiceHostnameConfigurationArgs) ToGetServiceHostnameConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationOutput)
 }
 
+func (i GetServiceHostnameConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfiguration] {
+	return pulumix.Output[GetServiceHostnameConfiguration]{
+		OutputState: i.ToGetServiceHostnameConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceHostnameConfigurationArrayInput is an input type that accepts GetServiceHostnameConfigurationArray and GetServiceHostnameConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceHostnameConfigurationArrayInput` via:
 //
@@ -15178,6 +17465,12 @@ func (i GetServiceHostnameConfigurationArray) ToGetServiceHostnameConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationArrayOutput)
 }
 
+func (i GetServiceHostnameConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfiguration] {
+	return pulumix.Output[[]GetServiceHostnameConfiguration]{
+		OutputState: i.ToGetServiceHostnameConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationOutput) ElementType() reflect.Type {
@@ -15190,6 +17483,12 @@ func (o GetServiceHostnameConfigurationOutput) ToGetServiceHostnameConfiguration
 
 func (o GetServiceHostnameConfigurationOutput) ToGetServiceHostnameConfigurationOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfiguration] {
+	return pulumix.Output[GetServiceHostnameConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `developerPortal` blocks as documented below.
@@ -15233,6 +17532,12 @@ func (o GetServiceHostnameConfigurationArrayOutput) ToGetServiceHostnameConfigur
 
 func (o GetServiceHostnameConfigurationArrayOutput) ToGetServiceHostnameConfigurationArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationArrayOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfiguration] {
+	return pulumix.Output[[]GetServiceHostnameConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceHostnameConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationOutput {
@@ -15282,6 +17587,12 @@ func (i GetServiceHostnameConfigurationDeveloperPortalArgs) ToGetServiceHostname
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationDeveloperPortalOutput)
 }
 
+func (i GetServiceHostnameConfigurationDeveloperPortalArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[GetServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: i.ToGetServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceHostnameConfigurationDeveloperPortalArrayInput is an input type that accepts GetServiceHostnameConfigurationDeveloperPortalArray and GetServiceHostnameConfigurationDeveloperPortalArrayOutput values.
 // You can construct a concrete instance of `GetServiceHostnameConfigurationDeveloperPortalArrayInput` via:
 //
@@ -15307,6 +17618,12 @@ func (i GetServiceHostnameConfigurationDeveloperPortalArray) ToGetServiceHostnam
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationDeveloperPortalArrayOutput)
 }
 
+func (i GetServiceHostnameConfigurationDeveloperPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: i.ToGetServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceHostnameConfigurationDeveloperPortalOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationDeveloperPortalOutput) ElementType() reflect.Type {
@@ -15319,6 +17636,12 @@ func (o GetServiceHostnameConfigurationDeveloperPortalOutput) ToGetServiceHostna
 
 func (o GetServiceHostnameConfigurationDeveloperPortalOutput) ToGetServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationDeveloperPortalOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[GetServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hostname used for the SCM URL.
@@ -15348,6 +17671,12 @@ func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) ToGetServiceH
 
 func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) ToGetServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationDeveloperPortal] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationDeveloperPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationDeveloperPortalOutput {
@@ -15397,6 +17726,12 @@ func (i GetServiceHostnameConfigurationManagementArgs) ToGetServiceHostnameConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationManagementOutput)
 }
 
+func (i GetServiceHostnameConfigurationManagementArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationManagement] {
+	return pulumix.Output[GetServiceHostnameConfigurationManagement]{
+		OutputState: i.ToGetServiceHostnameConfigurationManagementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceHostnameConfigurationManagementArrayInput is an input type that accepts GetServiceHostnameConfigurationManagementArray and GetServiceHostnameConfigurationManagementArrayOutput values.
 // You can construct a concrete instance of `GetServiceHostnameConfigurationManagementArrayInput` via:
 //
@@ -15422,6 +17757,12 @@ func (i GetServiceHostnameConfigurationManagementArray) ToGetServiceHostnameConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationManagementArrayOutput)
 }
 
+func (i GetServiceHostnameConfigurationManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationManagement] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationManagement]{
+		OutputState: i.ToGetServiceHostnameConfigurationManagementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceHostnameConfigurationManagementOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationManagementOutput) ElementType() reflect.Type {
@@ -15434,6 +17775,12 @@ func (o GetServiceHostnameConfigurationManagementOutput) ToGetServiceHostnameCon
 
 func (o GetServiceHostnameConfigurationManagementOutput) ToGetServiceHostnameConfigurationManagementOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationManagementOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationManagementOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationManagement] {
+	return pulumix.Output[GetServiceHostnameConfigurationManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hostname used for the SCM URL.
@@ -15463,6 +17810,12 @@ func (o GetServiceHostnameConfigurationManagementArrayOutput) ToGetServiceHostna
 
 func (o GetServiceHostnameConfigurationManagementArrayOutput) ToGetServiceHostnameConfigurationManagementArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationManagementArrayOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationManagement] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationManagement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationManagementOutput {
@@ -15512,6 +17865,12 @@ func (i GetServiceHostnameConfigurationPortalArgs) ToGetServiceHostnameConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationPortalOutput)
 }
 
+func (i GetServiceHostnameConfigurationPortalArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationPortal] {
+	return pulumix.Output[GetServiceHostnameConfigurationPortal]{
+		OutputState: i.ToGetServiceHostnameConfigurationPortalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceHostnameConfigurationPortalArrayInput is an input type that accepts GetServiceHostnameConfigurationPortalArray and GetServiceHostnameConfigurationPortalArrayOutput values.
 // You can construct a concrete instance of `GetServiceHostnameConfigurationPortalArrayInput` via:
 //
@@ -15537,6 +17896,12 @@ func (i GetServiceHostnameConfigurationPortalArray) ToGetServiceHostnameConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationPortalArrayOutput)
 }
 
+func (i GetServiceHostnameConfigurationPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationPortal] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationPortal]{
+		OutputState: i.ToGetServiceHostnameConfigurationPortalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceHostnameConfigurationPortalOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationPortalOutput) ElementType() reflect.Type {
@@ -15549,6 +17914,12 @@ func (o GetServiceHostnameConfigurationPortalOutput) ToGetServiceHostnameConfigu
 
 func (o GetServiceHostnameConfigurationPortalOutput) ToGetServiceHostnameConfigurationPortalOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationPortalOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationPortalOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationPortal] {
+	return pulumix.Output[GetServiceHostnameConfigurationPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hostname used for the SCM URL.
@@ -15578,6 +17949,12 @@ func (o GetServiceHostnameConfigurationPortalArrayOutput) ToGetServiceHostnameCo
 
 func (o GetServiceHostnameConfigurationPortalArrayOutput) ToGetServiceHostnameConfigurationPortalArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationPortalArrayOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationPortal] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationPortal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceHostnameConfigurationPortalArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationPortalOutput {
@@ -15631,6 +18008,12 @@ func (i GetServiceHostnameConfigurationProxyArgs) ToGetServiceHostnameConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationProxyOutput)
 }
 
+func (i GetServiceHostnameConfigurationProxyArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationProxy] {
+	return pulumix.Output[GetServiceHostnameConfigurationProxy]{
+		OutputState: i.ToGetServiceHostnameConfigurationProxyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceHostnameConfigurationProxyArrayInput is an input type that accepts GetServiceHostnameConfigurationProxyArray and GetServiceHostnameConfigurationProxyArrayOutput values.
 // You can construct a concrete instance of `GetServiceHostnameConfigurationProxyArrayInput` via:
 //
@@ -15656,6 +18039,12 @@ func (i GetServiceHostnameConfigurationProxyArray) ToGetServiceHostnameConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationProxyArrayOutput)
 }
 
+func (i GetServiceHostnameConfigurationProxyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationProxy] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationProxy]{
+		OutputState: i.ToGetServiceHostnameConfigurationProxyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceHostnameConfigurationProxyOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationProxyOutput) ElementType() reflect.Type {
@@ -15668,6 +18057,12 @@ func (o GetServiceHostnameConfigurationProxyOutput) ToGetServiceHostnameConfigur
 
 func (o GetServiceHostnameConfigurationProxyOutput) ToGetServiceHostnameConfigurationProxyOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationProxyOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationProxyOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationProxy] {
+	return pulumix.Output[GetServiceHostnameConfigurationProxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is this the default SSL Binding?
@@ -15702,6 +18097,12 @@ func (o GetServiceHostnameConfigurationProxyArrayOutput) ToGetServiceHostnameCon
 
 func (o GetServiceHostnameConfigurationProxyArrayOutput) ToGetServiceHostnameConfigurationProxyArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationProxyArrayOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationProxyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationProxy] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationProxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationProxyOutput {
@@ -15751,6 +18152,12 @@ func (i GetServiceHostnameConfigurationScmArgs) ToGetServiceHostnameConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationScmOutput)
 }
 
+func (i GetServiceHostnameConfigurationScmArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationScm] {
+	return pulumix.Output[GetServiceHostnameConfigurationScm]{
+		OutputState: i.ToGetServiceHostnameConfigurationScmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceHostnameConfigurationScmArrayInput is an input type that accepts GetServiceHostnameConfigurationScmArray and GetServiceHostnameConfigurationScmArrayOutput values.
 // You can construct a concrete instance of `GetServiceHostnameConfigurationScmArrayInput` via:
 //
@@ -15776,6 +18183,12 @@ func (i GetServiceHostnameConfigurationScmArray) ToGetServiceHostnameConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationScmArrayOutput)
 }
 
+func (i GetServiceHostnameConfigurationScmArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationScm] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationScm]{
+		OutputState: i.ToGetServiceHostnameConfigurationScmArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceHostnameConfigurationScmOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHostnameConfigurationScmOutput) ElementType() reflect.Type {
@@ -15788,6 +18201,12 @@ func (o GetServiceHostnameConfigurationScmOutput) ToGetServiceHostnameConfigurat
 
 func (o GetServiceHostnameConfigurationScmOutput) ToGetServiceHostnameConfigurationScmOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationScmOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationScmOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHostnameConfigurationScm] {
+	return pulumix.Output[GetServiceHostnameConfigurationScm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hostname used for the SCM URL.
@@ -15817,6 +18236,12 @@ func (o GetServiceHostnameConfigurationScmArrayOutput) ToGetServiceHostnameConfi
 
 func (o GetServiceHostnameConfigurationScmArrayOutput) ToGetServiceHostnameConfigurationScmArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationScmArrayOutput {
 	return o
+}
+
+func (o GetServiceHostnameConfigurationScmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHostnameConfigurationScm] {
+	return pulumix.Output[[]GetServiceHostnameConfigurationScm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationScmOutput {
@@ -15870,6 +18295,12 @@ func (i GetServiceIdentityArgs) ToGetServiceIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityOutput)
 }
 
+func (i GetServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceIdentity] {
+	return pulumix.Output[GetServiceIdentity]{
+		OutputState: i.ToGetServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceIdentityArrayInput is an input type that accepts GetServiceIdentityArray and GetServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServiceIdentityArrayInput` via:
 //
@@ -15895,6 +18326,12 @@ func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityArrayOutput)
 }
 
+func (i GetServiceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceIdentity] {
+	return pulumix.Output[[]GetServiceIdentity]{
+		OutputState: i.ToGetServiceIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetServiceIdentityOutput) ElementType() reflect.Type {
@@ -15907,6 +18344,12 @@ func (o GetServiceIdentityOutput) ToGetServiceIdentityOutput() GetServiceIdentit
 
 func (o GetServiceIdentityOutput) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
 	return o
+}
+
+func (o GetServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceIdentity] {
+	return pulumix.Output[GetServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this API Management Service.
@@ -15941,6 +18384,12 @@ func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutput() GetServ
 
 func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
 	return o
+}
+
+func (o GetServiceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceIdentity] {
+	return pulumix.Output[[]GetServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdentityOutput {
@@ -15994,6 +18443,12 @@ func (i GetServiceTenantAccessArgs) ToGetServiceTenantAccessOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTenantAccessOutput)
 }
 
+func (i GetServiceTenantAccessArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceTenantAccess] {
+	return pulumix.Output[GetServiceTenantAccess]{
+		OutputState: i.ToGetServiceTenantAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceTenantAccessArrayInput is an input type that accepts GetServiceTenantAccessArray and GetServiceTenantAccessArrayOutput values.
 // You can construct a concrete instance of `GetServiceTenantAccessArrayInput` via:
 //
@@ -16019,6 +18474,12 @@ func (i GetServiceTenantAccessArray) ToGetServiceTenantAccessArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTenantAccessArrayOutput)
 }
 
+func (i GetServiceTenantAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceTenantAccess] {
+	return pulumix.Output[[]GetServiceTenantAccess]{
+		OutputState: i.ToGetServiceTenantAccessArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceTenantAccessOutput struct{ *pulumi.OutputState }
 
 func (GetServiceTenantAccessOutput) ElementType() reflect.Type {
@@ -16031,6 +18492,12 @@ func (o GetServiceTenantAccessOutput) ToGetServiceTenantAccessOutput() GetServic
 
 func (o GetServiceTenantAccessOutput) ToGetServiceTenantAccessOutputWithContext(ctx context.Context) GetServiceTenantAccessOutput {
 	return o
+}
+
+func (o GetServiceTenantAccessOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceTenantAccess] {
+	return pulumix.Output[GetServiceTenantAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is access to the Management API enabled (presumably "for this Tenant")?
@@ -16065,6 +18532,12 @@ func (o GetServiceTenantAccessArrayOutput) ToGetServiceTenantAccessArrayOutput()
 
 func (o GetServiceTenantAccessArrayOutput) ToGetServiceTenantAccessArrayOutputWithContext(ctx context.Context) GetServiceTenantAccessArrayOutput {
 	return o
+}
+
+func (o GetServiceTenantAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceTenantAccess] {
+	return pulumix.Output[[]GetServiceTenantAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceTenantAccessArrayOutput) Index(i pulumi.IntInput) GetServiceTenantAccessOutput {

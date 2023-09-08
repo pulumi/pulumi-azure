@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
@@ -196,6 +197,12 @@ func (i *FrontdoorProfile) ToFrontdoorProfileOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileOutput)
 }
 
+func (i *FrontdoorProfile) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorProfile] {
+	return pulumix.Output[*FrontdoorProfile]{
+		OutputState: i.ToFrontdoorProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrontdoorProfileArrayInput is an input type that accepts FrontdoorProfileArray and FrontdoorProfileArrayOutput values.
 // You can construct a concrete instance of `FrontdoorProfileArrayInput` via:
 //
@@ -219,6 +226,12 @@ func (i FrontdoorProfileArray) ToFrontdoorProfileArrayOutput() FrontdoorProfileA
 
 func (i FrontdoorProfileArray) ToFrontdoorProfileArrayOutputWithContext(ctx context.Context) FrontdoorProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileArrayOutput)
+}
+
+func (i FrontdoorProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorProfile] {
+	return pulumix.Output[[]*FrontdoorProfile]{
+		OutputState: i.ToFrontdoorProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FrontdoorProfileMapInput is an input type that accepts FrontdoorProfileMap and FrontdoorProfileMapOutput values.
@@ -246,6 +259,12 @@ func (i FrontdoorProfileMap) ToFrontdoorProfileMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileMapOutput)
 }
 
+func (i FrontdoorProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorProfile] {
+	return pulumix.Output[map[string]*FrontdoorProfile]{
+		OutputState: i.ToFrontdoorProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrontdoorProfileOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorProfileOutput) ElementType() reflect.Type {
@@ -258,6 +277,12 @@ func (o FrontdoorProfileOutput) ToFrontdoorProfileOutput() FrontdoorProfileOutpu
 
 func (o FrontdoorProfileOutput) ToFrontdoorProfileOutputWithContext(ctx context.Context) FrontdoorProfileOutput {
 	return o
+}
+
+func (o FrontdoorProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorProfile] {
+	return pulumix.Output[*FrontdoorProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
@@ -304,6 +329,12 @@ func (o FrontdoorProfileArrayOutput) ToFrontdoorProfileArrayOutputWithContext(ct
 	return o
 }
 
+func (o FrontdoorProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorProfile] {
+	return pulumix.Output[[]*FrontdoorProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FrontdoorProfileArrayOutput) Index(i pulumi.IntInput) FrontdoorProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorProfile {
 		return vs[0].([]*FrontdoorProfile)[vs[1].(int)]
@@ -322,6 +353,12 @@ func (o FrontdoorProfileMapOutput) ToFrontdoorProfileMapOutput() FrontdoorProfil
 
 func (o FrontdoorProfileMapOutput) ToFrontdoorProfileMapOutputWithContext(ctx context.Context) FrontdoorProfileMapOutput {
 	return o
+}
+
+func (o FrontdoorProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorProfile] {
+	return pulumix.Output[map[string]*FrontdoorProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrontdoorProfileMapOutput) MapIndex(k pulumi.StringInput) FrontdoorProfileOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i BudgetManagementGroupFilterArgs) ToBudgetManagementGroupFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterOutput)
 }
 
+func (i BudgetManagementGroupFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilter] {
+	return pulumix.Output[BudgetManagementGroupFilter]{
+		OutputState: i.ToBudgetManagementGroupFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetManagementGroupFilterArgs) ToBudgetManagementGroupFilterPtrOutput() BudgetManagementGroupFilterPtrOutput {
 	return i.ToBudgetManagementGroupFilterPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *budgetManagementGroupFilterPtrType) ToBudgetManagementGroupFilterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterPtrOutput)
 }
 
+func (i *budgetManagementGroupFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilter] {
+	return pulumix.Output[*BudgetManagementGroupFilter]{
+		OutputState: i.ToBudgetManagementGroupFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupFilterOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupFilterOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o BudgetManagementGroupFilterOutput) ToBudgetManagementGroupFilterPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilter) *BudgetManagementGroupFilter {
 		return &v
 	}).(BudgetManagementGroupFilterPtrOutput)
+}
+
+func (o BudgetManagementGroupFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilter] {
+	return pulumix.Output[BudgetManagementGroupFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `dimension` blocks as defined below to filter the budget on.
@@ -152,6 +171,12 @@ func (o BudgetManagementGroupFilterPtrOutput) ToBudgetManagementGroupFilterPtrOu
 
 func (o BudgetManagementGroupFilterPtrOutput) ToBudgetManagementGroupFilterPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterPtrOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilter] {
+	return pulumix.Output[*BudgetManagementGroupFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupFilterPtrOutput) Elem() BudgetManagementGroupFilterOutput {
@@ -237,6 +262,12 @@ func (i BudgetManagementGroupFilterDimensionArgs) ToBudgetManagementGroupFilterD
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterDimensionOutput)
 }
 
+func (i BudgetManagementGroupFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterDimension] {
+	return pulumix.Output[BudgetManagementGroupFilterDimension]{
+		OutputState: i.ToBudgetManagementGroupFilterDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetManagementGroupFilterDimensionArrayInput is an input type that accepts BudgetManagementGroupFilterDimensionArray and BudgetManagementGroupFilterDimensionArrayOutput values.
 // You can construct a concrete instance of `BudgetManagementGroupFilterDimensionArrayInput` via:
 //
@@ -262,6 +293,12 @@ func (i BudgetManagementGroupFilterDimensionArray) ToBudgetManagementGroupFilter
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterDimensionArrayOutput)
 }
 
+func (i BudgetManagementGroupFilterDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetManagementGroupFilterDimension] {
+	return pulumix.Output[[]BudgetManagementGroupFilterDimension]{
+		OutputState: i.ToBudgetManagementGroupFilterDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupFilterDimensionOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupFilterDimensionOutput) ElementType() reflect.Type {
@@ -274,6 +311,12 @@ func (o BudgetManagementGroupFilterDimensionOutput) ToBudgetManagementGroupFilte
 
 func (o BudgetManagementGroupFilterDimensionOutput) ToBudgetManagementGroupFilterDimensionOutputWithContext(ctx context.Context) BudgetManagementGroupFilterDimensionOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterDimension] {
+	return pulumix.Output[BudgetManagementGroupFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -303,6 +346,12 @@ func (o BudgetManagementGroupFilterDimensionArrayOutput) ToBudgetManagementGroup
 
 func (o BudgetManagementGroupFilterDimensionArrayOutput) ToBudgetManagementGroupFilterDimensionArrayOutputWithContext(ctx context.Context) BudgetManagementGroupFilterDimensionArrayOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetManagementGroupFilterDimension] {
+	return pulumix.Output[[]BudgetManagementGroupFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupFilterDimensionArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupFilterDimensionOutput {
@@ -348,6 +397,12 @@ func (i BudgetManagementGroupFilterNotArgs) ToBudgetManagementGroupFilterNotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotOutput)
 }
 
+func (i BudgetManagementGroupFilterNotArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterNot] {
+	return pulumix.Output[BudgetManagementGroupFilterNot]{
+		OutputState: i.ToBudgetManagementGroupFilterNotOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetManagementGroupFilterNotArgs) ToBudgetManagementGroupFilterNotPtrOutput() BudgetManagementGroupFilterNotPtrOutput {
 	return i.ToBudgetManagementGroupFilterNotPtrOutputWithContext(context.Background())
 }
@@ -389,6 +444,12 @@ func (i *budgetManagementGroupFilterNotPtrType) ToBudgetManagementGroupFilterNot
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotPtrOutput)
 }
 
+func (i *budgetManagementGroupFilterNotPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilterNot] {
+	return pulumix.Output[*BudgetManagementGroupFilterNot]{
+		OutputState: i.ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupFilterNotOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupFilterNotOutput) ElementType() reflect.Type {
@@ -413,6 +474,12 @@ func (o BudgetManagementGroupFilterNotOutput) ToBudgetManagementGroupFilterNotPt
 	}).(BudgetManagementGroupFilterNotPtrOutput)
 }
 
+func (o BudgetManagementGroupFilterNotOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterNot] {
+	return pulumix.Output[BudgetManagementGroupFilterNot]{
+		OutputState: o.OutputState,
+	}
+}
+
 // One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
 func (o BudgetManagementGroupFilterNotOutput) Dimension() BudgetManagementGroupFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v BudgetManagementGroupFilterNot) *BudgetManagementGroupFilterNotDimension { return v.Dimension }).(BudgetManagementGroupFilterNotDimensionPtrOutput)
@@ -435,6 +502,12 @@ func (o BudgetManagementGroupFilterNotPtrOutput) ToBudgetManagementGroupFilterNo
 
 func (o BudgetManagementGroupFilterNotPtrOutput) ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotPtrOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterNotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilterNot] {
+	return pulumix.Output[*BudgetManagementGroupFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupFilterNotPtrOutput) Elem() BudgetManagementGroupFilterNotOutput {
@@ -508,6 +581,12 @@ func (i BudgetManagementGroupFilterNotDimensionArgs) ToBudgetManagementGroupFilt
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotDimensionOutput)
 }
 
+func (i BudgetManagementGroupFilterNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterNotDimension] {
+	return pulumix.Output[BudgetManagementGroupFilterNotDimension]{
+		OutputState: i.ToBudgetManagementGroupFilterNotDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetManagementGroupFilterNotDimensionArgs) ToBudgetManagementGroupFilterNotDimensionPtrOutput() BudgetManagementGroupFilterNotDimensionPtrOutput {
 	return i.ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(context.Background())
 }
@@ -549,6 +628,12 @@ func (i *budgetManagementGroupFilterNotDimensionPtrType) ToBudgetManagementGroup
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotDimensionPtrOutput)
 }
 
+func (i *budgetManagementGroupFilterNotDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilterNotDimension] {
+	return pulumix.Output[*BudgetManagementGroupFilterNotDimension]{
+		OutputState: i.ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupFilterNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupFilterNotDimensionOutput) ElementType() reflect.Type {
@@ -571,6 +656,12 @@ func (o BudgetManagementGroupFilterNotDimensionOutput) ToBudgetManagementGroupFi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilterNotDimension) *BudgetManagementGroupFilterNotDimension {
 		return &v
 	}).(BudgetManagementGroupFilterNotDimensionPtrOutput)
+}
+
+func (o BudgetManagementGroupFilterNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterNotDimension] {
+	return pulumix.Output[BudgetManagementGroupFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -600,6 +691,12 @@ func (o BudgetManagementGroupFilterNotDimensionPtrOutput) ToBudgetManagementGrou
 
 func (o BudgetManagementGroupFilterNotDimensionPtrOutput) ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionPtrOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilterNotDimension] {
+	return pulumix.Output[*BudgetManagementGroupFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupFilterNotDimensionPtrOutput) Elem() BudgetManagementGroupFilterNotDimensionOutput {
@@ -683,6 +780,12 @@ func (i BudgetManagementGroupFilterNotTagArgs) ToBudgetManagementGroupFilterNotT
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotTagOutput)
 }
 
+func (i BudgetManagementGroupFilterNotTagArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterNotTag] {
+	return pulumix.Output[BudgetManagementGroupFilterNotTag]{
+		OutputState: i.ToBudgetManagementGroupFilterNotTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetManagementGroupFilterNotTagArgs) ToBudgetManagementGroupFilterNotTagPtrOutput() BudgetManagementGroupFilterNotTagPtrOutput {
 	return i.ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(context.Background())
 }
@@ -724,6 +827,12 @@ func (i *budgetManagementGroupFilterNotTagPtrType) ToBudgetManagementGroupFilter
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotTagPtrOutput)
 }
 
+func (i *budgetManagementGroupFilterNotTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilterNotTag] {
+	return pulumix.Output[*BudgetManagementGroupFilterNotTag]{
+		OutputState: i.ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupFilterNotTagOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupFilterNotTagOutput) ElementType() reflect.Type {
@@ -746,6 +855,12 @@ func (o BudgetManagementGroupFilterNotTagOutput) ToBudgetManagementGroupFilterNo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilterNotTag) *BudgetManagementGroupFilterNotTag {
 		return &v
 	}).(BudgetManagementGroupFilterNotTagPtrOutput)
+}
+
+func (o BudgetManagementGroupFilterNotTagOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterNotTag] {
+	return pulumix.Output[BudgetManagementGroupFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the tag to use for the filter.
@@ -775,6 +890,12 @@ func (o BudgetManagementGroupFilterNotTagPtrOutput) ToBudgetManagementGroupFilte
 
 func (o BudgetManagementGroupFilterNotTagPtrOutput) ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagPtrOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterNotTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupFilterNotTag] {
+	return pulumix.Output[*BudgetManagementGroupFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupFilterNotTagPtrOutput) Elem() BudgetManagementGroupFilterNotTagOutput {
@@ -858,6 +979,12 @@ func (i BudgetManagementGroupFilterTagArgs) ToBudgetManagementGroupFilterTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterTagOutput)
 }
 
+func (i BudgetManagementGroupFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterTag] {
+	return pulumix.Output[BudgetManagementGroupFilterTag]{
+		OutputState: i.ToBudgetManagementGroupFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetManagementGroupFilterTagArrayInput is an input type that accepts BudgetManagementGroupFilterTagArray and BudgetManagementGroupFilterTagArrayOutput values.
 // You can construct a concrete instance of `BudgetManagementGroupFilterTagArrayInput` via:
 //
@@ -883,6 +1010,12 @@ func (i BudgetManagementGroupFilterTagArray) ToBudgetManagementGroupFilterTagArr
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterTagArrayOutput)
 }
 
+func (i BudgetManagementGroupFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetManagementGroupFilterTag] {
+	return pulumix.Output[[]BudgetManagementGroupFilterTag]{
+		OutputState: i.ToBudgetManagementGroupFilterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupFilterTagOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupFilterTagOutput) ElementType() reflect.Type {
@@ -895,6 +1028,12 @@ func (o BudgetManagementGroupFilterTagOutput) ToBudgetManagementGroupFilterTagOu
 
 func (o BudgetManagementGroupFilterTagOutput) ToBudgetManagementGroupFilterTagOutputWithContext(ctx context.Context) BudgetManagementGroupFilterTagOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupFilterTag] {
+	return pulumix.Output[BudgetManagementGroupFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the tag to use for the filter.
@@ -924,6 +1063,12 @@ func (o BudgetManagementGroupFilterTagArrayOutput) ToBudgetManagementGroupFilter
 
 func (o BudgetManagementGroupFilterTagArrayOutput) ToBudgetManagementGroupFilterTagArrayOutputWithContext(ctx context.Context) BudgetManagementGroupFilterTagArrayOutput {
 	return o
+}
+
+func (o BudgetManagementGroupFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetManagementGroupFilterTag] {
+	return pulumix.Output[[]BudgetManagementGroupFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupFilterTagArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupFilterTagOutput {
@@ -981,6 +1126,12 @@ func (i BudgetManagementGroupNotificationArgs) ToBudgetManagementGroupNotificati
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupNotificationOutput)
 }
 
+func (i BudgetManagementGroupNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupNotification] {
+	return pulumix.Output[BudgetManagementGroupNotification]{
+		OutputState: i.ToBudgetManagementGroupNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetManagementGroupNotificationArrayInput is an input type that accepts BudgetManagementGroupNotificationArray and BudgetManagementGroupNotificationArrayOutput values.
 // You can construct a concrete instance of `BudgetManagementGroupNotificationArrayInput` via:
 //
@@ -1006,6 +1157,12 @@ func (i BudgetManagementGroupNotificationArray) ToBudgetManagementGroupNotificat
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupNotificationArrayOutput)
 }
 
+func (i BudgetManagementGroupNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetManagementGroupNotification] {
+	return pulumix.Output[[]BudgetManagementGroupNotification]{
+		OutputState: i.ToBudgetManagementGroupNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupNotificationOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupNotificationOutput) ElementType() reflect.Type {
@@ -1018,6 +1175,12 @@ func (o BudgetManagementGroupNotificationOutput) ToBudgetManagementGroupNotifica
 
 func (o BudgetManagementGroupNotificationOutput) ToBudgetManagementGroupNotificationOutputWithContext(ctx context.Context) BudgetManagementGroupNotificationOutput {
 	return o
+}
+
+func (o BudgetManagementGroupNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupNotification] {
+	return pulumix.Output[BudgetManagementGroupNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
@@ -1057,6 +1220,12 @@ func (o BudgetManagementGroupNotificationArrayOutput) ToBudgetManagementGroupNot
 
 func (o BudgetManagementGroupNotificationArrayOutput) ToBudgetManagementGroupNotificationArrayOutputWithContext(ctx context.Context) BudgetManagementGroupNotificationArrayOutput {
 	return o
+}
+
+func (o BudgetManagementGroupNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetManagementGroupNotification] {
+	return pulumix.Output[[]BudgetManagementGroupNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupNotificationArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupNotificationOutput {
@@ -1102,6 +1271,12 @@ func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodOu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodOutput)
 }
 
+func (i BudgetManagementGroupTimePeriodArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupTimePeriod] {
+	return pulumix.Output[BudgetManagementGroupTimePeriod]{
+		OutputState: i.ToBudgetManagementGroupTimePeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
 	return i.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
 }
@@ -1143,6 +1318,12 @@ func (i *budgetManagementGroupTimePeriodPtrType) ToBudgetManagementGroupTimePeri
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodPtrOutput)
 }
 
+func (i *budgetManagementGroupTimePeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupTimePeriod] {
+	return pulumix.Output[*BudgetManagementGroupTimePeriod]{
+		OutputState: i.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetManagementGroupTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupTimePeriodOutput) ElementType() reflect.Type {
@@ -1167,6 +1348,12 @@ func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriod
 	}).(BudgetManagementGroupTimePeriodPtrOutput)
 }
 
+func (o BudgetManagementGroupTimePeriodOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetManagementGroupTimePeriod] {
+	return pulumix.Output[BudgetManagementGroupTimePeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The end date for the budget. If not set this will be 10 years after the start date.
 func (o BudgetManagementGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetManagementGroupTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
@@ -1189,6 +1376,12 @@ func (o BudgetManagementGroupTimePeriodPtrOutput) ToBudgetManagementGroupTimePer
 
 func (o BudgetManagementGroupTimePeriodPtrOutput) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
 	return o
+}
+
+func (o BudgetManagementGroupTimePeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroupTimePeriod] {
+	return pulumix.Output[*BudgetManagementGroupTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetManagementGroupTimePeriodPtrOutput) Elem() BudgetManagementGroupTimePeriodOutput {
@@ -1266,6 +1459,12 @@ func (i BudgetResourceGroupFilterArgs) ToBudgetResourceGroupFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterOutput)
 }
 
+func (i BudgetResourceGroupFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilter] {
+	return pulumix.Output[BudgetResourceGroupFilter]{
+		OutputState: i.ToBudgetResourceGroupFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetResourceGroupFilterArgs) ToBudgetResourceGroupFilterPtrOutput() BudgetResourceGroupFilterPtrOutput {
 	return i.ToBudgetResourceGroupFilterPtrOutputWithContext(context.Background())
 }
@@ -1307,6 +1506,12 @@ func (i *budgetResourceGroupFilterPtrType) ToBudgetResourceGroupFilterPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterPtrOutput)
 }
 
+func (i *budgetResourceGroupFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilter] {
+	return pulumix.Output[*BudgetResourceGroupFilter]{
+		OutputState: i.ToBudgetResourceGroupFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupFilterOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupFilterOutput) ElementType() reflect.Type {
@@ -1329,6 +1534,12 @@ func (o BudgetResourceGroupFilterOutput) ToBudgetResourceGroupFilterPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilter) *BudgetResourceGroupFilter {
 		return &v
 	}).(BudgetResourceGroupFilterPtrOutput)
+}
+
+func (o BudgetResourceGroupFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilter] {
+	return pulumix.Output[BudgetResourceGroupFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `dimension` blocks as defined below to filter the budget on.
@@ -1360,6 +1571,12 @@ func (o BudgetResourceGroupFilterPtrOutput) ToBudgetResourceGroupFilterPtrOutput
 
 func (o BudgetResourceGroupFilterPtrOutput) ToBudgetResourceGroupFilterPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterPtrOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilter] {
+	return pulumix.Output[*BudgetResourceGroupFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupFilterPtrOutput) Elem() BudgetResourceGroupFilterOutput {
@@ -1445,6 +1662,12 @@ func (i BudgetResourceGroupFilterDimensionArgs) ToBudgetResourceGroupFilterDimen
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterDimensionOutput)
 }
 
+func (i BudgetResourceGroupFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterDimension] {
+	return pulumix.Output[BudgetResourceGroupFilterDimension]{
+		OutputState: i.ToBudgetResourceGroupFilterDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetResourceGroupFilterDimensionArrayInput is an input type that accepts BudgetResourceGroupFilterDimensionArray and BudgetResourceGroupFilterDimensionArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceGroupFilterDimensionArrayInput` via:
 //
@@ -1470,6 +1693,12 @@ func (i BudgetResourceGroupFilterDimensionArray) ToBudgetResourceGroupFilterDime
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterDimensionArrayOutput)
 }
 
+func (i BudgetResourceGroupFilterDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetResourceGroupFilterDimension] {
+	return pulumix.Output[[]BudgetResourceGroupFilterDimension]{
+		OutputState: i.ToBudgetResourceGroupFilterDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupFilterDimensionOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupFilterDimensionOutput) ElementType() reflect.Type {
@@ -1482,6 +1711,12 @@ func (o BudgetResourceGroupFilterDimensionOutput) ToBudgetResourceGroupFilterDim
 
 func (o BudgetResourceGroupFilterDimensionOutput) ToBudgetResourceGroupFilterDimensionOutputWithContext(ctx context.Context) BudgetResourceGroupFilterDimensionOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterDimension] {
+	return pulumix.Output[BudgetResourceGroupFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -1511,6 +1746,12 @@ func (o BudgetResourceGroupFilterDimensionArrayOutput) ToBudgetResourceGroupFilt
 
 func (o BudgetResourceGroupFilterDimensionArrayOutput) ToBudgetResourceGroupFilterDimensionArrayOutputWithContext(ctx context.Context) BudgetResourceGroupFilterDimensionArrayOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetResourceGroupFilterDimension] {
+	return pulumix.Output[[]BudgetResourceGroupFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupFilterDimensionArrayOutput) Index(i pulumi.IntInput) BudgetResourceGroupFilterDimensionOutput {
@@ -1556,6 +1797,12 @@ func (i BudgetResourceGroupFilterNotArgs) ToBudgetResourceGroupFilterNotOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterNotOutput)
 }
 
+func (i BudgetResourceGroupFilterNotArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterNot] {
+	return pulumix.Output[BudgetResourceGroupFilterNot]{
+		OutputState: i.ToBudgetResourceGroupFilterNotOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetResourceGroupFilterNotArgs) ToBudgetResourceGroupFilterNotPtrOutput() BudgetResourceGroupFilterNotPtrOutput {
 	return i.ToBudgetResourceGroupFilterNotPtrOutputWithContext(context.Background())
 }
@@ -1597,6 +1844,12 @@ func (i *budgetResourceGroupFilterNotPtrType) ToBudgetResourceGroupFilterNotPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterNotPtrOutput)
 }
 
+func (i *budgetResourceGroupFilterNotPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilterNot] {
+	return pulumix.Output[*BudgetResourceGroupFilterNot]{
+		OutputState: i.ToBudgetResourceGroupFilterNotPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupFilterNotOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupFilterNotOutput) ElementType() reflect.Type {
@@ -1621,6 +1874,12 @@ func (o BudgetResourceGroupFilterNotOutput) ToBudgetResourceGroupFilterNotPtrOut
 	}).(BudgetResourceGroupFilterNotPtrOutput)
 }
 
+func (o BudgetResourceGroupFilterNotOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterNot] {
+	return pulumix.Output[BudgetResourceGroupFilterNot]{
+		OutputState: o.OutputState,
+	}
+}
+
 // One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
 func (o BudgetResourceGroupFilterNotOutput) Dimension() BudgetResourceGroupFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupFilterNot) *BudgetResourceGroupFilterNotDimension { return v.Dimension }).(BudgetResourceGroupFilterNotDimensionPtrOutput)
@@ -1643,6 +1902,12 @@ func (o BudgetResourceGroupFilterNotPtrOutput) ToBudgetResourceGroupFilterNotPtr
 
 func (o BudgetResourceGroupFilterNotPtrOutput) ToBudgetResourceGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterNotPtrOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterNotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilterNot] {
+	return pulumix.Output[*BudgetResourceGroupFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupFilterNotPtrOutput) Elem() BudgetResourceGroupFilterNotOutput {
@@ -1716,6 +1981,12 @@ func (i BudgetResourceGroupFilterNotDimensionArgs) ToBudgetResourceGroupFilterNo
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterNotDimensionOutput)
 }
 
+func (i BudgetResourceGroupFilterNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[BudgetResourceGroupFilterNotDimension]{
+		OutputState: i.ToBudgetResourceGroupFilterNotDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetResourceGroupFilterNotDimensionArgs) ToBudgetResourceGroupFilterNotDimensionPtrOutput() BudgetResourceGroupFilterNotDimensionPtrOutput {
 	return i.ToBudgetResourceGroupFilterNotDimensionPtrOutputWithContext(context.Background())
 }
@@ -1757,6 +2028,12 @@ func (i *budgetResourceGroupFilterNotDimensionPtrType) ToBudgetResourceGroupFilt
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterNotDimensionPtrOutput)
 }
 
+func (i *budgetResourceGroupFilterNotDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[*BudgetResourceGroupFilterNotDimension]{
+		OutputState: i.ToBudgetResourceGroupFilterNotDimensionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupFilterNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupFilterNotDimensionOutput) ElementType() reflect.Type {
@@ -1779,6 +2056,12 @@ func (o BudgetResourceGroupFilterNotDimensionOutput) ToBudgetResourceGroupFilter
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilterNotDimension) *BudgetResourceGroupFilterNotDimension {
 		return &v
 	}).(BudgetResourceGroupFilterNotDimensionPtrOutput)
+}
+
+func (o BudgetResourceGroupFilterNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[BudgetResourceGroupFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -1808,6 +2091,12 @@ func (o BudgetResourceGroupFilterNotDimensionPtrOutput) ToBudgetResourceGroupFil
 
 func (o BudgetResourceGroupFilterNotDimensionPtrOutput) ToBudgetResourceGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterNotDimensionPtrOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterNotDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[*BudgetResourceGroupFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupFilterNotDimensionPtrOutput) Elem() BudgetResourceGroupFilterNotDimensionOutput {
@@ -1891,6 +2180,12 @@ func (i BudgetResourceGroupFilterNotTagArgs) ToBudgetResourceGroupFilterNotTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterNotTagOutput)
 }
 
+func (i BudgetResourceGroupFilterNotTagArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[BudgetResourceGroupFilterNotTag]{
+		OutputState: i.ToBudgetResourceGroupFilterNotTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetResourceGroupFilterNotTagArgs) ToBudgetResourceGroupFilterNotTagPtrOutput() BudgetResourceGroupFilterNotTagPtrOutput {
 	return i.ToBudgetResourceGroupFilterNotTagPtrOutputWithContext(context.Background())
 }
@@ -1932,6 +2227,12 @@ func (i *budgetResourceGroupFilterNotTagPtrType) ToBudgetResourceGroupFilterNotT
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterNotTagPtrOutput)
 }
 
+func (i *budgetResourceGroupFilterNotTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[*BudgetResourceGroupFilterNotTag]{
+		OutputState: i.ToBudgetResourceGroupFilterNotTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupFilterNotTagOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupFilterNotTagOutput) ElementType() reflect.Type {
@@ -1954,6 +2255,12 @@ func (o BudgetResourceGroupFilterNotTagOutput) ToBudgetResourceGroupFilterNotTag
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupFilterNotTag) *BudgetResourceGroupFilterNotTag {
 		return &v
 	}).(BudgetResourceGroupFilterNotTagPtrOutput)
+}
+
+func (o BudgetResourceGroupFilterNotTagOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[BudgetResourceGroupFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the tag to use for the filter.
@@ -1983,6 +2290,12 @@ func (o BudgetResourceGroupFilterNotTagPtrOutput) ToBudgetResourceGroupFilterNot
 
 func (o BudgetResourceGroupFilterNotTagPtrOutput) ToBudgetResourceGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetResourceGroupFilterNotTagPtrOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterNotTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[*BudgetResourceGroupFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupFilterNotTagPtrOutput) Elem() BudgetResourceGroupFilterNotTagOutput {
@@ -2066,6 +2379,12 @@ func (i BudgetResourceGroupFilterTagArgs) ToBudgetResourceGroupFilterTagOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterTagOutput)
 }
 
+func (i BudgetResourceGroupFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterTag] {
+	return pulumix.Output[BudgetResourceGroupFilterTag]{
+		OutputState: i.ToBudgetResourceGroupFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetResourceGroupFilterTagArrayInput is an input type that accepts BudgetResourceGroupFilterTagArray and BudgetResourceGroupFilterTagArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceGroupFilterTagArrayInput` via:
 //
@@ -2091,6 +2410,12 @@ func (i BudgetResourceGroupFilterTagArray) ToBudgetResourceGroupFilterTagArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupFilterTagArrayOutput)
 }
 
+func (i BudgetResourceGroupFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetResourceGroupFilterTag] {
+	return pulumix.Output[[]BudgetResourceGroupFilterTag]{
+		OutputState: i.ToBudgetResourceGroupFilterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupFilterTagOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupFilterTagOutput) ElementType() reflect.Type {
@@ -2103,6 +2428,12 @@ func (o BudgetResourceGroupFilterTagOutput) ToBudgetResourceGroupFilterTagOutput
 
 func (o BudgetResourceGroupFilterTagOutput) ToBudgetResourceGroupFilterTagOutputWithContext(ctx context.Context) BudgetResourceGroupFilterTagOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupFilterTag] {
+	return pulumix.Output[BudgetResourceGroupFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the tag to use for the filter.
@@ -2132,6 +2463,12 @@ func (o BudgetResourceGroupFilterTagArrayOutput) ToBudgetResourceGroupFilterTagA
 
 func (o BudgetResourceGroupFilterTagArrayOutput) ToBudgetResourceGroupFilterTagArrayOutputWithContext(ctx context.Context) BudgetResourceGroupFilterTagArrayOutput {
 	return o
+}
+
+func (o BudgetResourceGroupFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetResourceGroupFilterTag] {
+	return pulumix.Output[[]BudgetResourceGroupFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupFilterTagArrayOutput) Index(i pulumi.IntInput) BudgetResourceGroupFilterTagOutput {
@@ -2201,6 +2538,12 @@ func (i BudgetResourceGroupNotificationArgs) ToBudgetResourceGroupNotificationOu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupNotificationOutput)
 }
 
+func (i BudgetResourceGroupNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupNotification] {
+	return pulumix.Output[BudgetResourceGroupNotification]{
+		OutputState: i.ToBudgetResourceGroupNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetResourceGroupNotificationArrayInput is an input type that accepts BudgetResourceGroupNotificationArray and BudgetResourceGroupNotificationArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceGroupNotificationArrayInput` via:
 //
@@ -2226,6 +2569,12 @@ func (i BudgetResourceGroupNotificationArray) ToBudgetResourceGroupNotificationA
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupNotificationArrayOutput)
 }
 
+func (i BudgetResourceGroupNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetResourceGroupNotification] {
+	return pulumix.Output[[]BudgetResourceGroupNotification]{
+		OutputState: i.ToBudgetResourceGroupNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupNotificationOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupNotificationOutput) ElementType() reflect.Type {
@@ -2238,6 +2587,12 @@ func (o BudgetResourceGroupNotificationOutput) ToBudgetResourceGroupNotification
 
 func (o BudgetResourceGroupNotificationOutput) ToBudgetResourceGroupNotificationOutputWithContext(ctx context.Context) BudgetResourceGroupNotificationOutput {
 	return o
+}
+
+func (o BudgetResourceGroupNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupNotification] {
+	return pulumix.Output[BudgetResourceGroupNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
@@ -2291,6 +2646,12 @@ func (o BudgetResourceGroupNotificationArrayOutput) ToBudgetResourceGroupNotific
 	return o
 }
 
+func (o BudgetResourceGroupNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetResourceGroupNotification] {
+	return pulumix.Output[[]BudgetResourceGroupNotification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetResourceGroupNotificationArrayOutput) Index(i pulumi.IntInput) BudgetResourceGroupNotificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetResourceGroupNotification {
 		return vs[0].([]BudgetResourceGroupNotification)[vs[1].(int)]
@@ -2334,6 +2695,12 @@ func (i BudgetResourceGroupTimePeriodArgs) ToBudgetResourceGroupTimePeriodOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupTimePeriodOutput)
 }
 
+func (i BudgetResourceGroupTimePeriodArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupTimePeriod] {
+	return pulumix.Output[BudgetResourceGroupTimePeriod]{
+		OutputState: i.ToBudgetResourceGroupTimePeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetResourceGroupTimePeriodArgs) ToBudgetResourceGroupTimePeriodPtrOutput() BudgetResourceGroupTimePeriodPtrOutput {
 	return i.ToBudgetResourceGroupTimePeriodPtrOutputWithContext(context.Background())
 }
@@ -2375,6 +2742,12 @@ func (i *budgetResourceGroupTimePeriodPtrType) ToBudgetResourceGroupTimePeriodPt
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupTimePeriodPtrOutput)
 }
 
+func (i *budgetResourceGroupTimePeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupTimePeriod] {
+	return pulumix.Output[*BudgetResourceGroupTimePeriod]{
+		OutputState: i.ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupTimePeriodOutput) ElementType() reflect.Type {
@@ -2399,6 +2772,12 @@ func (o BudgetResourceGroupTimePeriodOutput) ToBudgetResourceGroupTimePeriodPtrO
 	}).(BudgetResourceGroupTimePeriodPtrOutput)
 }
 
+func (o BudgetResourceGroupTimePeriodOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetResourceGroupTimePeriod] {
+	return pulumix.Output[BudgetResourceGroupTimePeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The end date for the budget. If not set this will be 10 years after the start date.
 func (o BudgetResourceGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
@@ -2421,6 +2800,12 @@ func (o BudgetResourceGroupTimePeriodPtrOutput) ToBudgetResourceGroupTimePeriodP
 
 func (o BudgetResourceGroupTimePeriodPtrOutput) ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetResourceGroupTimePeriodPtrOutput {
 	return o
+}
+
+func (o BudgetResourceGroupTimePeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroupTimePeriod] {
+	return pulumix.Output[*BudgetResourceGroupTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupTimePeriodPtrOutput) Elem() BudgetResourceGroupTimePeriodOutput {
@@ -2498,6 +2883,12 @@ func (i BudgetSubscriptionFilterArgs) ToBudgetSubscriptionFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterOutput)
 }
 
+func (i BudgetSubscriptionFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilter] {
+	return pulumix.Output[BudgetSubscriptionFilter]{
+		OutputState: i.ToBudgetSubscriptionFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetSubscriptionFilterArgs) ToBudgetSubscriptionFilterPtrOutput() BudgetSubscriptionFilterPtrOutput {
 	return i.ToBudgetSubscriptionFilterPtrOutputWithContext(context.Background())
 }
@@ -2539,6 +2930,12 @@ func (i *budgetSubscriptionFilterPtrType) ToBudgetSubscriptionFilterPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterPtrOutput)
 }
 
+func (i *budgetSubscriptionFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilter] {
+	return pulumix.Output[*BudgetSubscriptionFilter]{
+		OutputState: i.ToBudgetSubscriptionFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -2561,6 +2958,12 @@ func (o BudgetSubscriptionFilterOutput) ToBudgetSubscriptionFilterPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilter) *BudgetSubscriptionFilter {
 		return &v
 	}).(BudgetSubscriptionFilterPtrOutput)
+}
+
+func (o BudgetSubscriptionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilter] {
+	return pulumix.Output[BudgetSubscriptionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `dimension` blocks as defined below to filter the budget on.
@@ -2592,6 +2995,12 @@ func (o BudgetSubscriptionFilterPtrOutput) ToBudgetSubscriptionFilterPtrOutput()
 
 func (o BudgetSubscriptionFilterPtrOutput) ToBudgetSubscriptionFilterPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterPtrOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilter] {
+	return pulumix.Output[*BudgetSubscriptionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionFilterPtrOutput) Elem() BudgetSubscriptionFilterOutput {
@@ -2677,6 +3086,12 @@ func (i BudgetSubscriptionFilterDimensionArgs) ToBudgetSubscriptionFilterDimensi
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterDimensionOutput)
 }
 
+func (i BudgetSubscriptionFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterDimension] {
+	return pulumix.Output[BudgetSubscriptionFilterDimension]{
+		OutputState: i.ToBudgetSubscriptionFilterDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetSubscriptionFilterDimensionArrayInput is an input type that accepts BudgetSubscriptionFilterDimensionArray and BudgetSubscriptionFilterDimensionArrayOutput values.
 // You can construct a concrete instance of `BudgetSubscriptionFilterDimensionArrayInput` via:
 //
@@ -2702,6 +3117,12 @@ func (i BudgetSubscriptionFilterDimensionArray) ToBudgetSubscriptionFilterDimens
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterDimensionArrayOutput)
 }
 
+func (i BudgetSubscriptionFilterDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetSubscriptionFilterDimension] {
+	return pulumix.Output[[]BudgetSubscriptionFilterDimension]{
+		OutputState: i.ToBudgetSubscriptionFilterDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionFilterDimensionOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionFilterDimensionOutput) ElementType() reflect.Type {
@@ -2714,6 +3135,12 @@ func (o BudgetSubscriptionFilterDimensionOutput) ToBudgetSubscriptionFilterDimen
 
 func (o BudgetSubscriptionFilterDimensionOutput) ToBudgetSubscriptionFilterDimensionOutputWithContext(ctx context.Context) BudgetSubscriptionFilterDimensionOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterDimension] {
+	return pulumix.Output[BudgetSubscriptionFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -2743,6 +3170,12 @@ func (o BudgetSubscriptionFilterDimensionArrayOutput) ToBudgetSubscriptionFilter
 
 func (o BudgetSubscriptionFilterDimensionArrayOutput) ToBudgetSubscriptionFilterDimensionArrayOutputWithContext(ctx context.Context) BudgetSubscriptionFilterDimensionArrayOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetSubscriptionFilterDimension] {
+	return pulumix.Output[[]BudgetSubscriptionFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionFilterDimensionArrayOutput) Index(i pulumi.IntInput) BudgetSubscriptionFilterDimensionOutput {
@@ -2788,6 +3221,12 @@ func (i BudgetSubscriptionFilterNotArgs) ToBudgetSubscriptionFilterNotOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterNotOutput)
 }
 
+func (i BudgetSubscriptionFilterNotArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterNot] {
+	return pulumix.Output[BudgetSubscriptionFilterNot]{
+		OutputState: i.ToBudgetSubscriptionFilterNotOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetSubscriptionFilterNotArgs) ToBudgetSubscriptionFilterNotPtrOutput() BudgetSubscriptionFilterNotPtrOutput {
 	return i.ToBudgetSubscriptionFilterNotPtrOutputWithContext(context.Background())
 }
@@ -2829,6 +3268,12 @@ func (i *budgetSubscriptionFilterNotPtrType) ToBudgetSubscriptionFilterNotPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterNotPtrOutput)
 }
 
+func (i *budgetSubscriptionFilterNotPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilterNot] {
+	return pulumix.Output[*BudgetSubscriptionFilterNot]{
+		OutputState: i.ToBudgetSubscriptionFilterNotPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionFilterNotOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionFilterNotOutput) ElementType() reflect.Type {
@@ -2853,6 +3298,12 @@ func (o BudgetSubscriptionFilterNotOutput) ToBudgetSubscriptionFilterNotPtrOutpu
 	}).(BudgetSubscriptionFilterNotPtrOutput)
 }
 
+func (o BudgetSubscriptionFilterNotOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterNot] {
+	return pulumix.Output[BudgetSubscriptionFilterNot]{
+		OutputState: o.OutputState,
+	}
+}
+
 // One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
 func (o BudgetSubscriptionFilterNotOutput) Dimension() BudgetSubscriptionFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionFilterNot) *BudgetSubscriptionFilterNotDimension { return v.Dimension }).(BudgetSubscriptionFilterNotDimensionPtrOutput)
@@ -2875,6 +3326,12 @@ func (o BudgetSubscriptionFilterNotPtrOutput) ToBudgetSubscriptionFilterNotPtrOu
 
 func (o BudgetSubscriptionFilterNotPtrOutput) ToBudgetSubscriptionFilterNotPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterNotPtrOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterNotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilterNot] {
+	return pulumix.Output[*BudgetSubscriptionFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionFilterNotPtrOutput) Elem() BudgetSubscriptionFilterNotOutput {
@@ -2948,6 +3405,12 @@ func (i BudgetSubscriptionFilterNotDimensionArgs) ToBudgetSubscriptionFilterNotD
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterNotDimensionOutput)
 }
 
+func (i BudgetSubscriptionFilterNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[BudgetSubscriptionFilterNotDimension]{
+		OutputState: i.ToBudgetSubscriptionFilterNotDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetSubscriptionFilterNotDimensionArgs) ToBudgetSubscriptionFilterNotDimensionPtrOutput() BudgetSubscriptionFilterNotDimensionPtrOutput {
 	return i.ToBudgetSubscriptionFilterNotDimensionPtrOutputWithContext(context.Background())
 }
@@ -2989,6 +3452,12 @@ func (i *budgetSubscriptionFilterNotDimensionPtrType) ToBudgetSubscriptionFilter
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterNotDimensionPtrOutput)
 }
 
+func (i *budgetSubscriptionFilterNotDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[*BudgetSubscriptionFilterNotDimension]{
+		OutputState: i.ToBudgetSubscriptionFilterNotDimensionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionFilterNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionFilterNotDimensionOutput) ElementType() reflect.Type {
@@ -3011,6 +3480,12 @@ func (o BudgetSubscriptionFilterNotDimensionOutput) ToBudgetSubscriptionFilterNo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilterNotDimension) *BudgetSubscriptionFilterNotDimension {
 		return &v
 	}).(BudgetSubscriptionFilterNotDimensionPtrOutput)
+}
+
+func (o BudgetSubscriptionFilterNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[BudgetSubscriptionFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -3040,6 +3515,12 @@ func (o BudgetSubscriptionFilterNotDimensionPtrOutput) ToBudgetSubscriptionFilte
 
 func (o BudgetSubscriptionFilterNotDimensionPtrOutput) ToBudgetSubscriptionFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterNotDimensionPtrOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterNotDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[*BudgetSubscriptionFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionFilterNotDimensionPtrOutput) Elem() BudgetSubscriptionFilterNotDimensionOutput {
@@ -3123,6 +3604,12 @@ func (i BudgetSubscriptionFilterNotTagArgs) ToBudgetSubscriptionFilterNotTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterNotTagOutput)
 }
 
+func (i BudgetSubscriptionFilterNotTagArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[BudgetSubscriptionFilterNotTag]{
+		OutputState: i.ToBudgetSubscriptionFilterNotTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetSubscriptionFilterNotTagArgs) ToBudgetSubscriptionFilterNotTagPtrOutput() BudgetSubscriptionFilterNotTagPtrOutput {
 	return i.ToBudgetSubscriptionFilterNotTagPtrOutputWithContext(context.Background())
 }
@@ -3164,6 +3651,12 @@ func (i *budgetSubscriptionFilterNotTagPtrType) ToBudgetSubscriptionFilterNotTag
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterNotTagPtrOutput)
 }
 
+func (i *budgetSubscriptionFilterNotTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[*BudgetSubscriptionFilterNotTag]{
+		OutputState: i.ToBudgetSubscriptionFilterNotTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionFilterNotTagOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionFilterNotTagOutput) ElementType() reflect.Type {
@@ -3186,6 +3679,12 @@ func (o BudgetSubscriptionFilterNotTagOutput) ToBudgetSubscriptionFilterNotTagPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionFilterNotTag) *BudgetSubscriptionFilterNotTag {
 		return &v
 	}).(BudgetSubscriptionFilterNotTagPtrOutput)
+}
+
+func (o BudgetSubscriptionFilterNotTagOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[BudgetSubscriptionFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the tag to use for the filter.
@@ -3215,6 +3714,12 @@ func (o BudgetSubscriptionFilterNotTagPtrOutput) ToBudgetSubscriptionFilterNotTa
 
 func (o BudgetSubscriptionFilterNotTagPtrOutput) ToBudgetSubscriptionFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetSubscriptionFilterNotTagPtrOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterNotTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[*BudgetSubscriptionFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionFilterNotTagPtrOutput) Elem() BudgetSubscriptionFilterNotTagOutput {
@@ -3298,6 +3803,12 @@ func (i BudgetSubscriptionFilterTagArgs) ToBudgetSubscriptionFilterTagOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterTagOutput)
 }
 
+func (i BudgetSubscriptionFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterTag] {
+	return pulumix.Output[BudgetSubscriptionFilterTag]{
+		OutputState: i.ToBudgetSubscriptionFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetSubscriptionFilterTagArrayInput is an input type that accepts BudgetSubscriptionFilterTagArray and BudgetSubscriptionFilterTagArrayOutput values.
 // You can construct a concrete instance of `BudgetSubscriptionFilterTagArrayInput` via:
 //
@@ -3323,6 +3834,12 @@ func (i BudgetSubscriptionFilterTagArray) ToBudgetSubscriptionFilterTagArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionFilterTagArrayOutput)
 }
 
+func (i BudgetSubscriptionFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetSubscriptionFilterTag] {
+	return pulumix.Output[[]BudgetSubscriptionFilterTag]{
+		OutputState: i.ToBudgetSubscriptionFilterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionFilterTagOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionFilterTagOutput) ElementType() reflect.Type {
@@ -3335,6 +3852,12 @@ func (o BudgetSubscriptionFilterTagOutput) ToBudgetSubscriptionFilterTagOutput()
 
 func (o BudgetSubscriptionFilterTagOutput) ToBudgetSubscriptionFilterTagOutputWithContext(ctx context.Context) BudgetSubscriptionFilterTagOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionFilterTag] {
+	return pulumix.Output[BudgetSubscriptionFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the tag to use for the filter.
@@ -3364,6 +3887,12 @@ func (o BudgetSubscriptionFilterTagArrayOutput) ToBudgetSubscriptionFilterTagArr
 
 func (o BudgetSubscriptionFilterTagArrayOutput) ToBudgetSubscriptionFilterTagArrayOutputWithContext(ctx context.Context) BudgetSubscriptionFilterTagArrayOutput {
 	return o
+}
+
+func (o BudgetSubscriptionFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetSubscriptionFilterTag] {
+	return pulumix.Output[[]BudgetSubscriptionFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionFilterTagArrayOutput) Index(i pulumi.IntInput) BudgetSubscriptionFilterTagOutput {
@@ -3433,6 +3962,12 @@ func (i BudgetSubscriptionNotificationArgs) ToBudgetSubscriptionNotificationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionNotificationOutput)
 }
 
+func (i BudgetSubscriptionNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionNotification] {
+	return pulumix.Output[BudgetSubscriptionNotification]{
+		OutputState: i.ToBudgetSubscriptionNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetSubscriptionNotificationArrayInput is an input type that accepts BudgetSubscriptionNotificationArray and BudgetSubscriptionNotificationArrayOutput values.
 // You can construct a concrete instance of `BudgetSubscriptionNotificationArrayInput` via:
 //
@@ -3458,6 +3993,12 @@ func (i BudgetSubscriptionNotificationArray) ToBudgetSubscriptionNotificationArr
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionNotificationArrayOutput)
 }
 
+func (i BudgetSubscriptionNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]BudgetSubscriptionNotification] {
+	return pulumix.Output[[]BudgetSubscriptionNotification]{
+		OutputState: i.ToBudgetSubscriptionNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionNotificationOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionNotificationOutput) ElementType() reflect.Type {
@@ -3470,6 +4011,12 @@ func (o BudgetSubscriptionNotificationOutput) ToBudgetSubscriptionNotificationOu
 
 func (o BudgetSubscriptionNotificationOutput) ToBudgetSubscriptionNotificationOutputWithContext(ctx context.Context) BudgetSubscriptionNotificationOutput {
 	return o
+}
+
+func (o BudgetSubscriptionNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionNotification] {
+	return pulumix.Output[BudgetSubscriptionNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
@@ -3523,6 +4070,12 @@ func (o BudgetSubscriptionNotificationArrayOutput) ToBudgetSubscriptionNotificat
 	return o
 }
 
+func (o BudgetSubscriptionNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BudgetSubscriptionNotification] {
+	return pulumix.Output[[]BudgetSubscriptionNotification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetSubscriptionNotificationArrayOutput) Index(i pulumi.IntInput) BudgetSubscriptionNotificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetSubscriptionNotification {
 		return vs[0].([]BudgetSubscriptionNotification)[vs[1].(int)]
@@ -3566,6 +4119,12 @@ func (i BudgetSubscriptionTimePeriodArgs) ToBudgetSubscriptionTimePeriodOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionTimePeriodOutput)
 }
 
+func (i BudgetSubscriptionTimePeriodArgs) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionTimePeriod] {
+	return pulumix.Output[BudgetSubscriptionTimePeriod]{
+		OutputState: i.ToBudgetSubscriptionTimePeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BudgetSubscriptionTimePeriodArgs) ToBudgetSubscriptionTimePeriodPtrOutput() BudgetSubscriptionTimePeriodPtrOutput {
 	return i.ToBudgetSubscriptionTimePeriodPtrOutputWithContext(context.Background())
 }
@@ -3607,6 +4166,12 @@ func (i *budgetSubscriptionTimePeriodPtrType) ToBudgetSubscriptionTimePeriodPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionTimePeriodPtrOutput)
 }
 
+func (i *budgetSubscriptionTimePeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionTimePeriod] {
+	return pulumix.Output[*BudgetSubscriptionTimePeriod]{
+		OutputState: i.ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetSubscriptionTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionTimePeriodOutput) ElementType() reflect.Type {
@@ -3631,6 +4196,12 @@ func (o BudgetSubscriptionTimePeriodOutput) ToBudgetSubscriptionTimePeriodPtrOut
 	}).(BudgetSubscriptionTimePeriodPtrOutput)
 }
 
+func (o BudgetSubscriptionTimePeriodOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetSubscriptionTimePeriod] {
+	return pulumix.Output[BudgetSubscriptionTimePeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The end date for the budget. If not set this will be 10 years after the start date.
 func (o BudgetSubscriptionTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
@@ -3653,6 +4224,12 @@ func (o BudgetSubscriptionTimePeriodPtrOutput) ToBudgetSubscriptionTimePeriodPtr
 
 func (o BudgetSubscriptionTimePeriodPtrOutput) ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx context.Context) BudgetSubscriptionTimePeriodPtrOutput {
 	return o
+}
+
+func (o BudgetSubscriptionTimePeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscriptionTimePeriod] {
+	return pulumix.Output[*BudgetSubscriptionTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetSubscriptionTimePeriodPtrOutput) Elem() BudgetSubscriptionTimePeriodOutput {
@@ -3726,6 +4303,12 @@ func (i GetBudgetResourceGroupFilterArgs) ToGetBudgetResourceGroupFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterOutput)
 }
 
+func (i GetBudgetResourceGroupFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilter] {
+	return pulumix.Output[GetBudgetResourceGroupFilter]{
+		OutputState: i.ToGetBudgetResourceGroupFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupFilterArrayInput is an input type that accepts GetBudgetResourceGroupFilterArray and GetBudgetResourceGroupFilterArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupFilterArrayInput` via:
 //
@@ -3751,6 +4334,12 @@ func (i GetBudgetResourceGroupFilterArray) ToGetBudgetResourceGroupFilterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterArrayOutput)
 }
 
+func (i GetBudgetResourceGroupFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilter] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilter]{
+		OutputState: i.ToGetBudgetResourceGroupFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupFilterOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupFilterOutput) ElementType() reflect.Type {
@@ -3763,6 +4352,12 @@ func (o GetBudgetResourceGroupFilterOutput) ToGetBudgetResourceGroupFilterOutput
 
 func (o GetBudgetResourceGroupFilterOutput) ToGetBudgetResourceGroupFilterOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilter] {
+	return pulumix.Output[GetBudgetResourceGroupFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `dimension` block as defined below.
@@ -3792,6 +4387,12 @@ func (o GetBudgetResourceGroupFilterArrayOutput) ToGetBudgetResourceGroupFilterA
 
 func (o GetBudgetResourceGroupFilterArrayOutput) ToGetBudgetResourceGroupFilterArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilter] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupFilterArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterOutput {
@@ -3841,6 +4442,12 @@ func (i GetBudgetResourceGroupFilterDimensionArgs) ToGetBudgetResourceGroupFilte
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterDimensionOutput)
 }
 
+func (i GetBudgetResourceGroupFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterDimension] {
+	return pulumix.Output[GetBudgetResourceGroupFilterDimension]{
+		OutputState: i.ToGetBudgetResourceGroupFilterDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupFilterDimensionArrayInput is an input type that accepts GetBudgetResourceGroupFilterDimensionArray and GetBudgetResourceGroupFilterDimensionArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupFilterDimensionArrayInput` via:
 //
@@ -3866,6 +4473,12 @@ func (i GetBudgetResourceGroupFilterDimensionArray) ToGetBudgetResourceGroupFilt
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterDimensionArrayOutput)
 }
 
+func (i GetBudgetResourceGroupFilterDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterDimension] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterDimension]{
+		OutputState: i.ToGetBudgetResourceGroupFilterDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupFilterDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupFilterDimensionOutput) ElementType() reflect.Type {
@@ -3878,6 +4491,12 @@ func (o GetBudgetResourceGroupFilterDimensionOutput) ToGetBudgetResourceGroupFil
 
 func (o GetBudgetResourceGroupFilterDimensionOutput) ToGetBudgetResourceGroupFilterDimensionOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterDimensionOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterDimension] {
+	return pulumix.Output[GetBudgetResourceGroupFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -3907,6 +4526,12 @@ func (o GetBudgetResourceGroupFilterDimensionArrayOutput) ToGetBudgetResourceGro
 
 func (o GetBudgetResourceGroupFilterDimensionArrayOutput) ToGetBudgetResourceGroupFilterDimensionArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterDimensionArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterDimension] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupFilterDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterDimensionOutput {
@@ -3952,6 +4577,12 @@ func (i GetBudgetResourceGroupFilterNotArgs) ToGetBudgetResourceGroupFilterNotOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotOutput)
 }
 
+func (i GetBudgetResourceGroupFilterNotArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterNot] {
+	return pulumix.Output[GetBudgetResourceGroupFilterNot]{
+		OutputState: i.ToGetBudgetResourceGroupFilterNotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupFilterNotArrayInput is an input type that accepts GetBudgetResourceGroupFilterNotArray and GetBudgetResourceGroupFilterNotArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupFilterNotArrayInput` via:
 //
@@ -3977,6 +4608,12 @@ func (i GetBudgetResourceGroupFilterNotArray) ToGetBudgetResourceGroupFilterNotA
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotArrayOutput)
 }
 
+func (i GetBudgetResourceGroupFilterNotArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterNot] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterNot]{
+		OutputState: i.ToGetBudgetResourceGroupFilterNotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupFilterNotOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupFilterNotOutput) ElementType() reflect.Type {
@@ -3989,6 +4626,12 @@ func (o GetBudgetResourceGroupFilterNotOutput) ToGetBudgetResourceGroupFilterNot
 
 func (o GetBudgetResourceGroupFilterNotOutput) ToGetBudgetResourceGroupFilterNotOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterNot] {
+	return pulumix.Output[GetBudgetResourceGroupFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `dimension` block as defined below.
@@ -4015,6 +4658,12 @@ func (o GetBudgetResourceGroupFilterNotArrayOutput) ToGetBudgetResourceGroupFilt
 
 func (o GetBudgetResourceGroupFilterNotArrayOutput) ToGetBudgetResourceGroupFilterNotArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterNot] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupFilterNotArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterNotOutput {
@@ -4064,6 +4713,12 @@ func (i GetBudgetResourceGroupFilterNotDimensionArgs) ToGetBudgetResourceGroupFi
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotDimensionOutput)
 }
 
+func (i GetBudgetResourceGroupFilterNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[GetBudgetResourceGroupFilterNotDimension]{
+		OutputState: i.ToGetBudgetResourceGroupFilterNotDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupFilterNotDimensionArrayInput is an input type that accepts GetBudgetResourceGroupFilterNotDimensionArray and GetBudgetResourceGroupFilterNotDimensionArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupFilterNotDimensionArrayInput` via:
 //
@@ -4089,6 +4744,12 @@ func (i GetBudgetResourceGroupFilterNotDimensionArray) ToGetBudgetResourceGroupF
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotDimensionArrayOutput)
 }
 
+func (i GetBudgetResourceGroupFilterNotDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterNotDimension]{
+		OutputState: i.ToGetBudgetResourceGroupFilterNotDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupFilterNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupFilterNotDimensionOutput) ElementType() reflect.Type {
@@ -4101,6 +4762,12 @@ func (o GetBudgetResourceGroupFilterNotDimensionOutput) ToGetBudgetResourceGroup
 
 func (o GetBudgetResourceGroupFilterNotDimensionOutput) ToGetBudgetResourceGroupFilterNotDimensionOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotDimensionOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[GetBudgetResourceGroupFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -4130,6 +4797,12 @@ func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) ToGetBudgetResource
 
 func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) ToGetBudgetResourceGroupFilterNotDimensionArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotDimensionArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterNotDimension] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupFilterNotDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterNotDimensionOutput {
@@ -4179,6 +4852,12 @@ func (i GetBudgetResourceGroupFilterNotTagArgs) ToGetBudgetResourceGroupFilterNo
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotTagOutput)
 }
 
+func (i GetBudgetResourceGroupFilterNotTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[GetBudgetResourceGroupFilterNotTag]{
+		OutputState: i.ToGetBudgetResourceGroupFilterNotTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupFilterNotTagArrayInput is an input type that accepts GetBudgetResourceGroupFilterNotTagArray and GetBudgetResourceGroupFilterNotTagArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupFilterNotTagArrayInput` via:
 //
@@ -4204,6 +4883,12 @@ func (i GetBudgetResourceGroupFilterNotTagArray) ToGetBudgetResourceGroupFilterN
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterNotTagArrayOutput)
 }
 
+func (i GetBudgetResourceGroupFilterNotTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterNotTag]{
+		OutputState: i.ToGetBudgetResourceGroupFilterNotTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupFilterNotTagOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupFilterNotTagOutput) ElementType() reflect.Type {
@@ -4216,6 +4901,12 @@ func (o GetBudgetResourceGroupFilterNotTagOutput) ToGetBudgetResourceGroupFilter
 
 func (o GetBudgetResourceGroupFilterNotTagOutput) ToGetBudgetResourceGroupFilterNotTagOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotTagOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[GetBudgetResourceGroupFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -4245,6 +4936,12 @@ func (o GetBudgetResourceGroupFilterNotTagArrayOutput) ToGetBudgetResourceGroupF
 
 func (o GetBudgetResourceGroupFilterNotTagArrayOutput) ToGetBudgetResourceGroupFilterNotTagArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterNotTagArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterNotTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterNotTag] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupFilterNotTagArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterNotTagOutput {
@@ -4294,6 +4991,12 @@ func (i GetBudgetResourceGroupFilterTagArgs) ToGetBudgetResourceGroupFilterTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterTagOutput)
 }
 
+func (i GetBudgetResourceGroupFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterTag] {
+	return pulumix.Output[GetBudgetResourceGroupFilterTag]{
+		OutputState: i.ToGetBudgetResourceGroupFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupFilterTagArrayInput is an input type that accepts GetBudgetResourceGroupFilterTagArray and GetBudgetResourceGroupFilterTagArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupFilterTagArrayInput` via:
 //
@@ -4319,6 +5022,12 @@ func (i GetBudgetResourceGroupFilterTagArray) ToGetBudgetResourceGroupFilterTagA
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupFilterTagArrayOutput)
 }
 
+func (i GetBudgetResourceGroupFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterTag] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterTag]{
+		OutputState: i.ToGetBudgetResourceGroupFilterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupFilterTagOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupFilterTagOutput) ElementType() reflect.Type {
@@ -4331,6 +5040,12 @@ func (o GetBudgetResourceGroupFilterTagOutput) ToGetBudgetResourceGroupFilterTag
 
 func (o GetBudgetResourceGroupFilterTagOutput) ToGetBudgetResourceGroupFilterTagOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterTagOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupFilterTag] {
+	return pulumix.Output[GetBudgetResourceGroupFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -4360,6 +5075,12 @@ func (o GetBudgetResourceGroupFilterTagArrayOutput) ToGetBudgetResourceGroupFilt
 
 func (o GetBudgetResourceGroupFilterTagArrayOutput) ToGetBudgetResourceGroupFilterTagArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupFilterTagArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupFilterTag] {
+	return pulumix.Output[[]GetBudgetResourceGroupFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupFilterTagArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupFilterTagOutput {
@@ -4423,6 +5144,12 @@ func (i GetBudgetResourceGroupNotificationArgs) ToGetBudgetResourceGroupNotifica
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupNotificationOutput)
 }
 
+func (i GetBudgetResourceGroupNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupNotification] {
+	return pulumix.Output[GetBudgetResourceGroupNotification]{
+		OutputState: i.ToGetBudgetResourceGroupNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupNotificationArrayInput is an input type that accepts GetBudgetResourceGroupNotificationArray and GetBudgetResourceGroupNotificationArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupNotificationArrayInput` via:
 //
@@ -4448,6 +5175,12 @@ func (i GetBudgetResourceGroupNotificationArray) ToGetBudgetResourceGroupNotific
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupNotificationArrayOutput)
 }
 
+func (i GetBudgetResourceGroupNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupNotification] {
+	return pulumix.Output[[]GetBudgetResourceGroupNotification]{
+		OutputState: i.ToGetBudgetResourceGroupNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupNotificationOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupNotificationOutput) ElementType() reflect.Type {
@@ -4460,6 +5193,12 @@ func (o GetBudgetResourceGroupNotificationOutput) ToGetBudgetResourceGroupNotifi
 
 func (o GetBudgetResourceGroupNotificationOutput) ToGetBudgetResourceGroupNotificationOutputWithContext(ctx context.Context) GetBudgetResourceGroupNotificationOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupNotification] {
+	return pulumix.Output[GetBudgetResourceGroupNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of email addresses to send the budget notification to when the threshold is exceeded.
@@ -4510,6 +5249,12 @@ func (o GetBudgetResourceGroupNotificationArrayOutput) ToGetBudgetResourceGroupN
 	return o
 }
 
+func (o GetBudgetResourceGroupNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupNotification] {
+	return pulumix.Output[[]GetBudgetResourceGroupNotification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetBudgetResourceGroupNotificationArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupNotificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetResourceGroupNotification {
 		return vs[0].([]GetBudgetResourceGroupNotification)[vs[1].(int)]
@@ -4553,6 +5298,12 @@ func (i GetBudgetResourceGroupTimePeriodArgs) ToGetBudgetResourceGroupTimePeriod
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupTimePeriodOutput)
 }
 
+func (i GetBudgetResourceGroupTimePeriodArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupTimePeriod] {
+	return pulumix.Output[GetBudgetResourceGroupTimePeriod]{
+		OutputState: i.ToGetBudgetResourceGroupTimePeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetResourceGroupTimePeriodArrayInput is an input type that accepts GetBudgetResourceGroupTimePeriodArray and GetBudgetResourceGroupTimePeriodArrayOutput values.
 // You can construct a concrete instance of `GetBudgetResourceGroupTimePeriodArrayInput` via:
 //
@@ -4578,6 +5329,12 @@ func (i GetBudgetResourceGroupTimePeriodArray) ToGetBudgetResourceGroupTimePerio
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetResourceGroupTimePeriodArrayOutput)
 }
 
+func (i GetBudgetResourceGroupTimePeriodArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupTimePeriod] {
+	return pulumix.Output[[]GetBudgetResourceGroupTimePeriod]{
+		OutputState: i.ToGetBudgetResourceGroupTimePeriodArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetResourceGroupTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetResourceGroupTimePeriodOutput) ElementType() reflect.Type {
@@ -4590,6 +5347,12 @@ func (o GetBudgetResourceGroupTimePeriodOutput) ToGetBudgetResourceGroupTimePeri
 
 func (o GetBudgetResourceGroupTimePeriodOutput) ToGetBudgetResourceGroupTimePeriodOutputWithContext(ctx context.Context) GetBudgetResourceGroupTimePeriodOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupTimePeriodOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetResourceGroupTimePeriod] {
+	return pulumix.Output[GetBudgetResourceGroupTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The end date for the budget.
@@ -4614,6 +5377,12 @@ func (o GetBudgetResourceGroupTimePeriodArrayOutput) ToGetBudgetResourceGroupTim
 
 func (o GetBudgetResourceGroupTimePeriodArrayOutput) ToGetBudgetResourceGroupTimePeriodArrayOutputWithContext(ctx context.Context) GetBudgetResourceGroupTimePeriodArrayOutput {
 	return o
+}
+
+func (o GetBudgetResourceGroupTimePeriodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetResourceGroupTimePeriod] {
+	return pulumix.Output[[]GetBudgetResourceGroupTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetResourceGroupTimePeriodArrayOutput) Index(i pulumi.IntInput) GetBudgetResourceGroupTimePeriodOutput {
@@ -4663,6 +5432,12 @@ func (i GetBudgetSubscriptionFilterArgs) ToGetBudgetSubscriptionFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterOutput)
 }
 
+func (i GetBudgetSubscriptionFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilter] {
+	return pulumix.Output[GetBudgetSubscriptionFilter]{
+		OutputState: i.ToGetBudgetSubscriptionFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionFilterArrayInput is an input type that accepts GetBudgetSubscriptionFilterArray and GetBudgetSubscriptionFilterArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionFilterArrayInput` via:
 //
@@ -4688,6 +5463,12 @@ func (i GetBudgetSubscriptionFilterArray) ToGetBudgetSubscriptionFilterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterArrayOutput)
 }
 
+func (i GetBudgetSubscriptionFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilter] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilter]{
+		OutputState: i.ToGetBudgetSubscriptionFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -4700,6 +5481,12 @@ func (o GetBudgetSubscriptionFilterOutput) ToGetBudgetSubscriptionFilterOutput()
 
 func (o GetBudgetSubscriptionFilterOutput) ToGetBudgetSubscriptionFilterOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilter] {
+	return pulumix.Output[GetBudgetSubscriptionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `dimension` block as defined above.
@@ -4729,6 +5516,12 @@ func (o GetBudgetSubscriptionFilterArrayOutput) ToGetBudgetSubscriptionFilterArr
 
 func (o GetBudgetSubscriptionFilterArrayOutput) ToGetBudgetSubscriptionFilterArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilter] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterOutput {
@@ -4778,6 +5571,12 @@ func (i GetBudgetSubscriptionFilterDimensionArgs) ToGetBudgetSubscriptionFilterD
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterDimensionOutput)
 }
 
+func (i GetBudgetSubscriptionFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterDimension] {
+	return pulumix.Output[GetBudgetSubscriptionFilterDimension]{
+		OutputState: i.ToGetBudgetSubscriptionFilterDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionFilterDimensionArrayInput is an input type that accepts GetBudgetSubscriptionFilterDimensionArray and GetBudgetSubscriptionFilterDimensionArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionFilterDimensionArrayInput` via:
 //
@@ -4803,6 +5602,12 @@ func (i GetBudgetSubscriptionFilterDimensionArray) ToGetBudgetSubscriptionFilter
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterDimensionArrayOutput)
 }
 
+func (i GetBudgetSubscriptionFilterDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterDimension] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterDimension]{
+		OutputState: i.ToGetBudgetSubscriptionFilterDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionFilterDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionFilterDimensionOutput) ElementType() reflect.Type {
@@ -4815,6 +5620,12 @@ func (o GetBudgetSubscriptionFilterDimensionOutput) ToGetBudgetSubscriptionFilte
 
 func (o GetBudgetSubscriptionFilterDimensionOutput) ToGetBudgetSubscriptionFilterDimensionOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterDimensionOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterDimension] {
+	return pulumix.Output[GetBudgetSubscriptionFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -4844,6 +5655,12 @@ func (o GetBudgetSubscriptionFilterDimensionArrayOutput) ToGetBudgetSubscription
 
 func (o GetBudgetSubscriptionFilterDimensionArrayOutput) ToGetBudgetSubscriptionFilterDimensionArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterDimensionArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterDimension] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionFilterDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterDimensionOutput {
@@ -4889,6 +5706,12 @@ func (i GetBudgetSubscriptionFilterNotArgs) ToGetBudgetSubscriptionFilterNotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotOutput)
 }
 
+func (i GetBudgetSubscriptionFilterNotArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterNot] {
+	return pulumix.Output[GetBudgetSubscriptionFilterNot]{
+		OutputState: i.ToGetBudgetSubscriptionFilterNotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionFilterNotArrayInput is an input type that accepts GetBudgetSubscriptionFilterNotArray and GetBudgetSubscriptionFilterNotArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionFilterNotArrayInput` via:
 //
@@ -4914,6 +5737,12 @@ func (i GetBudgetSubscriptionFilterNotArray) ToGetBudgetSubscriptionFilterNotArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotArrayOutput)
 }
 
+func (i GetBudgetSubscriptionFilterNotArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterNot] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterNot]{
+		OutputState: i.ToGetBudgetSubscriptionFilterNotArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionFilterNotOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionFilterNotOutput) ElementType() reflect.Type {
@@ -4926,6 +5755,12 @@ func (o GetBudgetSubscriptionFilterNotOutput) ToGetBudgetSubscriptionFilterNotOu
 
 func (o GetBudgetSubscriptionFilterNotOutput) ToGetBudgetSubscriptionFilterNotOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterNot] {
+	return pulumix.Output[GetBudgetSubscriptionFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `dimension` block as defined above.
@@ -4950,6 +5785,12 @@ func (o GetBudgetSubscriptionFilterNotArrayOutput) ToGetBudgetSubscriptionFilter
 
 func (o GetBudgetSubscriptionFilterNotArrayOutput) ToGetBudgetSubscriptionFilterNotArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterNot] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterNot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionFilterNotArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterNotOutput {
@@ -4999,6 +5840,12 @@ func (i GetBudgetSubscriptionFilterNotDimensionArgs) ToGetBudgetSubscriptionFilt
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotDimensionOutput)
 }
 
+func (i GetBudgetSubscriptionFilterNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[GetBudgetSubscriptionFilterNotDimension]{
+		OutputState: i.ToGetBudgetSubscriptionFilterNotDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionFilterNotDimensionArrayInput is an input type that accepts GetBudgetSubscriptionFilterNotDimensionArray and GetBudgetSubscriptionFilterNotDimensionArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionFilterNotDimensionArrayInput` via:
 //
@@ -5024,6 +5871,12 @@ func (i GetBudgetSubscriptionFilterNotDimensionArray) ToGetBudgetSubscriptionFil
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotDimensionArrayOutput)
 }
 
+func (i GetBudgetSubscriptionFilterNotDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterNotDimension]{
+		OutputState: i.ToGetBudgetSubscriptionFilterNotDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionFilterNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionFilterNotDimensionOutput) ElementType() reflect.Type {
@@ -5036,6 +5889,12 @@ func (o GetBudgetSubscriptionFilterNotDimensionOutput) ToGetBudgetSubscriptionFi
 
 func (o GetBudgetSubscriptionFilterNotDimensionOutput) ToGetBudgetSubscriptionFilterNotDimensionOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotDimensionOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[GetBudgetSubscriptionFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -5065,6 +5924,12 @@ func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) ToGetBudgetSubscript
 
 func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) ToGetBudgetSubscriptionFilterNotDimensionArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotDimensionArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterNotDimension] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterNotDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionFilterNotDimensionArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterNotDimensionOutput {
@@ -5114,6 +5979,12 @@ func (i GetBudgetSubscriptionFilterNotTagArgs) ToGetBudgetSubscriptionFilterNotT
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotTagOutput)
 }
 
+func (i GetBudgetSubscriptionFilterNotTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[GetBudgetSubscriptionFilterNotTag]{
+		OutputState: i.ToGetBudgetSubscriptionFilterNotTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionFilterNotTagArrayInput is an input type that accepts GetBudgetSubscriptionFilterNotTagArray and GetBudgetSubscriptionFilterNotTagArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionFilterNotTagArrayInput` via:
 //
@@ -5139,6 +6010,12 @@ func (i GetBudgetSubscriptionFilterNotTagArray) ToGetBudgetSubscriptionFilterNot
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterNotTagArrayOutput)
 }
 
+func (i GetBudgetSubscriptionFilterNotTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterNotTag]{
+		OutputState: i.ToGetBudgetSubscriptionFilterNotTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionFilterNotTagOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionFilterNotTagOutput) ElementType() reflect.Type {
@@ -5151,6 +6028,12 @@ func (o GetBudgetSubscriptionFilterNotTagOutput) ToGetBudgetSubscriptionFilterNo
 
 func (o GetBudgetSubscriptionFilterNotTagOutput) ToGetBudgetSubscriptionFilterNotTagOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotTagOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[GetBudgetSubscriptionFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -5180,6 +6063,12 @@ func (o GetBudgetSubscriptionFilterNotTagArrayOutput) ToGetBudgetSubscriptionFil
 
 func (o GetBudgetSubscriptionFilterNotTagArrayOutput) ToGetBudgetSubscriptionFilterNotTagArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterNotTagArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterNotTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterNotTag] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterNotTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionFilterNotTagArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterNotTagOutput {
@@ -5229,6 +6118,12 @@ func (i GetBudgetSubscriptionFilterTagArgs) ToGetBudgetSubscriptionFilterTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterTagOutput)
 }
 
+func (i GetBudgetSubscriptionFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterTag] {
+	return pulumix.Output[GetBudgetSubscriptionFilterTag]{
+		OutputState: i.ToGetBudgetSubscriptionFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionFilterTagArrayInput is an input type that accepts GetBudgetSubscriptionFilterTagArray and GetBudgetSubscriptionFilterTagArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionFilterTagArrayInput` via:
 //
@@ -5254,6 +6149,12 @@ func (i GetBudgetSubscriptionFilterTagArray) ToGetBudgetSubscriptionFilterTagArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionFilterTagArrayOutput)
 }
 
+func (i GetBudgetSubscriptionFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterTag] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterTag]{
+		OutputState: i.ToGetBudgetSubscriptionFilterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionFilterTagOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionFilterTagOutput) ElementType() reflect.Type {
@@ -5266,6 +6167,12 @@ func (o GetBudgetSubscriptionFilterTagOutput) ToGetBudgetSubscriptionFilterTagOu
 
 func (o GetBudgetSubscriptionFilterTagOutput) ToGetBudgetSubscriptionFilterTagOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterTagOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionFilterTag] {
+	return pulumix.Output[GetBudgetSubscriptionFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this Consumption Budget.
@@ -5295,6 +6202,12 @@ func (o GetBudgetSubscriptionFilterTagArrayOutput) ToGetBudgetSubscriptionFilter
 
 func (o GetBudgetSubscriptionFilterTagArrayOutput) ToGetBudgetSubscriptionFilterTagArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionFilterTagArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionFilterTag] {
+	return pulumix.Output[[]GetBudgetSubscriptionFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionFilterTagArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionFilterTagOutput {
@@ -5358,6 +6271,12 @@ func (i GetBudgetSubscriptionNotificationArgs) ToGetBudgetSubscriptionNotificati
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionNotificationOutput)
 }
 
+func (i GetBudgetSubscriptionNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionNotification] {
+	return pulumix.Output[GetBudgetSubscriptionNotification]{
+		OutputState: i.ToGetBudgetSubscriptionNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionNotificationArrayInput is an input type that accepts GetBudgetSubscriptionNotificationArray and GetBudgetSubscriptionNotificationArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionNotificationArrayInput` via:
 //
@@ -5383,6 +6302,12 @@ func (i GetBudgetSubscriptionNotificationArray) ToGetBudgetSubscriptionNotificat
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionNotificationArrayOutput)
 }
 
+func (i GetBudgetSubscriptionNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionNotification] {
+	return pulumix.Output[[]GetBudgetSubscriptionNotification]{
+		OutputState: i.ToGetBudgetSubscriptionNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionNotificationOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionNotificationOutput) ElementType() reflect.Type {
@@ -5395,6 +6320,12 @@ func (o GetBudgetSubscriptionNotificationOutput) ToGetBudgetSubscriptionNotifica
 
 func (o GetBudgetSubscriptionNotificationOutput) ToGetBudgetSubscriptionNotificationOutputWithContext(ctx context.Context) GetBudgetSubscriptionNotificationOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionNotification] {
+	return pulumix.Output[GetBudgetSubscriptionNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of email addresses to send the budget notification to when the threshold is exceeded.
@@ -5445,6 +6376,12 @@ func (o GetBudgetSubscriptionNotificationArrayOutput) ToGetBudgetSubscriptionNot
 	return o
 }
 
+func (o GetBudgetSubscriptionNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionNotification] {
+	return pulumix.Output[[]GetBudgetSubscriptionNotification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetBudgetSubscriptionNotificationArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionNotificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBudgetSubscriptionNotification {
 		return vs[0].([]GetBudgetSubscriptionNotification)[vs[1].(int)]
@@ -5488,6 +6425,12 @@ func (i GetBudgetSubscriptionTimePeriodArgs) ToGetBudgetSubscriptionTimePeriodOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionTimePeriodOutput)
 }
 
+func (i GetBudgetSubscriptionTimePeriodArgs) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionTimePeriod] {
+	return pulumix.Output[GetBudgetSubscriptionTimePeriod]{
+		OutputState: i.ToGetBudgetSubscriptionTimePeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBudgetSubscriptionTimePeriodArrayInput is an input type that accepts GetBudgetSubscriptionTimePeriodArray and GetBudgetSubscriptionTimePeriodArrayOutput values.
 // You can construct a concrete instance of `GetBudgetSubscriptionTimePeriodArrayInput` via:
 //
@@ -5513,6 +6456,12 @@ func (i GetBudgetSubscriptionTimePeriodArray) ToGetBudgetSubscriptionTimePeriodA
 	return pulumi.ToOutputWithContext(ctx, i).(GetBudgetSubscriptionTimePeriodArrayOutput)
 }
 
+func (i GetBudgetSubscriptionTimePeriodArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionTimePeriod] {
+	return pulumix.Output[[]GetBudgetSubscriptionTimePeriod]{
+		OutputState: i.ToGetBudgetSubscriptionTimePeriodArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBudgetSubscriptionTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (GetBudgetSubscriptionTimePeriodOutput) ElementType() reflect.Type {
@@ -5525,6 +6474,12 @@ func (o GetBudgetSubscriptionTimePeriodOutput) ToGetBudgetSubscriptionTimePeriod
 
 func (o GetBudgetSubscriptionTimePeriodOutput) ToGetBudgetSubscriptionTimePeriodOutputWithContext(ctx context.Context) GetBudgetSubscriptionTimePeriodOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionTimePeriodOutput) ToOutput(ctx context.Context) pulumix.Output[GetBudgetSubscriptionTimePeriod] {
+	return pulumix.Output[GetBudgetSubscriptionTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The end date for the budget.
@@ -5549,6 +6504,12 @@ func (o GetBudgetSubscriptionTimePeriodArrayOutput) ToGetBudgetSubscriptionTimeP
 
 func (o GetBudgetSubscriptionTimePeriodArrayOutput) ToGetBudgetSubscriptionTimePeriodArrayOutputWithContext(ctx context.Context) GetBudgetSubscriptionTimePeriodArrayOutput {
 	return o
+}
+
+func (o GetBudgetSubscriptionTimePeriodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBudgetSubscriptionTimePeriod] {
+	return pulumix.Output[[]GetBudgetSubscriptionTimePeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBudgetSubscriptionTimePeriodArrayOutput) Index(i pulumi.IntInput) GetBudgetSubscriptionTimePeriodOutput {

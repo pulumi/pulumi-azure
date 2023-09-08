@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a PostgreSQL Flexible Server.
@@ -130,6 +131,8 @@ type FlexibleServer struct {
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationOutput `pulumi:"authentication"`
+	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -235,6 +238,8 @@ type flexibleServerState struct {
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// An `authentication` block as defined below.
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
+	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -301,6 +306,8 @@ type FlexibleServerState struct {
 	AdministratorPassword pulumi.StringPtrInput
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationPtrInput
+	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -371,6 +378,8 @@ type flexibleServerArgs struct {
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// An `authentication` block as defined below.
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
+	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -434,6 +443,8 @@ type FlexibleServerArgs struct {
 	AdministratorPassword pulumi.StringPtrInput
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationPtrInput
+	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -508,6 +519,12 @@ func (i *FlexibleServer) ToFlexibleServerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerOutput)
 }
 
+func (i *FlexibleServer) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServer] {
+	return pulumix.Output[*FlexibleServer]{
+		OutputState: i.ToFlexibleServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FlexibleServerArrayInput is an input type that accepts FlexibleServerArray and FlexibleServerArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerArrayInput` via:
 //
@@ -531,6 +548,12 @@ func (i FlexibleServerArray) ToFlexibleServerArrayOutput() FlexibleServerArrayOu
 
 func (i FlexibleServerArray) ToFlexibleServerArrayOutputWithContext(ctx context.Context) FlexibleServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerArrayOutput)
+}
+
+func (i FlexibleServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServer] {
+	return pulumix.Output[[]*FlexibleServer]{
+		OutputState: i.ToFlexibleServerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FlexibleServerMapInput is an input type that accepts FlexibleServerMap and FlexibleServerMapOutput values.
@@ -558,6 +581,12 @@ func (i FlexibleServerMap) ToFlexibleServerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMapOutput)
 }
 
+func (i FlexibleServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServer] {
+	return pulumix.Output[map[string]*FlexibleServer]{
+		OutputState: i.ToFlexibleServerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FlexibleServerOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerOutput) ElementType() reflect.Type {
@@ -570,6 +599,12 @@ func (o FlexibleServerOutput) ToFlexibleServerOutput() FlexibleServerOutput {
 
 func (o FlexibleServerOutput) ToFlexibleServerOutputWithContext(ctx context.Context) FlexibleServerOutput {
 	return o
+}
+
+func (o FlexibleServerOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServer] {
+	return pulumix.Output[*FlexibleServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
@@ -589,6 +624,11 @@ func (o FlexibleServerOutput) AdministratorPassword() pulumi.StringPtrOutput {
 // An `authentication` block as defined below.
 func (o FlexibleServerOutput) Authentication() FlexibleServerAuthenticationOutput {
 	return o.ApplyT(func(v *FlexibleServer) FlexibleServerAuthenticationOutput { return v.Authentication }).(FlexibleServerAuthenticationOutput)
+}
+
+// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+func (o FlexibleServerOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.BoolPtrOutput { return v.AutoGrowEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
@@ -724,6 +764,12 @@ func (o FlexibleServerArrayOutput) ToFlexibleServerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o FlexibleServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServer] {
+	return pulumix.Output[[]*FlexibleServer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlexibleServerArrayOutput) Index(i pulumi.IntInput) FlexibleServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServer {
 		return vs[0].([]*FlexibleServer)[vs[1].(int)]
@@ -742,6 +788,12 @@ func (o FlexibleServerMapOutput) ToFlexibleServerMapOutput() FlexibleServerMapOu
 
 func (o FlexibleServerMapOutput) ToFlexibleServerMapOutputWithContext(ctx context.Context) FlexibleServerMapOutput {
 	return o
+}
+
+func (o FlexibleServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServer] {
+	return pulumix.Output[map[string]*FlexibleServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlexibleServerMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerOutput {

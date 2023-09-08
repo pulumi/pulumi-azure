@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a policy rule definition on a management group or your provider subscription.
@@ -278,6 +279,12 @@ func (i *Definition) ToDefinitionOutputWithContext(ctx context.Context) Definiti
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionOutput)
 }
 
+func (i *Definition) ToOutput(ctx context.Context) pulumix.Output[*Definition] {
+	return pulumix.Output[*Definition]{
+		OutputState: i.ToDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DefinitionArrayInput is an input type that accepts DefinitionArray and DefinitionArrayOutput values.
 // You can construct a concrete instance of `DefinitionArrayInput` via:
 //
@@ -301,6 +308,12 @@ func (i DefinitionArray) ToDefinitionArrayOutput() DefinitionArrayOutput {
 
 func (i DefinitionArray) ToDefinitionArrayOutputWithContext(ctx context.Context) DefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionArrayOutput)
+}
+
+func (i DefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Definition] {
+	return pulumix.Output[[]*Definition]{
+		OutputState: i.ToDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DefinitionMapInput is an input type that accepts DefinitionMap and DefinitionMapOutput values.
@@ -328,6 +341,12 @@ func (i DefinitionMap) ToDefinitionMapOutputWithContext(ctx context.Context) Def
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionMapOutput)
 }
 
+func (i DefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Definition] {
+	return pulumix.Output[map[string]*Definition]{
+		OutputState: i.ToDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DefinitionOutput struct{ *pulumi.OutputState }
 
 func (DefinitionOutput) ElementType() reflect.Type {
@@ -340,6 +359,12 @@ func (o DefinitionOutput) ToDefinitionOutput() DefinitionOutput {
 
 func (o DefinitionOutput) ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput {
 	return o
+}
+
+func (o DefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*Definition] {
+	return pulumix.Output[*Definition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the policy definition.
@@ -408,6 +433,12 @@ func (o DefinitionArrayOutput) ToDefinitionArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Definition] {
+	return pulumix.Output[[]*Definition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DefinitionArrayOutput) Index(i pulumi.IntInput) DefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Definition {
 		return vs[0].([]*Definition)[vs[1].(int)]
@@ -426,6 +457,12 @@ func (o DefinitionMapOutput) ToDefinitionMapOutput() DefinitionMapOutput {
 
 func (o DefinitionMapOutput) ToDefinitionMapOutputWithContext(ctx context.Context) DefinitionMapOutput {
 	return o
+}
+
+func (o DefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Definition] {
+	return pulumix.Output[map[string]*Definition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DefinitionMapOutput) MapIndex(k pulumi.StringInput) DefinitionOutput {

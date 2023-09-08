@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management Notification Recipient User.
@@ -193,6 +194,12 @@ func (i *NotificationRecipientUser) ToNotificationRecipientUserOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserOutput)
 }
 
+func (i *NotificationRecipientUser) ToOutput(ctx context.Context) pulumix.Output[*NotificationRecipientUser] {
+	return pulumix.Output[*NotificationRecipientUser]{
+		OutputState: i.ToNotificationRecipientUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationRecipientUserArrayInput is an input type that accepts NotificationRecipientUserArray and NotificationRecipientUserArrayOutput values.
 // You can construct a concrete instance of `NotificationRecipientUserArrayInput` via:
 //
@@ -216,6 +223,12 @@ func (i NotificationRecipientUserArray) ToNotificationRecipientUserArrayOutput()
 
 func (i NotificationRecipientUserArray) ToNotificationRecipientUserArrayOutputWithContext(ctx context.Context) NotificationRecipientUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserArrayOutput)
+}
+
+func (i NotificationRecipientUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRecipientUser] {
+	return pulumix.Output[[]*NotificationRecipientUser]{
+		OutputState: i.ToNotificationRecipientUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotificationRecipientUserMapInput is an input type that accepts NotificationRecipientUserMap and NotificationRecipientUserMapOutput values.
@@ -243,6 +256,12 @@ func (i NotificationRecipientUserMap) ToNotificationRecipientUserMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserMapOutput)
 }
 
+func (i NotificationRecipientUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRecipientUser] {
+	return pulumix.Output[map[string]*NotificationRecipientUser]{
+		OutputState: i.ToNotificationRecipientUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationRecipientUserOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserOutput) ElementType() reflect.Type {
@@ -255,6 +274,12 @@ func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutput() Not
 
 func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutputWithContext(ctx context.Context) NotificationRecipientUserOutput {
 	return o
+}
+
+func (o NotificationRecipientUserOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRecipientUser] {
+	return pulumix.Output[*NotificationRecipientUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
@@ -286,6 +311,12 @@ func (o NotificationRecipientUserArrayOutput) ToNotificationRecipientUserArrayOu
 	return o
 }
 
+func (o NotificationRecipientUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRecipientUser] {
+	return pulumix.Output[[]*NotificationRecipientUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationRecipientUserArrayOutput) Index(i pulumi.IntInput) NotificationRecipientUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationRecipientUser {
 		return vs[0].([]*NotificationRecipientUser)[vs[1].(int)]
@@ -304,6 +335,12 @@ func (o NotificationRecipientUserMapOutput) ToNotificationRecipientUserMapOutput
 
 func (o NotificationRecipientUserMapOutput) ToNotificationRecipientUserMapOutputWithContext(ctx context.Context) NotificationRecipientUserMapOutput {
 	return o
+}
+
+func (o NotificationRecipientUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRecipientUser] {
+	return pulumix.Output[map[string]*NotificationRecipientUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationRecipientUserMapOutput) MapIndex(k pulumi.StringInput) NotificationRecipientUserOutput {

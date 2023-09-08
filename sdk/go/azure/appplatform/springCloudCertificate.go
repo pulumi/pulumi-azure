@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Spring Cloud Certificate.
@@ -302,6 +303,12 @@ func (i *SpringCloudCertificate) ToSpringCloudCertificateOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCertificateOutput)
 }
 
+func (i *SpringCloudCertificate) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCertificate] {
+	return pulumix.Output[*SpringCloudCertificate]{
+		OutputState: i.ToSpringCloudCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudCertificateArrayInput is an input type that accepts SpringCloudCertificateArray and SpringCloudCertificateArrayOutput values.
 // You can construct a concrete instance of `SpringCloudCertificateArrayInput` via:
 //
@@ -325,6 +332,12 @@ func (i SpringCloudCertificateArray) ToSpringCloudCertificateArrayOutput() Sprin
 
 func (i SpringCloudCertificateArray) ToSpringCloudCertificateArrayOutputWithContext(ctx context.Context) SpringCloudCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCertificateArrayOutput)
+}
+
+func (i SpringCloudCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudCertificate] {
+	return pulumix.Output[[]*SpringCloudCertificate]{
+		OutputState: i.ToSpringCloudCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudCertificateMapInput is an input type that accepts SpringCloudCertificateMap and SpringCloudCertificateMapOutput values.
@@ -352,6 +365,12 @@ func (i SpringCloudCertificateMap) ToSpringCloudCertificateMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCertificateMapOutput)
 }
 
+func (i SpringCloudCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudCertificate] {
+	return pulumix.Output[map[string]*SpringCloudCertificate]{
+		OutputState: i.ToSpringCloudCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudCertificateOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCertificateOutput) ElementType() reflect.Type {
@@ -364,6 +383,12 @@ func (o SpringCloudCertificateOutput) ToSpringCloudCertificateOutput() SpringClo
 
 func (o SpringCloudCertificateOutput) ToSpringCloudCertificateOutputWithContext(ctx context.Context) SpringCloudCertificateOutput {
 	return o
+}
+
+func (o SpringCloudCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCertificate] {
+	return pulumix.Output[*SpringCloudCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The content of uploaded certificate. Changing this forces a new resource to be created.
@@ -415,6 +440,12 @@ func (o SpringCloudCertificateArrayOutput) ToSpringCloudCertificateArrayOutputWi
 	return o
 }
 
+func (o SpringCloudCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudCertificate] {
+	return pulumix.Output[[]*SpringCloudCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudCertificateArrayOutput) Index(i pulumi.IntInput) SpringCloudCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudCertificate {
 		return vs[0].([]*SpringCloudCertificate)[vs[1].(int)]
@@ -433,6 +464,12 @@ func (o SpringCloudCertificateMapOutput) ToSpringCloudCertificateMapOutput() Spr
 
 func (o SpringCloudCertificateMapOutput) ToSpringCloudCertificateMapOutputWithContext(ctx context.Context) SpringCloudCertificateMapOutput {
 	return o
+}
+
+func (o SpringCloudCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudCertificate] {
+	return pulumix.Output[map[string]*SpringCloudCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudCertificateMapOutput) MapIndex(k pulumi.StringInput) SpringCloudCertificateOutput {

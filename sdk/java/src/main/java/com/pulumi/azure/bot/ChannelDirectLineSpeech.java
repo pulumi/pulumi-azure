@@ -105,6 +105,20 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
         return this.botName;
     }
     /**
+     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * 
+     */
+    @Export(name="cognitiveAccountId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cognitiveAccountId;
+
+    /**
+     * @return The ID of the Cognitive Account this Bot Channel should be associated with.
+     * 
+     */
+    public Output<Optional<String>> cognitiveAccountId() {
+        return Codegen.optional(this.cognitiveAccountId);
+    }
+    /**
      * The access key to access the Cognitive Service.
      * 
      */

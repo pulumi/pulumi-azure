@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolNetworkConfiguration
     {
         /// <summary>
+        /// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? AcceleratedNetworkingEnabled;
+        /// <summary>
         /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DynamicVnetAssignmentScope;
@@ -32,10 +36,12 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string SubnetId;
+        public readonly string? SubnetId;
 
         [OutputConstructor]
         private PoolNetworkConfiguration(
+            bool? acceleratedNetworkingEnabled,
+
             string? dynamicVnetAssignmentScope,
 
             ImmutableArray<Outputs.PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations,
@@ -44,8 +50,9 @@ namespace Pulumi.Azure.Batch.Outputs
 
             ImmutableArray<string> publicIps,
 
-            string subnetId)
+            string? subnetId)
         {
+            AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             DynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             EndpointConfigurations = endpointConfigurations;
             PublicAddressProvisioningType = publicAddressProvisioningType;

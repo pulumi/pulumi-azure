@@ -10,11 +10,14 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a [Log Profile](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
 //
 // > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
+//
+// !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
 //
 // ## Example Usage
 //
@@ -239,6 +242,12 @@ func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfi
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
 }
 
+func (i *LogProfile) ToOutput(ctx context.Context) pulumix.Output[*LogProfile] {
+	return pulumix.Output[*LogProfile]{
+		OutputState: i.ToLogProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogProfileArrayInput is an input type that accepts LogProfileArray and LogProfileArrayOutput values.
 // You can construct a concrete instance of `LogProfileArrayInput` via:
 //
@@ -262,6 +271,12 @@ func (i LogProfileArray) ToLogProfileArrayOutput() LogProfileArrayOutput {
 
 func (i LogProfileArray) ToLogProfileArrayOutputWithContext(ctx context.Context) LogProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileArrayOutput)
+}
+
+func (i LogProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogProfile] {
+	return pulumix.Output[[]*LogProfile]{
+		OutputState: i.ToLogProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogProfileMapInput is an input type that accepts LogProfileMap and LogProfileMapOutput values.
@@ -289,6 +304,12 @@ func (i LogProfileMap) ToLogProfileMapOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileMapOutput)
 }
 
+func (i LogProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogProfile] {
+	return pulumix.Output[map[string]*LogProfile]{
+		OutputState: i.ToLogProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogProfileOutput struct{ *pulumi.OutputState }
 
 func (LogProfileOutput) ElementType() reflect.Type {
@@ -301,6 +322,12 @@ func (o LogProfileOutput) ToLogProfileOutput() LogProfileOutput {
 
 func (o LogProfileOutput) ToLogProfileOutputWithContext(ctx context.Context) LogProfileOutput {
 	return o
+}
+
+func (o LogProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*LogProfile] {
+	return pulumix.Output[*LogProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of categories of the logs.
@@ -347,6 +374,12 @@ func (o LogProfileArrayOutput) ToLogProfileArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o LogProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogProfile] {
+	return pulumix.Output[[]*LogProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogProfileArrayOutput) Index(i pulumi.IntInput) LogProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogProfile {
 		return vs[0].([]*LogProfile)[vs[1].(int)]
@@ -365,6 +398,12 @@ func (o LogProfileMapOutput) ToLogProfileMapOutput() LogProfileMapOutput {
 
 func (o LogProfileMapOutput) ToLogProfileMapOutputWithContext(ctx context.Context) LogProfileMapOutput {
 	return o
+}
+
+func (o LogProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogProfile] {
+	return pulumix.Output[map[string]*LogProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogProfileMapOutput) MapIndex(k pulumi.StringInput) LogProfileOutput {

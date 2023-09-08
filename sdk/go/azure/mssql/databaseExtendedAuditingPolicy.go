@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MS SQL Database Extended Auditing Policy.
@@ -245,6 +246,12 @@ func (i *DatabaseExtendedAuditingPolicy) ToDatabaseExtendedAuditingPolicyOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyOutput)
 }
 
+func (i *DatabaseExtendedAuditingPolicy) ToOutput(ctx context.Context) pulumix.Output[*DatabaseExtendedAuditingPolicy] {
+	return pulumix.Output[*DatabaseExtendedAuditingPolicy]{
+		OutputState: i.ToDatabaseExtendedAuditingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatabaseExtendedAuditingPolicyArrayInput is an input type that accepts DatabaseExtendedAuditingPolicyArray and DatabaseExtendedAuditingPolicyArrayOutput values.
 // You can construct a concrete instance of `DatabaseExtendedAuditingPolicyArrayInput` via:
 //
@@ -268,6 +275,12 @@ func (i DatabaseExtendedAuditingPolicyArray) ToDatabaseExtendedAuditingPolicyArr
 
 func (i DatabaseExtendedAuditingPolicyArray) ToDatabaseExtendedAuditingPolicyArrayOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyArrayOutput)
+}
+
+func (i DatabaseExtendedAuditingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatabaseExtendedAuditingPolicy] {
+	return pulumix.Output[[]*DatabaseExtendedAuditingPolicy]{
+		OutputState: i.ToDatabaseExtendedAuditingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatabaseExtendedAuditingPolicyMapInput is an input type that accepts DatabaseExtendedAuditingPolicyMap and DatabaseExtendedAuditingPolicyMapOutput values.
@@ -295,6 +308,12 @@ func (i DatabaseExtendedAuditingPolicyMap) ToDatabaseExtendedAuditingPolicyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyMapOutput)
 }
 
+func (i DatabaseExtendedAuditingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabaseExtendedAuditingPolicy] {
+	return pulumix.Output[map[string]*DatabaseExtendedAuditingPolicy]{
+		OutputState: i.ToDatabaseExtendedAuditingPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatabaseExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseExtendedAuditingPolicyOutput) ElementType() reflect.Type {
@@ -307,6 +326,12 @@ func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOu
 
 func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyOutput {
 	return o
+}
+
+func (o DatabaseExtendedAuditingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseExtendedAuditingPolicy] {
+	return pulumix.Output[*DatabaseExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -361,6 +386,12 @@ func (o DatabaseExtendedAuditingPolicyArrayOutput) ToDatabaseExtendedAuditingPol
 	return o
 }
 
+func (o DatabaseExtendedAuditingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatabaseExtendedAuditingPolicy] {
+	return pulumix.Output[[]*DatabaseExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatabaseExtendedAuditingPolicyArrayOutput) Index(i pulumi.IntInput) DatabaseExtendedAuditingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabaseExtendedAuditingPolicy {
 		return vs[0].([]*DatabaseExtendedAuditingPolicy)[vs[1].(int)]
@@ -379,6 +410,12 @@ func (o DatabaseExtendedAuditingPolicyMapOutput) ToDatabaseExtendedAuditingPolic
 
 func (o DatabaseExtendedAuditingPolicyMapOutput) ToDatabaseExtendedAuditingPolicyMapOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyMapOutput {
 	return o
+}
+
+func (o DatabaseExtendedAuditingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabaseExtendedAuditingPolicy] {
+	return pulumix.Output[map[string]*DatabaseExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatabaseExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) DatabaseExtendedAuditingPolicyOutput {

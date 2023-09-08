@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Alert Policy for a MSSQL Server.
@@ -278,6 +279,12 @@ func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyOutput)
 }
 
+func (i *ServerSecurityAlertPolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerSecurityAlertPolicy] {
+	return pulumix.Output[*ServerSecurityAlertPolicy]{
+		OutputState: i.ToServerSecurityAlertPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerSecurityAlertPolicyArrayInput is an input type that accepts ServerSecurityAlertPolicyArray and ServerSecurityAlertPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerSecurityAlertPolicyArrayInput` via:
 //
@@ -301,6 +308,12 @@ func (i ServerSecurityAlertPolicyArray) ToServerSecurityAlertPolicyArrayOutput()
 
 func (i ServerSecurityAlertPolicyArray) ToServerSecurityAlertPolicyArrayOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyArrayOutput)
+}
+
+func (i ServerSecurityAlertPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerSecurityAlertPolicy] {
+	return pulumix.Output[[]*ServerSecurityAlertPolicy]{
+		OutputState: i.ToServerSecurityAlertPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerSecurityAlertPolicyMapInput is an input type that accepts ServerSecurityAlertPolicyMap and ServerSecurityAlertPolicyMapOutput values.
@@ -328,6 +341,12 @@ func (i ServerSecurityAlertPolicyMap) ToServerSecurityAlertPolicyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyMapOutput)
 }
 
+func (i ServerSecurityAlertPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*ServerSecurityAlertPolicy]{
+		OutputState: i.ToServerSecurityAlertPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyOutput) ElementType() reflect.Type {
@@ -340,6 +359,12 @@ func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutput() Ser
 
 func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyOutput {
 	return o
+}
+
+func (o ServerSecurityAlertPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerSecurityAlertPolicy] {
+	return pulumix.Output[*ServerSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
@@ -403,6 +428,12 @@ func (o ServerSecurityAlertPolicyArrayOutput) ToServerSecurityAlertPolicyArrayOu
 	return o
 }
 
+func (o ServerSecurityAlertPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerSecurityAlertPolicy] {
+	return pulumix.Output[[]*ServerSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerSecurityAlertPolicyArrayOutput) Index(i pulumi.IntInput) ServerSecurityAlertPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerSecurityAlertPolicy {
 		return vs[0].([]*ServerSecurityAlertPolicy)[vs[1].(int)]
@@ -421,6 +452,12 @@ func (o ServerSecurityAlertPolicyMapOutput) ToServerSecurityAlertPolicyMapOutput
 
 func (o ServerSecurityAlertPolicyMapOutput) ToServerSecurityAlertPolicyMapOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyMapOutput {
 	return o
+}
+
+func (o ServerSecurityAlertPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*ServerSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerSecurityAlertPolicyOutput {

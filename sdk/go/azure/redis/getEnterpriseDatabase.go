@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Redis Enterprise Database
@@ -126,6 +127,12 @@ func (o LookupEnterpriseDatabaseResultOutput) ToLookupEnterpriseDatabaseResultOu
 
 func (o LookupEnterpriseDatabaseResultOutput) ToLookupEnterpriseDatabaseResultOutputWithContext(ctx context.Context) LookupEnterpriseDatabaseResultOutput {
 	return o
+}
+
+func (o LookupEnterpriseDatabaseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnterpriseDatabaseResult] {
+	return pulumix.Output[LookupEnterpriseDatabaseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Redis Enterprise Cluster ID that is hosting the Redis Enterprise Database.

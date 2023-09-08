@@ -12,6 +12,14 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Secret.
     /// 
+    /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_secrets_on_destroy` for more information.
+    /// 
+    /// =======
+    /// &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -128,7 +136,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the value of the Key Vault Secret.
+        /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
         /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
@@ -243,7 +251,7 @@ namespace Pulumi.Azure.KeyVault
         private Input<string>? _value;
 
         /// <summary>
-        /// Specifies the value of the Key Vault Secret.
+        /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
         /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
@@ -323,7 +331,7 @@ namespace Pulumi.Azure.KeyVault
         private Input<string>? _value;
 
         /// <summary>
-        /// Specifies the value of the Key Vault Secret.
+        /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         /// 
         /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>

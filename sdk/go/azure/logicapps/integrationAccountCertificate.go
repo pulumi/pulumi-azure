@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Certificate.
@@ -206,6 +207,12 @@ func (i *IntegrationAccountCertificate) ToIntegrationAccountCertificateOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateOutput)
 }
 
+func (i *IntegrationAccountCertificate) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountCertificate] {
+	return pulumix.Output[*IntegrationAccountCertificate]{
+		OutputState: i.ToIntegrationAccountCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationAccountCertificateArrayInput is an input type that accepts IntegrationAccountCertificateArray and IntegrationAccountCertificateArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountCertificateArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i IntegrationAccountCertificateArray) ToIntegrationAccountCertificateArray
 
 func (i IntegrationAccountCertificateArray) ToIntegrationAccountCertificateArrayOutputWithContext(ctx context.Context) IntegrationAccountCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateArrayOutput)
+}
+
+func (i IntegrationAccountCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountCertificate] {
+	return pulumix.Output[[]*IntegrationAccountCertificate]{
+		OutputState: i.ToIntegrationAccountCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationAccountCertificateMapInput is an input type that accepts IntegrationAccountCertificateMap and IntegrationAccountCertificateMapOutput values.
@@ -256,6 +269,12 @@ func (i IntegrationAccountCertificateMap) ToIntegrationAccountCertificateMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateMapOutput)
 }
 
+func (i IntegrationAccountCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountCertificate] {
+	return pulumix.Output[map[string]*IntegrationAccountCertificate]{
+		OutputState: i.ToIntegrationAccountCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationAccountCertificateOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountCertificateOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificateOutp
 
 func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificateOutputWithContext(ctx context.Context) IntegrationAccountCertificateOutput {
 	return o
+}
+
+func (o IntegrationAccountCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountCertificate] {
+	return pulumix.Output[*IntegrationAccountCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
@@ -316,6 +341,12 @@ func (o IntegrationAccountCertificateArrayOutput) ToIntegrationAccountCertificat
 	return o
 }
 
+func (o IntegrationAccountCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountCertificate] {
+	return pulumix.Output[[]*IntegrationAccountCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationAccountCertificateArrayOutput) Index(i pulumi.IntInput) IntegrationAccountCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountCertificate {
 		return vs[0].([]*IntegrationAccountCertificate)[vs[1].(int)]
@@ -334,6 +365,12 @@ func (o IntegrationAccountCertificateMapOutput) ToIntegrationAccountCertificateM
 
 func (o IntegrationAccountCertificateMapOutput) ToIntegrationAccountCertificateMapOutputWithContext(ctx context.Context) IntegrationAccountCertificateMapOutput {
 	return o
+}
+
+func (o IntegrationAccountCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountCertificate] {
+	return pulumix.Output[map[string]*IntegrationAccountCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationAccountCertificateMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountCertificateOutput {

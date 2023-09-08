@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the properties of a LogToMetricAction scheduled query rule.
@@ -118,6 +119,12 @@ func (o LookupScheduledQueryRulesLogResultOutput) ToLookupScheduledQueryRulesLog
 
 func (o LookupScheduledQueryRulesLogResultOutput) ToLookupScheduledQueryRulesLogResultOutputWithContext(ctx context.Context) LookupScheduledQueryRulesLogResultOutput {
 	return o
+}
+
+func (o LookupScheduledQueryRulesLogResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduledQueryRulesLogResult] {
+	return pulumix.Output[LookupScheduledQueryRulesLogResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of IDs of Resources referred into query.

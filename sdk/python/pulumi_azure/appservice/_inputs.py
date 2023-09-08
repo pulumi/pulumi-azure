@@ -6672,6 +6672,8 @@ class LinuxFunctionAppAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -6838,6 +6840,8 @@ class LinuxFunctionAppAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -10510,6 +10514,8 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -10676,6 +10682,8 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -14607,6 +14615,8 @@ class LinuxWebAppAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -14773,6 +14783,8 @@ class LinuxWebAppAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -18982,6 +18994,8 @@ class LinuxWebAppSlotAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -19148,6 +19162,8 @@ class LinuxWebAppSlotAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -26052,6 +26068,8 @@ class WindowsFunctionAppAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -26218,6 +26236,8 @@ class WindowsFunctionAppAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -29738,6 +29758,8 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -29904,6 +29926,8 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -33679,6 +33703,8 @@ class WindowsWebAppAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -33845,6 +33871,8 @@ class WindowsWebAppAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 
@@ -38337,6 +38365,8 @@ class WindowsWebAppSlotAuthSettingsV2Args:
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `ForwardProxyConventionNoProxy`, `ForwardProxyConventionStandard`, `ForwardProxyConventionCustom`. Defaults to `ForwardProxyConventionNoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
@@ -38503,6 +38533,8 @@ class WindowsWebAppSlotAuthSettingsV2Args:
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         """
         return pulumi.get(self, "excluded_paths")
 

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HDInsight Spark Cluster.
@@ -422,6 +423,12 @@ func (i *SparkCluster) ToSparkClusterOutputWithContext(ctx context.Context) Spar
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterOutput)
 }
 
+func (i *SparkCluster) ToOutput(ctx context.Context) pulumix.Output[*SparkCluster] {
+	return pulumix.Output[*SparkCluster]{
+		OutputState: i.ToSparkClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SparkClusterArrayInput is an input type that accepts SparkClusterArray and SparkClusterArrayOutput values.
 // You can construct a concrete instance of `SparkClusterArrayInput` via:
 //
@@ -445,6 +452,12 @@ func (i SparkClusterArray) ToSparkClusterArrayOutput() SparkClusterArrayOutput {
 
 func (i SparkClusterArray) ToSparkClusterArrayOutputWithContext(ctx context.Context) SparkClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterArrayOutput)
+}
+
+func (i SparkClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*SparkCluster] {
+	return pulumix.Output[[]*SparkCluster]{
+		OutputState: i.ToSparkClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SparkClusterMapInput is an input type that accepts SparkClusterMap and SparkClusterMapOutput values.
@@ -472,6 +485,12 @@ func (i SparkClusterMap) ToSparkClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMapOutput)
 }
 
+func (i SparkClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SparkCluster] {
+	return pulumix.Output[map[string]*SparkCluster]{
+		OutputState: i.ToSparkClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SparkClusterOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterOutput) ElementType() reflect.Type {
@@ -484,6 +503,12 @@ func (o SparkClusterOutput) ToSparkClusterOutput() SparkClusterOutput {
 
 func (o SparkClusterOutput) ToSparkClusterOutputWithContext(ctx context.Context) SparkClusterOutput {
 	return o
+}
+
+func (o SparkClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkCluster] {
+	return pulumix.Output[*SparkCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -612,6 +637,12 @@ func (o SparkClusterArrayOutput) ToSparkClusterArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o SparkClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SparkCluster] {
+	return pulumix.Output[[]*SparkCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SparkClusterArrayOutput) Index(i pulumi.IntInput) SparkClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SparkCluster {
 		return vs[0].([]*SparkCluster)[vs[1].(int)]
@@ -630,6 +661,12 @@ func (o SparkClusterMapOutput) ToSparkClusterMapOutput() SparkClusterMapOutput {
 
 func (o SparkClusterMapOutput) ToSparkClusterMapOutputWithContext(ctx context.Context) SparkClusterMapOutput {
 	return o
+}
+
+func (o SparkClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SparkCluster] {
+	return pulumix.Output[map[string]*SparkCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SparkClusterMapOutput) MapIndex(k pulumi.StringInput) SparkClusterOutput {

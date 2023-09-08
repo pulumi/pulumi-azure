@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypeOutput
 
 func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypeOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyTypeOutput)
+}
+
+func (i AccountCustomerManagedKeyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AccountCustomerManagedKeyType] {
+	return pulumix.Output[AccountCustomerManagedKeyType]{
+		OutputState: i.ToAccountCustomerManagedKeyTypeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypePtrOutput() AccountCustomerManagedKeyTypePtrOutput {
@@ -91,6 +98,12 @@ func (i *accountCustomerManagedKeyTypePtrType) ToAccountCustomerManagedKeyTypePt
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyTypePtrOutput)
 }
 
+func (i *accountCustomerManagedKeyTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomerManagedKeyType] {
+	return pulumix.Output[*AccountCustomerManagedKeyType]{
+		OutputState: i.ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountCustomerManagedKeyTypeOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomerManagedKeyTypeOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o AccountCustomerManagedKeyTypeOutput) ToAccountCustomerManagedKeyTypePtrO
 	}).(AccountCustomerManagedKeyTypePtrOutput)
 }
 
+func (o AccountCustomerManagedKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountCustomerManagedKeyType] {
+	return pulumix.Output[AccountCustomerManagedKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
 func (o AccountCustomerManagedKeyTypeOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKeyType) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
@@ -137,6 +156,12 @@ func (o AccountCustomerManagedKeyTypePtrOutput) ToAccountCustomerManagedKeyTypeP
 
 func (o AccountCustomerManagedKeyTypePtrOutput) ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypePtrOutput {
 	return o
+}
+
+func (o AccountCustomerManagedKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomerManagedKeyType] {
+	return pulumix.Output[*AccountCustomerManagedKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountCustomerManagedKeyTypePtrOutput) Elem() AccountCustomerManagedKeyTypeOutput {
@@ -218,6 +243,12 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
+func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
+	return pulumix.Output[AccountIdentity]{
+		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -259,6 +290,12 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
+func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
+	return pulumix.Output[*AccountIdentity]{
+		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -281,6 +318,12 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
+}
+
+func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
+	return pulumix.Output[AccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
@@ -317,6 +360,12 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
+}
+
+func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
+	return pulumix.Output[*AccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -412,6 +461,12 @@ func (i AccountNetworkAclsArgs) ToAccountNetworkAclsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkAclsOutput)
 }
 
+func (i AccountNetworkAclsArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkAcls] {
+	return pulumix.Output[AccountNetworkAcls]{
+		OutputState: i.ToAccountNetworkAclsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountNetworkAclsArgs) ToAccountNetworkAclsPtrOutput() AccountNetworkAclsPtrOutput {
 	return i.ToAccountNetworkAclsPtrOutputWithContext(context.Background())
 }
@@ -453,6 +508,12 @@ func (i *accountNetworkAclsPtrType) ToAccountNetworkAclsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkAclsPtrOutput)
 }
 
+func (i *accountNetworkAclsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkAcls] {
+	return pulumix.Output[*AccountNetworkAcls]{
+		OutputState: i.ToAccountNetworkAclsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkAclsOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkAclsOutput) ElementType() reflect.Type {
@@ -475,6 +536,12 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkAcls) *AccountNetworkAcls {
 		return &v
 	}).(AccountNetworkAclsPtrOutput)
+}
+
+func (o AccountNetworkAclsOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkAcls] {
+	return pulumix.Output[AccountNetworkAcls]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
@@ -504,6 +571,12 @@ func (o AccountNetworkAclsPtrOutput) ToAccountNetworkAclsPtrOutput() AccountNetw
 
 func (o AccountNetworkAclsPtrOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx context.Context) AccountNetworkAclsPtrOutput {
 	return o
+}
+
+func (o AccountNetworkAclsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkAcls] {
+	return pulumix.Output[*AccountNetworkAcls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
@@ -583,6 +656,12 @@ func (i AccountNetworkAclsVirtualNetworkRuleArgs) ToAccountNetworkAclsVirtualNet
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkAclsVirtualNetworkRuleOutput)
 }
 
+func (i AccountNetworkAclsVirtualNetworkRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkAclsVirtualNetworkRule] {
+	return pulumix.Output[AccountNetworkAclsVirtualNetworkRule]{
+		OutputState: i.ToAccountNetworkAclsVirtualNetworkRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountNetworkAclsVirtualNetworkRuleArrayInput is an input type that accepts AccountNetworkAclsVirtualNetworkRuleArray and AccountNetworkAclsVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkAclsVirtualNetworkRuleArrayInput` via:
 //
@@ -608,6 +687,12 @@ func (i AccountNetworkAclsVirtualNetworkRuleArray) ToAccountNetworkAclsVirtualNe
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkAclsVirtualNetworkRuleArrayOutput)
 }
 
+func (i AccountNetworkAclsVirtualNetworkRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkAclsVirtualNetworkRule] {
+	return pulumix.Output[[]AccountNetworkAclsVirtualNetworkRule]{
+		OutputState: i.ToAccountNetworkAclsVirtualNetworkRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkAclsVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkAclsVirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -620,6 +705,12 @@ func (o AccountNetworkAclsVirtualNetworkRuleOutput) ToAccountNetworkAclsVirtualN
 
 func (o AccountNetworkAclsVirtualNetworkRuleOutput) ToAccountNetworkAclsVirtualNetworkRuleOutputWithContext(ctx context.Context) AccountNetworkAclsVirtualNetworkRuleOutput {
 	return o
+}
+
+func (o AccountNetworkAclsVirtualNetworkRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkAclsVirtualNetworkRule] {
+	return pulumix.Output[AccountNetworkAclsVirtualNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether ignore missing vnet service endpoint or not. Default to `false`.
@@ -644,6 +735,12 @@ func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) ToAccountNetworkAclsVir
 
 func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) ToAccountNetworkAclsVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) AccountNetworkAclsVirtualNetworkRuleArrayOutput {
 	return o
+}
+
+func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkAclsVirtualNetworkRule] {
+	return pulumix.Output[[]AccountNetworkAclsVirtualNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkAclsVirtualNetworkRuleOutput {
@@ -689,6 +786,12 @@ func (i AccountStorageArgs) ToAccountStorageOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageOutput)
 }
 
+func (i AccountStorageArgs) ToOutput(ctx context.Context) pulumix.Output[AccountStorage] {
+	return pulumix.Output[AccountStorage]{
+		OutputState: i.ToAccountStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountStorageArrayInput is an input type that accepts AccountStorageArray and AccountStorageArrayOutput values.
 // You can construct a concrete instance of `AccountStorageArrayInput` via:
 //
@@ -714,6 +817,12 @@ func (i AccountStorageArray) ToAccountStorageArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageArrayOutput)
 }
 
+func (i AccountStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountStorage] {
+	return pulumix.Output[[]AccountStorage]{
+		OutputState: i.ToAccountStorageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountStorageOutput struct{ *pulumi.OutputState }
 
 func (AccountStorageOutput) ElementType() reflect.Type {
@@ -726,6 +835,12 @@ func (o AccountStorageOutput) ToAccountStorageOutput() AccountStorageOutput {
 
 func (o AccountStorageOutput) ToAccountStorageOutputWithContext(ctx context.Context) AccountStorageOutput {
 	return o
+}
+
+func (o AccountStorageOutput) ToOutput(ctx context.Context) pulumix.Output[AccountStorage] {
+	return pulumix.Output[AccountStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The client ID of the managed identity associated with the storage resource.
@@ -750,6 +865,12 @@ func (o AccountStorageArrayOutput) ToAccountStorageArrayOutput() AccountStorageA
 
 func (o AccountStorageArrayOutput) ToAccountStorageArrayOutputWithContext(ctx context.Context) AccountStorageArrayOutput {
 	return o
+}
+
+func (o AccountStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountStorage] {
+	return pulumix.Output[[]AccountStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountStorageArrayOutput) Index(i pulumi.IntInput) AccountStorageOutput {
@@ -799,6 +920,12 @@ func (i DeploymentModelArgs) ToDeploymentModelOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelOutput)
 }
 
+func (i DeploymentModelArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentModel] {
+	return pulumix.Output[DeploymentModel]{
+		OutputState: i.ToDeploymentModelOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentModelArgs) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
 	return i.ToDeploymentModelPtrOutputWithContext(context.Background())
 }
@@ -840,6 +967,12 @@ func (i *deploymentModelPtrType) ToDeploymentModelPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelPtrOutput)
 }
 
+func (i *deploymentModelPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentModel] {
+	return pulumix.Output[*DeploymentModel]{
+		OutputState: i.ToDeploymentModelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentModelOutput struct{ *pulumi.OutputState }
 
 func (DeploymentModelOutput) ElementType() reflect.Type {
@@ -862,6 +995,12 @@ func (o DeploymentModelOutput) ToDeploymentModelPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentModel) *DeploymentModel {
 		return &v
 	}).(DeploymentModelPtrOutput)
+}
+
+func (o DeploymentModelOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentModel] {
+	return pulumix.Output[DeploymentModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
@@ -891,6 +1030,12 @@ func (o DeploymentModelPtrOutput) ToDeploymentModelPtrOutput() DeploymentModelPt
 
 func (o DeploymentModelPtrOutput) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
 	return o
+}
+
+func (o DeploymentModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentModel] {
+	return pulumix.Output[*DeploymentModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentModelPtrOutput) Elem() DeploymentModelOutput {
@@ -982,6 +1127,12 @@ func (i DeploymentScaleArgs) ToDeploymentScaleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleOutput)
 }
 
+func (i DeploymentScaleArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentScale] {
+	return pulumix.Output[DeploymentScale]{
+		OutputState: i.ToDeploymentScaleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentScaleArgs) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
 	return i.ToDeploymentScalePtrOutputWithContext(context.Background())
 }
@@ -1023,6 +1174,12 @@ func (i *deploymentScalePtrType) ToDeploymentScalePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScalePtrOutput)
 }
 
+func (i *deploymentScalePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentScale] {
+	return pulumix.Output[*DeploymentScale]{
+		OutputState: i.ToDeploymentScalePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentScaleOutput struct{ *pulumi.OutputState }
 
 func (DeploymentScaleOutput) ElementType() reflect.Type {
@@ -1045,6 +1202,12 @@ func (o DeploymentScaleOutput) ToDeploymentScalePtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentScale) *DeploymentScale {
 		return &v
 	}).(DeploymentScalePtrOutput)
+}
+
+func (o DeploymentScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentScale] {
+	return pulumix.Output[DeploymentScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
@@ -1084,6 +1247,12 @@ func (o DeploymentScalePtrOutput) ToDeploymentScalePtrOutput() DeploymentScalePt
 
 func (o DeploymentScalePtrOutput) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
 	return o
+}
+
+func (o DeploymentScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentScale] {
+	return pulumix.Output[*DeploymentScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentScalePtrOutput) Elem() DeploymentScaleOutput {

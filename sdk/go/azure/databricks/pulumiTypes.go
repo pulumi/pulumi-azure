@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -62,6 +63,12 @@ func (i AccessConnectorIdentityArgs) ToAccessConnectorIdentityOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorIdentityOutput)
 }
 
+func (i AccessConnectorIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccessConnectorIdentity] {
+	return pulumix.Output[AccessConnectorIdentity]{
+		OutputState: i.ToAccessConnectorIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccessConnectorIdentityArgs) ToAccessConnectorIdentityPtrOutput() AccessConnectorIdentityPtrOutput {
 	return i.ToAccessConnectorIdentityPtrOutputWithContext(context.Background())
 }
@@ -103,6 +110,12 @@ func (i *accessConnectorIdentityPtrType) ToAccessConnectorIdentityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccessConnectorIdentityPtrOutput)
 }
 
+func (i *accessConnectorIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessConnectorIdentity] {
+	return pulumix.Output[*AccessConnectorIdentity]{
+		OutputState: i.ToAccessConnectorIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessConnectorIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccessConnectorIdentityOutput) ElementType() reflect.Type {
@@ -125,6 +138,12 @@ func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessConnectorIdentity) *AccessConnectorIdentity {
 		return &v
 	}).(AccessConnectorIdentityPtrOutput)
+}
+
+func (o AccessConnectorIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccessConnectorIdentity] {
+	return pulumix.Output[AccessConnectorIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
@@ -161,6 +180,12 @@ func (o AccessConnectorIdentityPtrOutput) ToAccessConnectorIdentityPtrOutput() A
 
 func (o AccessConnectorIdentityPtrOutput) ToAccessConnectorIdentityPtrOutputWithContext(ctx context.Context) AccessConnectorIdentityPtrOutput {
 	return o
+}
+
+func (o AccessConnectorIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessConnectorIdentity] {
+	return pulumix.Output[*AccessConnectorIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessConnectorIdentityPtrOutput) Elem() AccessConnectorIdentityOutput {
@@ -300,6 +325,12 @@ func (i WorkspaceCustomParametersArgs) ToWorkspaceCustomParametersOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomParametersOutput)
 }
 
+func (i WorkspaceCustomParametersArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceCustomParameters] {
+	return pulumix.Output[WorkspaceCustomParameters]{
+		OutputState: i.ToWorkspaceCustomParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkspaceCustomParametersArgs) ToWorkspaceCustomParametersPtrOutput() WorkspaceCustomParametersPtrOutput {
 	return i.ToWorkspaceCustomParametersPtrOutputWithContext(context.Background())
 }
@@ -341,6 +372,12 @@ func (i *workspaceCustomParametersPtrType) ToWorkspaceCustomParametersPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomParametersPtrOutput)
 }
 
+func (i *workspaceCustomParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceCustomParameters] {
+	return pulumix.Output[*WorkspaceCustomParameters]{
+		OutputState: i.ToWorkspaceCustomParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceCustomParametersOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomParametersOutput) ElementType() reflect.Type {
@@ -363,6 +400,12 @@ func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomParameters) *WorkspaceCustomParameters {
 		return &v
 	}).(WorkspaceCustomParametersPtrOutput)
+}
+
+func (o WorkspaceCustomParametersOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceCustomParameters] {
+	return pulumix.Output[WorkspaceCustomParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
@@ -441,6 +484,12 @@ func (o WorkspaceCustomParametersPtrOutput) ToWorkspaceCustomParametersPtrOutput
 
 func (o WorkspaceCustomParametersPtrOutput) ToWorkspaceCustomParametersPtrOutputWithContext(ctx context.Context) WorkspaceCustomParametersPtrOutput {
 	return o
+}
+
+func (o WorkspaceCustomParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceCustomParameters] {
+	return pulumix.Output[*WorkspaceCustomParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutput {
@@ -618,6 +667,12 @@ func (i WorkspaceManagedDiskIdentityArgs) ToWorkspaceManagedDiskIdentityOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedDiskIdentityOutput)
 }
 
+func (i WorkspaceManagedDiskIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceManagedDiskIdentity] {
+	return pulumix.Output[WorkspaceManagedDiskIdentity]{
+		OutputState: i.ToWorkspaceManagedDiskIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceManagedDiskIdentityArrayInput is an input type that accepts WorkspaceManagedDiskIdentityArray and WorkspaceManagedDiskIdentityArrayOutput values.
 // You can construct a concrete instance of `WorkspaceManagedDiskIdentityArrayInput` via:
 //
@@ -643,6 +698,12 @@ func (i WorkspaceManagedDiskIdentityArray) ToWorkspaceManagedDiskIdentityArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedDiskIdentityArrayOutput)
 }
 
+func (i WorkspaceManagedDiskIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceManagedDiskIdentity] {
+	return pulumix.Output[[]WorkspaceManagedDiskIdentity]{
+		OutputState: i.ToWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceManagedDiskIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceManagedDiskIdentityOutput) ElementType() reflect.Type {
@@ -655,6 +716,12 @@ func (o WorkspaceManagedDiskIdentityOutput) ToWorkspaceManagedDiskIdentityOutput
 
 func (o WorkspaceManagedDiskIdentityOutput) ToWorkspaceManagedDiskIdentityOutputWithContext(ctx context.Context) WorkspaceManagedDiskIdentityOutput {
 	return o
+}
+
+func (o WorkspaceManagedDiskIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceManagedDiskIdentity] {
+	return pulumix.Output[WorkspaceManagedDiskIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -684,6 +751,12 @@ func (o WorkspaceManagedDiskIdentityArrayOutput) ToWorkspaceManagedDiskIdentityA
 
 func (o WorkspaceManagedDiskIdentityArrayOutput) ToWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx context.Context) WorkspaceManagedDiskIdentityArrayOutput {
 	return o
+}
+
+func (o WorkspaceManagedDiskIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceManagedDiskIdentity] {
+	return pulumix.Output[[]WorkspaceManagedDiskIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceManagedDiskIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceManagedDiskIdentityOutput {
@@ -733,6 +806,12 @@ func (i WorkspaceStorageAccountIdentityArgs) ToWorkspaceStorageAccountIdentityOu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceStorageAccountIdentityOutput)
 }
 
+func (i WorkspaceStorageAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceStorageAccountIdentity] {
+	return pulumix.Output[WorkspaceStorageAccountIdentity]{
+		OutputState: i.ToWorkspaceStorageAccountIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceStorageAccountIdentityArrayInput is an input type that accepts WorkspaceStorageAccountIdentityArray and WorkspaceStorageAccountIdentityArrayOutput values.
 // You can construct a concrete instance of `WorkspaceStorageAccountIdentityArrayInput` via:
 //
@@ -758,6 +837,12 @@ func (i WorkspaceStorageAccountIdentityArray) ToWorkspaceStorageAccountIdentityA
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceStorageAccountIdentityArrayOutput)
 }
 
+func (i WorkspaceStorageAccountIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceStorageAccountIdentity] {
+	return pulumix.Output[[]WorkspaceStorageAccountIdentity]{
+		OutputState: i.ToWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceStorageAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceStorageAccountIdentityOutput) ElementType() reflect.Type {
@@ -770,6 +855,12 @@ func (o WorkspaceStorageAccountIdentityOutput) ToWorkspaceStorageAccountIdentity
 
 func (o WorkspaceStorageAccountIdentityOutput) ToWorkspaceStorageAccountIdentityOutputWithContext(ctx context.Context) WorkspaceStorageAccountIdentityOutput {
 	return o
+}
+
+func (o WorkspaceStorageAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceStorageAccountIdentity] {
+	return pulumix.Output[WorkspaceStorageAccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -799,6 +890,12 @@ func (o WorkspaceStorageAccountIdentityArrayOutput) ToWorkspaceStorageAccountIde
 
 func (o WorkspaceStorageAccountIdentityArrayOutput) ToWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx context.Context) WorkspaceStorageAccountIdentityArrayOutput {
 	return o
+}
+
+func (o WorkspaceStorageAccountIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceStorageAccountIdentity] {
+	return pulumix.Output[[]WorkspaceStorageAccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceStorageAccountIdentityOutput {
@@ -848,6 +945,12 @@ func (i GetWorkspaceManagedDiskIdentityArgs) ToGetWorkspaceManagedDiskIdentityOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceManagedDiskIdentityOutput)
 }
 
+func (i GetWorkspaceManagedDiskIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceManagedDiskIdentity] {
+	return pulumix.Output[GetWorkspaceManagedDiskIdentity]{
+		OutputState: i.ToGetWorkspaceManagedDiskIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWorkspaceManagedDiskIdentityArrayInput is an input type that accepts GetWorkspaceManagedDiskIdentityArray and GetWorkspaceManagedDiskIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceManagedDiskIdentityArrayInput` via:
 //
@@ -873,6 +976,12 @@ func (i GetWorkspaceManagedDiskIdentityArray) ToGetWorkspaceManagedDiskIdentityA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceManagedDiskIdentityArrayOutput)
 }
 
+func (i GetWorkspaceManagedDiskIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceManagedDiskIdentity] {
+	return pulumix.Output[[]GetWorkspaceManagedDiskIdentity]{
+		OutputState: i.ToGetWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWorkspaceManagedDiskIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspaceManagedDiskIdentityOutput) ElementType() reflect.Type {
@@ -885,6 +994,12 @@ func (o GetWorkspaceManagedDiskIdentityOutput) ToGetWorkspaceManagedDiskIdentity
 
 func (o GetWorkspaceManagedDiskIdentityOutput) ToGetWorkspaceManagedDiskIdentityOutputWithContext(ctx context.Context) GetWorkspaceManagedDiskIdentityOutput {
 	return o
+}
+
+func (o GetWorkspaceManagedDiskIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceManagedDiskIdentity] {
+	return pulumix.Output[GetWorkspaceManagedDiskIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -914,6 +1029,12 @@ func (o GetWorkspaceManagedDiskIdentityArrayOutput) ToGetWorkspaceManagedDiskIde
 
 func (o GetWorkspaceManagedDiskIdentityArrayOutput) ToGetWorkspaceManagedDiskIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceManagedDiskIdentityArrayOutput {
 	return o
+}
+
+func (o GetWorkspaceManagedDiskIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceManagedDiskIdentity] {
+	return pulumix.Output[[]GetWorkspaceManagedDiskIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWorkspaceManagedDiskIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceManagedDiskIdentityOutput {
@@ -971,6 +1092,12 @@ func (i GetWorkspacePrivateEndpointConnectionConnectionArgs) ToGetWorkspacePriva
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspacePrivateEndpointConnectionConnectionOutput)
 }
 
+func (i GetWorkspacePrivateEndpointConnectionConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkspacePrivateEndpointConnectionConnection] {
+	return pulumix.Output[GetWorkspacePrivateEndpointConnectionConnection]{
+		OutputState: i.ToGetWorkspacePrivateEndpointConnectionConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWorkspacePrivateEndpointConnectionConnectionArrayInput is an input type that accepts GetWorkspacePrivateEndpointConnectionConnectionArray and GetWorkspacePrivateEndpointConnectionConnectionArrayOutput values.
 // You can construct a concrete instance of `GetWorkspacePrivateEndpointConnectionConnectionArrayInput` via:
 //
@@ -996,6 +1123,12 @@ func (i GetWorkspacePrivateEndpointConnectionConnectionArray) ToGetWorkspacePriv
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspacePrivateEndpointConnectionConnectionArrayOutput)
 }
 
+func (i GetWorkspacePrivateEndpointConnectionConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspacePrivateEndpointConnectionConnection] {
+	return pulumix.Output[[]GetWorkspacePrivateEndpointConnectionConnection]{
+		OutputState: i.ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWorkspacePrivateEndpointConnectionConnectionOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspacePrivateEndpointConnectionConnectionOutput) ElementType() reflect.Type {
@@ -1008,6 +1141,12 @@ func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) ToGetWorkspacePri
 
 func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) ToGetWorkspacePrivateEndpointConnectionConnectionOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionConnectionOutput {
 	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspacePrivateEndpointConnectionConnection] {
+	return pulumix.Output[GetWorkspacePrivateEndpointConnectionConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Actions required for a private endpoint connection.
@@ -1047,6 +1186,12 @@ func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) ToGetWorkspa
 
 func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) ToGetWorkspacePrivateEndpointConnectionConnectionArrayOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionConnectionArrayOutput {
 	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspacePrivateEndpointConnectionConnection] {
+	return pulumix.Output[[]GetWorkspacePrivateEndpointConnectionConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWorkspacePrivateEndpointConnectionConnectionArrayOutput) Index(i pulumi.IntInput) GetWorkspacePrivateEndpointConnectionConnectionOutput {
@@ -1096,6 +1241,12 @@ func (i GetWorkspaceStorageAccountIdentityArgs) ToGetWorkspaceStorageAccountIden
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceStorageAccountIdentityOutput)
 }
 
+func (i GetWorkspaceStorageAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceStorageAccountIdentity] {
+	return pulumix.Output[GetWorkspaceStorageAccountIdentity]{
+		OutputState: i.ToGetWorkspaceStorageAccountIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetWorkspaceStorageAccountIdentityArrayInput is an input type that accepts GetWorkspaceStorageAccountIdentityArray and GetWorkspaceStorageAccountIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceStorageAccountIdentityArrayInput` via:
 //
@@ -1121,6 +1272,12 @@ func (i GetWorkspaceStorageAccountIdentityArray) ToGetWorkspaceStorageAccountIde
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceStorageAccountIdentityArrayOutput)
 }
 
+func (i GetWorkspaceStorageAccountIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceStorageAccountIdentity] {
+	return pulumix.Output[[]GetWorkspaceStorageAccountIdentity]{
+		OutputState: i.ToGetWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetWorkspaceStorageAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspaceStorageAccountIdentityOutput) ElementType() reflect.Type {
@@ -1133,6 +1290,12 @@ func (o GetWorkspaceStorageAccountIdentityOutput) ToGetWorkspaceStorageAccountId
 
 func (o GetWorkspaceStorageAccountIdentityOutput) ToGetWorkspaceStorageAccountIdentityOutputWithContext(ctx context.Context) GetWorkspaceStorageAccountIdentityOutput {
 	return o
+}
+
+func (o GetWorkspaceStorageAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceStorageAccountIdentity] {
+	return pulumix.Output[GetWorkspaceStorageAccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -1162,6 +1325,12 @@ func (o GetWorkspaceStorageAccountIdentityArrayOutput) ToGetWorkspaceStorageAcco
 
 func (o GetWorkspaceStorageAccountIdentityArrayOutput) ToGetWorkspaceStorageAccountIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceStorageAccountIdentityArrayOutput {
 	return o
+}
+
+func (o GetWorkspaceStorageAccountIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceStorageAccountIdentity] {
+	return pulumix.Output[[]GetWorkspaceStorageAccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceStorageAccountIdentityOutput {

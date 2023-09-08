@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a virtual machine scale set.
@@ -769,6 +770,12 @@ func (i *ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOutput)
 }
 
+func (i *ScaleSet) ToOutput(ctx context.Context) pulumix.Output[*ScaleSet] {
+	return pulumix.Output[*ScaleSet]{
+		OutputState: i.ToScaleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScaleSetArrayInput is an input type that accepts ScaleSetArray and ScaleSetArrayOutput values.
 // You can construct a concrete instance of `ScaleSetArrayInput` via:
 //
@@ -792,6 +799,12 @@ func (i ScaleSetArray) ToScaleSetArrayOutput() ScaleSetArrayOutput {
 
 func (i ScaleSetArray) ToScaleSetArrayOutputWithContext(ctx context.Context) ScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetArrayOutput)
+}
+
+func (i ScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScaleSet] {
+	return pulumix.Output[[]*ScaleSet]{
+		OutputState: i.ToScaleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScaleSetMapInput is an input type that accepts ScaleSetMap and ScaleSetMapOutput values.
@@ -819,6 +832,12 @@ func (i ScaleSetMap) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetMapOutput)
 }
 
+func (i ScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScaleSet] {
+	return pulumix.Output[map[string]*ScaleSet]{
+		OutputState: i.ToScaleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScaleSetOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOutput) ElementType() reflect.Type {
@@ -831,6 +850,12 @@ func (o ScaleSetOutput) ToScaleSetOutput() ScaleSetOutput {
 
 func (o ScaleSetOutput) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
 	return o
+}
+
+func (o ScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ScaleSet] {
+	return pulumix.Output[*ScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
@@ -991,6 +1016,12 @@ func (o ScaleSetArrayOutput) ToScaleSetArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScaleSet] {
+	return pulumix.Output[[]*ScaleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScaleSetArrayOutput) Index(i pulumi.IntInput) ScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScaleSet {
 		return vs[0].([]*ScaleSet)[vs[1].(int)]
@@ -1009,6 +1040,12 @@ func (o ScaleSetMapOutput) ToScaleSetMapOutput() ScaleSetMapOutput {
 
 func (o ScaleSetMapOutput) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSetMapOutput {
 	return o
+}
+
+func (o ScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScaleSet] {
+	return pulumix.Output[map[string]*ScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScaleSetMapOutput) MapIndex(k pulumi.StringInput) ScaleSetOutput {

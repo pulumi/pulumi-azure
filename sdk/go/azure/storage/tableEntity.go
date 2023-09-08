@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Entity within a Table in an Azure Storage Account.
@@ -216,6 +217,12 @@ func (i *TableEntity) ToTableEntityOutputWithContext(ctx context.Context) TableE
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityOutput)
 }
 
+func (i *TableEntity) ToOutput(ctx context.Context) pulumix.Output[*TableEntity] {
+	return pulumix.Output[*TableEntity]{
+		OutputState: i.ToTableEntityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableEntityArrayInput is an input type that accepts TableEntityArray and TableEntityArrayOutput values.
 // You can construct a concrete instance of `TableEntityArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i TableEntityArray) ToTableEntityArrayOutput() TableEntityArrayOutput {
 
 func (i TableEntityArray) ToTableEntityArrayOutputWithContext(ctx context.Context) TableEntityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityArrayOutput)
+}
+
+func (i TableEntityArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableEntity] {
+	return pulumix.Output[[]*TableEntity]{
+		OutputState: i.ToTableEntityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TableEntityMapInput is an input type that accepts TableEntityMap and TableEntityMapOutput values.
@@ -266,6 +279,12 @@ func (i TableEntityMap) ToTableEntityMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TableEntityMapOutput)
 }
 
+func (i TableEntityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableEntity] {
+	return pulumix.Output[map[string]*TableEntity]{
+		OutputState: i.ToTableEntityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableEntityOutput struct{ *pulumi.OutputState }
 
 func (TableEntityOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o TableEntityOutput) ToTableEntityOutput() TableEntityOutput {
 
 func (o TableEntityOutput) ToTableEntityOutputWithContext(ctx context.Context) TableEntityOutput {
 	return o
+}
+
+func (o TableEntityOutput) ToOutput(ctx context.Context) pulumix.Output[*TableEntity] {
+	return pulumix.Output[*TableEntity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
@@ -319,6 +344,12 @@ func (o TableEntityArrayOutput) ToTableEntityArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o TableEntityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableEntity] {
+	return pulumix.Output[[]*TableEntity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableEntityArrayOutput) Index(i pulumi.IntInput) TableEntityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableEntity {
 		return vs[0].([]*TableEntity)[vs[1].(int)]
@@ -337,6 +368,12 @@ func (o TableEntityMapOutput) ToTableEntityMapOutput() TableEntityMapOutput {
 
 func (o TableEntityMapOutput) ToTableEntityMapOutputWithContext(ctx context.Context) TableEntityMapOutput {
 	return o
+}
+
+func (o TableEntityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableEntity] {
+	return pulumix.Output[map[string]*TableEntity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableEntityMapOutput) MapIndex(k pulumi.StringInput) TableEntityOutput {

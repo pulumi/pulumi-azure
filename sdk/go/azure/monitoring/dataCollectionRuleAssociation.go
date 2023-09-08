@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Collection Rule Association.
@@ -302,6 +303,12 @@ func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationOutput)
 }
 
+func (i *DataCollectionRuleAssociation) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleAssociation] {
+	return pulumix.Output[*DataCollectionRuleAssociation]{
+		OutputState: i.ToDataCollectionRuleAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataCollectionRuleAssociationArrayInput is an input type that accepts DataCollectionRuleAssociationArray and DataCollectionRuleAssociationArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleAssociationArrayInput` via:
 //
@@ -325,6 +332,12 @@ func (i DataCollectionRuleAssociationArray) ToDataCollectionRuleAssociationArray
 
 func (i DataCollectionRuleAssociationArray) ToDataCollectionRuleAssociationArrayOutputWithContext(ctx context.Context) DataCollectionRuleAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationArrayOutput)
+}
+
+func (i DataCollectionRuleAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataCollectionRuleAssociation] {
+	return pulumix.Output[[]*DataCollectionRuleAssociation]{
+		OutputState: i.ToDataCollectionRuleAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataCollectionRuleAssociationMapInput is an input type that accepts DataCollectionRuleAssociationMap and DataCollectionRuleAssociationMapOutput values.
@@ -352,6 +365,12 @@ func (i DataCollectionRuleAssociationMap) ToDataCollectionRuleAssociationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationMapOutput)
 }
 
+func (i DataCollectionRuleAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCollectionRuleAssociation] {
+	return pulumix.Output[map[string]*DataCollectionRuleAssociation]{
+		OutputState: i.ToDataCollectionRuleAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCollectionRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleAssociationOutput) ElementType() reflect.Type {
@@ -364,6 +383,12 @@ func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutp
 
 func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutputWithContext(ctx context.Context) DataCollectionRuleAssociationOutput {
 	return o
+}
+
+func (o DataCollectionRuleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleAssociation] {
+	return pulumix.Output[*DataCollectionRuleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Data Collection Endpoint which will be associated to the target resource.
@@ -409,6 +434,12 @@ func (o DataCollectionRuleAssociationArrayOutput) ToDataCollectionRuleAssociatio
 	return o
 }
 
+func (o DataCollectionRuleAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataCollectionRuleAssociation] {
+	return pulumix.Output[[]*DataCollectionRuleAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataCollectionRuleAssociationArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataCollectionRuleAssociation {
 		return vs[0].([]*DataCollectionRuleAssociation)[vs[1].(int)]
@@ -427,6 +458,12 @@ func (o DataCollectionRuleAssociationMapOutput) ToDataCollectionRuleAssociationM
 
 func (o DataCollectionRuleAssociationMapOutput) ToDataCollectionRuleAssociationMapOutputWithContext(ctx context.Context) DataCollectionRuleAssociationMapOutput {
 	return o
+}
+
+func (o DataCollectionRuleAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCollectionRuleAssociation] {
+	return pulumix.Output[map[string]*DataCollectionRuleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCollectionRuleAssociationMapOutput) MapIndex(k pulumi.StringInput) DataCollectionRuleAssociationOutput {

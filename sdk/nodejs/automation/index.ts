@@ -125,6 +125,11 @@ export type Module = import("./module").Module;
 export const Module: typeof import("./module").Module = null as any;
 utilities.lazyLoad(exports, ["Module"], () => require("./module"));
 
+export { Python3PackageArgs, Python3PackageState } from "./python3Package";
+export type Python3Package = import("./python3Package").Python3Package;
+export const Python3Package: typeof import("./python3Package").Python3Package = null as any;
+utilities.lazyLoad(exports, ["Python3Package"], () => require("./python3Package"));
+
 export { RunBookArgs, RunBookState } from "./runBook";
 export type RunBook = import("./runBook").RunBook;
 export const RunBook: typeof import("./runBook").RunBook = null as any;
@@ -204,6 +209,8 @@ const _module = {
                 return new JobSchedule(name, <any>undefined, { urn })
             case "azure:automation/module:Module":
                 return new Module(name, <any>undefined, { urn })
+            case "azure:automation/python3Package:Python3Package":
+                return new Python3Package(name, <any>undefined, { urn })
             case "azure:automation/runBook:RunBook":
                 return new RunBook(name, <any>undefined, { urn })
             case "azure:automation/schedule:Schedule":
@@ -242,6 +249,7 @@ pulumi.runtime.registerResourceModule("azure", "automation/hybridRunbookWorkerGr
 pulumi.runtime.registerResourceModule("azure", "automation/intVariable", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/jobSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/module", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/python3Package", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runBook", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/softwareUpdateConfiguration", _module)

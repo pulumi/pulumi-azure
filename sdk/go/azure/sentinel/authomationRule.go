@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Automation Rule.
@@ -314,6 +315,12 @@ func (i *AuthomationRule) ToAuthomationRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleOutput)
 }
 
+func (i *AuthomationRule) ToOutput(ctx context.Context) pulumix.Output[*AuthomationRule] {
+	return pulumix.Output[*AuthomationRule]{
+		OutputState: i.ToAuthomationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthomationRuleArrayInput is an input type that accepts AuthomationRuleArray and AuthomationRuleArrayOutput values.
 // You can construct a concrete instance of `AuthomationRuleArrayInput` via:
 //
@@ -337,6 +344,12 @@ func (i AuthomationRuleArray) ToAuthomationRuleArrayOutput() AuthomationRuleArra
 
 func (i AuthomationRuleArray) ToAuthomationRuleArrayOutputWithContext(ctx context.Context) AuthomationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleArrayOutput)
+}
+
+func (i AuthomationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthomationRule] {
+	return pulumix.Output[[]*AuthomationRule]{
+		OutputState: i.ToAuthomationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AuthomationRuleMapInput is an input type that accepts AuthomationRuleMap and AuthomationRuleMapOutput values.
@@ -364,6 +377,12 @@ func (i AuthomationRuleMap) ToAuthomationRuleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleMapOutput)
 }
 
+func (i AuthomationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthomationRule] {
+	return pulumix.Output[map[string]*AuthomationRule]{
+		OutputState: i.ToAuthomationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthomationRuleOutput struct{ *pulumi.OutputState }
 
 func (AuthomationRuleOutput) ElementType() reflect.Type {
@@ -376,6 +395,12 @@ func (o AuthomationRuleOutput) ToAuthomationRuleOutput() AuthomationRuleOutput {
 
 func (o AuthomationRuleOutput) ToAuthomationRuleOutputWithContext(ctx context.Context) AuthomationRuleOutput {
 	return o
+}
+
+func (o AuthomationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthomationRule] {
+	return pulumix.Output[*AuthomationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `actionIncident` blocks as defined below.
@@ -458,6 +483,12 @@ func (o AuthomationRuleArrayOutput) ToAuthomationRuleArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o AuthomationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthomationRule] {
+	return pulumix.Output[[]*AuthomationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthomationRuleArrayOutput) Index(i pulumi.IntInput) AuthomationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthomationRule {
 		return vs[0].([]*AuthomationRule)[vs[1].(int)]
@@ -476,6 +507,12 @@ func (o AuthomationRuleMapOutput) ToAuthomationRuleMapOutput() AuthomationRuleMa
 
 func (o AuthomationRuleMapOutput) ToAuthomationRuleMapOutputWithContext(ctx context.Context) AuthomationRuleMapOutput {
 	return o
+}
+
+func (o AuthomationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthomationRule] {
+	return pulumix.Output[map[string]*AuthomationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthomationRuleMapOutput) MapIndex(k pulumi.StringInput) AuthomationRuleOutput {

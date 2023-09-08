@@ -10,18 +10,9 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Manages an Alias for a Subscription - which adds an Alias to an existing Subscription, allowing it to be managed in the provider - or create a new Subscription with a new Alias.
-//
-// > **NOTE:** Destroying a Subscription controlled by this resource will place the Subscription into a cancelled state. It is possible to re-activate a subscription within 90-days of cancellation, after which time the Subscription is irrevocably deleted, and the Subscription ID cannot be re-used. For further information see [here](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#what-happens-after-subscription-cancellation). Users can optionally delete a Subscription once 72 hours have passed, however, this functionality is not suitable for this provider. A `Deleted` subscription cannot be reactivated.
-//
-// > **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by the provider then these will need to be removed before the Subscription can be destroyed.
-//
-// > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
-//
-// > **NOTE:** When using this resource across tenants the `clientId` and `tenantId` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
-//
 // ## Example Usage
 // ### Creating A New Alias And Subscription For An Enrollment Account
 //
@@ -328,6 +319,12 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
+func (i *Subscription) ToOutput(ctx context.Context) pulumix.Output[*Subscription] {
+	return pulumix.Output[*Subscription]{
+		OutputState: i.ToSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionArrayInput is an input type that accepts SubscriptionArray and SubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionArrayInput` via:
 //
@@ -351,6 +348,12 @@ func (i SubscriptionArray) ToSubscriptionArrayOutput() SubscriptionArrayOutput {
 
 func (i SubscriptionArray) ToSubscriptionArrayOutputWithContext(ctx context.Context) SubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionArrayOutput)
+}
+
+func (i SubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Subscription] {
+	return pulumix.Output[[]*Subscription]{
+		OutputState: i.ToSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionMapInput is an input type that accepts SubscriptionMap and SubscriptionMapOutput values.
@@ -378,6 +381,12 @@ func (i SubscriptionMap) ToSubscriptionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionMapOutput)
 }
 
+func (i SubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Subscription] {
+	return pulumix.Output[map[string]*Subscription]{
+		OutputState: i.ToSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
@@ -390,6 +399,12 @@ func (o SubscriptionOutput) ToSubscriptionOutput() SubscriptionOutput {
 
 func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput {
 	return o
+}
+
+func (o SubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*Subscription] {
+	return pulumix.Output[*Subscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
@@ -445,6 +460,12 @@ func (o SubscriptionArrayOutput) ToSubscriptionArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o SubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Subscription] {
+	return pulumix.Output[[]*Subscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionArrayOutput) Index(i pulumi.IntInput) SubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Subscription {
 		return vs[0].([]*Subscription)[vs[1].(int)]
@@ -463,6 +484,12 @@ func (o SubscriptionMapOutput) ToSubscriptionMapOutput() SubscriptionMapOutput {
 
 func (o SubscriptionMapOutput) ToSubscriptionMapOutputWithContext(ctx context.Context) SubscriptionMapOutput {
 	return o
+}
+
+func (o SubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Subscription] {
+	return pulumix.Output[map[string]*Subscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionMapOutput) MapIndex(k pulumi.StringInput) SubscriptionOutput {

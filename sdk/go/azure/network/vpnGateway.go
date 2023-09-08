@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
@@ -254,6 +255,12 @@ func (i *VpnGateway) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatew
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayOutput)
 }
 
+func (i *VpnGateway) ToOutput(ctx context.Context) pulumix.Output[*VpnGateway] {
+	return pulumix.Output[*VpnGateway]{
+		OutputState: i.ToVpnGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpnGatewayArrayInput is an input type that accepts VpnGatewayArray and VpnGatewayArrayOutput values.
 // You can construct a concrete instance of `VpnGatewayArrayInput` via:
 //
@@ -277,6 +284,12 @@ func (i VpnGatewayArray) ToVpnGatewayArrayOutput() VpnGatewayArrayOutput {
 
 func (i VpnGatewayArray) ToVpnGatewayArrayOutputWithContext(ctx context.Context) VpnGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayArrayOutput)
+}
+
+func (i VpnGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGateway] {
+	return pulumix.Output[[]*VpnGateway]{
+		OutputState: i.ToVpnGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpnGatewayMapInput is an input type that accepts VpnGatewayMap and VpnGatewayMapOutput values.
@@ -304,6 +317,12 @@ func (i VpnGatewayMap) ToVpnGatewayMapOutputWithContext(ctx context.Context) Vpn
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayMapOutput)
 }
 
+func (i VpnGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGateway] {
+	return pulumix.Output[map[string]*VpnGateway]{
+		OutputState: i.ToVpnGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayOutput) ElementType() reflect.Type {
@@ -316,6 +335,12 @@ func (o VpnGatewayOutput) ToVpnGatewayOutput() VpnGatewayOutput {
 
 func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatewayOutput {
 	return o
+}
+
+func (o VpnGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnGateway] {
+	return pulumix.Output[*VpnGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
@@ -377,6 +402,12 @@ func (o VpnGatewayArrayOutput) ToVpnGatewayArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o VpnGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGateway] {
+	return pulumix.Output[[]*VpnGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpnGatewayArrayOutput) Index(i pulumi.IntInput) VpnGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnGateway {
 		return vs[0].([]*VpnGateway)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o VpnGatewayMapOutput) ToVpnGatewayMapOutput() VpnGatewayMapOutput {
 
 func (o VpnGatewayMapOutput) ToVpnGatewayMapOutputWithContext(ctx context.Context) VpnGatewayMapOutput {
 	return o
+}
+
+func (o VpnGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGateway] {
+	return pulumix.Output[map[string]*VpnGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpnGatewayMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayOutput {

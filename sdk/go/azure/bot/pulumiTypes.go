@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -78,6 +79,12 @@ func (i ChannelDirectLineSiteArgs) ToChannelDirectLineSiteOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSiteOutput)
 }
 
+func (i ChannelDirectLineSiteArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelDirectLineSite] {
+	return pulumix.Output[ChannelDirectLineSite]{
+		OutputState: i.ToChannelDirectLineSiteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelDirectLineSiteArrayInput is an input type that accepts ChannelDirectLineSiteArray and ChannelDirectLineSiteArrayOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSiteArrayInput` via:
 //
@@ -103,6 +110,12 @@ func (i ChannelDirectLineSiteArray) ToChannelDirectLineSiteArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSiteArrayOutput)
 }
 
+func (i ChannelDirectLineSiteArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelDirectLineSite] {
+	return pulumix.Output[[]ChannelDirectLineSite]{
+		OutputState: i.ToChannelDirectLineSiteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelDirectLineSiteOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineSiteOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o ChannelDirectLineSiteOutput) ToChannelDirectLineSiteOutput() ChannelDire
 
 func (o ChannelDirectLineSiteOutput) ToChannelDirectLineSiteOutputWithContext(ctx context.Context) ChannelDirectLineSiteOutput {
 	return o
+}
+
+func (o ChannelDirectLineSiteOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDirectLineSite] {
+	return pulumix.Output[ChannelDirectLineSite]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables/Disables this site. Enabled by default Defaults to `true`.
@@ -176,6 +195,12 @@ func (o ChannelDirectLineSiteArrayOutput) ToChannelDirectLineSiteArrayOutputWith
 	return o
 }
 
+func (o ChannelDirectLineSiteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelDirectLineSite] {
+	return pulumix.Output[[]ChannelDirectLineSite]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelDirectLineSiteArrayOutput) Index(i pulumi.IntInput) ChannelDirectLineSiteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelDirectLineSite {
 		return vs[0].([]ChannelDirectLineSite)[vs[1].(int)]
@@ -219,6 +244,12 @@ func (i ChannelFacebookPageArgs) ToChannelFacebookPageOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookPageOutput)
 }
 
+func (i ChannelFacebookPageArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelFacebookPage] {
+	return pulumix.Output[ChannelFacebookPage]{
+		OutputState: i.ToChannelFacebookPageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelFacebookPageArrayInput is an input type that accepts ChannelFacebookPageArray and ChannelFacebookPageArrayOutput values.
 // You can construct a concrete instance of `ChannelFacebookPageArrayInput` via:
 //
@@ -244,6 +275,12 @@ func (i ChannelFacebookPageArray) ToChannelFacebookPageArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelFacebookPageArrayOutput)
 }
 
+func (i ChannelFacebookPageArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelFacebookPage] {
+	return pulumix.Output[[]ChannelFacebookPage]{
+		OutputState: i.ToChannelFacebookPageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelFacebookPageOutput struct{ *pulumi.OutputState }
 
 func (ChannelFacebookPageOutput) ElementType() reflect.Type {
@@ -256,6 +293,12 @@ func (o ChannelFacebookPageOutput) ToChannelFacebookPageOutput() ChannelFacebook
 
 func (o ChannelFacebookPageOutput) ToChannelFacebookPageOutputWithContext(ctx context.Context) ChannelFacebookPageOutput {
 	return o
+}
+
+func (o ChannelFacebookPageOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelFacebookPage] {
+	return pulumix.Output[ChannelFacebookPage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Facebook Page Access Token for the Facebook Channel.
@@ -280,6 +323,12 @@ func (o ChannelFacebookPageArrayOutput) ToChannelFacebookPageArrayOutput() Chann
 
 func (o ChannelFacebookPageArrayOutput) ToChannelFacebookPageArrayOutputWithContext(ctx context.Context) ChannelFacebookPageArrayOutput {
 	return o
+}
+
+func (o ChannelFacebookPageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelFacebookPage] {
+	return pulumix.Output[[]ChannelFacebookPage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelFacebookPageArrayOutput) Index(i pulumi.IntInput) ChannelFacebookPageOutput {
@@ -325,6 +374,12 @@ func (i ChannelLineLineChannelArgs) ToChannelLineLineChannelOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineLineChannelOutput)
 }
 
+func (i ChannelLineLineChannelArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelLineLineChannel] {
+	return pulumix.Output[ChannelLineLineChannel]{
+		OutputState: i.ToChannelLineLineChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelLineLineChannelArrayInput is an input type that accepts ChannelLineLineChannelArray and ChannelLineLineChannelArrayOutput values.
 // You can construct a concrete instance of `ChannelLineLineChannelArrayInput` via:
 //
@@ -350,6 +405,12 @@ func (i ChannelLineLineChannelArray) ToChannelLineLineChannelArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineLineChannelArrayOutput)
 }
 
+func (i ChannelLineLineChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelLineLineChannel] {
+	return pulumix.Output[[]ChannelLineLineChannel]{
+		OutputState: i.ToChannelLineLineChannelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelLineLineChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelLineLineChannelOutput) ElementType() reflect.Type {
@@ -362,6 +423,12 @@ func (o ChannelLineLineChannelOutput) ToChannelLineLineChannelOutput() ChannelLi
 
 func (o ChannelLineLineChannelOutput) ToChannelLineLineChannelOutputWithContext(ctx context.Context) ChannelLineLineChannelOutput {
 	return o
+}
+
+func (o ChannelLineLineChannelOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLineLineChannel] {
+	return pulumix.Output[ChannelLineLineChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access token which is used to call the Line Channel API.
@@ -386,6 +453,12 @@ func (o ChannelLineLineChannelArrayOutput) ToChannelLineLineChannelArrayOutput()
 
 func (o ChannelLineLineChannelArrayOutput) ToChannelLineLineChannelArrayOutputWithContext(ctx context.Context) ChannelLineLineChannelArrayOutput {
 	return o
+}
+
+func (o ChannelLineLineChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelLineLineChannel] {
+	return pulumix.Output[[]ChannelLineLineChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelLineLineChannelArrayOutput) Index(i pulumi.IntInput) ChannelLineLineChannelOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Container Registry.
@@ -120,6 +121,12 @@ func (o LookupRegistryResultOutput) ToLookupRegistryResultOutput() LookupRegistr
 
 func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx context.Context) LookupRegistryResultOutput {
 	return o
+}
+
+func (o LookupRegistryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRegistryResult] {
+	return pulumix.Output[LookupRegistryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the Administrator account enabled for this Container Registry.

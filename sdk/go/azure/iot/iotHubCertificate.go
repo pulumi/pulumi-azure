@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Device Provisioning Service Certificate.
@@ -220,6 +221,12 @@ func (i *IotHubCertificate) ToIotHubCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateOutput)
 }
 
+func (i *IotHubCertificate) ToOutput(ctx context.Context) pulumix.Output[*IotHubCertificate] {
+	return pulumix.Output[*IotHubCertificate]{
+		OutputState: i.ToIotHubCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IotHubCertificateArrayInput is an input type that accepts IotHubCertificateArray and IotHubCertificateArrayOutput values.
 // You can construct a concrete instance of `IotHubCertificateArrayInput` via:
 //
@@ -243,6 +250,12 @@ func (i IotHubCertificateArray) ToIotHubCertificateArrayOutput() IotHubCertifica
 
 func (i IotHubCertificateArray) ToIotHubCertificateArrayOutputWithContext(ctx context.Context) IotHubCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateArrayOutput)
+}
+
+func (i IotHubCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubCertificate] {
+	return pulumix.Output[[]*IotHubCertificate]{
+		OutputState: i.ToIotHubCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IotHubCertificateMapInput is an input type that accepts IotHubCertificateMap and IotHubCertificateMapOutput values.
@@ -270,6 +283,12 @@ func (i IotHubCertificateMap) ToIotHubCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubCertificateMapOutput)
 }
 
+func (i IotHubCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubCertificate] {
+	return pulumix.Output[map[string]*IotHubCertificate]{
+		OutputState: i.ToIotHubCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IotHubCertificateOutput struct{ *pulumi.OutputState }
 
 func (IotHubCertificateOutput) ElementType() reflect.Type {
@@ -282,6 +301,12 @@ func (o IotHubCertificateOutput) ToIotHubCertificateOutput() IotHubCertificateOu
 
 func (o IotHubCertificateOutput) ToIotHubCertificateOutputWithContext(ctx context.Context) IotHubCertificateOutput {
 	return o
+}
+
+func (o IotHubCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubCertificate] {
+	return pulumix.Output[*IotHubCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -323,6 +348,12 @@ func (o IotHubCertificateArrayOutput) ToIotHubCertificateArrayOutputWithContext(
 	return o
 }
 
+func (o IotHubCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubCertificate] {
+	return pulumix.Output[[]*IotHubCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IotHubCertificateArrayOutput) Index(i pulumi.IntInput) IotHubCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IotHubCertificate {
 		return vs[0].([]*IotHubCertificate)[vs[1].(int)]
@@ -341,6 +372,12 @@ func (o IotHubCertificateMapOutput) ToIotHubCertificateMapOutput() IotHubCertifi
 
 func (o IotHubCertificateMapOutput) ToIotHubCertificateMapOutputWithContext(ctx context.Context) IotHubCertificateMapOutput {
 	return o
+}
+
+func (o IotHubCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubCertificate] {
+	return pulumix.Output[map[string]*IotHubCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IotHubCertificateMapOutput) MapIndex(k pulumi.StringInput) IotHubCertificateOutput {

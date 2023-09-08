@@ -29,7 +29,11 @@ public final class DiagnosticSettingEnabledLog {
     /**
      * @return A `retention_policy` block as defined below.
      * 
+     * @deprecated
+     * `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * 
      */
+    @Deprecated /* `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention */
     private @Nullable DiagnosticSettingEnabledLogRetentionPolicy retentionPolicy;
 
     private DiagnosticSettingEnabledLog() {}
@@ -54,7 +58,11 @@ public final class DiagnosticSettingEnabledLog {
     /**
      * @return A `retention_policy` block as defined below.
      * 
+     * @deprecated
+     * `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * 
      */
+    @Deprecated /* `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention */
     public Optional<DiagnosticSettingEnabledLogRetentionPolicy> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }

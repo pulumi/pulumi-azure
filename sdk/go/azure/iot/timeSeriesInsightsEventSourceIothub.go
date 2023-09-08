@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure IoT Time Series Insights IoTHub Event Source.
@@ -309,6 +310,12 @@ func (i *TimeSeriesInsightsEventSourceIothub) ToTimeSeriesInsightsEventSourceIot
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubOutput)
 }
 
+func (i *TimeSeriesInsightsEventSourceIothub) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsEventSourceIothub] {
+	return pulumix.Output[*TimeSeriesInsightsEventSourceIothub]{
+		OutputState: i.ToTimeSeriesInsightsEventSourceIothubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TimeSeriesInsightsEventSourceIothubArrayInput is an input type that accepts TimeSeriesInsightsEventSourceIothubArray and TimeSeriesInsightsEventSourceIothubArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsEventSourceIothubArrayInput` via:
 //
@@ -332,6 +339,12 @@ func (i TimeSeriesInsightsEventSourceIothubArray) ToTimeSeriesInsightsEventSourc
 
 func (i TimeSeriesInsightsEventSourceIothubArray) ToTimeSeriesInsightsEventSourceIothubArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubArrayOutput)
+}
+
+func (i TimeSeriesInsightsEventSourceIothubArray) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsEventSourceIothub] {
+	return pulumix.Output[[]*TimeSeriesInsightsEventSourceIothub]{
+		OutputState: i.ToTimeSeriesInsightsEventSourceIothubArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TimeSeriesInsightsEventSourceIothubMapInput is an input type that accepts TimeSeriesInsightsEventSourceIothubMap and TimeSeriesInsightsEventSourceIothubMapOutput values.
@@ -359,6 +372,12 @@ func (i TimeSeriesInsightsEventSourceIothubMap) ToTimeSeriesInsightsEventSourceI
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsEventSourceIothubMapOutput)
 }
 
+func (i TimeSeriesInsightsEventSourceIothubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsEventSourceIothub] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsEventSourceIothub]{
+		OutputState: i.ToTimeSeriesInsightsEventSourceIothubMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TimeSeriesInsightsEventSourceIothubOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsEventSourceIothubOutput) ElementType() reflect.Type {
@@ -371,6 +390,12 @@ func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSour
 
 func (o TimeSeriesInsightsEventSourceIothubOutput) ToTimeSeriesInsightsEventSourceIothubOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsEventSourceIothubOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsEventSourceIothub] {
+	return pulumix.Output[*TimeSeriesInsightsEventSourceIothub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the IotHub Consumer Group that holds the partitions from which events will be read.
@@ -437,6 +462,12 @@ func (o TimeSeriesInsightsEventSourceIothubArrayOutput) ToTimeSeriesInsightsEven
 	return o
 }
 
+func (o TimeSeriesInsightsEventSourceIothubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsEventSourceIothub] {
+	return pulumix.Output[[]*TimeSeriesInsightsEventSourceIothub]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TimeSeriesInsightsEventSourceIothubArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsEventSourceIothubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsEventSourceIothub {
 		return vs[0].([]*TimeSeriesInsightsEventSourceIothub)[vs[1].(int)]
@@ -455,6 +486,12 @@ func (o TimeSeriesInsightsEventSourceIothubMapOutput) ToTimeSeriesInsightsEventS
 
 func (o TimeSeriesInsightsEventSourceIothubMapOutput) ToTimeSeriesInsightsEventSourceIothubMapOutputWithContext(ctx context.Context) TimeSeriesInsightsEventSourceIothubMapOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsEventSourceIothubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsEventSourceIothub] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsEventSourceIothub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TimeSeriesInsightsEventSourceIothubMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsEventSourceIothubOutput {

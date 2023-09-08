@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
@@ -115,6 +116,12 @@ func (o GetDiagnosticCategoriesResultOutput) ToGetDiagnosticCategoriesResultOutp
 
 func (o GetDiagnosticCategoriesResultOutput) ToGetDiagnosticCategoriesResultOutputWithContext(ctx context.Context) GetDiagnosticCategoriesResultOutput {
 	return o
+}
+
+func (o GetDiagnosticCategoriesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDiagnosticCategoriesResult] {
+	return pulumix.Output[GetDiagnosticCategoriesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

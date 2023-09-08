@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Machine Learning File Share DataStore.
@@ -202,6 +203,12 @@ func (i *DatastoreFileshare) ToDatastoreFileshareOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreFileshareOutput)
 }
 
+func (i *DatastoreFileshare) ToOutput(ctx context.Context) pulumix.Output[*DatastoreFileshare] {
+	return pulumix.Output[*DatastoreFileshare]{
+		OutputState: i.ToDatastoreFileshareOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatastoreFileshareArrayInput is an input type that accepts DatastoreFileshareArray and DatastoreFileshareArrayOutput values.
 // You can construct a concrete instance of `DatastoreFileshareArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i DatastoreFileshareArray) ToDatastoreFileshareArrayOutput() DatastoreFile
 
 func (i DatastoreFileshareArray) ToDatastoreFileshareArrayOutputWithContext(ctx context.Context) DatastoreFileshareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreFileshareArrayOutput)
+}
+
+func (i DatastoreFileshareArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatastoreFileshare] {
+	return pulumix.Output[[]*DatastoreFileshare]{
+		OutputState: i.ToDatastoreFileshareArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatastoreFileshareMapInput is an input type that accepts DatastoreFileshareMap and DatastoreFileshareMapOutput values.
@@ -252,6 +265,12 @@ func (i DatastoreFileshareMap) ToDatastoreFileshareMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreFileshareMapOutput)
 }
 
+func (i DatastoreFileshareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatastoreFileshare] {
+	return pulumix.Output[map[string]*DatastoreFileshare]{
+		OutputState: i.ToDatastoreFileshareMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreFileshareOutput struct{ *pulumi.OutputState }
 
 func (DatastoreFileshareOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o DatastoreFileshareOutput) ToDatastoreFileshareOutput() DatastoreFileshar
 
 func (o DatastoreFileshareOutput) ToDatastoreFileshareOutputWithContext(ctx context.Context) DatastoreFileshareOutput {
 	return o
+}
+
+func (o DatastoreFileshareOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreFileshare] {
+	return pulumix.Output[*DatastoreFileshare]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
@@ -325,6 +350,12 @@ func (o DatastoreFileshareArrayOutput) ToDatastoreFileshareArrayOutputWithContex
 	return o
 }
 
+func (o DatastoreFileshareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatastoreFileshare] {
+	return pulumix.Output[[]*DatastoreFileshare]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreFileshareArrayOutput) Index(i pulumi.IntInput) DatastoreFileshareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatastoreFileshare {
 		return vs[0].([]*DatastoreFileshare)[vs[1].(int)]
@@ -343,6 +374,12 @@ func (o DatastoreFileshareMapOutput) ToDatastoreFileshareMapOutput() DatastoreFi
 
 func (o DatastoreFileshareMapOutput) ToDatastoreFileshareMapOutputWithContext(ctx context.Context) DatastoreFileshareMapOutput {
 	return o
+}
+
+func (o DatastoreFileshareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatastoreFileshare] {
+	return pulumix.Output[map[string]*DatastoreFileshare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreFileshareMapOutput) MapIndex(k pulumi.StringInput) DatastoreFileshareOutput {

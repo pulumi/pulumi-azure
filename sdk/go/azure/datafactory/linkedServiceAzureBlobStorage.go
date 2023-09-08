@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.
@@ -441,6 +442,12 @@ func (i *LinkedServiceAzureBlobStorage) ToLinkedServiceAzureBlobStorageOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageOutput)
 }
 
+func (i *LinkedServiceAzureBlobStorage) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureBlobStorage] {
+	return pulumix.Output[*LinkedServiceAzureBlobStorage]{
+		OutputState: i.ToLinkedServiceAzureBlobStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceAzureBlobStorageArrayInput is an input type that accepts LinkedServiceAzureBlobStorageArray and LinkedServiceAzureBlobStorageArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureBlobStorageArrayInput` via:
 //
@@ -464,6 +471,12 @@ func (i LinkedServiceAzureBlobStorageArray) ToLinkedServiceAzureBlobStorageArray
 
 func (i LinkedServiceAzureBlobStorageArray) ToLinkedServiceAzureBlobStorageArrayOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageArrayOutput)
+}
+
+func (i LinkedServiceAzureBlobStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureBlobStorage] {
+	return pulumix.Output[[]*LinkedServiceAzureBlobStorage]{
+		OutputState: i.ToLinkedServiceAzureBlobStorageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceAzureBlobStorageMapInput is an input type that accepts LinkedServiceAzureBlobStorageMap and LinkedServiceAzureBlobStorageMapOutput values.
@@ -491,6 +504,12 @@ func (i LinkedServiceAzureBlobStorageMap) ToLinkedServiceAzureBlobStorageMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageMapOutput)
 }
 
+func (i LinkedServiceAzureBlobStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureBlobStorage] {
+	return pulumix.Output[map[string]*LinkedServiceAzureBlobStorage]{
+		OutputState: i.ToLinkedServiceAzureBlobStorageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceAzureBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureBlobStorageOutput) ElementType() reflect.Type {
@@ -503,6 +522,12 @@ func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStorageOutp
 
 func (o LinkedServiceAzureBlobStorageOutput) ToLinkedServiceAzureBlobStorageOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageOutput {
 	return o
+}
+
+func (o LinkedServiceAzureBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureBlobStorage] {
+	return pulumix.Output[*LinkedServiceAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -617,6 +642,12 @@ func (o LinkedServiceAzureBlobStorageArrayOutput) ToLinkedServiceAzureBlobStorag
 	return o
 }
 
+func (o LinkedServiceAzureBlobStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureBlobStorage] {
+	return pulumix.Output[[]*LinkedServiceAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureBlobStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureBlobStorage {
 		return vs[0].([]*LinkedServiceAzureBlobStorage)[vs[1].(int)]
@@ -635,6 +666,12 @@ func (o LinkedServiceAzureBlobStorageMapOutput) ToLinkedServiceAzureBlobStorageM
 
 func (o LinkedServiceAzureBlobStorageMapOutput) ToLinkedServiceAzureBlobStorageMapOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageMapOutput {
 	return o
+}
+
+func (o LinkedServiceAzureBlobStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureBlobStorage] {
+	return pulumix.Output[map[string]*LinkedServiceAzureBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceAzureBlobStorageMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureBlobStorageOutput {

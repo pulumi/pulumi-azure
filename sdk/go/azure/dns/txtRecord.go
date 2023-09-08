@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -225,6 +226,12 @@ func (i *TxtRecord) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordO
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordOutput)
 }
 
+func (i *TxtRecord) ToOutput(ctx context.Context) pulumix.Output[*TxtRecord] {
+	return pulumix.Output[*TxtRecord]{
+		OutputState: i.ToTxtRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TxtRecordArrayInput is an input type that accepts TxtRecordArray and TxtRecordArrayOutput values.
 // You can construct a concrete instance of `TxtRecordArrayInput` via:
 //
@@ -248,6 +255,12 @@ func (i TxtRecordArray) ToTxtRecordArrayOutput() TxtRecordArrayOutput {
 
 func (i TxtRecordArray) ToTxtRecordArrayOutputWithContext(ctx context.Context) TxtRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordArrayOutput)
+}
+
+func (i TxtRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*TxtRecord] {
+	return pulumix.Output[[]*TxtRecord]{
+		OutputState: i.ToTxtRecordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TxtRecordMapInput is an input type that accepts TxtRecordMap and TxtRecordMapOutput values.
@@ -275,6 +288,12 @@ func (i TxtRecordMap) ToTxtRecordMapOutputWithContext(ctx context.Context) TxtRe
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordMapOutput)
 }
 
+func (i TxtRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TxtRecord] {
+	return pulumix.Output[map[string]*TxtRecord]{
+		OutputState: i.ToTxtRecordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TxtRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordOutput) ElementType() reflect.Type {
@@ -287,6 +306,12 @@ func (o TxtRecordOutput) ToTxtRecordOutput() TxtRecordOutput {
 
 func (o TxtRecordOutput) ToTxtRecordOutputWithContext(ctx context.Context) TxtRecordOutput {
 	return o
+}
+
+func (o TxtRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*TxtRecord] {
+	return pulumix.Output[*TxtRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN of the DNS TXT Record.
@@ -338,6 +363,12 @@ func (o TxtRecordArrayOutput) ToTxtRecordArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TxtRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TxtRecord] {
+	return pulumix.Output[[]*TxtRecord]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TxtRecord {
 		return vs[0].([]*TxtRecord)[vs[1].(int)]
@@ -356,6 +387,12 @@ func (o TxtRecordMapOutput) ToTxtRecordMapOutput() TxtRecordMapOutput {
 
 func (o TxtRecordMapOutput) ToTxtRecordMapOutputWithContext(ctx context.Context) TxtRecordMapOutput {
 	return o
+}
+
+func (o TxtRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TxtRecord] {
+	return pulumix.Output[map[string]*TxtRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TxtRecordMapOutput) MapIndex(k pulumi.StringInput) TxtRecordOutput {

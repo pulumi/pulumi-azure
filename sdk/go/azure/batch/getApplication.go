@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Batch Application instance.
@@ -117,6 +118,12 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutput() LookupA
 
 func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContext(ctx context.Context) LookupApplicationResultOutput {
 	return o
+}
+
+func (o LookupApplicationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationResult] {
+	return pulumix.Output[LookupApplicationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApplicationResultOutput) AccountName() pulumi.StringOutput {

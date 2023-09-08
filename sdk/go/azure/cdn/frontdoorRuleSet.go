@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Front Door (standard/premium) Rule Set.
@@ -160,6 +161,12 @@ func (i *FrontdoorRuleSet) ToFrontdoorRuleSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleSetOutput)
 }
 
+func (i *FrontdoorRuleSet) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRuleSet] {
+	return pulumix.Output[*FrontdoorRuleSet]{
+		OutputState: i.ToFrontdoorRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrontdoorRuleSetArrayInput is an input type that accepts FrontdoorRuleSetArray and FrontdoorRuleSetArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRuleSetArrayInput` via:
 //
@@ -183,6 +190,12 @@ func (i FrontdoorRuleSetArray) ToFrontdoorRuleSetArrayOutput() FrontdoorRuleSetA
 
 func (i FrontdoorRuleSetArray) ToFrontdoorRuleSetArrayOutputWithContext(ctx context.Context) FrontdoorRuleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleSetArrayOutput)
+}
+
+func (i FrontdoorRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRuleSet] {
+	return pulumix.Output[[]*FrontdoorRuleSet]{
+		OutputState: i.ToFrontdoorRuleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FrontdoorRuleSetMapInput is an input type that accepts FrontdoorRuleSetMap and FrontdoorRuleSetMapOutput values.
@@ -210,6 +223,12 @@ func (i FrontdoorRuleSetMap) ToFrontdoorRuleSetMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleSetMapOutput)
 }
 
+func (i FrontdoorRuleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRuleSet] {
+	return pulumix.Output[map[string]*FrontdoorRuleSet]{
+		OutputState: i.ToFrontdoorRuleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrontdoorRuleSetOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRuleSetOutput) ElementType() reflect.Type {
@@ -222,6 +241,12 @@ func (o FrontdoorRuleSetOutput) ToFrontdoorRuleSetOutput() FrontdoorRuleSetOutpu
 
 func (o FrontdoorRuleSetOutput) ToFrontdoorRuleSetOutputWithContext(ctx context.Context) FrontdoorRuleSetOutput {
 	return o
+}
+
+func (o FrontdoorRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRuleSet] {
+	return pulumix.Output[*FrontdoorRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
@@ -248,6 +273,12 @@ func (o FrontdoorRuleSetArrayOutput) ToFrontdoorRuleSetArrayOutputWithContext(ct
 	return o
 }
 
+func (o FrontdoorRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRuleSet] {
+	return pulumix.Output[[]*FrontdoorRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FrontdoorRuleSetArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorRuleSet {
 		return vs[0].([]*FrontdoorRuleSet)[vs[1].(int)]
@@ -266,6 +297,12 @@ func (o FrontdoorRuleSetMapOutput) ToFrontdoorRuleSetMapOutput() FrontdoorRuleSe
 
 func (o FrontdoorRuleSetMapOutput) ToFrontdoorRuleSetMapOutputWithContext(ctx context.Context) FrontdoorRuleSetMapOutput {
 	return o
+}
+
+func (o FrontdoorRuleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRuleSet] {
+	return pulumix.Output[map[string]*FrontdoorRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrontdoorRuleSetMapOutput) MapIndex(k pulumi.StringInput) FrontdoorRuleSetOutput {

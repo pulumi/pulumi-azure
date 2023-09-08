@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Azure Data Factory (Version 2).
@@ -114,6 +115,12 @@ func (o LookupFactoryResultOutput) ToLookupFactoryResultOutput() LookupFactoryRe
 
 func (o LookupFactoryResultOutput) ToLookupFactoryResultOutputWithContext(ctx context.Context) LookupFactoryResultOutput {
 	return o
+}
+
+func (o LookupFactoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFactoryResult] {
+	return pulumix.Output[LookupFactoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `githubConfiguration` block as defined below.

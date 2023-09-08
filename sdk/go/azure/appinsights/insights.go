@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Insights component.
@@ -370,6 +371,12 @@ func (i *Insights) ToInsightsOutputWithContext(ctx context.Context) InsightsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightsOutput)
 }
 
+func (i *Insights) ToOutput(ctx context.Context) pulumix.Output[*Insights] {
+	return pulumix.Output[*Insights]{
+		OutputState: i.ToInsightsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InsightsArrayInput is an input type that accepts InsightsArray and InsightsArrayOutput values.
 // You can construct a concrete instance of `InsightsArrayInput` via:
 //
@@ -393,6 +400,12 @@ func (i InsightsArray) ToInsightsArrayOutput() InsightsArrayOutput {
 
 func (i InsightsArray) ToInsightsArrayOutputWithContext(ctx context.Context) InsightsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InsightsArrayOutput)
+}
+
+func (i InsightsArray) ToOutput(ctx context.Context) pulumix.Output[[]*Insights] {
+	return pulumix.Output[[]*Insights]{
+		OutputState: i.ToInsightsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InsightsMapInput is an input type that accepts InsightsMap and InsightsMapOutput values.
@@ -420,6 +433,12 @@ func (i InsightsMap) ToInsightsMapOutputWithContext(ctx context.Context) Insight
 	return pulumi.ToOutputWithContext(ctx, i).(InsightsMapOutput)
 }
 
+func (i InsightsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Insights] {
+	return pulumix.Output[map[string]*Insights]{
+		OutputState: i.ToInsightsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InsightsOutput struct{ *pulumi.OutputState }
 
 func (InsightsOutput) ElementType() reflect.Type {
@@ -432,6 +451,12 @@ func (o InsightsOutput) ToInsightsOutput() InsightsOutput {
 
 func (o InsightsOutput) ToInsightsOutputWithContext(ctx context.Context) InsightsOutput {
 	return o
+}
+
+func (o InsightsOutput) ToOutput(ctx context.Context) pulumix.Output[*Insights] {
+	return pulumix.Output[*Insights]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The App ID associated with this Application Insights component.
@@ -540,6 +565,12 @@ func (o InsightsArrayOutput) ToInsightsArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o InsightsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Insights] {
+	return pulumix.Output[[]*Insights]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InsightsArrayOutput) Index(i pulumi.IntInput) InsightsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Insights {
 		return vs[0].([]*Insights)[vs[1].(int)]
@@ -558,6 +589,12 @@ func (o InsightsMapOutput) ToInsightsMapOutput() InsightsMapOutput {
 
 func (o InsightsMapOutput) ToInsightsMapOutputWithContext(ctx context.Context) InsightsMapOutput {
 	return o
+}
+
+func (o InsightsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Insights] {
+	return pulumix.Output[map[string]*Insights]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InsightsMapOutput) MapIndex(k pulumi.StringInput) InsightsOutput {

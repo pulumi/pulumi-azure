@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Function App Active Slot.
@@ -266,6 +267,12 @@ func (i *FunctionAppActiveSlot) ToFunctionAppActiveSlotOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppActiveSlotOutput)
 }
 
+func (i *FunctionAppActiveSlot) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppActiveSlot] {
+	return pulumix.Output[*FunctionAppActiveSlot]{
+		OutputState: i.ToFunctionAppActiveSlotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionAppActiveSlotArrayInput is an input type that accepts FunctionAppActiveSlotArray and FunctionAppActiveSlotArrayOutput values.
 // You can construct a concrete instance of `FunctionAppActiveSlotArrayInput` via:
 //
@@ -289,6 +296,12 @@ func (i FunctionAppActiveSlotArray) ToFunctionAppActiveSlotArrayOutput() Functio
 
 func (i FunctionAppActiveSlotArray) ToFunctionAppActiveSlotArrayOutputWithContext(ctx context.Context) FunctionAppActiveSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppActiveSlotArrayOutput)
+}
+
+func (i FunctionAppActiveSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppActiveSlot] {
+	return pulumix.Output[[]*FunctionAppActiveSlot]{
+		OutputState: i.ToFunctionAppActiveSlotArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionAppActiveSlotMapInput is an input type that accepts FunctionAppActiveSlotMap and FunctionAppActiveSlotMapOutput values.
@@ -316,6 +329,12 @@ func (i FunctionAppActiveSlotMap) ToFunctionAppActiveSlotMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppActiveSlotMapOutput)
 }
 
+func (i FunctionAppActiveSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppActiveSlot] {
+	return pulumix.Output[map[string]*FunctionAppActiveSlot]{
+		OutputState: i.ToFunctionAppActiveSlotMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionAppActiveSlotOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppActiveSlotOutput) ElementType() reflect.Type {
@@ -328,6 +347,12 @@ func (o FunctionAppActiveSlotOutput) ToFunctionAppActiveSlotOutput() FunctionApp
 
 func (o FunctionAppActiveSlotOutput) ToFunctionAppActiveSlotOutputWithContext(ctx context.Context) FunctionAppActiveSlotOutput {
 	return o
+}
+
+func (o FunctionAppActiveSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppActiveSlot] {
+	return pulumix.Output[*FunctionAppActiveSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The timestamp of the last successful swap with `Production`
@@ -359,6 +384,12 @@ func (o FunctionAppActiveSlotArrayOutput) ToFunctionAppActiveSlotArrayOutputWith
 	return o
 }
 
+func (o FunctionAppActiveSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppActiveSlot] {
+	return pulumix.Output[[]*FunctionAppActiveSlot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionAppActiveSlotArrayOutput) Index(i pulumi.IntInput) FunctionAppActiveSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionAppActiveSlot {
 		return vs[0].([]*FunctionAppActiveSlot)[vs[1].(int)]
@@ -377,6 +408,12 @@ func (o FunctionAppActiveSlotMapOutput) ToFunctionAppActiveSlotMapOutput() Funct
 
 func (o FunctionAppActiveSlotMapOutput) ToFunctionAppActiveSlotMapOutputWithContext(ctx context.Context) FunctionAppActiveSlotMapOutput {
 	return o
+}
+
+func (o FunctionAppActiveSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppActiveSlot] {
+	return pulumix.Output[map[string]*FunctionAppActiveSlot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionAppActiveSlotMapOutput) MapIndex(k pulumi.StringInput) FunctionAppActiveSlotOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
@@ -202,6 +203,12 @@ func (i *ContainerStorageAccount) ToContainerStorageAccountOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountOutput)
 }
 
+func (i *ContainerStorageAccount) ToOutput(ctx context.Context) pulumix.Output[*ContainerStorageAccount] {
+	return pulumix.Output[*ContainerStorageAccount]{
+		OutputState: i.ToContainerStorageAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerStorageAccountArrayInput is an input type that accepts ContainerStorageAccountArray and ContainerStorageAccountArrayOutput values.
 // You can construct a concrete instance of `ContainerStorageAccountArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i ContainerStorageAccountArray) ToContainerStorageAccountArrayOutput() Con
 
 func (i ContainerStorageAccountArray) ToContainerStorageAccountArrayOutputWithContext(ctx context.Context) ContainerStorageAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountArrayOutput)
+}
+
+func (i ContainerStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerStorageAccount] {
+	return pulumix.Output[[]*ContainerStorageAccount]{
+		OutputState: i.ToContainerStorageAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContainerStorageAccountMapInput is an input type that accepts ContainerStorageAccountMap and ContainerStorageAccountMapOutput values.
@@ -252,6 +265,12 @@ func (i ContainerStorageAccountMap) ToContainerStorageAccountMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerStorageAccountMapOutput)
 }
 
+func (i ContainerStorageAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerStorageAccount] {
+	return pulumix.Output[map[string]*ContainerStorageAccount]{
+		OutputState: i.ToContainerStorageAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ContainerStorageAccountOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutput() Contain
 
 func (o ContainerStorageAccountOutput) ToContainerStorageAccountOutputWithContext(ctx context.Context) ContainerStorageAccountOutput {
 	return o
+}
+
+func (o ContainerStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerStorageAccount] {
+	return pulumix.Output[*ContainerStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
@@ -297,6 +322,12 @@ func (o ContainerStorageAccountArrayOutput) ToContainerStorageAccountArrayOutput
 	return o
 }
 
+func (o ContainerStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerStorageAccount] {
+	return pulumix.Output[[]*ContainerStorageAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerStorageAccountArrayOutput) Index(i pulumi.IntInput) ContainerStorageAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContainerStorageAccount {
 		return vs[0].([]*ContainerStorageAccount)[vs[1].(int)]
@@ -315,6 +346,12 @@ func (o ContainerStorageAccountMapOutput) ToContainerStorageAccountMapOutput() C
 
 func (o ContainerStorageAccountMapOutput) ToContainerStorageAccountMapOutputWithContext(ctx context.Context) ContainerStorageAccountMapOutput {
 	return o
+}
+
+func (o ContainerStorageAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerStorageAccount] {
+	return pulumix.Output[map[string]*ContainerStorageAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerStorageAccountMapOutput) MapIndex(k pulumi.StringInput) ContainerStorageAccountOutput {

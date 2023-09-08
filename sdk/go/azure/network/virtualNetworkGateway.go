@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
@@ -440,6 +441,12 @@ func (i *VirtualNetworkGateway) ToVirtualNetworkGatewayOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayOutput)
 }
 
+func (i *VirtualNetworkGateway) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkGateway] {
+	return pulumix.Output[*VirtualNetworkGateway]{
+		OutputState: i.ToVirtualNetworkGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNetworkGatewayArrayInput is an input type that accepts VirtualNetworkGatewayArray and VirtualNetworkGatewayArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayArrayInput` via:
 //
@@ -463,6 +470,12 @@ func (i VirtualNetworkGatewayArray) ToVirtualNetworkGatewayArrayOutput() Virtual
 
 func (i VirtualNetworkGatewayArray) ToVirtualNetworkGatewayArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayArrayOutput)
+}
+
+func (i VirtualNetworkGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkGateway] {
+	return pulumix.Output[[]*VirtualNetworkGateway]{
+		OutputState: i.ToVirtualNetworkGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNetworkGatewayMapInput is an input type that accepts VirtualNetworkGatewayMap and VirtualNetworkGatewayMapOutput values.
@@ -490,6 +503,12 @@ func (i VirtualNetworkGatewayMap) ToVirtualNetworkGatewayMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayMapOutput)
 }
 
+func (i VirtualNetworkGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkGateway] {
+	return pulumix.Output[map[string]*VirtualNetworkGateway]{
+		OutputState: i.ToVirtualNetworkGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayOutput) ElementType() reflect.Type {
@@ -502,6 +521,12 @@ func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutput() VirtualNetw
 
 func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutputWithContext(ctx context.Context) VirtualNetworkGatewayOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkGateway] {
+	return pulumix.Output[*VirtualNetworkGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
@@ -616,6 +641,12 @@ func (o VirtualNetworkGatewayArrayOutput) ToVirtualNetworkGatewayArrayOutputWith
 	return o
 }
 
+func (o VirtualNetworkGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkGateway] {
+	return pulumix.Output[[]*VirtualNetworkGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNetworkGatewayArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkGateway {
 		return vs[0].([]*VirtualNetworkGateway)[vs[1].(int)]
@@ -634,6 +665,12 @@ func (o VirtualNetworkGatewayMapOutput) ToVirtualNetworkGatewayMapOutput() Virtu
 
 func (o VirtualNetworkGatewayMapOutput) ToVirtualNetworkGatewayMapOutputWithContext(ctx context.Context) VirtualNetworkGatewayMapOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkGateway] {
+	return pulumix.Output[map[string]*VirtualNetworkGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkGatewayMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkGatewayOutput {

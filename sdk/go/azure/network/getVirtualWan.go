@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Virtual Wan.
@@ -92,6 +93,12 @@ func (o LookupVirtualWanResultOutput) ToLookupVirtualWanResultOutput() LookupVir
 
 func (o LookupVirtualWanResultOutput) ToLookupVirtualWanResultOutputWithContext(ctx context.Context) LookupVirtualWanResultOutput {
 	return o
+}
+
+func (o LookupVirtualWanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualWanResult] {
+	return pulumix.Output[LookupVirtualWanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is branch to branch traffic is allowed?

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Subscription Policy Assignment.
@@ -307,6 +308,12 @@ func (i *SubscriptionPolicyAssignment) ToSubscriptionPolicyAssignmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentOutput)
 }
 
+func (i *SubscriptionPolicyAssignment) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyAssignment] {
+	return pulumix.Output[*SubscriptionPolicyAssignment]{
+		OutputState: i.ToSubscriptionPolicyAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPolicyAssignmentArrayInput is an input type that accepts SubscriptionPolicyAssignmentArray and SubscriptionPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyAssignmentArrayInput` via:
 //
@@ -330,6 +337,12 @@ func (i SubscriptionPolicyAssignmentArray) ToSubscriptionPolicyAssignmentArrayOu
 
 func (i SubscriptionPolicyAssignmentArray) ToSubscriptionPolicyAssignmentArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentArrayOutput)
+}
+
+func (i SubscriptionPolicyAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPolicyAssignment] {
+	return pulumix.Output[[]*SubscriptionPolicyAssignment]{
+		OutputState: i.ToSubscriptionPolicyAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionPolicyAssignmentMapInput is an input type that accepts SubscriptionPolicyAssignmentMap and SubscriptionPolicyAssignmentMapOutput values.
@@ -357,6 +370,12 @@ func (i SubscriptionPolicyAssignmentMap) ToSubscriptionPolicyAssignmentMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentMapOutput)
 }
 
+func (i SubscriptionPolicyAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPolicyAssignment] {
+	return pulumix.Output[map[string]*SubscriptionPolicyAssignment]{
+		OutputState: i.ToSubscriptionPolicyAssignmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyAssignmentOutput) ElementType() reflect.Type {
@@ -369,6 +388,12 @@ func (o SubscriptionPolicyAssignmentOutput) ToSubscriptionPolicyAssignmentOutput
 
 func (o SubscriptionPolicyAssignmentOutput) ToSubscriptionPolicyAssignmentOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyAssignment] {
+	return pulumix.Output[*SubscriptionPolicyAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description which should be used for this Policy Assignment.
@@ -463,6 +488,12 @@ func (o SubscriptionPolicyAssignmentArrayOutput) ToSubscriptionPolicyAssignmentA
 	return o
 }
 
+func (o SubscriptionPolicyAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPolicyAssignment] {
+	return pulumix.Output[[]*SubscriptionPolicyAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionPolicyAssignment {
 		return vs[0].([]*SubscriptionPolicyAssignment)[vs[1].(int)]
@@ -481,6 +512,12 @@ func (o SubscriptionPolicyAssignmentMapOutput) ToSubscriptionPolicyAssignmentMap
 
 func (o SubscriptionPolicyAssignmentMapOutput) ToSubscriptionPolicyAssignmentMapOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentMapOutput {
 	return o
+}
+
+func (o SubscriptionPolicyAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPolicyAssignment] {
+	return pulumix.Output[map[string]*SubscriptionPolicyAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) SubscriptionPolicyAssignmentOutput {

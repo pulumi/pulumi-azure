@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure IoT Time Series Insights Reference Data Set.
@@ -212,6 +213,12 @@ func (i *TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSe
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetOutput)
 }
 
+func (i *TimeSeriesInsightsReferenceDataSet) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsReferenceDataSet] {
+	return pulumix.Output[*TimeSeriesInsightsReferenceDataSet]{
+		OutputState: i.ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TimeSeriesInsightsReferenceDataSetArrayInput is an input type that accepts TimeSeriesInsightsReferenceDataSetArray and TimeSeriesInsightsReferenceDataSetArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetArrayInput` via:
 //
@@ -235,6 +242,12 @@ func (i TimeSeriesInsightsReferenceDataSetArray) ToTimeSeriesInsightsReferenceDa
 
 func (i TimeSeriesInsightsReferenceDataSetArray) ToTimeSeriesInsightsReferenceDataSetArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetArrayOutput)
+}
+
+func (i TimeSeriesInsightsReferenceDataSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsReferenceDataSet] {
+	return pulumix.Output[[]*TimeSeriesInsightsReferenceDataSet]{
+		OutputState: i.ToTimeSeriesInsightsReferenceDataSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TimeSeriesInsightsReferenceDataSetMapInput is an input type that accepts TimeSeriesInsightsReferenceDataSetMap and TimeSeriesInsightsReferenceDataSetMapOutput values.
@@ -262,6 +275,12 @@ func (i TimeSeriesInsightsReferenceDataSetMap) ToTimeSeriesInsightsReferenceData
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetMapOutput)
 }
 
+func (i TimeSeriesInsightsReferenceDataSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsReferenceDataSet] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsReferenceDataSet]{
+		OutputState: i.ToTimeSeriesInsightsReferenceDataSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TimeSeriesInsightsReferenceDataSetOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsReferenceDataSetOutput) ElementType() reflect.Type {
@@ -274,6 +293,12 @@ func (o TimeSeriesInsightsReferenceDataSetOutput) ToTimeSeriesInsightsReferenceD
 
 func (o TimeSeriesInsightsReferenceDataSetOutput) ToTimeSeriesInsightsReferenceDataSetOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsReferenceDataSetOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsReferenceDataSet] {
+	return pulumix.Output[*TimeSeriesInsightsReferenceDataSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
@@ -326,6 +351,12 @@ func (o TimeSeriesInsightsReferenceDataSetArrayOutput) ToTimeSeriesInsightsRefer
 	return o
 }
 
+func (o TimeSeriesInsightsReferenceDataSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsReferenceDataSet] {
+	return pulumix.Output[[]*TimeSeriesInsightsReferenceDataSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TimeSeriesInsightsReferenceDataSetArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsReferenceDataSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsReferenceDataSet {
 		return vs[0].([]*TimeSeriesInsightsReferenceDataSet)[vs[1].(int)]
@@ -344,6 +375,12 @@ func (o TimeSeriesInsightsReferenceDataSetMapOutput) ToTimeSeriesInsightsReferen
 
 func (o TimeSeriesInsightsReferenceDataSetMapOutput) ToTimeSeriesInsightsReferenceDataSetMapOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetMapOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsReferenceDataSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsReferenceDataSet] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsReferenceDataSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TimeSeriesInsightsReferenceDataSetMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsReferenceDataSetOutput {

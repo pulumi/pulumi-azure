@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Dedicated Host Group.
@@ -114,6 +115,12 @@ func (o LookupDedicatedHostGroupResultOutput) ToLookupDedicatedHostGroupResultOu
 
 func (o LookupDedicatedHostGroupResultOutput) ToLookupDedicatedHostGroupResultOutputWithContext(ctx context.Context) LookupDedicatedHostGroupResultOutput {
 	return o
+}
+
+func (o LookupDedicatedHostGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDedicatedHostGroupResult] {
+	return pulumix.Output[LookupDedicatedHostGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Sim.
@@ -92,6 +93,12 @@ func (o LookupNetworkSimResultOutput) ToLookupNetworkSimResultOutput() LookupNet
 
 func (o LookupNetworkSimResultOutput) ToLookupNetworkSimResultOutputWithContext(ctx context.Context) LookupNetworkSimResultOutput {
 	return o
+}
+
+func (o LookupNetworkSimResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkSimResult] {
+	return pulumix.Output[LookupNetworkSimResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The device type this SIM is associated with.

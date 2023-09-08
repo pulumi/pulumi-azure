@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing SQL Managed Instance.
@@ -144,6 +145,12 @@ func (o GetSqlManagedInstanceResultOutput) ToGetSqlManagedInstanceResultOutput()
 
 func (o GetSqlManagedInstanceResultOutput) ToGetSqlManagedInstanceResultOutputWithContext(ctx context.Context) GetSqlManagedInstanceResultOutput {
 	return o
+}
+
+func (o GetSqlManagedInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSqlManagedInstanceResult] {
+	return pulumix.Output[GetSqlManagedInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The administrator login name for the new server.

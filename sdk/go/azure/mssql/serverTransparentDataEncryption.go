@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the transparent data encryption configuration for a MSSQL Server
@@ -320,6 +321,12 @@ func (i *ServerTransparentDataEncryption) ToServerTransparentDataEncryptionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTransparentDataEncryptionOutput)
 }
 
+func (i *ServerTransparentDataEncryption) ToOutput(ctx context.Context) pulumix.Output[*ServerTransparentDataEncryption] {
+	return pulumix.Output[*ServerTransparentDataEncryption]{
+		OutputState: i.ToServerTransparentDataEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerTransparentDataEncryptionArrayInput is an input type that accepts ServerTransparentDataEncryptionArray and ServerTransparentDataEncryptionArrayOutput values.
 // You can construct a concrete instance of `ServerTransparentDataEncryptionArrayInput` via:
 //
@@ -343,6 +350,12 @@ func (i ServerTransparentDataEncryptionArray) ToServerTransparentDataEncryptionA
 
 func (i ServerTransparentDataEncryptionArray) ToServerTransparentDataEncryptionArrayOutputWithContext(ctx context.Context) ServerTransparentDataEncryptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTransparentDataEncryptionArrayOutput)
+}
+
+func (i ServerTransparentDataEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerTransparentDataEncryption] {
+	return pulumix.Output[[]*ServerTransparentDataEncryption]{
+		OutputState: i.ToServerTransparentDataEncryptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerTransparentDataEncryptionMapInput is an input type that accepts ServerTransparentDataEncryptionMap and ServerTransparentDataEncryptionMapOutput values.
@@ -370,6 +383,12 @@ func (i ServerTransparentDataEncryptionMap) ToServerTransparentDataEncryptionMap
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTransparentDataEncryptionMapOutput)
 }
 
+func (i ServerTransparentDataEncryptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerTransparentDataEncryption] {
+	return pulumix.Output[map[string]*ServerTransparentDataEncryption]{
+		OutputState: i.ToServerTransparentDataEncryptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerTransparentDataEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ServerTransparentDataEncryptionOutput) ElementType() reflect.Type {
@@ -382,6 +401,12 @@ func (o ServerTransparentDataEncryptionOutput) ToServerTransparentDataEncryption
 
 func (o ServerTransparentDataEncryptionOutput) ToServerTransparentDataEncryptionOutputWithContext(ctx context.Context) ServerTransparentDataEncryptionOutput {
 	return o
+}
+
+func (o ServerTransparentDataEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerTransparentDataEncryption] {
+	return pulumix.Output[*ServerTransparentDataEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
@@ -417,6 +442,12 @@ func (o ServerTransparentDataEncryptionArrayOutput) ToServerTransparentDataEncry
 	return o
 }
 
+func (o ServerTransparentDataEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerTransparentDataEncryption] {
+	return pulumix.Output[[]*ServerTransparentDataEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerTransparentDataEncryptionArrayOutput) Index(i pulumi.IntInput) ServerTransparentDataEncryptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerTransparentDataEncryption {
 		return vs[0].([]*ServerTransparentDataEncryption)[vs[1].(int)]
@@ -435,6 +466,12 @@ func (o ServerTransparentDataEncryptionMapOutput) ToServerTransparentDataEncrypt
 
 func (o ServerTransparentDataEncryptionMapOutput) ToServerTransparentDataEncryptionMapOutputWithContext(ctx context.Context) ServerTransparentDataEncryptionMapOutput {
 	return o
+}
+
+func (o ServerTransparentDataEncryptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerTransparentDataEncryption] {
+	return pulumix.Output[map[string]*ServerTransparentDataEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerTransparentDataEncryptionMapOutput) MapIndex(k pulumi.StringInput) ServerTransparentDataEncryptionOutput {

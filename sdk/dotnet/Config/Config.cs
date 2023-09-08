@@ -313,6 +313,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesSubscription? Subscription { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachine? VirtualMachine { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; } = null!;
@@ -366,6 +367,11 @@ namespace Pulumi.Azure
              public class FeaturesResourceGroup
              {
                 public bool? PreventDeletionIfContainsResources { get; set; }
+            }
+
+             public class FeaturesSubscription
+             {
+                public bool? PreventCancellationOnDestroy { get; set; }
             }
 
              public class FeaturesTemplateDeployment

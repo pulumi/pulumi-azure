@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a AWS S3 Data Connector.
@@ -212,6 +213,12 @@ func (i *DataConnectorAwsS3) ToDataConnectorAwsS3OutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsS3Output)
 }
 
+func (i *DataConnectorAwsS3) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAwsS3] {
+	return pulumix.Output[*DataConnectorAwsS3]{
+		OutputState: i.ToDataConnectorAwsS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataConnectorAwsS3ArrayInput is an input type that accepts DataConnectorAwsS3Array and DataConnectorAwsS3ArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAwsS3ArrayInput` via:
 //
@@ -235,6 +242,12 @@ func (i DataConnectorAwsS3Array) ToDataConnectorAwsS3ArrayOutput() DataConnector
 
 func (i DataConnectorAwsS3Array) ToDataConnectorAwsS3ArrayOutputWithContext(ctx context.Context) DataConnectorAwsS3ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsS3ArrayOutput)
+}
+
+func (i DataConnectorAwsS3Array) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAwsS3] {
+	return pulumix.Output[[]*DataConnectorAwsS3]{
+		OutputState: i.ToDataConnectorAwsS3ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataConnectorAwsS3MapInput is an input type that accepts DataConnectorAwsS3Map and DataConnectorAwsS3MapOutput values.
@@ -262,6 +275,12 @@ func (i DataConnectorAwsS3Map) ToDataConnectorAwsS3MapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsS3MapOutput)
 }
 
+func (i DataConnectorAwsS3Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAwsS3] {
+	return pulumix.Output[map[string]*DataConnectorAwsS3]{
+		OutputState: i.ToDataConnectorAwsS3MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataConnectorAwsS3Output struct{ *pulumi.OutputState }
 
 func (DataConnectorAwsS3Output) ElementType() reflect.Type {
@@ -274,6 +293,12 @@ func (o DataConnectorAwsS3Output) ToDataConnectorAwsS3Output() DataConnectorAwsS
 
 func (o DataConnectorAwsS3Output) ToDataConnectorAwsS3OutputWithContext(ctx context.Context) DataConnectorAwsS3Output {
 	return o
+}
+
+func (o DataConnectorAwsS3Output) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAwsS3] {
+	return pulumix.Output[*DataConnectorAwsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
@@ -315,6 +340,12 @@ func (o DataConnectorAwsS3ArrayOutput) ToDataConnectorAwsS3ArrayOutputWithContex
 	return o
 }
 
+func (o DataConnectorAwsS3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAwsS3] {
+	return pulumix.Output[[]*DataConnectorAwsS3]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataConnectorAwsS3ArrayOutput) Index(i pulumi.IntInput) DataConnectorAwsS3Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAwsS3 {
 		return vs[0].([]*DataConnectorAwsS3)[vs[1].(int)]
@@ -333,6 +364,12 @@ func (o DataConnectorAwsS3MapOutput) ToDataConnectorAwsS3MapOutput() DataConnect
 
 func (o DataConnectorAwsS3MapOutput) ToDataConnectorAwsS3MapOutputWithContext(ctx context.Context) DataConnectorAwsS3MapOutput {
 	return o
+}
+
+func (o DataConnectorAwsS3MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAwsS3] {
+	return pulumix.Output[map[string]*DataConnectorAwsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataConnectorAwsS3MapOutput) MapIndex(k pulumi.StringInput) DataConnectorAwsS3Output {

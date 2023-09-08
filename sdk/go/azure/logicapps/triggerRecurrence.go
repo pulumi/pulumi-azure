@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Recurrence Trigger within a Logic App Workflow
@@ -228,6 +229,12 @@ func (i *TriggerRecurrence) ToTriggerRecurrenceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceOutput)
 }
 
+func (i *TriggerRecurrence) ToOutput(ctx context.Context) pulumix.Output[*TriggerRecurrence] {
+	return pulumix.Output[*TriggerRecurrence]{
+		OutputState: i.ToTriggerRecurrenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TriggerRecurrenceArrayInput is an input type that accepts TriggerRecurrenceArray and TriggerRecurrenceArrayOutput values.
 // You can construct a concrete instance of `TriggerRecurrenceArrayInput` via:
 //
@@ -251,6 +258,12 @@ func (i TriggerRecurrenceArray) ToTriggerRecurrenceArrayOutput() TriggerRecurren
 
 func (i TriggerRecurrenceArray) ToTriggerRecurrenceArrayOutputWithContext(ctx context.Context) TriggerRecurrenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceArrayOutput)
+}
+
+func (i TriggerRecurrenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerRecurrence] {
+	return pulumix.Output[[]*TriggerRecurrence]{
+		OutputState: i.ToTriggerRecurrenceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TriggerRecurrenceMapInput is an input type that accepts TriggerRecurrenceMap and TriggerRecurrenceMapOutput values.
@@ -278,6 +291,12 @@ func (i TriggerRecurrenceMap) ToTriggerRecurrenceMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceMapOutput)
 }
 
+func (i TriggerRecurrenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerRecurrence] {
+	return pulumix.Output[map[string]*TriggerRecurrence]{
+		OutputState: i.ToTriggerRecurrenceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TriggerRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (TriggerRecurrenceOutput) ElementType() reflect.Type {
@@ -290,6 +309,12 @@ func (o TriggerRecurrenceOutput) ToTriggerRecurrenceOutput() TriggerRecurrenceOu
 
 func (o TriggerRecurrenceOutput) ToTriggerRecurrenceOutputWithContext(ctx context.Context) TriggerRecurrenceOutput {
 	return o
+}
+
+func (o TriggerRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerRecurrence] {
+	return pulumix.Output[*TriggerRecurrence]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
@@ -343,6 +368,12 @@ func (o TriggerRecurrenceArrayOutput) ToTriggerRecurrenceArrayOutputWithContext(
 	return o
 }
 
+func (o TriggerRecurrenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerRecurrence] {
+	return pulumix.Output[[]*TriggerRecurrence]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TriggerRecurrenceArrayOutput) Index(i pulumi.IntInput) TriggerRecurrenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerRecurrence {
 		return vs[0].([]*TriggerRecurrence)[vs[1].(int)]
@@ -361,6 +392,12 @@ func (o TriggerRecurrenceMapOutput) ToTriggerRecurrenceMapOutput() TriggerRecurr
 
 func (o TriggerRecurrenceMapOutput) ToTriggerRecurrenceMapOutputWithContext(ctx context.Context) TriggerRecurrenceMapOutput {
 	return o
+}
+
+func (o TriggerRecurrenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerRecurrence] {
+	return pulumix.Output[map[string]*TriggerRecurrence]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TriggerRecurrenceMapOutput) MapIndex(k pulumi.StringInput) TriggerRecurrenceOutput {

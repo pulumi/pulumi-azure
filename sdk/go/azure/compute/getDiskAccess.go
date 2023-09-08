@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Disk Access.
@@ -105,6 +106,12 @@ func (o LookupDiskAccessResultOutput) ToLookupDiskAccessResultOutput() LookupDis
 
 func (o LookupDiskAccessResultOutput) ToLookupDiskAccessResultOutputWithContext(ctx context.Context) LookupDiskAccessResultOutput {
 	return o
+}
+
+func (o LookupDiskAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDiskAccessResult] {
+	return pulumix.Output[LookupDiskAccessResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

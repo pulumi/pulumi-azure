@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Dedicated Hardware Security Module.
@@ -341,6 +342,12 @@ func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
 }
 
+func (i *Module) ToOutput(ctx context.Context) pulumix.Output[*Module] {
+	return pulumix.Output[*Module]{
+		OutputState: i.ToModuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
 // You can construct a concrete instance of `ModuleArrayInput` via:
 //
@@ -364,6 +371,12 @@ func (i ModuleArray) ToModuleArrayOutput() ModuleArrayOutput {
 
 func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleArrayOutput)
+}
+
+func (i ModuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*Module] {
+	return pulumix.Output[[]*Module]{
+		OutputState: i.ToModuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ModuleMapInput is an input type that accepts ModuleMap and ModuleMapOutput values.
@@ -391,6 +404,12 @@ func (i ModuleMap) ToModuleMapOutputWithContext(ctx context.Context) ModuleMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleMapOutput)
 }
 
+func (i ModuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Module] {
+	return pulumix.Output[map[string]*Module]{
+		OutputState: i.ToModuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModuleOutput struct{ *pulumi.OutputState }
 
 func (ModuleOutput) ElementType() reflect.Type {
@@ -403,6 +422,12 @@ func (o ModuleOutput) ToModuleOutput() ModuleOutput {
 
 func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 	return o
+}
+
+func (o ModuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Module] {
+	return pulumix.Output[*Module]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -466,6 +491,12 @@ func (o ModuleArrayOutput) ToModuleArrayOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o ModuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Module] {
+	return pulumix.Output[[]*Module]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Module {
 		return vs[0].([]*Module)[vs[1].(int)]
@@ -484,6 +515,12 @@ func (o ModuleMapOutput) ToModuleMapOutput() ModuleMapOutput {
 
 func (o ModuleMapOutput) ToModuleMapOutputWithContext(ctx context.Context) ModuleMapOutput {
 	return o
+}
+
+func (o ModuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Module] {
+	return pulumix.Output[map[string]*Module]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModuleMapOutput) MapIndex(k pulumi.StringInput) ModuleOutput {

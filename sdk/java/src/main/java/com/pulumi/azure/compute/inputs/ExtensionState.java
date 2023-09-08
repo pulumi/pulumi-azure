@@ -8,6 +8,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -118,6 +119,21 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
         return Optional.ofNullable(this.protectedSettingsFromKeyVault);
+    }
+
+    /**
+     * Specifies the collection of extension names after which this extension needs to be provisioned.
+     * 
+     */
+    @Import(name="provisionAfterExtensions")
+    private @Nullable Output<List<String>> provisionAfterExtensions;
+
+    /**
+     * @return Specifies the collection of extension names after which this extension needs to be provisioned.
+     * 
+     */
+    public Optional<Output<List<String>>> provisionAfterExtensions() {
+        return Optional.ofNullable(this.provisionAfterExtensions);
     }
 
     /**
@@ -271,6 +287,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
         this.protectedSettingsFromKeyVault = $.protectedSettingsFromKeyVault;
+        this.provisionAfterExtensions = $.provisionAfterExtensions;
         this.publisher = $.publisher;
         this.settings = $.settings;
         this.tags = $.tags;
@@ -433,6 +450,37 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protectedSettingsFromKeyVault(ExtensionProtectedSettingsFromKeyVaultArgs protectedSettingsFromKeyVault) {
             return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
+        }
+
+        /**
+         * @param provisionAfterExtensions Specifies the collection of extension names after which this extension needs to be provisioned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionAfterExtensions(@Nullable Output<List<String>> provisionAfterExtensions) {
+            $.provisionAfterExtensions = provisionAfterExtensions;
+            return this;
+        }
+
+        /**
+         * @param provisionAfterExtensions Specifies the collection of extension names after which this extension needs to be provisioned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionAfterExtensions(List<String> provisionAfterExtensions) {
+            return provisionAfterExtensions(Output.of(provisionAfterExtensions));
+        }
+
+        /**
+         * @param provisionAfterExtensions Specifies the collection of extension names after which this extension needs to be provisioned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionAfterExtensions(String... provisionAfterExtensions) {
+            return provisionAfterExtensions(List.of(provisionAfterExtensions));
         }
 
         /**

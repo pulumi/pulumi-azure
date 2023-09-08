@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private DNS Resolver Dns Forwarding Ruleset.
@@ -244,6 +245,12 @@ func (i *ResolverDnsForwardingRuleset) ToResolverDnsForwardingRulesetOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsForwardingRulesetOutput)
 }
 
+func (i *ResolverDnsForwardingRuleset) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnsForwardingRuleset] {
+	return pulumix.Output[*ResolverDnsForwardingRuleset]{
+		OutputState: i.ToResolverDnsForwardingRulesetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverDnsForwardingRulesetArrayInput is an input type that accepts ResolverDnsForwardingRulesetArray and ResolverDnsForwardingRulesetArrayOutput values.
 // You can construct a concrete instance of `ResolverDnsForwardingRulesetArrayInput` via:
 //
@@ -267,6 +274,12 @@ func (i ResolverDnsForwardingRulesetArray) ToResolverDnsForwardingRulesetArrayOu
 
 func (i ResolverDnsForwardingRulesetArray) ToResolverDnsForwardingRulesetArrayOutputWithContext(ctx context.Context) ResolverDnsForwardingRulesetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsForwardingRulesetArrayOutput)
+}
+
+func (i ResolverDnsForwardingRulesetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverDnsForwardingRuleset] {
+	return pulumix.Output[[]*ResolverDnsForwardingRuleset]{
+		OutputState: i.ToResolverDnsForwardingRulesetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverDnsForwardingRulesetMapInput is an input type that accepts ResolverDnsForwardingRulesetMap and ResolverDnsForwardingRulesetMapOutput values.
@@ -294,6 +307,12 @@ func (i ResolverDnsForwardingRulesetMap) ToResolverDnsForwardingRulesetMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsForwardingRulesetMapOutput)
 }
 
+func (i ResolverDnsForwardingRulesetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverDnsForwardingRuleset] {
+	return pulumix.Output[map[string]*ResolverDnsForwardingRuleset]{
+		OutputState: i.ToResolverDnsForwardingRulesetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverDnsForwardingRulesetOutput struct{ *pulumi.OutputState }
 
 func (ResolverDnsForwardingRulesetOutput) ElementType() reflect.Type {
@@ -306,6 +325,12 @@ func (o ResolverDnsForwardingRulesetOutput) ToResolverDnsForwardingRulesetOutput
 
 func (o ResolverDnsForwardingRulesetOutput) ToResolverDnsForwardingRulesetOutputWithContext(ctx context.Context) ResolverDnsForwardingRulesetOutput {
 	return o
+}
+
+func (o ResolverDnsForwardingRulesetOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnsForwardingRuleset] {
+	return pulumix.Output[*ResolverDnsForwardingRuleset]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
@@ -349,6 +374,12 @@ func (o ResolverDnsForwardingRulesetArrayOutput) ToResolverDnsForwardingRulesetA
 	return o
 }
 
+func (o ResolverDnsForwardingRulesetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverDnsForwardingRuleset] {
+	return pulumix.Output[[]*ResolverDnsForwardingRuleset]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverDnsForwardingRulesetArrayOutput) Index(i pulumi.IntInput) ResolverDnsForwardingRulesetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverDnsForwardingRuleset {
 		return vs[0].([]*ResolverDnsForwardingRuleset)[vs[1].(int)]
@@ -367,6 +398,12 @@ func (o ResolverDnsForwardingRulesetMapOutput) ToResolverDnsForwardingRulesetMap
 
 func (o ResolverDnsForwardingRulesetMapOutput) ToResolverDnsForwardingRulesetMapOutputWithContext(ctx context.Context) ResolverDnsForwardingRulesetMapOutput {
 	return o
+}
+
+func (o ResolverDnsForwardingRulesetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverDnsForwardingRuleset] {
+	return pulumix.Output[map[string]*ResolverDnsForwardingRuleset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverDnsForwardingRulesetMapOutput) MapIndex(k pulumi.StringInput) ResolverDnsForwardingRulesetOutput {

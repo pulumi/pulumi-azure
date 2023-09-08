@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing AAD B2C Directory.
@@ -116,6 +117,12 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutput() LookupDirec
 
 func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ctx context.Context) LookupDirectoryResultOutput {
 	return o
+}
+
+func (o LookupDirectoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDirectoryResult] {
+	return pulumix.Output[LookupDirectoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.

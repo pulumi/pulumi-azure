@@ -26,7 +26,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NamespaceNetworkRuleSetNetworkRule> NetworkRules;
         /// <summary>
-        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         /// </summary>
         public readonly bool? PublicNetworkAccessEnabled;
         /// <summary>

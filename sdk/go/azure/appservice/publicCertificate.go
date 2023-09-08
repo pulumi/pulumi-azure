@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Public Certificate.
@@ -235,6 +236,12 @@ func (i *PublicCertificate) ToPublicCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificateOutput)
 }
 
+func (i *PublicCertificate) ToOutput(ctx context.Context) pulumix.Output[*PublicCertificate] {
+	return pulumix.Output[*PublicCertificate]{
+		OutputState: i.ToPublicCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PublicCertificateArrayInput is an input type that accepts PublicCertificateArray and PublicCertificateArrayOutput values.
 // You can construct a concrete instance of `PublicCertificateArrayInput` via:
 //
@@ -258,6 +265,12 @@ func (i PublicCertificateArray) ToPublicCertificateArrayOutput() PublicCertifica
 
 func (i PublicCertificateArray) ToPublicCertificateArrayOutputWithContext(ctx context.Context) PublicCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificateArrayOutput)
+}
+
+func (i PublicCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*PublicCertificate] {
+	return pulumix.Output[[]*PublicCertificate]{
+		OutputState: i.ToPublicCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PublicCertificateMapInput is an input type that accepts PublicCertificateMap and PublicCertificateMapOutput values.
@@ -285,6 +298,12 @@ func (i PublicCertificateMap) ToPublicCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificateMapOutput)
 }
 
+func (i PublicCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicCertificate] {
+	return pulumix.Output[map[string]*PublicCertificate]{
+		OutputState: i.ToPublicCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicCertificateOutput struct{ *pulumi.OutputState }
 
 func (PublicCertificateOutput) ElementType() reflect.Type {
@@ -297,6 +316,12 @@ func (o PublicCertificateOutput) ToPublicCertificateOutput() PublicCertificateOu
 
 func (o PublicCertificateOutput) ToPublicCertificateOutputWithContext(ctx context.Context) PublicCertificateOutput {
 	return o
+}
+
+func (o PublicCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicCertificate] {
+	return pulumix.Output[*PublicCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
@@ -343,6 +368,12 @@ func (o PublicCertificateArrayOutput) ToPublicCertificateArrayOutputWithContext(
 	return o
 }
 
+func (o PublicCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PublicCertificate] {
+	return pulumix.Output[[]*PublicCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PublicCertificateArrayOutput) Index(i pulumi.IntInput) PublicCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicCertificate {
 		return vs[0].([]*PublicCertificate)[vs[1].(int)]
@@ -361,6 +392,12 @@ func (o PublicCertificateMapOutput) ToPublicCertificateMapOutput() PublicCertifi
 
 func (o PublicCertificateMapOutput) ToPublicCertificateMapOutputWithContext(ctx context.Context) PublicCertificateMapOutput {
 	return o
+}
+
+func (o PublicCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicCertificate] {
+	return pulumix.Output[map[string]*PublicCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicCertificateMapOutput) MapIndex(k pulumi.StringInput) PublicCertificateOutput {

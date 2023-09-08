@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Voice Services Communications Gateways.
@@ -350,6 +351,12 @@ func (i *ServicesCommunicationsGateway) ToServicesCommunicationsGatewayOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayOutput)
 }
 
+func (i *ServicesCommunicationsGateway) ToOutput(ctx context.Context) pulumix.Output[*ServicesCommunicationsGateway] {
+	return pulumix.Output[*ServicesCommunicationsGateway]{
+		OutputState: i.ToServicesCommunicationsGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServicesCommunicationsGatewayArrayInput is an input type that accepts ServicesCommunicationsGatewayArray and ServicesCommunicationsGatewayArrayOutput values.
 // You can construct a concrete instance of `ServicesCommunicationsGatewayArrayInput` via:
 //
@@ -373,6 +380,12 @@ func (i ServicesCommunicationsGatewayArray) ToServicesCommunicationsGatewayArray
 
 func (i ServicesCommunicationsGatewayArray) ToServicesCommunicationsGatewayArrayOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayArrayOutput)
+}
+
+func (i ServicesCommunicationsGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServicesCommunicationsGateway] {
+	return pulumix.Output[[]*ServicesCommunicationsGateway]{
+		OutputState: i.ToServicesCommunicationsGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServicesCommunicationsGatewayMapInput is an input type that accepts ServicesCommunicationsGatewayMap and ServicesCommunicationsGatewayMapOutput values.
@@ -400,6 +413,12 @@ func (i ServicesCommunicationsGatewayMap) ToServicesCommunicationsGatewayMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayMapOutput)
 }
 
+func (i ServicesCommunicationsGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicesCommunicationsGateway] {
+	return pulumix.Output[map[string]*ServicesCommunicationsGateway]{
+		OutputState: i.ToServicesCommunicationsGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServicesCommunicationsGatewayOutput struct{ *pulumi.OutputState }
 
 func (ServicesCommunicationsGatewayOutput) ElementType() reflect.Type {
@@ -412,6 +431,12 @@ func (o ServicesCommunicationsGatewayOutput) ToServicesCommunicationsGatewayOutp
 
 func (o ServicesCommunicationsGatewayOutput) ToServicesCommunicationsGatewayOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayOutput {
 	return o
+}
+
+func (o ServicesCommunicationsGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicesCommunicationsGateway] {
+	return pulumix.Output[*ServicesCommunicationsGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details of API bridge functionality, if required.
@@ -504,6 +529,12 @@ func (o ServicesCommunicationsGatewayArrayOutput) ToServicesCommunicationsGatewa
 	return o
 }
 
+func (o ServicesCommunicationsGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServicesCommunicationsGateway] {
+	return pulumix.Output[[]*ServicesCommunicationsGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServicesCommunicationsGatewayArrayOutput) Index(i pulumi.IntInput) ServicesCommunicationsGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServicesCommunicationsGateway {
 		return vs[0].([]*ServicesCommunicationsGateway)[vs[1].(int)]
@@ -522,6 +553,12 @@ func (o ServicesCommunicationsGatewayMapOutput) ToServicesCommunicationsGatewayM
 
 func (o ServicesCommunicationsGatewayMapOutput) ToServicesCommunicationsGatewayMapOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayMapOutput {
 	return o
+}
+
+func (o ServicesCommunicationsGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicesCommunicationsGateway] {
+	return pulumix.Output[map[string]*ServicesCommunicationsGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServicesCommunicationsGatewayMapOutput) MapIndex(k pulumi.StringInput) ServicesCommunicationsGatewayOutput {

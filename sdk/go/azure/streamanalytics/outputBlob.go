@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output to Blob Storage.
@@ -328,6 +329,12 @@ func (i *OutputBlob) ToOutputBlobOutputWithContext(ctx context.Context) OutputBl
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobOutput)
 }
 
+func (i *OutputBlob) ToOutput(ctx context.Context) pulumix.Output[*OutputBlob] {
+	return pulumix.Output[*OutputBlob]{
+		OutputState: i.ToOutputBlobOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutputBlobArrayInput is an input type that accepts OutputBlobArray and OutputBlobArrayOutput values.
 // You can construct a concrete instance of `OutputBlobArrayInput` via:
 //
@@ -351,6 +358,12 @@ func (i OutputBlobArray) ToOutputBlobArrayOutput() OutputBlobArrayOutput {
 
 func (i OutputBlobArray) ToOutputBlobArrayOutputWithContext(ctx context.Context) OutputBlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobArrayOutput)
+}
+
+func (i OutputBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputBlob] {
+	return pulumix.Output[[]*OutputBlob]{
+		OutputState: i.ToOutputBlobArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutputBlobMapInput is an input type that accepts OutputBlobMap and OutputBlobMapOutput values.
@@ -378,6 +391,12 @@ func (i OutputBlobMap) ToOutputBlobMapOutputWithContext(ctx context.Context) Out
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobMapOutput)
 }
 
+func (i OutputBlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputBlob] {
+	return pulumix.Output[map[string]*OutputBlob]{
+		OutputState: i.ToOutputBlobMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputBlobOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobOutput) ElementType() reflect.Type {
@@ -390,6 +409,12 @@ func (o OutputBlobOutput) ToOutputBlobOutput() OutputBlobOutput {
 
 func (o OutputBlobOutput) ToOutputBlobOutputWithContext(ctx context.Context) OutputBlobOutput {
 	return o
+}
+
+func (o OutputBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputBlob] {
+	return pulumix.Output[*OutputBlob]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -471,6 +496,12 @@ func (o OutputBlobArrayOutput) ToOutputBlobArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o OutputBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputBlob] {
+	return pulumix.Output[[]*OutputBlob]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutputBlobArrayOutput) Index(i pulumi.IntInput) OutputBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputBlob {
 		return vs[0].([]*OutputBlob)[vs[1].(int)]
@@ -489,6 +520,12 @@ func (o OutputBlobMapOutput) ToOutputBlobMapOutput() OutputBlobMapOutput {
 
 func (o OutputBlobMapOutput) ToOutputBlobMapOutputWithContext(ctx context.Context) OutputBlobMapOutput {
 	return o
+}
+
+func (o OutputBlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputBlob] {
+	return pulumix.Output[map[string]*OutputBlob]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputBlobMapOutput) MapIndex(k pulumi.StringInput) OutputBlobOutput {

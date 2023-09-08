@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Subscription Connection which may cross tenants.
@@ -203,6 +204,12 @@ func (i *NetworkManagerSubscriptionConnection) ToNetworkManagerSubscriptionConne
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerSubscriptionConnectionOutput)
 }
 
+func (i *NetworkManagerSubscriptionConnection) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerSubscriptionConnection] {
+	return pulumix.Output[*NetworkManagerSubscriptionConnection]{
+		OutputState: i.ToNetworkManagerSubscriptionConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkManagerSubscriptionConnectionArrayInput is an input type that accepts NetworkManagerSubscriptionConnectionArray and NetworkManagerSubscriptionConnectionArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerSubscriptionConnectionArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i NetworkManagerSubscriptionConnectionArray) ToNetworkManagerSubscriptionC
 
 func (i NetworkManagerSubscriptionConnectionArray) ToNetworkManagerSubscriptionConnectionArrayOutputWithContext(ctx context.Context) NetworkManagerSubscriptionConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerSubscriptionConnectionArrayOutput)
+}
+
+func (i NetworkManagerSubscriptionConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerSubscriptionConnection] {
+	return pulumix.Output[[]*NetworkManagerSubscriptionConnection]{
+		OutputState: i.ToNetworkManagerSubscriptionConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkManagerSubscriptionConnectionMapInput is an input type that accepts NetworkManagerSubscriptionConnectionMap and NetworkManagerSubscriptionConnectionMapOutput values.
@@ -253,6 +266,12 @@ func (i NetworkManagerSubscriptionConnectionMap) ToNetworkManagerSubscriptionCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerSubscriptionConnectionMapOutput)
 }
 
+func (i NetworkManagerSubscriptionConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerSubscriptionConnection] {
+	return pulumix.Output[map[string]*NetworkManagerSubscriptionConnection]{
+		OutputState: i.ToNetworkManagerSubscriptionConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkManagerSubscriptionConnectionOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerSubscriptionConnectionOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o NetworkManagerSubscriptionConnectionOutput) ToNetworkManagerSubscription
 
 func (o NetworkManagerSubscriptionConnectionOutput) ToNetworkManagerSubscriptionConnectionOutputWithContext(ctx context.Context) NetworkManagerSubscriptionConnectionOutput {
 	return o
+}
+
+func (o NetworkManagerSubscriptionConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerSubscriptionConnection] {
+	return pulumix.Output[*NetworkManagerSubscriptionConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Connection state of the Network Manager Subscription Connection.
@@ -306,6 +331,12 @@ func (o NetworkManagerSubscriptionConnectionArrayOutput) ToNetworkManagerSubscri
 	return o
 }
 
+func (o NetworkManagerSubscriptionConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerSubscriptionConnection] {
+	return pulumix.Output[[]*NetworkManagerSubscriptionConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkManagerSubscriptionConnectionArrayOutput) Index(i pulumi.IntInput) NetworkManagerSubscriptionConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerSubscriptionConnection {
 		return vs[0].([]*NetworkManagerSubscriptionConnection)[vs[1].(int)]
@@ -324,6 +355,12 @@ func (o NetworkManagerSubscriptionConnectionMapOutput) ToNetworkManagerSubscript
 
 func (o NetworkManagerSubscriptionConnectionMapOutput) ToNetworkManagerSubscriptionConnectionMapOutputWithContext(ctx context.Context) NetworkManagerSubscriptionConnectionMapOutput {
 	return o
+}
+
+func (o NetworkManagerSubscriptionConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerSubscriptionConnection] {
+	return pulumix.Output[map[string]*NetworkManagerSubscriptionConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkManagerSubscriptionConnectionMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerSubscriptionConnectionOutput {

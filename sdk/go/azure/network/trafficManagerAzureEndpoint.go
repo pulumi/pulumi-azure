@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Endpoint within a Traffic Manager Profile.
@@ -259,6 +260,12 @@ func (i *TrafficManagerAzureEndpoint) ToTrafficManagerAzureEndpointOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointOutput)
 }
 
+func (i *TrafficManagerAzureEndpoint) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerAzureEndpoint] {
+	return pulumix.Output[*TrafficManagerAzureEndpoint]{
+		OutputState: i.ToTrafficManagerAzureEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrafficManagerAzureEndpointArrayInput is an input type that accepts TrafficManagerAzureEndpointArray and TrafficManagerAzureEndpointArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerAzureEndpointArrayInput` via:
 //
@@ -282,6 +289,12 @@ func (i TrafficManagerAzureEndpointArray) ToTrafficManagerAzureEndpointArrayOutp
 
 func (i TrafficManagerAzureEndpointArray) ToTrafficManagerAzureEndpointArrayOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointArrayOutput)
+}
+
+func (i TrafficManagerAzureEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerAzureEndpoint] {
+	return pulumix.Output[[]*TrafficManagerAzureEndpoint]{
+		OutputState: i.ToTrafficManagerAzureEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrafficManagerAzureEndpointMapInput is an input type that accepts TrafficManagerAzureEndpointMap and TrafficManagerAzureEndpointMapOutput values.
@@ -309,6 +322,12 @@ func (i TrafficManagerAzureEndpointMap) ToTrafficManagerAzureEndpointMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerAzureEndpointMapOutput)
 }
 
+func (i TrafficManagerAzureEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerAzureEndpoint] {
+	return pulumix.Output[map[string]*TrafficManagerAzureEndpoint]{
+		OutputState: i.ToTrafficManagerAzureEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficManagerAzureEndpointOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerAzureEndpointOutput) ElementType() reflect.Type {
@@ -321,6 +340,12 @@ func (o TrafficManagerAzureEndpointOutput) ToTrafficManagerAzureEndpointOutput()
 
 func (o TrafficManagerAzureEndpointOutput) ToTrafficManagerAzureEndpointOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointOutput {
 	return o
+}
+
+func (o TrafficManagerAzureEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerAzureEndpoint] {
+	return pulumix.Output[*TrafficManagerAzureEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `customHeader` blocks as defined below.
@@ -384,6 +409,12 @@ func (o TrafficManagerAzureEndpointArrayOutput) ToTrafficManagerAzureEndpointArr
 	return o
 }
 
+func (o TrafficManagerAzureEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerAzureEndpoint] {
+	return pulumix.Output[[]*TrafficManagerAzureEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrafficManagerAzureEndpointArrayOutput) Index(i pulumi.IntInput) TrafficManagerAzureEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficManagerAzureEndpoint {
 		return vs[0].([]*TrafficManagerAzureEndpoint)[vs[1].(int)]
@@ -402,6 +433,12 @@ func (o TrafficManagerAzureEndpointMapOutput) ToTrafficManagerAzureEndpointMapOu
 
 func (o TrafficManagerAzureEndpointMapOutput) ToTrafficManagerAzureEndpointMapOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointMapOutput {
 	return o
+}
+
+func (o TrafficManagerAzureEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerAzureEndpoint] {
+	return pulumix.Output[map[string]*TrafficManagerAzureEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficManagerAzureEndpointMapOutput) MapIndex(k pulumi.StringInput) TrafficManagerAzureEndpointOutput {

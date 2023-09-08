@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
@@ -290,6 +291,12 @@ func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationOutput)
 }
 
+func (i *AttachedDatabaseConfiguration) ToOutput(ctx context.Context) pulumix.Output[*AttachedDatabaseConfiguration] {
+	return pulumix.Output[*AttachedDatabaseConfiguration]{
+		OutputState: i.ToAttachedDatabaseConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AttachedDatabaseConfigurationArrayInput is an input type that accepts AttachedDatabaseConfigurationArray and AttachedDatabaseConfigurationArrayOutput values.
 // You can construct a concrete instance of `AttachedDatabaseConfigurationArrayInput` via:
 //
@@ -313,6 +320,12 @@ func (i AttachedDatabaseConfigurationArray) ToAttachedDatabaseConfigurationArray
 
 func (i AttachedDatabaseConfigurationArray) ToAttachedDatabaseConfigurationArrayOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationArrayOutput)
+}
+
+func (i AttachedDatabaseConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AttachedDatabaseConfiguration] {
+	return pulumix.Output[[]*AttachedDatabaseConfiguration]{
+		OutputState: i.ToAttachedDatabaseConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AttachedDatabaseConfigurationMapInput is an input type that accepts AttachedDatabaseConfigurationMap and AttachedDatabaseConfigurationMapOutput values.
@@ -340,6 +353,12 @@ func (i AttachedDatabaseConfigurationMap) ToAttachedDatabaseConfigurationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationMapOutput)
 }
 
+func (i AttachedDatabaseConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AttachedDatabaseConfiguration] {
+	return pulumix.Output[map[string]*AttachedDatabaseConfiguration]{
+		OutputState: i.ToAttachedDatabaseConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AttachedDatabaseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
@@ -352,6 +371,12 @@ func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutp
 
 func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationOutput {
 	return o
+}
+
+func (o AttachedDatabaseConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*AttachedDatabaseConfiguration] {
+	return pulumix.Output[*AttachedDatabaseConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of databases from the `clusterResourceId` which are currently attached to the cluster.
@@ -415,6 +440,12 @@ func (o AttachedDatabaseConfigurationArrayOutput) ToAttachedDatabaseConfiguratio
 	return o
 }
 
+func (o AttachedDatabaseConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AttachedDatabaseConfiguration] {
+	return pulumix.Output[[]*AttachedDatabaseConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AttachedDatabaseConfigurationArrayOutput) Index(i pulumi.IntInput) AttachedDatabaseConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AttachedDatabaseConfiguration {
 		return vs[0].([]*AttachedDatabaseConfiguration)[vs[1].(int)]
@@ -433,6 +464,12 @@ func (o AttachedDatabaseConfigurationMapOutput) ToAttachedDatabaseConfigurationM
 
 func (o AttachedDatabaseConfigurationMapOutput) ToAttachedDatabaseConfigurationMapOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationMapOutput {
 	return o
+}
+
+func (o AttachedDatabaseConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AttachedDatabaseConfiguration] {
+	return pulumix.Output[map[string]*AttachedDatabaseConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AttachedDatabaseConfigurationMapOutput) MapIndex(k pulumi.StringInput) AttachedDatabaseConfigurationOutput {

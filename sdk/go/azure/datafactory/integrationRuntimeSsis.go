@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Factory Azure-SSIS Integration Runtime.
@@ -305,6 +306,12 @@ func (i *IntegrationRuntimeSsis) ToIntegrationRuntimeSsisOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisOutput)
 }
 
+func (i *IntegrationRuntimeSsis) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeSsis] {
+	return pulumix.Output[*IntegrationRuntimeSsis]{
+		OutputState: i.ToIntegrationRuntimeSsisOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationRuntimeSsisArrayInput is an input type that accepts IntegrationRuntimeSsisArray and IntegrationRuntimeSsisArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSsisArrayInput` via:
 //
@@ -328,6 +335,12 @@ func (i IntegrationRuntimeSsisArray) ToIntegrationRuntimeSsisArrayOutput() Integ
 
 func (i IntegrationRuntimeSsisArray) ToIntegrationRuntimeSsisArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSsisArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisArrayOutput)
+}
+
+func (i IntegrationRuntimeSsisArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeSsis] {
+	return pulumix.Output[[]*IntegrationRuntimeSsis]{
+		OutputState: i.ToIntegrationRuntimeSsisArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationRuntimeSsisMapInput is an input type that accepts IntegrationRuntimeSsisMap and IntegrationRuntimeSsisMapOutput values.
@@ -355,6 +368,12 @@ func (i IntegrationRuntimeSsisMap) ToIntegrationRuntimeSsisMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisMapOutput)
 }
 
+func (i IntegrationRuntimeSsisMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeSsis] {
+	return pulumix.Output[map[string]*IntegrationRuntimeSsis]{
+		OutputState: i.ToIntegrationRuntimeSsisMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationRuntimeSsisOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSsisOutput) ElementType() reflect.Type {
@@ -367,6 +386,12 @@ func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisOutput() Integrati
 
 func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisOutputWithContext(ctx context.Context) IntegrationRuntimeSsisOutput {
 	return o
+}
+
+func (o IntegrationRuntimeSsisOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeSsis] {
+	return pulumix.Output[*IntegrationRuntimeSsis]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `catalogInfo` block as defined below.
@@ -471,6 +496,12 @@ func (o IntegrationRuntimeSsisArrayOutput) ToIntegrationRuntimeSsisArrayOutputWi
 	return o
 }
 
+func (o IntegrationRuntimeSsisArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeSsis] {
+	return pulumix.Output[[]*IntegrationRuntimeSsis]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationRuntimeSsisArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSsisOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeSsis {
 		return vs[0].([]*IntegrationRuntimeSsis)[vs[1].(int)]
@@ -489,6 +520,12 @@ func (o IntegrationRuntimeSsisMapOutput) ToIntegrationRuntimeSsisMapOutput() Int
 
 func (o IntegrationRuntimeSsisMapOutput) ToIntegrationRuntimeSsisMapOutputWithContext(ctx context.Context) IntegrationRuntimeSsisMapOutput {
 	return o
+}
+
+func (o IntegrationRuntimeSsisMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeSsis] {
+	return pulumix.Output[map[string]*IntegrationRuntimeSsis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationRuntimeSsisMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeSsisOutput {

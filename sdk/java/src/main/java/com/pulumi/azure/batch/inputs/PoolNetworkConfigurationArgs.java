@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.inputs;
 import com.pulumi.azure.batch.inputs.PoolNetworkConfigurationEndpointConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PoolNetworkConfigurationArgs Empty = new PoolNetworkConfigurationArgs();
+
+    /**
+     * Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="acceleratedNetworkingEnabled")
+    private @Nullable Output<Boolean> acceleratedNetworkingEnabled;
+
+    /**
+     * @return Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
 
     /**
      * The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
@@ -81,20 +97,21 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
      * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="subnetId", required=true)
-    private Output<String> subnetId;
+    @Import(name="subnetId")
+    private @Nullable Output<String> subnetId;
 
     /**
      * @return The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Optional<Output<String>> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
     private PoolNetworkConfigurationArgs() {}
 
     private PoolNetworkConfigurationArgs(PoolNetworkConfigurationArgs $) {
+        this.acceleratedNetworkingEnabled = $.acceleratedNetworkingEnabled;
         this.dynamicVnetAssignmentScope = $.dynamicVnetAssignmentScope;
         this.endpointConfigurations = $.endpointConfigurations;
         this.publicAddressProvisioningType = $.publicAddressProvisioningType;
@@ -118,6 +135,27 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
 
         public Builder(PoolNetworkConfigurationArgs defaults) {
             $ = new PoolNetworkConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceleratedNetworkingEnabled Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratedNetworkingEnabled(@Nullable Output<Boolean> acceleratedNetworkingEnabled) {
+            $.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
+
+        /**
+         * @param acceleratedNetworkingEnabled Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            return acceleratedNetworkingEnabled(Output.of(acceleratedNetworkingEnabled));
         }
 
         /**
@@ -230,7 +268,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder subnetId(Output<String> subnetId) {
+        public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
@@ -246,7 +284,6 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public PoolNetworkConfigurationArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
             return $;
         }
     }

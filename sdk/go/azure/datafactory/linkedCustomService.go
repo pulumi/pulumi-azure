@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
@@ -266,6 +267,12 @@ func (i *LinkedCustomService) ToLinkedCustomServiceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceOutput)
 }
 
+func (i *LinkedCustomService) ToOutput(ctx context.Context) pulumix.Output[*LinkedCustomService] {
+	return pulumix.Output[*LinkedCustomService]{
+		OutputState: i.ToLinkedCustomServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedCustomServiceArrayInput is an input type that accepts LinkedCustomServiceArray and LinkedCustomServiceArrayOutput values.
 // You can construct a concrete instance of `LinkedCustomServiceArrayInput` via:
 //
@@ -289,6 +296,12 @@ func (i LinkedCustomServiceArray) ToLinkedCustomServiceArrayOutput() LinkedCusto
 
 func (i LinkedCustomServiceArray) ToLinkedCustomServiceArrayOutputWithContext(ctx context.Context) LinkedCustomServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceArrayOutput)
+}
+
+func (i LinkedCustomServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedCustomService] {
+	return pulumix.Output[[]*LinkedCustomService]{
+		OutputState: i.ToLinkedCustomServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedCustomServiceMapInput is an input type that accepts LinkedCustomServiceMap and LinkedCustomServiceMapOutput values.
@@ -316,6 +329,12 @@ func (i LinkedCustomServiceMap) ToLinkedCustomServiceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedCustomServiceMapOutput)
 }
 
+func (i LinkedCustomServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedCustomService] {
+	return pulumix.Output[map[string]*LinkedCustomService]{
+		OutputState: i.ToLinkedCustomServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedCustomServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedCustomServiceOutput) ElementType() reflect.Type {
@@ -328,6 +347,12 @@ func (o LinkedCustomServiceOutput) ToLinkedCustomServiceOutput() LinkedCustomSer
 
 func (o LinkedCustomServiceOutput) ToLinkedCustomServiceOutputWithContext(ctx context.Context) LinkedCustomServiceOutput {
 	return o
+}
+
+func (o LinkedCustomServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedCustomService] {
+	return pulumix.Output[*LinkedCustomService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -391,6 +416,12 @@ func (o LinkedCustomServiceArrayOutput) ToLinkedCustomServiceArrayOutputWithCont
 	return o
 }
 
+func (o LinkedCustomServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedCustomService] {
+	return pulumix.Output[[]*LinkedCustomService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedCustomServiceArrayOutput) Index(i pulumi.IntInput) LinkedCustomServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedCustomService {
 		return vs[0].([]*LinkedCustomService)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o LinkedCustomServiceMapOutput) ToLinkedCustomServiceMapOutput() LinkedCus
 
 func (o LinkedCustomServiceMapOutput) ToLinkedCustomServiceMapOutputWithContext(ctx context.Context) LinkedCustomServiceMapOutput {
 	return o
+}
+
+func (o LinkedCustomServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedCustomService] {
+	return pulumix.Output[map[string]*LinkedCustomService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedCustomServiceMapOutput) MapIndex(k pulumi.StringInput) LinkedCustomServiceOutput {

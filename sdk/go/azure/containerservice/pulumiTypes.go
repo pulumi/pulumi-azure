@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -62,6 +63,12 @@ func (i ConnectedRegistryNotificationArgs) ToConnectedRegistryNotificationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryNotificationOutput)
 }
 
+func (i ConnectedRegistryNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectedRegistryNotification] {
+	return pulumix.Output[ConnectedRegistryNotification]{
+		OutputState: i.ToConnectedRegistryNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectedRegistryNotificationArrayInput is an input type that accepts ConnectedRegistryNotificationArray and ConnectedRegistryNotificationArrayOutput values.
 // You can construct a concrete instance of `ConnectedRegistryNotificationArrayInput` via:
 //
@@ -87,6 +94,12 @@ func (i ConnectedRegistryNotificationArray) ToConnectedRegistryNotificationArray
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryNotificationArrayOutput)
 }
 
+func (i ConnectedRegistryNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectedRegistryNotification] {
+	return pulumix.Output[[]ConnectedRegistryNotification]{
+		OutputState: i.ToConnectedRegistryNotificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectedRegistryNotificationOutput struct{ *pulumi.OutputState }
 
 func (ConnectedRegistryNotificationOutput) ElementType() reflect.Type {
@@ -99,6 +112,12 @@ func (o ConnectedRegistryNotificationOutput) ToConnectedRegistryNotificationOutp
 
 func (o ConnectedRegistryNotificationOutput) ToConnectedRegistryNotificationOutputWithContext(ctx context.Context) ConnectedRegistryNotificationOutput {
 	return o
+}
+
+func (o ConnectedRegistryNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectedRegistryNotification] {
+	return pulumix.Output[ConnectedRegistryNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
@@ -135,6 +154,12 @@ func (o ConnectedRegistryNotificationArrayOutput) ToConnectedRegistryNotificatio
 
 func (o ConnectedRegistryNotificationArrayOutput) ToConnectedRegistryNotificationArrayOutputWithContext(ctx context.Context) ConnectedRegistryNotificationArrayOutput {
 	return o
+}
+
+func (o ConnectedRegistryNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectedRegistryNotification] {
+	return pulumix.Output[[]ConnectedRegistryNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectedRegistryNotificationArrayOutput) Index(i pulumi.IntInput) ConnectedRegistryNotificationOutput {
@@ -204,6 +229,12 @@ func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStorageOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageOutput)
 }
 
+func (i FluxConfigurationBlobStorageArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorage] {
+	return pulumix.Output[FluxConfigurationBlobStorage]{
+		OutputState: i.ToFluxConfigurationBlobStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput {
 	return i.ToFluxConfigurationBlobStoragePtrOutputWithContext(context.Background())
 }
@@ -245,6 +276,12 @@ func (i *fluxConfigurationBlobStoragePtrType) ToFluxConfigurationBlobStoragePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStoragePtrOutput)
 }
 
+func (i *fluxConfigurationBlobStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorage] {
+	return pulumix.Output[*FluxConfigurationBlobStorage]{
+		OutputState: i.ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBlobStorageOutput) ElementType() reflect.Type {
@@ -267,6 +304,12 @@ func (o FluxConfigurationBlobStorageOutput) ToFluxConfigurationBlobStoragePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBlobStorage) *FluxConfigurationBlobStorage {
 		return &v
 	}).(FluxConfigurationBlobStoragePtrOutput)
+}
+
+func (o FluxConfigurationBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorage] {
+	return pulumix.Output[FluxConfigurationBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the account key (shared key) to access the storage account.
@@ -325,6 +368,12 @@ func (o FluxConfigurationBlobStoragePtrOutput) ToFluxConfigurationBlobStoragePtr
 
 func (o FluxConfigurationBlobStoragePtrOutput) ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStoragePtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBlobStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorage] {
+	return pulumix.Output[*FluxConfigurationBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBlobStoragePtrOutput) Elem() FluxConfigurationBlobStorageOutput {
@@ -450,6 +499,12 @@ func (i FluxConfigurationBlobStorageManagedIdentityArgs) ToFluxConfigurationBlob
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageManagedIdentityOutput)
 }
 
+func (i FluxConfigurationBlobStorageManagedIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorageManagedIdentity] {
+	return pulumix.Output[FluxConfigurationBlobStorageManagedIdentity]{
+		OutputState: i.ToFluxConfigurationBlobStorageManagedIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBlobStorageManagedIdentityArgs) ToFluxConfigurationBlobStorageManagedIdentityPtrOutput() FluxConfigurationBlobStorageManagedIdentityPtrOutput {
 	return i.ToFluxConfigurationBlobStorageManagedIdentityPtrOutputWithContext(context.Background())
 }
@@ -491,6 +546,12 @@ func (i *fluxConfigurationBlobStorageManagedIdentityPtrType) ToFluxConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageManagedIdentityPtrOutput)
 }
 
+func (i *fluxConfigurationBlobStorageManagedIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorageManagedIdentity] {
+	return pulumix.Output[*FluxConfigurationBlobStorageManagedIdentity]{
+		OutputState: i.ToFluxConfigurationBlobStorageManagedIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBlobStorageManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBlobStorageManagedIdentityOutput) ElementType() reflect.Type {
@@ -515,6 +576,12 @@ func (o FluxConfigurationBlobStorageManagedIdentityOutput) ToFluxConfigurationBl
 	}).(FluxConfigurationBlobStorageManagedIdentityPtrOutput)
 }
 
+func (o FluxConfigurationBlobStorageManagedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorageManagedIdentity] {
+	return pulumix.Output[FluxConfigurationBlobStorageManagedIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the client ID for authenticating a Managed Identity.
 func (o FluxConfigurationBlobStorageManagedIdentityOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FluxConfigurationBlobStorageManagedIdentity) string { return v.ClientId }).(pulumi.StringOutput)
@@ -532,6 +599,12 @@ func (o FluxConfigurationBlobStorageManagedIdentityPtrOutput) ToFluxConfiguratio
 
 func (o FluxConfigurationBlobStorageManagedIdentityPtrOutput) ToFluxConfigurationBlobStorageManagedIdentityPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageManagedIdentityPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBlobStorageManagedIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorageManagedIdentity] {
+	return pulumix.Output[*FluxConfigurationBlobStorageManagedIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBlobStorageManagedIdentityPtrOutput) Elem() FluxConfigurationBlobStorageManagedIdentityOutput {
@@ -607,6 +680,12 @@ func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlo
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalOutput)
 }
 
+func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: i.ToFluxConfigurationBlobStorageServicePrincipalOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
 	return i.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(context.Background())
 }
@@ -648,6 +727,12 @@ func (i *fluxConfigurationBlobStorageServicePrincipalPtrType) ToFluxConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
 }
 
+func (i *fluxConfigurationBlobStorageServicePrincipalPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: i.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBlobStorageServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBlobStorageServicePrincipalOutput) ElementType() reflect.Type {
@@ -670,6 +755,12 @@ func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToFluxConfigurationB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBlobStorageServicePrincipal) *FluxConfigurationBlobStorageServicePrincipal {
 		return &v
 	}).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64-encoded certificate used to authenticate a Service Principal .
@@ -714,6 +805,12 @@ func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToFluxConfigurati
 
 func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) Elem() FluxConfigurationBlobStorageServicePrincipalOutput {
@@ -847,6 +944,12 @@ func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketOutput)
 }
 
+func (i FluxConfigurationBucketArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBucket] {
+	return pulumix.Output[FluxConfigurationBucket]{
+		OutputState: i.ToFluxConfigurationBucketOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput {
 	return i.ToFluxConfigurationBucketPtrOutputWithContext(context.Background())
 }
@@ -888,6 +991,12 @@ func (i *fluxConfigurationBucketPtrType) ToFluxConfigurationBucketPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketPtrOutput)
 }
 
+func (i *fluxConfigurationBucketPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBucket] {
+	return pulumix.Output[*FluxConfigurationBucket]{
+		OutputState: i.ToFluxConfigurationBucketPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBucketOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBucketOutput) ElementType() reflect.Type {
@@ -910,6 +1019,12 @@ func (o FluxConfigurationBucketOutput) ToFluxConfigurationBucketPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBucket) *FluxConfigurationBucket {
 		return &v
 	}).(FluxConfigurationBucketPtrOutput)
+}
+
+func (o FluxConfigurationBucketOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBucket] {
+	return pulumix.Output[FluxConfigurationBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the plaintext access key used to securely access the S3 bucket.
@@ -964,6 +1079,12 @@ func (o FluxConfigurationBucketPtrOutput) ToFluxConfigurationBucketPtrOutput() F
 
 func (o FluxConfigurationBucketPtrOutput) ToFluxConfigurationBucketPtrOutputWithContext(ctx context.Context) FluxConfigurationBucketPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBucketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBucket] {
+	return pulumix.Output[*FluxConfigurationBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBucketPtrOutput) Elem() FluxConfigurationBucketOutput {
@@ -1129,6 +1250,12 @@ func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryOutput)
 }
 
+func (i FluxConfigurationGitRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationGitRepository] {
+	return pulumix.Output[FluxConfigurationGitRepository]{
+		OutputState: i.ToFluxConfigurationGitRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput {
 	return i.ToFluxConfigurationGitRepositoryPtrOutputWithContext(context.Background())
 }
@@ -1170,6 +1297,12 @@ func (i *fluxConfigurationGitRepositoryPtrType) ToFluxConfigurationGitRepository
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryPtrOutput)
 }
 
+func (i *fluxConfigurationGitRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationGitRepository] {
+	return pulumix.Output[*FluxConfigurationGitRepository]{
+		OutputState: i.ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationGitRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationGitRepositoryOutput) ElementType() reflect.Type {
@@ -1192,6 +1325,12 @@ func (o FluxConfigurationGitRepositoryOutput) ToFluxConfigurationGitRepositoryPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationGitRepository) *FluxConfigurationGitRepository {
 		return &v
 	}).(FluxConfigurationGitRepositoryPtrOutput)
+}
+
+func (o FluxConfigurationGitRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationGitRepository] {
+	return pulumix.Output[FluxConfigurationGitRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
@@ -1261,6 +1400,12 @@ func (o FluxConfigurationGitRepositoryPtrOutput) ToFluxConfigurationGitRepositor
 
 func (o FluxConfigurationGitRepositoryPtrOutput) ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationGitRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationGitRepository] {
+	return pulumix.Output[*FluxConfigurationGitRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationGitRepositoryPtrOutput) Elem() FluxConfigurationGitRepositoryOutput {
@@ -1444,6 +1589,12 @@ func (i FluxConfigurationKustomizationArgs) ToFluxConfigurationKustomizationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationOutput)
 }
 
+func (i FluxConfigurationKustomizationArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationKustomization] {
+	return pulumix.Output[FluxConfigurationKustomization]{
+		OutputState: i.ToFluxConfigurationKustomizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FluxConfigurationKustomizationArrayInput is an input type that accepts FluxConfigurationKustomizationArray and FluxConfigurationKustomizationArrayOutput values.
 // You can construct a concrete instance of `FluxConfigurationKustomizationArrayInput` via:
 //
@@ -1469,6 +1620,12 @@ func (i FluxConfigurationKustomizationArray) ToFluxConfigurationKustomizationArr
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationArrayOutput)
 }
 
+func (i FluxConfigurationKustomizationArray) ToOutput(ctx context.Context) pulumix.Output[[]FluxConfigurationKustomization] {
+	return pulumix.Output[[]FluxConfigurationKustomization]{
+		OutputState: i.ToFluxConfigurationKustomizationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationKustomizationOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationKustomizationOutput) ElementType() reflect.Type {
@@ -1481,6 +1638,12 @@ func (o FluxConfigurationKustomizationOutput) ToFluxConfigurationKustomizationOu
 
 func (o FluxConfigurationKustomizationOutput) ToFluxConfigurationKustomizationOutputWithContext(ctx context.Context) FluxConfigurationKustomizationOutput {
 	return o
+}
+
+func (o FluxConfigurationKustomizationOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationKustomization] {
+	return pulumix.Output[FluxConfigurationKustomization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
@@ -1535,6 +1698,12 @@ func (o FluxConfigurationKustomizationArrayOutput) ToFluxConfigurationKustomizat
 
 func (o FluxConfigurationKustomizationArrayOutput) ToFluxConfigurationKustomizationArrayOutputWithContext(ctx context.Context) FluxConfigurationKustomizationArrayOutput {
 	return o
+}
+
+func (o FluxConfigurationKustomizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FluxConfigurationKustomization] {
+	return pulumix.Output[[]FluxConfigurationKustomization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationKustomizationArrayOutput) Index(i pulumi.IntInput) FluxConfigurationKustomizationOutput {
@@ -1640,6 +1809,12 @@ func (i GroupContainerArgs) ToGroupContainerOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerOutput)
 }
 
+func (i GroupContainerArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainer] {
+	return pulumix.Output[GroupContainer]{
+		OutputState: i.ToGroupContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupContainerArrayInput is an input type that accepts GroupContainerArray and GroupContainerArrayOutput values.
 // You can construct a concrete instance of `GroupContainerArrayInput` via:
 //
@@ -1665,6 +1840,12 @@ func (i GroupContainerArray) ToGroupContainerArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerArrayOutput)
 }
 
+func (i GroupContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainer] {
+	return pulumix.Output[[]GroupContainer]{
+		OutputState: i.ToGroupContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerOutput) ElementType() reflect.Type {
@@ -1677,6 +1858,12 @@ func (o GroupContainerOutput) ToGroupContainerOutput() GroupContainerOutput {
 
 func (o GroupContainerOutput) ToGroupContainerOutputWithContext(ctx context.Context) GroupContainerOutput {
 	return o
+}
+
+func (o GroupContainerOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainer] {
+	return pulumix.Output[GroupContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of commands which should be run on the container. Changing this forces a new resource to be created.
@@ -1775,6 +1962,12 @@ func (o GroupContainerArrayOutput) ToGroupContainerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o GroupContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainer] {
+	return pulumix.Output[[]GroupContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupContainerArrayOutput) Index(i pulumi.IntInput) GroupContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainer {
 		return vs[0].([]GroupContainer)[vs[1].(int)]
@@ -1818,6 +2011,12 @@ func (i GroupContainerGpuArgs) ToGroupContainerGpuOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuOutput)
 }
 
+func (i GroupContainerGpuArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerGpu] {
+	return pulumix.Output[GroupContainerGpu]{
+		OutputState: i.ToGroupContainerGpuOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupContainerGpuArgs) ToGroupContainerGpuPtrOutput() GroupContainerGpuPtrOutput {
 	return i.ToGroupContainerGpuPtrOutputWithContext(context.Background())
 }
@@ -1859,6 +2058,12 @@ func (i *groupContainerGpuPtrType) ToGroupContainerGpuPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuPtrOutput)
 }
 
+func (i *groupContainerGpuPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerGpu] {
+	return pulumix.Output[*GroupContainerGpu]{
+		OutputState: i.ToGroupContainerGpuPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerGpuOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerGpuOutput) ElementType() reflect.Type {
@@ -1883,6 +2088,12 @@ func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutputWithContext(ctx con
 	}).(GroupContainerGpuPtrOutput)
 }
 
+func (o GroupContainerGpuOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerGpu] {
+	return pulumix.Output[GroupContainerGpu]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
 func (o GroupContainerGpuOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
@@ -1905,6 +2116,12 @@ func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutput() GroupContaine
 
 func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutputWithContext(ctx context.Context) GroupContainerGpuPtrOutput {
 	return o
+}
+
+func (o GroupContainerGpuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerGpu] {
+	return pulumix.Output[*GroupContainerGpu]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerGpuPtrOutput) Elem() GroupContainerGpuOutput {
@@ -1974,6 +2191,12 @@ func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitOutput)
 }
 
+func (i GroupContainerGpuLimitArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerGpuLimit] {
+	return pulumix.Output[GroupContainerGpuLimit]{
+		OutputState: i.ToGroupContainerGpuLimitOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
 	return i.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
 }
@@ -2015,6 +2238,12 @@ func (i *groupContainerGpuLimitPtrType) ToGroupContainerGpuLimitPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitPtrOutput)
 }
 
+func (i *groupContainerGpuLimitPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerGpuLimit] {
+	return pulumix.Output[*GroupContainerGpuLimit]{
+		OutputState: i.ToGroupContainerGpuLimitPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerGpuLimitOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerGpuLimitOutput) ElementType() reflect.Type {
@@ -2039,6 +2268,12 @@ func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutputWithConte
 	}).(GroupContainerGpuLimitPtrOutput)
 }
 
+func (o GroupContainerGpuLimitOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerGpuLimit] {
+	return pulumix.Output[GroupContainerGpuLimit]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The upper limit of the number of GPUs which should be assigned to this container.
 func (o GroupContainerGpuLimitOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpuLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
@@ -2061,6 +2296,12 @@ func (o GroupContainerGpuLimitPtrOutput) ToGroupContainerGpuLimitPtrOutput() Gro
 
 func (o GroupContainerGpuLimitPtrOutput) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
 	return o
+}
+
+func (o GroupContainerGpuLimitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerGpuLimit] {
+	return pulumix.Output[*GroupContainerGpuLimit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerGpuLimitPtrOutput) Elem() GroupContainerGpuLimitOutput {
@@ -2150,6 +2391,12 @@ func (i GroupContainerLivenessProbeArgs) ToGroupContainerLivenessProbeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbeOutput)
 }
 
+func (i GroupContainerLivenessProbeArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerLivenessProbe] {
+	return pulumix.Output[GroupContainerLivenessProbe]{
+		OutputState: i.ToGroupContainerLivenessProbeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupContainerLivenessProbeArgs) ToGroupContainerLivenessProbePtrOutput() GroupContainerLivenessProbePtrOutput {
 	return i.ToGroupContainerLivenessProbePtrOutputWithContext(context.Background())
 }
@@ -2191,6 +2438,12 @@ func (i *groupContainerLivenessProbePtrType) ToGroupContainerLivenessProbePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbePtrOutput)
 }
 
+func (i *groupContainerLivenessProbePtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerLivenessProbe] {
+	return pulumix.Output[*GroupContainerLivenessProbe]{
+		OutputState: i.ToGroupContainerLivenessProbePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerLivenessProbeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeOutput) ElementType() reflect.Type {
@@ -2213,6 +2466,12 @@ func (o GroupContainerLivenessProbeOutput) ToGroupContainerLivenessProbePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerLivenessProbe) *GroupContainerLivenessProbe {
 		return &v
 	}).(GroupContainerLivenessProbePtrOutput)
+}
+
+func (o GroupContainerLivenessProbeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerLivenessProbe] {
+	return pulumix.Output[GroupContainerLivenessProbe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Commands to be run to validate container readiness. Changing this forces a new resource to be created.
@@ -2262,6 +2521,12 @@ func (o GroupContainerLivenessProbePtrOutput) ToGroupContainerLivenessProbePtrOu
 
 func (o GroupContainerLivenessProbePtrOutput) ToGroupContainerLivenessProbePtrOutputWithContext(ctx context.Context) GroupContainerLivenessProbePtrOutput {
 	return o
+}
+
+func (o GroupContainerLivenessProbePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerLivenessProbe] {
+	return pulumix.Output[*GroupContainerLivenessProbe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerLivenessProbePtrOutput) Elem() GroupContainerLivenessProbeOutput {
@@ -2389,6 +2654,12 @@ func (i GroupContainerLivenessProbeHttpGetArgs) ToGroupContainerLivenessProbeHtt
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbeHttpGetOutput)
 }
 
+func (i GroupContainerLivenessProbeHttpGetArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerLivenessProbeHttpGet] {
+	return pulumix.Output[GroupContainerLivenessProbeHttpGet]{
+		OutputState: i.ToGroupContainerLivenessProbeHttpGetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupContainerLivenessProbeHttpGetArrayInput is an input type that accepts GroupContainerLivenessProbeHttpGetArray and GroupContainerLivenessProbeHttpGetArrayOutput values.
 // You can construct a concrete instance of `GroupContainerLivenessProbeHttpGetArrayInput` via:
 //
@@ -2414,6 +2685,12 @@ func (i GroupContainerLivenessProbeHttpGetArray) ToGroupContainerLivenessProbeHt
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
 
+func (i GroupContainerLivenessProbeHttpGetArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerLivenessProbeHttpGet] {
+	return pulumix.Output[[]GroupContainerLivenessProbeHttpGet]{
+		OutputState: i.ToGroupContainerLivenessProbeHttpGetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerLivenessProbeHttpGetOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerLivenessProbeHttpGetOutput) ElementType() reflect.Type {
@@ -2426,6 +2703,12 @@ func (o GroupContainerLivenessProbeHttpGetOutput) ToGroupContainerLivenessProbeH
 
 func (o GroupContainerLivenessProbeHttpGetOutput) ToGroupContainerLivenessProbeHttpGetOutputWithContext(ctx context.Context) GroupContainerLivenessProbeHttpGetOutput {
 	return o
+}
+
+func (o GroupContainerLivenessProbeHttpGetOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerLivenessProbeHttpGet] {
+	return pulumix.Output[GroupContainerLivenessProbeHttpGet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
@@ -2460,6 +2743,12 @@ func (o GroupContainerLivenessProbeHttpGetArrayOutput) ToGroupContainerLivenessP
 
 func (o GroupContainerLivenessProbeHttpGetArrayOutput) ToGroupContainerLivenessProbeHttpGetArrayOutputWithContext(ctx context.Context) GroupContainerLivenessProbeHttpGetArrayOutput {
 	return o
+}
+
+func (o GroupContainerLivenessProbeHttpGetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerLivenessProbeHttpGet] {
+	return pulumix.Output[[]GroupContainerLivenessProbeHttpGet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerLivenessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) GroupContainerLivenessProbeHttpGetOutput {
@@ -2509,6 +2798,12 @@ func (i GroupContainerPortArgs) ToGroupContainerPortOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerPortOutput)
 }
 
+func (i GroupContainerPortArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerPort] {
+	return pulumix.Output[GroupContainerPort]{
+		OutputState: i.ToGroupContainerPortOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupContainerPortArrayInput is an input type that accepts GroupContainerPortArray and GroupContainerPortArrayOutput values.
 // You can construct a concrete instance of `GroupContainerPortArrayInput` via:
 //
@@ -2534,6 +2829,12 @@ func (i GroupContainerPortArray) ToGroupContainerPortArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerPortArrayOutput)
 }
 
+func (i GroupContainerPortArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerPort] {
+	return pulumix.Output[[]GroupContainerPort]{
+		OutputState: i.ToGroupContainerPortArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerPortOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerPortOutput) ElementType() reflect.Type {
@@ -2546,6 +2847,12 @@ func (o GroupContainerPortOutput) ToGroupContainerPortOutput() GroupContainerPor
 
 func (o GroupContainerPortOutput) ToGroupContainerPortOutputWithContext(ctx context.Context) GroupContainerPortOutput {
 	return o
+}
+
+func (o GroupContainerPortOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerPort] {
+	return pulumix.Output[GroupContainerPort]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port number the container will expose. Changing this forces a new resource to be created.
@@ -2572,6 +2879,12 @@ func (o GroupContainerPortArrayOutput) ToGroupContainerPortArrayOutput() GroupCo
 
 func (o GroupContainerPortArrayOutput) ToGroupContainerPortArrayOutputWithContext(ctx context.Context) GroupContainerPortArrayOutput {
 	return o
+}
+
+func (o GroupContainerPortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerPort] {
+	return pulumix.Output[[]GroupContainerPort]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerPortArrayOutput) Index(i pulumi.IntInput) GroupContainerPortOutput {
@@ -2637,6 +2950,12 @@ func (i GroupContainerReadinessProbeArgs) ToGroupContainerReadinessProbeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbeOutput)
 }
 
+func (i GroupContainerReadinessProbeArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerReadinessProbe] {
+	return pulumix.Output[GroupContainerReadinessProbe]{
+		OutputState: i.ToGroupContainerReadinessProbeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupContainerReadinessProbeArgs) ToGroupContainerReadinessProbePtrOutput() GroupContainerReadinessProbePtrOutput {
 	return i.ToGroupContainerReadinessProbePtrOutputWithContext(context.Background())
 }
@@ -2678,6 +2997,12 @@ func (i *groupContainerReadinessProbePtrType) ToGroupContainerReadinessProbePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbePtrOutput)
 }
 
+func (i *groupContainerReadinessProbePtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerReadinessProbe] {
+	return pulumix.Output[*GroupContainerReadinessProbe]{
+		OutputState: i.ToGroupContainerReadinessProbePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerReadinessProbeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeOutput) ElementType() reflect.Type {
@@ -2700,6 +3025,12 @@ func (o GroupContainerReadinessProbeOutput) ToGroupContainerReadinessProbePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerReadinessProbe) *GroupContainerReadinessProbe {
 		return &v
 	}).(GroupContainerReadinessProbePtrOutput)
+}
+
+func (o GroupContainerReadinessProbeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerReadinessProbe] {
+	return pulumix.Output[GroupContainerReadinessProbe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Commands to be run to validate container readiness. Changing this forces a new resource to be created.
@@ -2749,6 +3080,12 @@ func (o GroupContainerReadinessProbePtrOutput) ToGroupContainerReadinessProbePtr
 
 func (o GroupContainerReadinessProbePtrOutput) ToGroupContainerReadinessProbePtrOutputWithContext(ctx context.Context) GroupContainerReadinessProbePtrOutput {
 	return o
+}
+
+func (o GroupContainerReadinessProbePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerReadinessProbe] {
+	return pulumix.Output[*GroupContainerReadinessProbe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerReadinessProbePtrOutput) Elem() GroupContainerReadinessProbeOutput {
@@ -2876,6 +3213,12 @@ func (i GroupContainerReadinessProbeHttpGetArgs) ToGroupContainerReadinessProbeH
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbeHttpGetOutput)
 }
 
+func (i GroupContainerReadinessProbeHttpGetArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerReadinessProbeHttpGet] {
+	return pulumix.Output[GroupContainerReadinessProbeHttpGet]{
+		OutputState: i.ToGroupContainerReadinessProbeHttpGetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupContainerReadinessProbeHttpGetArrayInput is an input type that accepts GroupContainerReadinessProbeHttpGetArray and GroupContainerReadinessProbeHttpGetArrayOutput values.
 // You can construct a concrete instance of `GroupContainerReadinessProbeHttpGetArrayInput` via:
 //
@@ -2901,6 +3244,12 @@ func (i GroupContainerReadinessProbeHttpGetArray) ToGroupContainerReadinessProbe
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
 
+func (i GroupContainerReadinessProbeHttpGetArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerReadinessProbeHttpGet] {
+	return pulumix.Output[[]GroupContainerReadinessProbeHttpGet]{
+		OutputState: i.ToGroupContainerReadinessProbeHttpGetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerReadinessProbeHttpGetOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerReadinessProbeHttpGetOutput) ElementType() reflect.Type {
@@ -2913,6 +3262,12 @@ func (o GroupContainerReadinessProbeHttpGetOutput) ToGroupContainerReadinessProb
 
 func (o GroupContainerReadinessProbeHttpGetOutput) ToGroupContainerReadinessProbeHttpGetOutputWithContext(ctx context.Context) GroupContainerReadinessProbeHttpGetOutput {
 	return o
+}
+
+func (o GroupContainerReadinessProbeHttpGetOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerReadinessProbeHttpGet] {
+	return pulumix.Output[GroupContainerReadinessProbeHttpGet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
@@ -2947,6 +3302,12 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) ToGroupContainerReadines
 
 func (o GroupContainerReadinessProbeHttpGetArrayOutput) ToGroupContainerReadinessProbeHttpGetArrayOutputWithContext(ctx context.Context) GroupContainerReadinessProbeHttpGetArrayOutput {
 	return o
+}
+
+func (o GroupContainerReadinessProbeHttpGetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerReadinessProbeHttpGet] {
+	return pulumix.Output[[]GroupContainerReadinessProbeHttpGet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) GroupContainerReadinessProbeHttpGetOutput {
@@ -2992,6 +3353,12 @@ func (i GroupContainerSecurityArgs) ToGroupContainerSecurityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerSecurityOutput)
 }
 
+func (i GroupContainerSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerSecurity] {
+	return pulumix.Output[GroupContainerSecurity]{
+		OutputState: i.ToGroupContainerSecurityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupContainerSecurityArrayInput is an input type that accepts GroupContainerSecurityArray and GroupContainerSecurityArrayOutput values.
 // You can construct a concrete instance of `GroupContainerSecurityArrayInput` via:
 //
@@ -3017,6 +3384,12 @@ func (i GroupContainerSecurityArray) ToGroupContainerSecurityArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerSecurityArrayOutput)
 }
 
+func (i GroupContainerSecurityArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerSecurity] {
+	return pulumix.Output[[]GroupContainerSecurity]{
+		OutputState: i.ToGroupContainerSecurityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerSecurityOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerSecurityOutput) ElementType() reflect.Type {
@@ -3029,6 +3402,12 @@ func (o GroupContainerSecurityOutput) ToGroupContainerSecurityOutput() GroupCont
 
 func (o GroupContainerSecurityOutput) ToGroupContainerSecurityOutputWithContext(ctx context.Context) GroupContainerSecurityOutput {
 	return o
+}
+
+func (o GroupContainerSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerSecurity] {
+	return pulumix.Output[GroupContainerSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
@@ -3050,6 +3429,12 @@ func (o GroupContainerSecurityArrayOutput) ToGroupContainerSecurityArrayOutput()
 
 func (o GroupContainerSecurityArrayOutput) ToGroupContainerSecurityArrayOutputWithContext(ctx context.Context) GroupContainerSecurityArrayOutput {
 	return o
+}
+
+func (o GroupContainerSecurityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerSecurity] {
+	return pulumix.Output[[]GroupContainerSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerSecurityArrayOutput) Index(i pulumi.IntInput) GroupContainerSecurityOutput {
@@ -3135,6 +3520,12 @@ func (i GroupContainerVolumeArgs) ToGroupContainerVolumeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeOutput)
 }
 
+func (i GroupContainerVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerVolume] {
+	return pulumix.Output[GroupContainerVolume]{
+		OutputState: i.ToGroupContainerVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupContainerVolumeArrayInput is an input type that accepts GroupContainerVolumeArray and GroupContainerVolumeArrayOutput values.
 // You can construct a concrete instance of `GroupContainerVolumeArrayInput` via:
 //
@@ -3160,6 +3551,12 @@ func (i GroupContainerVolumeArray) ToGroupContainerVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeArrayOutput)
 }
 
+func (i GroupContainerVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerVolume] {
+	return pulumix.Output[[]GroupContainerVolume]{
+		OutputState: i.ToGroupContainerVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerVolumeOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerVolumeOutput) ElementType() reflect.Type {
@@ -3172,6 +3569,12 @@ func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutput() GroupContaine
 
 func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutputWithContext(ctx context.Context) GroupContainerVolumeOutput {
 	return o
+}
+
+func (o GroupContainerVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerVolume] {
+	return pulumix.Output[GroupContainerVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
@@ -3239,6 +3642,12 @@ func (o GroupContainerVolumeArrayOutput) ToGroupContainerVolumeArrayOutputWithCo
 	return o
 }
 
+func (o GroupContainerVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupContainerVolume] {
+	return pulumix.Output[[]GroupContainerVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupContainerVolumeArrayOutput) Index(i pulumi.IntInput) GroupContainerVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerVolume {
 		return vs[0].([]GroupContainerVolume)[vs[1].(int)]
@@ -3286,6 +3695,12 @@ func (i GroupContainerVolumeGitRepoArgs) ToGroupContainerVolumeGitRepoOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeGitRepoOutput)
 }
 
+func (i GroupContainerVolumeGitRepoArgs) ToOutput(ctx context.Context) pulumix.Output[GroupContainerVolumeGitRepo] {
+	return pulumix.Output[GroupContainerVolumeGitRepo]{
+		OutputState: i.ToGroupContainerVolumeGitRepoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupContainerVolumeGitRepoArgs) ToGroupContainerVolumeGitRepoPtrOutput() GroupContainerVolumeGitRepoPtrOutput {
 	return i.ToGroupContainerVolumeGitRepoPtrOutputWithContext(context.Background())
 }
@@ -3327,6 +3742,12 @@ func (i *groupContainerVolumeGitRepoPtrType) ToGroupContainerVolumeGitRepoPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeGitRepoPtrOutput)
 }
 
+func (i *groupContainerVolumeGitRepoPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerVolumeGitRepo] {
+	return pulumix.Output[*GroupContainerVolumeGitRepo]{
+		OutputState: i.ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupContainerVolumeGitRepoOutput struct{ *pulumi.OutputState }
 
 func (GroupContainerVolumeGitRepoOutput) ElementType() reflect.Type {
@@ -3349,6 +3770,12 @@ func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerVolumeGitRepo) *GroupContainerVolumeGitRepo {
 		return &v
 	}).(GroupContainerVolumeGitRepoPtrOutput)
+}
+
+func (o GroupContainerVolumeGitRepoOutput) ToOutput(ctx context.Context) pulumix.Output[GroupContainerVolumeGitRepo] {
+	return pulumix.Output[GroupContainerVolumeGitRepo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
@@ -3378,6 +3805,12 @@ func (o GroupContainerVolumeGitRepoPtrOutput) ToGroupContainerVolumeGitRepoPtrOu
 
 func (o GroupContainerVolumeGitRepoPtrOutput) ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoPtrOutput {
 	return o
+}
+
+func (o GroupContainerVolumeGitRepoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupContainerVolumeGitRepo] {
+	return pulumix.Output[*GroupContainerVolumeGitRepo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupContainerVolumeGitRepoPtrOutput) Elem() GroupContainerVolumeGitRepoOutput {
@@ -3453,6 +3886,12 @@ func (i GroupDiagnosticsArgs) ToGroupDiagnosticsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsOutput)
 }
 
+func (i GroupDiagnosticsArgs) ToOutput(ctx context.Context) pulumix.Output[GroupDiagnostics] {
+	return pulumix.Output[GroupDiagnostics]{
+		OutputState: i.ToGroupDiagnosticsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupDiagnosticsArgs) ToGroupDiagnosticsPtrOutput() GroupDiagnosticsPtrOutput {
 	return i.ToGroupDiagnosticsPtrOutputWithContext(context.Background())
 }
@@ -3494,6 +3933,12 @@ func (i *groupDiagnosticsPtrType) ToGroupDiagnosticsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsPtrOutput)
 }
 
+func (i *groupDiagnosticsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupDiagnostics] {
+	return pulumix.Output[*GroupDiagnostics]{
+		OutputState: i.ToGroupDiagnosticsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsOutput) ElementType() reflect.Type {
@@ -3518,6 +3963,12 @@ func (o GroupDiagnosticsOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx conte
 	}).(GroupDiagnosticsPtrOutput)
 }
 
+func (o GroupDiagnosticsOutput) ToOutput(ctx context.Context) pulumix.Output[GroupDiagnostics] {
+	return pulumix.Output[GroupDiagnostics]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
 func (o GroupDiagnosticsOutput) LogAnalytics() GroupDiagnosticsLogAnalyticsOutput {
 	return o.ApplyT(func(v GroupDiagnostics) GroupDiagnosticsLogAnalytics { return v.LogAnalytics }).(GroupDiagnosticsLogAnalyticsOutput)
@@ -3535,6 +3986,12 @@ func (o GroupDiagnosticsPtrOutput) ToGroupDiagnosticsPtrOutput() GroupDiagnostic
 
 func (o GroupDiagnosticsPtrOutput) ToGroupDiagnosticsPtrOutputWithContext(ctx context.Context) GroupDiagnosticsPtrOutput {
 	return o
+}
+
+func (o GroupDiagnosticsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupDiagnostics] {
+	return pulumix.Output[*GroupDiagnostics]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupDiagnosticsPtrOutput) Elem() GroupDiagnosticsOutput {
@@ -3602,6 +4059,12 @@ func (i GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsLogAnalyticsOutput)
 }
 
+func (i GroupDiagnosticsLogAnalyticsArgs) ToOutput(ctx context.Context) pulumix.Output[GroupDiagnosticsLogAnalytics] {
+	return pulumix.Output[GroupDiagnosticsLogAnalytics]{
+		OutputState: i.ToGroupDiagnosticsLogAnalyticsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsPtrOutput() GroupDiagnosticsLogAnalyticsPtrOutput {
 	return i.ToGroupDiagnosticsLogAnalyticsPtrOutputWithContext(context.Background())
 }
@@ -3643,6 +4106,12 @@ func (i *groupDiagnosticsLogAnalyticsPtrType) ToGroupDiagnosticsLogAnalyticsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDiagnosticsLogAnalyticsPtrOutput)
 }
 
+func (i *groupDiagnosticsLogAnalyticsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupDiagnosticsLogAnalytics] {
+	return pulumix.Output[*GroupDiagnosticsLogAnalytics]{
+		OutputState: i.ToGroupDiagnosticsLogAnalyticsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupDiagnosticsLogAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (GroupDiagnosticsLogAnalyticsOutput) ElementType() reflect.Type {
@@ -3665,6 +4134,12 @@ func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupDiagnosticsLogAnalytics) *GroupDiagnosticsLogAnalytics {
 		return &v
 	}).(GroupDiagnosticsLogAnalyticsPtrOutput)
+}
+
+func (o GroupDiagnosticsLogAnalyticsOutput) ToOutput(ctx context.Context) pulumix.Output[GroupDiagnosticsLogAnalytics] {
+	return pulumix.Output[GroupDiagnosticsLogAnalytics]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
@@ -3699,6 +4174,12 @@ func (o GroupDiagnosticsLogAnalyticsPtrOutput) ToGroupDiagnosticsLogAnalyticsPtr
 
 func (o GroupDiagnosticsLogAnalyticsPtrOutput) ToGroupDiagnosticsLogAnalyticsPtrOutputWithContext(ctx context.Context) GroupDiagnosticsLogAnalyticsPtrOutput {
 	return o
+}
+
+func (o GroupDiagnosticsLogAnalyticsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupDiagnosticsLogAnalytics] {
+	return pulumix.Output[*GroupDiagnosticsLogAnalytics]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupDiagnosticsLogAnalyticsPtrOutput) Elem() GroupDiagnosticsLogAnalyticsOutput {
@@ -3792,6 +4273,12 @@ func (i GroupDnsConfigArgs) ToGroupDnsConfigOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDnsConfigOutput)
 }
 
+func (i GroupDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GroupDnsConfig] {
+	return pulumix.Output[GroupDnsConfig]{
+		OutputState: i.ToGroupDnsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupDnsConfigArgs) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutput {
 	return i.ToGroupDnsConfigPtrOutputWithContext(context.Background())
 }
@@ -3833,6 +4320,12 @@ func (i *groupDnsConfigPtrType) ToGroupDnsConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupDnsConfigPtrOutput)
 }
 
+func (i *groupDnsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupDnsConfig] {
+	return pulumix.Output[*GroupDnsConfig]{
+		OutputState: i.ToGroupDnsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (GroupDnsConfigOutput) ElementType() reflect.Type {
@@ -3855,6 +4348,12 @@ func (o GroupDnsConfigOutput) ToGroupDnsConfigPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupDnsConfig) *GroupDnsConfig {
 		return &v
 	}).(GroupDnsConfigPtrOutput)
+}
+
+func (o GroupDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GroupDnsConfig] {
+	return pulumix.Output[GroupDnsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
@@ -3884,6 +4383,12 @@ func (o GroupDnsConfigPtrOutput) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOu
 
 func (o GroupDnsConfigPtrOutput) ToGroupDnsConfigPtrOutputWithContext(ctx context.Context) GroupDnsConfigPtrOutput {
 	return o
+}
+
+func (o GroupDnsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupDnsConfig] {
+	return pulumix.Output[*GroupDnsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupDnsConfigPtrOutput) Elem() GroupDnsConfigOutput {
@@ -3967,6 +4472,12 @@ func (i GroupExposedPortArgs) ToGroupExposedPortOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupExposedPortOutput)
 }
 
+func (i GroupExposedPortArgs) ToOutput(ctx context.Context) pulumix.Output[GroupExposedPort] {
+	return pulumix.Output[GroupExposedPort]{
+		OutputState: i.ToGroupExposedPortOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupExposedPortArrayInput is an input type that accepts GroupExposedPortArray and GroupExposedPortArrayOutput values.
 // You can construct a concrete instance of `GroupExposedPortArrayInput` via:
 //
@@ -3992,6 +4503,12 @@ func (i GroupExposedPortArray) ToGroupExposedPortArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupExposedPortArrayOutput)
 }
 
+func (i GroupExposedPortArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupExposedPort] {
+	return pulumix.Output[[]GroupExposedPort]{
+		OutputState: i.ToGroupExposedPortArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupExposedPortOutput struct{ *pulumi.OutputState }
 
 func (GroupExposedPortOutput) ElementType() reflect.Type {
@@ -4004,6 +4521,12 @@ func (o GroupExposedPortOutput) ToGroupExposedPortOutput() GroupExposedPortOutpu
 
 func (o GroupExposedPortOutput) ToGroupExposedPortOutputWithContext(ctx context.Context) GroupExposedPortOutput {
 	return o
+}
+
+func (o GroupExposedPortOutput) ToOutput(ctx context.Context) pulumix.Output[GroupExposedPort] {
+	return pulumix.Output[GroupExposedPort]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port number the container will expose. Changing this forces a new resource to be created.
@@ -4030,6 +4553,12 @@ func (o GroupExposedPortArrayOutput) ToGroupExposedPortArrayOutput() GroupExpose
 
 func (o GroupExposedPortArrayOutput) ToGroupExposedPortArrayOutputWithContext(ctx context.Context) GroupExposedPortArrayOutput {
 	return o
+}
+
+func (o GroupExposedPortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupExposedPort] {
+	return pulumix.Output[[]GroupExposedPort]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupExposedPortArrayOutput) Index(i pulumi.IntInput) GroupExposedPortOutput {
@@ -4095,6 +4624,12 @@ func (i GroupIdentityArgs) ToGroupIdentityOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GroupIdentityOutput)
 }
 
+func (i GroupIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GroupIdentity] {
+	return pulumix.Output[GroupIdentity]{
+		OutputState: i.ToGroupIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupIdentityArgs) ToGroupIdentityPtrOutput() GroupIdentityPtrOutput {
 	return i.ToGroupIdentityPtrOutputWithContext(context.Background())
 }
@@ -4136,6 +4671,12 @@ func (i *groupIdentityPtrType) ToGroupIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GroupIdentityPtrOutput)
 }
 
+func (i *groupIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupIdentity] {
+	return pulumix.Output[*GroupIdentity]{
+		OutputState: i.ToGroupIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupIdentityOutput struct{ *pulumi.OutputState }
 
 func (GroupIdentityOutput) ElementType() reflect.Type {
@@ -4158,6 +4699,12 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupIdentity) *GroupIdentity {
 		return &v
 	}).(GroupIdentityPtrOutput)
+}
+
+func (o GroupIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GroupIdentity] {
+	return pulumix.Output[GroupIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
@@ -4198,6 +4745,12 @@ func (o GroupIdentityPtrOutput) ToGroupIdentityPtrOutput() GroupIdentityPtrOutpu
 
 func (o GroupIdentityPtrOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Context) GroupIdentityPtrOutput {
 	return o
+}
+
+func (o GroupIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupIdentity] {
+	return pulumix.Output[*GroupIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
@@ -4301,6 +4854,12 @@ func (i GroupImageRegistryCredentialArgs) ToGroupImageRegistryCredentialOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GroupImageRegistryCredentialOutput)
 }
 
+func (i GroupImageRegistryCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GroupImageRegistryCredential] {
+	return pulumix.Output[GroupImageRegistryCredential]{
+		OutputState: i.ToGroupImageRegistryCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupImageRegistryCredentialArrayInput is an input type that accepts GroupImageRegistryCredentialArray and GroupImageRegistryCredentialArrayOutput values.
 // You can construct a concrete instance of `GroupImageRegistryCredentialArrayInput` via:
 //
@@ -4326,6 +4885,12 @@ func (i GroupImageRegistryCredentialArray) ToGroupImageRegistryCredentialArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupImageRegistryCredentialArrayOutput)
 }
 
+func (i GroupImageRegistryCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupImageRegistryCredential] {
+	return pulumix.Output[[]GroupImageRegistryCredential]{
+		OutputState: i.ToGroupImageRegistryCredentialArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupImageRegistryCredentialOutput struct{ *pulumi.OutputState }
 
 func (GroupImageRegistryCredentialOutput) ElementType() reflect.Type {
@@ -4338,6 +4903,12 @@ func (o GroupImageRegistryCredentialOutput) ToGroupImageRegistryCredentialOutput
 
 func (o GroupImageRegistryCredentialOutput) ToGroupImageRegistryCredentialOutputWithContext(ctx context.Context) GroupImageRegistryCredentialOutput {
 	return o
+}
+
+func (o GroupImageRegistryCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GroupImageRegistryCredential] {
+	return pulumix.Output[GroupImageRegistryCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password with which to connect to the registry. Changing this forces a new resource to be created.
@@ -4372,6 +4943,12 @@ func (o GroupImageRegistryCredentialArrayOutput) ToGroupImageRegistryCredentialA
 
 func (o GroupImageRegistryCredentialArrayOutput) ToGroupImageRegistryCredentialArrayOutputWithContext(ctx context.Context) GroupImageRegistryCredentialArrayOutput {
 	return o
+}
+
+func (o GroupImageRegistryCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupImageRegistryCredential] {
+	return pulumix.Output[[]GroupImageRegistryCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) GroupImageRegistryCredentialOutput {
@@ -4437,6 +5014,12 @@ func (i GroupInitContainerArgs) ToGroupInitContainerOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerOutput)
 }
 
+func (i GroupInitContainerArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainer] {
+	return pulumix.Output[GroupInitContainer]{
+		OutputState: i.ToGroupInitContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupInitContainerArrayInput is an input type that accepts GroupInitContainerArray and GroupInitContainerArrayOutput values.
 // You can construct a concrete instance of `GroupInitContainerArrayInput` via:
 //
@@ -4462,6 +5045,12 @@ func (i GroupInitContainerArray) ToGroupInitContainerArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerArrayOutput)
 }
 
+func (i GroupInitContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitContainer] {
+	return pulumix.Output[[]GroupInitContainer]{
+		OutputState: i.ToGroupInitContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInitContainerOutput struct{ *pulumi.OutputState }
 
 func (GroupInitContainerOutput) ElementType() reflect.Type {
@@ -4474,6 +5063,12 @@ func (o GroupInitContainerOutput) ToGroupInitContainerOutput() GroupInitContaine
 
 func (o GroupInitContainerOutput) ToGroupInitContainerOutputWithContext(ctx context.Context) GroupInitContainerOutput {
 	return o
+}
+
+func (o GroupInitContainerOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainer] {
+	return pulumix.Output[GroupInitContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of commands which should be run on the container. Changing this forces a new resource to be created.
@@ -4525,6 +5120,12 @@ func (o GroupInitContainerArrayOutput) ToGroupInitContainerArrayOutputWithContex
 	return o
 }
 
+func (o GroupInitContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitContainer] {
+	return pulumix.Output[[]GroupInitContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupInitContainerArrayOutput) Index(i pulumi.IntInput) GroupInitContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupInitContainer {
 		return vs[0].([]GroupInitContainer)[vs[1].(int)]
@@ -4568,6 +5169,12 @@ func (i GroupInitContainerSecurityArgs) ToGroupInitContainerSecurityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerSecurityOutput)
 }
 
+func (i GroupInitContainerSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainerSecurity] {
+	return pulumix.Output[GroupInitContainerSecurity]{
+		OutputState: i.ToGroupInitContainerSecurityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupInitContainerSecurityArrayInput is an input type that accepts GroupInitContainerSecurityArray and GroupInitContainerSecurityArrayOutput values.
 // You can construct a concrete instance of `GroupInitContainerSecurityArrayInput` via:
 //
@@ -4593,6 +5200,12 @@ func (i GroupInitContainerSecurityArray) ToGroupInitContainerSecurityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerSecurityArrayOutput)
 }
 
+func (i GroupInitContainerSecurityArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitContainerSecurity] {
+	return pulumix.Output[[]GroupInitContainerSecurity]{
+		OutputState: i.ToGroupInitContainerSecurityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInitContainerSecurityOutput struct{ *pulumi.OutputState }
 
 func (GroupInitContainerSecurityOutput) ElementType() reflect.Type {
@@ -4605,6 +5218,12 @@ func (o GroupInitContainerSecurityOutput) ToGroupInitContainerSecurityOutput() G
 
 func (o GroupInitContainerSecurityOutput) ToGroupInitContainerSecurityOutputWithContext(ctx context.Context) GroupInitContainerSecurityOutput {
 	return o
+}
+
+func (o GroupInitContainerSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainerSecurity] {
+	return pulumix.Output[GroupInitContainerSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
@@ -4626,6 +5245,12 @@ func (o GroupInitContainerSecurityArrayOutput) ToGroupInitContainerSecurityArray
 
 func (o GroupInitContainerSecurityArrayOutput) ToGroupInitContainerSecurityArrayOutputWithContext(ctx context.Context) GroupInitContainerSecurityArrayOutput {
 	return o
+}
+
+func (o GroupInitContainerSecurityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitContainerSecurity] {
+	return pulumix.Output[[]GroupInitContainerSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInitContainerSecurityArrayOutput) Index(i pulumi.IntInput) GroupInitContainerSecurityOutput {
@@ -4711,6 +5336,12 @@ func (i GroupInitContainerVolumeArgs) ToGroupInitContainerVolumeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeOutput)
 }
 
+func (i GroupInitContainerVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainerVolume] {
+	return pulumix.Output[GroupInitContainerVolume]{
+		OutputState: i.ToGroupInitContainerVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupInitContainerVolumeArrayInput is an input type that accepts GroupInitContainerVolumeArray and GroupInitContainerVolumeArrayOutput values.
 // You can construct a concrete instance of `GroupInitContainerVolumeArrayInput` via:
 //
@@ -4736,6 +5367,12 @@ func (i GroupInitContainerVolumeArray) ToGroupInitContainerVolumeArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeArrayOutput)
 }
 
+func (i GroupInitContainerVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitContainerVolume] {
+	return pulumix.Output[[]GroupInitContainerVolume]{
+		OutputState: i.ToGroupInitContainerVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInitContainerVolumeOutput struct{ *pulumi.OutputState }
 
 func (GroupInitContainerVolumeOutput) ElementType() reflect.Type {
@@ -4748,6 +5385,12 @@ func (o GroupInitContainerVolumeOutput) ToGroupInitContainerVolumeOutput() Group
 
 func (o GroupInitContainerVolumeOutput) ToGroupInitContainerVolumeOutputWithContext(ctx context.Context) GroupInitContainerVolumeOutput {
 	return o
+}
+
+func (o GroupInitContainerVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainerVolume] {
+	return pulumix.Output[GroupInitContainerVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
@@ -4815,6 +5458,12 @@ func (o GroupInitContainerVolumeArrayOutput) ToGroupInitContainerVolumeArrayOutp
 	return o
 }
 
+func (o GroupInitContainerVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitContainerVolume] {
+	return pulumix.Output[[]GroupInitContainerVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupInitContainerVolumeArrayOutput) Index(i pulumi.IntInput) GroupInitContainerVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupInitContainerVolume {
 		return vs[0].([]GroupInitContainerVolume)[vs[1].(int)]
@@ -4862,6 +5511,12 @@ func (i GroupInitContainerVolumeGitRepoArgs) ToGroupInitContainerVolumeGitRepoOu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeGitRepoOutput)
 }
 
+func (i GroupInitContainerVolumeGitRepoArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainerVolumeGitRepo] {
+	return pulumix.Output[GroupInitContainerVolumeGitRepo]{
+		OutputState: i.ToGroupInitContainerVolumeGitRepoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupInitContainerVolumeGitRepoArgs) ToGroupInitContainerVolumeGitRepoPtrOutput() GroupInitContainerVolumeGitRepoPtrOutput {
 	return i.ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(context.Background())
 }
@@ -4903,6 +5558,12 @@ func (i *groupInitContainerVolumeGitRepoPtrType) ToGroupInitContainerVolumeGitRe
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitContainerVolumeGitRepoPtrOutput)
 }
 
+func (i *groupInitContainerVolumeGitRepoPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupInitContainerVolumeGitRepo] {
+	return pulumix.Output[*GroupInitContainerVolumeGitRepo]{
+		OutputState: i.ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInitContainerVolumeGitRepoOutput struct{ *pulumi.OutputState }
 
 func (GroupInitContainerVolumeGitRepoOutput) ElementType() reflect.Type {
@@ -4925,6 +5586,12 @@ func (o GroupInitContainerVolumeGitRepoOutput) ToGroupInitContainerVolumeGitRepo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInitContainerVolumeGitRepo) *GroupInitContainerVolumeGitRepo {
 		return &v
 	}).(GroupInitContainerVolumeGitRepoPtrOutput)
+}
+
+func (o GroupInitContainerVolumeGitRepoOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInitContainerVolumeGitRepo] {
+	return pulumix.Output[GroupInitContainerVolumeGitRepo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
@@ -4954,6 +5621,12 @@ func (o GroupInitContainerVolumeGitRepoPtrOutput) ToGroupInitContainerVolumeGitR
 
 func (o GroupInitContainerVolumeGitRepoPtrOutput) ToGroupInitContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupInitContainerVolumeGitRepoPtrOutput {
 	return o
+}
+
+func (o GroupInitContainerVolumeGitRepoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupInitContainerVolumeGitRepo] {
+	return pulumix.Output[*GroupInitContainerVolumeGitRepo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInitContainerVolumeGitRepoPtrOutput) Elem() GroupInitContainerVolumeGitRepoOutput {
@@ -5103,6 +5776,12 @@ func (i KubernetesClusterAciConnectorLinuxArgs) ToKubernetesClusterAciConnectorL
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAciConnectorLinuxOutput)
 }
 
+func (i KubernetesClusterAciConnectorLinuxArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[KubernetesClusterAciConnectorLinux]{
+		OutputState: i.ToKubernetesClusterAciConnectorLinuxOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterAciConnectorLinuxArgs) ToKubernetesClusterAciConnectorLinuxPtrOutput() KubernetesClusterAciConnectorLinuxPtrOutput {
 	return i.ToKubernetesClusterAciConnectorLinuxPtrOutputWithContext(context.Background())
 }
@@ -5144,6 +5823,12 @@ func (i *kubernetesClusterAciConnectorLinuxPtrType) ToKubernetesClusterAciConnec
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAciConnectorLinuxPtrOutput)
 }
 
+func (i *kubernetesClusterAciConnectorLinuxPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[*KubernetesClusterAciConnectorLinux]{
+		OutputState: i.ToKubernetesClusterAciConnectorLinuxPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterAciConnectorLinuxOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAciConnectorLinuxOutput) ElementType() reflect.Type {
@@ -5166,6 +5851,12 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ToKubernetesClusterAciConnecto
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAciConnectorLinux) *KubernetesClusterAciConnectorLinux {
 		return &v
 	}).(KubernetesClusterAciConnectorLinuxPtrOutput)
+}
+
+func (o KubernetesClusterAciConnectorLinuxOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[KubernetesClusterAciConnectorLinux]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `connectorIdentity` block is exported. The exported attributes are defined below.
@@ -5230,6 +5921,12 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ToKubernetesClusterAciConne
 
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) ToKubernetesClusterAciConnectorLinuxPtrOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterAciConnectorLinuxPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[*KubernetesClusterAciConnectorLinux]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) Elem() KubernetesClusterAciConnectorLinuxOutput {
@@ -5345,6 +6042,12 @@ func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArgs) ToKubernetesClu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAciConnectorLinuxConnectorIdentityOutput)
 }
 
+func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAciConnectorLinuxConnectorIdentity] {
+	return pulumix.Output[KubernetesClusterAciConnectorLinuxConnectorIdentity]{
+		OutputState: i.ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput is an input type that accepts KubernetesClusterAciConnectorLinuxConnectorIdentityArray and KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterAciConnectorLinuxConnectorIdentityArrayInput` via:
 //
@@ -5370,6 +6073,12 @@ func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArray) ToKubernetesCl
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput)
 }
 
+func (i KubernetesClusterAciConnectorLinuxConnectorIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterAciConnectorLinuxConnectorIdentity] {
+	return pulumix.Output[[]KubernetesClusterAciConnectorLinuxConnectorIdentity]{
+		OutputState: i.ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterAciConnectorLinuxConnectorIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ElementType() reflect.Type {
@@ -5382,6 +6091,12 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ToKubernetesC
 
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ToKubernetesClusterAciConnectorLinuxConnectorIdentityOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAciConnectorLinuxConnectorIdentity] {
+	return pulumix.Output[KubernetesClusterAciConnectorLinuxConnectorIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
@@ -5413,6 +6128,12 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) ToKubern
 
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) ToKubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterAciConnectorLinuxConnectorIdentity] {
+	return pulumix.Output[[]KubernetesClusterAciConnectorLinuxConnectorIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAciConnectorLinuxConnectorIdentityOutput {
@@ -5466,6 +6187,12 @@ func (i KubernetesClusterApiServerAccessProfileArgs) ToKubernetesClusterApiServe
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterApiServerAccessProfileOutput)
 }
 
+func (i KubernetesClusterApiServerAccessProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterApiServerAccessProfile] {
+	return pulumix.Output[KubernetesClusterApiServerAccessProfile]{
+		OutputState: i.ToKubernetesClusterApiServerAccessProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterApiServerAccessProfileArgs) ToKubernetesClusterApiServerAccessProfilePtrOutput() KubernetesClusterApiServerAccessProfilePtrOutput {
 	return i.ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(context.Background())
 }
@@ -5507,6 +6234,12 @@ func (i *kubernetesClusterApiServerAccessProfilePtrType) ToKubernetesClusterApiS
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterApiServerAccessProfilePtrOutput)
 }
 
+func (i *kubernetesClusterApiServerAccessProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterApiServerAccessProfile] {
+	return pulumix.Output[*KubernetesClusterApiServerAccessProfile]{
+		OutputState: i.ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterApiServerAccessProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterApiServerAccessProfileOutput) ElementType() reflect.Type {
@@ -5529,6 +6262,12 @@ func (o KubernetesClusterApiServerAccessProfileOutput) ToKubernetesClusterApiSer
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterApiServerAccessProfile) *KubernetesClusterApiServerAccessProfile {
 		return &v
 	}).(KubernetesClusterApiServerAccessProfilePtrOutput)
+}
+
+func (o KubernetesClusterApiServerAccessProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterApiServerAccessProfile] {
+	return pulumix.Output[KubernetesClusterApiServerAccessProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
@@ -5560,6 +6299,12 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) ToKubernetesClusterApi
 
 func (o KubernetesClusterApiServerAccessProfilePtrOutput) ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterApiServerAccessProfile] {
+	return pulumix.Output[*KubernetesClusterApiServerAccessProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterApiServerAccessProfilePtrOutput) Elem() KubernetesClusterApiServerAccessProfileOutput {
@@ -5701,6 +6446,12 @@ func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerPro
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAutoScalerProfileOutput)
 }
 
+func (i KubernetesClusterAutoScalerProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAutoScalerProfile] {
+	return pulumix.Output[KubernetesClusterAutoScalerProfile]{
+		OutputState: i.ToKubernetesClusterAutoScalerProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerProfilePtrOutput() KubernetesClusterAutoScalerProfilePtrOutput {
 	return i.ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(context.Background())
 }
@@ -5742,6 +6493,12 @@ func (i *kubernetesClusterAutoScalerProfilePtrType) ToKubernetesClusterAutoScale
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAutoScalerProfilePtrOutput)
 }
 
+func (i *kubernetesClusterAutoScalerProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterAutoScalerProfile] {
+	return pulumix.Output[*KubernetesClusterAutoScalerProfile]{
+		OutputState: i.ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterAutoScalerProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAutoScalerProfileOutput) ElementType() reflect.Type {
@@ -5764,6 +6521,12 @@ func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAutoScalerProfile) *KubernetesClusterAutoScalerProfile {
 		return &v
 	}).(KubernetesClusterAutoScalerProfilePtrOutput)
+}
+
+func (o KubernetesClusterAutoScalerProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAutoScalerProfile] {
+	return pulumix.Output[KubernetesClusterAutoScalerProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
@@ -5863,6 +6626,12 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ToKubernetesClusterAutoScal
 
 func (o KubernetesClusterAutoScalerProfilePtrOutput) ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterAutoScalerProfile] {
+	return pulumix.Output[*KubernetesClusterAutoScalerProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterAutoScalerProfilePtrOutput) Elem() KubernetesClusterAutoScalerProfileOutput {
@@ -6102,6 +6871,12 @@ func (i KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs) ToKuber
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput)
 }
 
+func (i KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: i.ToKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs) ToKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput() KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput {
 	return i.ToKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutputWithContext(context.Background())
 }
@@ -6143,6 +6918,12 @@ func (i *kubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrType) ToK
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput)
 }
 
+func (i *kubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: i.ToKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ElementType() reflect.Type {
@@ -6165,6 +6946,12 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ToKub
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
 		return &v
 	}).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput)
+}
+
+func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
@@ -6216,6 +7003,12 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) To
 
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ToKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutputWithContext(ctx context.Context) KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Elem() KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput {
@@ -6331,6 +7124,12 @@ func (i KubernetesClusterConfidentialComputingArgs) ToKubernetesClusterConfident
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterConfidentialComputingOutput)
 }
 
+func (i KubernetesClusterConfidentialComputingArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterConfidentialComputing] {
+	return pulumix.Output[KubernetesClusterConfidentialComputing]{
+		OutputState: i.ToKubernetesClusterConfidentialComputingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterConfidentialComputingArgs) ToKubernetesClusterConfidentialComputingPtrOutput() KubernetesClusterConfidentialComputingPtrOutput {
 	return i.ToKubernetesClusterConfidentialComputingPtrOutputWithContext(context.Background())
 }
@@ -6372,6 +7171,12 @@ func (i *kubernetesClusterConfidentialComputingPtrType) ToKubernetesClusterConfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterConfidentialComputingPtrOutput)
 }
 
+func (i *kubernetesClusterConfidentialComputingPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterConfidentialComputing] {
+	return pulumix.Output[*KubernetesClusterConfidentialComputing]{
+		OutputState: i.ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterConfidentialComputingOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterConfidentialComputingOutput) ElementType() reflect.Type {
@@ -6396,6 +7201,12 @@ func (o KubernetesClusterConfidentialComputingOutput) ToKubernetesClusterConfide
 	}).(KubernetesClusterConfidentialComputingPtrOutput)
 }
 
+func (o KubernetesClusterConfidentialComputingOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterConfidentialComputing] {
+	return pulumix.Output[KubernetesClusterConfidentialComputing]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Should the SGX quote helper be enabled?
 func (o KubernetesClusterConfidentialComputingOutput) SgxQuoteHelperEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v KubernetesClusterConfidentialComputing) bool { return v.SgxQuoteHelperEnabled }).(pulumi.BoolOutput)
@@ -6413,6 +7224,12 @@ func (o KubernetesClusterConfidentialComputingPtrOutput) ToKubernetesClusterConf
 
 func (o KubernetesClusterConfidentialComputingPtrOutput) ToKubernetesClusterConfidentialComputingPtrOutputWithContext(ctx context.Context) KubernetesClusterConfidentialComputingPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterConfidentialComputingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterConfidentialComputing] {
+	return pulumix.Output[*KubernetesClusterConfidentialComputing]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterConfidentialComputingPtrOutput) Elem() KubernetesClusterConfidentialComputingOutput {
@@ -6660,6 +7477,12 @@ func (i KubernetesClusterDefaultNodePoolArgs) ToKubernetesClusterDefaultNodePool
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolOutput)
 }
 
+func (i KubernetesClusterDefaultNodePoolArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePool] {
+	return pulumix.Output[KubernetesClusterDefaultNodePool]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterDefaultNodePoolArgs) ToKubernetesClusterDefaultNodePoolPtrOutput() KubernetesClusterDefaultNodePoolPtrOutput {
 	return i.ToKubernetesClusterDefaultNodePoolPtrOutputWithContext(context.Background())
 }
@@ -6701,6 +7524,12 @@ func (i *kubernetesClusterDefaultNodePoolPtrType) ToKubernetesClusterDefaultNode
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
+func (i *kubernetesClusterDefaultNodePoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePool] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePool]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterDefaultNodePoolOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolOutput) ElementType() reflect.Type {
@@ -6723,6 +7552,12 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePool {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePool] {
+	return pulumix.Output[KubernetesClusterDefaultNodePool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -6957,6 +7792,12 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ToKubernetesClusterDefaultNod
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) ToKubernetesClusterDefaultNodePoolPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePool] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefaultNodePoolOutput {
@@ -7440,6 +8281,12 @@ func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToKubernetesClusterDe
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolKubeletConfigOutput)
 }
 
+func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolKubeletConfig] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolKubeletConfig]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolKubeletConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutput() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
 	return i.ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(context.Background())
 }
@@ -7481,6 +8328,12 @@ func (i *kubernetesClusterDefaultNodePoolKubeletConfigPtrType) ToKubernetesClust
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
 }
 
+func (i *kubernetesClusterDefaultNodePoolKubeletConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolKubeletConfig] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolKubeletConfig]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterDefaultNodePoolKubeletConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolKubeletConfigOutput) ElementType() reflect.Type {
@@ -7503,6 +8356,12 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesCluster
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolKubeletConfig) *KubernetesClusterDefaultNodePoolKubeletConfig {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolKubeletConfig] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolKubeletConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
@@ -7567,6 +8426,12 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ToKubernetesClus
 
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolKubeletConfig] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolKubeletConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolKubeletConfigOutput {
@@ -7724,6 +8589,12 @@ func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToKubernetesClusterDe
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput)
 }
 
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfig] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfig]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
 	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
 }
@@ -7765,6 +8636,12 @@ func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType) ToKubernetesClust
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
 
+func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfig] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfig]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterDefaultNodePoolLinuxOsConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ElementType() reflect.Type {
@@ -7787,6 +8664,12 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesCluster
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolLinuxOsConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfig] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
@@ -7823,6 +8706,12 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ToKubernetesClus
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfig] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
@@ -8020,6 +8909,12 @@ func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToKuberne
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput)
 }
 
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
 	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
 }
@@ -8061,6 +8956,12 @@ func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType) ToKub
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
+func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ElementType() reflect.Type {
@@ -8083,6 +8984,12 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKuber
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
 		return &v
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
@@ -8270,6 +9177,12 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKu
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
@@ -8609,6 +9522,12 @@ func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToKubernetesClus
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput)
 }
 
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolNodeNetworkProfile] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolNodeNetworkProfile]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
 	return i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -8650,6 +9569,12 @@ func (i *kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType) ToKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
+func (i *kubernetesClusterDefaultNodePoolNodeNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolNodeNetworkProfile] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolNodeNetworkProfile]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ElementType() reflect.Type {
@@ -8674,6 +9599,12 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesCl
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolNodeNetworkProfile] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolNodeNetworkProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -8695,6 +9626,12 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ToKubernete
 
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolNodeNetworkProfile] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolNodeNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput {
@@ -8756,6 +9693,12 @@ func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToKubernetesCluster
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput)
 }
 
+func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolUpgradeSettings] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolUpgradeSettings]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolUpgradeSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterDefaultNodePoolUpgradeSettingsArgs) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput() KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
 	return i.ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
 }
@@ -8797,6 +9740,12 @@ func (i *kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType) ToKubernetesClu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
+func (i *kubernetesClusterDefaultNodePoolUpgradeSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolUpgradeSettings] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolUpgradeSettings]{
+		OutputState: i.ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterDefaultNodePoolUpgradeSettingsOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ElementType() reflect.Type {
@@ -8821,6 +9770,12 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToKubernetesClust
 	}).(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput)
 }
 
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterDefaultNodePoolUpgradeSettings] {
+	return pulumix.Output[KubernetesClusterDefaultNodePoolUpgradeSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 //
 // > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
@@ -8840,6 +9795,12 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ToKubernetesCl
 
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterDefaultNodePoolUpgradeSettings] {
+	return pulumix.Output[*KubernetesClusterDefaultNodePoolUpgradeSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClusterDefaultNodePoolUpgradeSettingsOutput {
@@ -8905,6 +9866,12 @@ func (i KubernetesClusterExtensionAksAssignedIdentityArgs) ToKubernetesClusterEx
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionAksAssignedIdentityOutput)
 }
 
+func (i KubernetesClusterExtensionAksAssignedIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterExtensionAksAssignedIdentity] {
+	return pulumix.Output[KubernetesClusterExtensionAksAssignedIdentity]{
+		OutputState: i.ToKubernetesClusterExtensionAksAssignedIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterExtensionAksAssignedIdentityArrayInput is an input type that accepts KubernetesClusterExtensionAksAssignedIdentityArray and KubernetesClusterExtensionAksAssignedIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterExtensionAksAssignedIdentityArrayInput` via:
 //
@@ -8930,6 +9897,12 @@ func (i KubernetesClusterExtensionAksAssignedIdentityArray) ToKubernetesClusterE
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionAksAssignedIdentityArrayOutput)
 }
 
+func (i KubernetesClusterExtensionAksAssignedIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterExtensionAksAssignedIdentity] {
+	return pulumix.Output[[]KubernetesClusterExtensionAksAssignedIdentity]{
+		OutputState: i.ToKubernetesClusterExtensionAksAssignedIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterExtensionAksAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterExtensionAksAssignedIdentityOutput) ElementType() reflect.Type {
@@ -8942,6 +9915,12 @@ func (o KubernetesClusterExtensionAksAssignedIdentityOutput) ToKubernetesCluster
 
 func (o KubernetesClusterExtensionAksAssignedIdentityOutput) ToKubernetesClusterExtensionAksAssignedIdentityOutputWithContext(ctx context.Context) KubernetesClusterExtensionAksAssignedIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterExtensionAksAssignedIdentity] {
+	return pulumix.Output[KubernetesClusterExtensionAksAssignedIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal ID of resource identity.
@@ -8971,6 +9950,12 @@ func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) ToKubernetesCl
 
 func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) ToKubernetesClusterExtensionAksAssignedIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterExtensionAksAssignedIdentityArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterExtensionAksAssignedIdentity] {
+	return pulumix.Output[[]KubernetesClusterExtensionAksAssignedIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterExtensionAksAssignedIdentityOutput {
@@ -9032,6 +10017,12 @@ func (i KubernetesClusterExtensionPlanArgs) ToKubernetesClusterExtensionPlanOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionPlanOutput)
 }
 
+func (i KubernetesClusterExtensionPlanArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterExtensionPlan] {
+	return pulumix.Output[KubernetesClusterExtensionPlan]{
+		OutputState: i.ToKubernetesClusterExtensionPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterExtensionPlanArgs) ToKubernetesClusterExtensionPlanPtrOutput() KubernetesClusterExtensionPlanPtrOutput {
 	return i.ToKubernetesClusterExtensionPlanPtrOutputWithContext(context.Background())
 }
@@ -9073,6 +10064,12 @@ func (i *kubernetesClusterExtensionPlanPtrType) ToKubernetesClusterExtensionPlan
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionPlanPtrOutput)
 }
 
+func (i *kubernetesClusterExtensionPlanPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterExtensionPlan] {
+	return pulumix.Output[*KubernetesClusterExtensionPlan]{
+		OutputState: i.ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterExtensionPlanOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterExtensionPlanOutput) ElementType() reflect.Type {
@@ -9095,6 +10092,12 @@ func (o KubernetesClusterExtensionPlanOutput) ToKubernetesClusterExtensionPlanPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterExtensionPlan) *KubernetesClusterExtensionPlan {
 		return &v
 	}).(KubernetesClusterExtensionPlanPtrOutput)
+}
+
+func (o KubernetesClusterExtensionPlanOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterExtensionPlan] {
+	return pulumix.Output[KubernetesClusterExtensionPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -9136,6 +10139,12 @@ func (o KubernetesClusterExtensionPlanPtrOutput) ToKubernetesClusterExtensionPla
 
 func (o KubernetesClusterExtensionPlanPtrOutput) ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterExtensionPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterExtensionPlan] {
+	return pulumix.Output[*KubernetesClusterExtensionPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterExtensionPlanPtrOutput) Elem() KubernetesClusterExtensionPlanOutput {
@@ -9243,6 +10252,12 @@ func (i KubernetesClusterHttpProxyConfigArgs) ToKubernetesClusterHttpProxyConfig
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterHttpProxyConfigOutput)
 }
 
+func (i KubernetesClusterHttpProxyConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterHttpProxyConfig] {
+	return pulumix.Output[KubernetesClusterHttpProxyConfig]{
+		OutputState: i.ToKubernetesClusterHttpProxyConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterHttpProxyConfigArgs) ToKubernetesClusterHttpProxyConfigPtrOutput() KubernetesClusterHttpProxyConfigPtrOutput {
 	return i.ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(context.Background())
 }
@@ -9284,6 +10299,12 @@ func (i *kubernetesClusterHttpProxyConfigPtrType) ToKubernetesClusterHttpProxyCo
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterHttpProxyConfigPtrOutput)
 }
 
+func (i *kubernetesClusterHttpProxyConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterHttpProxyConfig] {
+	return pulumix.Output[*KubernetesClusterHttpProxyConfig]{
+		OutputState: i.ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterHttpProxyConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterHttpProxyConfigOutput) ElementType() reflect.Type {
@@ -9306,6 +10327,12 @@ func (o KubernetesClusterHttpProxyConfigOutput) ToKubernetesClusterHttpProxyConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterHttpProxyConfig) *KubernetesClusterHttpProxyConfig {
 		return &v
 	}).(KubernetesClusterHttpProxyConfigPtrOutput)
+}
+
+func (o KubernetesClusterHttpProxyConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterHttpProxyConfig] {
+	return pulumix.Output[KubernetesClusterHttpProxyConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
@@ -9339,6 +10366,12 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) ToKubernetesClusterHttpProxyC
 
 func (o KubernetesClusterHttpProxyConfigPtrOutput) ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterHttpProxyConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterHttpProxyConfig] {
+	return pulumix.Output[*KubernetesClusterHttpProxyConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterHttpProxyConfigPtrOutput) Elem() KubernetesClusterHttpProxyConfigOutput {
@@ -9439,6 +10472,12 @@ func (i KubernetesClusterIdentityArgs) ToKubernetesClusterIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIdentityOutput)
 }
 
+func (i KubernetesClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterIdentity] {
+	return pulumix.Output[KubernetesClusterIdentity]{
+		OutputState: i.ToKubernetesClusterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterIdentityArgs) ToKubernetesClusterIdentityPtrOutput() KubernetesClusterIdentityPtrOutput {
 	return i.ToKubernetesClusterIdentityPtrOutputWithContext(context.Background())
 }
@@ -9480,6 +10519,12 @@ func (i *kubernetesClusterIdentityPtrType) ToKubernetesClusterIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIdentityPtrOutput)
 }
 
+func (i *kubernetesClusterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterIdentity] {
+	return pulumix.Output[*KubernetesClusterIdentity]{
+		OutputState: i.ToKubernetesClusterIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIdentityOutput) ElementType() reflect.Type {
@@ -9502,6 +10547,12 @@ func (o KubernetesClusterIdentityOutput) ToKubernetesClusterIdentityPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterIdentity) *KubernetesClusterIdentity {
 		return &v
 	}).(KubernetesClusterIdentityPtrOutput)
+}
+
+func (o KubernetesClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterIdentity] {
+	return pulumix.Output[KubernetesClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
@@ -9538,6 +10589,12 @@ func (o KubernetesClusterIdentityPtrOutput) ToKubernetesClusterIdentityPtrOutput
 
 func (o KubernetesClusterIdentityPtrOutput) ToKubernetesClusterIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterIdentityPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterIdentity] {
+	return pulumix.Output[*KubernetesClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterIdentityPtrOutput) Elem() KubernetesClusterIdentityOutput {
@@ -9653,6 +10710,12 @@ func (i KubernetesClusterIngressApplicationGatewayArgs) ToKubernetesClusterIngre
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIngressApplicationGatewayOutput)
 }
 
+func (i KubernetesClusterIngressApplicationGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[KubernetesClusterIngressApplicationGateway]{
+		OutputState: i.ToKubernetesClusterIngressApplicationGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterIngressApplicationGatewayArgs) ToKubernetesClusterIngressApplicationGatewayPtrOutput() KubernetesClusterIngressApplicationGatewayPtrOutput {
 	return i.ToKubernetesClusterIngressApplicationGatewayPtrOutputWithContext(context.Background())
 }
@@ -9694,6 +10757,12 @@ func (i *kubernetesClusterIngressApplicationGatewayPtrType) ToKubernetesClusterI
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIngressApplicationGatewayPtrOutput)
 }
 
+func (i *kubernetesClusterIngressApplicationGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[*KubernetesClusterIngressApplicationGateway]{
+		OutputState: i.ToKubernetesClusterIngressApplicationGatewayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterIngressApplicationGatewayOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIngressApplicationGatewayOutput) ElementType() reflect.Type {
@@ -9716,6 +10785,12 @@ func (o KubernetesClusterIngressApplicationGatewayOutput) ToKubernetesClusterIng
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterIngressApplicationGateway) *KubernetesClusterIngressApplicationGateway {
 		return &v
 	}).(KubernetesClusterIngressApplicationGatewayPtrOutput)
+}
+
+func (o KubernetesClusterIngressApplicationGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[KubernetesClusterIngressApplicationGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
@@ -9766,6 +10841,12 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) ToKubernetesCluster
 
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) ToKubernetesClusterIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterIngressApplicationGatewayPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterIngressApplicationGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[*KubernetesClusterIngressApplicationGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) Elem() KubernetesClusterIngressApplicationGatewayOutput {
@@ -9887,6 +10968,12 @@ func (i KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
 }
 
+func (i KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: i.ToKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput is an input type that accepts KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArray and KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput` via:
 //
@@ -9912,6 +10999,12 @@ func (i KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
 }
 
+func (i KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[[]KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: i.ToKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ElementType() reflect.Type {
@@ -9924,6 +11017,12 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
@@ -9961,6 +11060,12 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[[]KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
@@ -10006,6 +11111,12 @@ func (i KubernetesClusterKeyManagementServiceArgs) ToKubernetesClusterKeyManagem
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyManagementServiceOutput)
 }
 
+func (i KubernetesClusterKeyManagementServiceArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKeyManagementService] {
+	return pulumix.Output[KubernetesClusterKeyManagementService]{
+		OutputState: i.ToKubernetesClusterKeyManagementServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterKeyManagementServiceArgs) ToKubernetesClusterKeyManagementServicePtrOutput() KubernetesClusterKeyManagementServicePtrOutput {
 	return i.ToKubernetesClusterKeyManagementServicePtrOutputWithContext(context.Background())
 }
@@ -10047,6 +11158,12 @@ func (i *kubernetesClusterKeyManagementServicePtrType) ToKubernetesClusterKeyMan
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyManagementServicePtrOutput)
 }
 
+func (i *kubernetesClusterKeyManagementServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterKeyManagementService] {
+	return pulumix.Output[*KubernetesClusterKeyManagementService]{
+		OutputState: i.ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterKeyManagementServiceOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKeyManagementServiceOutput) ElementType() reflect.Type {
@@ -10071,6 +11188,12 @@ func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManag
 	}).(KubernetesClusterKeyManagementServicePtrOutput)
 }
 
+func (o KubernetesClusterKeyManagementServiceOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKeyManagementService] {
+	return pulumix.Output[KubernetesClusterKeyManagementService]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
@@ -10093,6 +11216,12 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) ToKubernetesClusterKeyMa
 
 func (o KubernetesClusterKeyManagementServicePtrOutput) ToKubernetesClusterKeyManagementServicePtrOutputWithContext(ctx context.Context) KubernetesClusterKeyManagementServicePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterKeyManagementServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterKeyManagementService] {
+	return pulumix.Output[*KubernetesClusterKeyManagementService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterKeyManagementServicePtrOutput) Elem() KubernetesClusterKeyManagementServiceOutput {
@@ -10170,6 +11299,12 @@ func (i KubernetesClusterKeyVaultSecretsProviderArgs) ToKubernetesClusterKeyVaul
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyVaultSecretsProviderOutput)
 }
 
+func (i KubernetesClusterKeyVaultSecretsProviderArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[KubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: i.ToKubernetesClusterKeyVaultSecretsProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterKeyVaultSecretsProviderArgs) ToKubernetesClusterKeyVaultSecretsProviderPtrOutput() KubernetesClusterKeyVaultSecretsProviderPtrOutput {
 	return i.ToKubernetesClusterKeyVaultSecretsProviderPtrOutputWithContext(context.Background())
 }
@@ -10211,6 +11346,12 @@ func (i *kubernetesClusterKeyVaultSecretsProviderPtrType) ToKubernetesClusterKey
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyVaultSecretsProviderPtrOutput)
 }
 
+func (i *kubernetesClusterKeyVaultSecretsProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[*KubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: i.ToKubernetesClusterKeyVaultSecretsProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterKeyVaultSecretsProviderOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKeyVaultSecretsProviderOutput) ElementType() reflect.Type {
@@ -10233,6 +11374,12 @@ func (o KubernetesClusterKeyVaultSecretsProviderOutput) ToKubernetesClusterKeyVa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterKeyVaultSecretsProvider) *KubernetesClusterKeyVaultSecretsProvider {
 		return &v
 	}).(KubernetesClusterKeyVaultSecretsProviderPtrOutput)
+}
+
+func (o KubernetesClusterKeyVaultSecretsProviderOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[KubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `secretIdentity` block is exported. The exported attributes are defined below.
@@ -10266,6 +11413,12 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) ToKubernetesClusterKe
 
 func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) ToKubernetesClusterKeyVaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterKeyVaultSecretsProviderPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[*KubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) Elem() KubernetesClusterKeyVaultSecretsProviderOutput {
@@ -10355,6 +11508,12 @@ func (i KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs) ToKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput)
 }
 
+func (i KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[KubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: i.ToKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput is an input type that accepts KubernetesClusterKeyVaultSecretsProviderSecretIdentityArray and KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput` via:
 //
@@ -10380,6 +11539,12 @@ func (i KubernetesClusterKeyVaultSecretsProviderSecretIdentityArray) ToKubernete
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput)
 }
 
+func (i KubernetesClusterKeyVaultSecretsProviderSecretIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[[]KubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: i.ToKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ElementType() reflect.Type {
@@ -10392,6 +11557,12 @@ func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToKubernet
 
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[KubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
@@ -10425,6 +11596,12 @@ func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) ToKub
 
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) ToKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[[]KubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput {
@@ -10486,6 +11663,12 @@ func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfig
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigOutput)
 }
 
+func (i KubernetesClusterKubeAdminConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[KubernetesClusterKubeAdminConfig]{
+		OutputState: i.ToKubernetesClusterKubeAdminConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterKubeAdminConfigArrayInput is an input type that accepts KubernetesClusterKubeAdminConfigArray and KubernetesClusterKubeAdminConfigArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeAdminConfigArrayInput` via:
 //
@@ -10511,6 +11694,12 @@ func (i KubernetesClusterKubeAdminConfigArray) ToKubernetesClusterKubeAdminConfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigArrayOutput)
 }
 
+func (i KubernetesClusterKubeAdminConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[[]KubernetesClusterKubeAdminConfig]{
+		OutputState: i.ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterKubeAdminConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
@@ -10523,6 +11712,12 @@ func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConf
 
 func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigOutput {
 	return o
+}
+
+func (o KubernetesClusterKubeAdminConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[KubernetesClusterKubeAdminConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -10567,6 +11762,12 @@ func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdmi
 
 func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterKubeAdminConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[[]KubernetesClusterKubeAdminConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeAdminConfigOutput {
@@ -10628,6 +11829,12 @@ func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigOutput)
 }
 
+func (i KubernetesClusterKubeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKubeConfig] {
+	return pulumix.Output[KubernetesClusterKubeConfig]{
+		OutputState: i.ToKubernetesClusterKubeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterKubeConfigArrayInput is an input type that accepts KubernetesClusterKubeConfigArray and KubernetesClusterKubeConfigArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeConfigArrayInput` via:
 //
@@ -10653,6 +11860,12 @@ func (i KubernetesClusterKubeConfigArray) ToKubernetesClusterKubeConfigArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigArrayOutput)
 }
 
+func (i KubernetesClusterKubeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterKubeConfig] {
+	return pulumix.Output[[]KubernetesClusterKubeConfig]{
+		OutputState: i.ToKubernetesClusterKubeConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterKubeConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
@@ -10665,6 +11878,12 @@ func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutput()
 
 func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigOutput {
 	return o
+}
+
+func (o KubernetesClusterKubeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKubeConfig] {
+	return pulumix.Output[KubernetesClusterKubeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -10709,6 +11928,12 @@ func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArr
 
 func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterKubeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterKubeConfig] {
+	return pulumix.Output[[]KubernetesClusterKubeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeConfigOutput {
@@ -10762,6 +11987,12 @@ func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityOutput)
 }
 
+func (i KubernetesClusterKubeletIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKubeletIdentity] {
+	return pulumix.Output[KubernetesClusterKubeletIdentity]{
+		OutputState: i.ToKubernetesClusterKubeletIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentityPtrOutput() KubernetesClusterKubeletIdentityPtrOutput {
 	return i.ToKubernetesClusterKubeletIdentityPtrOutputWithContext(context.Background())
 }
@@ -10803,6 +12034,12 @@ func (i *kubernetesClusterKubeletIdentityPtrType) ToKubernetesClusterKubeletIden
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityPtrOutput)
 }
 
+func (i *kubernetesClusterKubeletIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterKubeletIdentity] {
+	return pulumix.Output[*KubernetesClusterKubeletIdentity]{
+		OutputState: i.ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterKubeletIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterKubeletIdentityOutput) ElementType() reflect.Type {
@@ -10825,6 +12062,12 @@ func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdenti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterKubeletIdentity) *KubernetesClusterKubeletIdentity {
 		return &v
 	}).(KubernetesClusterKubeletIdentityPtrOutput)
+}
+
+func (o KubernetesClusterKubeletIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterKubeletIdentity] {
+	return pulumix.Output[KubernetesClusterKubeletIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
@@ -10856,6 +12099,12 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) ToKubernetesClusterKubeletIde
 
 func (o KubernetesClusterKubeletIdentityPtrOutput) ToKubernetesClusterKubeletIdentityPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterKubeletIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterKubeletIdentity] {
+	return pulumix.Output[*KubernetesClusterKubeletIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterKubeletIdentityPtrOutput) Elem() KubernetesClusterKubeletIdentityOutput {
@@ -10937,6 +12186,12 @@ func (i KubernetesClusterLinuxProfileArgs) ToKubernetesClusterLinuxProfileOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfileOutput)
 }
 
+func (i KubernetesClusterLinuxProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterLinuxProfile] {
+	return pulumix.Output[KubernetesClusterLinuxProfile]{
+		OutputState: i.ToKubernetesClusterLinuxProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterLinuxProfileArgs) ToKubernetesClusterLinuxProfilePtrOutput() KubernetesClusterLinuxProfilePtrOutput {
 	return i.ToKubernetesClusterLinuxProfilePtrOutputWithContext(context.Background())
 }
@@ -10978,6 +12233,12 @@ func (i *kubernetesClusterLinuxProfilePtrType) ToKubernetesClusterLinuxProfilePt
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
+func (i *kubernetesClusterLinuxProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterLinuxProfile] {
+	return pulumix.Output[*KubernetesClusterLinuxProfile]{
+		OutputState: i.ToKubernetesClusterLinuxProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
@@ -11002,6 +12263,12 @@ func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfilePtrO
 	}).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
+func (o KubernetesClusterLinuxProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterLinuxProfile] {
+	return pulumix.Output[KubernetesClusterLinuxProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Admin Username for the Cluster. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
@@ -11024,6 +12291,12 @@ func (o KubernetesClusterLinuxProfilePtrOutput) ToKubernetesClusterLinuxProfileP
 
 func (o KubernetesClusterLinuxProfilePtrOutput) ToKubernetesClusterLinuxProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterLinuxProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterLinuxProfile] {
+	return pulumix.Output[*KubernetesClusterLinuxProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterLinuxProfilePtrOutput) Elem() KubernetesClusterLinuxProfileOutput {
@@ -11089,6 +12362,12 @@ func (i KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfile
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
+func (i KubernetesClusterLinuxProfileSshKeyArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[KubernetesClusterLinuxProfileSshKey]{
+		OutputState: i.ToKubernetesClusterLinuxProfileSshKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfileSshKeyPtrOutput() KubernetesClusterLinuxProfileSshKeyPtrOutput {
 	return i.ToKubernetesClusterLinuxProfileSshKeyPtrOutputWithContext(context.Background())
 }
@@ -11130,6 +12409,12 @@ func (i *kubernetesClusterLinuxProfileSshKeyPtrType) ToKubernetesClusterLinuxPro
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterLinuxProfileSshKeyPtrOutput)
 }
 
+func (i *kubernetesClusterLinuxProfileSshKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[*KubernetesClusterLinuxProfileSshKey]{
+		OutputState: i.ToKubernetesClusterLinuxProfileSshKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterLinuxProfileSshKeyOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
@@ -11154,6 +12439,12 @@ func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfi
 	}).(KubernetesClusterLinuxProfileSshKeyPtrOutput)
 }
 
+func (o KubernetesClusterLinuxProfileSshKeyOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[KubernetesClusterLinuxProfileSshKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Public SSH Key used to access the cluster.
 func (o KubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
@@ -11171,6 +12462,12 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) ToKubernetesClusterLinuxPr
 
 func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) ToKubernetesClusterLinuxProfileSshKeyPtrOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileSshKeyPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[*KubernetesClusterLinuxProfileSshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) Elem() KubernetesClusterLinuxProfileSshKeyOutput {
@@ -11230,6 +12527,12 @@ func (i KubernetesClusterMaintenanceWindowArgs) ToKubernetesClusterMaintenanceWi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindow] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindow]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterMaintenanceWindowArgs) ToKubernetesClusterMaintenanceWindowPtrOutput() KubernetesClusterMaintenanceWindowPtrOutput {
 	return i.ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(context.Background())
 }
@@ -11271,6 +12574,12 @@ func (i *kubernetesClusterMaintenanceWindowPtrType) ToKubernetesClusterMaintenan
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowPtrOutput)
 }
 
+func (i *kubernetesClusterMaintenanceWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMaintenanceWindow] {
+	return pulumix.Output[*KubernetesClusterMaintenanceWindow]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowOutput) ElementType() reflect.Type {
@@ -11293,6 +12602,12 @@ func (o KubernetesClusterMaintenanceWindowOutput) ToKubernetesClusterMaintenance
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMaintenanceWindow) *KubernetesClusterMaintenanceWindow {
 		return &v
 	}).(KubernetesClusterMaintenanceWindowPtrOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindow] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `allowed` blocks as defined below.
@@ -11321,6 +12636,12 @@ func (o KubernetesClusterMaintenanceWindowPtrOutput) ToKubernetesClusterMaintena
 
 func (o KubernetesClusterMaintenanceWindowPtrOutput) ToKubernetesClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMaintenanceWindow] {
+	return pulumix.Output[*KubernetesClusterMaintenanceWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowPtrOutput) Elem() KubernetesClusterMaintenanceWindowOutput {
@@ -11390,6 +12711,12 @@ func (i KubernetesClusterMaintenanceWindowAllowedArgs) ToKubernetesClusterMainte
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAllowedOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowAllowedArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowAllowedOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterMaintenanceWindowAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowAllowedArray and KubernetesClusterMaintenanceWindowAllowedArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAllowedArrayInput` via:
 //
@@ -11415,6 +12742,12 @@ func (i KubernetesClusterMaintenanceWindowAllowedArray) ToKubernetesClusterMaint
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAllowedArrayOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowAllowedArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowAllowedArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowAllowedOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowAllowedOutput) ElementType() reflect.Type {
@@ -11427,6 +12760,12 @@ func (o KubernetesClusterMaintenanceWindowAllowedOutput) ToKubernetesClusterMain
 
 func (o KubernetesClusterMaintenanceWindowAllowedOutput) ToKubernetesClusterMaintenanceWindowAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAllowedOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
@@ -11451,6 +12790,12 @@ func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) ToKubernetesCluste
 
 func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAllowedArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowAllowedOutput {
@@ -11528,6 +12873,12 @@ func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToKubernetesClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgrade] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgrade]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowAutoUpgradeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterMaintenanceWindowAutoUpgradeArgs) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutput() KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
 	return i.ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(context.Background())
 }
@@ -11569,6 +12920,12 @@ func (i *kubernetesClusterMaintenanceWindowAutoUpgradePtrType) ToKubernetesClust
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput)
 }
 
+func (i *kubernetesClusterMaintenanceWindowAutoUpgradePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMaintenanceWindowAutoUpgrade] {
+	return pulumix.Output[*KubernetesClusterMaintenanceWindowAutoUpgrade]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowAutoUpgradeOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ElementType() reflect.Type {
@@ -11591,6 +12948,12 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToKubernetesCluster
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMaintenanceWindowAutoUpgrade) *KubernetesClusterMaintenanceWindowAutoUpgrade {
 		return &v
 	}).(KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgrade] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgrade]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfMonth() pulumi.IntPtrOutput {
@@ -11657,6 +13020,12 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) ToKubernetesClus
 
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradePtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMaintenanceWindowAutoUpgrade] {
+	return pulumix.Output[*KubernetesClusterMaintenanceWindowAutoUpgrade]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Elem() KubernetesClusterMaintenanceWindowAutoUpgradeOutput {
@@ -11806,6 +13175,12 @@ func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs) ToKubernete
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray and KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayInput` via:
 //
@@ -11831,6 +13206,12 @@ func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray) ToKubernet
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ElementType() reflect.Type {
@@ -11843,6 +13224,12 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ToKuberne
 
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The end of a time span, formatted as an RFC3339 string.
@@ -11867,6 +13254,12 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) ToKu
 
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedOutput {
@@ -11942,6 +13335,12 @@ func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToKubernetesClusterMainten
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowNodeOs] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowNodeOs]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowNodeOsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterMaintenanceWindowNodeOsArgs) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutput() KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
 	return i.ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(context.Background())
 }
@@ -11983,6 +13382,12 @@ func (i *kubernetesClusterMaintenanceWindowNodeOsPtrType) ToKubernetesClusterMai
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsPtrOutput)
 }
 
+func (i *kubernetesClusterMaintenanceWindowNodeOsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMaintenanceWindowNodeOs] {
+	return pulumix.Output[*KubernetesClusterMaintenanceWindowNodeOs]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowNodeOsOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowNodeOsOutput) ElementType() reflect.Type {
@@ -12005,6 +13410,12 @@ func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToKubernetesClusterMaint
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMaintenanceWindowNodeOs) *KubernetesClusterMaintenanceWindowNodeOs {
 		return &v
 	}).(KubernetesClusterMaintenanceWindowNodeOsPtrOutput)
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowNodeOs] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowNodeOs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfMonth() pulumi.IntPtrOutput {
@@ -12070,6 +13481,12 @@ func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) ToKubernetesClusterMa
 
 func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) ToKubernetesClusterMaintenanceWindowNodeOsPtrOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMaintenanceWindowNodeOs] {
+	return pulumix.Output[*KubernetesClusterMaintenanceWindowNodeOs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Elem() KubernetesClusterMaintenanceWindowNodeOsOutput {
@@ -12218,6 +13635,12 @@ func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs) ToKubernetesClus
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowNodeOsNotAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowNodeOsNotAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray and KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayInput` via:
 //
@@ -12243,6 +13666,12 @@ func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray) ToKubernetesClu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowNodeOsNotAllowedArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowNodeOsNotAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowNodeOsNotAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ElementType() reflect.Type {
@@ -12255,6 +13684,12 @@ func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ToKubernetesCl
 
 func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowNodeOsNotAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowNodeOsNotAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The end of a time span, formatted as an RFC3339 string.
@@ -12279,6 +13714,12 @@ func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) ToKuberne
 
 func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowNodeOsNotAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowNodeOsNotAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowNodeOsNotAllowedOutput {
@@ -12324,6 +13765,12 @@ func (i KubernetesClusterMaintenanceWindowNotAllowedArgs) ToKubernetesClusterMai
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNotAllowedOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowNotAllowedArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowNotAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowNotAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowNotAllowedOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterMaintenanceWindowNotAllowedArrayInput is an input type that accepts KubernetesClusterMaintenanceWindowNotAllowedArray and KubernetesClusterMaintenanceWindowNotAllowedArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterMaintenanceWindowNotAllowedArrayInput` via:
 //
@@ -12349,6 +13796,12 @@ func (i KubernetesClusterMaintenanceWindowNotAllowedArray) ToKubernetesClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput)
 }
 
+func (i KubernetesClusterMaintenanceWindowNotAllowedArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowNotAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowNotAllowed]{
+		OutputState: i.ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMaintenanceWindowNotAllowedOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMaintenanceWindowNotAllowedOutput) ElementType() reflect.Type {
@@ -12361,6 +13814,12 @@ func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) ToKubernetesClusterM
 
 func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) ToKubernetesClusterMaintenanceWindowNotAllowedOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNotAllowedOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMaintenanceWindowNotAllowed] {
+	return pulumix.Output[KubernetesClusterMaintenanceWindowNotAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The end of a time span, formatted as an RFC3339 string.
@@ -12385,6 +13844,12 @@ func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) ToKubernetesClu
 
 func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) ToKubernetesClusterMaintenanceWindowNotAllowedArrayOutputWithContext(ctx context.Context) KubernetesClusterMaintenanceWindowNotAllowedArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterMaintenanceWindowNotAllowed] {
+	return pulumix.Output[[]KubernetesClusterMaintenanceWindowNotAllowed]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMaintenanceWindowNotAllowedArrayOutput) Index(i pulumi.IntInput) KubernetesClusterMaintenanceWindowNotAllowedOutput {
@@ -12424,6 +13889,12 @@ func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefe
 
 func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefenderOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMicrosoftDefenderOutput)
+}
+
+func (i KubernetesClusterMicrosoftDefenderArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[KubernetesClusterMicrosoftDefender]{
+		OutputState: i.ToKubernetesClusterMicrosoftDefenderOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i KubernetesClusterMicrosoftDefenderArgs) ToKubernetesClusterMicrosoftDefenderPtrOutput() KubernetesClusterMicrosoftDefenderPtrOutput {
@@ -12467,6 +13938,12 @@ func (i *kubernetesClusterMicrosoftDefenderPtrType) ToKubernetesClusterMicrosoft
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMicrosoftDefenderPtrOutput)
 }
 
+func (i *kubernetesClusterMicrosoftDefenderPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[*KubernetesClusterMicrosoftDefender]{
+		OutputState: i.ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMicrosoftDefenderOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMicrosoftDefenderOutput) ElementType() reflect.Type {
@@ -12491,6 +13968,12 @@ func (o KubernetesClusterMicrosoftDefenderOutput) ToKubernetesClusterMicrosoftDe
 	}).(KubernetesClusterMicrosoftDefenderPtrOutput)
 }
 
+func (o KubernetesClusterMicrosoftDefenderOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[KubernetesClusterMicrosoftDefender]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
 func (o KubernetesClusterMicrosoftDefenderOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterMicrosoftDefender) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -12508,6 +13991,12 @@ func (o KubernetesClusterMicrosoftDefenderPtrOutput) ToKubernetesClusterMicrosof
 
 func (o KubernetesClusterMicrosoftDefenderPtrOutput) ToKubernetesClusterMicrosoftDefenderPtrOutputWithContext(ctx context.Context) KubernetesClusterMicrosoftDefenderPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterMicrosoftDefenderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[*KubernetesClusterMicrosoftDefender]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMicrosoftDefenderPtrOutput) Elem() KubernetesClusterMicrosoftDefenderOutput {
@@ -12567,6 +14056,12 @@ func (i KubernetesClusterMonitorMetricsArgs) ToKubernetesClusterMonitorMetricsOu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMonitorMetricsOutput)
 }
 
+func (i KubernetesClusterMonitorMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMonitorMetrics] {
+	return pulumix.Output[KubernetesClusterMonitorMetrics]{
+		OutputState: i.ToKubernetesClusterMonitorMetricsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterMonitorMetricsArgs) ToKubernetesClusterMonitorMetricsPtrOutput() KubernetesClusterMonitorMetricsPtrOutput {
 	return i.ToKubernetesClusterMonitorMetricsPtrOutputWithContext(context.Background())
 }
@@ -12608,6 +14103,12 @@ func (i *kubernetesClusterMonitorMetricsPtrType) ToKubernetesClusterMonitorMetri
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMonitorMetricsPtrOutput)
 }
 
+func (i *kubernetesClusterMonitorMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMonitorMetrics] {
+	return pulumix.Output[*KubernetesClusterMonitorMetrics]{
+		OutputState: i.ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterMonitorMetricsOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterMonitorMetricsOutput) ElementType() reflect.Type {
@@ -12632,6 +14133,12 @@ func (o KubernetesClusterMonitorMetricsOutput) ToKubernetesClusterMonitorMetrics
 	}).(KubernetesClusterMonitorMetricsPtrOutput)
 }
 
+func (o KubernetesClusterMonitorMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterMonitorMetrics] {
+	return pulumix.Output[KubernetesClusterMonitorMetrics]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 func (o KubernetesClusterMonitorMetricsOutput) AnnotationsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMonitorMetrics) *string { return v.AnnotationsAllowed }).(pulumi.StringPtrOutput)
@@ -12654,6 +14161,12 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) ToKubernetesClusterMonitorMetr
 
 func (o KubernetesClusterMonitorMetricsPtrOutput) ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterMonitorMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterMonitorMetrics] {
+	return pulumix.Output[*KubernetesClusterMonitorMetrics]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterMonitorMetricsPtrOutput) Elem() KubernetesClusterMonitorMetricsOutput {
@@ -12725,9 +14238,9 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
 	NetworkPlugin string `pulumi:"networkPlugin"`
-	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 	//
-	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
+	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 	NetworkPluginMode *string `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	//
@@ -12797,9 +14310,9 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
-	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 	//
-	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
+	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	//
@@ -12829,6 +14342,12 @@ func (i KubernetesClusterNetworkProfileArgs) ToKubernetesClusterNetworkProfileOu
 
 func (i KubernetesClusterNetworkProfileArgs) ToKubernetesClusterNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileOutput)
+}
+
+func (i KubernetesClusterNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNetworkProfile] {
+	return pulumix.Output[KubernetesClusterNetworkProfile]{
+		OutputState: i.ToKubernetesClusterNetworkProfileOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i KubernetesClusterNetworkProfileArgs) ToKubernetesClusterNetworkProfilePtrOutput() KubernetesClusterNetworkProfilePtrOutput {
@@ -12872,6 +14391,12 @@ func (i *kubernetesClusterNetworkProfilePtrType) ToKubernetesClusterNetworkProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfilePtrOutput)
 }
 
+func (i *kubernetesClusterNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNetworkProfile] {
+	return pulumix.Output[*KubernetesClusterNetworkProfile]{
+		OutputState: i.ToKubernetesClusterNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
@@ -12894,6 +14419,12 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfile {
 		return &v
 	}).(KubernetesClusterNetworkProfilePtrOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNetworkProfile] {
+	return pulumix.Output[KubernetesClusterNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -12965,9 +14496,9 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
-// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 //
-// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
+// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
 }
@@ -13018,6 +14549,12 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ToKubernetesClusterNetworkProf
 
 func (o KubernetesClusterNetworkProfilePtrOutput) ToKubernetesClusterNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNetworkProfile] {
+	return pulumix.Output[*KubernetesClusterNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetworkProfileOutput {
@@ -13140,9 +14677,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 //
-// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
+// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -13285,6 +14822,12 @@ func (i KubernetesClusterNetworkProfileLoadBalancerProfileArgs) ToKubernetesClus
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
 }
 
+func (i KubernetesClusterNetworkProfileLoadBalancerProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNetworkProfileLoadBalancerProfile] {
+	return pulumix.Output[KubernetesClusterNetworkProfileLoadBalancerProfile]{
+		OutputState: i.ToKubernetesClusterNetworkProfileLoadBalancerProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNetworkProfileLoadBalancerProfileArgs) ToKubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return i.ToKubernetesClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(context.Background())
 }
@@ -13326,6 +14869,12 @@ func (i *kubernetesClusterNetworkProfileLoadBalancerProfilePtrType) ToKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
+func (i *kubernetesClusterNetworkProfileLoadBalancerProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNetworkProfileLoadBalancerProfile] {
+	return pulumix.Output[*KubernetesClusterNetworkProfileLoadBalancerProfile]{
+		OutputState: i.ToKubernetesClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNetworkProfileLoadBalancerProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ElementType() reflect.Type {
@@ -13348,6 +14897,12 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesCl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfileLoadBalancerProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		return &v
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
+}
+
+func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNetworkProfileLoadBalancerProfile] {
+	return pulumix.Output[KubernetesClusterNetworkProfileLoadBalancerProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The outcome (resource IDs) of the specified arguments.
@@ -13403,6 +14958,12 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ToKubernete
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ToKubernetesClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNetworkProfileLoadBalancerProfile] {
+	return pulumix.Output[*KubernetesClusterNetworkProfileLoadBalancerProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() KubernetesClusterNetworkProfileLoadBalancerProfileOutput {
@@ -13532,6 +15093,12 @@ func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToKubernetesCluste
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileNatGatewayProfileOutput)
 }
 
+func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNetworkProfileNatGatewayProfile] {
+	return pulumix.Output[KubernetesClusterNetworkProfileNatGatewayProfile]{
+		OutputState: i.ToKubernetesClusterNetworkProfileNatGatewayProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutput() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return i.ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(context.Background())
 }
@@ -13573,6 +15140,12 @@ func (i *kubernetesClusterNetworkProfileNatGatewayProfilePtrType) ToKubernetesCl
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
 }
 
+func (i *kubernetesClusterNetworkProfileNatGatewayProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNetworkProfileNatGatewayProfile] {
+	return pulumix.Output[*KubernetesClusterNetworkProfileNatGatewayProfile]{
+		OutputState: i.ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNetworkProfileNatGatewayProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNetworkProfileNatGatewayProfileOutput) ElementType() reflect.Type {
@@ -13595,6 +15168,12 @@ func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ToKubernetesClus
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfileNatGatewayProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		return &v
 	}).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNetworkProfileNatGatewayProfile] {
+	return pulumix.Output[KubernetesClusterNetworkProfileNatGatewayProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The outcome (resource IDs) of the specified arguments.
@@ -13624,6 +15203,12 @@ func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ToKubernetesC
 
 func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNetworkProfileNatGatewayProfile] {
+	return pulumix.Output[*KubernetesClusterNetworkProfileNatGatewayProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) Elem() KubernetesClusterNetworkProfileNatGatewayProfileOutput {
@@ -13735,6 +15320,12 @@ func (i KubernetesClusterNodePoolKubeletConfigArgs) ToKubernetesClusterNodePoolK
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolKubeletConfigOutput)
 }
 
+func (i KubernetesClusterNodePoolKubeletConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolKubeletConfig] {
+	return pulumix.Output[KubernetesClusterNodePoolKubeletConfig]{
+		OutputState: i.ToKubernetesClusterNodePoolKubeletConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNodePoolKubeletConfigArgs) ToKubernetesClusterNodePoolKubeletConfigPtrOutput() KubernetesClusterNodePoolKubeletConfigPtrOutput {
 	return i.ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(context.Background())
 }
@@ -13776,6 +15367,12 @@ func (i *kubernetesClusterNodePoolKubeletConfigPtrType) ToKubernetesClusterNodeP
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolKubeletConfigPtrOutput)
 }
 
+func (i *kubernetesClusterNodePoolKubeletConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolKubeletConfig] {
+	return pulumix.Output[*KubernetesClusterNodePoolKubeletConfig]{
+		OutputState: i.ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNodePoolKubeletConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolKubeletConfigOutput) ElementType() reflect.Type {
@@ -13798,6 +15395,12 @@ func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolKubeletConfig) *KubernetesClusterNodePoolKubeletConfig {
 		return &v
 	}).(KubernetesClusterNodePoolKubeletConfigPtrOutput)
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolKubeletConfig] {
+	return pulumix.Output[KubernetesClusterNodePoolKubeletConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
@@ -13862,6 +15465,12 @@ func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ToKubernetesClusterNode
 
 func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolKubeletConfig] {
+	return pulumix.Output[*KubernetesClusterNodePoolKubeletConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) Elem() KubernetesClusterNodePoolKubeletConfigOutput {
@@ -14019,6 +15628,12 @@ func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToKubernetesClusterNodePoolL
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigOutput)
 }
 
+func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolLinuxOsConfig] {
+	return pulumix.Output[KubernetesClusterNodePoolLinuxOsConfig]{
+		OutputState: i.ToKubernetesClusterNodePoolLinuxOsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
 	return i.ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
 }
@@ -14060,6 +15675,12 @@ func (i *kubernetesClusterNodePoolLinuxOsConfigPtrType) ToKubernetesClusterNodeP
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigPtrOutput)
 }
 
+func (i *kubernetesClusterNodePoolLinuxOsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfig] {
+	return pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfig]{
+		OutputState: i.ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNodePoolLinuxOsConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolLinuxOsConfigOutput) ElementType() reflect.Type {
@@ -14082,6 +15703,12 @@ func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolLinuxOsConfig) *KubernetesClusterNodePoolLinuxOsConfig {
 		return &v
 	}).(KubernetesClusterNodePoolLinuxOsConfigPtrOutput)
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolLinuxOsConfig] {
+	return pulumix.Output[KubernetesClusterNodePoolLinuxOsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
@@ -14118,6 +15745,12 @@ func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterNode
 
 func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfig] {
+	return pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) Elem() KubernetesClusterNodePoolLinuxOsConfigOutput {
@@ -14315,6 +15948,12 @@ func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClus
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput)
 }
 
+func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[KubernetesClusterNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: i.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
 	return i.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
 }
@@ -14356,6 +15995,12 @@ func (i *kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType) ToKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
+func (i *kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: i.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ElementType() reflect.Type {
@@ -14378,6 +16023,12 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesCl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
 		return &v
 	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[KubernetesClusterNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
@@ -14539,6 +16190,12 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernete
 
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfigSysctlConfig] {
+	return pulumix.Output[*KubernetesClusterNodePoolLinuxOsConfigSysctlConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) Elem() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
@@ -14878,6 +16535,12 @@ func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToKubernetesClusterNode
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfileOutput)
 }
 
+func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolNodeNetworkProfile] {
+	return pulumix.Output[KubernetesClusterNodePoolNodeNetworkProfile]{
+		OutputState: i.ToKubernetesClusterNodePoolNodeNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNodePoolNodeNetworkProfileArgs) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutput() KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
 	return i.ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -14919,6 +16582,12 @@ func (i *kubernetesClusterNodePoolNodeNetworkProfilePtrType) ToKubernetesCluster
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
 }
 
+func (i *kubernetesClusterNodePoolNodeNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolNodeNetworkProfile] {
+	return pulumix.Output[*KubernetesClusterNodePoolNodeNetworkProfile]{
+		OutputState: i.ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNodePoolNodeNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolNodeNetworkProfileOutput) ElementType() reflect.Type {
@@ -14943,6 +16612,12 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNo
 	}).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
 }
 
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolNodeNetworkProfile] {
+	return pulumix.Output[KubernetesClusterNodePoolNodeNetworkProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -14962,6 +16637,12 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ToKubernetesCluste
 
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ToKubernetesClusterNodePoolNodeNetworkProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolNodeNetworkProfile] {
+	return pulumix.Output[*KubernetesClusterNodePoolNodeNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesClusterNodePoolNodeNetworkProfileOutput {
@@ -15019,6 +16700,12 @@ func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToKubernetesClusterNodePoo
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolUpgradeSettingsOutput)
 }
 
+func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolUpgradeSettings] {
+	return pulumix.Output[KubernetesClusterNodePoolUpgradeSettings]{
+		OutputState: i.ToKubernetesClusterNodePoolUpgradeSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNodePoolUpgradeSettingsArgs) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutput() KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
 	return i.ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(context.Background())
 }
@@ -15060,6 +16747,12 @@ func (i *kubernetesClusterNodePoolUpgradeSettingsPtrType) ToKubernetesClusterNod
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
 }
 
+func (i *kubernetesClusterNodePoolUpgradeSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolUpgradeSettings] {
+	return pulumix.Output[*KubernetesClusterNodePoolUpgradeSettings]{
+		OutputState: i.ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNodePoolUpgradeSettingsOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolUpgradeSettingsOutput) ElementType() reflect.Type {
@@ -15084,6 +16777,12 @@ func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToKubernetesClusterNodeP
 	}).(KubernetesClusterNodePoolUpgradeSettingsPtrOutput)
 }
 
+func (o KubernetesClusterNodePoolUpgradeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolUpgradeSettings] {
+	return pulumix.Output[KubernetesClusterNodePoolUpgradeSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) string { return v.MaxSurge }).(pulumi.StringOutput)
@@ -15101,6 +16800,12 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterNo
 
 func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ToKubernetesClusterNodePoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolUpgradeSettingsPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolUpgradeSettings] {
+	return pulumix.Output[*KubernetesClusterNodePoolUpgradeSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) Elem() KubernetesClusterNodePoolUpgradeSettingsOutput {
@@ -15160,6 +16865,12 @@ func (i KubernetesClusterNodePoolWindowsProfileArgs) ToKubernetesClusterNodePool
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolWindowsProfileOutput)
 }
 
+func (i KubernetesClusterNodePoolWindowsProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolWindowsProfile] {
+	return pulumix.Output[KubernetesClusterNodePoolWindowsProfile]{
+		OutputState: i.ToKubernetesClusterNodePoolWindowsProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterNodePoolWindowsProfileArgs) ToKubernetesClusterNodePoolWindowsProfilePtrOutput() KubernetesClusterNodePoolWindowsProfilePtrOutput {
 	return i.ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(context.Background())
 }
@@ -15201,6 +16912,12 @@ func (i *kubernetesClusterNodePoolWindowsProfilePtrType) ToKubernetesClusterNode
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
 }
 
+func (i *kubernetesClusterNodePoolWindowsProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolWindowsProfile] {
+	return pulumix.Output[*KubernetesClusterNodePoolWindowsProfile]{
+		OutputState: i.ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterNodePoolWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolWindowsProfileOutput) ElementType() reflect.Type {
@@ -15225,6 +16942,12 @@ func (o KubernetesClusterNodePoolWindowsProfileOutput) ToKubernetesClusterNodePo
 	}).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
 }
 
+func (o KubernetesClusterNodePoolWindowsProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterNodePoolWindowsProfile] {
+	return pulumix.Output[KubernetesClusterNodePoolWindowsProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
 //
 // > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
@@ -15244,6 +16967,12 @@ func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) ToKubernetesClusterNod
 
 func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePoolWindowsProfile] {
+	return pulumix.Output[*KubernetesClusterNodePoolWindowsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) Elem() KubernetesClusterNodePoolWindowsProfileOutput {
@@ -15309,6 +17038,12 @@ func (i KubernetesClusterOmsAgentArgs) ToKubernetesClusterOmsAgentOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOmsAgentOutput)
 }
 
+func (i KubernetesClusterOmsAgentArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterOmsAgent] {
+	return pulumix.Output[KubernetesClusterOmsAgent]{
+		OutputState: i.ToKubernetesClusterOmsAgentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterOmsAgentArgs) ToKubernetesClusterOmsAgentPtrOutput() KubernetesClusterOmsAgentPtrOutput {
 	return i.ToKubernetesClusterOmsAgentPtrOutputWithContext(context.Background())
 }
@@ -15350,6 +17085,12 @@ func (i *kubernetesClusterOmsAgentPtrType) ToKubernetesClusterOmsAgentPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOmsAgentPtrOutput)
 }
 
+func (i *kubernetesClusterOmsAgentPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterOmsAgent] {
+	return pulumix.Output[*KubernetesClusterOmsAgent]{
+		OutputState: i.ToKubernetesClusterOmsAgentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterOmsAgentOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterOmsAgentOutput) ElementType() reflect.Type {
@@ -15372,6 +17113,12 @@ func (o KubernetesClusterOmsAgentOutput) ToKubernetesClusterOmsAgentPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterOmsAgent) *KubernetesClusterOmsAgent {
 		return &v
 	}).(KubernetesClusterOmsAgentPtrOutput)
+}
+
+func (o KubernetesClusterOmsAgentOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterOmsAgent] {
+	return pulumix.Output[KubernetesClusterOmsAgent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace which the OMS Agent should send data to.
@@ -15403,6 +17150,12 @@ func (o KubernetesClusterOmsAgentPtrOutput) ToKubernetesClusterOmsAgentPtrOutput
 
 func (o KubernetesClusterOmsAgentPtrOutput) ToKubernetesClusterOmsAgentPtrOutputWithContext(ctx context.Context) KubernetesClusterOmsAgentPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterOmsAgentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterOmsAgent] {
+	return pulumix.Output[*KubernetesClusterOmsAgent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterOmsAgentPtrOutput) Elem() KubernetesClusterOmsAgentOutput {
@@ -15490,6 +17243,12 @@ func (i KubernetesClusterOmsAgentOmsAgentIdentityArgs) ToKubernetesClusterOmsAge
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOmsAgentOmsAgentIdentityOutput)
 }
 
+func (i KubernetesClusterOmsAgentOmsAgentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[KubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: i.ToKubernetesClusterOmsAgentOmsAgentIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterOmsAgentOmsAgentIdentityArrayInput is an input type that accepts KubernetesClusterOmsAgentOmsAgentIdentityArray and KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterOmsAgentOmsAgentIdentityArrayInput` via:
 //
@@ -15515,6 +17274,12 @@ func (i KubernetesClusterOmsAgentOmsAgentIdentityArray) ToKubernetesClusterOmsAg
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput)
 }
 
+func (i KubernetesClusterOmsAgentOmsAgentIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[[]KubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: i.ToKubernetesClusterOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterOmsAgentOmsAgentIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterOmsAgentOmsAgentIdentityOutput) ElementType() reflect.Type {
@@ -15527,6 +17292,12 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterOmsA
 
 func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) KubernetesClusterOmsAgentOmsAgentIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterOmsAgentOmsAgentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[KubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
@@ -15558,6 +17329,12 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) ToKubernetesCluste
 
 func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) ToKubernetesClusterOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[[]KubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterOmsAgentOmsAgentIdentityOutput {
@@ -15615,6 +17392,12 @@ func (i KubernetesClusterServiceMeshProfileArgs) ToKubernetesClusterServiceMeshP
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfileOutput)
 }
 
+func (i KubernetesClusterServiceMeshProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[KubernetesClusterServiceMeshProfile]{
+		OutputState: i.ToKubernetesClusterServiceMeshProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterServiceMeshProfileArgs) ToKubernetesClusterServiceMeshProfilePtrOutput() KubernetesClusterServiceMeshProfilePtrOutput {
 	return i.ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(context.Background())
 }
@@ -15656,6 +17439,12 @@ func (i *kubernetesClusterServiceMeshProfilePtrType) ToKubernetesClusterServiceM
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfilePtrOutput)
 }
 
+func (i *kubernetesClusterServiceMeshProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[*KubernetesClusterServiceMeshProfile]{
+		OutputState: i.ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterServiceMeshProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServiceMeshProfileOutput) ElementType() reflect.Type {
@@ -15678,6 +17467,12 @@ func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterServiceMeshProfile) *KubernetesClusterServiceMeshProfile {
 		return &v
 	}).(KubernetesClusterServiceMeshProfilePtrOutput)
+}
+
+func (o KubernetesClusterServiceMeshProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[KubernetesClusterServiceMeshProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is Istio External Ingress Gateway enabled?
@@ -15711,6 +17506,12 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) ToKubernetesClusterService
 
 func (o KubernetesClusterServiceMeshProfilePtrOutput) ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterServiceMeshProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[*KubernetesClusterServiceMeshProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterServiceMeshProfilePtrOutput) Elem() KubernetesClusterServiceMeshProfileOutput {
@@ -15794,6 +17595,12 @@ func (i KubernetesClusterServicePrincipalArgs) ToKubernetesClusterServicePrincip
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServicePrincipalOutput)
 }
 
+func (i KubernetesClusterServicePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterServicePrincipal] {
+	return pulumix.Output[KubernetesClusterServicePrincipal]{
+		OutputState: i.ToKubernetesClusterServicePrincipalOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterServicePrincipalArgs) ToKubernetesClusterServicePrincipalPtrOutput() KubernetesClusterServicePrincipalPtrOutput {
 	return i.ToKubernetesClusterServicePrincipalPtrOutputWithContext(context.Background())
 }
@@ -15835,6 +17642,12 @@ func (i *kubernetesClusterServicePrincipalPtrType) ToKubernetesClusterServicePri
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
+func (i *kubernetesClusterServicePrincipalPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterServicePrincipal] {
+	return pulumix.Output[*KubernetesClusterServicePrincipal]{
+		OutputState: i.ToKubernetesClusterServicePrincipalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
@@ -15859,6 +17672,12 @@ func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrinc
 	}).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
+func (o KubernetesClusterServicePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterServicePrincipal] {
+	return pulumix.Output[KubernetesClusterServicePrincipal]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Client ID for the Service Principal.
 func (o KubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
@@ -15881,6 +17700,12 @@ func (o KubernetesClusterServicePrincipalPtrOutput) ToKubernetesClusterServicePr
 
 func (o KubernetesClusterServicePrincipalPtrOutput) ToKubernetesClusterServicePrincipalPtrOutputWithContext(ctx context.Context) KubernetesClusterServicePrincipalPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterServicePrincipalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterServicePrincipal] {
+	return pulumix.Output[*KubernetesClusterServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterServicePrincipalPtrOutput) Elem() KubernetesClusterServicePrincipalOutput {
@@ -15966,6 +17791,12 @@ func (i KubernetesClusterStorageProfileArgs) ToKubernetesClusterStorageProfileOu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterStorageProfileOutput)
 }
 
+func (i KubernetesClusterStorageProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterStorageProfile] {
+	return pulumix.Output[KubernetesClusterStorageProfile]{
+		OutputState: i.ToKubernetesClusterStorageProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterStorageProfileArgs) ToKubernetesClusterStorageProfilePtrOutput() KubernetesClusterStorageProfilePtrOutput {
 	return i.ToKubernetesClusterStorageProfilePtrOutputWithContext(context.Background())
 }
@@ -16007,6 +17838,12 @@ func (i *kubernetesClusterStorageProfilePtrType) ToKubernetesClusterStorageProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterStorageProfilePtrOutput)
 }
 
+func (i *kubernetesClusterStorageProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterStorageProfile] {
+	return pulumix.Output[*KubernetesClusterStorageProfile]{
+		OutputState: i.ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterStorageProfileOutput) ElementType() reflect.Type {
@@ -16029,6 +17866,12 @@ func (o KubernetesClusterStorageProfileOutput) ToKubernetesClusterStorageProfile
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterStorageProfile) *KubernetesClusterStorageProfile {
 		return &v
 	}).(KubernetesClusterStorageProfilePtrOutput)
+}
+
+func (o KubernetesClusterStorageProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterStorageProfile] {
+	return pulumix.Output[KubernetesClusterStorageProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the Blob CSI driver enabled? Defaults to `false`.
@@ -16070,6 +17913,12 @@ func (o KubernetesClusterStorageProfilePtrOutput) ToKubernetesClusterStorageProf
 
 func (o KubernetesClusterStorageProfilePtrOutput) ToKubernetesClusterStorageProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterStorageProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterStorageProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterStorageProfile] {
+	return pulumix.Output[*KubernetesClusterStorageProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterStorageProfilePtrOutput) Elem() KubernetesClusterStorageProfileOutput {
@@ -16171,6 +18020,12 @@ func (i KubernetesClusterWebAppRoutingArgs) ToKubernetesClusterWebAppRoutingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingOutput)
 }
 
+func (i KubernetesClusterWebAppRoutingArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWebAppRouting] {
+	return pulumix.Output[KubernetesClusterWebAppRouting]{
+		OutputState: i.ToKubernetesClusterWebAppRoutingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterWebAppRoutingArgs) ToKubernetesClusterWebAppRoutingPtrOutput() KubernetesClusterWebAppRoutingPtrOutput {
 	return i.ToKubernetesClusterWebAppRoutingPtrOutputWithContext(context.Background())
 }
@@ -16212,6 +18067,12 @@ func (i *kubernetesClusterWebAppRoutingPtrType) ToKubernetesClusterWebAppRouting
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
+func (i *kubernetesClusterWebAppRoutingPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWebAppRouting] {
+	return pulumix.Output[*KubernetesClusterWebAppRouting]{
+		OutputState: i.ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterWebAppRoutingOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWebAppRoutingOutput) ElementType() reflect.Type {
@@ -16234,6 +18095,12 @@ func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWebAppRouting) *KubernetesClusterWebAppRouting {
 		return &v
 	}).(KubernetesClusterWebAppRoutingPtrOutput)
+}
+
+func (o KubernetesClusterWebAppRoutingOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWebAppRouting] {
+	return pulumix.Output[KubernetesClusterWebAppRouting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
@@ -16260,6 +18127,12 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) ToKubernetesClusterWebAppRoutin
 
 func (o KubernetesClusterWebAppRoutingPtrOutput) ToKubernetesClusterWebAppRoutingPtrOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterWebAppRoutingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWebAppRouting] {
+	return pulumix.Output[*KubernetesClusterWebAppRouting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppRoutingOutput {
@@ -16337,6 +18210,12 @@ func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs) ToKubernetesClu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput)
 }
 
+func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWebAppRoutingWebAppRoutingIdentity] {
+	return pulumix.Output[KubernetesClusterWebAppRoutingWebAppRoutingIdentity]{
+		OutputState: i.ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput is an input type that accepts KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray and KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayInput` via:
 //
@@ -16362,6 +18241,12 @@ func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray) ToKubernetesCl
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput)
 }
 
+func (i KubernetesClusterWebAppRoutingWebAppRoutingIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterWebAppRoutingWebAppRoutingIdentity] {
+	return pulumix.Output[[]KubernetesClusterWebAppRoutingWebAppRoutingIdentity]{
+		OutputState: i.ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ElementType() reflect.Type {
@@ -16374,6 +18259,12 @@ func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ToKubernetesC
 
 func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
 	return o
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWebAppRoutingWebAppRoutingIdentity] {
+	return pulumix.Output[KubernetesClusterWebAppRoutingWebAppRoutingIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
@@ -16405,6 +18296,12 @@ func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) ToKubern
 
 func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) ToKubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput {
 	return o
+}
+
+func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesClusterWebAppRoutingWebAppRoutingIdentity] {
+	return pulumix.Output[[]KubernetesClusterWebAppRoutingWebAppRoutingIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput {
@@ -16458,6 +18355,12 @@ func (i KubernetesClusterWindowsProfileArgs) ToKubernetesClusterWindowsProfileOu
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfileOutput)
 }
 
+func (i KubernetesClusterWindowsProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWindowsProfile] {
+	return pulumix.Output[KubernetesClusterWindowsProfile]{
+		OutputState: i.ToKubernetesClusterWindowsProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterWindowsProfileArgs) ToKubernetesClusterWindowsProfilePtrOutput() KubernetesClusterWindowsProfilePtrOutput {
 	return i.ToKubernetesClusterWindowsProfilePtrOutputWithContext(context.Background())
 }
@@ -16499,6 +18402,12 @@ func (i *kubernetesClusterWindowsProfilePtrType) ToKubernetesClusterWindowsProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfilePtrOutput)
 }
 
+func (i *kubernetesClusterWindowsProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWindowsProfile] {
+	return pulumix.Output[*KubernetesClusterWindowsProfile]{
+		OutputState: i.ToKubernetesClusterWindowsProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
@@ -16521,6 +18430,12 @@ func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfile
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWindowsProfile) *KubernetesClusterWindowsProfile {
 		return &v
 	}).(KubernetesClusterWindowsProfilePtrOutput)
+}
+
+func (o KubernetesClusterWindowsProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWindowsProfile] {
+	return pulumix.Output[KubernetesClusterWindowsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
@@ -16555,6 +18470,12 @@ func (o KubernetesClusterWindowsProfilePtrOutput) ToKubernetesClusterWindowsProf
 
 func (o KubernetesClusterWindowsProfilePtrOutput) ToKubernetesClusterWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterWindowsProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWindowsProfile] {
+	return pulumix.Output[*KubernetesClusterWindowsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterWindowsProfilePtrOutput) Elem() KubernetesClusterWindowsProfileOutput {
@@ -16648,6 +18569,12 @@ func (i KubernetesClusterWindowsProfileGmsaArgs) ToKubernetesClusterWindowsProfi
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfileGmsaOutput)
 }
 
+func (i KubernetesClusterWindowsProfileGmsaArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWindowsProfileGmsa] {
+	return pulumix.Output[KubernetesClusterWindowsProfileGmsa]{
+		OutputState: i.ToKubernetesClusterWindowsProfileGmsaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterWindowsProfileGmsaArgs) ToKubernetesClusterWindowsProfileGmsaPtrOutput() KubernetesClusterWindowsProfileGmsaPtrOutput {
 	return i.ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(context.Background())
 }
@@ -16689,6 +18616,12 @@ func (i *kubernetesClusterWindowsProfileGmsaPtrType) ToKubernetesClusterWindowsP
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfileGmsaPtrOutput)
 }
 
+func (i *kubernetesClusterWindowsProfileGmsaPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWindowsProfileGmsa] {
+	return pulumix.Output[*KubernetesClusterWindowsProfileGmsa]{
+		OutputState: i.ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterWindowsProfileGmsaOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWindowsProfileGmsaOutput) ElementType() reflect.Type {
@@ -16711,6 +18644,12 @@ func (o KubernetesClusterWindowsProfileGmsaOutput) ToKubernetesClusterWindowsPro
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWindowsProfileGmsa) *KubernetesClusterWindowsProfileGmsa {
 		return &v
 	}).(KubernetesClusterWindowsProfileGmsaPtrOutput)
+}
+
+func (o KubernetesClusterWindowsProfileGmsaOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWindowsProfileGmsa] {
+	return pulumix.Output[KubernetesClusterWindowsProfileGmsa]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
@@ -16737,6 +18676,12 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) ToKubernetesClusterWindows
 
 func (o KubernetesClusterWindowsProfileGmsaPtrOutput) ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaPtrOutput {
 	return o
+}
+
+func (o KubernetesClusterWindowsProfileGmsaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWindowsProfileGmsa] {
+	return pulumix.Output[*KubernetesClusterWindowsProfileGmsa]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterWindowsProfileGmsaPtrOutput) Elem() KubernetesClusterWindowsProfileGmsaOutput {
@@ -16824,6 +18769,12 @@ func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToKubernetesClusterWorkl
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWorkloadAutoscalerProfileOutput)
 }
 
+func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWorkloadAutoscalerProfile] {
+	return pulumix.Output[KubernetesClusterWorkloadAutoscalerProfile]{
+		OutputState: i.ToKubernetesClusterWorkloadAutoscalerProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesClusterWorkloadAutoscalerProfileArgs) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutput() KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
 	return i.ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(context.Background())
 }
@@ -16865,6 +18816,12 @@ func (i *kubernetesClusterWorkloadAutoscalerProfilePtrType) ToKubernetesClusterW
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWorkloadAutoscalerProfilePtrOutput)
 }
 
+func (i *kubernetesClusterWorkloadAutoscalerProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWorkloadAutoscalerProfile] {
+	return pulumix.Output[*KubernetesClusterWorkloadAutoscalerProfile]{
+		OutputState: i.ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesClusterWorkloadAutoscalerProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterWorkloadAutoscalerProfileOutput) ElementType() reflect.Type {
@@ -16887,6 +18844,12 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToKubernetesClusterWor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWorkloadAutoscalerProfile) *KubernetesClusterWorkloadAutoscalerProfile {
 		return &v
 	}).(KubernetesClusterWorkloadAutoscalerProfilePtrOutput)
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesClusterWorkloadAutoscalerProfile] {
+	return pulumix.Output[KubernetesClusterWorkloadAutoscalerProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether KEDA Autoscaler can be used for workloads.
@@ -16927,6 +18890,12 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ToKubernetesCluster
 
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ToKubernetesClusterWorkloadAutoscalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterWorkloadAutoscalerProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterWorkloadAutoscalerProfile] {
+	return pulumix.Output[*KubernetesClusterWorkloadAutoscalerProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) Elem() KubernetesClusterWorkloadAutoscalerProfileOutput {
@@ -17018,6 +18987,12 @@ func (i KubernetesFleetManagerHubProfileArgs) ToKubernetesFleetManagerHubProfile
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerHubProfileOutput)
 }
 
+func (i KubernetesFleetManagerHubProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesFleetManagerHubProfile] {
+	return pulumix.Output[KubernetesFleetManagerHubProfile]{
+		OutputState: i.ToKubernetesFleetManagerHubProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesFleetManagerHubProfileArgs) ToKubernetesFleetManagerHubProfilePtrOutput() KubernetesFleetManagerHubProfilePtrOutput {
 	return i.ToKubernetesFleetManagerHubProfilePtrOutputWithContext(context.Background())
 }
@@ -17059,6 +19034,12 @@ func (i *kubernetesFleetManagerHubProfilePtrType) ToKubernetesFleetManagerHubPro
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerHubProfilePtrOutput)
 }
 
+func (i *kubernetesFleetManagerHubProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesFleetManagerHubProfile] {
+	return pulumix.Output[*KubernetesFleetManagerHubProfile]{
+		OutputState: i.ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesFleetManagerHubProfileOutput struct{ *pulumi.OutputState }
 
 func (KubernetesFleetManagerHubProfileOutput) ElementType() reflect.Type {
@@ -17081,6 +19062,12 @@ func (o KubernetesFleetManagerHubProfileOutput) ToKubernetesFleetManagerHubProfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesFleetManagerHubProfile) *KubernetesFleetManagerHubProfile {
 		return &v
 	}).(KubernetesFleetManagerHubProfilePtrOutput)
+}
+
+func (o KubernetesFleetManagerHubProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesFleetManagerHubProfile] {
+	return pulumix.Output[KubernetesFleetManagerHubProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesFleetManagerHubProfileOutput) DnsPrefix() pulumi.StringOutput {
@@ -17107,6 +19094,12 @@ func (o KubernetesFleetManagerHubProfilePtrOutput) ToKubernetesFleetManagerHubPr
 
 func (o KubernetesFleetManagerHubProfilePtrOutput) ToKubernetesFleetManagerHubProfilePtrOutputWithContext(ctx context.Context) KubernetesFleetManagerHubProfilePtrOutput {
 	return o
+}
+
+func (o KubernetesFleetManagerHubProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesFleetManagerHubProfile] {
+	return pulumix.Output[*KubernetesFleetManagerHubProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesFleetManagerHubProfilePtrOutput) Elem() KubernetesFleetManagerHubProfileOutput {
@@ -17191,6 +19184,12 @@ func (i RegistryEncryptionArgs) ToRegistryEncryptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionOutput)
 }
 
+func (i RegistryEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryEncryption] {
+	return pulumix.Output[RegistryEncryption]{
+		OutputState: i.ToRegistryEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryEncryptionArgs) ToRegistryEncryptionPtrOutput() RegistryEncryptionPtrOutput {
 	return i.ToRegistryEncryptionPtrOutputWithContext(context.Background())
 }
@@ -17232,6 +19231,12 @@ func (i *registryEncryptionPtrType) ToRegistryEncryptionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionPtrOutput)
 }
 
+func (i *registryEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryEncryption] {
+	return pulumix.Output[*RegistryEncryption]{
+		OutputState: i.ToRegistryEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryEncryptionOutput struct{ *pulumi.OutputState }
 
 func (RegistryEncryptionOutput) ElementType() reflect.Type {
@@ -17254,6 +19259,12 @@ func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryEncryption) *RegistryEncryption {
 		return &v
 	}).(RegistryEncryptionPtrOutput)
+}
+
+func (o RegistryEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryEncryption] {
+	return pulumix.Output[RegistryEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates whether encryption is enabled.
@@ -17285,6 +19296,12 @@ func (o RegistryEncryptionPtrOutput) ToRegistryEncryptionPtrOutput() RegistryEnc
 
 func (o RegistryEncryptionPtrOutput) ToRegistryEncryptionPtrOutputWithContext(ctx context.Context) RegistryEncryptionPtrOutput {
 	return o
+}
+
+func (o RegistryEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryEncryption] {
+	return pulumix.Output[*RegistryEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryEncryptionPtrOutput) Elem() RegistryEncryptionOutput {
@@ -17378,6 +19395,12 @@ func (i RegistryGeoreplicationArgs) ToRegistryGeoreplicationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryGeoreplicationOutput)
 }
 
+func (i RegistryGeoreplicationArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryGeoreplication] {
+	return pulumix.Output[RegistryGeoreplication]{
+		OutputState: i.ToRegistryGeoreplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryGeoreplicationArrayInput is an input type that accepts RegistryGeoreplicationArray and RegistryGeoreplicationArrayOutput values.
 // You can construct a concrete instance of `RegistryGeoreplicationArrayInput` via:
 //
@@ -17403,6 +19426,12 @@ func (i RegistryGeoreplicationArray) ToRegistryGeoreplicationArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryGeoreplicationArrayOutput)
 }
 
+func (i RegistryGeoreplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryGeoreplication] {
+	return pulumix.Output[[]RegistryGeoreplication]{
+		OutputState: i.ToRegistryGeoreplicationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryGeoreplicationOutput struct{ *pulumi.OutputState }
 
 func (RegistryGeoreplicationOutput) ElementType() reflect.Type {
@@ -17415,6 +19444,12 @@ func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutput() RegistryG
 
 func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutputWithContext(ctx context.Context) RegistryGeoreplicationOutput {
 	return o
+}
+
+func (o RegistryGeoreplicationOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryGeoreplication] {
+	return pulumix.Output[RegistryGeoreplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A location where the container registry should be geo-replicated.
@@ -17451,6 +19486,12 @@ func (o RegistryGeoreplicationArrayOutput) ToRegistryGeoreplicationArrayOutput()
 
 func (o RegistryGeoreplicationArrayOutput) ToRegistryGeoreplicationArrayOutputWithContext(ctx context.Context) RegistryGeoreplicationArrayOutput {
 	return o
+}
+
+func (o RegistryGeoreplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryGeoreplication] {
+	return pulumix.Output[[]RegistryGeoreplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeoreplicationOutput {
@@ -17508,6 +19549,12 @@ func (i RegistryIdentityArgs) ToRegistryIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryIdentityOutput)
 }
 
+func (i RegistryIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryIdentity] {
+	return pulumix.Output[RegistryIdentity]{
+		OutputState: i.ToRegistryIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryIdentityArgs) ToRegistryIdentityPtrOutput() RegistryIdentityPtrOutput {
 	return i.ToRegistryIdentityPtrOutputWithContext(context.Background())
 }
@@ -17549,6 +19596,12 @@ func (i *registryIdentityPtrType) ToRegistryIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryIdentityPtrOutput)
 }
 
+func (i *registryIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryIdentity] {
+	return pulumix.Output[*RegistryIdentity]{
+		OutputState: i.ToRegistryIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryIdentityOutput struct{ *pulumi.OutputState }
 
 func (RegistryIdentityOutput) ElementType() reflect.Type {
@@ -17571,6 +19624,12 @@ func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryIdentity) *RegistryIdentity {
 		return &v
 	}).(RegistryIdentityPtrOutput)
+}
+
+func (o RegistryIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryIdentity] {
+	return pulumix.Output[RegistryIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
@@ -17607,6 +19666,12 @@ func (o RegistryIdentityPtrOutput) ToRegistryIdentityPtrOutput() RegistryIdentit
 
 func (o RegistryIdentityPtrOutput) ToRegistryIdentityPtrOutputWithContext(ctx context.Context) RegistryIdentityPtrOutput {
 	return o
+}
+
+func (o RegistryIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryIdentity] {
+	return pulumix.Output[*RegistryIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
@@ -17710,6 +19775,12 @@ func (i RegistryNetworkRuleSetArgs) ToRegistryNetworkRuleSetOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetOutput)
 }
 
+func (i RegistryNetworkRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryNetworkRuleSet] {
+	return pulumix.Output[RegistryNetworkRuleSet]{
+		OutputState: i.ToRegistryNetworkRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryNetworkRuleSetArgs) ToRegistryNetworkRuleSetPtrOutput() RegistryNetworkRuleSetPtrOutput {
 	return i.ToRegistryNetworkRuleSetPtrOutputWithContext(context.Background())
 }
@@ -17751,6 +19822,12 @@ func (i *registryNetworkRuleSetPtrType) ToRegistryNetworkRuleSetPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetPtrOutput)
 }
 
+func (i *registryNetworkRuleSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryNetworkRuleSet] {
+	return pulumix.Output[*RegistryNetworkRuleSet]{
+		OutputState: i.ToRegistryNetworkRuleSetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetOutput) ElementType() reflect.Type {
@@ -17773,6 +19850,12 @@ func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryNetworkRuleSet) *RegistryNetworkRuleSet {
 		return &v
 	}).(RegistryNetworkRuleSetPtrOutput)
+}
+
+func (o RegistryNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryNetworkRuleSet] {
+	return pulumix.Output[RegistryNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
@@ -17806,6 +19889,12 @@ func (o RegistryNetworkRuleSetPtrOutput) ToRegistryNetworkRuleSetPtrOutput() Reg
 
 func (o RegistryNetworkRuleSetPtrOutput) ToRegistryNetworkRuleSetPtrOutputWithContext(ctx context.Context) RegistryNetworkRuleSetPtrOutput {
 	return o
+}
+
+func (o RegistryNetworkRuleSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryNetworkRuleSet] {
+	return pulumix.Output[*RegistryNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryNetworkRuleSetPtrOutput) Elem() RegistryNetworkRuleSetOutput {
@@ -17889,6 +19978,12 @@ func (i RegistryNetworkRuleSetIpRuleArgs) ToRegistryNetworkRuleSetIpRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetIpRuleOutput)
 }
 
+func (i RegistryNetworkRuleSetIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryNetworkRuleSetIpRule] {
+	return pulumix.Output[RegistryNetworkRuleSetIpRule]{
+		OutputState: i.ToRegistryNetworkRuleSetIpRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryNetworkRuleSetIpRuleArrayInput is an input type that accepts RegistryNetworkRuleSetIpRuleArray and RegistryNetworkRuleSetIpRuleArrayOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetIpRuleArrayInput` via:
 //
@@ -17914,6 +20009,12 @@ func (i RegistryNetworkRuleSetIpRuleArray) ToRegistryNetworkRuleSetIpRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
+func (i RegistryNetworkRuleSetIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryNetworkRuleSetIpRule] {
+	return pulumix.Output[[]RegistryNetworkRuleSetIpRule]{
+		OutputState: i.ToRegistryNetworkRuleSetIpRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
@@ -17926,6 +20027,12 @@ func (o RegistryNetworkRuleSetIpRuleOutput) ToRegistryNetworkRuleSetIpRuleOutput
 
 func (o RegistryNetworkRuleSetIpRuleOutput) ToRegistryNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRuleOutput {
 	return o
+}
+
+func (o RegistryNetworkRuleSetIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryNetworkRuleSetIpRule] {
+	return pulumix.Output[RegistryNetworkRuleSetIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behaviour for requests matching this rule. At this time the only supported value is `Allow`
@@ -17950,6 +20057,12 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) ToRegistryNetworkRuleSetIpRuleA
 
 func (o RegistryNetworkRuleSetIpRuleArrayOutput) ToRegistryNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o
+}
+
+func (o RegistryNetworkRuleSetIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryNetworkRuleSetIpRule] {
+	return pulumix.Output[[]RegistryNetworkRuleSetIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetIpRuleOutput {
@@ -17995,6 +20108,12 @@ func (i RegistryNetworkRuleSetVirtualNetworkArgs) ToRegistryNetworkRuleSetVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetVirtualNetworkOutput)
 }
 
+func (i RegistryNetworkRuleSetVirtualNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryNetworkRuleSetVirtualNetwork] {
+	return pulumix.Output[RegistryNetworkRuleSetVirtualNetwork]{
+		OutputState: i.ToRegistryNetworkRuleSetVirtualNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryNetworkRuleSetVirtualNetworkArrayInput is an input type that accepts RegistryNetworkRuleSetVirtualNetworkArray and RegistryNetworkRuleSetVirtualNetworkArrayOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetVirtualNetworkArrayInput` via:
 //
@@ -18020,6 +20139,12 @@ func (i RegistryNetworkRuleSetVirtualNetworkArray) ToRegistryNetworkRuleSetVirtu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
+func (i RegistryNetworkRuleSetVirtualNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryNetworkRuleSetVirtualNetwork] {
+	return pulumix.Output[[]RegistryNetworkRuleSetVirtualNetwork]{
+		OutputState: i.ToRegistryNetworkRuleSetVirtualNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryNetworkRuleSetVirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetVirtualNetworkOutput) ElementType() reflect.Type {
@@ -18032,6 +20157,12 @@ func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirt
 
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirtualNetworkOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworkOutput {
 	return o
+}
+
+func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryNetworkRuleSetVirtualNetwork] {
+	return pulumix.Output[RegistryNetworkRuleSetVirtualNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behaviour for requests matching this rule. At this time the only supported value is `Allow`
@@ -18056,6 +20187,12 @@ func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToRegistryNetworkRuleSe
 
 func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToRegistryNetworkRuleSetVirtualNetworkArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o
+}
+
+func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryNetworkRuleSetVirtualNetwork] {
+	return pulumix.Output[[]RegistryNetworkRuleSetVirtualNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetVirtualNetworkOutput {
@@ -18101,6 +20238,12 @@ func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyOutput)
 }
 
+func (i RegistryRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryRetentionPolicy] {
+	return pulumix.Output[RegistryRetentionPolicy]{
+		OutputState: i.ToRegistryRetentionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
 	return i.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -18142,6 +20285,12 @@ func (i *registryRetentionPolicyPtrType) ToRegistryRetentionPolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyPtrOutput)
 }
 
+func (i *registryRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryRetentionPolicy] {
+	return pulumix.Output[*RegistryRetentionPolicy]{
+		OutputState: i.ToRegistryRetentionPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryRetentionPolicyOutput) ElementType() reflect.Type {
@@ -18166,6 +20315,12 @@ func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutputWithCon
 	}).(RegistryRetentionPolicyPtrOutput)
 }
 
+func (o RegistryRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryRetentionPolicy] {
+	return pulumix.Output[RegistryRetentionPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
 func (o RegistryRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RegistryRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -18188,6 +20343,12 @@ func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutput() R
 
 func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
 	return o
+}
+
+func (o RegistryRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryRetentionPolicy] {
+	return pulumix.Output[*RegistryRetentionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryRetentionPolicyPtrOutput) Elem() RegistryRetentionPolicyOutput {
@@ -18253,6 +20414,12 @@ func (i RegistryTaskAgentSettingArgs) ToRegistryTaskAgentSettingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskAgentSettingOutput)
 }
 
+func (i RegistryTaskAgentSettingArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskAgentSetting] {
+	return pulumix.Output[RegistryTaskAgentSetting]{
+		OutputState: i.ToRegistryTaskAgentSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskAgentSettingArgs) ToRegistryTaskAgentSettingPtrOutput() RegistryTaskAgentSettingPtrOutput {
 	return i.ToRegistryTaskAgentSettingPtrOutputWithContext(context.Background())
 }
@@ -18294,6 +20461,12 @@ func (i *registryTaskAgentSettingPtrType) ToRegistryTaskAgentSettingPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskAgentSettingPtrOutput)
 }
 
+func (i *registryTaskAgentSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskAgentSetting] {
+	return pulumix.Output[*RegistryTaskAgentSetting]{
+		OutputState: i.ToRegistryTaskAgentSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskAgentSettingOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskAgentSettingOutput) ElementType() reflect.Type {
@@ -18318,6 +20491,12 @@ func (o RegistryTaskAgentSettingOutput) ToRegistryTaskAgentSettingPtrOutputWithC
 	}).(RegistryTaskAgentSettingPtrOutput)
 }
 
+func (o RegistryTaskAgentSettingOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskAgentSetting] {
+	return pulumix.Output[RegistryTaskAgentSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of cores required for the Container Registry Task.
 func (o RegistryTaskAgentSettingOutput) Cpu() pulumi.IntOutput {
 	return o.ApplyT(func(v RegistryTaskAgentSetting) int { return v.Cpu }).(pulumi.IntOutput)
@@ -18335,6 +20514,12 @@ func (o RegistryTaskAgentSettingPtrOutput) ToRegistryTaskAgentSettingPtrOutput()
 
 func (o RegistryTaskAgentSettingPtrOutput) ToRegistryTaskAgentSettingPtrOutputWithContext(ctx context.Context) RegistryTaskAgentSettingPtrOutput {
 	return o
+}
+
+func (o RegistryTaskAgentSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskAgentSetting] {
+	return pulumix.Output[*RegistryTaskAgentSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskAgentSettingPtrOutput) Elem() RegistryTaskAgentSettingOutput {
@@ -18406,6 +20591,12 @@ func (i RegistryTaskBaseImageTriggerArgs) ToRegistryTaskBaseImageTriggerOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskBaseImageTriggerOutput)
 }
 
+func (i RegistryTaskBaseImageTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskBaseImageTrigger] {
+	return pulumix.Output[RegistryTaskBaseImageTrigger]{
+		OutputState: i.ToRegistryTaskBaseImageTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskBaseImageTriggerArgs) ToRegistryTaskBaseImageTriggerPtrOutput() RegistryTaskBaseImageTriggerPtrOutput {
 	return i.ToRegistryTaskBaseImageTriggerPtrOutputWithContext(context.Background())
 }
@@ -18447,6 +20638,12 @@ func (i *registryTaskBaseImageTriggerPtrType) ToRegistryTaskBaseImageTriggerPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskBaseImageTriggerPtrOutput)
 }
 
+func (i *registryTaskBaseImageTriggerPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskBaseImageTrigger] {
+	return pulumix.Output[*RegistryTaskBaseImageTrigger]{
+		OutputState: i.ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskBaseImageTriggerOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskBaseImageTriggerOutput) ElementType() reflect.Type {
@@ -18469,6 +20666,12 @@ func (o RegistryTaskBaseImageTriggerOutput) ToRegistryTaskBaseImageTriggerPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskBaseImageTrigger) *RegistryTaskBaseImageTrigger {
 		return &v
 	}).(RegistryTaskBaseImageTriggerPtrOutput)
+}
+
+func (o RegistryTaskBaseImageTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskBaseImageTrigger] {
+	return pulumix.Output[RegistryTaskBaseImageTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the trigger be enabled? Defaults to `true`.
@@ -18508,6 +20711,12 @@ func (o RegistryTaskBaseImageTriggerPtrOutput) ToRegistryTaskBaseImageTriggerPtr
 
 func (o RegistryTaskBaseImageTriggerPtrOutput) ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerPtrOutput {
 	return o
+}
+
+func (o RegistryTaskBaseImageTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskBaseImageTrigger] {
+	return pulumix.Output[*RegistryTaskBaseImageTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskBaseImageTriggerPtrOutput) Elem() RegistryTaskBaseImageTriggerOutput {
@@ -18635,6 +20844,12 @@ func (i RegistryTaskDockerStepArgs) ToRegistryTaskDockerStepOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskDockerStepOutput)
 }
 
+func (i RegistryTaskDockerStepArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskDockerStep] {
+	return pulumix.Output[RegistryTaskDockerStep]{
+		OutputState: i.ToRegistryTaskDockerStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskDockerStepArgs) ToRegistryTaskDockerStepPtrOutput() RegistryTaskDockerStepPtrOutput {
 	return i.ToRegistryTaskDockerStepPtrOutputWithContext(context.Background())
 }
@@ -18676,6 +20891,12 @@ func (i *registryTaskDockerStepPtrType) ToRegistryTaskDockerStepPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskDockerStepPtrOutput)
 }
 
+func (i *registryTaskDockerStepPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskDockerStep] {
+	return pulumix.Output[*RegistryTaskDockerStep]{
+		OutputState: i.ToRegistryTaskDockerStepPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskDockerStepOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskDockerStepOutput) ElementType() reflect.Type {
@@ -18698,6 +20919,12 @@ func (o RegistryTaskDockerStepOutput) ToRegistryTaskDockerStepPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskDockerStep) *RegistryTaskDockerStep {
 		return &v
 	}).(RegistryTaskDockerStepPtrOutput)
+}
+
+func (o RegistryTaskDockerStepOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskDockerStep] {
+	return pulumix.Output[RegistryTaskDockerStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a map of arguments to be used when executing this step.
@@ -18757,6 +20984,12 @@ func (o RegistryTaskDockerStepPtrOutput) ToRegistryTaskDockerStepPtrOutput() Reg
 
 func (o RegistryTaskDockerStepPtrOutput) ToRegistryTaskDockerStepPtrOutputWithContext(ctx context.Context) RegistryTaskDockerStepPtrOutput {
 	return o
+}
+
+func (o RegistryTaskDockerStepPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskDockerStep] {
+	return pulumix.Output[*RegistryTaskDockerStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskDockerStepPtrOutput) Elem() RegistryTaskDockerStepOutput {
@@ -18912,6 +21145,12 @@ func (i RegistryTaskEncodedStepArgs) ToRegistryTaskEncodedStepOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskEncodedStepOutput)
 }
 
+func (i RegistryTaskEncodedStepArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskEncodedStep] {
+	return pulumix.Output[RegistryTaskEncodedStep]{
+		OutputState: i.ToRegistryTaskEncodedStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskEncodedStepArgs) ToRegistryTaskEncodedStepPtrOutput() RegistryTaskEncodedStepPtrOutput {
 	return i.ToRegistryTaskEncodedStepPtrOutputWithContext(context.Background())
 }
@@ -18953,6 +21192,12 @@ func (i *registryTaskEncodedStepPtrType) ToRegistryTaskEncodedStepPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskEncodedStepPtrOutput)
 }
 
+func (i *registryTaskEncodedStepPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskEncodedStep] {
+	return pulumix.Output[*RegistryTaskEncodedStep]{
+		OutputState: i.ToRegistryTaskEncodedStepPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskEncodedStepOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskEncodedStepOutput) ElementType() reflect.Type {
@@ -18975,6 +21220,12 @@ func (o RegistryTaskEncodedStepOutput) ToRegistryTaskEncodedStepPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskEncodedStep) *RegistryTaskEncodedStep {
 		return &v
 	}).(RegistryTaskEncodedStepPtrOutput)
+}
+
+func (o RegistryTaskEncodedStepOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskEncodedStep] {
+	return pulumix.Output[RegistryTaskEncodedStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
@@ -19019,6 +21270,12 @@ func (o RegistryTaskEncodedStepPtrOutput) ToRegistryTaskEncodedStepPtrOutput() R
 
 func (o RegistryTaskEncodedStepPtrOutput) ToRegistryTaskEncodedStepPtrOutputWithContext(ctx context.Context) RegistryTaskEncodedStepPtrOutput {
 	return o
+}
+
+func (o RegistryTaskEncodedStepPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskEncodedStep] {
+	return pulumix.Output[*RegistryTaskEncodedStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskEncodedStepPtrOutput) Elem() RegistryTaskEncodedStepOutput {
@@ -19144,6 +21401,12 @@ func (i RegistryTaskFileStepArgs) ToRegistryTaskFileStepOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskFileStepOutput)
 }
 
+func (i RegistryTaskFileStepArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskFileStep] {
+	return pulumix.Output[RegistryTaskFileStep]{
+		OutputState: i.ToRegistryTaskFileStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskFileStepArgs) ToRegistryTaskFileStepPtrOutput() RegistryTaskFileStepPtrOutput {
 	return i.ToRegistryTaskFileStepPtrOutputWithContext(context.Background())
 }
@@ -19185,6 +21448,12 @@ func (i *registryTaskFileStepPtrType) ToRegistryTaskFileStepPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskFileStepPtrOutput)
 }
 
+func (i *registryTaskFileStepPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskFileStep] {
+	return pulumix.Output[*RegistryTaskFileStep]{
+		OutputState: i.ToRegistryTaskFileStepPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskFileStepOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskFileStepOutput) ElementType() reflect.Type {
@@ -19207,6 +21476,12 @@ func (o RegistryTaskFileStepOutput) ToRegistryTaskFileStepPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskFileStep) *RegistryTaskFileStep {
 		return &v
 	}).(RegistryTaskFileStepPtrOutput)
+}
+
+func (o RegistryTaskFileStepOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskFileStep] {
+	return pulumix.Output[RegistryTaskFileStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
@@ -19251,6 +21526,12 @@ func (o RegistryTaskFileStepPtrOutput) ToRegistryTaskFileStepPtrOutput() Registr
 
 func (o RegistryTaskFileStepPtrOutput) ToRegistryTaskFileStepPtrOutputWithContext(ctx context.Context) RegistryTaskFileStepPtrOutput {
 	return o
+}
+
+func (o RegistryTaskFileStepPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskFileStep] {
+	return pulumix.Output[*RegistryTaskFileStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskFileStepPtrOutput) Elem() RegistryTaskFileStepOutput {
@@ -19372,6 +21653,12 @@ func (i RegistryTaskIdentityArgs) ToRegistryTaskIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskIdentityOutput)
 }
 
+func (i RegistryTaskIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskIdentity] {
+	return pulumix.Output[RegistryTaskIdentity]{
+		OutputState: i.ToRegistryTaskIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskIdentityArgs) ToRegistryTaskIdentityPtrOutput() RegistryTaskIdentityPtrOutput {
 	return i.ToRegistryTaskIdentityPtrOutputWithContext(context.Background())
 }
@@ -19413,6 +21700,12 @@ func (i *registryTaskIdentityPtrType) ToRegistryTaskIdentityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskIdentityPtrOutput)
 }
 
+func (i *registryTaskIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskIdentity] {
+	return pulumix.Output[*RegistryTaskIdentity]{
+		OutputState: i.ToRegistryTaskIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskIdentityOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskIdentityOutput) ElementType() reflect.Type {
@@ -19435,6 +21728,12 @@ func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskIdentity) *RegistryTaskIdentity {
 		return &v
 	}).(RegistryTaskIdentityPtrOutput)
+}
+
+func (o RegistryTaskIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskIdentity] {
+	return pulumix.Output[RegistryTaskIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
@@ -19471,6 +21770,12 @@ func (o RegistryTaskIdentityPtrOutput) ToRegistryTaskIdentityPtrOutput() Registr
 
 func (o RegistryTaskIdentityPtrOutput) ToRegistryTaskIdentityPtrOutputWithContext(ctx context.Context) RegistryTaskIdentityPtrOutput {
 	return o
+}
+
+func (o RegistryTaskIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskIdentity] {
+	return pulumix.Output[*RegistryTaskIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskIdentityPtrOutput) Elem() RegistryTaskIdentityOutput {
@@ -19566,6 +21871,12 @@ func (i RegistryTaskPlatformArgs) ToRegistryTaskPlatformOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskPlatformOutput)
 }
 
+func (i RegistryTaskPlatformArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskPlatform] {
+	return pulumix.Output[RegistryTaskPlatform]{
+		OutputState: i.ToRegistryTaskPlatformOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskPlatformArgs) ToRegistryTaskPlatformPtrOutput() RegistryTaskPlatformPtrOutput {
 	return i.ToRegistryTaskPlatformPtrOutputWithContext(context.Background())
 }
@@ -19607,6 +21918,12 @@ func (i *registryTaskPlatformPtrType) ToRegistryTaskPlatformPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskPlatformPtrOutput)
 }
 
+func (i *registryTaskPlatformPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskPlatform] {
+	return pulumix.Output[*RegistryTaskPlatform]{
+		OutputState: i.ToRegistryTaskPlatformPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskPlatformOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskPlatformOutput) ElementType() reflect.Type {
@@ -19629,6 +21946,12 @@ func (o RegistryTaskPlatformOutput) ToRegistryTaskPlatformPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskPlatform) *RegistryTaskPlatform {
 		return &v
 	}).(RegistryTaskPlatformPtrOutput)
+}
+
+func (o RegistryTaskPlatformOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskPlatform] {
+	return pulumix.Output[RegistryTaskPlatform]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
@@ -19658,6 +21981,12 @@ func (o RegistryTaskPlatformPtrOutput) ToRegistryTaskPlatformPtrOutput() Registr
 
 func (o RegistryTaskPlatformPtrOutput) ToRegistryTaskPlatformPtrOutputWithContext(ctx context.Context) RegistryTaskPlatformPtrOutput {
 	return o
+}
+
+func (o RegistryTaskPlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskPlatform] {
+	return pulumix.Output[*RegistryTaskPlatform]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskPlatformPtrOutput) Elem() RegistryTaskPlatformOutput {
@@ -19737,6 +22066,12 @@ func (i RegistryTaskRegistryCredentialArgs) ToRegistryTaskRegistryCredentialOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialOutput)
 }
 
+func (i RegistryTaskRegistryCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskRegistryCredential] {
+	return pulumix.Output[RegistryTaskRegistryCredential]{
+		OutputState: i.ToRegistryTaskRegistryCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskRegistryCredentialArgs) ToRegistryTaskRegistryCredentialPtrOutput() RegistryTaskRegistryCredentialPtrOutput {
 	return i.ToRegistryTaskRegistryCredentialPtrOutputWithContext(context.Background())
 }
@@ -19778,6 +22113,12 @@ func (i *registryTaskRegistryCredentialPtrType) ToRegistryTaskRegistryCredential
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialPtrOutput)
 }
 
+func (i *registryTaskRegistryCredentialPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskRegistryCredential] {
+	return pulumix.Output[*RegistryTaskRegistryCredential]{
+		OutputState: i.ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskRegistryCredentialOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskRegistryCredentialOutput) ElementType() reflect.Type {
@@ -19802,6 +22143,12 @@ func (o RegistryTaskRegistryCredentialOutput) ToRegistryTaskRegistryCredentialPt
 	}).(RegistryTaskRegistryCredentialPtrOutput)
 }
 
+func (o RegistryTaskRegistryCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskRegistryCredential] {
+	return pulumix.Output[RegistryTaskRegistryCredential]{
+		OutputState: o.OutputState,
+	}
+}
+
 // One or more `custom` blocks as defined above.
 func (o RegistryTaskRegistryCredentialOutput) Customs() RegistryTaskRegistryCredentialCustomArrayOutput {
 	return o.ApplyT(func(v RegistryTaskRegistryCredential) []RegistryTaskRegistryCredentialCustom { return v.Customs }).(RegistryTaskRegistryCredentialCustomArrayOutput)
@@ -19824,6 +22171,12 @@ func (o RegistryTaskRegistryCredentialPtrOutput) ToRegistryTaskRegistryCredentia
 
 func (o RegistryTaskRegistryCredentialPtrOutput) ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialPtrOutput {
 	return o
+}
+
+func (o RegistryTaskRegistryCredentialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskRegistryCredential] {
+	return pulumix.Output[*RegistryTaskRegistryCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskRegistryCredentialPtrOutput) Elem() RegistryTaskRegistryCredentialOutput {
@@ -19901,6 +22254,12 @@ func (i RegistryTaskRegistryCredentialCustomArgs) ToRegistryTaskRegistryCredenti
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialCustomOutput)
 }
 
+func (i RegistryTaskRegistryCredentialCustomArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskRegistryCredentialCustom] {
+	return pulumix.Output[RegistryTaskRegistryCredentialCustom]{
+		OutputState: i.ToRegistryTaskRegistryCredentialCustomOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryTaskRegistryCredentialCustomArrayInput is an input type that accepts RegistryTaskRegistryCredentialCustomArray and RegistryTaskRegistryCredentialCustomArrayOutput values.
 // You can construct a concrete instance of `RegistryTaskRegistryCredentialCustomArrayInput` via:
 //
@@ -19926,6 +22285,12 @@ func (i RegistryTaskRegistryCredentialCustomArray) ToRegistryTaskRegistryCredent
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialCustomArrayOutput)
 }
 
+func (i RegistryTaskRegistryCredentialCustomArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTaskRegistryCredentialCustom] {
+	return pulumix.Output[[]RegistryTaskRegistryCredentialCustom]{
+		OutputState: i.ToRegistryTaskRegistryCredentialCustomArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskRegistryCredentialCustomOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskRegistryCredentialCustomOutput) ElementType() reflect.Type {
@@ -19938,6 +22303,12 @@ func (o RegistryTaskRegistryCredentialCustomOutput) ToRegistryTaskRegistryCreden
 
 func (o RegistryTaskRegistryCredentialCustomOutput) ToRegistryTaskRegistryCredentialCustomOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialCustomOutput {
 	return o
+}
+
+func (o RegistryTaskRegistryCredentialCustomOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskRegistryCredentialCustom] {
+	return pulumix.Output[RegistryTaskRegistryCredentialCustom]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
@@ -19972,6 +22343,12 @@ func (o RegistryTaskRegistryCredentialCustomArrayOutput) ToRegistryTaskRegistryC
 
 func (o RegistryTaskRegistryCredentialCustomArrayOutput) ToRegistryTaskRegistryCredentialCustomArrayOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialCustomArrayOutput {
 	return o
+}
+
+func (o RegistryTaskRegistryCredentialCustomArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTaskRegistryCredentialCustom] {
+	return pulumix.Output[[]RegistryTaskRegistryCredentialCustom]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskRegistryCredentialCustomArrayOutput) Index(i pulumi.IntInput) RegistryTaskRegistryCredentialCustomOutput {
@@ -20011,6 +22388,12 @@ func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredenti
 
 func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredentialSourceOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialSourceOutput)
+}
+
+func (i RegistryTaskRegistryCredentialSourceArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskRegistryCredentialSource] {
+	return pulumix.Output[RegistryTaskRegistryCredentialSource]{
+		OutputState: i.ToRegistryTaskRegistryCredentialSourceOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredentialSourcePtrOutput() RegistryTaskRegistryCredentialSourcePtrOutput {
@@ -20054,6 +22437,12 @@ func (i *registryTaskRegistryCredentialSourcePtrType) ToRegistryTaskRegistryCred
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialSourcePtrOutput)
 }
 
+func (i *registryTaskRegistryCredentialSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskRegistryCredentialSource] {
+	return pulumix.Output[*RegistryTaskRegistryCredentialSource]{
+		OutputState: i.ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskRegistryCredentialSourceOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskRegistryCredentialSourceOutput) ElementType() reflect.Type {
@@ -20078,6 +22467,12 @@ func (o RegistryTaskRegistryCredentialSourceOutput) ToRegistryTaskRegistryCreden
 	}).(RegistryTaskRegistryCredentialSourcePtrOutput)
 }
 
+func (o RegistryTaskRegistryCredentialSourceOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskRegistryCredentialSource] {
+	return pulumix.Output[RegistryTaskRegistryCredentialSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The login mode for the source registry. Possible values are `None` and `Default`.
 func (o RegistryTaskRegistryCredentialSourceOutput) LoginMode() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryTaskRegistryCredentialSource) string { return v.LoginMode }).(pulumi.StringOutput)
@@ -20095,6 +22490,12 @@ func (o RegistryTaskRegistryCredentialSourcePtrOutput) ToRegistryTaskRegistryCre
 
 func (o RegistryTaskRegistryCredentialSourcePtrOutput) ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourcePtrOutput {
 	return o
+}
+
+func (o RegistryTaskRegistryCredentialSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskRegistryCredentialSource] {
+	return pulumix.Output[*RegistryTaskRegistryCredentialSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskRegistryCredentialSourcePtrOutput) Elem() RegistryTaskRegistryCredentialSourceOutput {
@@ -20174,6 +22575,12 @@ func (i RegistryTaskSourceTriggerArgs) ToRegistryTaskSourceTriggerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerOutput)
 }
 
+func (i RegistryTaskSourceTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskSourceTrigger] {
+	return pulumix.Output[RegistryTaskSourceTrigger]{
+		OutputState: i.ToRegistryTaskSourceTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryTaskSourceTriggerArrayInput is an input type that accepts RegistryTaskSourceTriggerArray and RegistryTaskSourceTriggerArrayOutput values.
 // You can construct a concrete instance of `RegistryTaskSourceTriggerArrayInput` via:
 //
@@ -20199,6 +22606,12 @@ func (i RegistryTaskSourceTriggerArray) ToRegistryTaskSourceTriggerArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerArrayOutput)
 }
 
+func (i RegistryTaskSourceTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTaskSourceTrigger] {
+	return pulumix.Output[[]RegistryTaskSourceTrigger]{
+		OutputState: i.ToRegistryTaskSourceTriggerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskSourceTriggerOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskSourceTriggerOutput) ElementType() reflect.Type {
@@ -20211,6 +22624,12 @@ func (o RegistryTaskSourceTriggerOutput) ToRegistryTaskSourceTriggerOutput() Reg
 
 func (o RegistryTaskSourceTriggerOutput) ToRegistryTaskSourceTriggerOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerOutput {
 	return o
+}
+
+func (o RegistryTaskSourceTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskSourceTrigger] {
+	return pulumix.Output[RegistryTaskSourceTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `authentication` block as defined above.
@@ -20260,6 +22679,12 @@ func (o RegistryTaskSourceTriggerArrayOutput) ToRegistryTaskSourceTriggerArrayOu
 
 func (o RegistryTaskSourceTriggerArrayOutput) ToRegistryTaskSourceTriggerArrayOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerArrayOutput {
 	return o
+}
+
+func (o RegistryTaskSourceTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTaskSourceTrigger] {
+	return pulumix.Output[[]RegistryTaskSourceTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskSourceTriggerArrayOutput) Index(i pulumi.IntInput) RegistryTaskSourceTriggerOutput {
@@ -20317,6 +22742,12 @@ func (i RegistryTaskSourceTriggerAuthenticationArgs) ToRegistryTaskSourceTrigger
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerAuthenticationOutput)
 }
 
+func (i RegistryTaskSourceTriggerAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskSourceTriggerAuthentication] {
+	return pulumix.Output[RegistryTaskSourceTriggerAuthentication]{
+		OutputState: i.ToRegistryTaskSourceTriggerAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegistryTaskSourceTriggerAuthenticationArgs) ToRegistryTaskSourceTriggerAuthenticationPtrOutput() RegistryTaskSourceTriggerAuthenticationPtrOutput {
 	return i.ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -20358,6 +22789,12 @@ func (i *registryTaskSourceTriggerAuthenticationPtrType) ToRegistryTaskSourceTri
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerAuthenticationPtrOutput)
 }
 
+func (i *registryTaskSourceTriggerAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskSourceTriggerAuthentication] {
+	return pulumix.Output[*RegistryTaskSourceTriggerAuthentication]{
+		OutputState: i.ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskSourceTriggerAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskSourceTriggerAuthenticationOutput) ElementType() reflect.Type {
@@ -20380,6 +22817,12 @@ func (o RegistryTaskSourceTriggerAuthenticationOutput) ToRegistryTaskSourceTrigg
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskSourceTriggerAuthentication) *RegistryTaskSourceTriggerAuthentication {
 		return &v
 	}).(RegistryTaskSourceTriggerAuthenticationPtrOutput)
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskSourceTriggerAuthentication] {
+	return pulumix.Output[RegistryTaskSourceTriggerAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Time in seconds that the token remains valid.
@@ -20419,6 +22862,12 @@ func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) ToRegistryTaskSourceTr
 
 func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationPtrOutput {
 	return o
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskSourceTriggerAuthentication] {
+	return pulumix.Output[*RegistryTaskSourceTriggerAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) Elem() RegistryTaskSourceTriggerAuthenticationOutput {
@@ -20522,6 +22971,12 @@ func (i RegistryTaskTimerTriggerArgs) ToRegistryTaskTimerTriggerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskTimerTriggerOutput)
 }
 
+func (i RegistryTaskTimerTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskTimerTrigger] {
+	return pulumix.Output[RegistryTaskTimerTrigger]{
+		OutputState: i.ToRegistryTaskTimerTriggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryTaskTimerTriggerArrayInput is an input type that accepts RegistryTaskTimerTriggerArray and RegistryTaskTimerTriggerArrayOutput values.
 // You can construct a concrete instance of `RegistryTaskTimerTriggerArrayInput` via:
 //
@@ -20547,6 +23002,12 @@ func (i RegistryTaskTimerTriggerArray) ToRegistryTaskTimerTriggerArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskTimerTriggerArrayOutput)
 }
 
+func (i RegistryTaskTimerTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTaskTimerTrigger] {
+	return pulumix.Output[[]RegistryTaskTimerTrigger]{
+		OutputState: i.ToRegistryTaskTimerTriggerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTaskTimerTriggerOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskTimerTriggerOutput) ElementType() reflect.Type {
@@ -20559,6 +23020,12 @@ func (o RegistryTaskTimerTriggerOutput) ToRegistryTaskTimerTriggerOutput() Regis
 
 func (o RegistryTaskTimerTriggerOutput) ToRegistryTaskTimerTriggerOutputWithContext(ctx context.Context) RegistryTaskTimerTriggerOutput {
 	return o
+}
+
+func (o RegistryTaskTimerTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTaskTimerTrigger] {
+	return pulumix.Output[RegistryTaskTimerTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the trigger be enabled? Defaults to `true`.
@@ -20588,6 +23055,12 @@ func (o RegistryTaskTimerTriggerArrayOutput) ToRegistryTaskTimerTriggerArrayOutp
 
 func (o RegistryTaskTimerTriggerArrayOutput) ToRegistryTaskTimerTriggerArrayOutputWithContext(ctx context.Context) RegistryTaskTimerTriggerArrayOutput {
 	return o
+}
+
+func (o RegistryTaskTimerTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTaskTimerTrigger] {
+	return pulumix.Output[[]RegistryTaskTimerTrigger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTaskTimerTriggerArrayOutput) Index(i pulumi.IntInput) RegistryTaskTimerTriggerOutput {
@@ -20627,6 +23100,12 @@ func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyOutput() RegistryTrustPoli
 
 func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyOutputWithContext(ctx context.Context) RegistryTrustPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyOutput)
+}
+
+func (i RegistryTrustPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTrustPolicy] {
+	return pulumix.Output[RegistryTrustPolicy]{
+		OutputState: i.ToRegistryTrustPolicyOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
@@ -20670,6 +23149,12 @@ func (i *registryTrustPolicyPtrType) ToRegistryTrustPolicyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyPtrOutput)
 }
 
+func (i *registryTrustPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegistryTrustPolicy] {
+	return pulumix.Output[*RegistryTrustPolicy]{
+		OutputState: i.ToRegistryTrustPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTrustPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryTrustPolicyOutput) ElementType() reflect.Type {
@@ -20694,6 +23179,12 @@ func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx
 	}).(RegistryTrustPolicyPtrOutput)
 }
 
+func (o RegistryTrustPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTrustPolicy] {
+	return pulumix.Output[RegistryTrustPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Boolean value that indicates whether the policy is enabled.
 func (o RegistryTrustPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryTrustPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -20711,6 +23202,12 @@ func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutput() RegistryT
 
 func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
 	return o
+}
+
+func (o RegistryTrustPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTrustPolicy] {
+	return pulumix.Output[*RegistryTrustPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTrustPolicyPtrOutput) Elem() RegistryTrustPolicyOutput {
@@ -20770,6 +23267,12 @@ func (i TokenPasswordPassword1Args) ToTokenPasswordPassword1OutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword1Output)
 }
 
+func (i TokenPasswordPassword1Args) ToOutput(ctx context.Context) pulumix.Output[TokenPasswordPassword1] {
+	return pulumix.Output[TokenPasswordPassword1]{
+		OutputState: i.ToTokenPasswordPassword1OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TokenPasswordPassword1Args) ToTokenPasswordPassword1PtrOutput() TokenPasswordPassword1PtrOutput {
 	return i.ToTokenPasswordPassword1PtrOutputWithContext(context.Background())
 }
@@ -20811,6 +23314,12 @@ func (i *tokenPasswordPassword1PtrType) ToTokenPasswordPassword1PtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword1PtrOutput)
 }
 
+func (i *tokenPasswordPassword1PtrType) ToOutput(ctx context.Context) pulumix.Output[*TokenPasswordPassword1] {
+	return pulumix.Output[*TokenPasswordPassword1]{
+		OutputState: i.ToTokenPasswordPassword1PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TokenPasswordPassword1Output struct{ *pulumi.OutputState }
 
 func (TokenPasswordPassword1Output) ElementType() reflect.Type {
@@ -20835,6 +23344,12 @@ func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutputWithConte
 	}).(TokenPasswordPassword1PtrOutput)
 }
 
+func (o TokenPasswordPassword1Output) ToOutput(ctx context.Context) pulumix.Output[TokenPasswordPassword1] {
+	return pulumix.Output[TokenPasswordPassword1]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Expiry }).(pulumi.StringPtrOutput)
@@ -20857,6 +23372,12 @@ func (o TokenPasswordPassword1PtrOutput) ToTokenPasswordPassword1PtrOutput() Tok
 
 func (o TokenPasswordPassword1PtrOutput) ToTokenPasswordPassword1PtrOutputWithContext(ctx context.Context) TokenPasswordPassword1PtrOutput {
 	return o
+}
+
+func (o TokenPasswordPassword1PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TokenPasswordPassword1] {
+	return pulumix.Output[*TokenPasswordPassword1]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TokenPasswordPassword1PtrOutput) Elem() TokenPasswordPassword1Output {
@@ -20926,6 +23447,12 @@ func (i TokenPasswordPassword2Args) ToTokenPasswordPassword2OutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword2Output)
 }
 
+func (i TokenPasswordPassword2Args) ToOutput(ctx context.Context) pulumix.Output[TokenPasswordPassword2] {
+	return pulumix.Output[TokenPasswordPassword2]{
+		OutputState: i.ToTokenPasswordPassword2OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TokenPasswordPassword2Args) ToTokenPasswordPassword2PtrOutput() TokenPasswordPassword2PtrOutput {
 	return i.ToTokenPasswordPassword2PtrOutputWithContext(context.Background())
 }
@@ -20967,6 +23494,12 @@ func (i *tokenPasswordPassword2PtrType) ToTokenPasswordPassword2PtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword2PtrOutput)
 }
 
+func (i *tokenPasswordPassword2PtrType) ToOutput(ctx context.Context) pulumix.Output[*TokenPasswordPassword2] {
+	return pulumix.Output[*TokenPasswordPassword2]{
+		OutputState: i.ToTokenPasswordPassword2PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TokenPasswordPassword2Output struct{ *pulumi.OutputState }
 
 func (TokenPasswordPassword2Output) ElementType() reflect.Type {
@@ -20991,6 +23524,12 @@ func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutputWithConte
 	}).(TokenPasswordPassword2PtrOutput)
 }
 
+func (o TokenPasswordPassword2Output) ToOutput(ctx context.Context) pulumix.Output[TokenPasswordPassword2] {
+	return pulumix.Output[TokenPasswordPassword2]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Expiry }).(pulumi.StringPtrOutput)
@@ -21013,6 +23552,12 @@ func (o TokenPasswordPassword2PtrOutput) ToTokenPasswordPassword2PtrOutput() Tok
 
 func (o TokenPasswordPassword2PtrOutput) ToTokenPasswordPassword2PtrOutputWithContext(ctx context.Context) TokenPasswordPassword2PtrOutput {
 	return o
+}
+
+func (o TokenPasswordPassword2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TokenPasswordPassword2] {
+	return pulumix.Output[*TokenPasswordPassword2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TokenPasswordPassword2PtrOutput) Elem() TokenPasswordPassword2Output {
@@ -21078,6 +23623,12 @@ func (i GetClusterNodePoolUpgradeSettingArgs) ToGetClusterNodePoolUpgradeSetting
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterNodePoolUpgradeSettingOutput)
 }
 
+func (i GetClusterNodePoolUpgradeSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetClusterNodePoolUpgradeSetting] {
+	return pulumix.Output[GetClusterNodePoolUpgradeSetting]{
+		OutputState: i.ToGetClusterNodePoolUpgradeSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetClusterNodePoolUpgradeSettingArrayInput is an input type that accepts GetClusterNodePoolUpgradeSettingArray and GetClusterNodePoolUpgradeSettingArrayOutput values.
 // You can construct a concrete instance of `GetClusterNodePoolUpgradeSettingArrayInput` via:
 //
@@ -21103,6 +23654,12 @@ func (i GetClusterNodePoolUpgradeSettingArray) ToGetClusterNodePoolUpgradeSettin
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterNodePoolUpgradeSettingArrayOutput)
 }
 
+func (i GetClusterNodePoolUpgradeSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterNodePoolUpgradeSetting] {
+	return pulumix.Output[[]GetClusterNodePoolUpgradeSetting]{
+		OutputState: i.ToGetClusterNodePoolUpgradeSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetClusterNodePoolUpgradeSettingOutput struct{ *pulumi.OutputState }
 
 func (GetClusterNodePoolUpgradeSettingOutput) ElementType() reflect.Type {
@@ -21115,6 +23672,12 @@ func (o GetClusterNodePoolUpgradeSettingOutput) ToGetClusterNodePoolUpgradeSetti
 
 func (o GetClusterNodePoolUpgradeSettingOutput) ToGetClusterNodePoolUpgradeSettingOutputWithContext(ctx context.Context) GetClusterNodePoolUpgradeSettingOutput {
 	return o
+}
+
+func (o GetClusterNodePoolUpgradeSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterNodePoolUpgradeSetting] {
+	return pulumix.Output[GetClusterNodePoolUpgradeSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
@@ -21134,6 +23697,12 @@ func (o GetClusterNodePoolUpgradeSettingArrayOutput) ToGetClusterNodePoolUpgrade
 
 func (o GetClusterNodePoolUpgradeSettingArrayOutput) ToGetClusterNodePoolUpgradeSettingArrayOutputWithContext(ctx context.Context) GetClusterNodePoolUpgradeSettingArrayOutput {
 	return o
+}
+
+func (o GetClusterNodePoolUpgradeSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterNodePoolUpgradeSetting] {
+	return pulumix.Output[[]GetClusterNodePoolUpgradeSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetClusterNodePoolUpgradeSettingArrayOutput) Index(i pulumi.IntInput) GetClusterNodePoolUpgradeSettingOutput {
@@ -21187,6 +23756,12 @@ func (i GetGroupIdentityArgs) ToGetGroupIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupIdentityOutput)
 }
 
+func (i GetGroupIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupIdentity] {
+	return pulumix.Output[GetGroupIdentity]{
+		OutputState: i.ToGetGroupIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupIdentityArrayInput is an input type that accepts GetGroupIdentityArray and GetGroupIdentityArrayOutput values.
 // You can construct a concrete instance of `GetGroupIdentityArrayInput` via:
 //
@@ -21212,6 +23787,12 @@ func (i GetGroupIdentityArray) ToGetGroupIdentityArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupIdentityArrayOutput)
 }
 
+func (i GetGroupIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupIdentity] {
+	return pulumix.Output[[]GetGroupIdentity]{
+		OutputState: i.ToGetGroupIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetGroupIdentityOutput) ElementType() reflect.Type {
@@ -21224,6 +23805,12 @@ func (o GetGroupIdentityOutput) ToGetGroupIdentityOutput() GetGroupIdentityOutpu
 
 func (o GetGroupIdentityOutput) ToGetGroupIdentityOutputWithContext(ctx context.Context) GetGroupIdentityOutput {
 	return o
+}
+
+func (o GetGroupIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupIdentity] {
+	return pulumix.Output[GetGroupIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Container Group.
@@ -21258,6 +23845,12 @@ func (o GetGroupIdentityArrayOutput) ToGetGroupIdentityArrayOutput() GetGroupIde
 
 func (o GetGroupIdentityArrayOutput) ToGetGroupIdentityArrayOutputWithContext(ctx context.Context) GetGroupIdentityArrayOutput {
 	return o
+}
+
+func (o GetGroupIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupIdentity] {
+	return pulumix.Output[[]GetGroupIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupIdentityArrayOutput) Index(i pulumi.IntInput) GetGroupIdentityOutput {
@@ -21299,6 +23892,12 @@ func (i GetKubernetesClusterAciConnectorLinuxArgs) ToGetKubernetesClusterAciConn
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAciConnectorLinuxOutput)
 }
 
+func (i GetKubernetesClusterAciConnectorLinuxArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[GetKubernetesClusterAciConnectorLinux]{
+		OutputState: i.ToGetKubernetesClusterAciConnectorLinuxOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterAciConnectorLinuxArrayInput is an input type that accepts GetKubernetesClusterAciConnectorLinuxArray and GetKubernetesClusterAciConnectorLinuxArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAciConnectorLinuxArrayInput` via:
 //
@@ -21324,6 +23923,12 @@ func (i GetKubernetesClusterAciConnectorLinuxArray) ToGetKubernetesClusterAciCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAciConnectorLinuxArrayOutput)
 }
 
+func (i GetKubernetesClusterAciConnectorLinuxArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[[]GetKubernetesClusterAciConnectorLinux]{
+		OutputState: i.ToGetKubernetesClusterAciConnectorLinuxArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterAciConnectorLinuxOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAciConnectorLinuxOutput) ElementType() reflect.Type {
@@ -21336,6 +23941,12 @@ func (o GetKubernetesClusterAciConnectorLinuxOutput) ToGetKubernetesClusterAciCo
 
 func (o GetKubernetesClusterAciConnectorLinuxOutput) ToGetKubernetesClusterAciConnectorLinuxOutputWithContext(ctx context.Context) GetKubernetesClusterAciConnectorLinuxOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAciConnectorLinuxOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[GetKubernetesClusterAciConnectorLinux]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The subnet name for the virtual nodes to run.
@@ -21355,6 +23966,12 @@ func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) ToGetKubernetesCluster
 
 func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) ToGetKubernetesClusterAciConnectorLinuxArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAciConnectorLinuxArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAciConnectorLinux] {
+	return pulumix.Output[[]GetKubernetesClusterAciConnectorLinux]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAciConnectorLinuxOutput {
@@ -21464,6 +24081,12 @@ func (i GetKubernetesClusterAgentPoolProfileArgs) ToGetKubernetesClusterAgentPoo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileOutput)
 }
 
+func (i GetKubernetesClusterAgentPoolProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAgentPoolProfile] {
+	return pulumix.Output[GetKubernetesClusterAgentPoolProfile]{
+		OutputState: i.ToGetKubernetesClusterAgentPoolProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterAgentPoolProfileArrayInput is an input type that accepts GetKubernetesClusterAgentPoolProfileArray and GetKubernetesClusterAgentPoolProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAgentPoolProfileArrayInput` via:
 //
@@ -21489,6 +24112,12 @@ func (i GetKubernetesClusterAgentPoolProfileArray) ToGetKubernetesClusterAgentPo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileArrayOutput)
 }
 
+func (i GetKubernetesClusterAgentPoolProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAgentPoolProfile] {
+	return pulumix.Output[[]GetKubernetesClusterAgentPoolProfile]{
+		OutputState: i.ToGetKubernetesClusterAgentPoolProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAgentPoolProfileOutput) ElementType() reflect.Type {
@@ -21501,6 +24130,12 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentPoolProfileOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAgentPoolProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAgentPoolProfile] {
+	return pulumix.Output[GetKubernetesClusterAgentPoolProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of Agents (VMs) in the Pool.
@@ -21612,6 +24247,12 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) ToGetKubernetesClusterA
 	return o
 }
 
+func (o GetKubernetesClusterAgentPoolProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAgentPoolProfile] {
+	return pulumix.Output[[]GetKubernetesClusterAgentPoolProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAgentPoolProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAgentPoolProfile {
 		return vs[0].([]GetKubernetesClusterAgentPoolProfile)[vs[1].(int)]
@@ -21651,6 +24292,12 @@ func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ToGetKubernetesC
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput)
 }
 
+func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAgentPoolProfileUpgradeSetting] {
+	return pulumix.Output[GetKubernetesClusterAgentPoolProfileUpgradeSetting]{
+		OutputState: i.ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput is an input type that accepts GetKubernetesClusterAgentPoolProfileUpgradeSettingArray and GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput` via:
 //
@@ -21676,6 +24323,12 @@ func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArray) ToGetKubernetes
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput)
 }
 
+func (i GetKubernetesClusterAgentPoolProfileUpgradeSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAgentPoolProfileUpgradeSetting] {
+	return pulumix.Output[[]GetKubernetesClusterAgentPoolProfileUpgradeSetting]{
+		OutputState: i.ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ElementType() reflect.Type {
@@ -21688,6 +24341,12 @@ func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernete
 
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAgentPoolProfileUpgradeSetting] {
+	return pulumix.Output[GetKubernetesClusterAgentPoolProfileUpgradeSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
@@ -21707,6 +24366,12 @@ func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) ToGetKube
 
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) ToGetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAgentPoolProfileUpgradeSetting] {
+	return pulumix.Output[[]GetKubernetesClusterAgentPoolProfileUpgradeSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput {
@@ -21768,6 +24433,12 @@ func (i GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs) ToGe
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput)
 }
 
+func (i GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: i.ToGetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayInput is an input type that accepts GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArray and GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayInput` via:
 //
@@ -21793,6 +24464,12 @@ func (i GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArray) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput)
 }
 
+func (i GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[[]GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: i.ToGetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ElementType() reflect.Type {
@@ -21805,6 +24482,12 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) To
 
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ToGetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutputWithContext(ctx context.Context) GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
@@ -21851,6 +24534,12 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutpu
 
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput) ToGetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl] {
+	return pulumix.Output[[]GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput {
@@ -21904,6 +24593,12 @@ func (i GetKubernetesClusterIdentityArgs) ToGetKubernetesClusterIdentityOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIdentityOutput)
 }
 
+func (i GetKubernetesClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterIdentity] {
+	return pulumix.Output[GetKubernetesClusterIdentity]{
+		OutputState: i.ToGetKubernetesClusterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterIdentityArrayInput is an input type that accepts GetKubernetesClusterIdentityArray and GetKubernetesClusterIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterIdentityArrayInput` via:
 //
@@ -21929,6 +24624,12 @@ func (i GetKubernetesClusterIdentityArray) ToGetKubernetesClusterIdentityArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIdentityArrayOutput)
 }
 
+func (i GetKubernetesClusterIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterIdentity]{
+		OutputState: i.ToGetKubernetesClusterIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterIdentityOutput) ElementType() reflect.Type {
@@ -21941,6 +24642,12 @@ func (o GetKubernetesClusterIdentityOutput) ToGetKubernetesClusterIdentityOutput
 
 func (o GetKubernetesClusterIdentityOutput) ToGetKubernetesClusterIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterIdentityOutput {
 	return o
+}
+
+func (o GetKubernetesClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterIdentity] {
+	return pulumix.Output[GetKubernetesClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
@@ -21975,6 +24682,12 @@ func (o GetKubernetesClusterIdentityArrayOutput) ToGetKubernetesClusterIdentityA
 
 func (o GetKubernetesClusterIdentityArrayOutput) ToGetKubernetesClusterIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterIdentityArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterIdentityOutput {
@@ -22034,6 +24747,12 @@ func (i GetKubernetesClusterIngressApplicationGatewayArgs) ToGetKubernetesCluste
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIngressApplicationGatewayOutput)
 }
 
+func (i GetKubernetesClusterIngressApplicationGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[GetKubernetesClusterIngressApplicationGateway]{
+		OutputState: i.ToGetKubernetesClusterIngressApplicationGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterIngressApplicationGatewayArrayInput is an input type that accepts GetKubernetesClusterIngressApplicationGatewayArray and GetKubernetesClusterIngressApplicationGatewayArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterIngressApplicationGatewayArrayInput` via:
 //
@@ -22059,6 +24778,12 @@ func (i GetKubernetesClusterIngressApplicationGatewayArray) ToGetKubernetesClust
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIngressApplicationGatewayArrayOutput)
 }
 
+func (i GetKubernetesClusterIngressApplicationGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[[]GetKubernetesClusterIngressApplicationGateway]{
+		OutputState: i.ToGetKubernetesClusterIngressApplicationGatewayArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterIngressApplicationGatewayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterIngressApplicationGatewayOutput) ElementType() reflect.Type {
@@ -22071,6 +24796,12 @@ func (o GetKubernetesClusterIngressApplicationGatewayOutput) ToGetKubernetesClus
 
 func (o GetKubernetesClusterIngressApplicationGatewayOutput) ToGetKubernetesClusterIngressApplicationGatewayOutputWithContext(ctx context.Context) GetKubernetesClusterIngressApplicationGatewayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterIngressApplicationGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[GetKubernetesClusterIngressApplicationGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
@@ -22116,6 +24847,12 @@ func (o GetKubernetesClusterIngressApplicationGatewayArrayOutput) ToGetKubernete
 
 func (o GetKubernetesClusterIngressApplicationGatewayArrayOutput) ToGetKubernetesClusterIngressApplicationGatewayArrayOutputWithContext(ctx context.Context) GetKubernetesClusterIngressApplicationGatewayArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterIngressApplicationGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterIngressApplicationGateway] {
+	return pulumix.Output[[]GetKubernetesClusterIngressApplicationGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterIngressApplicationGatewayArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterIngressApplicationGatewayOutput {
@@ -22165,6 +24902,12 @@ func (i GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayId
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
 }
 
+func (i GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: i.ToGetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput is an input type that accepts GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArray and GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput` via:
 //
@@ -22190,6 +24933,12 @@ func (i GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayId
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
 }
 
+func (i GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: i.ToGetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ElementType() reflect.Type {
@@ -22202,6 +24951,12 @@ func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayId
 
 func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToGetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
 	return o
+}
+
+func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity assigned to the Kubelets.
@@ -22237,6 +24992,12 @@ func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayId
 
 func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToGetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
@@ -22282,6 +25043,12 @@ func (i GetKubernetesClusterKeyManagementServiceArgs) ToGetKubernetesClusterKeyM
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyManagementServiceOutput)
 }
 
+func (i GetKubernetesClusterKeyManagementServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKeyManagementService] {
+	return pulumix.Output[GetKubernetesClusterKeyManagementService]{
+		OutputState: i.ToGetKubernetesClusterKeyManagementServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterKeyManagementServiceArrayInput is an input type that accepts GetKubernetesClusterKeyManagementServiceArray and GetKubernetesClusterKeyManagementServiceArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKeyManagementServiceArrayInput` via:
 //
@@ -22307,6 +25074,12 @@ func (i GetKubernetesClusterKeyManagementServiceArray) ToGetKubernetesClusterKey
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyManagementServiceArrayOutput)
 }
 
+func (i GetKubernetesClusterKeyManagementServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKeyManagementService] {
+	return pulumix.Output[[]GetKubernetesClusterKeyManagementService]{
+		OutputState: i.ToGetKubernetesClusterKeyManagementServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterKeyManagementServiceOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKeyManagementServiceOutput) ElementType() reflect.Type {
@@ -22319,6 +25092,12 @@ func (o GetKubernetesClusterKeyManagementServiceOutput) ToGetKubernetesClusterKe
 
 func (o GetKubernetesClusterKeyManagementServiceOutput) ToGetKubernetesClusterKeyManagementServiceOutputWithContext(ctx context.Context) GetKubernetesClusterKeyManagementServiceOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKeyManagementServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKeyManagementService] {
+	return pulumix.Output[GetKubernetesClusterKeyManagementService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
@@ -22343,6 +25122,12 @@ func (o GetKubernetesClusterKeyManagementServiceArrayOutput) ToGetKubernetesClus
 
 func (o GetKubernetesClusterKeyManagementServiceArrayOutput) ToGetKubernetesClusterKeyManagementServiceArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKeyManagementServiceArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKeyManagementServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKeyManagementService] {
+	return pulumix.Output[[]GetKubernetesClusterKeyManagementService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterKeyManagementServiceArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKeyManagementServiceOutput {
@@ -22392,6 +25177,12 @@ func (i GetKubernetesClusterKeyVaultSecretsProviderArgs) ToGetKubernetesClusterK
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyVaultSecretsProviderOutput)
 }
 
+func (i GetKubernetesClusterKeyVaultSecretsProviderArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[GetKubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: i.ToGetKubernetesClusterKeyVaultSecretsProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterKeyVaultSecretsProviderArrayInput is an input type that accepts GetKubernetesClusterKeyVaultSecretsProviderArray and GetKubernetesClusterKeyVaultSecretsProviderArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKeyVaultSecretsProviderArrayInput` via:
 //
@@ -22417,6 +25208,12 @@ func (i GetKubernetesClusterKeyVaultSecretsProviderArray) ToGetKubernetesCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyVaultSecretsProviderArrayOutput)
 }
 
+func (i GetKubernetesClusterKeyVaultSecretsProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: i.ToGetKubernetesClusterKeyVaultSecretsProviderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterKeyVaultSecretsProviderOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKeyVaultSecretsProviderOutput) ElementType() reflect.Type {
@@ -22429,6 +25226,12 @@ func (o GetKubernetesClusterKeyVaultSecretsProviderOutput) ToGetKubernetesCluste
 
 func (o GetKubernetesClusterKeyVaultSecretsProviderOutput) ToGetKubernetesClusterKeyVaultSecretsProviderOutputWithContext(ctx context.Context) GetKubernetesClusterKeyVaultSecretsProviderOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKeyVaultSecretsProviderOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[GetKubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `secretIdentity` block as documented below.
@@ -22460,6 +25263,12 @@ func (o GetKubernetesClusterKeyVaultSecretsProviderArrayOutput) ToGetKubernetesC
 
 func (o GetKubernetesClusterKeyVaultSecretsProviderArrayOutput) ToGetKubernetesClusterKeyVaultSecretsProviderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKeyVaultSecretsProviderArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKeyVaultSecretsProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProvider] {
+	return pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterKeyVaultSecretsProviderArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKeyVaultSecretsProviderOutput {
@@ -22509,6 +25318,12 @@ func (i GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs) ToGetKube
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput)
 }
 
+func (i GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: i.ToGetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput is an input type that accepts GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArray and GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput` via:
 //
@@ -22534,6 +25349,12 @@ func (i GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArray) ToGetKub
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput)
 }
 
+func (i GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: i.ToGetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ElementType() reflect.Type {
@@ -22546,6 +25367,12 @@ func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToGetKu
 
 func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToGetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity assigned to the Kubelets.
@@ -22577,6 +25404,12 @@ func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) To
 
 func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) ToGetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityOutput {
@@ -22638,6 +25471,12 @@ func (i GetKubernetesClusterKubeAdminConfigArgs) ToGetKubernetesClusterKubeAdmin
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeAdminConfigOutput)
 }
 
+func (i GetKubernetesClusterKubeAdminConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[GetKubernetesClusterKubeAdminConfig]{
+		OutputState: i.ToGetKubernetesClusterKubeAdminConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterKubeAdminConfigArrayInput is an input type that accepts GetKubernetesClusterKubeAdminConfigArray and GetKubernetesClusterKubeAdminConfigArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeAdminConfigArrayInput` via:
 //
@@ -22663,6 +25502,12 @@ func (i GetKubernetesClusterKubeAdminConfigArray) ToGetKubernetesClusterKubeAdmi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeAdminConfigArrayOutput)
 }
 
+func (i GetKubernetesClusterKubeAdminConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[[]GetKubernetesClusterKubeAdminConfig]{
+		OutputState: i.ToGetKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterKubeAdminConfigOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
@@ -22675,6 +25520,12 @@ func (o GetKubernetesClusterKubeAdminConfigOutput) ToGetKubernetesClusterKubeAdm
 
 func (o GetKubernetesClusterKubeAdminConfigOutput) ToGetKubernetesClusterKubeAdminConfigOutputWithContext(ctx context.Context) GetKubernetesClusterKubeAdminConfigOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKubeAdminConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[GetKubernetesClusterKubeAdminConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -22719,6 +25570,12 @@ func (o GetKubernetesClusterKubeAdminConfigArrayOutput) ToGetKubernetesClusterKu
 
 func (o GetKubernetesClusterKubeAdminConfigArrayOutput) ToGetKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKubeAdminConfigArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKubeAdminConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKubeAdminConfig] {
+	return pulumix.Output[[]GetKubernetesClusterKubeAdminConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeAdminConfigOutput {
@@ -22780,6 +25637,12 @@ func (i GetKubernetesClusterKubeConfigArgs) ToGetKubernetesClusterKubeConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeConfigOutput)
 }
 
+func (i GetKubernetesClusterKubeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKubeConfig] {
+	return pulumix.Output[GetKubernetesClusterKubeConfig]{
+		OutputState: i.ToGetKubernetesClusterKubeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterKubeConfigArrayInput is an input type that accepts GetKubernetesClusterKubeConfigArray and GetKubernetesClusterKubeConfigArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeConfigArrayInput` via:
 //
@@ -22805,6 +25668,12 @@ func (i GetKubernetesClusterKubeConfigArray) ToGetKubernetesClusterKubeConfigArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeConfigArrayOutput)
 }
 
+func (i GetKubernetesClusterKubeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKubeConfig] {
+	return pulumix.Output[[]GetKubernetesClusterKubeConfig]{
+		OutputState: i.ToGetKubernetesClusterKubeConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterKubeConfigOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
@@ -22817,6 +25686,12 @@ func (o GetKubernetesClusterKubeConfigOutput) ToGetKubernetesClusterKubeConfigOu
 
 func (o GetKubernetesClusterKubeConfigOutput) ToGetKubernetesClusterKubeConfigOutputWithContext(ctx context.Context) GetKubernetesClusterKubeConfigOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKubeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKubeConfig] {
+	return pulumix.Output[GetKubernetesClusterKubeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -22861,6 +25736,12 @@ func (o GetKubernetesClusterKubeConfigArrayOutput) ToGetKubernetesClusterKubeCon
 
 func (o GetKubernetesClusterKubeConfigArrayOutput) ToGetKubernetesClusterKubeConfigArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKubeConfigArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKubeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKubeConfig] {
+	return pulumix.Output[[]GetKubernetesClusterKubeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeConfigOutput {
@@ -22910,6 +25791,12 @@ func (i GetKubernetesClusterKubeletIdentityArgs) ToGetKubernetesClusterKubeletId
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeletIdentityOutput)
 }
 
+func (i GetKubernetesClusterKubeletIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKubeletIdentity] {
+	return pulumix.Output[GetKubernetesClusterKubeletIdentity]{
+		OutputState: i.ToGetKubernetesClusterKubeletIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterKubeletIdentityArrayInput is an input type that accepts GetKubernetesClusterKubeletIdentityArray and GetKubernetesClusterKubeletIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeletIdentityArrayInput` via:
 //
@@ -22935,6 +25822,12 @@ func (i GetKubernetesClusterKubeletIdentityArray) ToGetKubernetesClusterKubeletI
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeletIdentityArrayOutput)
 }
 
+func (i GetKubernetesClusterKubeletIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKubeletIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterKubeletIdentity]{
+		OutputState: i.ToGetKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterKubeletIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterKubeletIdentityOutput) ElementType() reflect.Type {
@@ -22947,6 +25840,12 @@ func (o GetKubernetesClusterKubeletIdentityOutput) ToGetKubernetesClusterKubelet
 
 func (o GetKubernetesClusterKubeletIdentityOutput) ToGetKubernetesClusterKubeletIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterKubeletIdentityOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKubeletIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterKubeletIdentity] {
+	return pulumix.Output[GetKubernetesClusterKubeletIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity assigned to the Kubelets.
@@ -22976,6 +25875,12 @@ func (o GetKubernetesClusterKubeletIdentityArrayOutput) ToGetKubernetesClusterKu
 
 func (o GetKubernetesClusterKubeletIdentityArrayOutput) ToGetKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKubeletIdentityArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterKubeletIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterKubeletIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterKubeletIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterKubeletIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeletIdentityOutput {
@@ -23021,6 +25926,12 @@ func (i GetKubernetesClusterLinuxProfileArgs) ToGetKubernetesClusterLinuxProfile
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileOutput)
 }
 
+func (i GetKubernetesClusterLinuxProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterLinuxProfile] {
+	return pulumix.Output[GetKubernetesClusterLinuxProfile]{
+		OutputState: i.ToGetKubernetesClusterLinuxProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterLinuxProfileArrayInput is an input type that accepts GetKubernetesClusterLinuxProfileArray and GetKubernetesClusterLinuxProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterLinuxProfileArrayInput` via:
 //
@@ -23046,6 +25957,12 @@ func (i GetKubernetesClusterLinuxProfileArray) ToGetKubernetesClusterLinuxProfil
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileArrayOutput)
 }
 
+func (i GetKubernetesClusterLinuxProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterLinuxProfile] {
+	return pulumix.Output[[]GetKubernetesClusterLinuxProfile]{
+		OutputState: i.ToGetKubernetesClusterLinuxProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
@@ -23058,6 +25975,12 @@ func (o GetKubernetesClusterLinuxProfileOutput) ToGetKubernetesClusterLinuxProfi
 
 func (o GetKubernetesClusterLinuxProfileOutput) ToGetKubernetesClusterLinuxProfileOutputWithContext(ctx context.Context) GetKubernetesClusterLinuxProfileOutput {
 	return o
+}
+
+func (o GetKubernetesClusterLinuxProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterLinuxProfile] {
+	return pulumix.Output[GetKubernetesClusterLinuxProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The username associated with the administrator account of the Windows VMs.
@@ -23082,6 +26005,12 @@ func (o GetKubernetesClusterLinuxProfileArrayOutput) ToGetKubernetesClusterLinux
 
 func (o GetKubernetesClusterLinuxProfileArrayOutput) ToGetKubernetesClusterLinuxProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterLinuxProfileArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterLinuxProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterLinuxProfile] {
+	return pulumix.Output[[]GetKubernetesClusterLinuxProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterLinuxProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterLinuxProfileOutput {
@@ -23123,6 +26052,12 @@ func (i GetKubernetesClusterLinuxProfileSshKeyArgs) ToGetKubernetesClusterLinuxP
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileSshKeyOutput)
 }
 
+func (i GetKubernetesClusterLinuxProfileSshKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[GetKubernetesClusterLinuxProfileSshKey]{
+		OutputState: i.ToGetKubernetesClusterLinuxProfileSshKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterLinuxProfileSshKeyArrayInput is an input type that accepts GetKubernetesClusterLinuxProfileSshKeyArray and GetKubernetesClusterLinuxProfileSshKeyArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterLinuxProfileSshKeyArrayInput` via:
 //
@@ -23148,6 +26083,12 @@ func (i GetKubernetesClusterLinuxProfileSshKeyArray) ToGetKubernetesClusterLinux
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterLinuxProfileSshKeyArrayOutput)
 }
 
+func (i GetKubernetesClusterLinuxProfileSshKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[[]GetKubernetesClusterLinuxProfileSshKey]{
+		OutputState: i.ToGetKubernetesClusterLinuxProfileSshKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterLinuxProfileSshKeyOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
@@ -23160,6 +26101,12 @@ func (o GetKubernetesClusterLinuxProfileSshKeyOutput) ToGetKubernetesClusterLinu
 
 func (o GetKubernetesClusterLinuxProfileSshKeyOutput) ToGetKubernetesClusterLinuxProfileSshKeyOutputWithContext(ctx context.Context) GetKubernetesClusterLinuxProfileSshKeyOutput {
 	return o
+}
+
+func (o GetKubernetesClusterLinuxProfileSshKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[GetKubernetesClusterLinuxProfileSshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Public SSH Key used to access the cluster.
@@ -23179,6 +26126,12 @@ func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ToGetKubernetesCluste
 
 func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ToGetKubernetesClusterLinuxProfileSshKeyArrayOutputWithContext(ctx context.Context) GetKubernetesClusterLinuxProfileSshKeyArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterLinuxProfileSshKey] {
+	return pulumix.Output[[]GetKubernetesClusterLinuxProfileSshKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterLinuxProfileSshKeyArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterLinuxProfileSshKeyOutput {
@@ -23220,6 +26173,12 @@ func (i GetKubernetesClusterMicrosoftDefenderArgs) ToGetKubernetesClusterMicroso
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterMicrosoftDefenderOutput)
 }
 
+func (i GetKubernetesClusterMicrosoftDefenderArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[GetKubernetesClusterMicrosoftDefender]{
+		OutputState: i.ToGetKubernetesClusterMicrosoftDefenderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterMicrosoftDefenderArrayInput is an input type that accepts GetKubernetesClusterMicrosoftDefenderArray and GetKubernetesClusterMicrosoftDefenderArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterMicrosoftDefenderArrayInput` via:
 //
@@ -23245,6 +26204,12 @@ func (i GetKubernetesClusterMicrosoftDefenderArray) ToGetKubernetesClusterMicros
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterMicrosoftDefenderArrayOutput)
 }
 
+func (i GetKubernetesClusterMicrosoftDefenderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[[]GetKubernetesClusterMicrosoftDefender]{
+		OutputState: i.ToGetKubernetesClusterMicrosoftDefenderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterMicrosoftDefenderOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterMicrosoftDefenderOutput) ElementType() reflect.Type {
@@ -23257,6 +26222,12 @@ func (o GetKubernetesClusterMicrosoftDefenderOutput) ToGetKubernetesClusterMicro
 
 func (o GetKubernetesClusterMicrosoftDefenderOutput) ToGetKubernetesClusterMicrosoftDefenderOutputWithContext(ctx context.Context) GetKubernetesClusterMicrosoftDefenderOutput {
 	return o
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[GetKubernetesClusterMicrosoftDefender]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace to which the OMS Agent should send data.
@@ -23276,6 +26247,12 @@ func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) ToGetKubernetesCluster
 
 func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) ToGetKubernetesClusterMicrosoftDefenderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterMicrosoftDefenderArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterMicrosoftDefender] {
+	return pulumix.Output[[]GetKubernetesClusterMicrosoftDefender]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterMicrosoftDefenderArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterMicrosoftDefenderOutput {
@@ -23339,6 +26316,12 @@ func (i GetKubernetesClusterNetworkProfileArgs) ToGetKubernetesClusterNetworkPro
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterNetworkProfileOutput)
 }
 
+func (i GetKubernetesClusterNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterNetworkProfile] {
+	return pulumix.Output[GetKubernetesClusterNetworkProfile]{
+		OutputState: i.ToGetKubernetesClusterNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterNetworkProfileArrayInput is an input type that accepts GetKubernetesClusterNetworkProfileArray and GetKubernetesClusterNetworkProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterNetworkProfileArrayInput` via:
 //
@@ -23364,6 +26347,12 @@ func (i GetKubernetesClusterNetworkProfileArray) ToGetKubernetesClusterNetworkPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterNetworkProfileArrayOutput)
 }
 
+func (i GetKubernetesClusterNetworkProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterNetworkProfile] {
+	return pulumix.Output[[]GetKubernetesClusterNetworkProfile]{
+		OutputState: i.ToGetKubernetesClusterNetworkProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
@@ -23376,6 +26365,12 @@ func (o GetKubernetesClusterNetworkProfileOutput) ToGetKubernetesClusterNetworkP
 
 func (o GetKubernetesClusterNetworkProfileOutput) ToGetKubernetesClusterNetworkProfileOutputWithContext(ctx context.Context) GetKubernetesClusterNetworkProfileOutput {
 	return o
+}
+
+func (o GetKubernetesClusterNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterNetworkProfile] {
+	return pulumix.Output[GetKubernetesClusterNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
@@ -23426,6 +26421,12 @@ func (o GetKubernetesClusterNetworkProfileArrayOutput) ToGetKubernetesClusterNet
 	return o
 }
 
+func (o GetKubernetesClusterNetworkProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterNetworkProfile] {
+	return pulumix.Output[[]GetKubernetesClusterNetworkProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetKubernetesClusterNetworkProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterNetworkProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterNetworkProfile {
 		return vs[0].([]GetKubernetesClusterNetworkProfile)[vs[1].(int)]
@@ -23473,6 +26474,12 @@ func (i GetKubernetesClusterOmsAgentArgs) ToGetKubernetesClusterOmsAgentOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterOmsAgentOutput)
 }
 
+func (i GetKubernetesClusterOmsAgentArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterOmsAgent] {
+	return pulumix.Output[GetKubernetesClusterOmsAgent]{
+		OutputState: i.ToGetKubernetesClusterOmsAgentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterOmsAgentArrayInput is an input type that accepts GetKubernetesClusterOmsAgentArray and GetKubernetesClusterOmsAgentArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterOmsAgentArrayInput` via:
 //
@@ -23498,6 +26505,12 @@ func (i GetKubernetesClusterOmsAgentArray) ToGetKubernetesClusterOmsAgentArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterOmsAgentArrayOutput)
 }
 
+func (i GetKubernetesClusterOmsAgentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterOmsAgent] {
+	return pulumix.Output[[]GetKubernetesClusterOmsAgent]{
+		OutputState: i.ToGetKubernetesClusterOmsAgentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterOmsAgentOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterOmsAgentOutput) ElementType() reflect.Type {
@@ -23510,6 +26523,12 @@ func (o GetKubernetesClusterOmsAgentOutput) ToGetKubernetesClusterOmsAgentOutput
 
 func (o GetKubernetesClusterOmsAgentOutput) ToGetKubernetesClusterOmsAgentOutputWithContext(ctx context.Context) GetKubernetesClusterOmsAgentOutput {
 	return o
+}
+
+func (o GetKubernetesClusterOmsAgentOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterOmsAgent] {
+	return pulumix.Output[GetKubernetesClusterOmsAgent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace to which the OMS Agent should send data.
@@ -23541,6 +26560,12 @@ func (o GetKubernetesClusterOmsAgentArrayOutput) ToGetKubernetesClusterOmsAgentA
 
 func (o GetKubernetesClusterOmsAgentArrayOutput) ToGetKubernetesClusterOmsAgentArrayOutputWithContext(ctx context.Context) GetKubernetesClusterOmsAgentArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterOmsAgentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterOmsAgent] {
+	return pulumix.Output[[]GetKubernetesClusterOmsAgent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterOmsAgentArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterOmsAgentOutput {
@@ -23590,6 +26615,12 @@ func (i GetKubernetesClusterOmsAgentOmsAgentIdentityArgs) ToGetKubernetesCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterOmsAgentOmsAgentIdentityOutput)
 }
 
+func (i GetKubernetesClusterOmsAgentOmsAgentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[GetKubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: i.ToGetKubernetesClusterOmsAgentOmsAgentIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput is an input type that accepts GetKubernetesClusterOmsAgentOmsAgentIdentityArray and GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput` via:
 //
@@ -23615,6 +26646,12 @@ func (i GetKubernetesClusterOmsAgentOmsAgentIdentityArray) ToGetKubernetesCluste
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput)
 }
 
+func (i GetKubernetesClusterOmsAgentOmsAgentIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: i.ToGetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterOmsAgentOmsAgentIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterOmsAgentOmsAgentIdentityOutput) ElementType() reflect.Type {
@@ -23627,6 +26664,12 @@ func (o GetKubernetesClusterOmsAgentOmsAgentIdentityOutput) ToGetKubernetesClust
 
 func (o GetKubernetesClusterOmsAgentOmsAgentIdentityOutput) ToGetKubernetesClusterOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterOmsAgentOmsAgentIdentityOutput {
 	return o
+}
+
+func (o GetKubernetesClusterOmsAgentOmsAgentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[GetKubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity assigned to the Kubelets.
@@ -23656,6 +26699,12 @@ func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) ToGetKubernetes
 
 func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) ToGetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterOmsAgentOmsAgentIdentity] {
+	return pulumix.Output[[]GetKubernetesClusterOmsAgentOmsAgentIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterOmsAgentOmsAgentIdentityOutput {
@@ -23705,6 +26754,12 @@ func (i GetKubernetesClusterServiceMeshProfileArgs) ToGetKubernetesClusterServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServiceMeshProfileOutput)
 }
 
+func (i GetKubernetesClusterServiceMeshProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[GetKubernetesClusterServiceMeshProfile]{
+		OutputState: i.ToGetKubernetesClusterServiceMeshProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterServiceMeshProfileArrayInput is an input type that accepts GetKubernetesClusterServiceMeshProfileArray and GetKubernetesClusterServiceMeshProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterServiceMeshProfileArrayInput` via:
 //
@@ -23730,6 +26785,12 @@ func (i GetKubernetesClusterServiceMeshProfileArray) ToGetKubernetesClusterServi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServiceMeshProfileArrayOutput)
 }
 
+func (i GetKubernetesClusterServiceMeshProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[[]GetKubernetesClusterServiceMeshProfile]{
+		OutputState: i.ToGetKubernetesClusterServiceMeshProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterServiceMeshProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterServiceMeshProfileOutput) ElementType() reflect.Type {
@@ -23742,6 +26803,12 @@ func (o GetKubernetesClusterServiceMeshProfileOutput) ToGetKubernetesClusterServ
 
 func (o GetKubernetesClusterServiceMeshProfileOutput) ToGetKubernetesClusterServiceMeshProfileOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileOutput {
 	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[GetKubernetesClusterServiceMeshProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is Istio External Ingress Gateway enabled?
@@ -23771,6 +26838,12 @@ func (o GetKubernetesClusterServiceMeshProfileArrayOutput) ToGetKubernetesCluste
 
 func (o GetKubernetesClusterServiceMeshProfileArrayOutput) ToGetKubernetesClusterServiceMeshProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterServiceMeshProfile] {
+	return pulumix.Output[[]GetKubernetesClusterServiceMeshProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterServiceMeshProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterServiceMeshProfileOutput {
@@ -23812,6 +26885,12 @@ func (i GetKubernetesClusterServicePrincipalArgs) ToGetKubernetesClusterServiceP
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServicePrincipalOutput)
 }
 
+func (i GetKubernetesClusterServicePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterServicePrincipal] {
+	return pulumix.Output[GetKubernetesClusterServicePrincipal]{
+		OutputState: i.ToGetKubernetesClusterServicePrincipalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterServicePrincipalArrayInput is an input type that accepts GetKubernetesClusterServicePrincipalArray and GetKubernetesClusterServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterServicePrincipalArrayInput` via:
 //
@@ -23837,6 +26916,12 @@ func (i GetKubernetesClusterServicePrincipalArray) ToGetKubernetesClusterService
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServicePrincipalArrayOutput)
 }
 
+func (i GetKubernetesClusterServicePrincipalArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterServicePrincipal] {
+	return pulumix.Output[[]GetKubernetesClusterServicePrincipal]{
+		OutputState: i.ToGetKubernetesClusterServicePrincipalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
@@ -23849,6 +26934,12 @@ func (o GetKubernetesClusterServicePrincipalOutput) ToGetKubernetesClusterServic
 
 func (o GetKubernetesClusterServicePrincipalOutput) ToGetKubernetesClusterServicePrincipalOutputWithContext(ctx context.Context) GetKubernetesClusterServicePrincipalOutput {
 	return o
+}
+
+func (o GetKubernetesClusterServicePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterServicePrincipal] {
+	return pulumix.Output[GetKubernetesClusterServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Client ID of the user-defined Managed Identity assigned to the Kubelets.
@@ -23868,6 +26959,12 @@ func (o GetKubernetesClusterServicePrincipalArrayOutput) ToGetKubernetesClusterS
 
 func (o GetKubernetesClusterServicePrincipalArrayOutput) ToGetKubernetesClusterServicePrincipalArrayOutputWithContext(ctx context.Context) GetKubernetesClusterServicePrincipalArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterServicePrincipalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterServicePrincipal] {
+	return pulumix.Output[[]GetKubernetesClusterServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterServicePrincipalArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterServicePrincipalOutput {
@@ -23925,6 +27022,12 @@ func (i GetKubernetesClusterStorageProfileArgs) ToGetKubernetesClusterStoragePro
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterStorageProfileOutput)
 }
 
+func (i GetKubernetesClusterStorageProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterStorageProfile] {
+	return pulumix.Output[GetKubernetesClusterStorageProfile]{
+		OutputState: i.ToGetKubernetesClusterStorageProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterStorageProfileArrayInput is an input type that accepts GetKubernetesClusterStorageProfileArray and GetKubernetesClusterStorageProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterStorageProfileArrayInput` via:
 //
@@ -23950,6 +27053,12 @@ func (i GetKubernetesClusterStorageProfileArray) ToGetKubernetesClusterStoragePr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterStorageProfileArrayOutput)
 }
 
+func (i GetKubernetesClusterStorageProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterStorageProfile] {
+	return pulumix.Output[[]GetKubernetesClusterStorageProfile]{
+		OutputState: i.ToGetKubernetesClusterStorageProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterStorageProfileOutput) ElementType() reflect.Type {
@@ -23962,6 +27071,12 @@ func (o GetKubernetesClusterStorageProfileOutput) ToGetKubernetesClusterStorageP
 
 func (o GetKubernetesClusterStorageProfileOutput) ToGetKubernetesClusterStorageProfileOutputWithContext(ctx context.Context) GetKubernetesClusterStorageProfileOutput {
 	return o
+}
+
+func (o GetKubernetesClusterStorageProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterStorageProfile] {
+	return pulumix.Output[GetKubernetesClusterStorageProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the Blob CSI driver enabled?
@@ -24003,6 +27118,12 @@ func (o GetKubernetesClusterStorageProfileArrayOutput) ToGetKubernetesClusterSto
 	return o
 }
 
+func (o GetKubernetesClusterStorageProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterStorageProfile] {
+	return pulumix.Output[[]GetKubernetesClusterStorageProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetKubernetesClusterStorageProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterStorageProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterStorageProfile {
 		return vs[0].([]GetKubernetesClusterStorageProfile)[vs[1].(int)]
@@ -24042,6 +27163,12 @@ func (i GetKubernetesClusterWindowsProfileArgs) ToGetKubernetesClusterWindowsPro
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterWindowsProfileOutput)
 }
 
+func (i GetKubernetesClusterWindowsProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterWindowsProfile] {
+	return pulumix.Output[GetKubernetesClusterWindowsProfile]{
+		OutputState: i.ToGetKubernetesClusterWindowsProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKubernetesClusterWindowsProfileArrayInput is an input type that accepts GetKubernetesClusterWindowsProfileArray and GetKubernetesClusterWindowsProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterWindowsProfileArrayInput` via:
 //
@@ -24067,6 +27194,12 @@ func (i GetKubernetesClusterWindowsProfileArray) ToGetKubernetesClusterWindowsPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterWindowsProfileArrayOutput)
 }
 
+func (i GetKubernetesClusterWindowsProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterWindowsProfile] {
+	return pulumix.Output[[]GetKubernetesClusterWindowsProfile]{
+		OutputState: i.ToGetKubernetesClusterWindowsProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKubernetesClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
@@ -24079,6 +27212,12 @@ func (o GetKubernetesClusterWindowsProfileOutput) ToGetKubernetesClusterWindowsP
 
 func (o GetKubernetesClusterWindowsProfileOutput) ToGetKubernetesClusterWindowsProfileOutputWithContext(ctx context.Context) GetKubernetesClusterWindowsProfileOutput {
 	return o
+}
+
+func (o GetKubernetesClusterWindowsProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesClusterWindowsProfile] {
+	return pulumix.Output[GetKubernetesClusterWindowsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The username associated with the administrator account of the Windows VMs.
@@ -24098,6 +27237,12 @@ func (o GetKubernetesClusterWindowsProfileArrayOutput) ToGetKubernetesClusterWin
 
 func (o GetKubernetesClusterWindowsProfileArrayOutput) ToGetKubernetesClusterWindowsProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterWindowsProfileArrayOutput {
 	return o
+}
+
+func (o GetKubernetesClusterWindowsProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKubernetesClusterWindowsProfile] {
+	return pulumix.Output[[]GetKubernetesClusterWindowsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKubernetesClusterWindowsProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterWindowsProfileOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage an Azure Spring Cloud Application.
@@ -279,6 +280,12 @@ func (i *SpringCloudApp) ToSpringCloudAppOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppOutput)
 }
 
+func (i *SpringCloudApp) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApp] {
+	return pulumix.Output[*SpringCloudApp]{
+		OutputState: i.ToSpringCloudAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudAppArrayInput is an input type that accepts SpringCloudAppArray and SpringCloudAppArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppArrayInput` via:
 //
@@ -302,6 +309,12 @@ func (i SpringCloudAppArray) ToSpringCloudAppArrayOutput() SpringCloudAppArrayOu
 
 func (i SpringCloudAppArray) ToSpringCloudAppArrayOutputWithContext(ctx context.Context) SpringCloudAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppArrayOutput)
+}
+
+func (i SpringCloudAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApp] {
+	return pulumix.Output[[]*SpringCloudApp]{
+		OutputState: i.ToSpringCloudAppArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudAppMapInput is an input type that accepts SpringCloudAppMap and SpringCloudAppMapOutput values.
@@ -329,6 +342,12 @@ func (i SpringCloudAppMap) ToSpringCloudAppMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMapOutput)
 }
 
+func (i SpringCloudAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApp] {
+	return pulumix.Output[map[string]*SpringCloudApp]{
+		OutputState: i.ToSpringCloudAppMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudAppOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppOutput) ElementType() reflect.Type {
@@ -341,6 +360,12 @@ func (o SpringCloudAppOutput) ToSpringCloudAppOutput() SpringCloudAppOutput {
 
 func (o SpringCloudAppOutput) ToSpringCloudAppOutputWithContext(ctx context.Context) SpringCloudAppOutput {
 	return o
+}
+
+func (o SpringCloudAppOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApp] {
+	return pulumix.Output[*SpringCloudApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A JSON object that contains the addon configurations of the Spring Cloud Service.
@@ -427,6 +452,12 @@ func (o SpringCloudAppArrayOutput) ToSpringCloudAppArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o SpringCloudAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApp] {
+	return pulumix.Output[[]*SpringCloudApp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudAppArrayOutput) Index(i pulumi.IntInput) SpringCloudAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudApp {
 		return vs[0].([]*SpringCloudApp)[vs[1].(int)]
@@ -445,6 +476,12 @@ func (o SpringCloudAppMapOutput) ToSpringCloudAppMapOutput() SpringCloudAppMapOu
 
 func (o SpringCloudAppMapOutput) ToSpringCloudAppMapOutputWithContext(ctx context.Context) SpringCloudAppMapOutput {
 	return o
+}
+
+func (o SpringCloudAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApp] {
+	return pulumix.Output[map[string]*SpringCloudApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudAppMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppOutput {

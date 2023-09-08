@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Gateway Route Config.
@@ -279,6 +280,12 @@ func (i *SpringCloudGatewayRouteConfig) ToSpringCloudGatewayRouteConfigOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigOutput)
 }
 
+func (i *SpringCloudGatewayRouteConfig) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayRouteConfig] {
+	return pulumix.Output[*SpringCloudGatewayRouteConfig]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudGatewayRouteConfigArrayInput is an input type that accepts SpringCloudGatewayRouteConfigArray and SpringCloudGatewayRouteConfigArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayRouteConfigArrayInput` via:
 //
@@ -302,6 +309,12 @@ func (i SpringCloudGatewayRouteConfigArray) ToSpringCloudGatewayRouteConfigArray
 
 func (i SpringCloudGatewayRouteConfigArray) ToSpringCloudGatewayRouteConfigArrayOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigArrayOutput)
+}
+
+func (i SpringCloudGatewayRouteConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudGatewayRouteConfig] {
+	return pulumix.Output[[]*SpringCloudGatewayRouteConfig]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudGatewayRouteConfigMapInput is an input type that accepts SpringCloudGatewayRouteConfigMap and SpringCloudGatewayRouteConfigMapOutput values.
@@ -329,6 +342,12 @@ func (i SpringCloudGatewayRouteConfigMap) ToSpringCloudGatewayRouteConfigMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigMapOutput)
 }
 
+func (i SpringCloudGatewayRouteConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudGatewayRouteConfig] {
+	return pulumix.Output[map[string]*SpringCloudGatewayRouteConfig]{
+		OutputState: i.ToSpringCloudGatewayRouteConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudGatewayRouteConfigOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayRouteConfigOutput) ElementType() reflect.Type {
@@ -341,6 +360,12 @@ func (o SpringCloudGatewayRouteConfigOutput) ToSpringCloudGatewayRouteConfigOutp
 
 func (o SpringCloudGatewayRouteConfigOutput) ToSpringCloudGatewayRouteConfigOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOutput {
 	return o
+}
+
+func (o SpringCloudGatewayRouteConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayRouteConfig] {
+	return pulumix.Output[*SpringCloudGatewayRouteConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
@@ -404,6 +429,12 @@ func (o SpringCloudGatewayRouteConfigArrayOutput) ToSpringCloudGatewayRouteConfi
 	return o
 }
 
+func (o SpringCloudGatewayRouteConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudGatewayRouteConfig] {
+	return pulumix.Output[[]*SpringCloudGatewayRouteConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudGatewayRouteConfigArrayOutput) Index(i pulumi.IntInput) SpringCloudGatewayRouteConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudGatewayRouteConfig {
 		return vs[0].([]*SpringCloudGatewayRouteConfig)[vs[1].(int)]
@@ -422,6 +453,12 @@ func (o SpringCloudGatewayRouteConfigMapOutput) ToSpringCloudGatewayRouteConfigM
 
 func (o SpringCloudGatewayRouteConfigMapOutput) ToSpringCloudGatewayRouteConfigMapOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigMapOutput {
 	return o
+}
+
+func (o SpringCloudGatewayRouteConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudGatewayRouteConfig] {
+	return pulumix.Output[map[string]*SpringCloudGatewayRouteConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudGatewayRouteConfigMapOutput) MapIndex(k pulumi.StringInput) SpringCloudGatewayRouteConfigOutput {

@@ -57,6 +57,12 @@ namespace Pulumi.Azure.ContainerApp
     public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        /// </summary>
+        [Output("daprApplicationInsightsConnectionString")]
+        public Output<string?> DaprApplicationInsightsConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// The default, publicly resolvable, name of this Container App Environment.
         /// </summary>
         [Output("defaultDomain")]
@@ -155,6 +161,10 @@ namespace Pulumi.Azure.ContainerApp
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "daprApplicationInsightsConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -178,6 +188,22 @@ namespace Pulumi.Azure.ContainerApp
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("daprApplicationInsightsConnectionString")]
+        private Input<string>? _daprApplicationInsightsConnectionString;
+
+        /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        /// </summary>
+        public Input<string>? DaprApplicationInsightsConnectionString
+        {
+            get => _daprApplicationInsightsConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _daprApplicationInsightsConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
@@ -238,6 +264,22 @@ namespace Pulumi.Azure.ContainerApp
 
     public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
+        [Input("daprApplicationInsightsConnectionString")]
+        private Input<string>? _daprApplicationInsightsConnectionString;
+
+        /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        /// </summary>
+        public Input<string>? DaprApplicationInsightsConnectionString
+        {
+            get => _daprApplicationInsightsConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _daprApplicationInsightsConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// The default, publicly resolvable, name of this Container App Environment.
         /// </summary>

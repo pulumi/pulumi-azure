@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Storage.
@@ -198,6 +199,12 @@ func (i *SpringCloudStorage) ToSpringCloudStorageOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudStorageOutput)
 }
 
+func (i *SpringCloudStorage) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudStorage] {
+	return pulumix.Output[*SpringCloudStorage]{
+		OutputState: i.ToSpringCloudStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudStorageArrayInput is an input type that accepts SpringCloudStorageArray and SpringCloudStorageArrayOutput values.
 // You can construct a concrete instance of `SpringCloudStorageArrayInput` via:
 //
@@ -221,6 +228,12 @@ func (i SpringCloudStorageArray) ToSpringCloudStorageArrayOutput() SpringCloudSt
 
 func (i SpringCloudStorageArray) ToSpringCloudStorageArrayOutputWithContext(ctx context.Context) SpringCloudStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudStorageArrayOutput)
+}
+
+func (i SpringCloudStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudStorage] {
+	return pulumix.Output[[]*SpringCloudStorage]{
+		OutputState: i.ToSpringCloudStorageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudStorageMapInput is an input type that accepts SpringCloudStorageMap and SpringCloudStorageMapOutput values.
@@ -248,6 +261,12 @@ func (i SpringCloudStorageMap) ToSpringCloudStorageMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudStorageMapOutput)
 }
 
+func (i SpringCloudStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudStorage] {
+	return pulumix.Output[map[string]*SpringCloudStorage]{
+		OutputState: i.ToSpringCloudStorageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudStorageOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudStorageOutput) ElementType() reflect.Type {
@@ -260,6 +279,12 @@ func (o SpringCloudStorageOutput) ToSpringCloudStorageOutput() SpringCloudStorag
 
 func (o SpringCloudStorageOutput) ToSpringCloudStorageOutputWithContext(ctx context.Context) SpringCloudStorageOutput {
 	return o
+}
+
+func (o SpringCloudStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudStorage] {
+	return pulumix.Output[*SpringCloudStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
@@ -296,6 +321,12 @@ func (o SpringCloudStorageArrayOutput) ToSpringCloudStorageArrayOutputWithContex
 	return o
 }
 
+func (o SpringCloudStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudStorage] {
+	return pulumix.Output[[]*SpringCloudStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudStorageArrayOutput) Index(i pulumi.IntInput) SpringCloudStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudStorage {
 		return vs[0].([]*SpringCloudStorage)[vs[1].(int)]
@@ -314,6 +345,12 @@ func (o SpringCloudStorageMapOutput) ToSpringCloudStorageMapOutput() SpringCloud
 
 func (o SpringCloudStorageMapOutput) ToSpringCloudStorageMapOutputWithContext(ctx context.Context) SpringCloudStorageMapOutput {
 	return o
+}
+
+func (o SpringCloudStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudStorage] {
+	return pulumix.Output[map[string]*SpringCloudStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudStorageMapOutput) MapIndex(k pulumi.StringInput) SpringCloudStorageOutput {

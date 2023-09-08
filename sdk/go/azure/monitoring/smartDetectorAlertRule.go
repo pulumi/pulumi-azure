@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Monitor Smart Detector Alert Rule.
@@ -285,6 +286,12 @@ func (i *SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleOutput)
 }
 
+func (i *SmartDetectorAlertRule) ToOutput(ctx context.Context) pulumix.Output[*SmartDetectorAlertRule] {
+	return pulumix.Output[*SmartDetectorAlertRule]{
+		OutputState: i.ToSmartDetectorAlertRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SmartDetectorAlertRuleArrayInput is an input type that accepts SmartDetectorAlertRuleArray and SmartDetectorAlertRuleArrayOutput values.
 // You can construct a concrete instance of `SmartDetectorAlertRuleArrayInput` via:
 //
@@ -308,6 +315,12 @@ func (i SmartDetectorAlertRuleArray) ToSmartDetectorAlertRuleArrayOutput() Smart
 
 func (i SmartDetectorAlertRuleArray) ToSmartDetectorAlertRuleArrayOutputWithContext(ctx context.Context) SmartDetectorAlertRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleArrayOutput)
+}
+
+func (i SmartDetectorAlertRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SmartDetectorAlertRule] {
+	return pulumix.Output[[]*SmartDetectorAlertRule]{
+		OutputState: i.ToSmartDetectorAlertRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SmartDetectorAlertRuleMapInput is an input type that accepts SmartDetectorAlertRuleMap and SmartDetectorAlertRuleMapOutput values.
@@ -335,6 +348,12 @@ func (i SmartDetectorAlertRuleMap) ToSmartDetectorAlertRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleMapOutput)
 }
 
+func (i SmartDetectorAlertRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmartDetectorAlertRule] {
+	return pulumix.Output[map[string]*SmartDetectorAlertRule]{
+		OutputState: i.ToSmartDetectorAlertRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SmartDetectorAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectorAlertRuleOutput) ElementType() reflect.Type {
@@ -347,6 +366,12 @@ func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutput() SmartDete
 
 func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutputWithContext(ctx context.Context) SmartDetectorAlertRuleOutput {
 	return o
+}
+
+func (o SmartDetectorAlertRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SmartDetectorAlertRule] {
+	return pulumix.Output[*SmartDetectorAlertRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `actionGroup` block as defined below.
@@ -418,6 +443,12 @@ func (o SmartDetectorAlertRuleArrayOutput) ToSmartDetectorAlertRuleArrayOutputWi
 	return o
 }
 
+func (o SmartDetectorAlertRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SmartDetectorAlertRule] {
+	return pulumix.Output[[]*SmartDetectorAlertRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SmartDetectorAlertRuleArrayOutput) Index(i pulumi.IntInput) SmartDetectorAlertRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SmartDetectorAlertRule {
 		return vs[0].([]*SmartDetectorAlertRule)[vs[1].(int)]
@@ -436,6 +467,12 @@ func (o SmartDetectorAlertRuleMapOutput) ToSmartDetectorAlertRuleMapOutput() Sma
 
 func (o SmartDetectorAlertRuleMapOutput) ToSmartDetectorAlertRuleMapOutputWithContext(ctx context.Context) SmartDetectorAlertRuleMapOutput {
 	return o
+}
+
+func (o SmartDetectorAlertRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmartDetectorAlertRule] {
+	return pulumix.Output[map[string]*SmartDetectorAlertRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SmartDetectorAlertRuleMapOutput) MapIndex(k pulumi.StringInput) SmartDetectorAlertRuleOutput {

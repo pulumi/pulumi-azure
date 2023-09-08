@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupLocalRulestack(ctx *pulumi.Context, args *LookupLocalRulestackArgs, opts ...pulumi.InvokeOption) (*LookupLocalRulestackResult, error) {
@@ -81,6 +82,12 @@ func (o LookupLocalRulestackResultOutput) ToLookupLocalRulestackResultOutput() L
 
 func (o LookupLocalRulestackResultOutput) ToLookupLocalRulestackResultOutputWithContext(ctx context.Context) LookupLocalRulestackResultOutput {
 	return o
+}
+
+func (o LookupLocalRulestackResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalRulestackResult] {
+	return pulumix.Output[LookupLocalRulestackResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLocalRulestackResultOutput) AntiSpywareProfile() pulumi.StringOutput {

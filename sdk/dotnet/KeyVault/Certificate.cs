@@ -12,6 +12,11 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Certificate.
     /// 
+    /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
+    /// 
+    /// =======
+    /// &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
     /// ## Example Usage
     /// ### Importing A PFX)
     /// 
@@ -269,7 +274,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `certificate` block as defined below, used to Import an existing certificate.
+        /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         /// </summary>
         [Output("certificate")]
         public Output<Outputs.CertificateCertificate?> KeyVaultCertificate { get; private set; } = null!;
@@ -293,7 +298,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> CertificateDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        /// A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
@@ -411,13 +416,13 @@ namespace Pulumi.Azure.KeyVault
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `certificate` block as defined below, used to Import an existing certificate.
+        /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.CertificateCertificateArgs>? KeyVaultCertificate { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        /// A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
@@ -457,7 +462,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `certificate` block as defined below, used to Import an existing certificate.
+        /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.CertificateCertificateGetArgs>? KeyVaultCertificate { get; set; }
@@ -487,7 +492,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? CertificateDataBase64 { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        /// A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>

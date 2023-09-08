@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cost Management Export for a Billing Account.
@@ -255,6 +256,12 @@ func (i *AccountCostManagementExport) ToAccountCostManagementExportOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportOutput)
 }
 
+func (i *AccountCostManagementExport) ToOutput(ctx context.Context) pulumix.Output[*AccountCostManagementExport] {
+	return pulumix.Output[*AccountCostManagementExport]{
+		OutputState: i.ToAccountCostManagementExportOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountCostManagementExportArrayInput is an input type that accepts AccountCostManagementExportArray and AccountCostManagementExportArrayOutput values.
 // You can construct a concrete instance of `AccountCostManagementExportArrayInput` via:
 //
@@ -278,6 +285,12 @@ func (i AccountCostManagementExportArray) ToAccountCostManagementExportArrayOutp
 
 func (i AccountCostManagementExportArray) ToAccountCostManagementExportArrayOutputWithContext(ctx context.Context) AccountCostManagementExportArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportArrayOutput)
+}
+
+func (i AccountCostManagementExportArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountCostManagementExport] {
+	return pulumix.Output[[]*AccountCostManagementExport]{
+		OutputState: i.ToAccountCostManagementExportArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccountCostManagementExportMapInput is an input type that accepts AccountCostManagementExportMap and AccountCostManagementExportMapOutput values.
@@ -305,6 +318,12 @@ func (i AccountCostManagementExportMap) ToAccountCostManagementExportMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportMapOutput)
 }
 
+func (i AccountCostManagementExportMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountCostManagementExport] {
+	return pulumix.Output[map[string]*AccountCostManagementExport]{
+		OutputState: i.ToAccountCostManagementExportMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountCostManagementExportOutput struct{ *pulumi.OutputState }
 
 func (AccountCostManagementExportOutput) ElementType() reflect.Type {
@@ -317,6 +336,12 @@ func (o AccountCostManagementExportOutput) ToAccountCostManagementExportOutput()
 
 func (o AccountCostManagementExportOutput) ToAccountCostManagementExportOutputWithContext(ctx context.Context) AccountCostManagementExportOutput {
 	return o
+}
+
+func (o AccountCostManagementExportOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCostManagementExport] {
+	return pulumix.Output[*AccountCostManagementExport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the cost management export active? Default is `true`.
@@ -377,6 +402,12 @@ func (o AccountCostManagementExportArrayOutput) ToAccountCostManagementExportArr
 	return o
 }
 
+func (o AccountCostManagementExportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountCostManagementExport] {
+	return pulumix.Output[[]*AccountCostManagementExport]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountCostManagementExportArrayOutput) Index(i pulumi.IntInput) AccountCostManagementExportOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountCostManagementExport {
 		return vs[0].([]*AccountCostManagementExport)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o AccountCostManagementExportMapOutput) ToAccountCostManagementExportMapOu
 
 func (o AccountCostManagementExportMapOutput) ToAccountCostManagementExportMapOutputWithContext(ctx context.Context) AccountCostManagementExportMapOutput {
 	return o
+}
+
+func (o AccountCostManagementExportMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountCostManagementExport] {
+	return pulumix.Output[map[string]*AccountCostManagementExport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountCostManagementExportMapOutput) MapIndex(k pulumi.StringInput) AccountCostManagementExportOutput {

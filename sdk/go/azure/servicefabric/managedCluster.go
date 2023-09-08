@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Group.
@@ -339,6 +340,12 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterOutput)
 }
 
+func (i *ManagedCluster) ToOutput(ctx context.Context) pulumix.Output[*ManagedCluster] {
+	return pulumix.Output[*ManagedCluster]{
+		OutputState: i.ToManagedClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedClusterArrayInput is an input type that accepts ManagedClusterArray and ManagedClusterArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterArrayInput` via:
 //
@@ -362,6 +369,12 @@ func (i ManagedClusterArray) ToManagedClusterArrayOutput() ManagedClusterArrayOu
 
 func (i ManagedClusterArray) ToManagedClusterArrayOutputWithContext(ctx context.Context) ManagedClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterArrayOutput)
+}
+
+func (i ManagedClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedCluster] {
+	return pulumix.Output[[]*ManagedCluster]{
+		OutputState: i.ToManagedClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedClusterMapInput is an input type that accepts ManagedClusterMap and ManagedClusterMapOutput values.
@@ -389,6 +402,12 @@ func (i ManagedClusterMap) ToManagedClusterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterMapOutput)
 }
 
+func (i ManagedClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedCluster] {
+	return pulumix.Output[map[string]*ManagedCluster]{
+		OutputState: i.ToManagedClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
@@ -401,6 +420,12 @@ func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {
 
 func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput {
 	return o
+}
+
+func (o ManagedClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedCluster] {
+	return pulumix.Output[*ManagedCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
@@ -502,6 +527,12 @@ func (o ManagedClusterArrayOutput) ToManagedClusterArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ManagedClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedCluster] {
+	return pulumix.Output[[]*ManagedCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedClusterArrayOutput) Index(i pulumi.IntInput) ManagedClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedCluster {
 		return vs[0].([]*ManagedCluster)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o ManagedClusterMapOutput) ToManagedClusterMapOutput() ManagedClusterMapOu
 
 func (o ManagedClusterMapOutput) ToManagedClusterMapOutputWithContext(ctx context.Context) ManagedClusterMapOutput {
 	return o
+}
+
+func (o ManagedClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedCluster] {
+	return pulumix.Output[map[string]*ManagedCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedClusterMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterOutput {

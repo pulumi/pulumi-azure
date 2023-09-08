@@ -23,6 +23,11 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Certificate.
  * 
+ * &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+ * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
+ * 
+ * =======
+ * &gt; &gt; &gt; &gt; &gt; &gt; &gt; 8d78c87098 (Update-documentation)
  * ## Example Usage
  * ### Importing A PFX)
  * 
@@ -273,14 +278,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * A `certificate` block as defined below, used to Import an existing certificate.
+     * A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      * 
      */
     @Export(name="certificate", refs={CertificateCertificate.class}, tree="[0]")
     private Output</* @Nullable */ CertificateCertificate> certificate;
 
     /**
-     * @return A `certificate` block as defined below, used to Import an existing certificate.
+     * @return A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      * 
      */
     public Output<Optional<CertificateCertificate>> certificate() {
@@ -329,7 +334,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.certificateDataBase64;
     }
     /**
-     * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+     * A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
@@ -338,7 +343,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     private Output<CertificateCertificatePolicy> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+     * @return A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Sync Group.
@@ -160,6 +161,12 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
+func (i *SyncGroup) ToOutput(ctx context.Context) pulumix.Output[*SyncGroup] {
+	return pulumix.Output[*SyncGroup]{
+		OutputState: i.ToSyncGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SyncGroupArrayInput is an input type that accepts SyncGroupArray and SyncGroupArrayOutput values.
 // You can construct a concrete instance of `SyncGroupArrayInput` via:
 //
@@ -183,6 +190,12 @@ func (i SyncGroupArray) ToSyncGroupArrayOutput() SyncGroupArrayOutput {
 
 func (i SyncGroupArray) ToSyncGroupArrayOutputWithContext(ctx context.Context) SyncGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupArrayOutput)
+}
+
+func (i SyncGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SyncGroup] {
+	return pulumix.Output[[]*SyncGroup]{
+		OutputState: i.ToSyncGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SyncGroupMapInput is an input type that accepts SyncGroupMap and SyncGroupMapOutput values.
@@ -210,6 +223,12 @@ func (i SyncGroupMap) ToSyncGroupMapOutputWithContext(ctx context.Context) SyncG
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupMapOutput)
 }
 
+func (i SyncGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyncGroup] {
+	return pulumix.Output[map[string]*SyncGroup]{
+		OutputState: i.ToSyncGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
@@ -222,6 +241,12 @@ func (o SyncGroupOutput) ToSyncGroupOutput() SyncGroupOutput {
 
 func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
 	return o
+}
+
+func (o SyncGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SyncGroup] {
+	return pulumix.Output[*SyncGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
@@ -248,6 +273,12 @@ func (o SyncGroupArrayOutput) ToSyncGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o SyncGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SyncGroup] {
+	return pulumix.Output[[]*SyncGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SyncGroupArrayOutput) Index(i pulumi.IntInput) SyncGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyncGroup {
 		return vs[0].([]*SyncGroup)[vs[1].(int)]
@@ -266,6 +297,12 @@ func (o SyncGroupMapOutput) ToSyncGroupMapOutput() SyncGroupMapOutput {
 
 func (o SyncGroupMapOutput) ToSyncGroupMapOutputWithContext(ctx context.Context) SyncGroupMapOutput {
 	return o
+}
+
+func (o SyncGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyncGroup] {
+	return pulumix.Output[map[string]*SyncGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SyncGroupMapOutput) MapIndex(k pulumi.StringInput) SyncGroupOutput {

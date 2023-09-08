@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Windows Virtual Machine.
@@ -850,6 +851,12 @@ func (i *WindowsVirtualMachine) ToWindowsVirtualMachineOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOutput)
 }
 
+func (i *WindowsVirtualMachine) ToOutput(ctx context.Context) pulumix.Output[*WindowsVirtualMachine] {
+	return pulumix.Output[*WindowsVirtualMachine]{
+		OutputState: i.ToWindowsVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WindowsVirtualMachineArrayInput is an input type that accepts WindowsVirtualMachineArray and WindowsVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineArrayInput` via:
 //
@@ -873,6 +880,12 @@ func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutput() Windows
 
 func (i WindowsVirtualMachineArray) ToWindowsVirtualMachineArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineArrayOutput)
+}
+
+func (i WindowsVirtualMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsVirtualMachine] {
+	return pulumix.Output[[]*WindowsVirtualMachine]{
+		OutputState: i.ToWindowsVirtualMachineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WindowsVirtualMachineMapInput is an input type that accepts WindowsVirtualMachineMap and WindowsVirtualMachineMapOutput values.
@@ -900,6 +913,12 @@ func (i WindowsVirtualMachineMap) ToWindowsVirtualMachineMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineMapOutput)
 }
 
+func (i WindowsVirtualMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsVirtualMachine] {
+	return pulumix.Output[map[string]*WindowsVirtualMachine]{
+		OutputState: i.ToWindowsVirtualMachineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WindowsVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOutput) ElementType() reflect.Type {
@@ -912,6 +931,12 @@ func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutput() WindowsVirt
 
 func (o WindowsVirtualMachineOutput) ToWindowsVirtualMachineOutputWithContext(ctx context.Context) WindowsVirtualMachineOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsVirtualMachine] {
+	return pulumix.Output[*WindowsVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `additionalCapabilities` block as defined below.
@@ -1231,6 +1256,12 @@ func (o WindowsVirtualMachineArrayOutput) ToWindowsVirtualMachineArrayOutputWith
 	return o
 }
 
+func (o WindowsVirtualMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsVirtualMachine] {
+	return pulumix.Output[[]*WindowsVirtualMachine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WindowsVirtualMachineArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsVirtualMachine {
 		return vs[0].([]*WindowsVirtualMachine)[vs[1].(int)]
@@ -1249,6 +1280,12 @@ func (o WindowsVirtualMachineMapOutput) ToWindowsVirtualMachineMapOutput() Windo
 
 func (o WindowsVirtualMachineMapOutput) ToWindowsVirtualMachineMapOutputWithContext(ctx context.Context) WindowsVirtualMachineMapOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsVirtualMachine] {
+	return pulumix.Output[map[string]*WindowsVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WindowsVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) WindowsVirtualMachineOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud API Portal Domain.
@@ -188,6 +189,12 @@ func (i *SpringCloudApiPortalCustomDomain) ToSpringCloudApiPortalCustomDomainOut
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalCustomDomainOutput)
 }
 
+func (i *SpringCloudApiPortalCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApiPortalCustomDomain] {
+	return pulumix.Output[*SpringCloudApiPortalCustomDomain]{
+		OutputState: i.ToSpringCloudApiPortalCustomDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudApiPortalCustomDomainArrayInput is an input type that accepts SpringCloudApiPortalCustomDomainArray and SpringCloudApiPortalCustomDomainArrayOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalCustomDomainArrayInput` via:
 //
@@ -211,6 +218,12 @@ func (i SpringCloudApiPortalCustomDomainArray) ToSpringCloudApiPortalCustomDomai
 
 func (i SpringCloudApiPortalCustomDomainArray) ToSpringCloudApiPortalCustomDomainArrayOutputWithContext(ctx context.Context) SpringCloudApiPortalCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalCustomDomainArrayOutput)
+}
+
+func (i SpringCloudApiPortalCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApiPortalCustomDomain] {
+	return pulumix.Output[[]*SpringCloudApiPortalCustomDomain]{
+		OutputState: i.ToSpringCloudApiPortalCustomDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudApiPortalCustomDomainMapInput is an input type that accepts SpringCloudApiPortalCustomDomainMap and SpringCloudApiPortalCustomDomainMapOutput values.
@@ -238,6 +251,12 @@ func (i SpringCloudApiPortalCustomDomainMap) ToSpringCloudApiPortalCustomDomainM
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalCustomDomainMapOutput)
 }
 
+func (i SpringCloudApiPortalCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApiPortalCustomDomain] {
+	return pulumix.Output[map[string]*SpringCloudApiPortalCustomDomain]{
+		OutputState: i.ToSpringCloudApiPortalCustomDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudApiPortalCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudApiPortalCustomDomainOutput) ElementType() reflect.Type {
@@ -250,6 +269,12 @@ func (o SpringCloudApiPortalCustomDomainOutput) ToSpringCloudApiPortalCustomDoma
 
 func (o SpringCloudApiPortalCustomDomainOutput) ToSpringCloudApiPortalCustomDomainOutputWithContext(ctx context.Context) SpringCloudApiPortalCustomDomainOutput {
 	return o
+}
+
+func (o SpringCloudApiPortalCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApiPortalCustomDomain] {
+	return pulumix.Output[*SpringCloudApiPortalCustomDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
@@ -281,6 +306,12 @@ func (o SpringCloudApiPortalCustomDomainArrayOutput) ToSpringCloudApiPortalCusto
 	return o
 }
 
+func (o SpringCloudApiPortalCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApiPortalCustomDomain] {
+	return pulumix.Output[[]*SpringCloudApiPortalCustomDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudApiPortalCustomDomainArrayOutput) Index(i pulumi.IntInput) SpringCloudApiPortalCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudApiPortalCustomDomain {
 		return vs[0].([]*SpringCloudApiPortalCustomDomain)[vs[1].(int)]
@@ -299,6 +330,12 @@ func (o SpringCloudApiPortalCustomDomainMapOutput) ToSpringCloudApiPortalCustomD
 
 func (o SpringCloudApiPortalCustomDomainMapOutput) ToSpringCloudApiPortalCustomDomainMapOutputWithContext(ctx context.Context) SpringCloudApiPortalCustomDomainMapOutput {
 	return o
+}
+
+func (o SpringCloudApiPortalCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApiPortalCustomDomain] {
+	return pulumix.Output[map[string]*SpringCloudApiPortalCustomDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudApiPortalCustomDomainMapOutput) MapIndex(k pulumi.StringInput) SpringCloudApiPortalCustomDomainOutput {

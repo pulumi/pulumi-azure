@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Consumption Budget for a specific subscription.
@@ -115,6 +116,12 @@ func (o LookupBudgetSubscriptionResultOutput) ToLookupBudgetSubscriptionResultOu
 
 func (o LookupBudgetSubscriptionResultOutput) ToLookupBudgetSubscriptionResultOutputWithContext(ctx context.Context) LookupBudgetSubscriptionResultOutput {
 	return o
+}
+
+func (o LookupBudgetSubscriptionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBudgetSubscriptionResult] {
+	return pulumix.Output[LookupBudgetSubscriptionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The total amount of cost to track with the budget.

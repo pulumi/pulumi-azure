@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Metric Alert within Azure Monitor.
@@ -396,6 +397,12 @@ func (i *MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) Metric
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertOutput)
 }
 
+func (i *MetricAlert) ToOutput(ctx context.Context) pulumix.Output[*MetricAlert] {
+	return pulumix.Output[*MetricAlert]{
+		OutputState: i.ToMetricAlertOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricAlertArrayInput is an input type that accepts MetricAlertArray and MetricAlertArrayOutput values.
 // You can construct a concrete instance of `MetricAlertArrayInput` via:
 //
@@ -419,6 +426,12 @@ func (i MetricAlertArray) ToMetricAlertArrayOutput() MetricAlertArrayOutput {
 
 func (i MetricAlertArray) ToMetricAlertArrayOutputWithContext(ctx context.Context) MetricAlertArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertArrayOutput)
+}
+
+func (i MetricAlertArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricAlert] {
+	return pulumix.Output[[]*MetricAlert]{
+		OutputState: i.ToMetricAlertArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MetricAlertMapInput is an input type that accepts MetricAlertMap and MetricAlertMapOutput values.
@@ -446,6 +459,12 @@ func (i MetricAlertMap) ToMetricAlertMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMapOutput)
 }
 
+func (i MetricAlertMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricAlert] {
+	return pulumix.Output[map[string]*MetricAlert]{
+		OutputState: i.ToMetricAlertMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricAlertOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertOutput) ElementType() reflect.Type {
@@ -458,6 +477,12 @@ func (o MetricAlertOutput) ToMetricAlertOutput() MetricAlertOutput {
 
 func (o MetricAlertOutput) ToMetricAlertOutputWithContext(ctx context.Context) MetricAlertOutput {
 	return o
+}
+
+func (o MetricAlertOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricAlert] {
+	return pulumix.Output[*MetricAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `action` blocks as defined below.
@@ -566,6 +591,12 @@ func (o MetricAlertArrayOutput) ToMetricAlertArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o MetricAlertArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricAlert] {
+	return pulumix.Output[[]*MetricAlert]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricAlertArrayOutput) Index(i pulumi.IntInput) MetricAlertOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricAlert {
 		return vs[0].([]*MetricAlert)[vs[1].(int)]
@@ -584,6 +615,12 @@ func (o MetricAlertMapOutput) ToMetricAlertMapOutput() MetricAlertMapOutput {
 
 func (o MetricAlertMapOutput) ToMetricAlertMapOutputWithContext(ctx context.Context) MetricAlertMapOutput {
 	return o
+}
+
+func (o MetricAlertMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricAlert] {
+	return pulumix.Output[map[string]*MetricAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricAlertMapOutput) MapIndex(k pulumi.StringInput) MetricAlertOutput {

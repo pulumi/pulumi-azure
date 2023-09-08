@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Connection.
@@ -214,6 +215,12 @@ func (i *ApiConnection) ToApiConnectionOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(ApiConnectionOutput)
 }
 
+func (i *ApiConnection) ToOutput(ctx context.Context) pulumix.Output[*ApiConnection] {
+	return pulumix.Output[*ApiConnection]{
+		OutputState: i.ToApiConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiConnectionArrayInput is an input type that accepts ApiConnectionArray and ApiConnectionArrayOutput values.
 // You can construct a concrete instance of `ApiConnectionArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i ApiConnectionArray) ToApiConnectionArrayOutput() ApiConnectionArrayOutpu
 
 func (i ApiConnectionArray) ToApiConnectionArrayOutputWithContext(ctx context.Context) ApiConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiConnectionArrayOutput)
+}
+
+func (i ApiConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiConnection] {
+	return pulumix.Output[[]*ApiConnection]{
+		OutputState: i.ToApiConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApiConnectionMapInput is an input type that accepts ApiConnectionMap and ApiConnectionMapOutput values.
@@ -264,6 +277,12 @@ func (i ApiConnectionMap) ToApiConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiConnectionMapOutput)
 }
 
+func (i ApiConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiConnection] {
+	return pulumix.Output[map[string]*ApiConnection]{
+		OutputState: i.ToApiConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiConnectionOutput struct{ *pulumi.OutputState }
 
 func (ApiConnectionOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o ApiConnectionOutput) ToApiConnectionOutput() ApiConnectionOutput {
 
 func (o ApiConnectionOutput) ToApiConnectionOutputWithContext(ctx context.Context) ApiConnectionOutput {
 	return o
+}
+
+func (o ApiConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiConnection] {
+	return pulumix.Output[*ApiConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A display name for this API Connection. Changing this forces a new API Connection to be created.
@@ -321,6 +346,12 @@ func (o ApiConnectionArrayOutput) ToApiConnectionArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ApiConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiConnection] {
+	return pulumix.Output[[]*ApiConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiConnectionArrayOutput) Index(i pulumi.IntInput) ApiConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiConnection {
 		return vs[0].([]*ApiConnection)[vs[1].(int)]
@@ -339,6 +370,12 @@ func (o ApiConnectionMapOutput) ToApiConnectionMapOutput() ApiConnectionMapOutpu
 
 func (o ApiConnectionMapOutput) ToApiConnectionMapOutputWithContext(ctx context.Context) ApiConnectionMapOutput {
 	return o
+}
+
+func (o ApiConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiConnection] {
+	return pulumix.Output[map[string]*ApiConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiConnectionMapOutput) MapIndex(k pulumi.StringInput) ApiConnectionOutput {

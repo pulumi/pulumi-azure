@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Container Registry Agent Pool.
@@ -226,6 +227,12 @@ func (i *RegistryAgentPool) ToRegistryAgentPoolOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryAgentPoolOutput)
 }
 
+func (i *RegistryAgentPool) ToOutput(ctx context.Context) pulumix.Output[*RegistryAgentPool] {
+	return pulumix.Output[*RegistryAgentPool]{
+		OutputState: i.ToRegistryAgentPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryAgentPoolArrayInput is an input type that accepts RegistryAgentPoolArray and RegistryAgentPoolArrayOutput values.
 // You can construct a concrete instance of `RegistryAgentPoolArrayInput` via:
 //
@@ -249,6 +256,12 @@ func (i RegistryAgentPoolArray) ToRegistryAgentPoolArrayOutput() RegistryAgentPo
 
 func (i RegistryAgentPoolArray) ToRegistryAgentPoolArrayOutputWithContext(ctx context.Context) RegistryAgentPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryAgentPoolArrayOutput)
+}
+
+func (i RegistryAgentPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryAgentPool] {
+	return pulumix.Output[[]*RegistryAgentPool]{
+		OutputState: i.ToRegistryAgentPoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryAgentPoolMapInput is an input type that accepts RegistryAgentPoolMap and RegistryAgentPoolMapOutput values.
@@ -276,6 +289,12 @@ func (i RegistryAgentPoolMap) ToRegistryAgentPoolMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryAgentPoolMapOutput)
 }
 
+func (i RegistryAgentPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryAgentPool] {
+	return pulumix.Output[map[string]*RegistryAgentPool]{
+		OutputState: i.ToRegistryAgentPoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryAgentPoolOutput struct{ *pulumi.OutputState }
 
 func (RegistryAgentPoolOutput) ElementType() reflect.Type {
@@ -288,6 +307,12 @@ func (o RegistryAgentPoolOutput) ToRegistryAgentPoolOutput() RegistryAgentPoolOu
 
 func (o RegistryAgentPoolOutput) ToRegistryAgentPoolOutputWithContext(ctx context.Context) RegistryAgentPoolOutput {
 	return o
+}
+
+func (o RegistryAgentPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryAgentPool] {
+	return pulumix.Output[*RegistryAgentPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
@@ -344,6 +369,12 @@ func (o RegistryAgentPoolArrayOutput) ToRegistryAgentPoolArrayOutputWithContext(
 	return o
 }
 
+func (o RegistryAgentPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryAgentPool] {
+	return pulumix.Output[[]*RegistryAgentPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryAgentPoolArrayOutput) Index(i pulumi.IntInput) RegistryAgentPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryAgentPool {
 		return vs[0].([]*RegistryAgentPool)[vs[1].(int)]
@@ -362,6 +393,12 @@ func (o RegistryAgentPoolMapOutput) ToRegistryAgentPoolMapOutput() RegistryAgent
 
 func (o RegistryAgentPoolMapOutput) ToRegistryAgentPoolMapOutputWithContext(ctx context.Context) RegistryAgentPoolMapOutput {
 	return o
+}
+
+func (o RegistryAgentPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryAgentPool] {
+	return pulumix.Output[map[string]*RegistryAgentPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryAgentPoolMapOutput) MapIndex(k pulumi.StringInput) RegistryAgentPoolOutput {

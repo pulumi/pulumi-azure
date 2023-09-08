@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages private and isolated Logic App instances within an Azure virtual network.
@@ -316,6 +317,12 @@ func (i *InterationServiceEnvironment) ToInterationServiceEnvironmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentOutput)
 }
 
+func (i *InterationServiceEnvironment) ToOutput(ctx context.Context) pulumix.Output[*InterationServiceEnvironment] {
+	return pulumix.Output[*InterationServiceEnvironment]{
+		OutputState: i.ToInterationServiceEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InterationServiceEnvironmentArrayInput is an input type that accepts InterationServiceEnvironmentArray and InterationServiceEnvironmentArrayOutput values.
 // You can construct a concrete instance of `InterationServiceEnvironmentArrayInput` via:
 //
@@ -339,6 +346,12 @@ func (i InterationServiceEnvironmentArray) ToInterationServiceEnvironmentArrayOu
 
 func (i InterationServiceEnvironmentArray) ToInterationServiceEnvironmentArrayOutputWithContext(ctx context.Context) InterationServiceEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentArrayOutput)
+}
+
+func (i InterationServiceEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*InterationServiceEnvironment] {
+	return pulumix.Output[[]*InterationServiceEnvironment]{
+		OutputState: i.ToInterationServiceEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InterationServiceEnvironmentMapInput is an input type that accepts InterationServiceEnvironmentMap and InterationServiceEnvironmentMapOutput values.
@@ -366,6 +379,12 @@ func (i InterationServiceEnvironmentMap) ToInterationServiceEnvironmentMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InterationServiceEnvironmentMapOutput)
 }
 
+func (i InterationServiceEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InterationServiceEnvironment] {
+	return pulumix.Output[map[string]*InterationServiceEnvironment]{
+		OutputState: i.ToInterationServiceEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InterationServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (InterationServiceEnvironmentOutput) ElementType() reflect.Type {
@@ -378,6 +397,12 @@ func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutput
 
 func (o InterationServiceEnvironmentOutput) ToInterationServiceEnvironmentOutputWithContext(ctx context.Context) InterationServiceEnvironmentOutput {
 	return o
+}
+
+func (o InterationServiceEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*InterationServiceEnvironment] {
+	return pulumix.Output[*InterationServiceEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
@@ -451,6 +476,12 @@ func (o InterationServiceEnvironmentArrayOutput) ToInterationServiceEnvironmentA
 	return o
 }
 
+func (o InterationServiceEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InterationServiceEnvironment] {
+	return pulumix.Output[[]*InterationServiceEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InterationServiceEnvironmentArrayOutput) Index(i pulumi.IntInput) InterationServiceEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InterationServiceEnvironment {
 		return vs[0].([]*InterationServiceEnvironment)[vs[1].(int)]
@@ -469,6 +500,12 @@ func (o InterationServiceEnvironmentMapOutput) ToInterationServiceEnvironmentMap
 
 func (o InterationServiceEnvironmentMapOutput) ToInterationServiceEnvironmentMapOutputWithContext(ctx context.Context) InterationServiceEnvironmentMapOutput {
 	return o
+}
+
+func (o InterationServiceEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InterationServiceEnvironment] {
+	return pulumix.Output[map[string]*InterationServiceEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InterationServiceEnvironmentMapOutput) MapIndex(k pulumi.StringInput) InterationServiceEnvironmentOutput {

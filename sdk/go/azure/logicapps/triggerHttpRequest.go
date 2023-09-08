@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HTTP Request Trigger within a Logic App Workflow
@@ -230,6 +231,12 @@ func (i *TriggerHttpRequest) ToTriggerHttpRequestOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestOutput)
 }
 
+func (i *TriggerHttpRequest) ToOutput(ctx context.Context) pulumix.Output[*TriggerHttpRequest] {
+	return pulumix.Output[*TriggerHttpRequest]{
+		OutputState: i.ToTriggerHttpRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TriggerHttpRequestArrayInput is an input type that accepts TriggerHttpRequestArray and TriggerHttpRequestArrayOutput values.
 // You can construct a concrete instance of `TriggerHttpRequestArrayInput` via:
 //
@@ -253,6 +260,12 @@ func (i TriggerHttpRequestArray) ToTriggerHttpRequestArrayOutput() TriggerHttpRe
 
 func (i TriggerHttpRequestArray) ToTriggerHttpRequestArrayOutputWithContext(ctx context.Context) TriggerHttpRequestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestArrayOutput)
+}
+
+func (i TriggerHttpRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerHttpRequest] {
+	return pulumix.Output[[]*TriggerHttpRequest]{
+		OutputState: i.ToTriggerHttpRequestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TriggerHttpRequestMapInput is an input type that accepts TriggerHttpRequestMap and TriggerHttpRequestMapOutput values.
@@ -280,6 +293,12 @@ func (i TriggerHttpRequestMap) ToTriggerHttpRequestMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerHttpRequestMapOutput)
 }
 
+func (i TriggerHttpRequestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerHttpRequest] {
+	return pulumix.Output[map[string]*TriggerHttpRequest]{
+		OutputState: i.ToTriggerHttpRequestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TriggerHttpRequestOutput struct{ *pulumi.OutputState }
 
 func (TriggerHttpRequestOutput) ElementType() reflect.Type {
@@ -292,6 +311,12 @@ func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutput() TriggerHttpReques
 
 func (o TriggerHttpRequestOutput) ToTriggerHttpRequestOutputWithContext(ctx context.Context) TriggerHttpRequestOutput {
 	return o
+}
+
+func (o TriggerHttpRequestOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerHttpRequest] {
+	return pulumix.Output[*TriggerHttpRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The URL for the workflow trigger
@@ -342,6 +367,12 @@ func (o TriggerHttpRequestArrayOutput) ToTriggerHttpRequestArrayOutputWithContex
 	return o
 }
 
+func (o TriggerHttpRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerHttpRequest] {
+	return pulumix.Output[[]*TriggerHttpRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TriggerHttpRequestArrayOutput) Index(i pulumi.IntInput) TriggerHttpRequestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerHttpRequest {
 		return vs[0].([]*TriggerHttpRequest)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o TriggerHttpRequestMapOutput) ToTriggerHttpRequestMapOutput() TriggerHttp
 
 func (o TriggerHttpRequestMapOutput) ToTriggerHttpRequestMapOutputWithContext(ctx context.Context) TriggerHttpRequestMapOutput {
 	return o
+}
+
+func (o TriggerHttpRequestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerHttpRequest] {
+	return pulumix.Output[map[string]*TriggerHttpRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TriggerHttpRequestMapOutput) MapIndex(k pulumi.StringInput) TriggerHttpRequestOutput {

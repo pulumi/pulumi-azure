@@ -10,11 +10,12 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Managed Hardware Security Module.
 //
-// > **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
+// > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
 //
 // ## Example Usage
 //
@@ -305,6 +306,12 @@ func (i *ManagedHardwareSecurityModule) ToManagedHardwareSecurityModuleOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleOutput)
 }
 
+func (i *ManagedHardwareSecurityModule) ToOutput(ctx context.Context) pulumix.Output[*ManagedHardwareSecurityModule] {
+	return pulumix.Output[*ManagedHardwareSecurityModule]{
+		OutputState: i.ToManagedHardwareSecurityModuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedHardwareSecurityModuleArrayInput is an input type that accepts ManagedHardwareSecurityModuleArray and ManagedHardwareSecurityModuleArrayOutput values.
 // You can construct a concrete instance of `ManagedHardwareSecurityModuleArrayInput` via:
 //
@@ -328,6 +335,12 @@ func (i ManagedHardwareSecurityModuleArray) ToManagedHardwareSecurityModuleArray
 
 func (i ManagedHardwareSecurityModuleArray) ToManagedHardwareSecurityModuleArrayOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleArrayOutput)
+}
+
+func (i ManagedHardwareSecurityModuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedHardwareSecurityModule] {
+	return pulumix.Output[[]*ManagedHardwareSecurityModule]{
+		OutputState: i.ToManagedHardwareSecurityModuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedHardwareSecurityModuleMapInput is an input type that accepts ManagedHardwareSecurityModuleMap and ManagedHardwareSecurityModuleMapOutput values.
@@ -355,6 +368,12 @@ func (i ManagedHardwareSecurityModuleMap) ToManagedHardwareSecurityModuleMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleMapOutput)
 }
 
+func (i ManagedHardwareSecurityModuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedHardwareSecurityModule] {
+	return pulumix.Output[map[string]*ManagedHardwareSecurityModule]{
+		OutputState: i.ToManagedHardwareSecurityModuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedHardwareSecurityModuleOutput struct{ *pulumi.OutputState }
 
 func (ManagedHardwareSecurityModuleOutput) ElementType() reflect.Type {
@@ -367,6 +386,12 @@ func (o ManagedHardwareSecurityModuleOutput) ToManagedHardwareSecurityModuleOutp
 
 func (o ManagedHardwareSecurityModuleOutput) ToManagedHardwareSecurityModuleOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleOutput {
 	return o
+}
+
+func (o ManagedHardwareSecurityModuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedHardwareSecurityModule] {
+	return pulumix.Output[*ManagedHardwareSecurityModule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -462,6 +487,12 @@ func (o ManagedHardwareSecurityModuleArrayOutput) ToManagedHardwareSecurityModul
 	return o
 }
 
+func (o ManagedHardwareSecurityModuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedHardwareSecurityModule] {
+	return pulumix.Output[[]*ManagedHardwareSecurityModule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedHardwareSecurityModuleArrayOutput) Index(i pulumi.IntInput) ManagedHardwareSecurityModuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedHardwareSecurityModule {
 		return vs[0].([]*ManagedHardwareSecurityModule)[vs[1].(int)]
@@ -480,6 +511,12 @@ func (o ManagedHardwareSecurityModuleMapOutput) ToManagedHardwareSecurityModuleM
 
 func (o ManagedHardwareSecurityModuleMapOutput) ToManagedHardwareSecurityModuleMapOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleMapOutput {
 	return o
+}
+
+func (o ManagedHardwareSecurityModuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedHardwareSecurityModule] {
+	return pulumix.Output[map[string]*ManagedHardwareSecurityModule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedHardwareSecurityModuleMapOutput) MapIndex(k pulumi.StringInput) ManagedHardwareSecurityModuleOutput {

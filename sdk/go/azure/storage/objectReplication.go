@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Object Replication.
@@ -234,6 +235,12 @@ func (i *ObjectReplication) ToObjectReplicationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationOutput)
 }
 
+func (i *ObjectReplication) ToOutput(ctx context.Context) pulumix.Output[*ObjectReplication] {
+	return pulumix.Output[*ObjectReplication]{
+		OutputState: i.ToObjectReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObjectReplicationArrayInput is an input type that accepts ObjectReplicationArray and ObjectReplicationArrayOutput values.
 // You can construct a concrete instance of `ObjectReplicationArrayInput` via:
 //
@@ -257,6 +264,12 @@ func (i ObjectReplicationArray) ToObjectReplicationArrayOutput() ObjectReplicati
 
 func (i ObjectReplicationArray) ToObjectReplicationArrayOutputWithContext(ctx context.Context) ObjectReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationArrayOutput)
+}
+
+func (i ObjectReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectReplication] {
+	return pulumix.Output[[]*ObjectReplication]{
+		OutputState: i.ToObjectReplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ObjectReplicationMapInput is an input type that accepts ObjectReplicationMap and ObjectReplicationMapOutput values.
@@ -284,6 +297,12 @@ func (i ObjectReplicationMap) ToObjectReplicationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationMapOutput)
 }
 
+func (i ObjectReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectReplication] {
+	return pulumix.Output[map[string]*ObjectReplication]{
+		OutputState: i.ToObjectReplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObjectReplicationOutput struct{ *pulumi.OutputState }
 
 func (ObjectReplicationOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o ObjectReplicationOutput) ToObjectReplicationOutput() ObjectReplicationOu
 
 func (o ObjectReplicationOutput) ToObjectReplicationOutputWithContext(ctx context.Context) ObjectReplicationOutput {
 	return o
+}
+
+func (o ObjectReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectReplication] {
+	return pulumix.Output[*ObjectReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Object Replication in the destination storage account.
@@ -337,6 +362,12 @@ func (o ObjectReplicationArrayOutput) ToObjectReplicationArrayOutputWithContext(
 	return o
 }
 
+func (o ObjectReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectReplication] {
+	return pulumix.Output[[]*ObjectReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectReplicationArrayOutput) Index(i pulumi.IntInput) ObjectReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectReplication {
 		return vs[0].([]*ObjectReplication)[vs[1].(int)]
@@ -355,6 +386,12 @@ func (o ObjectReplicationMapOutput) ToObjectReplicationMapOutput() ObjectReplica
 
 func (o ObjectReplicationMapOutput) ToObjectReplicationMapOutputWithContext(ctx context.Context) ObjectReplicationMapOutput {
 	return o
+}
+
+func (o ObjectReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectReplication] {
+	return pulumix.Output[map[string]*ObjectReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObjectReplicationMapOutput) MapIndex(k pulumi.StringInput) ObjectReplicationOutput {

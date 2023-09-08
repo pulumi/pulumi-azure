@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Windows Virtual Machine Scale Set.
@@ -952,6 +953,12 @@ func (i *WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOutput)
 }
 
+func (i *WindowsVirtualMachineScaleSet) ToOutput(ctx context.Context) pulumix.Output[*WindowsVirtualMachineScaleSet] {
+	return pulumix.Output[*WindowsVirtualMachineScaleSet]{
+		OutputState: i.ToWindowsVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WindowsVirtualMachineScaleSetArrayInput is an input type that accepts WindowsVirtualMachineScaleSetArray and WindowsVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetArrayInput` via:
 //
@@ -975,6 +982,12 @@ func (i WindowsVirtualMachineScaleSetArray) ToWindowsVirtualMachineScaleSetArray
 
 func (i WindowsVirtualMachineScaleSetArray) ToWindowsVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetArrayOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsVirtualMachineScaleSet] {
+	return pulumix.Output[[]*WindowsVirtualMachineScaleSet]{
+		OutputState: i.ToWindowsVirtualMachineScaleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WindowsVirtualMachineScaleSetMapInput is an input type that accepts WindowsVirtualMachineScaleSetMap and WindowsVirtualMachineScaleSetMapOutput values.
@@ -1002,6 +1015,12 @@ func (i WindowsVirtualMachineScaleSetMap) ToWindowsVirtualMachineScaleSetMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetMapOutput)
 }
 
+func (i WindowsVirtualMachineScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsVirtualMachineScaleSet] {
+	return pulumix.Output[map[string]*WindowsVirtualMachineScaleSet]{
+		OutputState: i.ToWindowsVirtualMachineScaleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WindowsVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -1014,6 +1033,12 @@ func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetOutp
 
 func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsVirtualMachineScaleSet] {
+	return pulumix.Output[*WindowsVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `additionalCapabilities` block as defined below.
@@ -1392,6 +1417,12 @@ func (o WindowsVirtualMachineScaleSetArrayOutput) ToWindowsVirtualMachineScaleSe
 	return o
 }
 
+func (o WindowsVirtualMachineScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsVirtualMachineScaleSet] {
+	return pulumix.Output[[]*WindowsVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WindowsVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsVirtualMachineScaleSet {
 		return vs[0].([]*WindowsVirtualMachineScaleSet)[vs[1].(int)]
@@ -1410,6 +1441,12 @@ func (o WindowsVirtualMachineScaleSetMapOutput) ToWindowsVirtualMachineScaleSetM
 
 func (o WindowsVirtualMachineScaleSetMapOutput) ToWindowsVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetMapOutput {
 	return o
+}
+
+func (o WindowsVirtualMachineScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsVirtualMachineScaleSet] {
+	return pulumix.Output[map[string]*WindowsVirtualMachineScaleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WindowsVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) WindowsVirtualMachineScaleSetOutput {

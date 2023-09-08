@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the connection status information about an existing Private Endpoint Connection.
@@ -109,6 +110,12 @@ func (o GetEndpointConnectionResultOutput) ToGetEndpointConnectionResultOutput()
 
 func (o GetEndpointConnectionResultOutput) ToGetEndpointConnectionResultOutputWithContext(ctx context.Context) GetEndpointConnectionResultOutput {
 	return o
+}
+
+func (o GetEndpointConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionResult] {
+	return pulumix.Output[GetEndpointConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

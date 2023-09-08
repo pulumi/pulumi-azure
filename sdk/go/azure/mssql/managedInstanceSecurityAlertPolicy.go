@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Alert Policy for an MS SQL Managed Instance.
@@ -464,6 +465,12 @@ func (i *ManagedInstanceSecurityAlertPolicy) ToManagedInstanceSecurityAlertPolic
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceSecurityAlertPolicyOutput)
 }
 
+func (i *ManagedInstanceSecurityAlertPolicy) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceSecurityAlertPolicy] {
+	return pulumix.Output[*ManagedInstanceSecurityAlertPolicy]{
+		OutputState: i.ToManagedInstanceSecurityAlertPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedInstanceSecurityAlertPolicyArrayInput is an input type that accepts ManagedInstanceSecurityAlertPolicyArray and ManagedInstanceSecurityAlertPolicyArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceSecurityAlertPolicyArrayInput` via:
 //
@@ -487,6 +494,12 @@ func (i ManagedInstanceSecurityAlertPolicyArray) ToManagedInstanceSecurityAlertP
 
 func (i ManagedInstanceSecurityAlertPolicyArray) ToManagedInstanceSecurityAlertPolicyArrayOutputWithContext(ctx context.Context) ManagedInstanceSecurityAlertPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceSecurityAlertPolicyArrayOutput)
+}
+
+func (i ManagedInstanceSecurityAlertPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceSecurityAlertPolicy] {
+	return pulumix.Output[[]*ManagedInstanceSecurityAlertPolicy]{
+		OutputState: i.ToManagedInstanceSecurityAlertPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedInstanceSecurityAlertPolicyMapInput is an input type that accepts ManagedInstanceSecurityAlertPolicyMap and ManagedInstanceSecurityAlertPolicyMapOutput values.
@@ -514,6 +527,12 @@ func (i ManagedInstanceSecurityAlertPolicyMap) ToManagedInstanceSecurityAlertPol
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceSecurityAlertPolicyMapOutput)
 }
 
+func (i ManagedInstanceSecurityAlertPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*ManagedInstanceSecurityAlertPolicy]{
+		OutputState: i.ToManagedInstanceSecurityAlertPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceSecurityAlertPolicyOutput) ElementType() reflect.Type {
@@ -526,6 +545,12 @@ func (o ManagedInstanceSecurityAlertPolicyOutput) ToManagedInstanceSecurityAlert
 
 func (o ManagedInstanceSecurityAlertPolicyOutput) ToManagedInstanceSecurityAlertPolicyOutputWithContext(ctx context.Context) ManagedInstanceSecurityAlertPolicyOutput {
 	return o
+}
+
+func (o ManagedInstanceSecurityAlertPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceSecurityAlertPolicy] {
+	return pulumix.Output[*ManagedInstanceSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
@@ -589,6 +614,12 @@ func (o ManagedInstanceSecurityAlertPolicyArrayOutput) ToManagedInstanceSecurity
 	return o
 }
 
+func (o ManagedInstanceSecurityAlertPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceSecurityAlertPolicy] {
+	return pulumix.Output[[]*ManagedInstanceSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedInstanceSecurityAlertPolicyArrayOutput) Index(i pulumi.IntInput) ManagedInstanceSecurityAlertPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstanceSecurityAlertPolicy {
 		return vs[0].([]*ManagedInstanceSecurityAlertPolicy)[vs[1].(int)]
@@ -607,6 +638,12 @@ func (o ManagedInstanceSecurityAlertPolicyMapOutput) ToManagedInstanceSecurityAl
 
 func (o ManagedInstanceSecurityAlertPolicyMapOutput) ToManagedInstanceSecurityAlertPolicyMapOutputWithContext(ctx context.Context) ManagedInstanceSecurityAlertPolicyMapOutput {
 	return o
+}
+
+func (o ManagedInstanceSecurityAlertPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceSecurityAlertPolicy] {
+	return pulumix.Output[map[string]*ManagedInstanceSecurityAlertPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceSecurityAlertPolicyOutput {

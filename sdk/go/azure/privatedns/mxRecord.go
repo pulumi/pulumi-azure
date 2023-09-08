@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to manage DNS MX Records within Azure Private DNS.
@@ -229,6 +230,12 @@ func (i *MxRecord) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordOutput)
 }
 
+func (i *MxRecord) ToOutput(ctx context.Context) pulumix.Output[*MxRecord] {
+	return pulumix.Output[*MxRecord]{
+		OutputState: i.ToMxRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MxRecordArrayInput is an input type that accepts MxRecordArray and MxRecordArrayOutput values.
 // You can construct a concrete instance of `MxRecordArrayInput` via:
 //
@@ -252,6 +259,12 @@ func (i MxRecordArray) ToMxRecordArrayOutput() MxRecordArrayOutput {
 
 func (i MxRecordArray) ToMxRecordArrayOutputWithContext(ctx context.Context) MxRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordArrayOutput)
+}
+
+func (i MxRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*MxRecord] {
+	return pulumix.Output[[]*MxRecord]{
+		OutputState: i.ToMxRecordArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MxRecordMapInput is an input type that accepts MxRecordMap and MxRecordMapOutput values.
@@ -279,6 +292,12 @@ func (i MxRecordMap) ToMxRecordMapOutputWithContext(ctx context.Context) MxRecor
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordMapOutput)
 }
 
+func (i MxRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MxRecord] {
+	return pulumix.Output[map[string]*MxRecord]{
+		OutputState: i.ToMxRecordMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MxRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordOutput) ElementType() reflect.Type {
@@ -291,6 +310,12 @@ func (o MxRecordOutput) ToMxRecordOutput() MxRecordOutput {
 
 func (o MxRecordOutput) ToMxRecordOutputWithContext(ctx context.Context) MxRecordOutput {
 	return o
+}
+
+func (o MxRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*MxRecord] {
+	return pulumix.Output[*MxRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN of the DNS MX Record.
@@ -342,6 +367,12 @@ func (o MxRecordArrayOutput) ToMxRecordArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o MxRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MxRecord] {
+	return pulumix.Output[[]*MxRecord]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MxRecordArrayOutput) Index(i pulumi.IntInput) MxRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MxRecord {
 		return vs[0].([]*MxRecord)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o MxRecordMapOutput) ToMxRecordMapOutput() MxRecordMapOutput {
 
 func (o MxRecordMapOutput) ToMxRecordMapOutputWithContext(ctx context.Context) MxRecordMapOutput {
 	return o
+}
+
+func (o MxRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MxRecord] {
+	return pulumix.Output[map[string]*MxRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MxRecordMapOutput) MapIndex(k pulumi.StringInput) MxRecordOutput {

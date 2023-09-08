@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a File within an Azure Storage File Share.
@@ -246,6 +247,12 @@ func (i *ShareFile) ToShareFileOutputWithContext(ctx context.Context) ShareFileO
 	return pulumi.ToOutputWithContext(ctx, i).(ShareFileOutput)
 }
 
+func (i *ShareFile) ToOutput(ctx context.Context) pulumix.Output[*ShareFile] {
+	return pulumix.Output[*ShareFile]{
+		OutputState: i.ToShareFileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ShareFileArrayInput is an input type that accepts ShareFileArray and ShareFileArrayOutput values.
 // You can construct a concrete instance of `ShareFileArrayInput` via:
 //
@@ -269,6 +276,12 @@ func (i ShareFileArray) ToShareFileArrayOutput() ShareFileArrayOutput {
 
 func (i ShareFileArray) ToShareFileArrayOutputWithContext(ctx context.Context) ShareFileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareFileArrayOutput)
+}
+
+func (i ShareFileArray) ToOutput(ctx context.Context) pulumix.Output[[]*ShareFile] {
+	return pulumix.Output[[]*ShareFile]{
+		OutputState: i.ToShareFileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ShareFileMapInput is an input type that accepts ShareFileMap and ShareFileMapOutput values.
@@ -296,6 +309,12 @@ func (i ShareFileMap) ToShareFileMapOutputWithContext(ctx context.Context) Share
 	return pulumi.ToOutputWithContext(ctx, i).(ShareFileMapOutput)
 }
 
+func (i ShareFileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ShareFile] {
+	return pulumix.Output[map[string]*ShareFile]{
+		OutputState: i.ToShareFileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ShareFileOutput struct{ *pulumi.OutputState }
 
 func (ShareFileOutput) ElementType() reflect.Type {
@@ -308,6 +327,12 @@ func (o ShareFileOutput) ToShareFileOutput() ShareFileOutput {
 
 func (o ShareFileOutput) ToShareFileOutputWithContext(ctx context.Context) ShareFileOutput {
 	return o
+}
+
+func (o ShareFileOutput) ToOutput(ctx context.Context) pulumix.Output[*ShareFile] {
+	return pulumix.Output[*ShareFile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Sets the file’s Content-Disposition header.
@@ -374,6 +399,12 @@ func (o ShareFileArrayOutput) ToShareFileArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ShareFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ShareFile] {
+	return pulumix.Output[[]*ShareFile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ShareFileArrayOutput) Index(i pulumi.IntInput) ShareFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ShareFile {
 		return vs[0].([]*ShareFile)[vs[1].(int)]
@@ -392,6 +423,12 @@ func (o ShareFileMapOutput) ToShareFileMapOutput() ShareFileMapOutput {
 
 func (o ShareFileMapOutput) ToShareFileMapOutputWithContext(ctx context.Context) ShareFileMapOutput {
 	return o
+}
+
+func (o ShareFileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ShareFile] {
+	return pulumix.Output[map[string]*ShareFile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ShareFileMapOutput) MapIndex(k pulumi.StringInput) ShareFileOutput {

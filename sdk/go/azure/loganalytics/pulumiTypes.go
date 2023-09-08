@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
 }
 
+func (i ClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterIdentity] {
+	return pulumix.Output[ClusterIdentity]{
+		OutputState: i.ToClusterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterIdentityArgs) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
 	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPtrOutput)
 }
 
+func (i *clusterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterIdentity] {
+	return pulumix.Output[*ClusterIdentity]{
+		OutputState: i.ToClusterIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
 		return &v
 	}).(ClusterIdentityPtrOutput)
+}
+
+func (o ClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterIdentity] {
+	return pulumix.Output[ClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -152,6 +171,12 @@ func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutput() ClusterIdentityPt
 
 func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
 	return o
+}
+
+func (o ClusterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterIdentity] {
+	return pulumix.Output[*ClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {

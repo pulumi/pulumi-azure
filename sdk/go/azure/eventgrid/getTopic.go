@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing EventGrid Topic
@@ -111,6 +112,12 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOu
 
 func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
 	return o
+}
+
+func (o LookupTopicResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTopicResult] {
+	return pulumix.Output[LookupTopicResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Endpoint associated with the EventGrid Topic.

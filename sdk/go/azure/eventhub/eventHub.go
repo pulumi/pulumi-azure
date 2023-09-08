@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Event Hubs as a nested resource within a Event Hubs namespace.
@@ -263,6 +264,12 @@ func (i *EventHub) ToEventHubOutputWithContext(ctx context.Context) EventHubOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutput)
 }
 
+func (i *EventHub) ToOutput(ctx context.Context) pulumix.Output[*EventHub] {
+	return pulumix.Output[*EventHub]{
+		OutputState: i.ToEventHubOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventHubArrayInput is an input type that accepts EventHubArray and EventHubArrayOutput values.
 // You can construct a concrete instance of `EventHubArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i EventHubArray) ToEventHubArrayOutput() EventHubArrayOutput {
 
 func (i EventHubArray) ToEventHubArrayOutputWithContext(ctx context.Context) EventHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubArrayOutput)
+}
+
+func (i EventHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHub] {
+	return pulumix.Output[[]*EventHub]{
+		OutputState: i.ToEventHubArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventHubMapInput is an input type that accepts EventHubMap and EventHubMapOutput values.
@@ -313,6 +326,12 @@ func (i EventHubMap) ToEventHubMapOutputWithContext(ctx context.Context) EventHu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubMapOutput)
 }
 
+func (i EventHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHub] {
+	return pulumix.Output[map[string]*EventHub]{
+		OutputState: i.ToEventHubMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o EventHubOutput) ToEventHubOutput() EventHubOutput {
 
 func (o EventHubOutput) ToEventHubOutputWithContext(ctx context.Context) EventHubOutput {
 	return o
+}
+
+func (o EventHubOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHub] {
+	return pulumix.Output[*EventHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `captureDescription` block as defined below.
@@ -387,6 +412,12 @@ func (o EventHubArrayOutput) ToEventHubArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EventHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHub] {
+	return pulumix.Output[[]*EventHub]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventHubArrayOutput) Index(i pulumi.IntInput) EventHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHub {
 		return vs[0].([]*EventHub)[vs[1].(int)]
@@ -405,6 +436,12 @@ func (o EventHubMapOutput) ToEventHubMapOutput() EventHubMapOutput {
 
 func (o EventHubMapOutput) ToEventHubMapOutputWithContext(ctx context.Context) EventHubMapOutput {
 	return o
+}
+
+func (o EventHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHub] {
+	return pulumix.Output[map[string]*EventHub]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubMapOutput) MapIndex(k pulumi.StringInput) EventHubOutput {

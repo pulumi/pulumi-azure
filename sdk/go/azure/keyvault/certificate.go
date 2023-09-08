@@ -10,10 +10,16 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Certificate.
 //
+// <<<<<<< HEAD
+// > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedCertificatesOnDestroy` for more information.
+//
+// =======
+// > > > > > > > 8d78c87098 (Update-documentation)
 // ## Example Usage
 // ### Importing A PFX)
 //
@@ -278,7 +284,7 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// A `certificate` block as defined below, used to Import an existing certificate.
+	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate CertificateCertificatePtrOutput `pulumi:"certificate"`
 	// A `certificateAttribute` block as defined below.
 	CertificateAttributes CertificateCertificateAttributeArrayOutput `pulumi:"certificateAttributes"`
@@ -286,7 +292,7 @@ type Certificate struct {
 	CertificateData pulumi.StringOutput `pulumi:"certificateData"`
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringOutput `pulumi:"certificateDataBase64"`
-	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyOutput `pulumi:"certificatePolicy"`
@@ -351,7 +357,7 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// A `certificate` block as defined below, used to Import an existing certificate.
+	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate *CertificateCertificate `pulumi:"certificate"`
 	// A `certificateAttribute` block as defined below.
 	CertificateAttributes []CertificateCertificateAttribute `pulumi:"certificateAttributes"`
@@ -359,7 +365,7 @@ type certificateState struct {
 	CertificateData *string `pulumi:"certificateData"`
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 *string `pulumi:"certificateDataBase64"`
-	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
@@ -386,7 +392,7 @@ type certificateState struct {
 }
 
 type CertificateState struct {
-	// A `certificate` block as defined below, used to Import an existing certificate.
+	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate CertificateCertificatePtrInput
 	// A `certificateAttribute` block as defined below.
 	CertificateAttributes CertificateCertificateAttributeArrayInput
@@ -394,7 +400,7 @@ type CertificateState struct {
 	CertificateData pulumi.StringPtrInput
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringPtrInput
-	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
@@ -425,9 +431,9 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// A `certificate` block as defined below, used to Import an existing certificate.
+	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate *CertificateCertificate `pulumi:"certificate"`
-	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
@@ -441,9 +447,9 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// A `certificate` block as defined below, used to Import an existing certificate.
+	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate CertificateCertificatePtrInput
-	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
@@ -478,6 +484,12 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
+func (i *Certificate) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: i.ToCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
@@ -501,6 +513,12 @@ func (i CertificateArray) ToCertificateArrayOutput() CertificateArrayOutput {
 
 func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateArrayOutput)
+}
+
+func (i CertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: i.ToCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
@@ -528,6 +546,12 @@ func (i CertificateMap) ToCertificateMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateMapOutput)
 }
 
+func (i CertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: i.ToCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
@@ -542,7 +566,13 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// A `certificate` block as defined below, used to Import an existing certificate.
+func (o CertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 func (o CertificateOutput) Certificate() CertificateCertificatePtrOutput {
 	return o.ApplyT(func(v *Certificate) CertificateCertificatePtrOutput { return v.Certificate }).(CertificateCertificatePtrOutput)
 }
@@ -562,7 +592,7 @@ func (o CertificateOutput) CertificateDataBase64() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateDataBase64 }).(pulumi.StringOutput)
 }
 
-// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 //
 // > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 func (o CertificateOutput) CertificatePolicy() CertificateCertificatePolicyOutput {
@@ -633,6 +663,12 @@ func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certificate {
 		return vs[0].([]*Certificate)[vs[1].(int)]
@@ -651,6 +687,12 @@ func (o CertificateMapOutput) ToCertificateMapOutput() CertificateMapOutput {
 
 func (o CertificateMapOutput) ToCertificateMapOutputWithContext(ctx context.Context) CertificateMapOutput {
 	return o
+}
+
+func (o CertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateOutput {

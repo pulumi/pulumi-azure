@@ -6971,6 +6971,9 @@ class DiagnosticSettingEnabledLogArgs:
         if category_group is not None:
             pulumi.set(__self__, "category_group", category_group)
         if retention_policy is not None:
+            warnings.warn("""`retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+        if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
 
     @property
@@ -7007,6 +7010,9 @@ class DiagnosticSettingEnabledLogArgs:
         """
         A `retention_policy` block as defined below.
         """
+        warnings.warn("""`retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter

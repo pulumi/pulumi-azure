@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Contact profile.
@@ -306,6 +307,12 @@ func (i *ContactProfile) ToContactProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileOutput)
 }
 
+func (i *ContactProfile) ToOutput(ctx context.Context) pulumix.Output[*ContactProfile] {
+	return pulumix.Output[*ContactProfile]{
+		OutputState: i.ToContactProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContactProfileArrayInput is an input type that accepts ContactProfileArray and ContactProfileArrayOutput values.
 // You can construct a concrete instance of `ContactProfileArrayInput` via:
 //
@@ -329,6 +336,12 @@ func (i ContactProfileArray) ToContactProfileArrayOutput() ContactProfileArrayOu
 
 func (i ContactProfileArray) ToContactProfileArrayOutputWithContext(ctx context.Context) ContactProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileArrayOutput)
+}
+
+func (i ContactProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContactProfile] {
+	return pulumix.Output[[]*ContactProfile]{
+		OutputState: i.ToContactProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContactProfileMapInput is an input type that accepts ContactProfileMap and ContactProfileMapOutput values.
@@ -356,6 +369,12 @@ func (i ContactProfileMap) ToContactProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileMapOutput)
 }
 
+func (i ContactProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactProfile] {
+	return pulumix.Output[map[string]*ContactProfile]{
+		OutputState: i.ToContactProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContactProfileOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileOutput) ElementType() reflect.Type {
@@ -368,6 +387,12 @@ func (o ContactProfileOutput) ToContactProfileOutput() ContactProfileOutput {
 
 func (o ContactProfileOutput) ToContactProfileOutputWithContext(ctx context.Context) ContactProfileOutput {
 	return o
+}
+
+func (o ContactProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactProfile] {
+	return pulumix.Output[*ContactProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
@@ -434,6 +459,12 @@ func (o ContactProfileArrayOutput) ToContactProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ContactProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContactProfile] {
+	return pulumix.Output[[]*ContactProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactProfileArrayOutput) Index(i pulumi.IntInput) ContactProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContactProfile {
 		return vs[0].([]*ContactProfile)[vs[1].(int)]
@@ -452,6 +483,12 @@ func (o ContactProfileMapOutput) ToContactProfileMapOutput() ContactProfileMapOu
 
 func (o ContactProfileMapOutput) ToContactProfileMapOutputWithContext(ctx context.Context) ContactProfileMapOutput {
 	return o
+}
+
+func (o ContactProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactProfile] {
+	return pulumix.Output[map[string]*ContactProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactProfileMapOutput) MapIndex(k pulumi.StringInput) ContactProfileOutput {

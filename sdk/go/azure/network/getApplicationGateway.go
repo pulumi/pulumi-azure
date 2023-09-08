@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Application Gateway.
@@ -113,6 +114,12 @@ func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOu
 
 func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOutputWithContext(ctx context.Context) LookupApplicationGatewayResultOutput {
 	return o
+}
+
+func (o LookupApplicationGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationGatewayResult] {
+	return pulumix.Output[LookupApplicationGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `backendAddressPool` block as defined below.

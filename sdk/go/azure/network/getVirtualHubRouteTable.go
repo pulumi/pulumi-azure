@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an existing Virtual Hub Route Table.
@@ -117,6 +118,12 @@ func (o LookupVirtualHubRouteTableResultOutput) ToLookupVirtualHubRouteTableResu
 
 func (o LookupVirtualHubRouteTableResultOutput) ToLookupVirtualHubRouteTableResultOutputWithContext(ctx context.Context) LookupVirtualHubRouteTableResultOutput {
 	return o
+}
+
+func (o LookupVirtualHubRouteTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualHubRouteTableResult] {
+	return pulumix.Output[LookupVirtualHubRouteTableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

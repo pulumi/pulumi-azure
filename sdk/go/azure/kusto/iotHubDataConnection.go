@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
@@ -341,6 +342,12 @@ func (i *IotHubDataConnection) ToIotHubDataConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionOutput)
 }
 
+func (i *IotHubDataConnection) ToOutput(ctx context.Context) pulumix.Output[*IotHubDataConnection] {
+	return pulumix.Output[*IotHubDataConnection]{
+		OutputState: i.ToIotHubDataConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IotHubDataConnectionArrayInput is an input type that accepts IotHubDataConnectionArray and IotHubDataConnectionArrayOutput values.
 // You can construct a concrete instance of `IotHubDataConnectionArrayInput` via:
 //
@@ -364,6 +371,12 @@ func (i IotHubDataConnectionArray) ToIotHubDataConnectionArrayOutput() IotHubDat
 
 func (i IotHubDataConnectionArray) ToIotHubDataConnectionArrayOutputWithContext(ctx context.Context) IotHubDataConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionArrayOutput)
+}
+
+func (i IotHubDataConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDataConnection] {
+	return pulumix.Output[[]*IotHubDataConnection]{
+		OutputState: i.ToIotHubDataConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IotHubDataConnectionMapInput is an input type that accepts IotHubDataConnectionMap and IotHubDataConnectionMapOutput values.
@@ -391,6 +404,12 @@ func (i IotHubDataConnectionMap) ToIotHubDataConnectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionMapOutput)
 }
 
+func (i IotHubDataConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDataConnection] {
+	return pulumix.Output[map[string]*IotHubDataConnection]{
+		OutputState: i.ToIotHubDataConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IotHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (IotHubDataConnectionOutput) ElementType() reflect.Type {
@@ -403,6 +422,12 @@ func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutput() IotHubDataCon
 
 func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutputWithContext(ctx context.Context) IotHubDataConnectionOutput {
 	return o
+}
+
+func (o IotHubDataConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDataConnection] {
+	return pulumix.Output[*IotHubDataConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -484,6 +509,12 @@ func (o IotHubDataConnectionArrayOutput) ToIotHubDataConnectionArrayOutputWithCo
 	return o
 }
 
+func (o IotHubDataConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDataConnection] {
+	return pulumix.Output[[]*IotHubDataConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IotHubDataConnectionArrayOutput) Index(i pulumi.IntInput) IotHubDataConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IotHubDataConnection {
 		return vs[0].([]*IotHubDataConnection)[vs[1].(int)]
@@ -502,6 +533,12 @@ func (o IotHubDataConnectionMapOutput) ToIotHubDataConnectionMapOutput() IotHubD
 
 func (o IotHubDataConnectionMapOutput) ToIotHubDataConnectionMapOutputWithContext(ctx context.Context) IotHubDataConnectionMapOutput {
 	return o
+}
+
+func (o IotHubDataConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDataConnection] {
+	return pulumix.Output[map[string]*IotHubDataConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IotHubDataConnectionMapOutput) MapIndex(k pulumi.StringInput) IotHubDataConnectionOutput {

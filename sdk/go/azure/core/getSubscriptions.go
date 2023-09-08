@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about all the Subscriptions currently available.
@@ -104,6 +105,12 @@ func (o GetSubscriptionsResultOutput) ToGetSubscriptionsResultOutput() GetSubscr
 
 func (o GetSubscriptionsResultOutput) ToGetSubscriptionsResultOutputWithContext(ctx context.Context) GetSubscriptionsResultOutput {
 	return o
+}
+
+func (o GetSubscriptionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubscriptionsResult] {
+	return pulumix.Output[GetSubscriptionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubscriptionsResultOutput) DisplayNameContains() pulumi.StringPtrOutput {

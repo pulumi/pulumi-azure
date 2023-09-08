@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Partner Provider which could be associated to virtual hub.
@@ -228,6 +229,12 @@ func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderOutput)
 }
 
+func (i *SecurityPartnerProvider) ToOutput(ctx context.Context) pulumix.Output[*SecurityPartnerProvider] {
+	return pulumix.Output[*SecurityPartnerProvider]{
+		OutputState: i.ToSecurityPartnerProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityPartnerProviderArrayInput is an input type that accepts SecurityPartnerProviderArray and SecurityPartnerProviderArrayOutput values.
 // You can construct a concrete instance of `SecurityPartnerProviderArrayInput` via:
 //
@@ -251,6 +258,12 @@ func (i SecurityPartnerProviderArray) ToSecurityPartnerProviderArrayOutput() Sec
 
 func (i SecurityPartnerProviderArray) ToSecurityPartnerProviderArrayOutputWithContext(ctx context.Context) SecurityPartnerProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderArrayOutput)
+}
+
+func (i SecurityPartnerProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityPartnerProvider] {
+	return pulumix.Output[[]*SecurityPartnerProvider]{
+		OutputState: i.ToSecurityPartnerProviderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityPartnerProviderMapInput is an input type that accepts SecurityPartnerProviderMap and SecurityPartnerProviderMapOutput values.
@@ -278,6 +291,12 @@ func (i SecurityPartnerProviderMap) ToSecurityPartnerProviderMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderMapOutput)
 }
 
+func (i SecurityPartnerProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityPartnerProvider] {
+	return pulumix.Output[map[string]*SecurityPartnerProvider]{
+		OutputState: i.ToSecurityPartnerProviderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityPartnerProviderOutput struct{ *pulumi.OutputState }
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
@@ -290,6 +309,12 @@ func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutput() Securit
 
 func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutputWithContext(ctx context.Context) SecurityPartnerProviderOutput {
 	return o
+}
+
+func (o SecurityPartnerProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityPartnerProvider] {
+	return pulumix.Output[*SecurityPartnerProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created.
@@ -336,6 +361,12 @@ func (o SecurityPartnerProviderArrayOutput) ToSecurityPartnerProviderArrayOutput
 	return o
 }
 
+func (o SecurityPartnerProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityPartnerProvider] {
+	return pulumix.Output[[]*SecurityPartnerProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityPartnerProviderArrayOutput) Index(i pulumi.IntInput) SecurityPartnerProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityPartnerProvider {
 		return vs[0].([]*SecurityPartnerProvider)[vs[1].(int)]
@@ -354,6 +385,12 @@ func (o SecurityPartnerProviderMapOutput) ToSecurityPartnerProviderMapOutput() S
 
 func (o SecurityPartnerProviderMapOutput) ToSecurityPartnerProviderMapOutputWithContext(ctx context.Context) SecurityPartnerProviderMapOutput {
 	return o
+}
+
+func (o SecurityPartnerProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityPartnerProvider] {
+	return pulumix.Output[map[string]*SecurityPartnerProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityPartnerProviderMapOutput) MapIndex(k pulumi.StringInput) SecurityPartnerProviderOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
@@ -110,6 +111,12 @@ func (o LookupDatasetKustoClusterResultOutput) ToLookupDatasetKustoClusterResult
 
 func (o LookupDatasetKustoClusterResultOutput) ToLookupDatasetKustoClusterResultOutputWithContext(ctx context.Context) LookupDatasetKustoClusterResultOutput {
 	return o
+}
+
+func (o LookupDatasetKustoClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatasetKustoClusterResult] {
+	return pulumix.Output[LookupDatasetKustoClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Data Share Dataset.

@@ -146,7 +146,9 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
     /**
-     * Is public access to the service allowed?. Defaults to `true`
+     * Is public access to the service allowed? Defaults to `true`.
+     *
+     * > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -404,7 +406,9 @@ export interface ServiceState {
      */
     publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Is public access to the service allowed?. Defaults to `true`
+     * Is public access to the service allowed? Defaults to `true`.
+     *
+     * > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -532,7 +536,9 @@ export interface ServiceArgs {
      */
     publicIpAddressId?: pulumi.Input<string>;
     /**
-     * Is public access to the service allowed?. Defaults to `true`
+     * Is public access to the service allowed? Defaults to `true`.
+     *
+     * > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

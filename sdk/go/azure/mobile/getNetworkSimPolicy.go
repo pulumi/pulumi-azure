@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Sim Policy.
@@ -124,6 +125,12 @@ func (o LookupNetworkSimPolicyResultOutput) ToLookupNetworkSimPolicyResultOutput
 
 func (o LookupNetworkSimPolicyResultOutput) ToLookupNetworkSimPolicyResultOutputWithContext(ctx context.Context) LookupNetworkSimPolicyResultOutput {
 	return o
+}
+
+func (o LookupNetworkSimPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkSimPolicyResult] {
+	return pulumix.Output[LookupNetworkSimPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of default slice to use if the UE does not explicitly specify it.

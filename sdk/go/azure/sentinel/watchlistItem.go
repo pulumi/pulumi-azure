@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Watchlist Item.
@@ -193,6 +194,12 @@ func (i *WatchlistItem) ToWatchlistItemOutputWithContext(ctx context.Context) Wa
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistItemOutput)
 }
 
+func (i *WatchlistItem) ToOutput(ctx context.Context) pulumix.Output[*WatchlistItem] {
+	return pulumix.Output[*WatchlistItem]{
+		OutputState: i.ToWatchlistItemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WatchlistItemArrayInput is an input type that accepts WatchlistItemArray and WatchlistItemArrayOutput values.
 // You can construct a concrete instance of `WatchlistItemArrayInput` via:
 //
@@ -216,6 +223,12 @@ func (i WatchlistItemArray) ToWatchlistItemArrayOutput() WatchlistItemArrayOutpu
 
 func (i WatchlistItemArray) ToWatchlistItemArrayOutputWithContext(ctx context.Context) WatchlistItemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistItemArrayOutput)
+}
+
+func (i WatchlistItemArray) ToOutput(ctx context.Context) pulumix.Output[[]*WatchlistItem] {
+	return pulumix.Output[[]*WatchlistItem]{
+		OutputState: i.ToWatchlistItemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WatchlistItemMapInput is an input type that accepts WatchlistItemMap and WatchlistItemMapOutput values.
@@ -243,6 +256,12 @@ func (i WatchlistItemMap) ToWatchlistItemMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistItemMapOutput)
 }
 
+func (i WatchlistItemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WatchlistItem] {
+	return pulumix.Output[map[string]*WatchlistItem]{
+		OutputState: i.ToWatchlistItemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WatchlistItemOutput struct{ *pulumi.OutputState }
 
 func (WatchlistItemOutput) ElementType() reflect.Type {
@@ -255,6 +274,12 @@ func (o WatchlistItemOutput) ToWatchlistItemOutput() WatchlistItemOutput {
 
 func (o WatchlistItemOutput) ToWatchlistItemOutputWithContext(ctx context.Context) WatchlistItemOutput {
 	return o
+}
+
+func (o WatchlistItemOutput) ToOutput(ctx context.Context) pulumix.Output[*WatchlistItem] {
+	return pulumix.Output[*WatchlistItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -286,6 +311,12 @@ func (o WatchlistItemArrayOutput) ToWatchlistItemArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o WatchlistItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WatchlistItem] {
+	return pulumix.Output[[]*WatchlistItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WatchlistItemArrayOutput) Index(i pulumi.IntInput) WatchlistItemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WatchlistItem {
 		return vs[0].([]*WatchlistItem)[vs[1].(int)]
@@ -304,6 +335,12 @@ func (o WatchlistItemMapOutput) ToWatchlistItemMapOutput() WatchlistItemMapOutpu
 
 func (o WatchlistItemMapOutput) ToWatchlistItemMapOutputWithContext(ctx context.Context) WatchlistItemMapOutput {
 	return o
+}
+
+func (o WatchlistItemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WatchlistItem] {
+	return pulumix.Output[map[string]*WatchlistItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WatchlistItemMapOutput) MapIndex(k pulumi.StringInput) WatchlistItemOutput {

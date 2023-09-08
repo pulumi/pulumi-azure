@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Gateway Certificate Authority.
@@ -224,6 +225,12 @@ func (i *GatewayCertificateAuthority) ToGatewayCertificateAuthorityOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayCertificateAuthorityOutput)
 }
 
+func (i *GatewayCertificateAuthority) ToOutput(ctx context.Context) pulumix.Output[*GatewayCertificateAuthority] {
+	return pulumix.Output[*GatewayCertificateAuthority]{
+		OutputState: i.ToGatewayCertificateAuthorityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayCertificateAuthorityArrayInput is an input type that accepts GatewayCertificateAuthorityArray and GatewayCertificateAuthorityArrayOutput values.
 // You can construct a concrete instance of `GatewayCertificateAuthorityArrayInput` via:
 //
@@ -247,6 +254,12 @@ func (i GatewayCertificateAuthorityArray) ToGatewayCertificateAuthorityArrayOutp
 
 func (i GatewayCertificateAuthorityArray) ToGatewayCertificateAuthorityArrayOutputWithContext(ctx context.Context) GatewayCertificateAuthorityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayCertificateAuthorityArrayOutput)
+}
+
+func (i GatewayCertificateAuthorityArray) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayCertificateAuthority] {
+	return pulumix.Output[[]*GatewayCertificateAuthority]{
+		OutputState: i.ToGatewayCertificateAuthorityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GatewayCertificateAuthorityMapInput is an input type that accepts GatewayCertificateAuthorityMap and GatewayCertificateAuthorityMapOutput values.
@@ -274,6 +287,12 @@ func (i GatewayCertificateAuthorityMap) ToGatewayCertificateAuthorityMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayCertificateAuthorityMapOutput)
 }
 
+func (i GatewayCertificateAuthorityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayCertificateAuthority] {
+	return pulumix.Output[map[string]*GatewayCertificateAuthority]{
+		OutputState: i.ToGatewayCertificateAuthorityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (GatewayCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -286,6 +305,12 @@ func (o GatewayCertificateAuthorityOutput) ToGatewayCertificateAuthorityOutput()
 
 func (o GatewayCertificateAuthorityOutput) ToGatewayCertificateAuthorityOutputWithContext(ctx context.Context) GatewayCertificateAuthorityOutput {
 	return o
+}
+
+func (o GatewayCertificateAuthorityOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayCertificateAuthority] {
+	return pulumix.Output[*GatewayCertificateAuthority]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the API Management Service. Changing this forces a new resource to be created.
@@ -322,6 +347,12 @@ func (o GatewayCertificateAuthorityArrayOutput) ToGatewayCertificateAuthorityArr
 	return o
 }
 
+func (o GatewayCertificateAuthorityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayCertificateAuthority] {
+	return pulumix.Output[[]*GatewayCertificateAuthority]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) GatewayCertificateAuthorityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayCertificateAuthority {
 		return vs[0].([]*GatewayCertificateAuthority)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o GatewayCertificateAuthorityMapOutput) ToGatewayCertificateAuthorityMapOu
 
 func (o GatewayCertificateAuthorityMapOutput) ToGatewayCertificateAuthorityMapOutputWithContext(ctx context.Context) GatewayCertificateAuthorityMapOutput {
 	return o
+}
+
+func (o GatewayCertificateAuthorityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayCertificateAuthority] {
+	return pulumix.Output[map[string]*GatewayCertificateAuthority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayCertificateAuthorityMapOutput) MapIndex(k pulumi.StringInput) GatewayCertificateAuthorityOutput {

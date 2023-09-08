@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Data Share Blob Storage Dataset.
@@ -115,6 +116,12 @@ func (o LookupDatasetBlobStorageResultOutput) ToLookupDatasetBlobStorageResultOu
 
 func (o LookupDatasetBlobStorageResultOutput) ToLookupDatasetBlobStorageResultOutputWithContext(ctx context.Context) LookupDatasetBlobStorageResultOutput {
 	return o
+}
+
+func (o LookupDatasetBlobStorageResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatasetBlobStorageResult] {
+	return pulumix.Output[LookupDatasetBlobStorageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the storage account container to be shared with the receiver.

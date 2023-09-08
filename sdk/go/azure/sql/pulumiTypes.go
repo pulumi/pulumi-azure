@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -70,6 +71,12 @@ func (i DatabaseImportArgs) ToDatabaseImportOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportOutput)
 }
 
+func (i DatabaseImportArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseImport] {
+	return pulumix.Output[DatabaseImport]{
+		OutputState: i.ToDatabaseImportOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatabaseImportArgs) ToDatabaseImportPtrOutput() DatabaseImportPtrOutput {
 	return i.ToDatabaseImportPtrOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (i *databaseImportPtrType) ToDatabaseImportPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportPtrOutput)
 }
 
+func (i *databaseImportPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseImport] {
+	return pulumix.Output[*DatabaseImport]{
+		OutputState: i.ToDatabaseImportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatabaseImportOutput struct{ *pulumi.OutputState }
 
 func (DatabaseImportOutput) ElementType() reflect.Type {
@@ -133,6 +146,12 @@ func (o DatabaseImportOutput) ToDatabaseImportPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseImport) *DatabaseImport {
 		return &v
 	}).(DatabaseImportPtrOutput)
+}
+
+func (o DatabaseImportOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseImport] {
+	return pulumix.Output[DatabaseImport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the SQL administrator.
@@ -182,6 +201,12 @@ func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutput() DatabaseImportPtrOu
 
 func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
 	return o
+}
+
+func (o DatabaseImportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseImport] {
+	return pulumix.Output[*DatabaseImport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatabaseImportPtrOutput) Elem() DatabaseImportOutput {
@@ -321,6 +346,12 @@ func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyOutput)
 }
 
+func (i DatabaseThreatDetectionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseThreatDetectionPolicy] {
+	return pulumix.Output[DatabaseThreatDetectionPolicy]{
+		OutputState: i.ToDatabaseThreatDetectionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput {
 	return i.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(context.Background())
 }
@@ -362,6 +393,12 @@ func (i *databaseThreatDetectionPolicyPtrType) ToDatabaseThreatDetectionPolicyPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyPtrOutput)
 }
 
+func (i *databaseThreatDetectionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseThreatDetectionPolicy] {
+	return pulumix.Output[*DatabaseThreatDetectionPolicy]{
+		OutputState: i.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
@@ -384,6 +421,12 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
 		return &v
 	}).(DatabaseThreatDetectionPolicyPtrOutput)
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseThreatDetectionPolicy] {
+	return pulumix.Output[DatabaseThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -433,6 +476,12 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyP
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
 	return o
+}
+
+func (o DatabaseThreatDetectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseThreatDetectionPolicy] {
+	return pulumix.Output[*DatabaseThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPolicyOutput {
@@ -556,6 +605,12 @@ func (i FailoverGroupPartnerServerArgs) ToFailoverGroupPartnerServerOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupPartnerServerOutput)
 }
 
+func (i FailoverGroupPartnerServerArgs) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupPartnerServer] {
+	return pulumix.Output[FailoverGroupPartnerServer]{
+		OutputState: i.ToFailoverGroupPartnerServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FailoverGroupPartnerServerArrayInput is an input type that accepts FailoverGroupPartnerServerArray and FailoverGroupPartnerServerArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupPartnerServerArrayInput` via:
 //
@@ -581,6 +636,12 @@ func (i FailoverGroupPartnerServerArray) ToFailoverGroupPartnerServerArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupPartnerServerArrayOutput)
 }
 
+func (i FailoverGroupPartnerServerArray) ToOutput(ctx context.Context) pulumix.Output[[]FailoverGroupPartnerServer] {
+	return pulumix.Output[[]FailoverGroupPartnerServer]{
+		OutputState: i.ToFailoverGroupPartnerServerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FailoverGroupPartnerServerOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupPartnerServerOutput) ElementType() reflect.Type {
@@ -593,6 +654,12 @@ func (o FailoverGroupPartnerServerOutput) ToFailoverGroupPartnerServerOutput() F
 
 func (o FailoverGroupPartnerServerOutput) ToFailoverGroupPartnerServerOutputWithContext(ctx context.Context) FailoverGroupPartnerServerOutput {
 	return o
+}
+
+func (o FailoverGroupPartnerServerOutput) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupPartnerServer] {
+	return pulumix.Output[FailoverGroupPartnerServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the SQL server ID
@@ -622,6 +689,12 @@ func (o FailoverGroupPartnerServerArrayOutput) ToFailoverGroupPartnerServerArray
 
 func (o FailoverGroupPartnerServerArrayOutput) ToFailoverGroupPartnerServerArrayOutputWithContext(ctx context.Context) FailoverGroupPartnerServerArrayOutput {
 	return o
+}
+
+func (o FailoverGroupPartnerServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FailoverGroupPartnerServer] {
+	return pulumix.Output[[]FailoverGroupPartnerServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FailoverGroupPartnerServerArrayOutput) Index(i pulumi.IntInput) FailoverGroupPartnerServerOutput {
@@ -667,6 +740,12 @@ func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWri
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
+func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: i.ToFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
 }
@@ -708,6 +787,12 @@ func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupRea
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
+func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -732,6 +817,12 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadW
 	}).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
+func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -754,6 +845,12 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupRe
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return o
+}
+
+func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadWriteEndpointFailoverPolicyOutput {
@@ -819,6 +916,12 @@ func (i FailoverGroupReadonlyEndpointFailoverPolicyArgs) ToFailoverGroupReadonly
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadonlyEndpointFailoverPolicyOutput)
 }
 
+func (i FailoverGroupReadonlyEndpointFailoverPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupReadonlyEndpointFailoverPolicy] {
+	return pulumix.Output[FailoverGroupReadonlyEndpointFailoverPolicy]{
+		OutputState: i.ToFailoverGroupReadonlyEndpointFailoverPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FailoverGroupReadonlyEndpointFailoverPolicyArgs) ToFailoverGroupReadonlyEndpointFailoverPolicyPtrOutput() FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput {
 	return i.ToFailoverGroupReadonlyEndpointFailoverPolicyPtrOutputWithContext(context.Background())
 }
@@ -860,6 +963,12 @@ func (i *failoverGroupReadonlyEndpointFailoverPolicyPtrType) ToFailoverGroupRead
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput)
 }
 
+func (i *failoverGroupReadonlyEndpointFailoverPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupReadonlyEndpointFailoverPolicy] {
+	return pulumix.Output[*FailoverGroupReadonlyEndpointFailoverPolicy]{
+		OutputState: i.ToFailoverGroupReadonlyEndpointFailoverPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FailoverGroupReadonlyEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadonlyEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -884,6 +993,12 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) ToFailoverGroupReadon
 	}).(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput)
 }
 
+func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupReadonlyEndpointFailoverPolicy] {
+	return pulumix.Output[FailoverGroupReadonlyEndpointFailoverPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
 func (o FailoverGroupReadonlyEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
@@ -901,6 +1016,12 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) ToFailoverGroupRea
 
 func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadonlyEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput {
 	return o
+}
+
+func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupReadonlyEndpointFailoverPolicy] {
+	return pulumix.Output[*FailoverGroupReadonlyEndpointFailoverPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadonlyEndpointFailoverPolicyOutput {
@@ -960,6 +1081,12 @@ func (i ManagedInstanceFailoverGroupPartnerRegionArgs) ToManagedInstanceFailover
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPartnerRegionOutput)
 }
 
+func (i ManagedInstanceFailoverGroupPartnerRegionArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion] {
+	return pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion]{
+		OutputState: i.ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedInstanceFailoverGroupPartnerRegionArrayInput is an input type that accepts ManagedInstanceFailoverGroupPartnerRegionArray and ManagedInstanceFailoverGroupPartnerRegionArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceFailoverGroupPartnerRegionArrayInput` via:
 //
@@ -985,6 +1112,12 @@ func (i ManagedInstanceFailoverGroupPartnerRegionArray) ToManagedInstanceFailove
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPartnerRegionArrayOutput)
 }
 
+func (i ManagedInstanceFailoverGroupPartnerRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion] {
+	return pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion]{
+		OutputState: i.ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceFailoverGroupPartnerRegionOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupPartnerRegionOutput) ElementType() reflect.Type {
@@ -997,6 +1130,12 @@ func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailov
 
 func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionOutput {
 	return o
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion] {
+	return pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
@@ -1021,6 +1160,12 @@ func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToManagedInstanceF
 
 func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionArrayOutput {
 	return o
+}
+
+func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion] {
+	return pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) Index(i pulumi.IntInput) ManagedInstanceFailoverGroupPartnerRegionOutput {
@@ -1066,6 +1211,12 @@ func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManag
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
+func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
 }
@@ -1107,6 +1258,12 @@ func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToM
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
+func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -1131,6 +1288,12 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToMan
 	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -1153,6 +1316,12 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) To
 
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return o
+}
+
+func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
+	return pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
@@ -1226,6 +1395,12 @@ func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityOutput)
 }
 
+func (i ManagedInstanceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceIdentity] {
+	return pulumix.Output[ManagedInstanceIdentity]{
+		OutputState: i.ToManagedInstanceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
 	return i.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
 }
@@ -1267,6 +1442,12 @@ func (i *managedInstanceIdentityPtrType) ToManagedInstanceIdentityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityPtrOutput)
 }
 
+func (i *managedInstanceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceIdentity] {
+	return pulumix.Output[*ManagedInstanceIdentity]{
+		OutputState: i.ToManagedInstanceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceIdentityOutput) ElementType() reflect.Type {
@@ -1289,6 +1470,12 @@ func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceIdentity) *ManagedInstanceIdentity {
 		return &v
 	}).(ManagedInstanceIdentityPtrOutput)
+}
+
+func (o ManagedInstanceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceIdentity] {
+	return pulumix.Output[ManagedInstanceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
@@ -1318,6 +1505,12 @@ func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutput() M
 
 func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
 	return o
+}
+
+func (o ManagedInstanceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceIdentity] {
+	return pulumix.Output[*ManagedInstanceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
@@ -1405,6 +1598,12 @@ func (i SqlServerIdentityArgs) ToSqlServerIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerIdentityOutput)
 }
 
+func (i SqlServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SqlServerIdentity] {
+	return pulumix.Output[SqlServerIdentity]{
+		OutputState: i.ToSqlServerIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SqlServerIdentityArgs) ToSqlServerIdentityPtrOutput() SqlServerIdentityPtrOutput {
 	return i.ToSqlServerIdentityPtrOutputWithContext(context.Background())
 }
@@ -1446,6 +1645,12 @@ func (i *sqlServerIdentityPtrType) ToSqlServerIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerIdentityPtrOutput)
 }
 
+func (i *sqlServerIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SqlServerIdentity] {
+	return pulumix.Output[*SqlServerIdentity]{
+		OutputState: i.ToSqlServerIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (SqlServerIdentityOutput) ElementType() reflect.Type {
@@ -1468,6 +1673,12 @@ func (o SqlServerIdentityOutput) ToSqlServerIdentityPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerIdentity) *SqlServerIdentity {
 		return &v
 	}).(SqlServerIdentityPtrOutput)
+}
+
+func (o SqlServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SqlServerIdentity] {
+	return pulumix.Output[SqlServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Server.
@@ -1499,6 +1710,12 @@ func (o SqlServerIdentityPtrOutput) ToSqlServerIdentityPtrOutput() SqlServerIden
 
 func (o SqlServerIdentityPtrOutput) ToSqlServerIdentityPtrOutputWithContext(ctx context.Context) SqlServerIdentityPtrOutput {
 	return o
+}
+
+func (o SqlServerIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlServerIdentity] {
+	return pulumix.Output[*SqlServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlServerIdentityPtrOutput) Elem() SqlServerIdentityOutput {
@@ -1600,6 +1817,12 @@ func (i SqlServerThreatDetectionPolicyArgs) ToSqlServerThreatDetectionPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerThreatDetectionPolicyOutput)
 }
 
+func (i SqlServerThreatDetectionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[SqlServerThreatDetectionPolicy] {
+	return pulumix.Output[SqlServerThreatDetectionPolicy]{
+		OutputState: i.ToSqlServerThreatDetectionPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SqlServerThreatDetectionPolicyArgs) ToSqlServerThreatDetectionPolicyPtrOutput() SqlServerThreatDetectionPolicyPtrOutput {
 	return i.ToSqlServerThreatDetectionPolicyPtrOutputWithContext(context.Background())
 }
@@ -1641,6 +1864,12 @@ func (i *sqlServerThreatDetectionPolicyPtrType) ToSqlServerThreatDetectionPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerThreatDetectionPolicyPtrOutput)
 }
 
+func (i *sqlServerThreatDetectionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*SqlServerThreatDetectionPolicy] {
+	return pulumix.Output[*SqlServerThreatDetectionPolicy]{
+		OutputState: i.ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlServerThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (SqlServerThreatDetectionPolicyOutput) ElementType() reflect.Type {
@@ -1663,6 +1892,12 @@ func (o SqlServerThreatDetectionPolicyOutput) ToSqlServerThreatDetectionPolicyPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerThreatDetectionPolicy) *SqlServerThreatDetectionPolicy {
 		return &v
 	}).(SqlServerThreatDetectionPolicyPtrOutput)
+}
+
+func (o SqlServerThreatDetectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[SqlServerThreatDetectionPolicy] {
+	return pulumix.Output[SqlServerThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
@@ -1712,6 +1947,12 @@ func (o SqlServerThreatDetectionPolicyPtrOutput) ToSqlServerThreatDetectionPolic
 
 func (o SqlServerThreatDetectionPolicyPtrOutput) ToSqlServerThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) SqlServerThreatDetectionPolicyPtrOutput {
 	return o
+}
+
+func (o SqlServerThreatDetectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlServerThreatDetectionPolicy] {
+	return pulumix.Output[*SqlServerThreatDetectionPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlServerThreatDetectionPolicyPtrOutput) Elem() SqlServerThreatDetectionPolicyOutput {
@@ -1835,6 +2076,12 @@ func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityOutput)
 }
 
+func (i GetServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetServerIdentity] {
+	return pulumix.Output[GetServerIdentity]{
+		OutputState: i.ToGetServerIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServerIdentityArrayInput` via:
 //
@@ -1860,6 +2107,12 @@ func (i GetServerIdentityArray) ToGetServerIdentityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityArrayOutput)
 }
 
+func (i GetServerIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServerIdentity] {
+	return pulumix.Output[[]GetServerIdentity]{
+		OutputState: i.ToGetServerIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetServerIdentityOutput) ElementType() reflect.Type {
@@ -1872,6 +2125,12 @@ func (o GetServerIdentityOutput) ToGetServerIdentityOutput() GetServerIdentityOu
 
 func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
 	return o
+}
+
+func (o GetServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerIdentity] {
+	return pulumix.Output[GetServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -1901,6 +2160,12 @@ func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutput() GetServer
 
 func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
 	return o
+}
+
+func (o GetServerIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServerIdentity] {
+	return pulumix.Output[[]GetServerIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentityOutput {
@@ -1948,6 +2213,12 @@ func (i GetSqlManagedInstanceIdentityArgs) ToGetSqlManagedInstanceIdentityOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetSqlManagedInstanceIdentityOutput)
 }
 
+func (i GetSqlManagedInstanceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetSqlManagedInstanceIdentity] {
+	return pulumix.Output[GetSqlManagedInstanceIdentity]{
+		OutputState: i.ToGetSqlManagedInstanceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSqlManagedInstanceIdentityArrayInput is an input type that accepts GetSqlManagedInstanceIdentityArray and GetSqlManagedInstanceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetSqlManagedInstanceIdentityArrayInput` via:
 //
@@ -1973,6 +2244,12 @@ func (i GetSqlManagedInstanceIdentityArray) ToGetSqlManagedInstanceIdentityArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetSqlManagedInstanceIdentityArrayOutput)
 }
 
+func (i GetSqlManagedInstanceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSqlManagedInstanceIdentity] {
+	return pulumix.Output[[]GetSqlManagedInstanceIdentity]{
+		OutputState: i.ToGetSqlManagedInstanceIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSqlManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetSqlManagedInstanceIdentityOutput) ElementType() reflect.Type {
@@ -1985,6 +2262,12 @@ func (o GetSqlManagedInstanceIdentityOutput) ToGetSqlManagedInstanceIdentityOutp
 
 func (o GetSqlManagedInstanceIdentityOutput) ToGetSqlManagedInstanceIdentityOutputWithContext(ctx context.Context) GetSqlManagedInstanceIdentityOutput {
 	return o
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetSqlManagedInstanceIdentity] {
+	return pulumix.Output[GetSqlManagedInstanceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
@@ -2013,6 +2296,12 @@ func (o GetSqlManagedInstanceIdentityArrayOutput) ToGetSqlManagedInstanceIdentit
 
 func (o GetSqlManagedInstanceIdentityArrayOutput) ToGetSqlManagedInstanceIdentityArrayOutputWithContext(ctx context.Context) GetSqlManagedInstanceIdentityArrayOutput {
 	return o
+}
+
+func (o GetSqlManagedInstanceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSqlManagedInstanceIdentity] {
+	return pulumix.Output[[]GetSqlManagedInstanceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSqlManagedInstanceIdentityArrayOutput) Index(i pulumi.IntInput) GetSqlManagedInstanceIdentityOutput {

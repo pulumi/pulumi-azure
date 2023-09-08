@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to fetch the Host Keys of an existing Function App
@@ -117,6 +118,12 @@ func (o GetFunctionAppHostKeysResultOutput) ToGetFunctionAppHostKeysResultOutput
 
 func (o GetFunctionAppHostKeysResultOutput) ToGetFunctionAppHostKeysResultOutputWithContext(ctx context.Context) GetFunctionAppHostKeysResultOutput {
 	return o
+}
+
+func (o GetFunctionAppHostKeysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionAppHostKeysResult] {
+	return pulumix.Output[GetFunctionAppHostKeysResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Function App resource's Blobs Extension system key.

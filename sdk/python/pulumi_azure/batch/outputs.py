@@ -847,6 +847,8 @@ class PoolExtension(dict):
         suggest = None
         if key == "autoUpgradeMinorVersion":
             suggest = "auto_upgrade_minor_version"
+        elif key == "automaticUpgradeEnabled":
+            suggest = "automatic_upgrade_enabled"
         elif key == "protectedSettings":
             suggest = "protected_settings"
         elif key == "provisionAfterExtensions":
@@ -872,6 +874,7 @@ class PoolExtension(dict):
                  publisher: str,
                  type: str,
                  auto_upgrade_minor_version: Optional[bool] = None,
+                 automatic_upgrade_enabled: Optional[bool] = None,
                  protected_settings: Optional[str] = None,
                  provision_after_extensions: Optional[Sequence[str]] = None,
                  settings_json: Optional[str] = None,
@@ -881,6 +884,9 @@ class PoolExtension(dict):
         :param str publisher: The name of the extension handler publisher.The name of the extension handler publisher.
         :param str type: The type of the extensions.
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param bool automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+               
+               **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
         :param str protected_settings: The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
         :param Sequence[str] provision_after_extensions: The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
         :param str settings_json: JSON formatted public settings for the extension.
@@ -891,6 +897,8 @@ class PoolExtension(dict):
         pulumi.set(__self__, "type", type)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if protected_settings is not None:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if provision_after_extensions is not None:
@@ -931,6 +939,16 @@ class PoolExtension(dict):
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+
+        **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
 
     @property
     @pulumi.getter(name="protectedSettings")
@@ -1521,8 +1539,8 @@ class PoolNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "subnetId":
-            suggest = "subnet_id"
+        if key == "acceleratedNetworkingEnabled":
+            suggest = "accelerated_networking_enabled"
         elif key == "dynamicVnetAssignmentScope":
             suggest = "dynamic_vnet_assignment_scope"
         elif key == "endpointConfigurations":
@@ -1531,6 +1549,8 @@ class PoolNetworkConfiguration(dict):
             suggest = "public_address_provisioning_type"
         elif key == "publicIps":
             suggest = "public_ips"
+        elif key == "subnetId":
+            suggest = "subnet_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PoolNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1544,19 +1564,22 @@ class PoolNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 subnet_id: str,
+                 accelerated_networking_enabled: Optional[bool] = None,
                  dynamic_vnet_assignment_scope: Optional[str] = None,
                  endpoint_configurations: Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfiguration']] = None,
                  public_address_provisioning_type: Optional[str] = None,
-                 public_ips: Optional[Sequence[str]] = None):
+                 public_ips: Optional[Sequence[str]] = None,
+                 subnet_id: Optional[str] = None):
         """
-        :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        :param bool accelerated_networking_enabled: Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
         :param str dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
         :param Sequence['PoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param str public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param Sequence[str] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        if accelerated_networking_enabled is not None:
+            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if dynamic_vnet_assignment_scope is not None:
             pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
         if endpoint_configurations is not None:
@@ -1565,14 +1588,16 @@ class PoolNetworkConfiguration(dict):
             pulumi.set(__self__, "public_address_provisioning_type", public_address_provisioning_type)
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> Optional[bool]:
         """
-        The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "accelerated_networking_enabled")
 
     @property
     @pulumi.getter(name="dynamicVnetAssignmentScope")
@@ -1605,6 +1630,14 @@ class PoolNetworkConfiguration(dict):
         A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_ips")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -3326,6 +3359,7 @@ class GetPoolMountNfsMountResult(dict):
 @pulumi.output_type
 class GetPoolNetworkConfigurationResult(dict):
     def __init__(__self__, *,
+                 accelerated_networking_enabled: bool,
                  dynamic_vnet_assignment_scope: str,
                  endpoint_configurations: Sequence['outputs.GetPoolNetworkConfigurationEndpointConfigurationResult'],
                  public_address_provisioning_type: str,
@@ -3338,11 +3372,17 @@ class GetPoolNetworkConfigurationResult(dict):
         :param Sequence[str] public_ips: A list of public IP ids that will be allocated to nodes.
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
         """
+        pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
         pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         pulumi.set(__self__, "public_address_provisioning_type", public_address_provisioning_type)
         pulumi.set(__self__, "public_ips", public_ips)
         pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> bool:
+        return pulumi.get(self, "accelerated_networking_enabled")
 
     @property
     @pulumi.getter(name="dynamicVnetAssignmentScope")

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an association of a Resource Guard and Recovery Services Vault.
@@ -184,6 +185,12 @@ func (i *VaultResourceGuardAssociation) ToVaultResourceGuardAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VaultResourceGuardAssociationOutput)
 }
 
+func (i *VaultResourceGuardAssociation) ToOutput(ctx context.Context) pulumix.Output[*VaultResourceGuardAssociation] {
+	return pulumix.Output[*VaultResourceGuardAssociation]{
+		OutputState: i.ToVaultResourceGuardAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VaultResourceGuardAssociationArrayInput is an input type that accepts VaultResourceGuardAssociationArray and VaultResourceGuardAssociationArrayOutput values.
 // You can construct a concrete instance of `VaultResourceGuardAssociationArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i VaultResourceGuardAssociationArray) ToVaultResourceGuardAssociationArray
 
 func (i VaultResourceGuardAssociationArray) ToVaultResourceGuardAssociationArrayOutputWithContext(ctx context.Context) VaultResourceGuardAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultResourceGuardAssociationArrayOutput)
+}
+
+func (i VaultResourceGuardAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VaultResourceGuardAssociation] {
+	return pulumix.Output[[]*VaultResourceGuardAssociation]{
+		OutputState: i.ToVaultResourceGuardAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VaultResourceGuardAssociationMapInput is an input type that accepts VaultResourceGuardAssociationMap and VaultResourceGuardAssociationMapOutput values.
@@ -234,6 +247,12 @@ func (i VaultResourceGuardAssociationMap) ToVaultResourceGuardAssociationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VaultResourceGuardAssociationMapOutput)
 }
 
+func (i VaultResourceGuardAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultResourceGuardAssociation] {
+	return pulumix.Output[map[string]*VaultResourceGuardAssociation]{
+		OutputState: i.ToVaultResourceGuardAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VaultResourceGuardAssociationOutput struct{ *pulumi.OutputState }
 
 func (VaultResourceGuardAssociationOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o VaultResourceGuardAssociationOutput) ToVaultResourceGuardAssociationOutp
 
 func (o VaultResourceGuardAssociationOutput) ToVaultResourceGuardAssociationOutputWithContext(ctx context.Context) VaultResourceGuardAssociationOutput {
 	return o
+}
+
+func (o VaultResourceGuardAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultResourceGuardAssociation] {
+	return pulumix.Output[*VaultResourceGuardAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
@@ -277,6 +302,12 @@ func (o VaultResourceGuardAssociationArrayOutput) ToVaultResourceGuardAssociatio
 	return o
 }
 
+func (o VaultResourceGuardAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VaultResourceGuardAssociation] {
+	return pulumix.Output[[]*VaultResourceGuardAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VaultResourceGuardAssociationArrayOutput) Index(i pulumi.IntInput) VaultResourceGuardAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultResourceGuardAssociation {
 		return vs[0].([]*VaultResourceGuardAssociation)[vs[1].(int)]
@@ -295,6 +326,12 @@ func (o VaultResourceGuardAssociationMapOutput) ToVaultResourceGuardAssociationM
 
 func (o VaultResourceGuardAssociationMapOutput) ToVaultResourceGuardAssociationMapOutputWithContext(ctx context.Context) VaultResourceGuardAssociationMapOutput {
 	return o
+}
+
+func (o VaultResourceGuardAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultResourceGuardAssociation] {
+	return pulumix.Output[map[string]*VaultResourceGuardAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VaultResourceGuardAssociationMapOutput) MapIndex(k pulumi.StringInput) VaultResourceGuardAssociationOutput {

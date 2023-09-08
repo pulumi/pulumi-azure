@@ -245,14 +245,18 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is public access to the service allowed?. Defaults to `true`
+     * Is public access to the service allowed? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Is public access to the service allowed?. Defaults to `true`
+     * @return Is public access to the service allowed? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -824,7 +828,9 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public access to the service allowed?. Defaults to `true`
+         * @param publicNetworkAccessEnabled Is public access to the service allowed? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
          * 
          * @return builder
          * 
@@ -835,7 +841,9 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public access to the service allowed?. Defaults to `true`
+         * @param publicNetworkAccessEnabled Is public access to the service allowed? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
          * 
          * @return builder
          * 

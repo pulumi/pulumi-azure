@@ -128,6 +128,10 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>
+        /// Is the storage auto grow for PostgreSQL Flexible Server enabled?
+        /// </summary>
+        public readonly bool AutoGrowEnabled;
+        /// <summary>
         /// The backup retention days for the PostgreSQL Flexible Server.
         /// </summary>
         public readonly int BackupRetentionDays;
@@ -174,6 +178,8 @@ namespace Pulumi.Azure.PostgreSql
         private GetFlexibleServerResult(
             string administratorLogin,
 
+            bool autoGrowEnabled,
+
             int backupRetentionDays,
 
             string delegatedSubnetId,
@@ -199,6 +205,7 @@ namespace Pulumi.Azure.PostgreSql
             string version)
         {
             AdministratorLogin = administratorLogin;
+            AutoGrowEnabled = autoGrowEnabled;
             BackupRetentionDays = backupRetentionDays;
             DelegatedSubnetId = delegatedSubnetId;
             Fqdn = fqdn;

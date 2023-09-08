@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Management Group Policy Exemption.
@@ -248,6 +249,12 @@ func (i *GroupPolicyExemption) ToGroupPolicyExemptionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyExemptionOutput)
 }
 
+func (i *GroupPolicyExemption) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicyExemption] {
+	return pulumix.Output[*GroupPolicyExemption]{
+		OutputState: i.ToGroupPolicyExemptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupPolicyExemptionArrayInput is an input type that accepts GroupPolicyExemptionArray and GroupPolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyExemptionArrayInput` via:
 //
@@ -271,6 +278,12 @@ func (i GroupPolicyExemptionArray) ToGroupPolicyExemptionArrayOutput() GroupPoli
 
 func (i GroupPolicyExemptionArray) ToGroupPolicyExemptionArrayOutputWithContext(ctx context.Context) GroupPolicyExemptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyExemptionArrayOutput)
+}
+
+func (i GroupPolicyExemptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupPolicyExemption] {
+	return pulumix.Output[[]*GroupPolicyExemption]{
+		OutputState: i.ToGroupPolicyExemptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GroupPolicyExemptionMapInput is an input type that accepts GroupPolicyExemptionMap and GroupPolicyExemptionMapOutput values.
@@ -298,6 +311,12 @@ func (i GroupPolicyExemptionMap) ToGroupPolicyExemptionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyExemptionMapOutput)
 }
 
+func (i GroupPolicyExemptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupPolicyExemption] {
+	return pulumix.Output[map[string]*GroupPolicyExemption]{
+		OutputState: i.ToGroupPolicyExemptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupPolicyExemptionOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyExemptionOutput) ElementType() reflect.Type {
@@ -310,6 +329,12 @@ func (o GroupPolicyExemptionOutput) ToGroupPolicyExemptionOutput() GroupPolicyEx
 
 func (o GroupPolicyExemptionOutput) ToGroupPolicyExemptionOutputWithContext(ctx context.Context) GroupPolicyExemptionOutput {
 	return o
+}
+
+func (o GroupPolicyExemptionOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicyExemption] {
+	return pulumix.Output[*GroupPolicyExemption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description to use for this Policy Exemption.
@@ -371,6 +396,12 @@ func (o GroupPolicyExemptionArrayOutput) ToGroupPolicyExemptionArrayOutputWithCo
 	return o
 }
 
+func (o GroupPolicyExemptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupPolicyExemption] {
+	return pulumix.Output[[]*GroupPolicyExemption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupPolicyExemptionArrayOutput) Index(i pulumi.IntInput) GroupPolicyExemptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupPolicyExemption {
 		return vs[0].([]*GroupPolicyExemption)[vs[1].(int)]
@@ -389,6 +420,12 @@ func (o GroupPolicyExemptionMapOutput) ToGroupPolicyExemptionMapOutput() GroupPo
 
 func (o GroupPolicyExemptionMapOutput) ToGroupPolicyExemptionMapOutputWithContext(ctx context.Context) GroupPolicyExemptionMapOutput {
 	return o
+}
+
+func (o GroupPolicyExemptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupPolicyExemption] {
+	return pulumix.Output[map[string]*GroupPolicyExemption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupPolicyExemptionMapOutput) MapIndex(k pulumi.StringInput) GroupPolicyExemptionOutput {

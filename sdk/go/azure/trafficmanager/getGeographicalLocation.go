@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
@@ -101,6 +102,12 @@ func (o GetGeographicalLocationResultOutput) ToGetGeographicalLocationResultOutp
 
 func (o GetGeographicalLocationResultOutput) ToGetGeographicalLocationResultOutputWithContext(ctx context.Context) GetGeographicalLocationResultOutput {
 	return o
+}
+
+func (o GetGeographicalLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGeographicalLocationResult] {
+	return pulumix.Output[GetGeographicalLocationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

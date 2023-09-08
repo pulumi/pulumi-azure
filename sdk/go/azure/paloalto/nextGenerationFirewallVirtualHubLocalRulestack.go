@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type NextGenerationFirewallVirtualHubLocalRulestack struct {
@@ -130,6 +131,12 @@ func (i *NextGenerationFirewallVirtualHubLocalRulestack) ToNextGenerationFirewal
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackOutput)
 }
 
+func (i *NextGenerationFirewallVirtualHubLocalRulestack) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestack] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestack]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualHubLocalRulestackArrayInput is an input type that accepts NextGenerationFirewallVirtualHubLocalRulestackArray and NextGenerationFirewallVirtualHubLocalRulestackArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualHubLocalRulestackArrayInput` via:
 //
@@ -153,6 +160,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackArray) ToNextGenerationFir
 
 func (i NextGenerationFirewallVirtualHubLocalRulestackArray) ToNextGenerationFirewallVirtualHubLocalRulestackArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackArrayOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubLocalRulestackArray) ToOutput(ctx context.Context) pulumix.Output[[]*NextGenerationFirewallVirtualHubLocalRulestack] {
+	return pulumix.Output[[]*NextGenerationFirewallVirtualHubLocalRulestack]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NextGenerationFirewallVirtualHubLocalRulestackMapInput is an input type that accepts NextGenerationFirewallVirtualHubLocalRulestackMap and NextGenerationFirewallVirtualHubLocalRulestackMapOutput values.
@@ -180,6 +193,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackMap) ToNextGenerationFirew
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackMapOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubLocalRulestackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NextGenerationFirewallVirtualHubLocalRulestack] {
+	return pulumix.Output[map[string]*NextGenerationFirewallVirtualHubLocalRulestack]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubLocalRulestackOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackOutput) ElementType() reflect.Type {
@@ -192,6 +211,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) ToNextGenerationFi
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) ToNextGenerationFirewallVirtualHubLocalRulestackOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestack] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestack]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) DestinationNats() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput {
@@ -244,6 +269,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackArrayOutput) ToNextGenerat
 	return o
 }
 
+func (o NextGenerationFirewallVirtualHubLocalRulestackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NextGenerationFirewallVirtualHubLocalRulestack] {
+	return pulumix.Output[[]*NextGenerationFirewallVirtualHubLocalRulestack]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NextGenerationFirewallVirtualHubLocalRulestackArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualHubLocalRulestackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NextGenerationFirewallVirtualHubLocalRulestack {
 		return vs[0].([]*NextGenerationFirewallVirtualHubLocalRulestack)[vs[1].(int)]
@@ -262,6 +293,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackMapOutput) ToNextGeneratio
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackMapOutput) ToNextGenerationFirewallVirtualHubLocalRulestackMapOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackMapOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NextGenerationFirewallVirtualHubLocalRulestack] {
+	return pulumix.Output[map[string]*NextGenerationFirewallVirtualHubLocalRulestack]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackMapOutput) MapIndex(k pulumi.StringInput) NextGenerationFirewallVirtualHubLocalRulestackOutput {

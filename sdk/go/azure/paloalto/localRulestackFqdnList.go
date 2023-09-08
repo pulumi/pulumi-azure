@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Local Rulestack FQDN List.
@@ -196,6 +197,12 @@ func (i *LocalRulestackFqdnList) ToLocalRulestackFqdnListOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackFqdnListOutput)
 }
 
+func (i *LocalRulestackFqdnList) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackFqdnList] {
+	return pulumix.Output[*LocalRulestackFqdnList]{
+		OutputState: i.ToLocalRulestackFqdnListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalRulestackFqdnListArrayInput is an input type that accepts LocalRulestackFqdnListArray and LocalRulestackFqdnListArrayOutput values.
 // You can construct a concrete instance of `LocalRulestackFqdnListArrayInput` via:
 //
@@ -219,6 +226,12 @@ func (i LocalRulestackFqdnListArray) ToLocalRulestackFqdnListArrayOutput() Local
 
 func (i LocalRulestackFqdnListArray) ToLocalRulestackFqdnListArrayOutputWithContext(ctx context.Context) LocalRulestackFqdnListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackFqdnListArrayOutput)
+}
+
+func (i LocalRulestackFqdnListArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackFqdnList] {
+	return pulumix.Output[[]*LocalRulestackFqdnList]{
+		OutputState: i.ToLocalRulestackFqdnListArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalRulestackFqdnListMapInput is an input type that accepts LocalRulestackFqdnListMap and LocalRulestackFqdnListMapOutput values.
@@ -246,6 +259,12 @@ func (i LocalRulestackFqdnListMap) ToLocalRulestackFqdnListMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackFqdnListMapOutput)
 }
 
+func (i LocalRulestackFqdnListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackFqdnList] {
+	return pulumix.Output[map[string]*LocalRulestackFqdnList]{
+		OutputState: i.ToLocalRulestackFqdnListMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRulestackFqdnListOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackFqdnListOutput) ElementType() reflect.Type {
@@ -258,6 +277,12 @@ func (o LocalRulestackFqdnListOutput) ToLocalRulestackFqdnListOutput() LocalRule
 
 func (o LocalRulestackFqdnListOutput) ToLocalRulestackFqdnListOutputWithContext(ctx context.Context) LocalRulestackFqdnListOutput {
 	return o
+}
+
+func (o LocalRulestackFqdnListOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackFqdnList] {
+	return pulumix.Output[*LocalRulestackFqdnList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The comment for Audit purposes.
@@ -299,6 +324,12 @@ func (o LocalRulestackFqdnListArrayOutput) ToLocalRulestackFqdnListArrayOutputWi
 	return o
 }
 
+func (o LocalRulestackFqdnListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackFqdnList] {
+	return pulumix.Output[[]*LocalRulestackFqdnList]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalRulestackFqdnListArrayOutput) Index(i pulumi.IntInput) LocalRulestackFqdnListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRulestackFqdnList {
 		return vs[0].([]*LocalRulestackFqdnList)[vs[1].(int)]
@@ -317,6 +348,12 @@ func (o LocalRulestackFqdnListMapOutput) ToLocalRulestackFqdnListMapOutput() Loc
 
 func (o LocalRulestackFqdnListMapOutput) ToLocalRulestackFqdnListMapOutputWithContext(ctx context.Context) LocalRulestackFqdnListMapOutput {
 	return o
+}
+
+func (o LocalRulestackFqdnListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackFqdnList] {
+	return pulumix.Output[map[string]*LocalRulestackFqdnList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRulestackFqdnListMapOutput) MapIndex(k pulumi.StringInput) LocalRulestackFqdnListOutput {

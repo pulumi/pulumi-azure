@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output to a ServiceBus Queue.
@@ -305,6 +306,12 @@ func (i *OutputServiceBusQueue) ToOutputServiceBusQueueOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueOutput)
 }
 
+func (i *OutputServiceBusQueue) ToOutput(ctx context.Context) pulumix.Output[*OutputServiceBusQueue] {
+	return pulumix.Output[*OutputServiceBusQueue]{
+		OutputState: i.ToOutputServiceBusQueueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutputServiceBusQueueArrayInput is an input type that accepts OutputServiceBusQueueArray and OutputServiceBusQueueArrayOutput values.
 // You can construct a concrete instance of `OutputServiceBusQueueArrayInput` via:
 //
@@ -328,6 +335,12 @@ func (i OutputServiceBusQueueArray) ToOutputServiceBusQueueArrayOutput() OutputS
 
 func (i OutputServiceBusQueueArray) ToOutputServiceBusQueueArrayOutputWithContext(ctx context.Context) OutputServiceBusQueueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueArrayOutput)
+}
+
+func (i OutputServiceBusQueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputServiceBusQueue] {
+	return pulumix.Output[[]*OutputServiceBusQueue]{
+		OutputState: i.ToOutputServiceBusQueueArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OutputServiceBusQueueMapInput is an input type that accepts OutputServiceBusQueueMap and OutputServiceBusQueueMapOutput values.
@@ -355,6 +368,12 @@ func (i OutputServiceBusQueueMap) ToOutputServiceBusQueueMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueMapOutput)
 }
 
+func (i OutputServiceBusQueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputServiceBusQueue] {
+	return pulumix.Output[map[string]*OutputServiceBusQueue]{
+		OutputState: i.ToOutputServiceBusQueueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutputServiceBusQueueOutput struct{ *pulumi.OutputState }
 
 func (OutputServiceBusQueueOutput) ElementType() reflect.Type {
@@ -367,6 +386,12 @@ func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueueOutput() OutputServi
 
 func (o OutputServiceBusQueueOutput) ToOutputServiceBusQueueOutputWithContext(ctx context.Context) OutputServiceBusQueueOutput {
 	return o
+}
+
+func (o OutputServiceBusQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputServiceBusQueue] {
+	return pulumix.Output[*OutputServiceBusQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -440,6 +465,12 @@ func (o OutputServiceBusQueueArrayOutput) ToOutputServiceBusQueueArrayOutputWith
 	return o
 }
 
+func (o OutputServiceBusQueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputServiceBusQueue] {
+	return pulumix.Output[[]*OutputServiceBusQueue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutputServiceBusQueueArrayOutput) Index(i pulumi.IntInput) OutputServiceBusQueueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputServiceBusQueue {
 		return vs[0].([]*OutputServiceBusQueue)[vs[1].(int)]
@@ -458,6 +489,12 @@ func (o OutputServiceBusQueueMapOutput) ToOutputServiceBusQueueMapOutput() Outpu
 
 func (o OutputServiceBusQueueMapOutput) ToOutputServiceBusQueueMapOutputWithContext(ctx context.Context) OutputServiceBusQueueMapOutput {
 	return o
+}
+
+func (o OutputServiceBusQueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputServiceBusQueue] {
+	return pulumix.Output[map[string]*OutputServiceBusQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutputServiceBusQueueMapOutput) MapIndex(k pulumi.StringInput) OutputServiceBusQueueOutput {

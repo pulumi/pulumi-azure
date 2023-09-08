@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Redis Cache
@@ -142,6 +143,12 @@ func (o LookupCacheResultOutput) ToLookupCacheResultOutput() LookupCacheResultOu
 
 func (o LookupCacheResultOutput) ToLookupCacheResultOutputWithContext(ctx context.Context) LookupCacheResultOutput {
 	return o
+}
+
+func (o LookupCacheResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCacheResult] {
+	return pulumix.Output[LookupCacheResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The size of the Redis Cache deployed.

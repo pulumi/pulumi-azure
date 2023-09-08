@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Public IP Address.
@@ -395,6 +396,12 @@ func (i *PublicIp) ToPublicIpOutputWithContext(ctx context.Context) PublicIpOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpOutput)
 }
 
+func (i *PublicIp) ToOutput(ctx context.Context) pulumix.Output[*PublicIp] {
+	return pulumix.Output[*PublicIp]{
+		OutputState: i.ToPublicIpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PublicIpArrayInput is an input type that accepts PublicIpArray and PublicIpArrayOutput values.
 // You can construct a concrete instance of `PublicIpArrayInput` via:
 //
@@ -418,6 +425,12 @@ func (i PublicIpArray) ToPublicIpArrayOutput() PublicIpArrayOutput {
 
 func (i PublicIpArray) ToPublicIpArrayOutputWithContext(ctx context.Context) PublicIpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpArrayOutput)
+}
+
+func (i PublicIpArray) ToOutput(ctx context.Context) pulumix.Output[[]*PublicIp] {
+	return pulumix.Output[[]*PublicIp]{
+		OutputState: i.ToPublicIpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PublicIpMapInput is an input type that accepts PublicIpMap and PublicIpMapOutput values.
@@ -445,6 +458,12 @@ func (i PublicIpMap) ToPublicIpMapOutputWithContext(ctx context.Context) PublicI
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpMapOutput)
 }
 
+func (i PublicIpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicIp] {
+	return pulumix.Output[map[string]*PublicIp]{
+		OutputState: i.ToPublicIpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicIpOutput struct{ *pulumi.OutputState }
 
 func (PublicIpOutput) ElementType() reflect.Type {
@@ -457,6 +476,12 @@ func (o PublicIpOutput) ToPublicIpOutput() PublicIpOutput {
 
 func (o PublicIpOutput) ToPublicIpOutputWithContext(ctx context.Context) PublicIpOutput {
 	return o
+}
+
+func (o PublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicIp] {
+	return pulumix.Output[*PublicIp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
@@ -582,6 +607,12 @@ func (o PublicIpArrayOutput) ToPublicIpArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PublicIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PublicIp] {
+	return pulumix.Output[[]*PublicIp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PublicIpArrayOutput) Index(i pulumi.IntInput) PublicIpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicIp {
 		return vs[0].([]*PublicIp)[vs[1].(int)]
@@ -600,6 +631,12 @@ func (o PublicIpMapOutput) ToPublicIpMapOutput() PublicIpMapOutput {
 
 func (o PublicIpMapOutput) ToPublicIpMapOutputWithContext(ctx context.Context) PublicIpMapOutput {
 	return o
+}
+
+func (o PublicIpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicIp] {
+	return pulumix.Output[map[string]*PublicIp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicIpMapOutput) MapIndex(k pulumi.StringInput) PublicIpOutput {

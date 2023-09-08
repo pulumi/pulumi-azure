@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SSH Public Key.
@@ -191,6 +192,12 @@ func (i *SshPublicKey) ToSshPublicKeyOutputWithContext(ctx context.Context) SshP
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyOutput)
 }
 
+func (i *SshPublicKey) ToOutput(ctx context.Context) pulumix.Output[*SshPublicKey] {
+	return pulumix.Output[*SshPublicKey]{
+		OutputState: i.ToSshPublicKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SshPublicKeyArrayInput is an input type that accepts SshPublicKeyArray and SshPublicKeyArrayOutput values.
 // You can construct a concrete instance of `SshPublicKeyArrayInput` via:
 //
@@ -214,6 +221,12 @@ func (i SshPublicKeyArray) ToSshPublicKeyArrayOutput() SshPublicKeyArrayOutput {
 
 func (i SshPublicKeyArray) ToSshPublicKeyArrayOutputWithContext(ctx context.Context) SshPublicKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyArrayOutput)
+}
+
+func (i SshPublicKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SshPublicKey] {
+	return pulumix.Output[[]*SshPublicKey]{
+		OutputState: i.ToSshPublicKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SshPublicKeyMapInput is an input type that accepts SshPublicKeyMap and SshPublicKeyMapOutput values.
@@ -241,6 +254,12 @@ func (i SshPublicKeyMap) ToSshPublicKeyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyMapOutput)
 }
 
+func (i SshPublicKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshPublicKey] {
+	return pulumix.Output[map[string]*SshPublicKey]{
+		OutputState: i.ToSshPublicKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyOutput) ElementType() reflect.Type {
@@ -253,6 +272,12 @@ func (o SshPublicKeyOutput) ToSshPublicKeyOutput() SshPublicKeyOutput {
 
 func (o SshPublicKeyOutput) ToSshPublicKeyOutputWithContext(ctx context.Context) SshPublicKeyOutput {
 	return o
+}
+
+func (o SshPublicKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*SshPublicKey] {
+	return pulumix.Output[*SshPublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
@@ -294,6 +319,12 @@ func (o SshPublicKeyArrayOutput) ToSshPublicKeyArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o SshPublicKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SshPublicKey] {
+	return pulumix.Output[[]*SshPublicKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SshPublicKeyArrayOutput) Index(i pulumi.IntInput) SshPublicKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SshPublicKey {
 		return vs[0].([]*SshPublicKey)[vs[1].(int)]
@@ -312,6 +343,12 @@ func (o SshPublicKeyMapOutput) ToSshPublicKeyMapOutput() SshPublicKeyMapOutput {
 
 func (o SshPublicKeyMapOutput) ToSshPublicKeyMapOutputWithContext(ctx context.Context) SshPublicKeyMapOutput {
 	return o
+}
+
+func (o SshPublicKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SshPublicKey] {
+	return pulumix.Output[map[string]*SshPublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SshPublicKeyMapOutput) MapIndex(k pulumi.StringInput) SshPublicKeyOutput {

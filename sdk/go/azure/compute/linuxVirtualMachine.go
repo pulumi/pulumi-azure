@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Virtual Machine.
@@ -882,6 +883,12 @@ func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOutput)
 }
 
+func (i *LinuxVirtualMachine) ToOutput(ctx context.Context) pulumix.Output[*LinuxVirtualMachine] {
+	return pulumix.Output[*LinuxVirtualMachine]{
+		OutputState: i.ToLinuxVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinuxVirtualMachineArrayInput is an input type that accepts LinuxVirtualMachineArray and LinuxVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineArrayInput` via:
 //
@@ -905,6 +912,12 @@ func (i LinuxVirtualMachineArray) ToLinuxVirtualMachineArrayOutput() LinuxVirtua
 
 func (i LinuxVirtualMachineArray) ToLinuxVirtualMachineArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineArrayOutput)
+}
+
+func (i LinuxVirtualMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxVirtualMachine] {
+	return pulumix.Output[[]*LinuxVirtualMachine]{
+		OutputState: i.ToLinuxVirtualMachineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinuxVirtualMachineMapInput is an input type that accepts LinuxVirtualMachineMap and LinuxVirtualMachineMapOutput values.
@@ -932,6 +945,12 @@ func (i LinuxVirtualMachineMap) ToLinuxVirtualMachineMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineMapOutput)
 }
 
+func (i LinuxVirtualMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxVirtualMachine] {
+	return pulumix.Output[map[string]*LinuxVirtualMachine]{
+		OutputState: i.ToLinuxVirtualMachineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinuxVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOutput) ElementType() reflect.Type {
@@ -944,6 +963,12 @@ func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutput() LinuxVirtualMac
 
 func (o LinuxVirtualMachineOutput) ToLinuxVirtualMachineOutputWithContext(ctx context.Context) LinuxVirtualMachineOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxVirtualMachine] {
+	return pulumix.Output[*LinuxVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `additionalCapabilities` block as defined below.
@@ -1256,6 +1281,12 @@ func (o LinuxVirtualMachineArrayOutput) ToLinuxVirtualMachineArrayOutputWithCont
 	return o
 }
 
+func (o LinuxVirtualMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxVirtualMachine] {
+	return pulumix.Output[[]*LinuxVirtualMachine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinuxVirtualMachineArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxVirtualMachine {
 		return vs[0].([]*LinuxVirtualMachine)[vs[1].(int)]
@@ -1274,6 +1305,12 @@ func (o LinuxVirtualMachineMapOutput) ToLinuxVirtualMachineMapOutput() LinuxVirt
 
 func (o LinuxVirtualMachineMapOutput) ToLinuxVirtualMachineMapOutputWithContext(ctx context.Context) LinuxVirtualMachineMapOutput {
 	return o
+}
+
+func (o LinuxVirtualMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxVirtualMachine] {
+	return pulumix.Output[map[string]*LinuxVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinuxVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) LinuxVirtualMachineOutput {

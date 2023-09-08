@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure IoT Time Series Insights Access Policy.
@@ -202,6 +203,12 @@ func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyOutput)
 }
 
+func (i *TimeSeriesInsightsAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsAccessPolicy] {
+	return pulumix.Output[*TimeSeriesInsightsAccessPolicy]{
+		OutputState: i.ToTimeSeriesInsightsAccessPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TimeSeriesInsightsAccessPolicyArrayInput is an input type that accepts TimeSeriesInsightsAccessPolicyArray and TimeSeriesInsightsAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsAccessPolicyArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i TimeSeriesInsightsAccessPolicyArray) ToTimeSeriesInsightsAccessPolicyArr
 
 func (i TimeSeriesInsightsAccessPolicyArray) ToTimeSeriesInsightsAccessPolicyArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyArrayOutput)
+}
+
+func (i TimeSeriesInsightsAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsAccessPolicy] {
+	return pulumix.Output[[]*TimeSeriesInsightsAccessPolicy]{
+		OutputState: i.ToTimeSeriesInsightsAccessPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TimeSeriesInsightsAccessPolicyMapInput is an input type that accepts TimeSeriesInsightsAccessPolicyMap and TimeSeriesInsightsAccessPolicyMapOutput values.
@@ -252,6 +265,12 @@ func (i TimeSeriesInsightsAccessPolicyMap) ToTimeSeriesInsightsAccessPolicyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyMapOutput)
 }
 
+func (i TimeSeriesInsightsAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsAccessPolicy] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsAccessPolicy]{
+		OutputState: i.ToTimeSeriesInsightsAccessPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TimeSeriesInsightsAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsAccessPolicyOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyOu
 
 func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsAccessPolicy] {
+	return pulumix.Output[*TimeSeriesInsightsAccessPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the Azure IoT Time Series Insights Access Policy.
@@ -305,6 +330,12 @@ func (o TimeSeriesInsightsAccessPolicyArrayOutput) ToTimeSeriesInsightsAccessPol
 	return o
 }
 
+func (o TimeSeriesInsightsAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsAccessPolicy] {
+	return pulumix.Output[[]*TimeSeriesInsightsAccessPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TimeSeriesInsightsAccessPolicyArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsAccessPolicy {
 		return vs[0].([]*TimeSeriesInsightsAccessPolicy)[vs[1].(int)]
@@ -323,6 +354,12 @@ func (o TimeSeriesInsightsAccessPolicyMapOutput) ToTimeSeriesInsightsAccessPolic
 
 func (o TimeSeriesInsightsAccessPolicyMapOutput) ToTimeSeriesInsightsAccessPolicyMapOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyMapOutput {
 	return o
+}
+
+func (o TimeSeriesInsightsAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsAccessPolicy] {
+	return pulumix.Output[map[string]*TimeSeriesInsightsAccessPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TimeSeriesInsightsAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsAccessPolicyOutput {

@@ -144,6 +144,10 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.ExtensionProtectedSettingsFromKeyVault | undefined>;
     /**
+     * Specifies the collection of extension names after which this extension needs to be provisioned.
+     */
+    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
+    /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
     public readonly publisher!: pulumi.Output<string>;
@@ -195,6 +199,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
             resourceInputs["protectedSettingsFromKeyVault"] = state ? state.protectedSettingsFromKeyVault : undefined;
+            resourceInputs["provisionAfterExtensions"] = state ? state.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = state ? state.publisher : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -221,6 +226,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
             resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
+            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -269,6 +275,10 @@ export interface ExtensionState {
      * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.ExtensionProtectedSettingsFromKeyVault>;
+    /**
+     * Specifies the collection of extension names after which this extension needs to be provisioned.
+     */
+    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
@@ -337,6 +347,10 @@ export interface ExtensionArgs {
      * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.ExtensionProtectedSettingsFromKeyVault>;
+    /**
+     * Specifies the collection of extension names after which this extension needs to be provisioned.
+     */
+    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */

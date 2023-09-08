@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a managed disk.
@@ -670,6 +671,12 @@ func (i *ManagedDisk) ToManagedDiskOutputWithContext(ctx context.Context) Manage
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskOutput)
 }
 
+func (i *ManagedDisk) ToOutput(ctx context.Context) pulumix.Output[*ManagedDisk] {
+	return pulumix.Output[*ManagedDisk]{
+		OutputState: i.ToManagedDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedDiskArrayInput is an input type that accepts ManagedDiskArray and ManagedDiskArrayOutput values.
 // You can construct a concrete instance of `ManagedDiskArrayInput` via:
 //
@@ -693,6 +700,12 @@ func (i ManagedDiskArray) ToManagedDiskArrayOutput() ManagedDiskArrayOutput {
 
 func (i ManagedDiskArray) ToManagedDiskArrayOutputWithContext(ctx context.Context) ManagedDiskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskArrayOutput)
+}
+
+func (i ManagedDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDisk] {
+	return pulumix.Output[[]*ManagedDisk]{
+		OutputState: i.ToManagedDiskArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedDiskMapInput is an input type that accepts ManagedDiskMap and ManagedDiskMapOutput values.
@@ -720,6 +733,12 @@ func (i ManagedDiskMap) ToManagedDiskMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskMapOutput)
 }
 
+func (i ManagedDiskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDisk] {
+	return pulumix.Output[map[string]*ManagedDisk]{
+		OutputState: i.ToManagedDiskMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedDiskOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskOutput) ElementType() reflect.Type {
@@ -732,6 +751,12 @@ func (o ManagedDiskOutput) ToManagedDiskOutput() ManagedDiskOutput {
 
 func (o ManagedDiskOutput) ToManagedDiskOutputWithContext(ctx context.Context) ManagedDiskOutput {
 	return o
+}
+
+func (o ManagedDiskOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedDisk] {
+	return pulumix.Output[*ManagedDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
@@ -941,6 +966,12 @@ func (o ManagedDiskArrayOutput) ToManagedDiskArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ManagedDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDisk] {
+	return pulumix.Output[[]*ManagedDisk]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedDiskArrayOutput) Index(i pulumi.IntInput) ManagedDiskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedDisk {
 		return vs[0].([]*ManagedDisk)[vs[1].(int)]
@@ -959,6 +990,12 @@ func (o ManagedDiskMapOutput) ToManagedDiskMapOutput() ManagedDiskMapOutput {
 
 func (o ManagedDiskMapOutput) ToManagedDiskMapOutputWithContext(ctx context.Context) ManagedDiskMapOutput {
 	return o
+}
+
+func (o ManagedDiskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDisk] {
+	return pulumix.Output[map[string]*ManagedDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedDiskMapOutput) MapIndex(k pulumi.StringInput) ManagedDiskOutput {

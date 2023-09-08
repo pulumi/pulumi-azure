@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a connection in an existing Virtual Network Gateway.
@@ -639,6 +640,12 @@ func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
 }
 
+func (i *VirtualNetworkGatewayConnection) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkGatewayConnection] {
+	return pulumix.Output[*VirtualNetworkGatewayConnection]{
+		OutputState: i.ToVirtualNetworkGatewayConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNetworkGatewayConnectionArrayInput is an input type that accepts VirtualNetworkGatewayConnectionArray and VirtualNetworkGatewayConnectionArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayConnectionArrayInput` via:
 //
@@ -662,6 +669,12 @@ func (i VirtualNetworkGatewayConnectionArray) ToVirtualNetworkGatewayConnectionA
 
 func (i VirtualNetworkGatewayConnectionArray) ToVirtualNetworkGatewayConnectionArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionArrayOutput)
+}
+
+func (i VirtualNetworkGatewayConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkGatewayConnection] {
+	return pulumix.Output[[]*VirtualNetworkGatewayConnection]{
+		OutputState: i.ToVirtualNetworkGatewayConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNetworkGatewayConnectionMapInput is an input type that accepts VirtualNetworkGatewayConnectionMap and VirtualNetworkGatewayConnectionMapOutput values.
@@ -689,6 +702,12 @@ func (i VirtualNetworkGatewayConnectionMap) ToVirtualNetworkGatewayConnectionMap
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionMapOutput)
 }
 
+func (i VirtualNetworkGatewayConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkGatewayConnection] {
+	return pulumix.Output[map[string]*VirtualNetworkGatewayConnection]{
+		OutputState: i.ToVirtualNetworkGatewayConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNetworkGatewayConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
@@ -701,6 +720,12 @@ func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnection
 
 func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkGatewayConnection] {
+	return pulumix.Output[*VirtualNetworkGatewayConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
@@ -850,6 +875,12 @@ func (o VirtualNetworkGatewayConnectionArrayOutput) ToVirtualNetworkGatewayConne
 	return o
 }
 
+func (o VirtualNetworkGatewayConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkGatewayConnection] {
+	return pulumix.Output[[]*VirtualNetworkGatewayConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNetworkGatewayConnectionArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkGatewayConnection {
 		return vs[0].([]*VirtualNetworkGatewayConnection)[vs[1].(int)]
@@ -868,6 +899,12 @@ func (o VirtualNetworkGatewayConnectionMapOutput) ToVirtualNetworkGatewayConnect
 
 func (o VirtualNetworkGatewayConnectionMapOutput) ToVirtualNetworkGatewayConnectionMapOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionMapOutput {
 	return o
+}
+
+func (o VirtualNetworkGatewayConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkGatewayConnection] {
+	return pulumix.Output[map[string]*VirtualNetworkGatewayConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNetworkGatewayConnectionMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkGatewayConnectionOutput {

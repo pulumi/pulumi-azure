@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
@@ -217,6 +218,12 @@ func (i *RegistryToken) ToRegistryTokenOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTokenOutput)
 }
 
+func (i *RegistryToken) ToOutput(ctx context.Context) pulumix.Output[*RegistryToken] {
+	return pulumix.Output[*RegistryToken]{
+		OutputState: i.ToRegistryTokenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryTokenArrayInput is an input type that accepts RegistryTokenArray and RegistryTokenArrayOutput values.
 // You can construct a concrete instance of `RegistryTokenArrayInput` via:
 //
@@ -240,6 +247,12 @@ func (i RegistryTokenArray) ToRegistryTokenArrayOutput() RegistryTokenArrayOutpu
 
 func (i RegistryTokenArray) ToRegistryTokenArrayOutputWithContext(ctx context.Context) RegistryTokenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTokenArrayOutput)
+}
+
+func (i RegistryTokenArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryToken] {
+	return pulumix.Output[[]*RegistryToken]{
+		OutputState: i.ToRegistryTokenArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryTokenMapInput is an input type that accepts RegistryTokenMap and RegistryTokenMapOutput values.
@@ -267,6 +280,12 @@ func (i RegistryTokenMap) ToRegistryTokenMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTokenMapOutput)
 }
 
+func (i RegistryTokenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryToken] {
+	return pulumix.Output[map[string]*RegistryToken]{
+		OutputState: i.ToRegistryTokenMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTokenOutput struct{ *pulumi.OutputState }
 
 func (RegistryTokenOutput) ElementType() reflect.Type {
@@ -279,6 +298,12 @@ func (o RegistryTokenOutput) ToRegistryTokenOutput() RegistryTokenOutput {
 
 func (o RegistryTokenOutput) ToRegistryTokenOutputWithContext(ctx context.Context) RegistryTokenOutput {
 	return o
+}
+
+func (o RegistryTokenOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryToken] {
+	return pulumix.Output[*RegistryToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Container Registry. Changing this forces a new resource to be created.
@@ -320,6 +345,12 @@ func (o RegistryTokenArrayOutput) ToRegistryTokenArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o RegistryTokenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryToken] {
+	return pulumix.Output[[]*RegistryToken]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryTokenArrayOutput) Index(i pulumi.IntInput) RegistryTokenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryToken {
 		return vs[0].([]*RegistryToken)[vs[1].(int)]
@@ -338,6 +369,12 @@ func (o RegistryTokenMapOutput) ToRegistryTokenMapOutput() RegistryTokenMapOutpu
 
 func (o RegistryTokenMapOutput) ToRegistryTokenMapOutputWithContext(ctx context.Context) RegistryTokenMapOutput {
 	return o
+}
+
+func (o RegistryTokenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryToken] {
+	return pulumix.Output[map[string]*RegistryToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTokenMapOutput) MapIndex(k pulumi.StringInput) RegistryTokenOutput {

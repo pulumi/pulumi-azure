@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing HDInsight Cluster.
@@ -128,6 +129,12 @@ func (o GetClusterResultOutput) ToGetClusterResultOutput() GetClusterResultOutpu
 
 func (o GetClusterResultOutput) ToGetClusterResultOutputWithContext(ctx context.Context) GetClusterResultOutput {
 	return o
+}
+
+func (o GetClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterResult] {
+	return pulumix.Output[GetClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of HDInsights which is used on this HDInsight Cluster.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Group Consumption Budget.
@@ -282,6 +283,12 @@ func (i *BudgetResourceGroup) ToBudgetResourceGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupOutput)
 }
 
+func (i *BudgetResourceGroup) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroup] {
+	return pulumix.Output[*BudgetResourceGroup]{
+		OutputState: i.ToBudgetResourceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetResourceGroupArrayInput is an input type that accepts BudgetResourceGroupArray and BudgetResourceGroupArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceGroupArrayInput` via:
 //
@@ -305,6 +312,12 @@ func (i BudgetResourceGroupArray) ToBudgetResourceGroupArrayOutput() BudgetResou
 
 func (i BudgetResourceGroupArray) ToBudgetResourceGroupArrayOutputWithContext(ctx context.Context) BudgetResourceGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupArrayOutput)
+}
+
+func (i BudgetResourceGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetResourceGroup] {
+	return pulumix.Output[[]*BudgetResourceGroup]{
+		OutputState: i.ToBudgetResourceGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BudgetResourceGroupMapInput is an input type that accepts BudgetResourceGroupMap and BudgetResourceGroupMapOutput values.
@@ -332,6 +345,12 @@ func (i BudgetResourceGroupMap) ToBudgetResourceGroupMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupMapOutput)
 }
 
+func (i BudgetResourceGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetResourceGroup] {
+	return pulumix.Output[map[string]*BudgetResourceGroup]{
+		OutputState: i.ToBudgetResourceGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupOutput) ElementType() reflect.Type {
@@ -344,6 +363,12 @@ func (o BudgetResourceGroupOutput) ToBudgetResourceGroupOutput() BudgetResourceG
 
 func (o BudgetResourceGroupOutput) ToBudgetResourceGroupOutputWithContext(ctx context.Context) BudgetResourceGroupOutput {
 	return o
+}
+
+func (o BudgetResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceGroup] {
+	return pulumix.Output[*BudgetResourceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The total amount of cost to track with the budget.
@@ -400,6 +425,12 @@ func (o BudgetResourceGroupArrayOutput) ToBudgetResourceGroupArrayOutputWithCont
 	return o
 }
 
+func (o BudgetResourceGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetResourceGroup] {
+	return pulumix.Output[[]*BudgetResourceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetResourceGroupArrayOutput) Index(i pulumi.IntInput) BudgetResourceGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetResourceGroup {
 		return vs[0].([]*BudgetResourceGroup)[vs[1].(int)]
@@ -418,6 +449,12 @@ func (o BudgetResourceGroupMapOutput) ToBudgetResourceGroupMapOutput() BudgetRes
 
 func (o BudgetResourceGroupMapOutput) ToBudgetResourceGroupMapOutputWithContext(ctx context.Context) BudgetResourceGroupMapOutput {
 	return o
+}
+
+func (o BudgetResourceGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetResourceGroup] {
+	return pulumix.Output[map[string]*BudgetResourceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceGroupMapOutput) MapIndex(k pulumi.StringInput) BudgetResourceGroupOutput {

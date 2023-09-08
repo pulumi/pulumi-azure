@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Snowflake and Azure Data Factory.
@@ -299,6 +300,12 @@ func (i *LinkedServiceSnowflake) ToLinkedServiceSnowflakeOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeOutput)
 }
 
+func (i *LinkedServiceSnowflake) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSnowflake] {
+	return pulumix.Output[*LinkedServiceSnowflake]{
+		OutputState: i.ToLinkedServiceSnowflakeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceSnowflakeArrayInput is an input type that accepts LinkedServiceSnowflakeArray and LinkedServiceSnowflakeArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceSnowflakeArrayInput` via:
 //
@@ -322,6 +329,12 @@ func (i LinkedServiceSnowflakeArray) ToLinkedServiceSnowflakeArrayOutput() Linke
 
 func (i LinkedServiceSnowflakeArray) ToLinkedServiceSnowflakeArrayOutputWithContext(ctx context.Context) LinkedServiceSnowflakeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeArrayOutput)
+}
+
+func (i LinkedServiceSnowflakeArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSnowflake] {
+	return pulumix.Output[[]*LinkedServiceSnowflake]{
+		OutputState: i.ToLinkedServiceSnowflakeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceSnowflakeMapInput is an input type that accepts LinkedServiceSnowflakeMap and LinkedServiceSnowflakeMapOutput values.
@@ -349,6 +362,12 @@ func (i LinkedServiceSnowflakeMap) ToLinkedServiceSnowflakeMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSnowflakeMapOutput)
 }
 
+func (i LinkedServiceSnowflakeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSnowflake] {
+	return pulumix.Output[map[string]*LinkedServiceSnowflake]{
+		OutputState: i.ToLinkedServiceSnowflakeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSnowflakeOutput) ElementType() reflect.Type {
@@ -361,6 +380,12 @@ func (o LinkedServiceSnowflakeOutput) ToLinkedServiceSnowflakeOutput() LinkedSer
 
 func (o LinkedServiceSnowflakeOutput) ToLinkedServiceSnowflakeOutputWithContext(ctx context.Context) LinkedServiceSnowflakeOutput {
 	return o
+}
+
+func (o LinkedServiceSnowflakeOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSnowflake] {
+	return pulumix.Output[*LinkedServiceSnowflake]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -424,6 +449,12 @@ func (o LinkedServiceSnowflakeArrayOutput) ToLinkedServiceSnowflakeArrayOutputWi
 	return o
 }
 
+func (o LinkedServiceSnowflakeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSnowflake] {
+	return pulumix.Output[[]*LinkedServiceSnowflake]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceSnowflakeArrayOutput) Index(i pulumi.IntInput) LinkedServiceSnowflakeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceSnowflake {
 		return vs[0].([]*LinkedServiceSnowflake)[vs[1].(int)]
@@ -442,6 +473,12 @@ func (o LinkedServiceSnowflakeMapOutput) ToLinkedServiceSnowflakeMapOutput() Lin
 
 func (o LinkedServiceSnowflakeMapOutput) ToLinkedServiceSnowflakeMapOutputWithContext(ctx context.Context) LinkedServiceSnowflakeMapOutput {
 	return o
+}
+
+func (o LinkedServiceSnowflakeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSnowflake] {
+	return pulumix.Output[map[string]*LinkedServiceSnowflake]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceSnowflakeMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceSnowflakeOutput {

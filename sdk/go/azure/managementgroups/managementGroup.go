@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Management Group.
@@ -194,6 +195,12 @@ func (i *ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupOutput)
 }
 
+func (i *ManagementGroup) ToOutput(ctx context.Context) pulumix.Output[*ManagementGroup] {
+	return pulumix.Output[*ManagementGroup]{
+		OutputState: i.ToManagementGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagementGroupArrayInput is an input type that accepts ManagementGroupArray and ManagementGroupArrayOutput values.
 // You can construct a concrete instance of `ManagementGroupArrayInput` via:
 //
@@ -217,6 +224,12 @@ func (i ManagementGroupArray) ToManagementGroupArrayOutput() ManagementGroupArra
 
 func (i ManagementGroupArray) ToManagementGroupArrayOutputWithContext(ctx context.Context) ManagementGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupArrayOutput)
+}
+
+func (i ManagementGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagementGroup] {
+	return pulumix.Output[[]*ManagementGroup]{
+		OutputState: i.ToManagementGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagementGroupMapInput is an input type that accepts ManagementGroupMap and ManagementGroupMapOutput values.
@@ -244,6 +257,12 @@ func (i ManagementGroupMap) ToManagementGroupMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupMapOutput)
 }
 
+func (i ManagementGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagementGroup] {
+	return pulumix.Output[map[string]*ManagementGroup]{
+		OutputState: i.ToManagementGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupOutput) ElementType() reflect.Type {
@@ -256,6 +275,12 @@ func (o ManagementGroupOutput) ToManagementGroupOutput() ManagementGroupOutput {
 
 func (o ManagementGroupOutput) ToManagementGroupOutputWithContext(ctx context.Context) ManagementGroupOutput {
 	return o
+}
+
+func (o ManagementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagementGroup] {
+	return pulumix.Output[*ManagementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -294,6 +319,12 @@ func (o ManagementGroupArrayOutput) ToManagementGroupArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ManagementGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagementGroup] {
+	return pulumix.Output[[]*ManagementGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagementGroupArrayOutput) Index(i pulumi.IntInput) ManagementGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagementGroup {
 		return vs[0].([]*ManagementGroup)[vs[1].(int)]
@@ -312,6 +343,12 @@ func (o ManagementGroupMapOutput) ToManagementGroupMapOutput() ManagementGroupMa
 
 func (o ManagementGroupMapOutput) ToManagementGroupMapOutputWithContext(ctx context.Context) ManagementGroupMapOutput {
 	return o
+}
+
+func (o ManagementGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagementGroup] {
+	return pulumix.Output[map[string]*ManagementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagementGroupMapOutput) MapIndex(k pulumi.StringInput) ManagementGroupOutput {

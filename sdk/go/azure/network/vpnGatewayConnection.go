@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Gateway Connection.
@@ -266,6 +267,12 @@ func (i *VpnGatewayConnection) ToVpnGatewayConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionOutput)
 }
 
+func (i *VpnGatewayConnection) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayConnection] {
+	return pulumix.Output[*VpnGatewayConnection]{
+		OutputState: i.ToVpnGatewayConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpnGatewayConnectionArrayInput is an input type that accepts VpnGatewayConnectionArray and VpnGatewayConnectionArrayOutput values.
 // You can construct a concrete instance of `VpnGatewayConnectionArrayInput` via:
 //
@@ -289,6 +296,12 @@ func (i VpnGatewayConnectionArray) ToVpnGatewayConnectionArrayOutput() VpnGatewa
 
 func (i VpnGatewayConnectionArray) ToVpnGatewayConnectionArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionArrayOutput)
+}
+
+func (i VpnGatewayConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGatewayConnection] {
+	return pulumix.Output[[]*VpnGatewayConnection]{
+		OutputState: i.ToVpnGatewayConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpnGatewayConnectionMapInput is an input type that accepts VpnGatewayConnectionMap and VpnGatewayConnectionMapOutput values.
@@ -316,6 +329,12 @@ func (i VpnGatewayConnectionMap) ToVpnGatewayConnectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionMapOutput)
 }
 
+func (i VpnGatewayConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGatewayConnection] {
+	return pulumix.Output[map[string]*VpnGatewayConnection]{
+		OutputState: i.ToVpnGatewayConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnGatewayConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayConnectionOutput) ElementType() reflect.Type {
@@ -328,6 +347,12 @@ func (o VpnGatewayConnectionOutput) ToVpnGatewayConnectionOutput() VpnGatewayCon
 
 func (o VpnGatewayConnectionOutput) ToVpnGatewayConnectionOutputWithContext(ctx context.Context) VpnGatewayConnectionOutput {
 	return o
+}
+
+func (o VpnGatewayConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayConnection] {
+	return pulumix.Output[*VpnGatewayConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
@@ -381,6 +406,12 @@ func (o VpnGatewayConnectionArrayOutput) ToVpnGatewayConnectionArrayOutputWithCo
 	return o
 }
 
+func (o VpnGatewayConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGatewayConnection] {
+	return pulumix.Output[[]*VpnGatewayConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpnGatewayConnectionArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnGatewayConnection {
 		return vs[0].([]*VpnGatewayConnection)[vs[1].(int)]
@@ -399,6 +430,12 @@ func (o VpnGatewayConnectionMapOutput) ToVpnGatewayConnectionMapOutput() VpnGate
 
 func (o VpnGatewayConnectionMapOutput) ToVpnGatewayConnectionMapOutputWithContext(ctx context.Context) VpnGatewayConnectionMapOutput {
 	return o
+}
+
+func (o VpnGatewayConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGatewayConnection] {
+	return pulumix.Output[map[string]*VpnGatewayConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpnGatewayConnectionMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayConnectionOutput {

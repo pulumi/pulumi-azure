@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i LocalRulestackRuleCategoryArgs) ToLocalRulestackRuleCategoryOutput() Loc
 
 func (i LocalRulestackRuleCategoryArgs) ToLocalRulestackRuleCategoryOutputWithContext(ctx context.Context) LocalRulestackRuleCategoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleCategoryOutput)
+}
+
+func (i LocalRulestackRuleCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[LocalRulestackRuleCategory] {
+	return pulumix.Output[LocalRulestackRuleCategory]{
+		OutputState: i.ToLocalRulestackRuleCategoryOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LocalRulestackRuleCategoryArgs) ToLocalRulestackRuleCategoryPtrOutput() LocalRulestackRuleCategoryPtrOutput {
@@ -91,6 +98,12 @@ func (i *localRulestackRuleCategoryPtrType) ToLocalRulestackRuleCategoryPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleCategoryPtrOutput)
 }
 
+func (i *localRulestackRuleCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRuleCategory] {
+	return pulumix.Output[*LocalRulestackRuleCategory]{
+		OutputState: i.ToLocalRulestackRuleCategoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRulestackRuleCategoryOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackRuleCategoryOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o LocalRulestackRuleCategoryOutput) ToLocalRulestackRuleCategoryPtrOutputW
 	}).(LocalRulestackRuleCategoryPtrOutput)
 }
 
+func (o LocalRulestackRuleCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[LocalRulestackRuleCategory] {
+	return pulumix.Output[LocalRulestackRuleCategory]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a list of URL categories to match. Possible values include `abortion`, `abused-drugs`, `adult`, `alcohol-and-tobacco`, `auctions`, `business-and-economy`, `command-and-control`, `computer-and-internet-info`, `content-delivery-networks`, `copyright-infringement`, `cryptocurrency`, `dating`, `dynamic-dns`, `educational-institutions`, `entertainment-and-arts`, `extremism`, `financial-services`, `gambling`, `games`, `government`, `grayware`, `hacking`, `health-and-medicine`, `high-risk`, `home-and-garden`, `hunting-and-fishing`, `insufficient-content`, `internet-communications-and-telephony`, `internet-portals`, `job-search`, `legal`, `low-risk`, `malware`, `medium-risk`, `military`, `motor-vehicles`, `music`, `newly-registered-domain`, `news`, `not-resolved`, `nudity`, `online-storage-and-backup`, `parked`, `peer-to-peer`, `personal-sites-and-blogs`, `philosophy-and-political-advocacy`, `phishing`, `private-ip-addresses`, `proxy-avoidance-and-anonymizers`, `questionable`, `real-estate`, `real-time-detection`, `recreation-and-hobbies`, `reference-and-research`, `religion`, `search-engines`, `sex-education`, `shareware-and-freeware`, `shopping`, `social-networking`, `society`, `sports`, `stock-advice-and-tools`, `streaming-media`, `swimsuits-and-intimate-apparel`, `training-and-tools`, `translation`, `travel`, `unknown`, `weapons`, `web-advertisements`, `web-based-email`, and  `web-hosting`.
 func (o LocalRulestackRuleCategoryOutput) CustomUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocalRulestackRuleCategory) []string { return v.CustomUrls }).(pulumi.StringArrayOutput)
@@ -137,6 +156,12 @@ func (o LocalRulestackRuleCategoryPtrOutput) ToLocalRulestackRuleCategoryPtrOutp
 
 func (o LocalRulestackRuleCategoryPtrOutput) ToLocalRulestackRuleCategoryPtrOutputWithContext(ctx context.Context) LocalRulestackRuleCategoryPtrOutput {
 	return o
+}
+
+func (o LocalRulestackRuleCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRuleCategory] {
+	return pulumix.Output[*LocalRulestackRuleCategory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRulestackRuleCategoryPtrOutput) Elem() LocalRulestackRuleCategoryOutput {
@@ -226,6 +251,12 @@ func (i LocalRulestackRuleDestinationArgs) ToLocalRulestackRuleDestinationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleDestinationOutput)
 }
 
+func (i LocalRulestackRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[LocalRulestackRuleDestination] {
+	return pulumix.Output[LocalRulestackRuleDestination]{
+		OutputState: i.ToLocalRulestackRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocalRulestackRuleDestinationArgs) ToLocalRulestackRuleDestinationPtrOutput() LocalRulestackRuleDestinationPtrOutput {
 	return i.ToLocalRulestackRuleDestinationPtrOutputWithContext(context.Background())
 }
@@ -267,6 +298,12 @@ func (i *localRulestackRuleDestinationPtrType) ToLocalRulestackRuleDestinationPt
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleDestinationPtrOutput)
 }
 
+func (i *localRulestackRuleDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRuleDestination] {
+	return pulumix.Output[*LocalRulestackRuleDestination]{
+		OutputState: i.ToLocalRulestackRuleDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRulestackRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackRuleDestinationOutput) ElementType() reflect.Type {
@@ -289,6 +326,12 @@ func (o LocalRulestackRuleDestinationOutput) ToLocalRulestackRuleDestinationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalRulestackRuleDestination) *LocalRulestackRuleDestination {
 		return &v
 	}).(LocalRulestackRuleDestinationPtrOutput)
+}
+
+func (o LocalRulestackRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[LocalRulestackRuleDestination] {
+	return pulumix.Output[LocalRulestackRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of CIDR's.
@@ -332,6 +375,12 @@ func (o LocalRulestackRuleDestinationPtrOutput) ToLocalRulestackRuleDestinationP
 
 func (o LocalRulestackRuleDestinationPtrOutput) ToLocalRulestackRuleDestinationPtrOutputWithContext(ctx context.Context) LocalRulestackRuleDestinationPtrOutput {
 	return o
+}
+
+func (o LocalRulestackRuleDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRuleDestination] {
+	return pulumix.Output[*LocalRulestackRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRulestackRuleDestinationPtrOutput) Elem() LocalRulestackRuleDestinationOutput {
@@ -447,6 +496,12 @@ func (i LocalRulestackRuleSourceArgs) ToLocalRulestackRuleSourceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleSourceOutput)
 }
 
+func (i LocalRulestackRuleSourceArgs) ToOutput(ctx context.Context) pulumix.Output[LocalRulestackRuleSource] {
+	return pulumix.Output[LocalRulestackRuleSource]{
+		OutputState: i.ToLocalRulestackRuleSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LocalRulestackRuleSourceArgs) ToLocalRulestackRuleSourcePtrOutput() LocalRulestackRuleSourcePtrOutput {
 	return i.ToLocalRulestackRuleSourcePtrOutputWithContext(context.Background())
 }
@@ -488,6 +543,12 @@ func (i *localRulestackRuleSourcePtrType) ToLocalRulestackRuleSourcePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackRuleSourcePtrOutput)
 }
 
+func (i *localRulestackRuleSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRuleSource] {
+	return pulumix.Output[*LocalRulestackRuleSource]{
+		OutputState: i.ToLocalRulestackRuleSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRulestackRuleSourceOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackRuleSourceOutput) ElementType() reflect.Type {
@@ -510,6 +571,12 @@ func (o LocalRulestackRuleSourceOutput) ToLocalRulestackRuleSourcePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalRulestackRuleSource) *LocalRulestackRuleSource {
 		return &v
 	}).(LocalRulestackRuleSourcePtrOutput)
+}
+
+func (o LocalRulestackRuleSourceOutput) ToOutput(ctx context.Context) pulumix.Output[LocalRulestackRuleSource] {
+	return pulumix.Output[LocalRulestackRuleSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of CIDRs.
@@ -546,6 +613,12 @@ func (o LocalRulestackRuleSourcePtrOutput) ToLocalRulestackRuleSourcePtrOutput()
 
 func (o LocalRulestackRuleSourcePtrOutput) ToLocalRulestackRuleSourcePtrOutputWithContext(ctx context.Context) LocalRulestackRuleSourcePtrOutput {
 	return o
+}
+
+func (o LocalRulestackRuleSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackRuleSource] {
+	return pulumix.Output[*LocalRulestackRuleSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRulestackRuleSourcePtrOutput) Elem() LocalRulestackRuleSourceOutput {
@@ -637,6 +710,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs) ToNext
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput is an input type that accepts NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArray and NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput` via:
 //
@@ -662,6 +741,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArray) ToNex
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArray) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualHubLocalRulestackDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualHubLocalRulestackDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) ElementType() reflect.Type {
@@ -674,6 +759,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) ToNe
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput) BackendConfig() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput {
@@ -708,6 +799,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput)
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualHubLocalRulestackDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualHubLocalRulestackDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatOutput {
@@ -747,6 +844,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 
 func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput {
@@ -790,6 +893,12 @@ func (i *nextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConf
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput) ElementType() reflect.Type {
@@ -814,6 +923,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -836,6 +951,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfi
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigPtrOutput) Elem() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigOutput {
@@ -899,6 +1020,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput {
 	return i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
 }
@@ -940,6 +1067,12 @@ func (i *nextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendCon
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput) ElementType() reflect.Type {
@@ -964,6 +1097,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -986,6 +1125,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConf
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigPtrOutput) Elem() NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigOutput {
@@ -1051,6 +1196,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs) ToNextGen
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs) ToNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput {
 	return i.ToNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutputWithContext(context.Background())
 }
@@ -1092,6 +1243,12 @@ func (i *nextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrType) ToNex
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) ElementType() reflect.Type {
@@ -1114,6 +1271,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) ToNextG
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubLocalRulestackDnsSettings) *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings {
 		return &v
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput) AzureDnsServers() pulumi.StringArrayOutput {
@@ -1140,6 +1303,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) ToNe
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput) Elem() NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsOutput {
@@ -1226,6 +1395,12 @@ func (i NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs) ToNext
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs) ToNextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput {
 	return i.ToNextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -1267,6 +1442,12 @@ func (i *nextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) ElementType() reflect.Type {
@@ -1289,6 +1470,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) ToNe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile {
 		return &v
 	}).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
@@ -1353,6 +1540,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) T
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) Elem() NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput {
@@ -1483,6 +1676,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs) ToNextGenera
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaDestinationNatArray and NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayInput` via:
 //
@@ -1508,6 +1707,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatArray) ToNextGener
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatArray) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) ElementType() reflect.Type {
@@ -1520,6 +1725,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) ToNextGene
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput) BackendConfig() NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput {
@@ -1554,6 +1765,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput) ToNex
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualHubPanoramaDestinationNatOutput {
@@ -1593,6 +1810,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs)
 
 func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput)
+}
+
+func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput {
@@ -1636,6 +1859,12 @@ func (i *nextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput) ElementType() reflect.Type {
@@ -1660,6 +1889,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutpu
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1682,6 +1917,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOu
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigPtrOutput) Elem() NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigOutput {
@@ -1745,6 +1986,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput {
 	return i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
 }
@@ -1786,6 +2033,12 @@ func (i *nextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtr
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput) ElementType() reflect.Type {
@@ -1810,6 +2063,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutp
 	}).(NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1832,6 +2091,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrO
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigPtrOutput) Elem() NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigOutput {
@@ -1897,6 +2162,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs) ToNextGeneratio
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDnsSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs) ToNextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput() NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput {
 	return i.ToNextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutputWithContext(context.Background())
 }
@@ -1938,6 +2209,12 @@ func (i *nextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrType) ToNextGener
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) ElementType() reflect.Type {
@@ -1960,6 +2237,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) ToNextGenerat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubPanoramaDnsSettings) *NextGenerationFirewallVirtualHubPanoramaDnsSettings {
 		return &v
 	}).(NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput) AzureDnsServers() pulumi.StringArrayOutput {
@@ -1986,6 +2269,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) ToNextGene
 
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput) Elem() NextGenerationFirewallVirtualHubPanoramaDnsSettingsOutput {
@@ -2072,6 +2361,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs) ToNextGenera
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs) ToNextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput() NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput {
 	return i.ToNextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -2113,6 +2408,12 @@ func (i *nextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrType) ToNextGe
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) ElementType() reflect.Type {
@@ -2135,6 +2436,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) ToNextGene
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) *NextGenerationFirewallVirtualHubPanoramaNetworkProfile {
 		return &v
 	}).(NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) EgressNatIpAddressIds() pulumi.StringArrayOutput {
@@ -2191,6 +2498,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) ToNextG
 
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualHubPanoramaNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) Elem() NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput {
@@ -2327,6 +2640,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaPanoramaArgs) ToNextGenerationFi
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaPanoramaOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaPanoramaArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaPanorama] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaPanorama]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaPanoramaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualHubPanoramaPanoramaArrayInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaPanoramaArray and NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualHubPanoramaPanoramaArrayInput` via:
 //
@@ -2352,6 +2671,12 @@ func (i NextGenerationFirewallVirtualHubPanoramaPanoramaArray) ToNextGenerationF
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput)
 }
 
+func (i NextGenerationFirewallVirtualHubPanoramaPanoramaArray) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaPanorama] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaPanorama]{
+		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualHubPanoramaPanoramaOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) ElementType() reflect.Type {
@@ -2364,6 +2689,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) ToNextGeneration
 
 func (o NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) ToNextGenerationFirewallVirtualHubPanoramaPanoramaOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaPanoramaOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualHubPanoramaPanorama] {
+	return pulumix.Output[NextGenerationFirewallVirtualHubPanoramaPanorama]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaPanoramaOutput) DeviceGroupName() pulumi.StringPtrOutput {
@@ -2406,6 +2737,12 @@ func (o NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput) ToNextGener
 
 func (o NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput) ToNextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaPanorama] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualHubPanoramaPanorama]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualHubPanoramaPanoramaOutput {
@@ -2459,6 +2796,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayInput is an input type that accepts NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArray and NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayInput` via:
 //
@@ -2484,6 +2827,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArray) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput) ElementType() reflect.Type {
@@ -2496,6 +2845,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput) 
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `backendConfig` block as defined above.
@@ -2534,6 +2889,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOut
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatOutput {
@@ -2579,6 +2940,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendC
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutputWithContext(context.Background())
 }
@@ -2620,6 +2987,12 @@ func (i *nextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackend
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutput) ElementType() reflect.Type {
@@ -2642,6 +3015,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig) *NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port number to send traffic to.
@@ -2670,6 +3049,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendC
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigPtrOutput) Elem() NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigOutput {
@@ -2743,6 +3128,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontend
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
 }
@@ -2784,6 +3175,12 @@ func (i *nextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFronten
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigOutput) ElementType() reflect.Type {
@@ -2806,6 +3203,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontend
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig) *NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port on which to receive traffic.
@@ -2836,6 +3239,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontend
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigPtrOutput) Elem() NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigOutput {
@@ -2909,6 +3318,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs) ToNex
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs) ToNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutputWithContext(context.Background())
 }
@@ -2950,6 +3365,12 @@ func (i *nextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) ElementType() reflect.Type {
@@ -2972,6 +3393,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) ToN
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings) *NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) AzureDnsServers() pulumi.StringArrayOutput {
@@ -3002,6 +3429,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) 
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) Elem() NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput {
@@ -3088,6 +3521,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs) ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -3129,6 +3568,12 @@ func (i *nextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrType
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput) ElementType() reflect.Type {
@@ -3151,6 +3596,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile) *NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
@@ -3198,6 +3649,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutpu
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput) Elem() NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput {
@@ -3301,6 +3758,12 @@ func (i NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConf
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs) ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3342,6 +3805,12 @@ func (i *nextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetCon
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput) ElementType() reflect.Type {
@@ -3364,6 +3833,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration) *NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput) IpOfTrustForUserDefinedRoutes() pulumi.StringPtrOutput {
@@ -3405,6 +3880,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConf
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput) ToNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationPtrOutput) Elem() NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput {
@@ -3501,6 +3982,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs) ToNextGe
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayInput is an input type that accepts NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArray and NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayInput` via:
 //
@@ -3526,6 +4013,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArray) ToNextG
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArray) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaDestinationNat]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput) ElementType() reflect.Type {
@@ -3538,6 +4031,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput) ToNext
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput) ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNat] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `backendConfig` block as defined above.
@@ -3576,6 +4075,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput) T
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput) ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaDestinationNat] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaDestinationNat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualNetworkPanoramaDestinationNatOutput {
@@ -3621,6 +4126,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigA
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs) ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput() NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutputWithContext(context.Background())
 }
@@ -3662,6 +4173,12 @@ func (i *nextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigOutput) ElementType() reflect.Type {
@@ -3684,6 +4201,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig) *NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port number to send traffic to.
@@ -3710,6 +4233,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigP
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigPtrOutput) Elem() NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigOutput {
@@ -3783,6 +4312,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs) ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput() NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutputWithContext(context.Background())
 }
@@ -3824,6 +4359,12 @@ func (i *nextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfi
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigOutput) ElementType() reflect.Type {
@@ -3846,6 +4387,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig) *NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port on which to receive traffic.
@@ -3874,6 +4421,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput) ToNextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigPtrOutput) Elem() NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigOutput {
@@ -3947,6 +4500,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs) ToNextGener
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs) ToNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput() NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutputWithContext(context.Background())
 }
@@ -3988,6 +4547,12 @@ func (i *nextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrType) ToNextG
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDnsSettings]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) ElementType() reflect.Type {
@@ -4010,6 +4575,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) ToNextGen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkPanoramaDnsSettings) *NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDnsSettings] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) AzureDnsServers() pulumi.StringArrayOutput {
@@ -4038,6 +4609,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) ToNext
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) ToNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDnsSettings] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaDnsSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) Elem() NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput {
@@ -4124,6 +4701,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs) ToNextGe
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs) ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput() NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -4165,6 +4748,12 @@ func (i *nextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrType) ToNe
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput) ElementType() reflect.Type {
@@ -4187,6 +4776,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput) ToNext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile) *NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
@@ -4234,6 +4829,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput) ToN
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput) ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput) Elem() NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput {
@@ -4337,6 +4938,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs) ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput() NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput {
 	return i.ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4378,6 +4985,12 @@ func (i *nextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput)
 }
 
+func (i *nextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput) ElementType() reflect.Type {
@@ -4400,6 +5013,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration) *NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration {
 		return &v
 	}).(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput)
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput) IpOfTrustForUserDefinedRoutes() pulumi.StringPtrOutput {
@@ -4441,6 +5060,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurat
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput) ToNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration] {
+	return pulumix.Output[*NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationPtrOutput) Elem() NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput {
@@ -4549,6 +5174,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs) ToNextGenerati
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaPanorama] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaPanorama]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaPanoramaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayInput is an input type that accepts NextGenerationFirewallVirtualNetworkPanoramaPanoramaArray and NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayInput` via:
 //
@@ -4574,6 +5205,12 @@ func (i NextGenerationFirewallVirtualNetworkPanoramaPanoramaArray) ToNextGenerat
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput)
 }
 
+func (i NextGenerationFirewallVirtualNetworkPanoramaPanoramaArray) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaPanorama] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaPanorama]{
+		OutputState: i.ToNextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput) ElementType() reflect.Type {
@@ -4586,6 +5223,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput) ToNextGenera
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput) ToNextGenerationFirewallVirtualNetworkPanoramaPanoramaOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput) ToOutput(ctx context.Context) pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaPanorama] {
+	return pulumix.Output[NextGenerationFirewallVirtualNetworkPanoramaPanorama]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Device Group Name to which this Firewall Resource is registered.
@@ -4635,6 +5278,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput) ToNextG
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput) ToNextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput {
 	return o
+}
+
+func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaPanorama] {
+	return pulumix.Output[[]NextGenerationFirewallVirtualNetworkPanoramaPanorama]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualNetworkPanoramaPanoramaOutput {

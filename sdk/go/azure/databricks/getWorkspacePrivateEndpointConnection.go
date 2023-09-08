@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
@@ -108,6 +109,12 @@ func (o GetWorkspacePrivateEndpointConnectionResultOutput) ToGetWorkspacePrivate
 
 func (o GetWorkspacePrivateEndpointConnectionResultOutput) ToGetWorkspacePrivateEndpointConnectionResultOutputWithContext(ctx context.Context) GetWorkspacePrivateEndpointConnectionResultOutput {
 	return o
+}
+
+func (o GetWorkspacePrivateEndpointConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspacePrivateEndpointConnectionResult] {
+	return pulumix.Output[GetWorkspacePrivateEndpointConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `connections` block as documented below.

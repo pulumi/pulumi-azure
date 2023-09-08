@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between an Azure Table Storage and Azure Data Factory.
@@ -248,6 +249,12 @@ func (i *LinkedServiceAzureTableStorage) ToLinkedServiceAzureTableStorageOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureTableStorageOutput)
 }
 
+func (i *LinkedServiceAzureTableStorage) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureTableStorage] {
+	return pulumix.Output[*LinkedServiceAzureTableStorage]{
+		OutputState: i.ToLinkedServiceAzureTableStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkedServiceAzureTableStorageArrayInput is an input type that accepts LinkedServiceAzureTableStorageArray and LinkedServiceAzureTableStorageArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureTableStorageArrayInput` via:
 //
@@ -271,6 +278,12 @@ func (i LinkedServiceAzureTableStorageArray) ToLinkedServiceAzureTableStorageArr
 
 func (i LinkedServiceAzureTableStorageArray) ToLinkedServiceAzureTableStorageArrayOutputWithContext(ctx context.Context) LinkedServiceAzureTableStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureTableStorageArrayOutput)
+}
+
+func (i LinkedServiceAzureTableStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureTableStorage] {
+	return pulumix.Output[[]*LinkedServiceAzureTableStorage]{
+		OutputState: i.ToLinkedServiceAzureTableStorageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkedServiceAzureTableStorageMapInput is an input type that accepts LinkedServiceAzureTableStorageMap and LinkedServiceAzureTableStorageMapOutput values.
@@ -298,6 +311,12 @@ func (i LinkedServiceAzureTableStorageMap) ToLinkedServiceAzureTableStorageMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureTableStorageMapOutput)
 }
 
+func (i LinkedServiceAzureTableStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureTableStorage] {
+	return pulumix.Output[map[string]*LinkedServiceAzureTableStorage]{
+		OutputState: i.ToLinkedServiceAzureTableStorageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkedServiceAzureTableStorageOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureTableStorageOutput) ElementType() reflect.Type {
@@ -310,6 +329,12 @@ func (o LinkedServiceAzureTableStorageOutput) ToLinkedServiceAzureTableStorageOu
 
 func (o LinkedServiceAzureTableStorageOutput) ToLinkedServiceAzureTableStorageOutputWithContext(ctx context.Context) LinkedServiceAzureTableStorageOutput {
 	return o
+}
+
+func (o LinkedServiceAzureTableStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureTableStorage] {
+	return pulumix.Output[*LinkedServiceAzureTableStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -368,6 +393,12 @@ func (o LinkedServiceAzureTableStorageArrayOutput) ToLinkedServiceAzureTableStor
 	return o
 }
 
+func (o LinkedServiceAzureTableStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureTableStorage] {
+	return pulumix.Output[[]*LinkedServiceAzureTableStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkedServiceAzureTableStorageArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureTableStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureTableStorage {
 		return vs[0].([]*LinkedServiceAzureTableStorage)[vs[1].(int)]
@@ -386,6 +417,12 @@ func (o LinkedServiceAzureTableStorageMapOutput) ToLinkedServiceAzureTableStorag
 
 func (o LinkedServiceAzureTableStorageMapOutput) ToLinkedServiceAzureTableStorageMapOutputWithContext(ctx context.Context) LinkedServiceAzureTableStorageMapOutput {
 	return o
+}
+
+func (o LinkedServiceAzureTableStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureTableStorage] {
+	return pulumix.Output[map[string]*LinkedServiceAzureTableStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkedServiceAzureTableStorageMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureTableStorageOutput {

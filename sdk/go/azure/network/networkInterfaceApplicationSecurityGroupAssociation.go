@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the association between a Network Interface and a Application Security Group.
@@ -198,6 +199,12 @@ func (i *NetworkInterfaceApplicationSecurityGroupAssociation) ToNetworkInterface
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationSecurityGroupAssociationOutput)
 }
 
+func (i *NetworkInterfaceApplicationSecurityGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceApplicationSecurityGroupAssociation] {
+	return pulumix.Output[*NetworkInterfaceApplicationSecurityGroupAssociation]{
+		OutputState: i.ToNetworkInterfaceApplicationSecurityGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInterfaceApplicationSecurityGroupAssociationArrayInput is an input type that accepts NetworkInterfaceApplicationSecurityGroupAssociationArray and NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceApplicationSecurityGroupAssociationArrayInput` via:
 //
@@ -221,6 +228,12 @@ func (i NetworkInterfaceApplicationSecurityGroupAssociationArray) ToNetworkInter
 
 func (i NetworkInterfaceApplicationSecurityGroupAssociationArray) ToNetworkInterfaceApplicationSecurityGroupAssociationArrayOutputWithContext(ctx context.Context) NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput)
+}
+
+func (i NetworkInterfaceApplicationSecurityGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceApplicationSecurityGroupAssociation] {
+	return pulumix.Output[[]*NetworkInterfaceApplicationSecurityGroupAssociation]{
+		OutputState: i.ToNetworkInterfaceApplicationSecurityGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkInterfaceApplicationSecurityGroupAssociationMapInput is an input type that accepts NetworkInterfaceApplicationSecurityGroupAssociationMap and NetworkInterfaceApplicationSecurityGroupAssociationMapOutput values.
@@ -248,6 +261,12 @@ func (i NetworkInterfaceApplicationSecurityGroupAssociationMap) ToNetworkInterfa
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceApplicationSecurityGroupAssociationMapOutput)
 }
 
+func (i NetworkInterfaceApplicationSecurityGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceApplicationSecurityGroupAssociation] {
+	return pulumix.Output[map[string]*NetworkInterfaceApplicationSecurityGroupAssociation]{
+		OutputState: i.ToNetworkInterfaceApplicationSecurityGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInterfaceApplicationSecurityGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceApplicationSecurityGroupAssociationOutput) ElementType() reflect.Type {
@@ -260,6 +279,12 @@ func (o NetworkInterfaceApplicationSecurityGroupAssociationOutput) ToNetworkInte
 
 func (o NetworkInterfaceApplicationSecurityGroupAssociationOutput) ToNetworkInterfaceApplicationSecurityGroupAssociationOutputWithContext(ctx context.Context) NetworkInterfaceApplicationSecurityGroupAssociationOutput {
 	return o
+}
+
+func (o NetworkInterfaceApplicationSecurityGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceApplicationSecurityGroupAssociation] {
+	return pulumix.Output[*NetworkInterfaceApplicationSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -290,6 +315,12 @@ func (o NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput) ToNetwor
 	return o
 }
 
+func (o NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceApplicationSecurityGroupAssociation] {
+	return pulumix.Output[[]*NetworkInterfaceApplicationSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceApplicationSecurityGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterfaceApplicationSecurityGroupAssociation {
 		return vs[0].([]*NetworkInterfaceApplicationSecurityGroupAssociation)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o NetworkInterfaceApplicationSecurityGroupAssociationMapOutput) ToNetworkI
 
 func (o NetworkInterfaceApplicationSecurityGroupAssociationMapOutput) ToNetworkInterfaceApplicationSecurityGroupAssociationMapOutputWithContext(ctx context.Context) NetworkInterfaceApplicationSecurityGroupAssociationMapOutput {
 	return o
+}
+
+func (o NetworkInterfaceApplicationSecurityGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceApplicationSecurityGroupAssociation] {
+	return pulumix.Output[map[string]*NetworkInterfaceApplicationSecurityGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInterfaceApplicationSecurityGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceApplicationSecurityGroupAssociationOutput {

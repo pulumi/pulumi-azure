@@ -168,6 +168,20 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.endpoint);
     }
     /**
+     * Is local authentication enabled? Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Is local authentication enabled? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
+    }
+    /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      * 
      */

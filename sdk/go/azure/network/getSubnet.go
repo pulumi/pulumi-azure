@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Subnet within a Virtual Network.
@@ -125,6 +126,12 @@ func (o LookupSubnetResultOutput) ToLookupSubnetResultOutput() LookupSubnetResul
 
 func (o LookupSubnetResultOutput) ToLookupSubnetResultOutputWithContext(ctx context.Context) LookupSubnetResultOutput {
 	return o
+}
+
+func (o LookupSubnetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetResult] {
+	return pulumix.Output[LookupSubnetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSubnetResultOutput) AddressPrefix() pulumi.StringOutput {

@@ -16,11 +16,14 @@ import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumePlainArgs;
+import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
+import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRulePlainArgs;
 import com.pulumi.azure.netapp.outputs.GetAccountResult;
 import com.pulumi.azure.netapp.outputs.GetPoolResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotResult;
 import com.pulumi.azure.netapp.outputs.GetVolumeGroupSapHanaResult;
+import com.pulumi.azure.netapp.outputs.GetVolumeQuotaRuleResult;
 import com.pulumi.azure.netapp.outputs.GetVolumeResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1020,5 +1023,161 @@ public final class NetappFunctions {
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Volume Quota Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
+     *             .name(&#34;exampleQuotaRule&#34;)
+     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args) {
+        return getVolumeQuotaRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Volume Quota Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
+     *             .name(&#34;exampleQuotaRule&#34;)
+     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args) {
+        return getVolumeQuotaRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Volume Quota Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
+     *             .name(&#34;exampleQuotaRule&#34;)
+     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", TypeShape.of(GetVolumeQuotaRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Volume Quota Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
+     *             .name(&#34;exampleQuotaRule&#34;)
+     *             .volumeId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeQuotaRuleResult -&gt; getVolumeQuotaRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", TypeShape.of(GetVolumeQuotaRuleResult.class), args, Utilities.withVersion(options));
     }
 }

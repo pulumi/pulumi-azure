@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Advanced Threat Protection Data Connector.
@@ -190,6 +191,12 @@ func (i *DataConnectorAzureAdvancedThreadProtection) ToDataConnectorAzureAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureAdvancedThreadProtectionOutput)
 }
 
+func (i *DataConnectorAzureAdvancedThreadProtection) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAzureAdvancedThreadProtection] {
+	return pulumix.Output[*DataConnectorAzureAdvancedThreadProtection]{
+		OutputState: i.ToDataConnectorAzureAdvancedThreadProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataConnectorAzureAdvancedThreadProtectionArrayInput is an input type that accepts DataConnectorAzureAdvancedThreadProtectionArray and DataConnectorAzureAdvancedThreadProtectionArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAzureAdvancedThreadProtectionArrayInput` via:
 //
@@ -213,6 +220,12 @@ func (i DataConnectorAzureAdvancedThreadProtectionArray) ToDataConnectorAzureAdv
 
 func (i DataConnectorAzureAdvancedThreadProtectionArray) ToDataConnectorAzureAdvancedThreadProtectionArrayOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureAdvancedThreadProtectionArrayOutput)
+}
+
+func (i DataConnectorAzureAdvancedThreadProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAzureAdvancedThreadProtection] {
+	return pulumix.Output[[]*DataConnectorAzureAdvancedThreadProtection]{
+		OutputState: i.ToDataConnectorAzureAdvancedThreadProtectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataConnectorAzureAdvancedThreadProtectionMapInput is an input type that accepts DataConnectorAzureAdvancedThreadProtectionMap and DataConnectorAzureAdvancedThreadProtectionMapOutput values.
@@ -240,6 +253,12 @@ func (i DataConnectorAzureAdvancedThreadProtectionMap) ToDataConnectorAzureAdvan
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureAdvancedThreadProtectionMapOutput)
 }
 
+func (i DataConnectorAzureAdvancedThreadProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAzureAdvancedThreadProtection] {
+	return pulumix.Output[map[string]*DataConnectorAzureAdvancedThreadProtection]{
+		OutputState: i.ToDataConnectorAzureAdvancedThreadProtectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataConnectorAzureAdvancedThreadProtectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureAdvancedThreadProtectionOutput) ElementType() reflect.Type {
@@ -252,6 +271,12 @@ func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToDataConnectorAzureAd
 
 func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToDataConnectorAzureAdvancedThreadProtectionOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionOutput {
 	return o
+}
+
+func (o DataConnectorAzureAdvancedThreadProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAzureAdvancedThreadProtection] {
+	return pulumix.Output[*DataConnectorAzureAdvancedThreadProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace that this Azure Advanced Threat Protection Data Connector resides in. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
@@ -287,6 +312,12 @@ func (o DataConnectorAzureAdvancedThreadProtectionArrayOutput) ToDataConnectorAz
 	return o
 }
 
+func (o DataConnectorAzureAdvancedThreadProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAzureAdvancedThreadProtection] {
+	return pulumix.Output[[]*DataConnectorAzureAdvancedThreadProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataConnectorAzureAdvancedThreadProtectionArrayOutput) Index(i pulumi.IntInput) DataConnectorAzureAdvancedThreadProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAzureAdvancedThreadProtection {
 		return vs[0].([]*DataConnectorAzureAdvancedThreadProtection)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) ToDataConnectorAzur
 
 func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) ToDataConnectorAzureAdvancedThreadProtectionMapOutputWithContext(ctx context.Context) DataConnectorAzureAdvancedThreadProtectionMapOutput {
 	return o
+}
+
+func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAzureAdvancedThreadProtection] {
+	return pulumix.Output[map[string]*DataConnectorAzureAdvancedThreadProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAzureAdvancedThreadProtectionOutput {

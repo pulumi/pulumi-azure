@@ -109,6 +109,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly authentication!: pulumi.Output<outputs.postgresql.FlexibleServerAuthentication>;
     /**
+     * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     */
+    public readonly autoGrowEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
@@ -220,6 +224,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
             resourceInputs["authentication"] = state ? state.authentication : undefined;
+            resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
@@ -250,6 +255,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
             resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
@@ -300,6 +306,10 @@ export interface FlexibleServerState {
      * An `authentication` block as defined below.
      */
     authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication>;
+    /**
+     * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     */
+    autoGrowEnabled?: pulumi.Input<boolean>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
@@ -417,6 +427,10 @@ export interface FlexibleServerArgs {
      * An `authentication` block as defined below.
      */
     authentication?: pulumi.Input<inputs.postgresql.FlexibleServerAuthentication>;
+    /**
+     * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     */
+    autoGrowEnabled?: pulumi.Input<boolean>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */

@@ -24,8 +24,8 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
-        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
@@ -57,7 +57,7 @@ class CertificateArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input['CertificateCertificateArgs']]:
         """
-        A `certificate` block as defined below, used to Import an existing certificate.
+        A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -69,7 +69,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificatePolicy")
     def certificate_policy(self) -> Optional[pulumi.Input['CertificateCertificatePolicyArgs']]:
         """
-        A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 
         > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         """
@@ -124,11 +124,11 @@ class _CertificateState:
                  versionless_secret_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
+        :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateCertificateAttributeArgs']]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
@@ -177,7 +177,7 @@ class _CertificateState:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input['CertificateCertificateArgs']]:
         """
-        A `certificate` block as defined below, used to Import an existing certificate.
+        A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -225,7 +225,7 @@ class _CertificateState:
     @pulumi.getter(name="certificatePolicy")
     def certificate_policy(self) -> Optional[pulumi.Input['CertificateCertificatePolicyArgs']]:
         """
-        A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 
         > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         """
@@ -370,6 +370,11 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
+        <<<<<<< HEAD
+        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
+
+        =======
+        > > > > > > > 8d78c87098 (Update-documentation)
         ## Example Usage
         ### Importing A PFX)
 
@@ -556,8 +561,8 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertificateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.
-        :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['CertificateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
@@ -573,6 +578,11 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
+        <<<<<<< HEAD
+        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
+
+        =======
+        > > > > > > > 8d78c87098 (Update-documentation)
         ## Example Usage
         ### Importing A PFX)
 
@@ -837,11 +847,11 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertificateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.
+        :param pulumi.Input[pulumi.InputType['CertificateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateCertificateAttributeArgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
@@ -880,7 +890,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[Optional['outputs.CertificateCertificate']]:
         """
-        A `certificate` block as defined below, used to Import an existing certificate.
+        A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -912,7 +922,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificatePolicy")
     def certificate_policy(self) -> pulumi.Output['outputs.CertificateCertificatePolicy']:
         """
-        A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 
         > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         """

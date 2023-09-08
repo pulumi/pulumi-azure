@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -264,6 +265,12 @@ func (i *FrontdoorOrigin) ToFrontdoorOriginOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginOutput)
 }
 
+func (i *FrontdoorOrigin) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorOrigin] {
+	return pulumix.Output[*FrontdoorOrigin]{
+		OutputState: i.ToFrontdoorOriginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrontdoorOriginArrayInput is an input type that accepts FrontdoorOriginArray and FrontdoorOriginArrayOutput values.
 // You can construct a concrete instance of `FrontdoorOriginArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i FrontdoorOriginArray) ToFrontdoorOriginArrayOutput() FrontdoorOriginArra
 
 func (i FrontdoorOriginArray) ToFrontdoorOriginArrayOutputWithContext(ctx context.Context) FrontdoorOriginArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginArrayOutput)
+}
+
+func (i FrontdoorOriginArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorOrigin] {
+	return pulumix.Output[[]*FrontdoorOrigin]{
+		OutputState: i.ToFrontdoorOriginArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FrontdoorOriginMapInput is an input type that accepts FrontdoorOriginMap and FrontdoorOriginMapOutput values.
@@ -314,6 +327,12 @@ func (i FrontdoorOriginMap) ToFrontdoorOriginMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOriginMapOutput)
 }
 
+func (i FrontdoorOriginMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorOrigin] {
+	return pulumix.Output[map[string]*FrontdoorOrigin]{
+		OutputState: i.ToFrontdoorOriginMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrontdoorOriginOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorOriginOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o FrontdoorOriginOutput) ToFrontdoorOriginOutput() FrontdoorOriginOutput {
 
 func (o FrontdoorOriginOutput) ToFrontdoorOriginOutputWithContext(ctx context.Context) FrontdoorOriginOutput {
 	return o
+}
+
+func (o FrontdoorOriginOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorOrigin] {
+	return pulumix.Output[*FrontdoorOrigin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
@@ -410,6 +435,12 @@ func (o FrontdoorOriginArrayOutput) ToFrontdoorOriginArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o FrontdoorOriginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorOrigin] {
+	return pulumix.Output[[]*FrontdoorOrigin]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FrontdoorOriginArrayOutput) Index(i pulumi.IntInput) FrontdoorOriginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorOrigin {
 		return vs[0].([]*FrontdoorOrigin)[vs[1].(int)]
@@ -428,6 +459,12 @@ func (o FrontdoorOriginMapOutput) ToFrontdoorOriginMapOutput() FrontdoorOriginMa
 
 func (o FrontdoorOriginMapOutput) ToFrontdoorOriginMapOutputWithContext(ctx context.Context) FrontdoorOriginMapOutput {
 	return o
+}
+
+func (o FrontdoorOriginMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorOrigin] {
+	return pulumix.Output[map[string]*FrontdoorOrigin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrontdoorOriginMapOutput) MapIndex(k pulumi.StringInput) FrontdoorOriginOutput {

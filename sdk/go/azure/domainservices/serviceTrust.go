@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Active Directory Domain Service Trust.
@@ -205,6 +206,12 @@ func (i *ServiceTrust) ToServiceTrustOutputWithContext(ctx context.Context) Serv
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTrustOutput)
 }
 
+func (i *ServiceTrust) ToOutput(ctx context.Context) pulumix.Output[*ServiceTrust] {
+	return pulumix.Output[*ServiceTrust]{
+		OutputState: i.ToServiceTrustOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceTrustArrayInput is an input type that accepts ServiceTrustArray and ServiceTrustArrayOutput values.
 // You can construct a concrete instance of `ServiceTrustArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i ServiceTrustArray) ToServiceTrustArrayOutput() ServiceTrustArrayOutput {
 
 func (i ServiceTrustArray) ToServiceTrustArrayOutputWithContext(ctx context.Context) ServiceTrustArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTrustArrayOutput)
+}
+
+func (i ServiceTrustArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceTrust] {
+	return pulumix.Output[[]*ServiceTrust]{
+		OutputState: i.ToServiceTrustArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceTrustMapInput is an input type that accepts ServiceTrustMap and ServiceTrustMapOutput values.
@@ -255,6 +268,12 @@ func (i ServiceTrustMap) ToServiceTrustMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTrustMapOutput)
 }
 
+func (i ServiceTrustMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceTrust] {
+	return pulumix.Output[map[string]*ServiceTrust]{
+		OutputState: i.ToServiceTrustMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceTrustOutput struct{ *pulumi.OutputState }
 
 func (ServiceTrustOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o ServiceTrustOutput) ToServiceTrustOutput() ServiceTrustOutput {
 
 func (o ServiceTrustOutput) ToServiceTrustOutputWithContext(ctx context.Context) ServiceTrustOutput {
 	return o
+}
+
+func (o ServiceTrustOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceTrust] {
+	return pulumix.Output[*ServiceTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
@@ -308,6 +333,12 @@ func (o ServiceTrustArrayOutput) ToServiceTrustArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServiceTrustArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceTrust] {
+	return pulumix.Output[[]*ServiceTrust]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceTrustArrayOutput) Index(i pulumi.IntInput) ServiceTrustOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceTrust {
 		return vs[0].([]*ServiceTrust)[vs[1].(int)]
@@ -326,6 +357,12 @@ func (o ServiceTrustMapOutput) ToServiceTrustMapOutput() ServiceTrustMapOutput {
 
 func (o ServiceTrustMapOutput) ToServiceTrustMapOutputWithContext(ctx context.Context) ServiceTrustMapOutput {
 	return o
+}
+
+func (o ServiceTrustMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceTrust] {
+	return pulumix.Output[map[string]*ServiceTrust]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceTrustMapOutput) MapIndex(k pulumi.StringInput) ServiceTrustOutput {

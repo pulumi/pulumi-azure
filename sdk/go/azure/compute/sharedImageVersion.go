@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Version of a Shared Image within a Shared Image Gallery.
@@ -361,6 +362,12 @@ func (i *SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionOutput)
 }
 
+func (i *SharedImageVersion) ToOutput(ctx context.Context) pulumix.Output[*SharedImageVersion] {
+	return pulumix.Output[*SharedImageVersion]{
+		OutputState: i.ToSharedImageVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SharedImageVersionArrayInput is an input type that accepts SharedImageVersionArray and SharedImageVersionArrayOutput values.
 // You can construct a concrete instance of `SharedImageVersionArrayInput` via:
 //
@@ -384,6 +391,12 @@ func (i SharedImageVersionArray) ToSharedImageVersionArrayOutput() SharedImageVe
 
 func (i SharedImageVersionArray) ToSharedImageVersionArrayOutputWithContext(ctx context.Context) SharedImageVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionArrayOutput)
+}
+
+func (i SharedImageVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedImageVersion] {
+	return pulumix.Output[[]*SharedImageVersion]{
+		OutputState: i.ToSharedImageVersionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SharedImageVersionMapInput is an input type that accepts SharedImageVersionMap and SharedImageVersionMapOutput values.
@@ -411,6 +424,12 @@ func (i SharedImageVersionMap) ToSharedImageVersionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageVersionMapOutput)
 }
 
+func (i SharedImageVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedImageVersion] {
+	return pulumix.Output[map[string]*SharedImageVersion]{
+		OutputState: i.ToSharedImageVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SharedImageVersionOutput struct{ *pulumi.OutputState }
 
 func (SharedImageVersionOutput) ElementType() reflect.Type {
@@ -423,6 +442,12 @@ func (o SharedImageVersionOutput) ToSharedImageVersionOutput() SharedImageVersio
 
 func (o SharedImageVersionOutput) ToSharedImageVersionOutputWithContext(ctx context.Context) SharedImageVersionOutput {
 	return o
+}
+
+func (o SharedImageVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedImageVersion] {
+	return pulumix.Output[*SharedImageVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
@@ -521,6 +546,12 @@ func (o SharedImageVersionArrayOutput) ToSharedImageVersionArrayOutputWithContex
 	return o
 }
 
+func (o SharedImageVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedImageVersion] {
+	return pulumix.Output[[]*SharedImageVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SharedImageVersionArrayOutput) Index(i pulumi.IntInput) SharedImageVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedImageVersion {
 		return vs[0].([]*SharedImageVersion)[vs[1].(int)]
@@ -539,6 +570,12 @@ func (o SharedImageVersionMapOutput) ToSharedImageVersionMapOutput() SharedImage
 
 func (o SharedImageVersionMapOutput) ToSharedImageVersionMapOutputWithContext(ctx context.Context) SharedImageVersionMapOutput {
 	return o
+}
+
+func (o SharedImageVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedImageVersion] {
+	return pulumix.Output[map[string]*SharedImageVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedImageVersionMapOutput) MapIndex(k pulumi.StringInput) SharedImageVersionOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Media Streaming Locator.
@@ -306,6 +307,12 @@ func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
 }
 
+func (i *StreamingLocator) ToOutput(ctx context.Context) pulumix.Output[*StreamingLocator] {
+	return pulumix.Output[*StreamingLocator]{
+		OutputState: i.ToStreamingLocatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamingLocatorArrayInput is an input type that accepts StreamingLocatorArray and StreamingLocatorArrayOutput values.
 // You can construct a concrete instance of `StreamingLocatorArrayInput` via:
 //
@@ -329,6 +336,12 @@ func (i StreamingLocatorArray) ToStreamingLocatorArrayOutput() StreamingLocatorA
 
 func (i StreamingLocatorArray) ToStreamingLocatorArrayOutputWithContext(ctx context.Context) StreamingLocatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorArrayOutput)
+}
+
+func (i StreamingLocatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamingLocator] {
+	return pulumix.Output[[]*StreamingLocator]{
+		OutputState: i.ToStreamingLocatorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StreamingLocatorMapInput is an input type that accepts StreamingLocatorMap and StreamingLocatorMapOutput values.
@@ -356,6 +369,12 @@ func (i StreamingLocatorMap) ToStreamingLocatorMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorMapOutput)
 }
 
+func (i StreamingLocatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamingLocator] {
+	return pulumix.Output[map[string]*StreamingLocator]{
+		OutputState: i.ToStreamingLocatorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamingLocatorOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
@@ -368,6 +387,12 @@ func (o StreamingLocatorOutput) ToStreamingLocatorOutput() StreamingLocatorOutpu
 
 func (o StreamingLocatorOutput) ToStreamingLocatorOutputWithContext(ctx context.Context) StreamingLocatorOutput {
 	return o
+}
+
+func (o StreamingLocatorOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingLocator] {
+	return pulumix.Output[*StreamingLocator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -444,6 +469,12 @@ func (o StreamingLocatorArrayOutput) ToStreamingLocatorArrayOutputWithContext(ct
 	return o
 }
 
+func (o StreamingLocatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamingLocator] {
+	return pulumix.Output[[]*StreamingLocator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamingLocatorArrayOutput) Index(i pulumi.IntInput) StreamingLocatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamingLocator {
 		return vs[0].([]*StreamingLocator)[vs[1].(int)]
@@ -462,6 +493,12 @@ func (o StreamingLocatorMapOutput) ToStreamingLocatorMapOutput() StreamingLocato
 
 func (o StreamingLocatorMapOutput) ToStreamingLocatorMapOutputWithContext(ctx context.Context) StreamingLocatorMapOutput {
 	return o
+}
+
+func (o StreamingLocatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamingLocator] {
+	return pulumix.Output[map[string]*StreamingLocator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamingLocatorMapOutput) MapIndex(k pulumi.StringInput) StreamingLocatorOutput {

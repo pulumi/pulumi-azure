@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Desktop Workspace Application Group Association.
@@ -182,6 +183,12 @@ func (i *WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationOutput)
 }
 
+func (i *WorkspaceApplicationGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceApplicationGroupAssociation] {
+	return pulumix.Output[*WorkspaceApplicationGroupAssociation]{
+		OutputState: i.ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceApplicationGroupAssociationArrayInput is an input type that accepts WorkspaceApplicationGroupAssociationArray and WorkspaceApplicationGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `WorkspaceApplicationGroupAssociationArrayInput` via:
 //
@@ -205,6 +212,12 @@ func (i WorkspaceApplicationGroupAssociationArray) ToWorkspaceApplicationGroupAs
 
 func (i WorkspaceApplicationGroupAssociationArray) ToWorkspaceApplicationGroupAssociationArrayOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationArrayOutput)
+}
+
+func (i WorkspaceApplicationGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceApplicationGroupAssociation] {
+	return pulumix.Output[[]*WorkspaceApplicationGroupAssociation]{
+		OutputState: i.ToWorkspaceApplicationGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceApplicationGroupAssociationMapInput is an input type that accepts WorkspaceApplicationGroupAssociationMap and WorkspaceApplicationGroupAssociationMapOutput values.
@@ -232,6 +245,12 @@ func (i WorkspaceApplicationGroupAssociationMap) ToWorkspaceApplicationGroupAsso
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApplicationGroupAssociationMapOutput)
 }
 
+func (i WorkspaceApplicationGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceApplicationGroupAssociation] {
+	return pulumix.Output[map[string]*WorkspaceApplicationGroupAssociation]{
+		OutputState: i.ToWorkspaceApplicationGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceApplicationGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceApplicationGroupAssociationOutput) ElementType() reflect.Type {
@@ -244,6 +263,12 @@ func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupA
 
 func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupAssociationOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationOutput {
 	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceApplicationGroupAssociation] {
+	return pulumix.Output[*WorkspaceApplicationGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
@@ -270,6 +295,12 @@ func (o WorkspaceApplicationGroupAssociationArrayOutput) ToWorkspaceApplicationG
 	return o
 }
 
+func (o WorkspaceApplicationGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceApplicationGroupAssociation] {
+	return pulumix.Output[[]*WorkspaceApplicationGroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceApplicationGroupAssociationArrayOutput) Index(i pulumi.IntInput) WorkspaceApplicationGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceApplicationGroupAssociation {
 		return vs[0].([]*WorkspaceApplicationGroupAssociation)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o WorkspaceApplicationGroupAssociationMapOutput) ToWorkspaceApplicationGro
 
 func (o WorkspaceApplicationGroupAssociationMapOutput) ToWorkspaceApplicationGroupAssociationMapOutputWithContext(ctx context.Context) WorkspaceApplicationGroupAssociationMapOutput {
 	return o
+}
+
+func (o WorkspaceApplicationGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceApplicationGroupAssociation] {
+	return pulumix.Output[map[string]*WorkspaceApplicationGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceApplicationGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) WorkspaceApplicationGroupAssociationOutput {

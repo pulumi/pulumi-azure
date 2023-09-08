@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Collection Endpoint.
@@ -222,6 +223,12 @@ func (i *DataCollectionEndpoint) ToDataCollectionEndpointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointOutput)
 }
 
+func (i *DataCollectionEndpoint) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionEndpoint] {
+	return pulumix.Output[*DataCollectionEndpoint]{
+		OutputState: i.ToDataCollectionEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataCollectionEndpointArrayInput is an input type that accepts DataCollectionEndpointArray and DataCollectionEndpointArrayOutput values.
 // You can construct a concrete instance of `DataCollectionEndpointArrayInput` via:
 //
@@ -245,6 +252,12 @@ func (i DataCollectionEndpointArray) ToDataCollectionEndpointArrayOutput() DataC
 
 func (i DataCollectionEndpointArray) ToDataCollectionEndpointArrayOutputWithContext(ctx context.Context) DataCollectionEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointArrayOutput)
+}
+
+func (i DataCollectionEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataCollectionEndpoint] {
+	return pulumix.Output[[]*DataCollectionEndpoint]{
+		OutputState: i.ToDataCollectionEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataCollectionEndpointMapInput is an input type that accepts DataCollectionEndpointMap and DataCollectionEndpointMapOutput values.
@@ -272,6 +285,12 @@ func (i DataCollectionEndpointMap) ToDataCollectionEndpointMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointMapOutput)
 }
 
+func (i DataCollectionEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCollectionEndpoint] {
+	return pulumix.Output[map[string]*DataCollectionEndpoint]{
+		OutputState: i.ToDataCollectionEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCollectionEndpointOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointOutput) ElementType() reflect.Type {
@@ -284,6 +303,12 @@ func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutput() DataColle
 
 func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutputWithContext(ctx context.Context) DataCollectionEndpointOutput {
 	return o
+}
+
+func (o DataCollectionEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionEndpoint] {
+	return pulumix.Output[*DataCollectionEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
@@ -345,6 +370,12 @@ func (o DataCollectionEndpointArrayOutput) ToDataCollectionEndpointArrayOutputWi
 	return o
 }
 
+func (o DataCollectionEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataCollectionEndpoint] {
+	return pulumix.Output[[]*DataCollectionEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataCollectionEndpointArrayOutput) Index(i pulumi.IntInput) DataCollectionEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataCollectionEndpoint {
 		return vs[0].([]*DataCollectionEndpoint)[vs[1].(int)]
@@ -363,6 +394,12 @@ func (o DataCollectionEndpointMapOutput) ToDataCollectionEndpointMapOutput() Dat
 
 func (o DataCollectionEndpointMapOutput) ToDataCollectionEndpointMapOutputWithContext(ctx context.Context) DataCollectionEndpointMapOutput {
 	return o
+}
+
+func (o DataCollectionEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCollectionEndpoint] {
+	return pulumix.Output[map[string]*DataCollectionEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCollectionEndpointMapOutput) MapIndex(k pulumi.StringInput) DataCollectionEndpointOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a Platform Image.
@@ -121,6 +122,12 @@ func (o GetPlatformImageResultOutput) ToGetPlatformImageResultOutput() GetPlatfo
 
 func (o GetPlatformImageResultOutput) ToGetPlatformImageResultOutputWithContext(ctx context.Context) GetPlatformImageResultOutput {
 	return o
+}
+
+func (o GetPlatformImageResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPlatformImageResult] {
+	return pulumix.Output[GetPlatformImageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

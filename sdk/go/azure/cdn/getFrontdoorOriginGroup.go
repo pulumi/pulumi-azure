@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
@@ -118,6 +119,12 @@ func (o LookupFrontdoorOriginGroupResultOutput) ToLookupFrontdoorOriginGroupResu
 
 func (o LookupFrontdoorOriginGroupResultOutput) ToLookupFrontdoorOriginGroupResultOutputWithContext(ctx context.Context) LookupFrontdoorOriginGroupResultOutput {
 	return o
+}
+
+func (o LookupFrontdoorOriginGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorOriginGroupResult] {
+	return pulumix.Output[LookupFrontdoorOriginGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the Front Door Profile within which this Front Door Origin Group exists.

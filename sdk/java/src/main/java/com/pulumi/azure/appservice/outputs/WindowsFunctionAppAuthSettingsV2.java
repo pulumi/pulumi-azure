@@ -67,6 +67,8 @@ public final class WindowsFunctionAppAuthSettingsV2 {
     /**
      * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
      * 
+     * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * 
      */
     private @Nullable List<String> excludedPaths;
     /**
@@ -198,6 +200,8 @@ public final class WindowsFunctionAppAuthSettingsV2 {
     }
     /**
      * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * 
+     * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
      * 
      */
     public List<String> excludedPaths() {

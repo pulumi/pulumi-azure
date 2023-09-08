@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
@@ -180,6 +181,12 @@ func (i *PostgresqlCoordinatorConfiguration) ToPostgresqlCoordinatorConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlCoordinatorConfigurationOutput)
 }
 
+func (i *PostgresqlCoordinatorConfiguration) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlCoordinatorConfiguration] {
+	return pulumix.Output[*PostgresqlCoordinatorConfiguration]{
+		OutputState: i.ToPostgresqlCoordinatorConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PostgresqlCoordinatorConfigurationArrayInput is an input type that accepts PostgresqlCoordinatorConfigurationArray and PostgresqlCoordinatorConfigurationArrayOutput values.
 // You can construct a concrete instance of `PostgresqlCoordinatorConfigurationArrayInput` via:
 //
@@ -203,6 +210,12 @@ func (i PostgresqlCoordinatorConfigurationArray) ToPostgresqlCoordinatorConfigur
 
 func (i PostgresqlCoordinatorConfigurationArray) ToPostgresqlCoordinatorConfigurationArrayOutputWithContext(ctx context.Context) PostgresqlCoordinatorConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlCoordinatorConfigurationArrayOutput)
+}
+
+func (i PostgresqlCoordinatorConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlCoordinatorConfiguration] {
+	return pulumix.Output[[]*PostgresqlCoordinatorConfiguration]{
+		OutputState: i.ToPostgresqlCoordinatorConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PostgresqlCoordinatorConfigurationMapInput is an input type that accepts PostgresqlCoordinatorConfigurationMap and PostgresqlCoordinatorConfigurationMapOutput values.
@@ -230,6 +243,12 @@ func (i PostgresqlCoordinatorConfigurationMap) ToPostgresqlCoordinatorConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlCoordinatorConfigurationMapOutput)
 }
 
+func (i PostgresqlCoordinatorConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlCoordinatorConfiguration] {
+	return pulumix.Output[map[string]*PostgresqlCoordinatorConfiguration]{
+		OutputState: i.ToPostgresqlCoordinatorConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PostgresqlCoordinatorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PostgresqlCoordinatorConfigurationOutput) ElementType() reflect.Type {
@@ -242,6 +261,12 @@ func (o PostgresqlCoordinatorConfigurationOutput) ToPostgresqlCoordinatorConfigu
 
 func (o PostgresqlCoordinatorConfigurationOutput) ToPostgresqlCoordinatorConfigurationOutputWithContext(ctx context.Context) PostgresqlCoordinatorConfigurationOutput {
 	return o
+}
+
+func (o PostgresqlCoordinatorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlCoordinatorConfiguration] {
+	return pulumix.Output[*PostgresqlCoordinatorConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
@@ -273,6 +298,12 @@ func (o PostgresqlCoordinatorConfigurationArrayOutput) ToPostgresqlCoordinatorCo
 	return o
 }
 
+func (o PostgresqlCoordinatorConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlCoordinatorConfiguration] {
+	return pulumix.Output[[]*PostgresqlCoordinatorConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PostgresqlCoordinatorConfigurationArrayOutput) Index(i pulumi.IntInput) PostgresqlCoordinatorConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PostgresqlCoordinatorConfiguration {
 		return vs[0].([]*PostgresqlCoordinatorConfiguration)[vs[1].(int)]
@@ -291,6 +322,12 @@ func (o PostgresqlCoordinatorConfigurationMapOutput) ToPostgresqlCoordinatorConf
 
 func (o PostgresqlCoordinatorConfigurationMapOutput) ToPostgresqlCoordinatorConfigurationMapOutputWithContext(ctx context.Context) PostgresqlCoordinatorConfigurationMapOutput {
 	return o
+}
+
+func (o PostgresqlCoordinatorConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlCoordinatorConfiguration] {
+	return pulumix.Output[map[string]*PostgresqlCoordinatorConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PostgresqlCoordinatorConfigurationMapOutput) MapIndex(k pulumi.StringInput) PostgresqlCoordinatorConfigurationOutput {

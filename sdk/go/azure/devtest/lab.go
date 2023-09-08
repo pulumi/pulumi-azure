@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Dev Test Lab.
@@ -243,6 +244,12 @@ func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
 }
 
+func (i *Lab) ToOutput(ctx context.Context) pulumix.Output[*Lab] {
+	return pulumix.Output[*Lab]{
+		OutputState: i.ToLabOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LabArrayInput is an input type that accepts LabArray and LabArrayOutput values.
 // You can construct a concrete instance of `LabArrayInput` via:
 //
@@ -266,6 +273,12 @@ func (i LabArray) ToLabArrayOutput() LabArrayOutput {
 
 func (i LabArray) ToLabArrayOutputWithContext(ctx context.Context) LabArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabArrayOutput)
+}
+
+func (i LabArray) ToOutput(ctx context.Context) pulumix.Output[[]*Lab] {
+	return pulumix.Output[[]*Lab]{
+		OutputState: i.ToLabArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LabMapInput is an input type that accepts LabMap and LabMapOutput values.
@@ -293,6 +306,12 @@ func (i LabMap) ToLabMapOutputWithContext(ctx context.Context) LabMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabMapOutput)
 }
 
+func (i LabMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Lab] {
+	return pulumix.Output[map[string]*Lab]{
+		OutputState: i.ToLabMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LabOutput struct{ *pulumi.OutputState }
 
 func (LabOutput) ElementType() reflect.Type {
@@ -305,6 +324,12 @@ func (o LabOutput) ToLabOutput() LabOutput {
 
 func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
+}
+
+func (o LabOutput) ToOutput(ctx context.Context) pulumix.Output[*Lab] {
+	return pulumix.Output[*Lab]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Storage Account used for Artifact Storage.
@@ -380,6 +405,12 @@ func (o LabArrayOutput) ToLabArrayOutputWithContext(ctx context.Context) LabArra
 	return o
 }
 
+func (o LabArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Lab] {
+	return pulumix.Output[[]*Lab]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LabArrayOutput) Index(i pulumi.IntInput) LabOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Lab {
 		return vs[0].([]*Lab)[vs[1].(int)]
@@ -398,6 +429,12 @@ func (o LabMapOutput) ToLabMapOutput() LabMapOutput {
 
 func (o LabMapOutput) ToLabMapOutputWithContext(ctx context.Context) LabMapOutput {
 	return o
+}
+
+func (o LabMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Lab] {
+	return pulumix.Output[map[string]*Lab]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LabMapOutput) MapIndex(k pulumi.StringInput) LabOutput {

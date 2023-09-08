@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Machine Learning Data Lake Gen2 DataStore.
@@ -303,6 +304,12 @@ func (i *DatastoreDatalakeGen2) ToDatastoreDatalakeGen2OutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatalakeGen2Output)
 }
 
+func (i *DatastoreDatalakeGen2) ToOutput(ctx context.Context) pulumix.Output[*DatastoreDatalakeGen2] {
+	return pulumix.Output[*DatastoreDatalakeGen2]{
+		OutputState: i.ToDatastoreDatalakeGen2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatastoreDatalakeGen2ArrayInput is an input type that accepts DatastoreDatalakeGen2Array and DatastoreDatalakeGen2ArrayOutput values.
 // You can construct a concrete instance of `DatastoreDatalakeGen2ArrayInput` via:
 //
@@ -326,6 +333,12 @@ func (i DatastoreDatalakeGen2Array) ToDatastoreDatalakeGen2ArrayOutput() Datasto
 
 func (i DatastoreDatalakeGen2Array) ToDatastoreDatalakeGen2ArrayOutputWithContext(ctx context.Context) DatastoreDatalakeGen2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatalakeGen2ArrayOutput)
+}
+
+func (i DatastoreDatalakeGen2Array) ToOutput(ctx context.Context) pulumix.Output[[]*DatastoreDatalakeGen2] {
+	return pulumix.Output[[]*DatastoreDatalakeGen2]{
+		OutputState: i.ToDatastoreDatalakeGen2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatastoreDatalakeGen2MapInput is an input type that accepts DatastoreDatalakeGen2Map and DatastoreDatalakeGen2MapOutput values.
@@ -353,6 +366,12 @@ func (i DatastoreDatalakeGen2Map) ToDatastoreDatalakeGen2MapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatalakeGen2MapOutput)
 }
 
+func (i DatastoreDatalakeGen2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatastoreDatalakeGen2] {
+	return pulumix.Output[map[string]*DatastoreDatalakeGen2]{
+		OutputState: i.ToDatastoreDatalakeGen2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatastoreDatalakeGen2Output struct{ *pulumi.OutputState }
 
 func (DatastoreDatalakeGen2Output) ElementType() reflect.Type {
@@ -365,6 +384,12 @@ func (o DatastoreDatalakeGen2Output) ToDatastoreDatalakeGen2Output() DatastoreDa
 
 func (o DatastoreDatalakeGen2Output) ToDatastoreDatalakeGen2OutputWithContext(ctx context.Context) DatastoreDatalakeGen2Output {
 	return o
+}
+
+func (o DatastoreDatalakeGen2Output) ToOutput(ctx context.Context) pulumix.Output[*DatastoreDatalakeGen2] {
+	return pulumix.Output[*DatastoreDatalakeGen2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An URL used for authentication.
@@ -436,6 +461,12 @@ func (o DatastoreDatalakeGen2ArrayOutput) ToDatastoreDatalakeGen2ArrayOutputWith
 	return o
 }
 
+func (o DatastoreDatalakeGen2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatastoreDatalakeGen2] {
+	return pulumix.Output[[]*DatastoreDatalakeGen2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatastoreDatalakeGen2ArrayOutput) Index(i pulumi.IntInput) DatastoreDatalakeGen2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatastoreDatalakeGen2 {
 		return vs[0].([]*DatastoreDatalakeGen2)[vs[1].(int)]
@@ -454,6 +485,12 @@ func (o DatastoreDatalakeGen2MapOutput) ToDatastoreDatalakeGen2MapOutput() Datas
 
 func (o DatastoreDatalakeGen2MapOutput) ToDatastoreDatalakeGen2MapOutputWithContext(ctx context.Context) DatastoreDatalakeGen2MapOutput {
 	return o
+}
+
+func (o DatastoreDatalakeGen2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatastoreDatalakeGen2] {
+	return pulumix.Output[map[string]*DatastoreDatalakeGen2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatastoreDatalakeGen2MapOutput) MapIndex(k pulumi.StringInput) DatastoreDatalakeGen2Output {

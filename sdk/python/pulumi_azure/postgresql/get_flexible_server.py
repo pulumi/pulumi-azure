@@ -21,10 +21,13 @@ class GetFlexibleServerResult:
     """
     A collection of values returned by getFlexibleServer.
     """
-    def __init__(__self__, administrator_login=None, backup_retention_days=None, delegated_subnet_id=None, fqdn=None, id=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, storage_mb=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, auto_grow_enabled=None, backup_retention_days=None, delegated_subnet_id=None, fqdn=None, id=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, storage_mb=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
+        if auto_grow_enabled and not isinstance(auto_grow_enabled, bool):
+            raise TypeError("Expected argument 'auto_grow_enabled' to be a bool")
+        pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days and not isinstance(backup_retention_days, int):
             raise TypeError("Expected argument 'backup_retention_days' to be a int")
         pulumi.set(__self__, "backup_retention_days", backup_retention_days)
@@ -69,6 +72,14 @@ class GetFlexibleServerResult:
         The Administrator login for the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> bool:
+        """
+        Is the storage auto grow for PostgreSQL Flexible Server enabled?
+        """
+        return pulumi.get(self, "auto_grow_enabled")
 
     @property
     @pulumi.getter(name="backupRetentionDays")
@@ -168,6 +179,7 @@ class AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
             yield self
         return GetFlexibleServerResult(
             administrator_login=self.administrator_login,
+            auto_grow_enabled=self.auto_grow_enabled,
             backup_retention_days=self.backup_retention_days,
             delegated_subnet_id=self.delegated_subnet_id,
             fqdn=self.fqdn,
@@ -211,6 +223,7 @@ def get_flexible_server(name: Optional[str] = None,
 
     return AwaitableGetFlexibleServerResult(
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        auto_grow_enabled=pulumi.get(__ret__, 'auto_grow_enabled'),
         backup_retention_days=pulumi.get(__ret__, 'backup_retention_days'),
         delegated_subnet_id=pulumi.get(__ret__, 'delegated_subnet_id'),
         fqdn=pulumi.get(__ret__, 'fqdn'),

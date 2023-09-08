@@ -9,9 +9,12 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the properties of a Log Profile.
+//
+// !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
 //
 // ## Example Usage
 //
@@ -108,6 +111,12 @@ func (o LookupLogProfileResultOutput) ToLookupLogProfileResultOutput() LookupLog
 
 func (o LookupLogProfileResultOutput) ToLookupLogProfileResultOutputWithContext(ctx context.Context) LookupLogProfileResultOutput {
 	return o
+}
+
+func (o LookupLogProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLogProfileResult] {
+	return pulumix.Output[LookupLogProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of categories of the logs.

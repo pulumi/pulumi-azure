@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Packet Core Control Plane.
@@ -366,6 +367,12 @@ func (i *NetworkPacketCoreControlPlane) ToNetworkPacketCoreControlPlaneOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneOutput)
 }
 
+func (i *NetworkPacketCoreControlPlane) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlane] {
+	return pulumix.Output[*NetworkPacketCoreControlPlane]{
+		OutputState: i.ToNetworkPacketCoreControlPlaneOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkPacketCoreControlPlaneArrayInput is an input type that accepts NetworkPacketCoreControlPlaneArray and NetworkPacketCoreControlPlaneArrayOutput values.
 // You can construct a concrete instance of `NetworkPacketCoreControlPlaneArrayInput` via:
 //
@@ -389,6 +396,12 @@ func (i NetworkPacketCoreControlPlaneArray) ToNetworkPacketCoreControlPlaneArray
 
 func (i NetworkPacketCoreControlPlaneArray) ToNetworkPacketCoreControlPlaneArrayOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneArrayOutput)
+}
+
+func (i NetworkPacketCoreControlPlaneArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPacketCoreControlPlane] {
+	return pulumix.Output[[]*NetworkPacketCoreControlPlane]{
+		OutputState: i.ToNetworkPacketCoreControlPlaneArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkPacketCoreControlPlaneMapInput is an input type that accepts NetworkPacketCoreControlPlaneMap and NetworkPacketCoreControlPlaneMapOutput values.
@@ -416,6 +429,12 @@ func (i NetworkPacketCoreControlPlaneMap) ToNetworkPacketCoreControlPlaneMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneMapOutput)
 }
 
+func (i NetworkPacketCoreControlPlaneMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPacketCoreControlPlane] {
+	return pulumix.Output[map[string]*NetworkPacketCoreControlPlane]{
+		OutputState: i.ToNetworkPacketCoreControlPlaneMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkPacketCoreControlPlaneOutput struct{ *pulumi.OutputState }
 
 func (NetworkPacketCoreControlPlaneOutput) ElementType() reflect.Type {
@@ -428,6 +447,12 @@ func (o NetworkPacketCoreControlPlaneOutput) ToNetworkPacketCoreControlPlaneOutp
 
 func (o NetworkPacketCoreControlPlaneOutput) ToNetworkPacketCoreControlPlaneOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneOutput {
 	return o
+}
+
+func (o NetworkPacketCoreControlPlaneOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlane] {
+	return pulumix.Output[*NetworkPacketCoreControlPlane]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IPv4 address for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -535,6 +560,12 @@ func (o NetworkPacketCoreControlPlaneArrayOutput) ToNetworkPacketCoreControlPlan
 	return o
 }
 
+func (o NetworkPacketCoreControlPlaneArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPacketCoreControlPlane] {
+	return pulumix.Output[[]*NetworkPacketCoreControlPlane]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkPacketCoreControlPlaneArrayOutput) Index(i pulumi.IntInput) NetworkPacketCoreControlPlaneOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkPacketCoreControlPlane {
 		return vs[0].([]*NetworkPacketCoreControlPlane)[vs[1].(int)]
@@ -553,6 +584,12 @@ func (o NetworkPacketCoreControlPlaneMapOutput) ToNetworkPacketCoreControlPlaneM
 
 func (o NetworkPacketCoreControlPlaneMapOutput) ToNetworkPacketCoreControlPlaneMapOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneMapOutput {
 	return o
+}
+
+func (o NetworkPacketCoreControlPlaneMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPacketCoreControlPlane] {
+	return pulumix.Output[map[string]*NetworkPacketCoreControlPlane]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkPacketCoreControlPlaneMapOutput) MapIndex(k pulumi.StringInput) NetworkPacketCoreControlPlaneOutput {

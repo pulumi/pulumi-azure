@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i AccountEncryptionArgs) ToAccountEncryptionOutput() AccountEncryptionOutp
 
 func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
+}
+
+func (i AccountEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[AccountEncryption] {
+	return pulumix.Output[AccountEncryption]{
+		OutputState: i.ToAccountEncryptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
@@ -87,6 +94,12 @@ func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
 }
 
+func (i *accountEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountEncryption] {
+	return pulumix.Output[*AccountEncryption]{
+		OutputState: i.ToAccountEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx con
 	}).(AccountEncryptionPtrOutput)
 }
 
+func (o AccountEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[AccountEncryption] {
+	return pulumix.Output[AccountEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
 func (o AccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
@@ -128,6 +147,12 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryp
 
 func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
 	return o
+}
+
+func (o AccountEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountEncryption] {
+	return pulumix.Output[*AccountEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
@@ -199,6 +224,12 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
+func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
+	return pulumix.Output[AccountIdentity]{
+		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -240,6 +271,12 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
+func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
+	return pulumix.Output[*AccountIdentity]{
+		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -262,6 +299,12 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
+}
+
+func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
+	return pulumix.Output[AccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
@@ -298,6 +341,12 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
+}
+
+func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
+	return pulumix.Output[*AccountIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -389,6 +438,12 @@ func (i AccountKeyVaultReferenceArgs) ToAccountKeyVaultReferenceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountKeyVaultReferenceOutput)
 }
 
+func (i AccountKeyVaultReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[AccountKeyVaultReference] {
+	return pulumix.Output[AccountKeyVaultReference]{
+		OutputState: i.ToAccountKeyVaultReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountKeyVaultReferenceArgs) ToAccountKeyVaultReferencePtrOutput() AccountKeyVaultReferencePtrOutput {
 	return i.ToAccountKeyVaultReferencePtrOutputWithContext(context.Background())
 }
@@ -430,6 +485,12 @@ func (i *accountKeyVaultReferencePtrType) ToAccountKeyVaultReferencePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccountKeyVaultReferencePtrOutput)
 }
 
+func (i *accountKeyVaultReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountKeyVaultReference] {
+	return pulumix.Output[*AccountKeyVaultReference]{
+		OutputState: i.ToAccountKeyVaultReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountKeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (AccountKeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -454,6 +515,12 @@ func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferencePtrOutputWithC
 	}).(AccountKeyVaultReferencePtrOutput)
 }
 
+func (o AccountKeyVaultReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[AccountKeyVaultReference] {
+	return pulumix.Output[AccountKeyVaultReference]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Azure identifier of the Azure KeyVault to use.
 func (o AccountKeyVaultReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
@@ -476,6 +543,12 @@ func (o AccountKeyVaultReferencePtrOutput) ToAccountKeyVaultReferencePtrOutput()
 
 func (o AccountKeyVaultReferencePtrOutput) ToAccountKeyVaultReferencePtrOutputWithContext(ctx context.Context) AccountKeyVaultReferencePtrOutput {
 	return o
+}
+
+func (o AccountKeyVaultReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountKeyVaultReference] {
+	return pulumix.Output[*AccountKeyVaultReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountKeyVaultReferencePtrOutput) Elem() AccountKeyVaultReferenceOutput {
@@ -549,6 +622,12 @@ func (i AccountNetworkProfileArgs) ToAccountNetworkProfileOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileOutput)
 }
 
+func (i AccountNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfile] {
+	return pulumix.Output[AccountNetworkProfile]{
+		OutputState: i.ToAccountNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountNetworkProfileArgs) ToAccountNetworkProfilePtrOutput() AccountNetworkProfilePtrOutput {
 	return i.ToAccountNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -590,6 +669,12 @@ func (i *accountNetworkProfilePtrType) ToAccountNetworkProfilePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfilePtrOutput)
 }
 
+func (i *accountNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkProfile] {
+	return pulumix.Output[*AccountNetworkProfile]{
+		OutputState: i.ToAccountNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkProfileOutput) ElementType() reflect.Type {
@@ -612,6 +697,12 @@ func (o AccountNetworkProfileOutput) ToAccountNetworkProfilePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkProfile) *AccountNetworkProfile {
 		return &v
 	}).(AccountNetworkProfilePtrOutput)
+}
+
+func (o AccountNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfile] {
+	return pulumix.Output[AccountNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `accountAccess` block as defined below.
@@ -640,6 +731,12 @@ func (o AccountNetworkProfilePtrOutput) ToAccountNetworkProfilePtrOutput() Accou
 
 func (o AccountNetworkProfilePtrOutput) ToAccountNetworkProfilePtrOutputWithContext(ctx context.Context) AccountNetworkProfilePtrOutput {
 	return o
+}
+
+func (o AccountNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkProfile] {
+	return pulumix.Output[*AccountNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkProfilePtrOutput) Elem() AccountNetworkProfileOutput {
@@ -711,6 +808,12 @@ func (i AccountNetworkProfileAccountAccessArgs) ToAccountNetworkProfileAccountAc
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessOutput)
 }
 
+func (i AccountNetworkProfileAccountAccessArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileAccountAccess] {
+	return pulumix.Output[AccountNetworkProfileAccountAccess]{
+		OutputState: i.ToAccountNetworkProfileAccountAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountNetworkProfileAccountAccessArgs) ToAccountNetworkProfileAccountAccessPtrOutput() AccountNetworkProfileAccountAccessPtrOutput {
 	return i.ToAccountNetworkProfileAccountAccessPtrOutputWithContext(context.Background())
 }
@@ -752,6 +855,12 @@ func (i *accountNetworkProfileAccountAccessPtrType) ToAccountNetworkProfileAccou
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessPtrOutput)
 }
 
+func (i *accountNetworkProfileAccountAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkProfileAccountAccess] {
+	return pulumix.Output[*AccountNetworkProfileAccountAccess]{
+		OutputState: i.ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkProfileAccountAccessOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkProfileAccountAccessOutput) ElementType() reflect.Type {
@@ -774,6 +883,12 @@ func (o AccountNetworkProfileAccountAccessOutput) ToAccountNetworkProfileAccount
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkProfileAccountAccess) *AccountNetworkProfileAccountAccess {
 		return &v
 	}).(AccountNetworkProfileAccountAccessPtrOutput)
+}
+
+func (o AccountNetworkProfileAccountAccessOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileAccountAccess] {
+	return pulumix.Output[AccountNetworkProfileAccountAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -800,6 +915,12 @@ func (o AccountNetworkProfileAccountAccessPtrOutput) ToAccountNetworkProfileAcco
 
 func (o AccountNetworkProfileAccountAccessPtrOutput) ToAccountNetworkProfileAccountAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessPtrOutput {
 	return o
+}
+
+func (o AccountNetworkProfileAccountAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkProfileAccountAccess] {
+	return pulumix.Output[*AccountNetworkProfileAccountAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkProfileAccountAccessPtrOutput) Elem() AccountNetworkProfileAccountAccessOutput {
@@ -869,6 +990,12 @@ func (i AccountNetworkProfileAccountAccessIpRuleArgs) ToAccountNetworkProfileAcc
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessIpRuleOutput)
 }
 
+func (i AccountNetworkProfileAccountAccessIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileAccountAccessIpRule] {
+	return pulumix.Output[AccountNetworkProfileAccountAccessIpRule]{
+		OutputState: i.ToAccountNetworkProfileAccountAccessIpRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountNetworkProfileAccountAccessIpRuleArrayInput is an input type that accepts AccountNetworkProfileAccountAccessIpRuleArray and AccountNetworkProfileAccountAccessIpRuleArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkProfileAccountAccessIpRuleArrayInput` via:
 //
@@ -894,6 +1021,12 @@ func (i AccountNetworkProfileAccountAccessIpRuleArray) ToAccountNetworkProfileAc
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileAccountAccessIpRuleArrayOutput)
 }
 
+func (i AccountNetworkProfileAccountAccessIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkProfileAccountAccessIpRule] {
+	return pulumix.Output[[]AccountNetworkProfileAccountAccessIpRule]{
+		OutputState: i.ToAccountNetworkProfileAccountAccessIpRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkProfileAccountAccessIpRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkProfileAccountAccessIpRuleOutput) ElementType() reflect.Type {
@@ -906,6 +1039,12 @@ func (o AccountNetworkProfileAccountAccessIpRuleOutput) ToAccountNetworkProfileA
 
 func (o AccountNetworkProfileAccountAccessIpRuleOutput) ToAccountNetworkProfileAccountAccessIpRuleOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessIpRuleOutput {
 	return o
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileAccountAccessIpRule] {
+	return pulumix.Output[AccountNetworkProfileAccountAccessIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
@@ -930,6 +1069,12 @@ func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) ToAccountNetworkPro
 
 func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) ToAccountNetworkProfileAccountAccessIpRuleArrayOutputWithContext(ctx context.Context) AccountNetworkProfileAccountAccessIpRuleArrayOutput {
 	return o
+}
+
+func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkProfileAccountAccessIpRule] {
+	return pulumix.Output[[]AccountNetworkProfileAccountAccessIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkProfileAccountAccessIpRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkProfileAccountAccessIpRuleOutput {
@@ -975,6 +1120,12 @@ func (i AccountNetworkProfileNodeManagementAccessArgs) ToAccountNetworkProfileNo
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessOutput)
 }
 
+func (i AccountNetworkProfileNodeManagementAccessArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileNodeManagementAccess] {
+	return pulumix.Output[AccountNetworkProfileNodeManagementAccess]{
+		OutputState: i.ToAccountNetworkProfileNodeManagementAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccountNetworkProfileNodeManagementAccessArgs) ToAccountNetworkProfileNodeManagementAccessPtrOutput() AccountNetworkProfileNodeManagementAccessPtrOutput {
 	return i.ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(context.Background())
 }
@@ -1016,6 +1167,12 @@ func (i *accountNetworkProfileNodeManagementAccessPtrType) ToAccountNetworkProfi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessPtrOutput)
 }
 
+func (i *accountNetworkProfileNodeManagementAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkProfileNodeManagementAccess] {
+	return pulumix.Output[*AccountNetworkProfileNodeManagementAccess]{
+		OutputState: i.ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkProfileNodeManagementAccessOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkProfileNodeManagementAccessOutput) ElementType() reflect.Type {
@@ -1038,6 +1195,12 @@ func (o AccountNetworkProfileNodeManagementAccessOutput) ToAccountNetworkProfile
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkProfileNodeManagementAccess) *AccountNetworkProfileNodeManagementAccess {
 		return &v
 	}).(AccountNetworkProfileNodeManagementAccessPtrOutput)
+}
+
+func (o AccountNetworkProfileNodeManagementAccessOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileNodeManagementAccess] {
+	return pulumix.Output[AccountNetworkProfileNodeManagementAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -1064,6 +1227,12 @@ func (o AccountNetworkProfileNodeManagementAccessPtrOutput) ToAccountNetworkProf
 
 func (o AccountNetworkProfileNodeManagementAccessPtrOutput) ToAccountNetworkProfileNodeManagementAccessPtrOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessPtrOutput {
 	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkProfileNodeManagementAccess] {
+	return pulumix.Output[*AccountNetworkProfileNodeManagementAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkProfileNodeManagementAccessPtrOutput) Elem() AccountNetworkProfileNodeManagementAccessOutput {
@@ -1133,6 +1302,12 @@ func (i AccountNetworkProfileNodeManagementAccessIpRuleArgs) ToAccountNetworkPro
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessIpRuleOutput)
 }
 
+func (i AccountNetworkProfileNodeManagementAccessIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileNodeManagementAccessIpRule] {
+	return pulumix.Output[AccountNetworkProfileNodeManagementAccessIpRule]{
+		OutputState: i.ToAccountNetworkProfileNodeManagementAccessIpRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccountNetworkProfileNodeManagementAccessIpRuleArrayInput is an input type that accepts AccountNetworkProfileNodeManagementAccessIpRuleArray and AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkProfileNodeManagementAccessIpRuleArrayInput` via:
 //
@@ -1158,6 +1333,12 @@ func (i AccountNetworkProfileNodeManagementAccessIpRuleArray) ToAccountNetworkPr
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput)
 }
 
+func (i AccountNetworkProfileNodeManagementAccessIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkProfileNodeManagementAccessIpRule] {
+	return pulumix.Output[[]AccountNetworkProfileNodeManagementAccessIpRule]{
+		OutputState: i.ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccountNetworkProfileNodeManagementAccessIpRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkProfileNodeManagementAccessIpRuleOutput) ElementType() reflect.Type {
@@ -1170,6 +1351,12 @@ func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) ToAccountNetworkP
 
 func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) ToAccountNetworkProfileNodeManagementAccessIpRuleOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessIpRuleOutput {
 	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkProfileNodeManagementAccessIpRule] {
+	return pulumix.Output[AccountNetworkProfileNodeManagementAccessIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
@@ -1194,6 +1381,12 @@ func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) ToAccountNet
 
 func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) ToAccountNetworkProfileNodeManagementAccessIpRuleArrayOutputWithContext(ctx context.Context) AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput {
 	return o
+}
+
+func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkProfileNodeManagementAccessIpRule] {
+	return pulumix.Output[[]AccountNetworkProfileNodeManagementAccessIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkProfileNodeManagementAccessIpRuleOutput {
@@ -1239,6 +1432,12 @@ func (i PoolAutoScaleArgs) ToPoolAutoScaleOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAutoScaleOutput)
 }
 
+func (i PoolAutoScaleArgs) ToOutput(ctx context.Context) pulumix.Output[PoolAutoScale] {
+	return pulumix.Output[PoolAutoScale]{
+		OutputState: i.ToPoolAutoScaleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolAutoScaleArgs) ToPoolAutoScalePtrOutput() PoolAutoScalePtrOutput {
 	return i.ToPoolAutoScalePtrOutputWithContext(context.Background())
 }
@@ -1280,6 +1479,12 @@ func (i *poolAutoScalePtrType) ToPoolAutoScalePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAutoScalePtrOutput)
 }
 
+func (i *poolAutoScalePtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolAutoScale] {
+	return pulumix.Output[*PoolAutoScale]{
+		OutputState: i.ToPoolAutoScalePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolAutoScaleOutput struct{ *pulumi.OutputState }
 
 func (PoolAutoScaleOutput) ElementType() reflect.Type {
@@ -1304,6 +1509,12 @@ func (o PoolAutoScaleOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.Con
 	}).(PoolAutoScalePtrOutput)
 }
 
+func (o PoolAutoScaleOutput) ToOutput(ctx context.Context) pulumix.Output[PoolAutoScale] {
+	return pulumix.Output[PoolAutoScale]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
 func (o PoolAutoScaleOutput) EvaluationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
@@ -1326,6 +1537,12 @@ func (o PoolAutoScalePtrOutput) ToPoolAutoScalePtrOutput() PoolAutoScalePtrOutpu
 
 func (o PoolAutoScalePtrOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.Context) PoolAutoScalePtrOutput {
 	return o
+}
+
+func (o PoolAutoScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolAutoScale] {
+	return pulumix.Output[*PoolAutoScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolAutoScalePtrOutput) Elem() PoolAutoScaleOutput {
@@ -1407,6 +1624,12 @@ func (i PoolCertificateArgs) ToPoolCertificateOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolCertificateOutput)
 }
 
+func (i PoolCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[PoolCertificate] {
+	return pulumix.Output[PoolCertificate]{
+		OutputState: i.ToPoolCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolCertificateArrayInput is an input type that accepts PoolCertificateArray and PoolCertificateArrayOutput values.
 // You can construct a concrete instance of `PoolCertificateArrayInput` via:
 //
@@ -1432,6 +1655,12 @@ func (i PoolCertificateArray) ToPoolCertificateArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolCertificateArrayOutput)
 }
 
+func (i PoolCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolCertificate] {
+	return pulumix.Output[[]PoolCertificate]{
+		OutputState: i.ToPoolCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolCertificateOutput struct{ *pulumi.OutputState }
 
 func (PoolCertificateOutput) ElementType() reflect.Type {
@@ -1444,6 +1673,12 @@ func (o PoolCertificateOutput) ToPoolCertificateOutput() PoolCertificateOutput {
 
 func (o PoolCertificateOutput) ToPoolCertificateOutputWithContext(ctx context.Context) PoolCertificateOutput {
 	return o
+}
+
+func (o PoolCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[PoolCertificate] {
+	return pulumix.Output[PoolCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
@@ -1480,6 +1715,12 @@ func (o PoolCertificateArrayOutput) ToPoolCertificateArrayOutput() PoolCertifica
 
 func (o PoolCertificateArrayOutput) ToPoolCertificateArrayOutputWithContext(ctx context.Context) PoolCertificateArrayOutput {
 	return o
+}
+
+func (o PoolCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolCertificate] {
+	return pulumix.Output[[]PoolCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutput {
@@ -1529,6 +1770,12 @@ func (i PoolContainerConfigurationArgs) ToPoolContainerConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PoolContainerConfigurationOutput)
 }
 
+func (i PoolContainerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PoolContainerConfiguration] {
+	return pulumix.Output[PoolContainerConfiguration]{
+		OutputState: i.ToPoolContainerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolContainerConfigurationArgs) ToPoolContainerConfigurationPtrOutput() PoolContainerConfigurationPtrOutput {
 	return i.ToPoolContainerConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1570,6 +1817,12 @@ func (i *poolContainerConfigurationPtrType) ToPoolContainerConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolContainerConfigurationPtrOutput)
 }
 
+func (i *poolContainerConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolContainerConfiguration] {
+	return pulumix.Output[*PoolContainerConfiguration]{
+		OutputState: i.ToPoolContainerConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolContainerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolContainerConfigurationOutput) ElementType() reflect.Type {
@@ -1592,6 +1845,12 @@ func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolContainerConfiguration) *PoolContainerConfiguration {
 		return &v
 	}).(PoolContainerConfigurationPtrOutput)
+}
+
+func (o PoolContainerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PoolContainerConfiguration] {
+	return pulumix.Output[PoolContainerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
@@ -1623,6 +1882,12 @@ func (o PoolContainerConfigurationPtrOutput) ToPoolContainerConfigurationPtrOutp
 
 func (o PoolContainerConfigurationPtrOutput) ToPoolContainerConfigurationPtrOutputWithContext(ctx context.Context) PoolContainerConfigurationPtrOutput {
 	return o
+}
+
+func (o PoolContainerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolContainerConfiguration] {
+	return pulumix.Output[*PoolContainerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOutput {
@@ -1710,6 +1975,12 @@ func (i PoolContainerConfigurationContainerRegistryArgs) ToPoolContainerConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(PoolContainerConfigurationContainerRegistryOutput)
 }
 
+func (i PoolContainerConfigurationContainerRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[PoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[PoolContainerConfigurationContainerRegistry]{
+		OutputState: i.ToPoolContainerConfigurationContainerRegistryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolContainerConfigurationContainerRegistryArrayInput is an input type that accepts PoolContainerConfigurationContainerRegistryArray and PoolContainerConfigurationContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `PoolContainerConfigurationContainerRegistryArrayInput` via:
 //
@@ -1735,6 +2006,12 @@ func (i PoolContainerConfigurationContainerRegistryArray) ToPoolContainerConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
+func (i PoolContainerConfigurationContainerRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[[]PoolContainerConfigurationContainerRegistry]{
+		OutputState: i.ToPoolContainerConfigurationContainerRegistryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolContainerConfigurationContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (PoolContainerConfigurationContainerRegistryOutput) ElementType() reflect.Type {
@@ -1747,6 +2024,12 @@ func (o PoolContainerConfigurationContainerRegistryOutput) ToPoolContainerConfig
 
 func (o PoolContainerConfigurationContainerRegistryOutput) ToPoolContainerConfigurationContainerRegistryOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistryOutput {
 	return o
+}
+
+func (o PoolContainerConfigurationContainerRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[PoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[PoolContainerConfigurationContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password to log into the registry server. Changing this forces a new resource to be created.
@@ -1781,6 +2064,12 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) ToPoolContainerC
 
 func (o PoolContainerConfigurationContainerRegistryArrayOutput) ToPoolContainerConfigurationContainerRegistryArrayOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o
+}
+
+func (o PoolContainerConfigurationContainerRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[[]PoolContainerConfigurationContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.IntInput) PoolContainerConfigurationContainerRegistryOutput {
@@ -1834,6 +2123,12 @@ func (i PoolDataDiskArgs) ToPoolDataDiskOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PoolDataDiskOutput)
 }
 
+func (i PoolDataDiskArgs) ToOutput(ctx context.Context) pulumix.Output[PoolDataDisk] {
+	return pulumix.Output[PoolDataDisk]{
+		OutputState: i.ToPoolDataDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolDataDiskArrayInput is an input type that accepts PoolDataDiskArray and PoolDataDiskArrayOutput values.
 // You can construct a concrete instance of `PoolDataDiskArrayInput` via:
 //
@@ -1859,6 +2154,12 @@ func (i PoolDataDiskArray) ToPoolDataDiskArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolDataDiskArrayOutput)
 }
 
+func (i PoolDataDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolDataDisk] {
+	return pulumix.Output[[]PoolDataDisk]{
+		OutputState: i.ToPoolDataDiskArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolDataDiskOutput struct{ *pulumi.OutputState }
 
 func (PoolDataDiskOutput) ElementType() reflect.Type {
@@ -1871,6 +2172,12 @@ func (o PoolDataDiskOutput) ToPoolDataDiskOutput() PoolDataDiskOutput {
 
 func (o PoolDataDiskOutput) ToPoolDataDiskOutputWithContext(ctx context.Context) PoolDataDiskOutput {
 	return o
+}
+
+func (o PoolDataDiskOutput) ToOutput(ctx context.Context) pulumix.Output[PoolDataDisk] {
+	return pulumix.Output[PoolDataDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -1905,6 +2212,12 @@ func (o PoolDataDiskArrayOutput) ToPoolDataDiskArrayOutput() PoolDataDiskArrayOu
 
 func (o PoolDataDiskArrayOutput) ToPoolDataDiskArrayOutputWithContext(ctx context.Context) PoolDataDiskArrayOutput {
 	return o
+}
+
+func (o PoolDataDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolDataDisk] {
+	return pulumix.Output[[]PoolDataDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolDataDiskArrayOutput) Index(i pulumi.IntInput) PoolDataDiskOutput {
@@ -1946,6 +2259,12 @@ func (i PoolDiskEncryptionArgs) ToPoolDiskEncryptionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolDiskEncryptionOutput)
 }
 
+func (i PoolDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[PoolDiskEncryption] {
+	return pulumix.Output[PoolDiskEncryption]{
+		OutputState: i.ToPoolDiskEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolDiskEncryptionArrayInput is an input type that accepts PoolDiskEncryptionArray and PoolDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `PoolDiskEncryptionArrayInput` via:
 //
@@ -1971,6 +2290,12 @@ func (i PoolDiskEncryptionArray) ToPoolDiskEncryptionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PoolDiskEncryptionArrayOutput)
 }
 
+func (i PoolDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolDiskEncryption] {
+	return pulumix.Output[[]PoolDiskEncryption]{
+		OutputState: i.ToPoolDiskEncryptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PoolDiskEncryptionOutput) ElementType() reflect.Type {
@@ -1983,6 +2308,12 @@ func (o PoolDiskEncryptionOutput) ToPoolDiskEncryptionOutput() PoolDiskEncryptio
 
 func (o PoolDiskEncryptionOutput) ToPoolDiskEncryptionOutputWithContext(ctx context.Context) PoolDiskEncryptionOutput {
 	return o
+}
+
+func (o PoolDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[PoolDiskEncryption] {
+	return pulumix.Output[PoolDiskEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // On Linux pool, only \"TemporaryDisk\" is supported; on Windows pool, \"OsDisk\" and \"TemporaryDisk\" must be specified.
@@ -2004,6 +2335,12 @@ func (o PoolDiskEncryptionArrayOutput) ToPoolDiskEncryptionArrayOutputWithContex
 	return o
 }
 
+func (o PoolDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolDiskEncryption] {
+	return pulumix.Output[[]PoolDiskEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PoolDiskEncryptionArrayOutput) Index(i pulumi.IntInput) PoolDiskEncryptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolDiskEncryption {
 		return vs[0].([]PoolDiskEncryption)[vs[1].(int)]
@@ -2013,6 +2350,10 @@ func (o PoolDiskEncryptionArrayOutput) Index(i pulumi.IntInput) PoolDiskEncrypti
 type PoolExtension struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+	//
+	// **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name string `pulumi:"name"`
 	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
@@ -2043,6 +2384,10 @@ type PoolExtensionInput interface {
 type PoolExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+	//
+	// **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
@@ -2071,6 +2416,12 @@ func (i PoolExtensionArgs) ToPoolExtensionOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PoolExtensionOutput)
 }
 
+func (i PoolExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[PoolExtension] {
+	return pulumix.Output[PoolExtension]{
+		OutputState: i.ToPoolExtensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolExtensionArrayInput is an input type that accepts PoolExtensionArray and PoolExtensionArrayOutput values.
 // You can construct a concrete instance of `PoolExtensionArrayInput` via:
 //
@@ -2096,6 +2447,12 @@ func (i PoolExtensionArray) ToPoolExtensionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PoolExtensionArrayOutput)
 }
 
+func (i PoolExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolExtension] {
+	return pulumix.Output[[]PoolExtension]{
+		OutputState: i.ToPoolExtensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolExtensionOutput struct{ *pulumi.OutputState }
 
 func (PoolExtensionOutput) ElementType() reflect.Type {
@@ -2110,9 +2467,22 @@ func (o PoolExtensionOutput) ToPoolExtensionOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PoolExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[PoolExtension] {
+	return pulumix.Output[PoolExtension]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o PoolExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+//
+// **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+func (o PoolExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the virtual machine extension.
@@ -2162,6 +2532,12 @@ func (o PoolExtensionArrayOutput) ToPoolExtensionArrayOutput() PoolExtensionArra
 
 func (o PoolExtensionArrayOutput) ToPoolExtensionArrayOutputWithContext(ctx context.Context) PoolExtensionArrayOutput {
 	return o
+}
+
+func (o PoolExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolExtension] {
+	return pulumix.Output[[]PoolExtension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolExtensionArrayOutput) Index(i pulumi.IntInput) PoolExtensionOutput {
@@ -2215,6 +2591,12 @@ func (i PoolFixedScaleArgs) ToPoolFixedScaleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolFixedScaleOutput)
 }
 
+func (i PoolFixedScaleArgs) ToOutput(ctx context.Context) pulumix.Output[PoolFixedScale] {
+	return pulumix.Output[PoolFixedScale]{
+		OutputState: i.ToPoolFixedScaleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolFixedScaleArgs) ToPoolFixedScalePtrOutput() PoolFixedScalePtrOutput {
 	return i.ToPoolFixedScalePtrOutputWithContext(context.Background())
 }
@@ -2256,6 +2638,12 @@ func (i *poolFixedScalePtrType) ToPoolFixedScalePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PoolFixedScalePtrOutput)
 }
 
+func (i *poolFixedScalePtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolFixedScale] {
+	return pulumix.Output[*PoolFixedScale]{
+		OutputState: i.ToPoolFixedScalePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolFixedScaleOutput struct{ *pulumi.OutputState }
 
 func (PoolFixedScaleOutput) ElementType() reflect.Type {
@@ -2278,6 +2666,12 @@ func (o PoolFixedScaleOutput) ToPoolFixedScalePtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolFixedScale) *PoolFixedScale {
 		return &v
 	}).(PoolFixedScalePtrOutput)
+}
+
+func (o PoolFixedScaleOutput) ToOutput(ctx context.Context) pulumix.Output[PoolFixedScale] {
+	return pulumix.Output[PoolFixedScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 // It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
@@ -2312,6 +2706,12 @@ func (o PoolFixedScalePtrOutput) ToPoolFixedScalePtrOutput() PoolFixedScalePtrOu
 
 func (o PoolFixedScalePtrOutput) ToPoolFixedScalePtrOutputWithContext(ctx context.Context) PoolFixedScalePtrOutput {
 	return o
+}
+
+func (o PoolFixedScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolFixedScale] {
+	return pulumix.Output[*PoolFixedScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolFixedScalePtrOutput) Elem() PoolFixedScaleOutput {
@@ -2401,6 +2801,12 @@ func (i PoolIdentityArgs) ToPoolIdentityOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PoolIdentityOutput)
 }
 
+func (i PoolIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[PoolIdentity] {
+	return pulumix.Output[PoolIdentity]{
+		OutputState: i.ToPoolIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolIdentityArgs) ToPoolIdentityPtrOutput() PoolIdentityPtrOutput {
 	return i.ToPoolIdentityPtrOutputWithContext(context.Background())
 }
@@ -2442,6 +2848,12 @@ func (i *poolIdentityPtrType) ToPoolIdentityPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PoolIdentityPtrOutput)
 }
 
+func (i *poolIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolIdentity] {
+	return pulumix.Output[*PoolIdentity]{
+		OutputState: i.ToPoolIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolIdentityOutput struct{ *pulumi.OutputState }
 
 func (PoolIdentityOutput) ElementType() reflect.Type {
@@ -2466,6 +2878,12 @@ func (o PoolIdentityOutput) ToPoolIdentityPtrOutputWithContext(ctx context.Conte
 	}).(PoolIdentityPtrOutput)
 }
 
+func (o PoolIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[PoolIdentity] {
+	return pulumix.Output[PoolIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 func (o PoolIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -2488,6 +2906,12 @@ func (o PoolIdentityPtrOutput) ToPoolIdentityPtrOutput() PoolIdentityPtrOutput {
 
 func (o PoolIdentityPtrOutput) ToPoolIdentityPtrOutputWithContext(ctx context.Context) PoolIdentityPtrOutput {
 	return o
+}
+
+func (o PoolIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolIdentity] {
+	return pulumix.Output[*PoolIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolIdentityPtrOutput) Elem() PoolIdentityOutput {
@@ -2565,6 +2989,12 @@ func (i PoolMountArgs) ToPoolMountOutputWithContext(ctx context.Context) PoolMou
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountOutput)
 }
 
+func (i PoolMountArgs) ToOutput(ctx context.Context) pulumix.Output[PoolMount] {
+	return pulumix.Output[PoolMount]{
+		OutputState: i.ToPoolMountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolMountArrayInput is an input type that accepts PoolMountArray and PoolMountArrayOutput values.
 // You can construct a concrete instance of `PoolMountArrayInput` via:
 //
@@ -2590,6 +3020,12 @@ func (i PoolMountArray) ToPoolMountArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountArrayOutput)
 }
 
+func (i PoolMountArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolMount] {
+	return pulumix.Output[[]PoolMount]{
+		OutputState: i.ToPoolMountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolMountOutput struct{ *pulumi.OutputState }
 
 func (PoolMountOutput) ElementType() reflect.Type {
@@ -2602,6 +3038,12 @@ func (o PoolMountOutput) ToPoolMountOutput() PoolMountOutput {
 
 func (o PoolMountOutput) ToPoolMountOutputWithContext(ctx context.Context) PoolMountOutput {
 	return o
+}
+
+func (o PoolMountOutput) ToOutput(ctx context.Context) pulumix.Output[PoolMount] {
+	return pulumix.Output[PoolMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `azureBlobFileSystem` block defined as below.
@@ -2636,6 +3078,12 @@ func (o PoolMountArrayOutput) ToPoolMountArrayOutput() PoolMountArrayOutput {
 
 func (o PoolMountArrayOutput) ToPoolMountArrayOutputWithContext(ctx context.Context) PoolMountArrayOutput {
 	return o
+}
+
+func (o PoolMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolMount] {
+	return pulumix.Output[[]PoolMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolMountArrayOutput) Index(i pulumi.IntInput) PoolMountOutput {
@@ -2701,6 +3149,12 @@ func (i PoolMountAzureBlobFileSystemArgs) ToPoolMountAzureBlobFileSystemOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureBlobFileSystemOutput)
 }
 
+func (i PoolMountAzureBlobFileSystemArgs) ToOutput(ctx context.Context) pulumix.Output[PoolMountAzureBlobFileSystem] {
+	return pulumix.Output[PoolMountAzureBlobFileSystem]{
+		OutputState: i.ToPoolMountAzureBlobFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolMountAzureBlobFileSystemArgs) ToPoolMountAzureBlobFileSystemPtrOutput() PoolMountAzureBlobFileSystemPtrOutput {
 	return i.ToPoolMountAzureBlobFileSystemPtrOutputWithContext(context.Background())
 }
@@ -2742,6 +3196,12 @@ func (i *poolMountAzureBlobFileSystemPtrType) ToPoolMountAzureBlobFileSystemPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureBlobFileSystemPtrOutput)
 }
 
+func (i *poolMountAzureBlobFileSystemPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolMountAzureBlobFileSystem] {
+	return pulumix.Output[*PoolMountAzureBlobFileSystem]{
+		OutputState: i.ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolMountAzureBlobFileSystemOutput struct{ *pulumi.OutputState }
 
 func (PoolMountAzureBlobFileSystemOutput) ElementType() reflect.Type {
@@ -2764,6 +3224,12 @@ func (o PoolMountAzureBlobFileSystemOutput) ToPoolMountAzureBlobFileSystemPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolMountAzureBlobFileSystem) *PoolMountAzureBlobFileSystem {
 		return &v
 	}).(PoolMountAzureBlobFileSystemPtrOutput)
+}
+
+func (o PoolMountAzureBlobFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[PoolMountAzureBlobFileSystem] {
+	return pulumix.Output[PoolMountAzureBlobFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
@@ -2813,6 +3279,12 @@ func (o PoolMountAzureBlobFileSystemPtrOutput) ToPoolMountAzureBlobFileSystemPtr
 
 func (o PoolMountAzureBlobFileSystemPtrOutput) ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemPtrOutput {
 	return o
+}
+
+func (o PoolMountAzureBlobFileSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolMountAzureBlobFileSystem] {
+	return pulumix.Output[*PoolMountAzureBlobFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolMountAzureBlobFileSystemPtrOutput) Elem() PoolMountAzureBlobFileSystemOutput {
@@ -2944,6 +3416,12 @@ func (i PoolMountAzureFileShareArgs) ToPoolMountAzureFileShareOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureFileShareOutput)
 }
 
+func (i PoolMountAzureFileShareArgs) ToOutput(ctx context.Context) pulumix.Output[PoolMountAzureFileShare] {
+	return pulumix.Output[PoolMountAzureFileShare]{
+		OutputState: i.ToPoolMountAzureFileShareOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolMountAzureFileShareArrayInput is an input type that accepts PoolMountAzureFileShareArray and PoolMountAzureFileShareArrayOutput values.
 // You can construct a concrete instance of `PoolMountAzureFileShareArrayInput` via:
 //
@@ -2969,6 +3447,12 @@ func (i PoolMountAzureFileShareArray) ToPoolMountAzureFileShareArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureFileShareArrayOutput)
 }
 
+func (i PoolMountAzureFileShareArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolMountAzureFileShare] {
+	return pulumix.Output[[]PoolMountAzureFileShare]{
+		OutputState: i.ToPoolMountAzureFileShareArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolMountAzureFileShareOutput struct{ *pulumi.OutputState }
 
 func (PoolMountAzureFileShareOutput) ElementType() reflect.Type {
@@ -2981,6 +3465,12 @@ func (o PoolMountAzureFileShareOutput) ToPoolMountAzureFileShareOutput() PoolMou
 
 func (o PoolMountAzureFileShareOutput) ToPoolMountAzureFileShareOutputWithContext(ctx context.Context) PoolMountAzureFileShareOutput {
 	return o
+}
+
+func (o PoolMountAzureFileShareOutput) ToOutput(ctx context.Context) pulumix.Output[PoolMountAzureFileShare] {
+	return pulumix.Output[PoolMountAzureFileShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Storage Account key.
@@ -3020,6 +3510,12 @@ func (o PoolMountAzureFileShareArrayOutput) ToPoolMountAzureFileShareArrayOutput
 
 func (o PoolMountAzureFileShareArrayOutput) ToPoolMountAzureFileShareArrayOutputWithContext(ctx context.Context) PoolMountAzureFileShareArrayOutput {
 	return o
+}
+
+func (o PoolMountAzureFileShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolMountAzureFileShare] {
+	return pulumix.Output[[]PoolMountAzureFileShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolMountAzureFileShareArrayOutput) Index(i pulumi.IntInput) PoolMountAzureFileShareOutput {
@@ -3077,6 +3573,12 @@ func (i PoolMountCifsMountArgs) ToPoolMountCifsMountOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountCifsMountOutput)
 }
 
+func (i PoolMountCifsMountArgs) ToOutput(ctx context.Context) pulumix.Output[PoolMountCifsMount] {
+	return pulumix.Output[PoolMountCifsMount]{
+		OutputState: i.ToPoolMountCifsMountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolMountCifsMountArrayInput is an input type that accepts PoolMountCifsMountArray and PoolMountCifsMountArrayOutput values.
 // You can construct a concrete instance of `PoolMountCifsMountArrayInput` via:
 //
@@ -3102,6 +3604,12 @@ func (i PoolMountCifsMountArray) ToPoolMountCifsMountArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountCifsMountArrayOutput)
 }
 
+func (i PoolMountCifsMountArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolMountCifsMount] {
+	return pulumix.Output[[]PoolMountCifsMount]{
+		OutputState: i.ToPoolMountCifsMountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolMountCifsMountOutput struct{ *pulumi.OutputState }
 
 func (PoolMountCifsMountOutput) ElementType() reflect.Type {
@@ -3114,6 +3622,12 @@ func (o PoolMountCifsMountOutput) ToPoolMountCifsMountOutput() PoolMountCifsMoun
 
 func (o PoolMountCifsMountOutput) ToPoolMountCifsMountOutputWithContext(ctx context.Context) PoolMountCifsMountOutput {
 	return o
+}
+
+func (o PoolMountCifsMountOutput) ToOutput(ctx context.Context) pulumix.Output[PoolMountCifsMount] {
+	return pulumix.Output[PoolMountCifsMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
@@ -3153,6 +3667,12 @@ func (o PoolMountCifsMountArrayOutput) ToPoolMountCifsMountArrayOutput() PoolMou
 
 func (o PoolMountCifsMountArrayOutput) ToPoolMountCifsMountArrayOutputWithContext(ctx context.Context) PoolMountCifsMountArrayOutput {
 	return o
+}
+
+func (o PoolMountCifsMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolMountCifsMount] {
+	return pulumix.Output[[]PoolMountCifsMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolMountCifsMountArrayOutput) Index(i pulumi.IntInput) PoolMountCifsMountOutput {
@@ -3202,6 +3722,12 @@ func (i PoolMountNfsMountArgs) ToPoolMountNfsMountOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountNfsMountOutput)
 }
 
+func (i PoolMountNfsMountArgs) ToOutput(ctx context.Context) pulumix.Output[PoolMountNfsMount] {
+	return pulumix.Output[PoolMountNfsMount]{
+		OutputState: i.ToPoolMountNfsMountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolMountNfsMountArrayInput is an input type that accepts PoolMountNfsMountArray and PoolMountNfsMountArrayOutput values.
 // You can construct a concrete instance of `PoolMountNfsMountArrayInput` via:
 //
@@ -3227,6 +3753,12 @@ func (i PoolMountNfsMountArray) ToPoolMountNfsMountArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMountNfsMountArrayOutput)
 }
 
+func (i PoolMountNfsMountArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolMountNfsMount] {
+	return pulumix.Output[[]PoolMountNfsMount]{
+		OutputState: i.ToPoolMountNfsMountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolMountNfsMountOutput struct{ *pulumi.OutputState }
 
 func (PoolMountNfsMountOutput) ElementType() reflect.Type {
@@ -3239,6 +3771,12 @@ func (o PoolMountNfsMountOutput) ToPoolMountNfsMountOutput() PoolMountNfsMountOu
 
 func (o PoolMountNfsMountOutput) ToPoolMountNfsMountOutputWithContext(ctx context.Context) PoolMountNfsMountOutput {
 	return o
+}
+
+func (o PoolMountNfsMountOutput) ToOutput(ctx context.Context) pulumix.Output[PoolMountNfsMount] {
+	return pulumix.Output[PoolMountNfsMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
@@ -3270,6 +3808,12 @@ func (o PoolMountNfsMountArrayOutput) ToPoolMountNfsMountArrayOutputWithContext(
 	return o
 }
 
+func (o PoolMountNfsMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolMountNfsMount] {
+	return pulumix.Output[[]PoolMountNfsMount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) PoolMountNfsMountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolMountNfsMount {
 		return vs[0].([]PoolMountNfsMount)[vs[1].(int)]
@@ -3277,6 +3821,8 @@ func (o PoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) PoolMountNfsMount
 }
 
 type PoolNetworkConfiguration struct {
+	// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkingEnabled *bool `pulumi:"acceleratedNetworkingEnabled"`
 	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
 	DynamicVnetAssignmentScope *string `pulumi:"dynamicVnetAssignmentScope"`
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
@@ -3286,7 +3832,7 @@ type PoolNetworkConfiguration struct {
 	// A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
 	PublicIps []string `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // PoolNetworkConfigurationInput is an input type that accepts PoolNetworkConfigurationArgs and PoolNetworkConfigurationOutput values.
@@ -3301,6 +3847,8 @@ type PoolNetworkConfigurationInput interface {
 }
 
 type PoolNetworkConfigurationArgs struct {
+	// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	AcceleratedNetworkingEnabled pulumi.BoolPtrInput `pulumi:"acceleratedNetworkingEnabled"`
 	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
 	DynamicVnetAssignmentScope pulumi.StringPtrInput `pulumi:"dynamicVnetAssignmentScope"`
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
@@ -3310,7 +3858,7 @@ type PoolNetworkConfigurationArgs struct {
 	// A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
 	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (PoolNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -3323,6 +3871,12 @@ func (i PoolNetworkConfigurationArgs) ToPoolNetworkConfigurationOutput() PoolNet
 
 func (i PoolNetworkConfigurationArgs) ToPoolNetworkConfigurationOutputWithContext(ctx context.Context) PoolNetworkConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationOutput)
+}
+
+func (i PoolNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PoolNetworkConfiguration] {
+	return pulumix.Output[PoolNetworkConfiguration]{
+		OutputState: i.ToPoolNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PoolNetworkConfigurationArgs) ToPoolNetworkConfigurationPtrOutput() PoolNetworkConfigurationPtrOutput {
@@ -3366,6 +3920,12 @@ func (i *poolNetworkConfigurationPtrType) ToPoolNetworkConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationPtrOutput)
 }
 
+func (i *poolNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolNetworkConfiguration] {
+	return pulumix.Output[*PoolNetworkConfiguration]{
+		OutputState: i.ToPoolNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -3388,6 +3948,17 @@ func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolNetworkConfiguration) *PoolNetworkConfiguration {
 		return &v
 	}).(PoolNetworkConfigurationPtrOutput)
+}
+
+func (o PoolNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PoolNetworkConfiguration] {
+	return pulumix.Output[PoolNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o PoolNetworkConfigurationOutput) AcceleratedNetworkingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolNetworkConfiguration) *bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
@@ -3413,8 +3984,8 @@ func (o PoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
 }
 
 // The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
-func (o PoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o PoolNetworkConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolNetworkConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type PoolNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3431,6 +4002,12 @@ func (o PoolNetworkConfigurationPtrOutput) ToPoolNetworkConfigurationPtrOutputWi
 	return o
 }
 
+func (o PoolNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolNetworkConfiguration] {
+	return pulumix.Output[*PoolNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput {
 	return o.ApplyT(func(v *PoolNetworkConfiguration) PoolNetworkConfiguration {
 		if v != nil {
@@ -3439,6 +4016,16 @@ func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput
 		var ret PoolNetworkConfiguration
 		return ret
 	}).(PoolNetworkConfigurationOutput)
+}
+
+// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o PoolNetworkConfigurationPtrOutput) AcceleratedNetworkingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PoolNetworkConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratedNetworkingEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
@@ -3487,7 +4074,7 @@ func (o PoolNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.SubnetId
+		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3540,6 +4127,12 @@ func (i PoolNetworkConfigurationEndpointConfigurationArgs) ToPoolNetworkConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
+func (i PoolNetworkConfigurationEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[PoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: i.ToPoolNetworkConfigurationEndpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolNetworkConfigurationEndpointConfigurationArrayInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationArray and PoolNetworkConfigurationEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationEndpointConfigurationArrayInput` via:
 //
@@ -3565,6 +4158,12 @@ func (i PoolNetworkConfigurationEndpointConfigurationArray) ToPoolNetworkConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+func (i PoolNetworkConfigurationEndpointConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[[]PoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: i.ToPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolNetworkConfigurationEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -3577,6 +4176,12 @@ func (o PoolNetworkConfigurationEndpointConfigurationOutput) ToPoolNetworkConfig
 
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) ToPoolNetworkConfigurationEndpointConfigurationOutputWithContext(ctx context.Context) PoolNetworkConfigurationEndpointConfigurationOutput {
 	return o
+}
+
+func (o PoolNetworkConfigurationEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[PoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
@@ -3618,6 +4223,12 @@ func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) ToPoolNetworkC
 
 func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) ToPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(ctx context.Context) PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o
+}
+
+func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[[]PoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) PoolNetworkConfigurationEndpointConfigurationOutput {
@@ -3671,6 +4282,12 @@ func (i PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArg
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput)
 }
 
+func (i PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs) ToOutput(ctx context.Context) pulumix.Output[PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: i.ToPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray and PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput` via:
 //
@@ -3696,6 +4313,12 @@ func (i PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
+func (i PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[[]PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: i.ToPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ElementType() reflect.Type {
@@ -3708,6 +4331,12 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOut
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ToPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutputWithContext(ctx context.Context) PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput {
 	return o
+}
+
+func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
@@ -3746,6 +4375,12 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) ToPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutputWithContext(ctx context.Context) PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput {
 	return o
+}
+
+func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[[]PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) Index(i pulumi.IntInput) PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput {
@@ -3787,6 +4422,12 @@ func (i PoolNodePlacementArgs) ToPoolNodePlacementOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNodePlacementOutput)
 }
 
+func (i PoolNodePlacementArgs) ToOutput(ctx context.Context) pulumix.Output[PoolNodePlacement] {
+	return pulumix.Output[PoolNodePlacement]{
+		OutputState: i.ToPoolNodePlacementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolNodePlacementArrayInput is an input type that accepts PoolNodePlacementArray and PoolNodePlacementArrayOutput values.
 // You can construct a concrete instance of `PoolNodePlacementArrayInput` via:
 //
@@ -3812,6 +4453,12 @@ func (i PoolNodePlacementArray) ToPoolNodePlacementArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PoolNodePlacementArrayOutput)
 }
 
+func (i PoolNodePlacementArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolNodePlacement] {
+	return pulumix.Output[[]PoolNodePlacement]{
+		OutputState: i.ToPoolNodePlacementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolNodePlacementOutput struct{ *pulumi.OutputState }
 
 func (PoolNodePlacementOutput) ElementType() reflect.Type {
@@ -3824,6 +4471,12 @@ func (o PoolNodePlacementOutput) ToPoolNodePlacementOutput() PoolNodePlacementOu
 
 func (o PoolNodePlacementOutput) ToPoolNodePlacementOutputWithContext(ctx context.Context) PoolNodePlacementOutput {
 	return o
+}
+
+func (o PoolNodePlacementOutput) ToOutput(ctx context.Context) pulumix.Output[PoolNodePlacement] {
+	return pulumix.Output[PoolNodePlacement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
@@ -3843,6 +4496,12 @@ func (o PoolNodePlacementArrayOutput) ToPoolNodePlacementArrayOutput() PoolNodeP
 
 func (o PoolNodePlacementArrayOutput) ToPoolNodePlacementArrayOutputWithContext(ctx context.Context) PoolNodePlacementArrayOutput {
 	return o
+}
+
+func (o PoolNodePlacementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolNodePlacement] {
+	return pulumix.Output[[]PoolNodePlacement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolNodePlacementArrayOutput) Index(i pulumi.IntInput) PoolNodePlacementOutput {
@@ -3908,6 +4567,12 @@ func (i PoolStartTaskArgs) ToPoolStartTaskOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskOutput)
 }
 
+func (i PoolStartTaskArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStartTask] {
+	return pulumix.Output[PoolStartTask]{
+		OutputState: i.ToPoolStartTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolStartTaskArgs) ToPoolStartTaskPtrOutput() PoolStartTaskPtrOutput {
 	return i.ToPoolStartTaskPtrOutputWithContext(context.Background())
 }
@@ -3949,6 +4614,12 @@ func (i *poolStartTaskPtrType) ToPoolStartTaskPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskPtrOutput)
 }
 
+func (i *poolStartTaskPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolStartTask] {
+	return pulumix.Output[*PoolStartTask]{
+		OutputState: i.ToPoolStartTaskPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStartTaskOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskOutput) ElementType() reflect.Type {
@@ -3971,6 +4642,12 @@ func (o PoolStartTaskOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStartTask) *PoolStartTask {
 		return &v
 	}).(PoolStartTaskPtrOutput)
+}
+
+func (o PoolStartTaskOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStartTask] {
+	return pulumix.Output[PoolStartTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The command line executed by the start task.
@@ -4020,6 +4697,12 @@ func (o PoolStartTaskPtrOutput) ToPoolStartTaskPtrOutput() PoolStartTaskPtrOutpu
 
 func (o PoolStartTaskPtrOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.Context) PoolStartTaskPtrOutput {
 	return o
+}
+
+func (o PoolStartTaskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolStartTask] {
+	return pulumix.Output[*PoolStartTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolStartTaskPtrOutput) Elem() PoolStartTaskOutput {
@@ -4147,6 +4830,12 @@ func (i PoolStartTaskContainerArgs) ToPoolStartTaskContainerOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerOutput)
 }
 
+func (i PoolStartTaskContainerArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskContainer] {
+	return pulumix.Output[PoolStartTaskContainer]{
+		OutputState: i.ToPoolStartTaskContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolStartTaskContainerArrayInput is an input type that accepts PoolStartTaskContainerArray and PoolStartTaskContainerArrayOutput values.
 // You can construct a concrete instance of `PoolStartTaskContainerArrayInput` via:
 //
@@ -4172,6 +4861,12 @@ func (i PoolStartTaskContainerArray) ToPoolStartTaskContainerArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerArrayOutput)
 }
 
+func (i PoolStartTaskContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolStartTaskContainer] {
+	return pulumix.Output[[]PoolStartTaskContainer]{
+		OutputState: i.ToPoolStartTaskContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStartTaskContainerOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskContainerOutput) ElementType() reflect.Type {
@@ -4184,6 +4879,12 @@ func (o PoolStartTaskContainerOutput) ToPoolStartTaskContainerOutput() PoolStart
 
 func (o PoolStartTaskContainerOutput) ToPoolStartTaskContainerOutputWithContext(ctx context.Context) PoolStartTaskContainerOutput {
 	return o
+}
+
+func (o PoolStartTaskContainerOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskContainer] {
+	return pulumix.Output[PoolStartTaskContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
@@ -4218,6 +4919,12 @@ func (o PoolStartTaskContainerArrayOutput) ToPoolStartTaskContainerArrayOutput()
 
 func (o PoolStartTaskContainerArrayOutput) ToPoolStartTaskContainerArrayOutputWithContext(ctx context.Context) PoolStartTaskContainerArrayOutput {
 	return o
+}
+
+func (o PoolStartTaskContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolStartTaskContainer] {
+	return pulumix.Output[[]PoolStartTaskContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) PoolStartTaskContainerOutput {
@@ -4275,6 +4982,12 @@ func (i PoolStartTaskContainerRegistryArgs) ToPoolStartTaskContainerRegistryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerRegistryOutput)
 }
 
+func (i PoolStartTaskContainerRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskContainerRegistry] {
+	return pulumix.Output[PoolStartTaskContainerRegistry]{
+		OutputState: i.ToPoolStartTaskContainerRegistryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolStartTaskContainerRegistryArrayInput is an input type that accepts PoolStartTaskContainerRegistryArray and PoolStartTaskContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `PoolStartTaskContainerRegistryArrayInput` via:
 //
@@ -4300,6 +5013,12 @@ func (i PoolStartTaskContainerRegistryArray) ToPoolStartTaskContainerRegistryArr
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerRegistryArrayOutput)
 }
 
+func (i PoolStartTaskContainerRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolStartTaskContainerRegistry] {
+	return pulumix.Output[[]PoolStartTaskContainerRegistry]{
+		OutputState: i.ToPoolStartTaskContainerRegistryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStartTaskContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskContainerRegistryOutput) ElementType() reflect.Type {
@@ -4312,6 +5031,12 @@ func (o PoolStartTaskContainerRegistryOutput) ToPoolStartTaskContainerRegistryOu
 
 func (o PoolStartTaskContainerRegistryOutput) ToPoolStartTaskContainerRegistryOutputWithContext(ctx context.Context) PoolStartTaskContainerRegistryOutput {
 	return o
+}
+
+func (o PoolStartTaskContainerRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskContainerRegistry] {
+	return pulumix.Output[PoolStartTaskContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password to log into the registry server. Changing this forces a new resource to be created.
@@ -4348,6 +5073,12 @@ func (o PoolStartTaskContainerRegistryArrayOutput) ToPoolStartTaskContainerRegis
 
 func (o PoolStartTaskContainerRegistryArrayOutput) ToPoolStartTaskContainerRegistryArrayOutputWithContext(ctx context.Context) PoolStartTaskContainerRegistryArrayOutput {
 	return o
+}
+
+func (o PoolStartTaskContainerRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolStartTaskContainerRegistry] {
+	return pulumix.Output[[]PoolStartTaskContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolStartTaskContainerRegistryArrayOutput) Index(i pulumi.IntInput) PoolStartTaskContainerRegistryOutput {
@@ -4417,6 +5148,12 @@ func (i PoolStartTaskResourceFileArgs) ToPoolStartTaskResourceFileOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskResourceFileOutput)
 }
 
+func (i PoolStartTaskResourceFileArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskResourceFile] {
+	return pulumix.Output[PoolStartTaskResourceFile]{
+		OutputState: i.ToPoolStartTaskResourceFileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolStartTaskResourceFileArrayInput is an input type that accepts PoolStartTaskResourceFileArray and PoolStartTaskResourceFileArrayOutput values.
 // You can construct a concrete instance of `PoolStartTaskResourceFileArrayInput` via:
 //
@@ -4442,6 +5179,12 @@ func (i PoolStartTaskResourceFileArray) ToPoolStartTaskResourceFileArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskResourceFileArrayOutput)
 }
 
+func (i PoolStartTaskResourceFileArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolStartTaskResourceFile] {
+	return pulumix.Output[[]PoolStartTaskResourceFile]{
+		OutputState: i.ToPoolStartTaskResourceFileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStartTaskResourceFileOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskResourceFileOutput) ElementType() reflect.Type {
@@ -4454,6 +5197,12 @@ func (o PoolStartTaskResourceFileOutput) ToPoolStartTaskResourceFileOutput() Poo
 
 func (o PoolStartTaskResourceFileOutput) ToPoolStartTaskResourceFileOutputWithContext(ctx context.Context) PoolStartTaskResourceFileOutput {
 	return o
+}
+
+func (o PoolStartTaskResourceFileOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskResourceFile] {
+	return pulumix.Output[PoolStartTaskResourceFile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The storage container name in the auto storage account.
@@ -4507,6 +5256,12 @@ func (o PoolStartTaskResourceFileArrayOutput) ToPoolStartTaskResourceFileArrayOu
 	return o
 }
 
+func (o PoolStartTaskResourceFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolStartTaskResourceFile] {
+	return pulumix.Output[[]PoolStartTaskResourceFile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) PoolStartTaskResourceFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolStartTaskResourceFile {
 		return vs[0].([]PoolStartTaskResourceFile)[vs[1].(int)]
@@ -4554,6 +5309,12 @@ func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityOutput)
 }
 
+func (i PoolStartTaskUserIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskUserIdentity] {
+	return pulumix.Output[PoolStartTaskUserIdentity]{
+		OutputState: i.ToPoolStartTaskUserIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityPtrOutput() PoolStartTaskUserIdentityPtrOutput {
 	return i.ToPoolStartTaskUserIdentityPtrOutputWithContext(context.Background())
 }
@@ -4595,6 +5356,12 @@ func (i *poolStartTaskUserIdentityPtrType) ToPoolStartTaskUserIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityPtrOutput)
 }
 
+func (i *poolStartTaskUserIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolStartTaskUserIdentity] {
+	return pulumix.Output[*PoolStartTaskUserIdentity]{
+		OutputState: i.ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStartTaskUserIdentityOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskUserIdentityOutput) ElementType() reflect.Type {
@@ -4617,6 +5384,12 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentity {
 		return &v
 	}).(PoolStartTaskUserIdentityPtrOutput)
+}
+
+func (o PoolStartTaskUserIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskUserIdentity] {
+	return pulumix.Output[PoolStartTaskUserIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `autoUser` block that describes the user identity under which the start task runs as defined below.
@@ -4643,6 +5416,12 @@ func (o PoolStartTaskUserIdentityPtrOutput) ToPoolStartTaskUserIdentityPtrOutput
 
 func (o PoolStartTaskUserIdentityPtrOutput) ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityPtrOutput {
 	return o
+}
+
+func (o PoolStartTaskUserIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolStartTaskUserIdentity] {
+	return pulumix.Output[*PoolStartTaskUserIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolStartTaskUserIdentityPtrOutput) Elem() PoolStartTaskUserIdentityOutput {
@@ -4714,6 +5493,12 @@ func (i PoolStartTaskUserIdentityAutoUserArgs) ToPoolStartTaskUserIdentityAutoUs
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityAutoUserOutput)
 }
 
+func (i PoolStartTaskUserIdentityAutoUserArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[PoolStartTaskUserIdentityAutoUser]{
+		OutputState: i.ToPoolStartTaskUserIdentityAutoUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolStartTaskUserIdentityAutoUserArgs) ToPoolStartTaskUserIdentityAutoUserPtrOutput() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return i.ToPoolStartTaskUserIdentityAutoUserPtrOutputWithContext(context.Background())
 }
@@ -4755,6 +5540,12 @@ func (i *poolStartTaskUserIdentityAutoUserPtrType) ToPoolStartTaskUserIdentityAu
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
 
+func (i *poolStartTaskUserIdentityAutoUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[*PoolStartTaskUserIdentityAutoUser]{
+		OutputState: i.ToPoolStartTaskUserIdentityAutoUserPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStartTaskUserIdentityAutoUserOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskUserIdentityAutoUserOutput) ElementType() reflect.Type {
@@ -4779,6 +5570,12 @@ func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAuto
 	}).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
 
+func (o PoolStartTaskUserIdentityAutoUserOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[PoolStartTaskUserIdentityAutoUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
 func (o PoolStartTaskUserIdentityAutoUserOutput) ElevationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
@@ -4801,6 +5598,12 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ToPoolStartTaskUserIdentityA
 
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ToPoolStartTaskUserIdentityAutoUserPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o
+}
+
+func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[*PoolStartTaskUserIdentityAutoUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Elem() PoolStartTaskUserIdentityAutoUserOutput {
@@ -4886,6 +5689,12 @@ func (i PoolStorageImageReferenceArgs) ToPoolStorageImageReferenceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStorageImageReferenceOutput)
 }
 
+func (i PoolStorageImageReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[PoolStorageImageReference] {
+	return pulumix.Output[PoolStorageImageReference]{
+		OutputState: i.ToPoolStorageImageReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PoolStorageImageReferenceArgs) ToPoolStorageImageReferencePtrOutput() PoolStorageImageReferencePtrOutput {
 	return i.ToPoolStorageImageReferencePtrOutputWithContext(context.Background())
 }
@@ -4927,6 +5736,12 @@ func (i *poolStorageImageReferencePtrType) ToPoolStorageImageReferencePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStorageImageReferencePtrOutput)
 }
 
+func (i *poolStorageImageReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*PoolStorageImageReference] {
+	return pulumix.Output[*PoolStorageImageReference]{
+		OutputState: i.ToPoolStorageImageReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (PoolStorageImageReferenceOutput) ElementType() reflect.Type {
@@ -4949,6 +5764,12 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStorageImageReference) *PoolStorageImageReference {
 		return &v
 	}).(PoolStorageImageReferencePtrOutput)
+}
+
+func (o PoolStorageImageReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[PoolStorageImageReference] {
+	return pulumix.Output[PoolStorageImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/azure/batch/batch-custom-images) for more details.
@@ -4990,6 +5811,12 @@ func (o PoolStorageImageReferencePtrOutput) ToPoolStorageImageReferencePtrOutput
 
 func (o PoolStorageImageReferencePtrOutput) ToPoolStorageImageReferencePtrOutputWithContext(ctx context.Context) PoolStorageImageReferencePtrOutput {
 	return o
+}
+
+func (o PoolStorageImageReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolStorageImageReference] {
+	return pulumix.Output[*PoolStorageImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutput {
@@ -5087,6 +5914,12 @@ func (i PoolTaskSchedulingPolicyArgs) ToPoolTaskSchedulingPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolTaskSchedulingPolicyOutput)
 }
 
+func (i PoolTaskSchedulingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PoolTaskSchedulingPolicy] {
+	return pulumix.Output[PoolTaskSchedulingPolicy]{
+		OutputState: i.ToPoolTaskSchedulingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolTaskSchedulingPolicyArrayInput is an input type that accepts PoolTaskSchedulingPolicyArray and PoolTaskSchedulingPolicyArrayOutput values.
 // You can construct a concrete instance of `PoolTaskSchedulingPolicyArrayInput` via:
 //
@@ -5112,6 +5945,12 @@ func (i PoolTaskSchedulingPolicyArray) ToPoolTaskSchedulingPolicyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PoolTaskSchedulingPolicyArrayOutput)
 }
 
+func (i PoolTaskSchedulingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolTaskSchedulingPolicy] {
+	return pulumix.Output[[]PoolTaskSchedulingPolicy]{
+		OutputState: i.ToPoolTaskSchedulingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolTaskSchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (PoolTaskSchedulingPolicyOutput) ElementType() reflect.Type {
@@ -5124,6 +5963,12 @@ func (o PoolTaskSchedulingPolicyOutput) ToPoolTaskSchedulingPolicyOutput() PoolT
 
 func (o PoolTaskSchedulingPolicyOutput) ToPoolTaskSchedulingPolicyOutputWithContext(ctx context.Context) PoolTaskSchedulingPolicyOutput {
 	return o
+}
+
+func (o PoolTaskSchedulingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PoolTaskSchedulingPolicy] {
+	return pulumix.Output[PoolTaskSchedulingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
@@ -5143,6 +5988,12 @@ func (o PoolTaskSchedulingPolicyArrayOutput) ToPoolTaskSchedulingPolicyArrayOutp
 
 func (o PoolTaskSchedulingPolicyArrayOutput) ToPoolTaskSchedulingPolicyArrayOutputWithContext(ctx context.Context) PoolTaskSchedulingPolicyArrayOutput {
 	return o
+}
+
+func (o PoolTaskSchedulingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolTaskSchedulingPolicy] {
+	return pulumix.Output[[]PoolTaskSchedulingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolTaskSchedulingPolicyArrayOutput) Index(i pulumi.IntInput) PoolTaskSchedulingPolicyOutput {
@@ -5200,6 +6051,12 @@ func (i PoolUserAccountArgs) ToPoolUserAccountOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountOutput)
 }
 
+func (i PoolUserAccountArgs) ToOutput(ctx context.Context) pulumix.Output[PoolUserAccount] {
+	return pulumix.Output[PoolUserAccount]{
+		OutputState: i.ToPoolUserAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolUserAccountArrayInput is an input type that accepts PoolUserAccountArray and PoolUserAccountArrayOutput values.
 // You can construct a concrete instance of `PoolUserAccountArrayInput` via:
 //
@@ -5225,6 +6082,12 @@ func (i PoolUserAccountArray) ToPoolUserAccountArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountArrayOutput)
 }
 
+func (i PoolUserAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolUserAccount] {
+	return pulumix.Output[[]PoolUserAccount]{
+		OutputState: i.ToPoolUserAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolUserAccountOutput struct{ *pulumi.OutputState }
 
 func (PoolUserAccountOutput) ElementType() reflect.Type {
@@ -5237,6 +6100,12 @@ func (o PoolUserAccountOutput) ToPoolUserAccountOutput() PoolUserAccountOutput {
 
 func (o PoolUserAccountOutput) ToPoolUserAccountOutputWithContext(ctx context.Context) PoolUserAccountOutput {
 	return o
+}
+
+func (o PoolUserAccountOutput) ToOutput(ctx context.Context) pulumix.Output[PoolUserAccount] {
+	return pulumix.Output[PoolUserAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -5276,6 +6145,12 @@ func (o PoolUserAccountArrayOutput) ToPoolUserAccountArrayOutput() PoolUserAccou
 
 func (o PoolUserAccountArrayOutput) ToPoolUserAccountArrayOutputWithContext(ctx context.Context) PoolUserAccountArrayOutput {
 	return o
+}
+
+func (o PoolUserAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolUserAccount] {
+	return pulumix.Output[[]PoolUserAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolUserAccountArrayOutput) Index(i pulumi.IntInput) PoolUserAccountOutput {
@@ -5325,6 +6200,12 @@ func (i PoolUserAccountLinuxUserConfigurationArgs) ToPoolUserAccountLinuxUserCon
 	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountLinuxUserConfigurationOutput)
 }
 
+func (i PoolUserAccountLinuxUserConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[PoolUserAccountLinuxUserConfiguration]{
+		OutputState: i.ToPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolUserAccountLinuxUserConfigurationArrayInput is an input type that accepts PoolUserAccountLinuxUserConfigurationArray and PoolUserAccountLinuxUserConfigurationArrayOutput values.
 // You can construct a concrete instance of `PoolUserAccountLinuxUserConfigurationArrayInput` via:
 //
@@ -5350,6 +6231,12 @@ func (i PoolUserAccountLinuxUserConfigurationArray) ToPoolUserAccountLinuxUserCo
 	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountLinuxUserConfigurationArrayOutput)
 }
 
+func (i PoolUserAccountLinuxUserConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[[]PoolUserAccountLinuxUserConfiguration]{
+		OutputState: i.ToPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolUserAccountLinuxUserConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolUserAccountLinuxUserConfigurationOutput) ElementType() reflect.Type {
@@ -5362,6 +6249,12 @@ func (o PoolUserAccountLinuxUserConfigurationOutput) ToPoolUserAccountLinuxUserC
 
 func (o PoolUserAccountLinuxUserConfigurationOutput) ToPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx context.Context) PoolUserAccountLinuxUserConfigurationOutput {
 	return o
+}
+
+func (o PoolUserAccountLinuxUserConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[PoolUserAccountLinuxUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
@@ -5391,6 +6284,12 @@ func (o PoolUserAccountLinuxUserConfigurationArrayOutput) ToPoolUserAccountLinux
 
 func (o PoolUserAccountLinuxUserConfigurationArrayOutput) ToPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx context.Context) PoolUserAccountLinuxUserConfigurationArrayOutput {
 	return o
+}
+
+func (o PoolUserAccountLinuxUserConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[[]PoolUserAccountLinuxUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolUserAccountLinuxUserConfigurationArrayOutput) Index(i pulumi.IntInput) PoolUserAccountLinuxUserConfigurationOutput {
@@ -5432,6 +6331,12 @@ func (i PoolUserAccountWindowsUserConfigurationArgs) ToPoolUserAccountWindowsUse
 	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountWindowsUserConfigurationOutput)
 }
 
+func (i PoolUserAccountWindowsUserConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[PoolUserAccountWindowsUserConfiguration]{
+		OutputState: i.ToPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolUserAccountWindowsUserConfigurationArrayInput is an input type that accepts PoolUserAccountWindowsUserConfigurationArray and PoolUserAccountWindowsUserConfigurationArrayOutput values.
 // You can construct a concrete instance of `PoolUserAccountWindowsUserConfigurationArrayInput` via:
 //
@@ -5457,6 +6362,12 @@ func (i PoolUserAccountWindowsUserConfigurationArray) ToPoolUserAccountWindowsUs
 	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountWindowsUserConfigurationArrayOutput)
 }
 
+func (i PoolUserAccountWindowsUserConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[[]PoolUserAccountWindowsUserConfiguration]{
+		OutputState: i.ToPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolUserAccountWindowsUserConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PoolUserAccountWindowsUserConfigurationOutput) ElementType() reflect.Type {
@@ -5469,6 +6380,12 @@ func (o PoolUserAccountWindowsUserConfigurationOutput) ToPoolUserAccountWindowsU
 
 func (o PoolUserAccountWindowsUserConfigurationOutput) ToPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx context.Context) PoolUserAccountWindowsUserConfigurationOutput {
 	return o
+}
+
+func (o PoolUserAccountWindowsUserConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[PoolUserAccountWindowsUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
@@ -5488,6 +6405,12 @@ func (o PoolUserAccountWindowsUserConfigurationArrayOutput) ToPoolUserAccountWin
 
 func (o PoolUserAccountWindowsUserConfigurationArrayOutput) ToPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx context.Context) PoolUserAccountWindowsUserConfigurationArrayOutput {
 	return o
+}
+
+func (o PoolUserAccountWindowsUserConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[[]PoolUserAccountWindowsUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolUserAccountWindowsUserConfigurationArrayOutput) Index(i pulumi.IntInput) PoolUserAccountWindowsUserConfigurationOutput {
@@ -5529,6 +6452,12 @@ func (i PoolWindowArgs) ToPoolWindowOutputWithContext(ctx context.Context) PoolW
 	return pulumi.ToOutputWithContext(ctx, i).(PoolWindowOutput)
 }
 
+func (i PoolWindowArgs) ToOutput(ctx context.Context) pulumix.Output[PoolWindow] {
+	return pulumix.Output[PoolWindow]{
+		OutputState: i.ToPoolWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolWindowArrayInput is an input type that accepts PoolWindowArray and PoolWindowArrayOutput values.
 // You can construct a concrete instance of `PoolWindowArrayInput` via:
 //
@@ -5554,6 +6483,12 @@ func (i PoolWindowArray) ToPoolWindowArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PoolWindowArrayOutput)
 }
 
+func (i PoolWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]PoolWindow] {
+	return pulumix.Output[[]PoolWindow]{
+		OutputState: i.ToPoolWindowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolWindowOutput struct{ *pulumi.OutputState }
 
 func (PoolWindowOutput) ElementType() reflect.Type {
@@ -5566,6 +6501,12 @@ func (o PoolWindowOutput) ToPoolWindowOutput() PoolWindowOutput {
 
 func (o PoolWindowOutput) ToPoolWindowOutputWithContext(ctx context.Context) PoolWindowOutput {
 	return o
+}
+
+func (o PoolWindowOutput) ToOutput(ctx context.Context) pulumix.Output[PoolWindow] {
+	return pulumix.Output[PoolWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
@@ -5585,6 +6526,12 @@ func (o PoolWindowArrayOutput) ToPoolWindowArrayOutput() PoolWindowArrayOutput {
 
 func (o PoolWindowArrayOutput) ToPoolWindowArrayOutputWithContext(ctx context.Context) PoolWindowArrayOutput {
 	return o
+}
+
+func (o PoolWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PoolWindow] {
+	return pulumix.Output[[]PoolWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolWindowArrayOutput) Index(i pulumi.IntInput) PoolWindowOutput {
@@ -5624,6 +6571,12 @@ func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutput() GetAccountEncry
 
 func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutputWithContext(ctx context.Context) GetAccountEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput)
+}
+
+func (i GetAccountEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountEncryption] {
+	return pulumix.Output[GetAccountEncryption]{
+		OutputState: i.ToGetAccountEncryptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetAccountEncryptionArgs) ToGetAccountEncryptionPtrOutput() GetAccountEncryptionPtrOutput {
@@ -5667,6 +6620,12 @@ func (i *getAccountEncryptionPtrType) ToGetAccountEncryptionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionPtrOutput)
 }
 
+func (i *getAccountEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetAccountEncryption] {
+	return pulumix.Output[*GetAccountEncryption]{
+		OutputState: i.ToGetAccountEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetAccountEncryptionOutput) ElementType() reflect.Type {
@@ -5691,6 +6650,12 @@ func (o GetAccountEncryptionOutput) ToGetAccountEncryptionPtrOutputWithContext(c
 	}).(GetAccountEncryptionPtrOutput)
 }
 
+func (o GetAccountEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountEncryption] {
+	return pulumix.Output[GetAccountEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 func (o GetAccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
@@ -5708,6 +6673,12 @@ func (o GetAccountEncryptionPtrOutput) ToGetAccountEncryptionPtrOutput() GetAcco
 
 func (o GetAccountEncryptionPtrOutput) ToGetAccountEncryptionPtrOutputWithContext(ctx context.Context) GetAccountEncryptionPtrOutput {
 	return o
+}
+
+func (o GetAccountEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetAccountEncryption] {
+	return pulumix.Output[*GetAccountEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccountEncryptionPtrOutput) Elem() GetAccountEncryptionOutput {
@@ -5767,6 +6738,12 @@ func (i GetAccountKeyVaultReferenceArgs) ToGetAccountKeyVaultReferenceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountKeyVaultReferenceOutput)
 }
 
+func (i GetAccountKeyVaultReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountKeyVaultReference] {
+	return pulumix.Output[GetAccountKeyVaultReference]{
+		OutputState: i.ToGetAccountKeyVaultReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAccountKeyVaultReferenceArrayInput is an input type that accepts GetAccountKeyVaultReferenceArray and GetAccountKeyVaultReferenceArrayOutput values.
 // You can construct a concrete instance of `GetAccountKeyVaultReferenceArrayInput` via:
 //
@@ -5792,6 +6769,12 @@ func (i GetAccountKeyVaultReferenceArray) ToGetAccountKeyVaultReferenceArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountKeyVaultReferenceArrayOutput)
 }
 
+func (i GetAccountKeyVaultReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountKeyVaultReference] {
+	return pulumix.Output[[]GetAccountKeyVaultReference]{
+		OutputState: i.ToGetAccountKeyVaultReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAccountKeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetAccountKeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -5804,6 +6787,12 @@ func (o GetAccountKeyVaultReferenceOutput) ToGetAccountKeyVaultReferenceOutput()
 
 func (o GetAccountKeyVaultReferenceOutput) ToGetAccountKeyVaultReferenceOutputWithContext(ctx context.Context) GetAccountKeyVaultReferenceOutput {
 	return o
+}
+
+func (o GetAccountKeyVaultReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountKeyVaultReference] {
+	return pulumix.Output[GetAccountKeyVaultReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure identifier of the Azure KeyVault reference.
@@ -5828,6 +6817,12 @@ func (o GetAccountKeyVaultReferenceArrayOutput) ToGetAccountKeyVaultReferenceArr
 
 func (o GetAccountKeyVaultReferenceArrayOutput) ToGetAccountKeyVaultReferenceArrayOutputWithContext(ctx context.Context) GetAccountKeyVaultReferenceArrayOutput {
 	return o
+}
+
+func (o GetAccountKeyVaultReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountKeyVaultReference] {
+	return pulumix.Output[[]GetAccountKeyVaultReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccountKeyVaultReferenceArrayOutput) Index(i pulumi.IntInput) GetAccountKeyVaultReferenceOutput {
@@ -5873,6 +6868,12 @@ func (i GetPoolAutoScaleArgs) ToGetPoolAutoScaleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolAutoScaleOutput)
 }
 
+func (i GetPoolAutoScaleArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolAutoScale] {
+	return pulumix.Output[GetPoolAutoScale]{
+		OutputState: i.ToGetPoolAutoScaleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolAutoScaleArrayInput is an input type that accepts GetPoolAutoScaleArray and GetPoolAutoScaleArrayOutput values.
 // You can construct a concrete instance of `GetPoolAutoScaleArrayInput` via:
 //
@@ -5898,6 +6899,12 @@ func (i GetPoolAutoScaleArray) ToGetPoolAutoScaleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolAutoScaleArrayOutput)
 }
 
+func (i GetPoolAutoScaleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolAutoScale] {
+	return pulumix.Output[[]GetPoolAutoScale]{
+		OutputState: i.ToGetPoolAutoScaleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolAutoScaleOutput struct{ *pulumi.OutputState }
 
 func (GetPoolAutoScaleOutput) ElementType() reflect.Type {
@@ -5910,6 +6917,12 @@ func (o GetPoolAutoScaleOutput) ToGetPoolAutoScaleOutput() GetPoolAutoScaleOutpu
 
 func (o GetPoolAutoScaleOutput) ToGetPoolAutoScaleOutputWithContext(ctx context.Context) GetPoolAutoScaleOutput {
 	return o
+}
+
+func (o GetPoolAutoScaleOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolAutoScale] {
+	return pulumix.Output[GetPoolAutoScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The interval to wait before evaluating if the pool needs to be scaled.
@@ -5934,6 +6947,12 @@ func (o GetPoolAutoScaleArrayOutput) ToGetPoolAutoScaleArrayOutput() GetPoolAuto
 
 func (o GetPoolAutoScaleArrayOutput) ToGetPoolAutoScaleArrayOutputWithContext(ctx context.Context) GetPoolAutoScaleArrayOutput {
 	return o
+}
+
+func (o GetPoolAutoScaleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolAutoScale] {
+	return pulumix.Output[[]GetPoolAutoScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolAutoScaleArrayOutput) Index(i pulumi.IntInput) GetPoolAutoScaleOutput {
@@ -5987,6 +7006,12 @@ func (i GetPoolCertificateArgs) ToGetPoolCertificateOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolCertificateOutput)
 }
 
+func (i GetPoolCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolCertificate] {
+	return pulumix.Output[GetPoolCertificate]{
+		OutputState: i.ToGetPoolCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolCertificateArrayInput is an input type that accepts GetPoolCertificateArray and GetPoolCertificateArrayOutput values.
 // You can construct a concrete instance of `GetPoolCertificateArrayInput` via:
 //
@@ -6012,6 +7037,12 @@ func (i GetPoolCertificateArray) ToGetPoolCertificateArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolCertificateArrayOutput)
 }
 
+func (i GetPoolCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolCertificate] {
+	return pulumix.Output[[]GetPoolCertificate]{
+		OutputState: i.ToGetPoolCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolCertificateOutput struct{ *pulumi.OutputState }
 
 func (GetPoolCertificateOutput) ElementType() reflect.Type {
@@ -6024,6 +7055,12 @@ func (o GetPoolCertificateOutput) ToGetPoolCertificateOutput() GetPoolCertificat
 
 func (o GetPoolCertificateOutput) ToGetPoolCertificateOutputWithContext(ctx context.Context) GetPoolCertificateOutput {
 	return o
+}
+
+func (o GetPoolCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolCertificate] {
+	return pulumix.Output[GetPoolCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The fully qualified ID of the certificate installed on the pool.
@@ -6058,6 +7095,12 @@ func (o GetPoolCertificateArrayOutput) ToGetPoolCertificateArrayOutput() GetPool
 
 func (o GetPoolCertificateArrayOutput) ToGetPoolCertificateArrayOutputWithContext(ctx context.Context) GetPoolCertificateArrayOutput {
 	return o
+}
+
+func (o GetPoolCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolCertificate] {
+	return pulumix.Output[[]GetPoolCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolCertificateArrayOutput) Index(i pulumi.IntInput) GetPoolCertificateOutput {
@@ -6107,6 +7150,12 @@ func (i GetPoolContainerConfigurationArgs) ToGetPoolContainerConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolContainerConfigurationOutput)
 }
 
+func (i GetPoolContainerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolContainerConfiguration] {
+	return pulumix.Output[GetPoolContainerConfiguration]{
+		OutputState: i.ToGetPoolContainerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolContainerConfigurationArrayInput is an input type that accepts GetPoolContainerConfigurationArray and GetPoolContainerConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPoolContainerConfigurationArrayInput` via:
 //
@@ -6132,6 +7181,12 @@ func (i GetPoolContainerConfigurationArray) ToGetPoolContainerConfigurationArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolContainerConfigurationArrayOutput)
 }
 
+func (i GetPoolContainerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolContainerConfiguration] {
+	return pulumix.Output[[]GetPoolContainerConfiguration]{
+		OutputState: i.ToGetPoolContainerConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolContainerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolContainerConfigurationOutput) ElementType() reflect.Type {
@@ -6144,6 +7199,12 @@ func (o GetPoolContainerConfigurationOutput) ToGetPoolContainerConfigurationOutp
 
 func (o GetPoolContainerConfigurationOutput) ToGetPoolContainerConfigurationOutputWithContext(ctx context.Context) GetPoolContainerConfigurationOutput {
 	return o
+}
+
+func (o GetPoolContainerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolContainerConfiguration] {
+	return pulumix.Output[GetPoolContainerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of container image names to use, as would be specified by `docker pull`.
@@ -6175,6 +7236,12 @@ func (o GetPoolContainerConfigurationArrayOutput) ToGetPoolContainerConfiguratio
 
 func (o GetPoolContainerConfigurationArrayOutput) ToGetPoolContainerConfigurationArrayOutputWithContext(ctx context.Context) GetPoolContainerConfigurationArrayOutput {
 	return o
+}
+
+func (o GetPoolContainerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolContainerConfiguration] {
+	return pulumix.Output[[]GetPoolContainerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolContainerConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolContainerConfigurationOutput {
@@ -6228,6 +7295,12 @@ func (i GetPoolContainerConfigurationContainerRegistryArgs) ToGetPoolContainerCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolContainerConfigurationContainerRegistryOutput)
 }
 
+func (i GetPoolContainerConfigurationContainerRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[GetPoolContainerConfigurationContainerRegistry]{
+		OutputState: i.ToGetPoolContainerConfigurationContainerRegistryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolContainerConfigurationContainerRegistryArrayInput is an input type that accepts GetPoolContainerConfigurationContainerRegistryArray and GetPoolContainerConfigurationContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `GetPoolContainerConfigurationContainerRegistryArrayInput` via:
 //
@@ -6253,6 +7326,12 @@ func (i GetPoolContainerConfigurationContainerRegistryArray) ToGetPoolContainerC
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
+func (i GetPoolContainerConfigurationContainerRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[[]GetPoolContainerConfigurationContainerRegistry]{
+		OutputState: i.ToGetPoolContainerConfigurationContainerRegistryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolContainerConfigurationContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (GetPoolContainerConfigurationContainerRegistryOutput) ElementType() reflect.Type {
@@ -6265,6 +7344,12 @@ func (o GetPoolContainerConfigurationContainerRegistryOutput) ToGetPoolContainer
 
 func (o GetPoolContainerConfigurationContainerRegistryOutput) ToGetPoolContainerConfigurationContainerRegistryOutputWithContext(ctx context.Context) GetPoolContainerConfigurationContainerRegistryOutput {
 	return o
+}
+
+func (o GetPoolContainerConfigurationContainerRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[GetPoolContainerConfigurationContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password for the user account.
@@ -6299,6 +7384,12 @@ func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) ToGetPoolCont
 
 func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) ToGetPoolContainerConfigurationContainerRegistryArrayOutputWithContext(ctx context.Context) GetPoolContainerConfigurationContainerRegistryArrayOutput {
 	return o
+}
+
+func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolContainerConfigurationContainerRegistry] {
+	return pulumix.Output[[]GetPoolContainerConfigurationContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.IntInput) GetPoolContainerConfigurationContainerRegistryOutput {
@@ -6352,6 +7443,12 @@ func (i GetPoolDataDiskArgs) ToGetPoolDataDiskOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDataDiskOutput)
 }
 
+func (i GetPoolDataDiskArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolDataDisk] {
+	return pulumix.Output[GetPoolDataDisk]{
+		OutputState: i.ToGetPoolDataDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolDataDiskArrayInput is an input type that accepts GetPoolDataDiskArray and GetPoolDataDiskArrayOutput values.
 // You can construct a concrete instance of `GetPoolDataDiskArrayInput` via:
 //
@@ -6377,6 +7474,12 @@ func (i GetPoolDataDiskArray) ToGetPoolDataDiskArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDataDiskArrayOutput)
 }
 
+func (i GetPoolDataDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolDataDisk] {
+	return pulumix.Output[[]GetPoolDataDisk]{
+		OutputState: i.ToGetPoolDataDiskArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolDataDiskOutput struct{ *pulumi.OutputState }
 
 func (GetPoolDataDiskOutput) ElementType() reflect.Type {
@@ -6389,6 +7492,12 @@ func (o GetPoolDataDiskOutput) ToGetPoolDataDiskOutput() GetPoolDataDiskOutput {
 
 func (o GetPoolDataDiskOutput) ToGetPoolDataDiskOutputWithContext(ctx context.Context) GetPoolDataDiskOutput {
 	return o
+}
+
+func (o GetPoolDataDiskOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolDataDisk] {
+	return pulumix.Output[GetPoolDataDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The caching mode of data disks.
@@ -6423,6 +7532,12 @@ func (o GetPoolDataDiskArrayOutput) ToGetPoolDataDiskArrayOutput() GetPoolDataDi
 
 func (o GetPoolDataDiskArrayOutput) ToGetPoolDataDiskArrayOutputWithContext(ctx context.Context) GetPoolDataDiskArrayOutput {
 	return o
+}
+
+func (o GetPoolDataDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolDataDisk] {
+	return pulumix.Output[[]GetPoolDataDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolDataDiskArrayOutput) Index(i pulumi.IntInput) GetPoolDataDiskOutput {
@@ -6464,6 +7579,12 @@ func (i GetPoolDiskEncryptionArgs) ToGetPoolDiskEncryptionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDiskEncryptionOutput)
 }
 
+func (i GetPoolDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolDiskEncryption] {
+	return pulumix.Output[GetPoolDiskEncryption]{
+		OutputState: i.ToGetPoolDiskEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolDiskEncryptionArrayInput is an input type that accepts GetPoolDiskEncryptionArray and GetPoolDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `GetPoolDiskEncryptionArrayInput` via:
 //
@@ -6489,6 +7610,12 @@ func (i GetPoolDiskEncryptionArray) ToGetPoolDiskEncryptionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDiskEncryptionArrayOutput)
 }
 
+func (i GetPoolDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolDiskEncryption] {
+	return pulumix.Output[[]GetPoolDiskEncryption]{
+		OutputState: i.ToGetPoolDiskEncryptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetPoolDiskEncryptionOutput) ElementType() reflect.Type {
@@ -6501,6 +7628,12 @@ func (o GetPoolDiskEncryptionOutput) ToGetPoolDiskEncryptionOutput() GetPoolDisk
 
 func (o GetPoolDiskEncryptionOutput) ToGetPoolDiskEncryptionOutputWithContext(ctx context.Context) GetPoolDiskEncryptionOutput {
 	return o
+}
+
+func (o GetPoolDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolDiskEncryption] {
+	return pulumix.Output[GetPoolDiskEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // On Linux pool, only `TemporaryDisk` is supported; on Windows pool, `OsDisk` and `TemporaryDisk` must be specified.
@@ -6520,6 +7653,12 @@ func (o GetPoolDiskEncryptionArrayOutput) ToGetPoolDiskEncryptionArrayOutput() G
 
 func (o GetPoolDiskEncryptionArrayOutput) ToGetPoolDiskEncryptionArrayOutputWithContext(ctx context.Context) GetPoolDiskEncryptionArrayOutput {
 	return o
+}
+
+func (o GetPoolDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolDiskEncryption] {
+	return pulumix.Output[[]GetPoolDiskEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolDiskEncryptionArrayOutput) Index(i pulumi.IntInput) GetPoolDiskEncryptionOutput {
@@ -6589,6 +7728,12 @@ func (i GetPoolExtensionArgs) ToGetPoolExtensionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolExtensionOutput)
 }
 
+func (i GetPoolExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolExtension] {
+	return pulumix.Output[GetPoolExtension]{
+		OutputState: i.ToGetPoolExtensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolExtensionArrayInput is an input type that accepts GetPoolExtensionArray and GetPoolExtensionArrayOutput values.
 // You can construct a concrete instance of `GetPoolExtensionArrayInput` via:
 //
@@ -6614,6 +7759,12 @@ func (i GetPoolExtensionArray) ToGetPoolExtensionArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolExtensionArrayOutput)
 }
 
+func (i GetPoolExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolExtension] {
+	return pulumix.Output[[]GetPoolExtension]{
+		OutputState: i.ToGetPoolExtensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolExtensionOutput struct{ *pulumi.OutputState }
 
 func (GetPoolExtensionOutput) ElementType() reflect.Type {
@@ -6626,6 +7777,12 @@ func (o GetPoolExtensionOutput) ToGetPoolExtensionOutput() GetPoolExtensionOutpu
 
 func (o GetPoolExtensionOutput) ToGetPoolExtensionOutputWithContext(ctx context.Context) GetPoolExtensionOutput {
 	return o
+}
+
+func (o GetPoolExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolExtension] {
+	return pulumix.Output[GetPoolExtension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -6682,6 +7839,12 @@ func (o GetPoolExtensionArrayOutput) ToGetPoolExtensionArrayOutputWithContext(ct
 	return o
 }
 
+func (o GetPoolExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolExtension] {
+	return pulumix.Output[[]GetPoolExtension]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPoolExtensionArrayOutput) Index(i pulumi.IntInput) GetPoolExtensionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolExtension {
 		return vs[0].([]GetPoolExtension)[vs[1].(int)]
@@ -6729,6 +7892,12 @@ func (i GetPoolFixedScaleArgs) ToGetPoolFixedScaleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolFixedScaleOutput)
 }
 
+func (i GetPoolFixedScaleArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolFixedScale] {
+	return pulumix.Output[GetPoolFixedScale]{
+		OutputState: i.ToGetPoolFixedScaleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolFixedScaleArrayInput is an input type that accepts GetPoolFixedScaleArray and GetPoolFixedScaleArrayOutput values.
 // You can construct a concrete instance of `GetPoolFixedScaleArrayInput` via:
 //
@@ -6754,6 +7923,12 @@ func (i GetPoolFixedScaleArray) ToGetPoolFixedScaleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolFixedScaleArrayOutput)
 }
 
+func (i GetPoolFixedScaleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolFixedScale] {
+	return pulumix.Output[[]GetPoolFixedScale]{
+		OutputState: i.ToGetPoolFixedScaleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolFixedScaleOutput struct{ *pulumi.OutputState }
 
 func (GetPoolFixedScaleOutput) ElementType() reflect.Type {
@@ -6766,6 +7941,12 @@ func (o GetPoolFixedScaleOutput) ToGetPoolFixedScaleOutput() GetPoolFixedScaleOu
 
 func (o GetPoolFixedScaleOutput) ToGetPoolFixedScaleOutputWithContext(ctx context.Context) GetPoolFixedScaleOutput {
 	return o
+}
+
+func (o GetPoolFixedScaleOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolFixedScale] {
+	return pulumix.Output[GetPoolFixedScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The timeout for resize operations.
@@ -6795,6 +7976,12 @@ func (o GetPoolFixedScaleArrayOutput) ToGetPoolFixedScaleArrayOutput() GetPoolFi
 
 func (o GetPoolFixedScaleArrayOutput) ToGetPoolFixedScaleArrayOutputWithContext(ctx context.Context) GetPoolFixedScaleArrayOutput {
 	return o
+}
+
+func (o GetPoolFixedScaleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolFixedScale] {
+	return pulumix.Output[[]GetPoolFixedScale]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolFixedScaleArrayOutput) Index(i pulumi.IntInput) GetPoolFixedScaleOutput {
@@ -6848,6 +8035,12 @@ func (i GetPoolMountArgs) ToGetPoolMountOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountOutput)
 }
 
+func (i GetPoolMountArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolMount] {
+	return pulumix.Output[GetPoolMount]{
+		OutputState: i.ToGetPoolMountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolMountArrayInput is an input type that accepts GetPoolMountArray and GetPoolMountArrayOutput values.
 // You can construct a concrete instance of `GetPoolMountArrayInput` via:
 //
@@ -6873,6 +8066,12 @@ func (i GetPoolMountArray) ToGetPoolMountArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountArrayOutput)
 }
 
+func (i GetPoolMountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMount] {
+	return pulumix.Output[[]GetPoolMount]{
+		OutputState: i.ToGetPoolMountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolMountOutput struct{ *pulumi.OutputState }
 
 func (GetPoolMountOutput) ElementType() reflect.Type {
@@ -6885,6 +8084,12 @@ func (o GetPoolMountOutput) ToGetPoolMountOutput() GetPoolMountOutput {
 
 func (o GetPoolMountOutput) ToGetPoolMountOutputWithContext(ctx context.Context) GetPoolMountOutput {
 	return o
+}
+
+func (o GetPoolMountOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolMount] {
+	return pulumix.Output[GetPoolMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `azureBlobFileSystem` block defined as below.
@@ -6919,6 +8124,12 @@ func (o GetPoolMountArrayOutput) ToGetPoolMountArrayOutput() GetPoolMountArrayOu
 
 func (o GetPoolMountArrayOutput) ToGetPoolMountArrayOutputWithContext(ctx context.Context) GetPoolMountArrayOutput {
 	return o
+}
+
+func (o GetPoolMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMount] {
+	return pulumix.Output[[]GetPoolMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountOutput {
@@ -6984,6 +8195,12 @@ func (i GetPoolMountAzureBlobFileSystemArgs) ToGetPoolMountAzureBlobFileSystemOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureBlobFileSystemOutput)
 }
 
+func (i GetPoolMountAzureBlobFileSystemArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountAzureBlobFileSystem] {
+	return pulumix.Output[GetPoolMountAzureBlobFileSystem]{
+		OutputState: i.ToGetPoolMountAzureBlobFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolMountAzureBlobFileSystemArrayInput is an input type that accepts GetPoolMountAzureBlobFileSystemArray and GetPoolMountAzureBlobFileSystemArrayOutput values.
 // You can construct a concrete instance of `GetPoolMountAzureBlobFileSystemArrayInput` via:
 //
@@ -7009,6 +8226,12 @@ func (i GetPoolMountAzureBlobFileSystemArray) ToGetPoolMountAzureBlobFileSystemA
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureBlobFileSystemArrayOutput)
 }
 
+func (i GetPoolMountAzureBlobFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountAzureBlobFileSystem] {
+	return pulumix.Output[[]GetPoolMountAzureBlobFileSystem]{
+		OutputState: i.ToGetPoolMountAzureBlobFileSystemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolMountAzureBlobFileSystemOutput struct{ *pulumi.OutputState }
 
 func (GetPoolMountAzureBlobFileSystemOutput) ElementType() reflect.Type {
@@ -7021,6 +8244,12 @@ func (o GetPoolMountAzureBlobFileSystemOutput) ToGetPoolMountAzureBlobFileSystem
 
 func (o GetPoolMountAzureBlobFileSystemOutput) ToGetPoolMountAzureBlobFileSystemOutputWithContext(ctx context.Context) GetPoolMountAzureBlobFileSystemOutput {
 	return o
+}
+
+func (o GetPoolMountAzureBlobFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountAzureBlobFileSystem] {
+	return pulumix.Output[GetPoolMountAzureBlobFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Storage Account key.
@@ -7070,6 +8299,12 @@ func (o GetPoolMountAzureBlobFileSystemArrayOutput) ToGetPoolMountAzureBlobFileS
 
 func (o GetPoolMountAzureBlobFileSystemArrayOutput) ToGetPoolMountAzureBlobFileSystemArrayOutputWithContext(ctx context.Context) GetPoolMountAzureBlobFileSystemArrayOutput {
 	return o
+}
+
+func (o GetPoolMountAzureBlobFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountAzureBlobFileSystem] {
+	return pulumix.Output[[]GetPoolMountAzureBlobFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolMountAzureBlobFileSystemArrayOutput) Index(i pulumi.IntInput) GetPoolMountAzureBlobFileSystemOutput {
@@ -7127,6 +8362,12 @@ func (i GetPoolMountAzureFileShareArgs) ToGetPoolMountAzureFileShareOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureFileShareOutput)
 }
 
+func (i GetPoolMountAzureFileShareArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountAzureFileShare] {
+	return pulumix.Output[GetPoolMountAzureFileShare]{
+		OutputState: i.ToGetPoolMountAzureFileShareOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolMountAzureFileShareArrayInput is an input type that accepts GetPoolMountAzureFileShareArray and GetPoolMountAzureFileShareArrayOutput values.
 // You can construct a concrete instance of `GetPoolMountAzureFileShareArrayInput` via:
 //
@@ -7152,6 +8393,12 @@ func (i GetPoolMountAzureFileShareArray) ToGetPoolMountAzureFileShareArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureFileShareArrayOutput)
 }
 
+func (i GetPoolMountAzureFileShareArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountAzureFileShare] {
+	return pulumix.Output[[]GetPoolMountAzureFileShare]{
+		OutputState: i.ToGetPoolMountAzureFileShareArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolMountAzureFileShareOutput struct{ *pulumi.OutputState }
 
 func (GetPoolMountAzureFileShareOutput) ElementType() reflect.Type {
@@ -7164,6 +8411,12 @@ func (o GetPoolMountAzureFileShareOutput) ToGetPoolMountAzureFileShareOutput() G
 
 func (o GetPoolMountAzureFileShareOutput) ToGetPoolMountAzureFileShareOutputWithContext(ctx context.Context) GetPoolMountAzureFileShareOutput {
 	return o
+}
+
+func (o GetPoolMountAzureFileShareOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountAzureFileShare] {
+	return pulumix.Output[GetPoolMountAzureFileShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Storage Account key.
@@ -7203,6 +8456,12 @@ func (o GetPoolMountAzureFileShareArrayOutput) ToGetPoolMountAzureFileShareArray
 
 func (o GetPoolMountAzureFileShareArrayOutput) ToGetPoolMountAzureFileShareArrayOutputWithContext(ctx context.Context) GetPoolMountAzureFileShareArrayOutput {
 	return o
+}
+
+func (o GetPoolMountAzureFileShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountAzureFileShare] {
+	return pulumix.Output[[]GetPoolMountAzureFileShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolMountAzureFileShareArrayOutput) Index(i pulumi.IntInput) GetPoolMountAzureFileShareOutput {
@@ -7260,6 +8519,12 @@ func (i GetPoolMountCifsMountArgs) ToGetPoolMountCifsMountOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountCifsMountOutput)
 }
 
+func (i GetPoolMountCifsMountArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountCifsMount] {
+	return pulumix.Output[GetPoolMountCifsMount]{
+		OutputState: i.ToGetPoolMountCifsMountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolMountCifsMountArrayInput is an input type that accepts GetPoolMountCifsMountArray and GetPoolMountCifsMountArrayOutput values.
 // You can construct a concrete instance of `GetPoolMountCifsMountArrayInput` via:
 //
@@ -7285,6 +8550,12 @@ func (i GetPoolMountCifsMountArray) ToGetPoolMountCifsMountArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountCifsMountArrayOutput)
 }
 
+func (i GetPoolMountCifsMountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountCifsMount] {
+	return pulumix.Output[[]GetPoolMountCifsMount]{
+		OutputState: i.ToGetPoolMountCifsMountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolMountCifsMountOutput struct{ *pulumi.OutputState }
 
 func (GetPoolMountCifsMountOutput) ElementType() reflect.Type {
@@ -7297,6 +8568,12 @@ func (o GetPoolMountCifsMountOutput) ToGetPoolMountCifsMountOutput() GetPoolMoun
 
 func (o GetPoolMountCifsMountOutput) ToGetPoolMountCifsMountOutputWithContext(ctx context.Context) GetPoolMountCifsMountOutput {
 	return o
+}
+
+func (o GetPoolMountCifsMountOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountCifsMount] {
+	return pulumix.Output[GetPoolMountCifsMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
@@ -7336,6 +8613,12 @@ func (o GetPoolMountCifsMountArrayOutput) ToGetPoolMountCifsMountArrayOutput() G
 
 func (o GetPoolMountCifsMountArrayOutput) ToGetPoolMountCifsMountArrayOutputWithContext(ctx context.Context) GetPoolMountCifsMountArrayOutput {
 	return o
+}
+
+func (o GetPoolMountCifsMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountCifsMount] {
+	return pulumix.Output[[]GetPoolMountCifsMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolMountCifsMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountCifsMountOutput {
@@ -7385,6 +8668,12 @@ func (i GetPoolMountNfsMountArgs) ToGetPoolMountNfsMountOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountNfsMountOutput)
 }
 
+func (i GetPoolMountNfsMountArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountNfsMount] {
+	return pulumix.Output[GetPoolMountNfsMount]{
+		OutputState: i.ToGetPoolMountNfsMountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolMountNfsMountArrayInput is an input type that accepts GetPoolMountNfsMountArray and GetPoolMountNfsMountArrayOutput values.
 // You can construct a concrete instance of `GetPoolMountNfsMountArrayInput` via:
 //
@@ -7410,6 +8699,12 @@ func (i GetPoolMountNfsMountArray) ToGetPoolMountNfsMountArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountNfsMountArrayOutput)
 }
 
+func (i GetPoolMountNfsMountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountNfsMount] {
+	return pulumix.Output[[]GetPoolMountNfsMount]{
+		OutputState: i.ToGetPoolMountNfsMountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolMountNfsMountOutput struct{ *pulumi.OutputState }
 
 func (GetPoolMountNfsMountOutput) ElementType() reflect.Type {
@@ -7422,6 +8717,12 @@ func (o GetPoolMountNfsMountOutput) ToGetPoolMountNfsMountOutput() GetPoolMountN
 
 func (o GetPoolMountNfsMountOutput) ToGetPoolMountNfsMountOutputWithContext(ctx context.Context) GetPoolMountNfsMountOutput {
 	return o
+}
+
+func (o GetPoolMountNfsMountOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolMountNfsMount] {
+	return pulumix.Output[GetPoolMountNfsMount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
@@ -7453,6 +8754,12 @@ func (o GetPoolMountNfsMountArrayOutput) ToGetPoolMountNfsMountArrayOutputWithCo
 	return o
 }
 
+func (o GetPoolMountNfsMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolMountNfsMount] {
+	return pulumix.Output[[]GetPoolMountNfsMount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountNfsMountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolMountNfsMount {
 		return vs[0].([]GetPoolMountNfsMount)[vs[1].(int)]
@@ -7460,6 +8767,7 @@ func (o GetPoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountNf
 }
 
 type GetPoolNetworkConfiguration struct {
+	AcceleratedNetworkingEnabled bool `pulumi:"acceleratedNetworkingEnabled"`
 	// The scope of dynamic vnet assignment.
 	DynamicVnetAssignmentScope string `pulumi:"dynamicVnetAssignmentScope"`
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
@@ -7484,6 +8792,7 @@ type GetPoolNetworkConfigurationInput interface {
 }
 
 type GetPoolNetworkConfigurationArgs struct {
+	AcceleratedNetworkingEnabled pulumi.BoolInput `pulumi:"acceleratedNetworkingEnabled"`
 	// The scope of dynamic vnet assignment.
 	DynamicVnetAssignmentScope pulumi.StringInput `pulumi:"dynamicVnetAssignmentScope"`
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
@@ -7506,6 +8815,12 @@ func (i GetPoolNetworkConfigurationArgs) ToGetPoolNetworkConfigurationOutput() G
 
 func (i GetPoolNetworkConfigurationArgs) ToGetPoolNetworkConfigurationOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationOutput)
+}
+
+func (i GetPoolNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolNetworkConfiguration] {
+	return pulumix.Output[GetPoolNetworkConfiguration]{
+		OutputState: i.ToGetPoolNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GetPoolNetworkConfigurationArrayInput is an input type that accepts GetPoolNetworkConfigurationArray and GetPoolNetworkConfigurationArrayOutput values.
@@ -7533,6 +8848,12 @@ func (i GetPoolNetworkConfigurationArray) ToGetPoolNetworkConfigurationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationArrayOutput)
 }
 
+func (i GetPoolNetworkConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNetworkConfiguration] {
+	return pulumix.Output[[]GetPoolNetworkConfiguration]{
+		OutputState: i.ToGetPoolNetworkConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -7545,6 +8866,16 @@ func (o GetPoolNetworkConfigurationOutput) ToGetPoolNetworkConfigurationOutput()
 
 func (o GetPoolNetworkConfigurationOutput) ToGetPoolNetworkConfigurationOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationOutput {
 	return o
+}
+
+func (o GetPoolNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolNetworkConfiguration] {
+	return pulumix.Output[GetPoolNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetPoolNetworkConfigurationOutput) AcceleratedNetworkingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolOutput)
 }
 
 // The scope of dynamic vnet assignment.
@@ -7586,6 +8917,12 @@ func (o GetPoolNetworkConfigurationArrayOutput) ToGetPoolNetworkConfigurationArr
 
 func (o GetPoolNetworkConfigurationArrayOutput) ToGetPoolNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationArrayOutput {
 	return o
+}
+
+func (o GetPoolNetworkConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNetworkConfiguration] {
+	return pulumix.Output[[]GetPoolNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolNetworkConfigurationOutput {
@@ -7643,6 +8980,12 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationArgs) ToGetPoolNetworkCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
+func (i GetPoolNetworkConfigurationEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[GetPoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: i.ToGetPoolNetworkConfigurationEndpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolNetworkConfigurationEndpointConfigurationArrayInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationArray and GetPoolNetworkConfigurationEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPoolNetworkConfigurationEndpointConfigurationArrayInput` via:
 //
@@ -7668,6 +9011,12 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationArray) ToGetPoolNetworkC
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+func (i GetPoolNetworkConfigurationEndpointConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: i.ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolNetworkConfigurationEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -7680,6 +9029,12 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) ToGetPoolNetwork
 
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) ToGetPoolNetworkConfigurationEndpointConfigurationOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationEndpointConfigurationOutput {
 	return o
+}
+
+func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[GetPoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port number on the compute node.
@@ -7721,6 +9076,12 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) ToGetPoolNe
 
 func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) ToGetPoolNetworkConfigurationEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o
+}
+
+func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfiguration] {
+	return pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolNetworkConfigurationEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolNetworkConfigurationEndpointConfigurationOutput {
@@ -7774,6 +9135,12 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput)
 }
 
+func (i GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: i.ToGetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray and GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput values.
 // You can construct a concrete instance of `GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput` via:
 //
@@ -7799,6 +9166,12 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
+func (i GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: i.ToGetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ElementType() reflect.Type {
@@ -7811,6 +9184,12 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 
 func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ToGetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutputWithContext(ctx context.Context) GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput {
 	return o
+}
+
+func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action that should be taken for a specified IP address, subnet range or tag.
@@ -7855,6 +9234,12 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 	return o
 }
 
+func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule] {
+	return pulumix.Output[[]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput) Index(i pulumi.IntInput) GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
 		return vs[0].([]GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule)[vs[1].(int)]
@@ -7894,6 +9279,12 @@ func (i GetPoolNodePlacementArgs) ToGetPoolNodePlacementOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNodePlacementOutput)
 }
 
+func (i GetPoolNodePlacementArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolNodePlacement] {
+	return pulumix.Output[GetPoolNodePlacement]{
+		OutputState: i.ToGetPoolNodePlacementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolNodePlacementArrayInput is an input type that accepts GetPoolNodePlacementArray and GetPoolNodePlacementArrayOutput values.
 // You can construct a concrete instance of `GetPoolNodePlacementArrayInput` via:
 //
@@ -7919,6 +9310,12 @@ func (i GetPoolNodePlacementArray) ToGetPoolNodePlacementArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNodePlacementArrayOutput)
 }
 
+func (i GetPoolNodePlacementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNodePlacement] {
+	return pulumix.Output[[]GetPoolNodePlacement]{
+		OutputState: i.ToGetPoolNodePlacementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolNodePlacementOutput struct{ *pulumi.OutputState }
 
 func (GetPoolNodePlacementOutput) ElementType() reflect.Type {
@@ -7931,6 +9328,12 @@ func (o GetPoolNodePlacementOutput) ToGetPoolNodePlacementOutput() GetPoolNodePl
 
 func (o GetPoolNodePlacementOutput) ToGetPoolNodePlacementOutputWithContext(ctx context.Context) GetPoolNodePlacementOutput {
 	return o
+}
+
+func (o GetPoolNodePlacementOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolNodePlacement] {
+	return pulumix.Output[GetPoolNodePlacement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The placement policy for allocating nodes in the pool.
@@ -7950,6 +9353,12 @@ func (o GetPoolNodePlacementArrayOutput) ToGetPoolNodePlacementArrayOutput() Get
 
 func (o GetPoolNodePlacementArrayOutput) ToGetPoolNodePlacementArrayOutputWithContext(ctx context.Context) GetPoolNodePlacementArrayOutput {
 	return o
+}
+
+func (o GetPoolNodePlacementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolNodePlacement] {
+	return pulumix.Output[[]GetPoolNodePlacement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolNodePlacementArrayOutput) Index(i pulumi.IntInput) GetPoolNodePlacementOutput {
@@ -8015,6 +9424,12 @@ func (i GetPoolStartTaskArgs) ToGetPoolStartTaskOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskOutput)
 }
 
+func (i GetPoolStartTaskArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTask] {
+	return pulumix.Output[GetPoolStartTask]{
+		OutputState: i.ToGetPoolStartTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStartTaskArrayInput is an input type that accepts GetPoolStartTaskArray and GetPoolStartTaskArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskArrayInput` via:
 //
@@ -8040,6 +9455,12 @@ func (i GetPoolStartTaskArray) ToGetPoolStartTaskArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskArrayOutput)
 }
 
+func (i GetPoolStartTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTask] {
+	return pulumix.Output[[]GetPoolStartTask]{
+		OutputState: i.ToGetPoolStartTaskArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStartTaskOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskOutput) ElementType() reflect.Type {
@@ -8052,6 +9473,12 @@ func (o GetPoolStartTaskOutput) ToGetPoolStartTaskOutput() GetPoolStartTaskOutpu
 
 func (o GetPoolStartTaskOutput) ToGetPoolStartTaskOutputWithContext(ctx context.Context) GetPoolStartTaskOutput {
 	return o
+}
+
+func (o GetPoolStartTaskOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTask] {
+	return pulumix.Output[GetPoolStartTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The command line executed by the start task.
@@ -8101,6 +9528,12 @@ func (o GetPoolStartTaskArrayOutput) ToGetPoolStartTaskArrayOutput() GetPoolStar
 
 func (o GetPoolStartTaskArrayOutput) ToGetPoolStartTaskArrayOutputWithContext(ctx context.Context) GetPoolStartTaskArrayOutput {
 	return o
+}
+
+func (o GetPoolStartTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTask] {
+	return pulumix.Output[[]GetPoolStartTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolStartTaskArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskOutput {
@@ -8154,6 +9587,12 @@ func (i GetPoolStartTaskContainerArgs) ToGetPoolStartTaskContainerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerOutput)
 }
 
+func (i GetPoolStartTaskContainerArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskContainer] {
+	return pulumix.Output[GetPoolStartTaskContainer]{
+		OutputState: i.ToGetPoolStartTaskContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStartTaskContainerArrayInput is an input type that accepts GetPoolStartTaskContainerArray and GetPoolStartTaskContainerArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskContainerArrayInput` via:
 //
@@ -8179,6 +9618,12 @@ func (i GetPoolStartTaskContainerArray) ToGetPoolStartTaskContainerArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerArrayOutput)
 }
 
+func (i GetPoolStartTaskContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskContainer] {
+	return pulumix.Output[[]GetPoolStartTaskContainer]{
+		OutputState: i.ToGetPoolStartTaskContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStartTaskContainerOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskContainerOutput) ElementType() reflect.Type {
@@ -8191,6 +9636,12 @@ func (o GetPoolStartTaskContainerOutput) ToGetPoolStartTaskContainerOutput() Get
 
 func (o GetPoolStartTaskContainerOutput) ToGetPoolStartTaskContainerOutputWithContext(ctx context.Context) GetPoolStartTaskContainerOutput {
 	return o
+}
+
+func (o GetPoolStartTaskContainerOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskContainer] {
+	return pulumix.Output[GetPoolStartTaskContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The image to use to create the container in which the task will run.
@@ -8225,6 +9676,12 @@ func (o GetPoolStartTaskContainerArrayOutput) ToGetPoolStartTaskContainerArrayOu
 
 func (o GetPoolStartTaskContainerArrayOutput) ToGetPoolStartTaskContainerArrayOutputWithContext(ctx context.Context) GetPoolStartTaskContainerArrayOutput {
 	return o
+}
+
+func (o GetPoolStartTaskContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskContainer] {
+	return pulumix.Output[[]GetPoolStartTaskContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskContainerOutput {
@@ -8278,6 +9735,12 @@ func (i GetPoolStartTaskContainerRegistryArgs) ToGetPoolStartTaskContainerRegist
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerRegistryOutput)
 }
 
+func (i GetPoolStartTaskContainerRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskContainerRegistry] {
+	return pulumix.Output[GetPoolStartTaskContainerRegistry]{
+		OutputState: i.ToGetPoolStartTaskContainerRegistryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStartTaskContainerRegistryArrayInput is an input type that accepts GetPoolStartTaskContainerRegistryArray and GetPoolStartTaskContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskContainerRegistryArrayInput` via:
 //
@@ -8303,6 +9766,12 @@ func (i GetPoolStartTaskContainerRegistryArray) ToGetPoolStartTaskContainerRegis
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerRegistryArrayOutput)
 }
 
+func (i GetPoolStartTaskContainerRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskContainerRegistry] {
+	return pulumix.Output[[]GetPoolStartTaskContainerRegistry]{
+		OutputState: i.ToGetPoolStartTaskContainerRegistryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStartTaskContainerRegistryOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskContainerRegistryOutput) ElementType() reflect.Type {
@@ -8315,6 +9784,12 @@ func (o GetPoolStartTaskContainerRegistryOutput) ToGetPoolStartTaskContainerRegi
 
 func (o GetPoolStartTaskContainerRegistryOutput) ToGetPoolStartTaskContainerRegistryOutputWithContext(ctx context.Context) GetPoolStartTaskContainerRegistryOutput {
 	return o
+}
+
+func (o GetPoolStartTaskContainerRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskContainerRegistry] {
+	return pulumix.Output[GetPoolStartTaskContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password for the user account.
@@ -8349,6 +9824,12 @@ func (o GetPoolStartTaskContainerRegistryArrayOutput) ToGetPoolStartTaskContaine
 
 func (o GetPoolStartTaskContainerRegistryArrayOutput) ToGetPoolStartTaskContainerRegistryArrayOutputWithContext(ctx context.Context) GetPoolStartTaskContainerRegistryArrayOutput {
 	return o
+}
+
+func (o GetPoolStartTaskContainerRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskContainerRegistry] {
+	return pulumix.Output[[]GetPoolStartTaskContainerRegistry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolStartTaskContainerRegistryArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskContainerRegistryOutput {
@@ -8414,6 +9895,12 @@ func (i GetPoolStartTaskResourceFileArgs) ToGetPoolStartTaskResourceFileOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskResourceFileOutput)
 }
 
+func (i GetPoolStartTaskResourceFileArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskResourceFile] {
+	return pulumix.Output[GetPoolStartTaskResourceFile]{
+		OutputState: i.ToGetPoolStartTaskResourceFileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStartTaskResourceFileArrayInput is an input type that accepts GetPoolStartTaskResourceFileArray and GetPoolStartTaskResourceFileArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskResourceFileArrayInput` via:
 //
@@ -8439,6 +9926,12 @@ func (i GetPoolStartTaskResourceFileArray) ToGetPoolStartTaskResourceFileArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskResourceFileArrayOutput)
 }
 
+func (i GetPoolStartTaskResourceFileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskResourceFile] {
+	return pulumix.Output[[]GetPoolStartTaskResourceFile]{
+		OutputState: i.ToGetPoolStartTaskResourceFileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStartTaskResourceFileOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskResourceFileOutput) ElementType() reflect.Type {
@@ -8451,6 +9944,12 @@ func (o GetPoolStartTaskResourceFileOutput) ToGetPoolStartTaskResourceFileOutput
 
 func (o GetPoolStartTaskResourceFileOutput) ToGetPoolStartTaskResourceFileOutputWithContext(ctx context.Context) GetPoolStartTaskResourceFileOutput {
 	return o
+}
+
+func (o GetPoolStartTaskResourceFileOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskResourceFile] {
+	return pulumix.Output[GetPoolStartTaskResourceFile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The storage container name in the auto storage account.
@@ -8502,6 +10001,12 @@ func (o GetPoolStartTaskResourceFileArrayOutput) ToGetPoolStartTaskResourceFileA
 	return o
 }
 
+func (o GetPoolStartTaskResourceFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskResourceFile] {
+	return pulumix.Output[[]GetPoolStartTaskResourceFile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetPoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskResourceFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTaskResourceFile {
 		return vs[0].([]GetPoolStartTaskResourceFile)[vs[1].(int)]
@@ -8545,6 +10050,12 @@ func (i GetPoolStartTaskUserIdentityArgs) ToGetPoolStartTaskUserIdentityOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskUserIdentityOutput)
 }
 
+func (i GetPoolStartTaskUserIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskUserIdentity] {
+	return pulumix.Output[GetPoolStartTaskUserIdentity]{
+		OutputState: i.ToGetPoolStartTaskUserIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStartTaskUserIdentityArrayInput is an input type that accepts GetPoolStartTaskUserIdentityArray and GetPoolStartTaskUserIdentityArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskUserIdentityArrayInput` via:
 //
@@ -8570,6 +10081,12 @@ func (i GetPoolStartTaskUserIdentityArray) ToGetPoolStartTaskUserIdentityArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskUserIdentityArrayOutput)
 }
 
+func (i GetPoolStartTaskUserIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskUserIdentity] {
+	return pulumix.Output[[]GetPoolStartTaskUserIdentity]{
+		OutputState: i.ToGetPoolStartTaskUserIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStartTaskUserIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskUserIdentityOutput) ElementType() reflect.Type {
@@ -8582,6 +10099,12 @@ func (o GetPoolStartTaskUserIdentityOutput) ToGetPoolStartTaskUserIdentityOutput
 
 func (o GetPoolStartTaskUserIdentityOutput) ToGetPoolStartTaskUserIdentityOutputWithContext(ctx context.Context) GetPoolStartTaskUserIdentityOutput {
 	return o
+}
+
+func (o GetPoolStartTaskUserIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskUserIdentity] {
+	return pulumix.Output[GetPoolStartTaskUserIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `autoUser` block that describes the user identity under which the start task runs.
@@ -8606,6 +10129,12 @@ func (o GetPoolStartTaskUserIdentityArrayOutput) ToGetPoolStartTaskUserIdentityA
 
 func (o GetPoolStartTaskUserIdentityArrayOutput) ToGetPoolStartTaskUserIdentityArrayOutputWithContext(ctx context.Context) GetPoolStartTaskUserIdentityArrayOutput {
 	return o
+}
+
+func (o GetPoolStartTaskUserIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskUserIdentity] {
+	return pulumix.Output[[]GetPoolStartTaskUserIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolStartTaskUserIdentityArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskUserIdentityOutput {
@@ -8651,6 +10180,12 @@ func (i GetPoolStartTaskUserIdentityAutoUserArgs) ToGetPoolStartTaskUserIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskUserIdentityAutoUserOutput)
 }
 
+func (i GetPoolStartTaskUserIdentityAutoUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[GetPoolStartTaskUserIdentityAutoUser]{
+		OutputState: i.ToGetPoolStartTaskUserIdentityAutoUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStartTaskUserIdentityAutoUserArrayInput is an input type that accepts GetPoolStartTaskUserIdentityAutoUserArray and GetPoolStartTaskUserIdentityAutoUserArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskUserIdentityAutoUserArrayInput` via:
 //
@@ -8676,6 +10211,12 @@ func (i GetPoolStartTaskUserIdentityAutoUserArray) ToGetPoolStartTaskUserIdentit
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskUserIdentityAutoUserArrayOutput)
 }
 
+func (i GetPoolStartTaskUserIdentityAutoUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[[]GetPoolStartTaskUserIdentityAutoUser]{
+		OutputState: i.ToGetPoolStartTaskUserIdentityAutoUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStartTaskUserIdentityAutoUserOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStartTaskUserIdentityAutoUserOutput) ElementType() reflect.Type {
@@ -8688,6 +10229,12 @@ func (o GetPoolStartTaskUserIdentityAutoUserOutput) ToGetPoolStartTaskUserIdenti
 
 func (o GetPoolStartTaskUserIdentityAutoUserOutput) ToGetPoolStartTaskUserIdentityAutoUserOutputWithContext(ctx context.Context) GetPoolStartTaskUserIdentityAutoUserOutput {
 	return o
+}
+
+func (o GetPoolStartTaskUserIdentityAutoUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[GetPoolStartTaskUserIdentityAutoUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -8712,6 +10259,12 @@ func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) ToGetPoolStartTaskUserI
 
 func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) ToGetPoolStartTaskUserIdentityAutoUserArrayOutputWithContext(ctx context.Context) GetPoolStartTaskUserIdentityAutoUserArrayOutput {
 	return o
+}
+
+func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStartTaskUserIdentityAutoUser] {
+	return pulumix.Output[[]GetPoolStartTaskUserIdentityAutoUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskUserIdentityAutoUserOutput {
@@ -8763,6 +10316,12 @@ func (i GetPoolStorageImageReferenceArgs) ToGetPoolStorageImageReferenceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStorageImageReferenceOutput)
 }
 
+func (i GetPoolStorageImageReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolStorageImageReference] {
+	return pulumix.Output[GetPoolStorageImageReference]{
+		OutputState: i.ToGetPoolStorageImageReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolStorageImageReferenceArrayInput is an input type that accepts GetPoolStorageImageReferenceArray and GetPoolStorageImageReferenceArrayOutput values.
 // You can construct a concrete instance of `GetPoolStorageImageReferenceArrayInput` via:
 //
@@ -8788,6 +10347,12 @@ func (i GetPoolStorageImageReferenceArray) ToGetPoolStorageImageReferenceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStorageImageReferenceArrayOutput)
 }
 
+func (i GetPoolStorageImageReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStorageImageReference] {
+	return pulumix.Output[[]GetPoolStorageImageReference]{
+		OutputState: i.ToGetPoolStorageImageReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetPoolStorageImageReferenceOutput) ElementType() reflect.Type {
@@ -8800,6 +10365,12 @@ func (o GetPoolStorageImageReferenceOutput) ToGetPoolStorageImageReferenceOutput
 
 func (o GetPoolStorageImageReferenceOutput) ToGetPoolStorageImageReferenceOutputWithContext(ctx context.Context) GetPoolStorageImageReferenceOutput {
 	return o
+}
+
+func (o GetPoolStorageImageReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolStorageImageReference] {
+	return pulumix.Output[GetPoolStorageImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The fully qualified ID of the certificate installed on the pool.
@@ -8836,6 +10407,12 @@ func (o GetPoolStorageImageReferenceArrayOutput) ToGetPoolStorageImageReferenceA
 
 func (o GetPoolStorageImageReferenceArrayOutput) ToGetPoolStorageImageReferenceArrayOutputWithContext(ctx context.Context) GetPoolStorageImageReferenceArrayOutput {
 	return o
+}
+
+func (o GetPoolStorageImageReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolStorageImageReference] {
+	return pulumix.Output[[]GetPoolStorageImageReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolStorageImageReferenceArrayOutput) Index(i pulumi.IntInput) GetPoolStorageImageReferenceOutput {
@@ -8877,6 +10454,12 @@ func (i GetPoolTaskSchedulingPolicyArgs) ToGetPoolTaskSchedulingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolTaskSchedulingPolicyOutput)
 }
 
+func (i GetPoolTaskSchedulingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolTaskSchedulingPolicy] {
+	return pulumix.Output[GetPoolTaskSchedulingPolicy]{
+		OutputState: i.ToGetPoolTaskSchedulingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolTaskSchedulingPolicyArrayInput is an input type that accepts GetPoolTaskSchedulingPolicyArray and GetPoolTaskSchedulingPolicyArrayOutput values.
 // You can construct a concrete instance of `GetPoolTaskSchedulingPolicyArrayInput` via:
 //
@@ -8902,6 +10485,12 @@ func (i GetPoolTaskSchedulingPolicyArray) ToGetPoolTaskSchedulingPolicyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolTaskSchedulingPolicyArrayOutput)
 }
 
+func (i GetPoolTaskSchedulingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolTaskSchedulingPolicy] {
+	return pulumix.Output[[]GetPoolTaskSchedulingPolicy]{
+		OutputState: i.ToGetPoolTaskSchedulingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolTaskSchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetPoolTaskSchedulingPolicyOutput) ElementType() reflect.Type {
@@ -8914,6 +10503,12 @@ func (o GetPoolTaskSchedulingPolicyOutput) ToGetPoolTaskSchedulingPolicyOutput()
 
 func (o GetPoolTaskSchedulingPolicyOutput) ToGetPoolTaskSchedulingPolicyOutputWithContext(ctx context.Context) GetPoolTaskSchedulingPolicyOutput {
 	return o
+}
+
+func (o GetPoolTaskSchedulingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolTaskSchedulingPolicy] {
+	return pulumix.Output[GetPoolTaskSchedulingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Supported values are `Pack` and `Spread`. `Pack` means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. `Spread` means that tasks should be assigned evenly across all nodes in the pool.
@@ -8933,6 +10528,12 @@ func (o GetPoolTaskSchedulingPolicyArrayOutput) ToGetPoolTaskSchedulingPolicyArr
 
 func (o GetPoolTaskSchedulingPolicyArrayOutput) ToGetPoolTaskSchedulingPolicyArrayOutputWithContext(ctx context.Context) GetPoolTaskSchedulingPolicyArrayOutput {
 	return o
+}
+
+func (o GetPoolTaskSchedulingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolTaskSchedulingPolicy] {
+	return pulumix.Output[[]GetPoolTaskSchedulingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolTaskSchedulingPolicyArrayOutput) Index(i pulumi.IntInput) GetPoolTaskSchedulingPolicyOutput {
@@ -8990,6 +10591,12 @@ func (i GetPoolUserAccountArgs) ToGetPoolUserAccountOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountOutput)
 }
 
+func (i GetPoolUserAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolUserAccount] {
+	return pulumix.Output[GetPoolUserAccount]{
+		OutputState: i.ToGetPoolUserAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolUserAccountArrayInput is an input type that accepts GetPoolUserAccountArray and GetPoolUserAccountArrayOutput values.
 // You can construct a concrete instance of `GetPoolUserAccountArrayInput` via:
 //
@@ -9015,6 +10622,12 @@ func (i GetPoolUserAccountArray) ToGetPoolUserAccountArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountArrayOutput)
 }
 
+func (i GetPoolUserAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolUserAccount] {
+	return pulumix.Output[[]GetPoolUserAccount]{
+		OutputState: i.ToGetPoolUserAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolUserAccountOutput struct{ *pulumi.OutputState }
 
 func (GetPoolUserAccountOutput) ElementType() reflect.Type {
@@ -9027,6 +10640,12 @@ func (o GetPoolUserAccountOutput) ToGetPoolUserAccountOutput() GetPoolUserAccoun
 
 func (o GetPoolUserAccountOutput) ToGetPoolUserAccountOutputWithContext(ctx context.Context) GetPoolUserAccountOutput {
 	return o
+}
+
+func (o GetPoolUserAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolUserAccount] {
+	return pulumix.Output[GetPoolUserAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -9070,6 +10689,12 @@ func (o GetPoolUserAccountArrayOutput) ToGetPoolUserAccountArrayOutput() GetPool
 
 func (o GetPoolUserAccountArrayOutput) ToGetPoolUserAccountArrayOutputWithContext(ctx context.Context) GetPoolUserAccountArrayOutput {
 	return o
+}
+
+func (o GetPoolUserAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolUserAccount] {
+	return pulumix.Output[[]GetPoolUserAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolUserAccountArrayOutput) Index(i pulumi.IntInput) GetPoolUserAccountOutput {
@@ -9119,6 +10744,12 @@ func (i GetPoolUserAccountLinuxUserConfigurationArgs) ToGetPoolUserAccountLinuxU
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountLinuxUserConfigurationOutput)
 }
 
+func (i GetPoolUserAccountLinuxUserConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[GetPoolUserAccountLinuxUserConfiguration]{
+		OutputState: i.ToGetPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolUserAccountLinuxUserConfigurationArrayInput is an input type that accepts GetPoolUserAccountLinuxUserConfigurationArray and GetPoolUserAccountLinuxUserConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPoolUserAccountLinuxUserConfigurationArrayInput` via:
 //
@@ -9144,6 +10775,12 @@ func (i GetPoolUserAccountLinuxUserConfigurationArray) ToGetPoolUserAccountLinux
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountLinuxUserConfigurationArrayOutput)
 }
 
+func (i GetPoolUserAccountLinuxUserConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[[]GetPoolUserAccountLinuxUserConfiguration]{
+		OutputState: i.ToGetPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolUserAccountLinuxUserConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolUserAccountLinuxUserConfigurationOutput) ElementType() reflect.Type {
@@ -9156,6 +10793,12 @@ func (o GetPoolUserAccountLinuxUserConfigurationOutput) ToGetPoolUserAccountLinu
 
 func (o GetPoolUserAccountLinuxUserConfigurationOutput) ToGetPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx context.Context) GetPoolUserAccountLinuxUserConfigurationOutput {
 	return o
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[GetPoolUserAccountLinuxUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The user ID of the user account.
@@ -9185,6 +10828,12 @@ func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) ToGetPoolUserAccoun
 
 func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) ToGetPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx context.Context) GetPoolUserAccountLinuxUserConfigurationArrayOutput {
 	return o
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolUserAccountLinuxUserConfiguration] {
+	return pulumix.Output[[]GetPoolUserAccountLinuxUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolUserAccountLinuxUserConfigurationOutput {
@@ -9226,6 +10875,12 @@ func (i GetPoolUserAccountWindowsUserConfigurationArgs) ToGetPoolUserAccountWind
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountWindowsUserConfigurationOutput)
 }
 
+func (i GetPoolUserAccountWindowsUserConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[GetPoolUserAccountWindowsUserConfiguration]{
+		OutputState: i.ToGetPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolUserAccountWindowsUserConfigurationArrayInput is an input type that accepts GetPoolUserAccountWindowsUserConfigurationArray and GetPoolUserAccountWindowsUserConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPoolUserAccountWindowsUserConfigurationArrayInput` via:
 //
@@ -9251,6 +10906,12 @@ func (i GetPoolUserAccountWindowsUserConfigurationArray) ToGetPoolUserAccountWin
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountWindowsUserConfigurationArrayOutput)
 }
 
+func (i GetPoolUserAccountWindowsUserConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[[]GetPoolUserAccountWindowsUserConfiguration]{
+		OutputState: i.ToGetPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolUserAccountWindowsUserConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPoolUserAccountWindowsUserConfigurationOutput) ElementType() reflect.Type {
@@ -9263,6 +10924,12 @@ func (o GetPoolUserAccountWindowsUserConfigurationOutput) ToGetPoolUserAccountWi
 
 func (o GetPoolUserAccountWindowsUserConfigurationOutput) ToGetPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx context.Context) GetPoolUserAccountWindowsUserConfigurationOutput {
 	return o
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[GetPoolUserAccountWindowsUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies login mode for the user.
@@ -9282,6 +10949,12 @@ func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) ToGetPoolUserAcco
 
 func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) ToGetPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx context.Context) GetPoolUserAccountWindowsUserConfigurationArrayOutput {
 	return o
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolUserAccountWindowsUserConfiguration] {
+	return pulumix.Output[[]GetPoolUserAccountWindowsUserConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolUserAccountWindowsUserConfigurationOutput {
@@ -9323,6 +10996,12 @@ func (i GetPoolWindowArgs) ToGetPoolWindowOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolWindowOutput)
 }
 
+func (i GetPoolWindowArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolWindow] {
+	return pulumix.Output[GetPoolWindow]{
+		OutputState: i.ToGetPoolWindowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolWindowArrayInput is an input type that accepts GetPoolWindowArray and GetPoolWindowArrayOutput values.
 // You can construct a concrete instance of `GetPoolWindowArrayInput` via:
 //
@@ -9348,6 +11027,12 @@ func (i GetPoolWindowArray) ToGetPoolWindowArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolWindowArrayOutput)
 }
 
+func (i GetPoolWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolWindow] {
+	return pulumix.Output[[]GetPoolWindow]{
+		OutputState: i.ToGetPoolWindowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolWindowOutput struct{ *pulumi.OutputState }
 
 func (GetPoolWindowOutput) ElementType() reflect.Type {
@@ -9360,6 +11045,12 @@ func (o GetPoolWindowOutput) ToGetPoolWindowOutput() GetPoolWindowOutput {
 
 func (o GetPoolWindowOutput) ToGetPoolWindowOutputWithContext(ctx context.Context) GetPoolWindowOutput {
 	return o
+}
+
+func (o GetPoolWindowOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolWindow] {
+	return pulumix.Output[GetPoolWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether automatic updates are enabled on the virtual machine.
@@ -9379,6 +11070,12 @@ func (o GetPoolWindowArrayOutput) ToGetPoolWindowArrayOutput() GetPoolWindowArra
 
 func (o GetPoolWindowArrayOutput) ToGetPoolWindowArrayOutputWithContext(ctx context.Context) GetPoolWindowArrayOutput {
 	return o
+}
+
+func (o GetPoolWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolWindow] {
+	return pulumix.Output[[]GetPoolWindow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolWindowArrayOutput) Index(i pulumi.IntInput) GetPoolWindowOutput {

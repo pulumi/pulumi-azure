@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the File Upload of an IoT Hub.
@@ -288,6 +289,12 @@ func (i *FileUpload) ToFileUploadOutputWithContext(ctx context.Context) FileUplo
 	return pulumi.ToOutputWithContext(ctx, i).(FileUploadOutput)
 }
 
+func (i *FileUpload) ToOutput(ctx context.Context) pulumix.Output[*FileUpload] {
+	return pulumix.Output[*FileUpload]{
+		OutputState: i.ToFileUploadOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileUploadArrayInput is an input type that accepts FileUploadArray and FileUploadArrayOutput values.
 // You can construct a concrete instance of `FileUploadArrayInput` via:
 //
@@ -311,6 +318,12 @@ func (i FileUploadArray) ToFileUploadArrayOutput() FileUploadArrayOutput {
 
 func (i FileUploadArray) ToFileUploadArrayOutputWithContext(ctx context.Context) FileUploadArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileUploadArrayOutput)
+}
+
+func (i FileUploadArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileUpload] {
+	return pulumix.Output[[]*FileUpload]{
+		OutputState: i.ToFileUploadArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FileUploadMapInput is an input type that accepts FileUploadMap and FileUploadMapOutput values.
@@ -338,6 +351,12 @@ func (i FileUploadMap) ToFileUploadMapOutputWithContext(ctx context.Context) Fil
 	return pulumi.ToOutputWithContext(ctx, i).(FileUploadMapOutput)
 }
 
+func (i FileUploadMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileUpload] {
+	return pulumix.Output[map[string]*FileUpload]{
+		OutputState: i.ToFileUploadMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileUploadOutput struct{ *pulumi.OutputState }
 
 func (FileUploadOutput) ElementType() reflect.Type {
@@ -350,6 +369,12 @@ func (o FileUploadOutput) ToFileUploadOutput() FileUploadOutput {
 
 func (o FileUploadOutput) ToFileUploadOutputWithContext(ctx context.Context) FileUploadOutput {
 	return o
+}
+
+func (o FileUploadOutput) ToOutput(ctx context.Context) pulumix.Output[*FileUpload] {
+	return pulumix.Output[*FileUpload]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -418,6 +443,12 @@ func (o FileUploadArrayOutput) ToFileUploadArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o FileUploadArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileUpload] {
+	return pulumix.Output[[]*FileUpload]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileUploadArrayOutput) Index(i pulumi.IntInput) FileUploadOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileUpload {
 		return vs[0].([]*FileUpload)[vs[1].(int)]
@@ -436,6 +467,12 @@ func (o FileUploadMapOutput) ToFileUploadMapOutput() FileUploadMapOutput {
 
 func (o FileUploadMapOutput) ToFileUploadMapOutputWithContext(ctx context.Context) FileUploadMapOutput {
 	return o
+}
+
+func (o FileUploadMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileUpload] {
+	return pulumix.Output[map[string]*FileUpload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileUploadMapOutput) MapIndex(k pulumi.StringInput) FileUploadOutput {

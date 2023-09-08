@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Hostname Binding within an App Service (or Function App).
@@ -246,6 +247,12 @@ func (i *CustomHostnameBinding) ToCustomHostnameBindingOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingOutput)
 }
 
+func (i *CustomHostnameBinding) ToOutput(ctx context.Context) pulumix.Output[*CustomHostnameBinding] {
+	return pulumix.Output[*CustomHostnameBinding]{
+		OutputState: i.ToCustomHostnameBindingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomHostnameBindingArrayInput is an input type that accepts CustomHostnameBindingArray and CustomHostnameBindingArrayOutput values.
 // You can construct a concrete instance of `CustomHostnameBindingArrayInput` via:
 //
@@ -269,6 +276,12 @@ func (i CustomHostnameBindingArray) ToCustomHostnameBindingArrayOutput() CustomH
 
 func (i CustomHostnameBindingArray) ToCustomHostnameBindingArrayOutputWithContext(ctx context.Context) CustomHostnameBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingArrayOutput)
+}
+
+func (i CustomHostnameBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomHostnameBinding] {
+	return pulumix.Output[[]*CustomHostnameBinding]{
+		OutputState: i.ToCustomHostnameBindingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomHostnameBindingMapInput is an input type that accepts CustomHostnameBindingMap and CustomHostnameBindingMapOutput values.
@@ -296,6 +309,12 @@ func (i CustomHostnameBindingMap) ToCustomHostnameBindingMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingMapOutput)
 }
 
+func (i CustomHostnameBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomHostnameBinding] {
+	return pulumix.Output[map[string]*CustomHostnameBinding]{
+		OutputState: i.ToCustomHostnameBindingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomHostnameBindingOutput struct{ *pulumi.OutputState }
 
 func (CustomHostnameBindingOutput) ElementType() reflect.Type {
@@ -308,6 +327,12 @@ func (o CustomHostnameBindingOutput) ToCustomHostnameBindingOutput() CustomHostn
 
 func (o CustomHostnameBindingOutput) ToCustomHostnameBindingOutputWithContext(ctx context.Context) CustomHostnameBindingOutput {
 	return o
+}
+
+func (o CustomHostnameBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomHostnameBinding] {
+	return pulumix.Output[*CustomHostnameBinding]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
@@ -358,6 +383,12 @@ func (o CustomHostnameBindingArrayOutput) ToCustomHostnameBindingArrayOutputWith
 	return o
 }
 
+func (o CustomHostnameBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomHostnameBinding] {
+	return pulumix.Output[[]*CustomHostnameBinding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomHostnameBindingArrayOutput) Index(i pulumi.IntInput) CustomHostnameBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomHostnameBinding {
 		return vs[0].([]*CustomHostnameBinding)[vs[1].(int)]
@@ -376,6 +407,12 @@ func (o CustomHostnameBindingMapOutput) ToCustomHostnameBindingMapOutput() Custo
 
 func (o CustomHostnameBindingMapOutput) ToCustomHostnameBindingMapOutputWithContext(ctx context.Context) CustomHostnameBindingMapOutput {
 	return o
+}
+
+func (o CustomHostnameBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomHostnameBinding] {
+	return pulumix.Output[map[string]*CustomHostnameBinding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomHostnameBindingMapOutput) MapIndex(k pulumi.StringInput) CustomHostnameBindingOutput {

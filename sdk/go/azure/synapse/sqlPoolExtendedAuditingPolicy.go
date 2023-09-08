@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse SQL Pool Extended Auditing Policy.
@@ -251,6 +252,12 @@ func (i *SqlPoolExtendedAuditingPolicy) ToSqlPoolExtendedAuditingPolicyOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolExtendedAuditingPolicyOutput)
 }
 
+func (i *SqlPoolExtendedAuditingPolicy) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolExtendedAuditingPolicy] {
+	return pulumix.Output[*SqlPoolExtendedAuditingPolicy]{
+		OutputState: i.ToSqlPoolExtendedAuditingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlPoolExtendedAuditingPolicyArrayInput is an input type that accepts SqlPoolExtendedAuditingPolicyArray and SqlPoolExtendedAuditingPolicyArrayOutput values.
 // You can construct a concrete instance of `SqlPoolExtendedAuditingPolicyArrayInput` via:
 //
@@ -274,6 +281,12 @@ func (i SqlPoolExtendedAuditingPolicyArray) ToSqlPoolExtendedAuditingPolicyArray
 
 func (i SqlPoolExtendedAuditingPolicyArray) ToSqlPoolExtendedAuditingPolicyArrayOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolExtendedAuditingPolicyArrayOutput)
+}
+
+func (i SqlPoolExtendedAuditingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolExtendedAuditingPolicy] {
+	return pulumix.Output[[]*SqlPoolExtendedAuditingPolicy]{
+		OutputState: i.ToSqlPoolExtendedAuditingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlPoolExtendedAuditingPolicyMapInput is an input type that accepts SqlPoolExtendedAuditingPolicyMap and SqlPoolExtendedAuditingPolicyMapOutput values.
@@ -301,6 +314,12 @@ func (i SqlPoolExtendedAuditingPolicyMap) ToSqlPoolExtendedAuditingPolicyMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolExtendedAuditingPolicyMapOutput)
 }
 
+func (i SqlPoolExtendedAuditingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolExtendedAuditingPolicy] {
+	return pulumix.Output[map[string]*SqlPoolExtendedAuditingPolicy]{
+		OutputState: i.ToSqlPoolExtendedAuditingPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlPoolExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolExtendedAuditingPolicyOutput) ElementType() reflect.Type {
@@ -313,6 +332,12 @@ func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyOutp
 
 func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyOutput {
 	return o
+}
+
+func (o SqlPoolExtendedAuditingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolExtendedAuditingPolicy] {
+	return pulumix.Output[*SqlPoolExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
@@ -361,6 +386,12 @@ func (o SqlPoolExtendedAuditingPolicyArrayOutput) ToSqlPoolExtendedAuditingPolic
 	return o
 }
 
+func (o SqlPoolExtendedAuditingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolExtendedAuditingPolicy] {
+	return pulumix.Output[[]*SqlPoolExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlPoolExtendedAuditingPolicyArrayOutput) Index(i pulumi.IntInput) SqlPoolExtendedAuditingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolExtendedAuditingPolicy {
 		return vs[0].([]*SqlPoolExtendedAuditingPolicy)[vs[1].(int)]
@@ -379,6 +410,12 @@ func (o SqlPoolExtendedAuditingPolicyMapOutput) ToSqlPoolExtendedAuditingPolicyM
 
 func (o SqlPoolExtendedAuditingPolicyMapOutput) ToSqlPoolExtendedAuditingPolicyMapOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyMapOutput {
 	return o
+}
+
+func (o SqlPoolExtendedAuditingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolExtendedAuditingPolicy] {
+	return pulumix.Output[map[string]*SqlPoolExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlPoolExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) SqlPoolExtendedAuditingPolicyOutput {

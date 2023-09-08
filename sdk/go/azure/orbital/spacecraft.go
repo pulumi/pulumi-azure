@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spacecraft.
@@ -244,6 +245,12 @@ func (i *Spacecraft) ToSpacecraftOutputWithContext(ctx context.Context) Spacecra
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftOutput)
 }
 
+func (i *Spacecraft) ToOutput(ctx context.Context) pulumix.Output[*Spacecraft] {
+	return pulumix.Output[*Spacecraft]{
+		OutputState: i.ToSpacecraftOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpacecraftArrayInput is an input type that accepts SpacecraftArray and SpacecraftArrayOutput values.
 // You can construct a concrete instance of `SpacecraftArrayInput` via:
 //
@@ -267,6 +274,12 @@ func (i SpacecraftArray) ToSpacecraftArrayOutput() SpacecraftArrayOutput {
 
 func (i SpacecraftArray) ToSpacecraftArrayOutputWithContext(ctx context.Context) SpacecraftArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftArrayOutput)
+}
+
+func (i SpacecraftArray) ToOutput(ctx context.Context) pulumix.Output[[]*Spacecraft] {
+	return pulumix.Output[[]*Spacecraft]{
+		OutputState: i.ToSpacecraftArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpacecraftMapInput is an input type that accepts SpacecraftMap and SpacecraftMapOutput values.
@@ -294,6 +307,12 @@ func (i SpacecraftMap) ToSpacecraftMapOutputWithContext(ctx context.Context) Spa
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftMapOutput)
 }
 
+func (i SpacecraftMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Spacecraft] {
+	return pulumix.Output[map[string]*Spacecraft]{
+		OutputState: i.ToSpacecraftMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpacecraftOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftOutput) ElementType() reflect.Type {
@@ -306,6 +325,12 @@ func (o SpacecraftOutput) ToSpacecraftOutput() SpacecraftOutput {
 
 func (o SpacecraftOutput) ToSpacecraftOutputWithContext(ctx context.Context) SpacecraftOutput {
 	return o
+}
+
+func (o SpacecraftOutput) ToOutput(ctx context.Context) pulumix.Output[*Spacecraft] {
+	return pulumix.Output[*Spacecraft]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `links` block as defined below. Changing this forces a new resource to be created.
@@ -362,6 +387,12 @@ func (o SpacecraftArrayOutput) ToSpacecraftArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o SpacecraftArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Spacecraft] {
+	return pulumix.Output[[]*Spacecraft]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpacecraftArrayOutput) Index(i pulumi.IntInput) SpacecraftOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Spacecraft {
 		return vs[0].([]*Spacecraft)[vs[1].(int)]
@@ -380,6 +411,12 @@ func (o SpacecraftMapOutput) ToSpacecraftMapOutput() SpacecraftMapOutput {
 
 func (o SpacecraftMapOutput) ToSpacecraftMapOutputWithContext(ctx context.Context) SpacecraftMapOutput {
 	return o
+}
+
+func (o SpacecraftMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Spacecraft] {
+	return pulumix.Output[map[string]*Spacecraft]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpacecraftMapOutput) MapIndex(k pulumi.StringInput) SpacecraftOutput {

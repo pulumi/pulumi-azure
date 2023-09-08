@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
@@ -226,6 +227,12 @@ func (i *SqlStoredProcedure) ToSqlStoredProcedureOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureOutput)
 }
 
+func (i *SqlStoredProcedure) ToOutput(ctx context.Context) pulumix.Output[*SqlStoredProcedure] {
+	return pulumix.Output[*SqlStoredProcedure]{
+		OutputState: i.ToSqlStoredProcedureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlStoredProcedureArrayInput is an input type that accepts SqlStoredProcedureArray and SqlStoredProcedureArrayOutput values.
 // You can construct a concrete instance of `SqlStoredProcedureArrayInput` via:
 //
@@ -249,6 +256,12 @@ func (i SqlStoredProcedureArray) ToSqlStoredProcedureArrayOutput() SqlStoredProc
 
 func (i SqlStoredProcedureArray) ToSqlStoredProcedureArrayOutputWithContext(ctx context.Context) SqlStoredProcedureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureArrayOutput)
+}
+
+func (i SqlStoredProcedureArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlStoredProcedure] {
+	return pulumix.Output[[]*SqlStoredProcedure]{
+		OutputState: i.ToSqlStoredProcedureArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlStoredProcedureMapInput is an input type that accepts SqlStoredProcedureMap and SqlStoredProcedureMapOutput values.
@@ -276,6 +289,12 @@ func (i SqlStoredProcedureMap) ToSqlStoredProcedureMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureMapOutput)
 }
 
+func (i SqlStoredProcedureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlStoredProcedure] {
+	return pulumix.Output[map[string]*SqlStoredProcedure]{
+		OutputState: i.ToSqlStoredProcedureMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlStoredProcedureOutput struct{ *pulumi.OutputState }
 
 func (SqlStoredProcedureOutput) ElementType() reflect.Type {
@@ -288,6 +307,12 @@ func (o SqlStoredProcedureOutput) ToSqlStoredProcedureOutput() SqlStoredProcedur
 
 func (o SqlStoredProcedureOutput) ToSqlStoredProcedureOutputWithContext(ctx context.Context) SqlStoredProcedureOutput {
 	return o
+}
+
+func (o SqlStoredProcedureOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlStoredProcedure] {
+	return pulumix.Output[*SqlStoredProcedure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
@@ -334,6 +359,12 @@ func (o SqlStoredProcedureArrayOutput) ToSqlStoredProcedureArrayOutputWithContex
 	return o
 }
 
+func (o SqlStoredProcedureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlStoredProcedure] {
+	return pulumix.Output[[]*SqlStoredProcedure]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlStoredProcedureArrayOutput) Index(i pulumi.IntInput) SqlStoredProcedureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlStoredProcedure {
 		return vs[0].([]*SqlStoredProcedure)[vs[1].(int)]
@@ -352,6 +383,12 @@ func (o SqlStoredProcedureMapOutput) ToSqlStoredProcedureMapOutput() SqlStoredPr
 
 func (o SqlStoredProcedureMapOutput) ToSqlStoredProcedureMapOutputWithContext(ctx context.Context) SqlStoredProcedureMapOutput {
 	return o
+}
+
+func (o SqlStoredProcedureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlStoredProcedure] {
+	return pulumix.Output[map[string]*SqlStoredProcedure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlStoredProcedureMapOutput) MapIndex(k pulumi.StringInput) SqlStoredProcedureOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Sim.
@@ -322,6 +323,12 @@ func (i *NetworkSim) ToNetworkSimOutputWithContext(ctx context.Context) NetworkS
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimOutput)
 }
 
+func (i *NetworkSim) ToOutput(ctx context.Context) pulumix.Output[*NetworkSim] {
+	return pulumix.Output[*NetworkSim]{
+		OutputState: i.ToNetworkSimOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkSimArrayInput is an input type that accepts NetworkSimArray and NetworkSimArrayOutput values.
 // You can construct a concrete instance of `NetworkSimArrayInput` via:
 //
@@ -345,6 +352,12 @@ func (i NetworkSimArray) ToNetworkSimArrayOutput() NetworkSimArrayOutput {
 
 func (i NetworkSimArray) ToNetworkSimArrayOutputWithContext(ctx context.Context) NetworkSimArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimArrayOutput)
+}
+
+func (i NetworkSimArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSim] {
+	return pulumix.Output[[]*NetworkSim]{
+		OutputState: i.ToNetworkSimArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkSimMapInput is an input type that accepts NetworkSimMap and NetworkSimMapOutput values.
@@ -372,6 +385,12 @@ func (i NetworkSimMap) ToNetworkSimMapOutputWithContext(ctx context.Context) Net
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimMapOutput)
 }
 
+func (i NetworkSimMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSim] {
+	return pulumix.Output[map[string]*NetworkSim]{
+		OutputState: i.ToNetworkSimMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkSimOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimOutput) ElementType() reflect.Type {
@@ -384,6 +403,12 @@ func (o NetworkSimOutput) ToNetworkSimOutput() NetworkSimOutput {
 
 func (o NetworkSimOutput) ToNetworkSimOutputWithContext(ctx context.Context) NetworkSimOutput {
 	return o
+}
+
+func (o NetworkSimOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSim] {
+	return pulumix.Output[*NetworkSim]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Ki value for the SIM.
@@ -460,6 +485,12 @@ func (o NetworkSimArrayOutput) ToNetworkSimArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o NetworkSimArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSim] {
+	return pulumix.Output[[]*NetworkSim]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkSimArrayOutput) Index(i pulumi.IntInput) NetworkSimOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSim {
 		return vs[0].([]*NetworkSim)[vs[1].(int)]
@@ -478,6 +509,12 @@ func (o NetworkSimMapOutput) ToNetworkSimMapOutput() NetworkSimMapOutput {
 
 func (o NetworkSimMapOutput) ToNetworkSimMapOutputWithContext(ctx context.Context) NetworkSimMapOutput {
 	return o
+}
+
+func (o NetworkSimMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSim] {
+	return pulumix.Output[map[string]*NetworkSim]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkSimMapOutput) MapIndex(k pulumi.StringInput) NetworkSimOutput {

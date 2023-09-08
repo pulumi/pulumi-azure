@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
@@ -199,6 +200,12 @@ func (i *VmwareReplicationPolicyAssociation) ToVmwareReplicationPolicyAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicationPolicyAssociationOutput)
 }
 
+func (i *VmwareReplicationPolicyAssociation) ToOutput(ctx context.Context) pulumix.Output[*VmwareReplicationPolicyAssociation] {
+	return pulumix.Output[*VmwareReplicationPolicyAssociation]{
+		OutputState: i.ToVmwareReplicationPolicyAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VmwareReplicationPolicyAssociationArrayInput is an input type that accepts VmwareReplicationPolicyAssociationArray and VmwareReplicationPolicyAssociationArrayOutput values.
 // You can construct a concrete instance of `VmwareReplicationPolicyAssociationArrayInput` via:
 //
@@ -222,6 +229,12 @@ func (i VmwareReplicationPolicyAssociationArray) ToVmwareReplicationPolicyAssoci
 
 func (i VmwareReplicationPolicyAssociationArray) ToVmwareReplicationPolicyAssociationArrayOutputWithContext(ctx context.Context) VmwareReplicationPolicyAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicationPolicyAssociationArrayOutput)
+}
+
+func (i VmwareReplicationPolicyAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VmwareReplicationPolicyAssociation] {
+	return pulumix.Output[[]*VmwareReplicationPolicyAssociation]{
+		OutputState: i.ToVmwareReplicationPolicyAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VmwareReplicationPolicyAssociationMapInput is an input type that accepts VmwareReplicationPolicyAssociationMap and VmwareReplicationPolicyAssociationMapOutput values.
@@ -249,6 +262,12 @@ func (i VmwareReplicationPolicyAssociationMap) ToVmwareReplicationPolicyAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicationPolicyAssociationMapOutput)
 }
 
+func (i VmwareReplicationPolicyAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VmwareReplicationPolicyAssociation] {
+	return pulumix.Output[map[string]*VmwareReplicationPolicyAssociation]{
+		OutputState: i.ToVmwareReplicationPolicyAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VmwareReplicationPolicyAssociationOutput struct{ *pulumi.OutputState }
 
 func (VmwareReplicationPolicyAssociationOutput) ElementType() reflect.Type {
@@ -261,6 +280,12 @@ func (o VmwareReplicationPolicyAssociationOutput) ToVmwareReplicationPolicyAssoc
 
 func (o VmwareReplicationPolicyAssociationOutput) ToVmwareReplicationPolicyAssociationOutputWithContext(ctx context.Context) VmwareReplicationPolicyAssociationOutput {
 	return o
+}
+
+func (o VmwareReplicationPolicyAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VmwareReplicationPolicyAssociation] {
+	return pulumix.Output[*VmwareReplicationPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the replication policy association. Changing this forces a new association to be
@@ -295,6 +320,12 @@ func (o VmwareReplicationPolicyAssociationArrayOutput) ToVmwareReplicationPolicy
 	return o
 }
 
+func (o VmwareReplicationPolicyAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VmwareReplicationPolicyAssociation] {
+	return pulumix.Output[[]*VmwareReplicationPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VmwareReplicationPolicyAssociationArrayOutput) Index(i pulumi.IntInput) VmwareReplicationPolicyAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VmwareReplicationPolicyAssociation {
 		return vs[0].([]*VmwareReplicationPolicyAssociation)[vs[1].(int)]
@@ -313,6 +344,12 @@ func (o VmwareReplicationPolicyAssociationMapOutput) ToVmwareReplicationPolicyAs
 
 func (o VmwareReplicationPolicyAssociationMapOutput) ToVmwareReplicationPolicyAssociationMapOutputWithContext(ctx context.Context) VmwareReplicationPolicyAssociationMapOutput {
 	return o
+}
+
+func (o VmwareReplicationPolicyAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VmwareReplicationPolicyAssociation] {
+	return pulumix.Output[map[string]*VmwareReplicationPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VmwareReplicationPolicyAssociationMapOutput) MapIndex(k pulumi.StringInput) VmwareReplicationPolicyAssociationOutput {

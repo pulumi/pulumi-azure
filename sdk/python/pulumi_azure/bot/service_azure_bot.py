@@ -22,6 +22,7 @@ class ServiceAzureBotArgs:
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
@@ -64,6 +66,8 @@ class ServiceAzureBotArgs:
             pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if luis_app_ids is not None:
@@ -178,6 +182,18 @@ class ServiceAzureBotArgs:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is local authentication enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @property
     @pulumi.getter
@@ -296,6 +312,7 @@ class _ServiceAzureBotState:
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
@@ -315,6 +332,7 @@ class _ServiceAzureBotState:
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
@@ -338,6 +356,8 @@ class _ServiceAzureBotState:
             pulumi.set(__self__, "display_name", display_name)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if luis_app_ids is not None:
@@ -422,6 +442,18 @@ class _ServiceAzureBotState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is local authentication enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @property
     @pulumi.getter
@@ -578,6 +610,7 @@ class ServiceAzureBot(pulumi.CustomResource):
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
@@ -643,6 +676,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
@@ -727,6 +761,7 @@ class ServiceAzureBot(pulumi.CustomResource):
                  developer_app_insights_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
@@ -753,6 +788,7 @@ class ServiceAzureBot(pulumi.CustomResource):
             __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["luis_app_ids"] = luis_app_ids
             __props__.__dict__["luis_key"] = None if luis_key is None else pulumi.Output.secret(luis_key)
@@ -788,6 +824,7 @@ class ServiceAzureBot(pulumi.CustomResource):
             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             luis_key: Optional[pulumi.Input[str]] = None,
@@ -812,6 +849,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with this Azure Bot Service.
@@ -834,6 +872,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["luis_app_ids"] = luis_app_ids
         __props__.__dict__["luis_key"] = luis_key
@@ -887,6 +926,14 @@ class ServiceAzureBot(pulumi.CustomResource):
         The Azure Bot Service endpoint.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is local authentication enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
 
     @property
     @pulumi.getter

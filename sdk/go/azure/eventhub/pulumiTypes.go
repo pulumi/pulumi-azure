@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -66,6 +67,12 @@ func (i DomainIdentityArgs) ToDomainIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityOutput)
 }
 
+func (i DomainIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[DomainIdentity] {
+	return pulumix.Output[DomainIdentity]{
+		OutputState: i.ToDomainIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainIdentityArgs) ToDomainIdentityPtrOutput() DomainIdentityPtrOutput {
 	return i.ToDomainIdentityPtrOutputWithContext(context.Background())
 }
@@ -107,6 +114,12 @@ func (i *domainIdentityPtrType) ToDomainIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityPtrOutput)
 }
 
+func (i *domainIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentity] {
+	return pulumix.Output[*DomainIdentity]{
+		OutputState: i.ToDomainIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainIdentityOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityOutput) ElementType() reflect.Type {
@@ -129,6 +142,12 @@ func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentity) *DomainIdentity {
 		return &v
 	}).(DomainIdentityPtrOutput)
+}
+
+func (o DomainIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[DomainIdentity] {
+	return pulumix.Output[DomainIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
@@ -167,6 +186,12 @@ func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOu
 
 func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
 	return o
+}
+
+func (o DomainIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentity] {
+	return pulumix.Output[*DomainIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
@@ -260,6 +285,12 @@ func (i DomainInboundIpRuleArgs) ToDomainInboundIpRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleOutput)
 }
 
+func (i DomainInboundIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DomainInboundIpRule] {
+	return pulumix.Output[DomainInboundIpRule]{
+		OutputState: i.ToDomainInboundIpRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainInboundIpRuleArrayInput is an input type that accepts DomainInboundIpRuleArray and DomainInboundIpRuleArrayOutput values.
 // You can construct a concrete instance of `DomainInboundIpRuleArrayInput` via:
 //
@@ -285,6 +316,12 @@ func (i DomainInboundIpRuleArray) ToDomainInboundIpRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleArrayOutput)
 }
 
+func (i DomainInboundIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainInboundIpRule] {
+	return pulumix.Output[[]DomainInboundIpRule]{
+		OutputState: i.ToDomainInboundIpRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainInboundIpRuleOutput struct{ *pulumi.OutputState }
 
 func (DomainInboundIpRuleOutput) ElementType() reflect.Type {
@@ -297,6 +334,12 @@ func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutput() DomainInboundIp
 
 func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutputWithContext(ctx context.Context) DomainInboundIpRuleOutput {
 	return o
+}
+
+func (o DomainInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DomainInboundIpRule] {
+	return pulumix.Output[DomainInboundIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`.
@@ -321,6 +364,12 @@ func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutput() Domai
 
 func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) DomainInboundIpRuleArrayOutput {
 	return o
+}
+
+func (o DomainInboundIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainInboundIpRule] {
+	return pulumix.Output[[]DomainInboundIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainInboundIpRuleArrayOutput) Index(i pulumi.IntInput) DomainInboundIpRuleOutput {
@@ -370,6 +419,12 @@ func (i DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingDefaultValuesOutput)
 }
 
+func (i DomainInputMappingDefaultValuesArgs) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingDefaultValues] {
+	return pulumix.Output[DomainInputMappingDefaultValues]{
+		OutputState: i.ToDomainInputMappingDefaultValuesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesPtrOutput() DomainInputMappingDefaultValuesPtrOutput {
 	return i.ToDomainInputMappingDefaultValuesPtrOutputWithContext(context.Background())
 }
@@ -411,6 +466,12 @@ func (i *domainInputMappingDefaultValuesPtrType) ToDomainInputMappingDefaultValu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingDefaultValuesPtrOutput)
 }
 
+func (i *domainInputMappingDefaultValuesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingDefaultValues] {
+	return pulumix.Output[*DomainInputMappingDefaultValues]{
+		OutputState: i.ToDomainInputMappingDefaultValuesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainInputMappingDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingDefaultValuesOutput) ElementType() reflect.Type {
@@ -433,6 +494,12 @@ func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValues
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInputMappingDefaultValues) *DomainInputMappingDefaultValues {
 		return &v
 	}).(DomainInputMappingDefaultValuesPtrOutput)
+}
+
+func (o DomainInputMappingDefaultValuesOutput) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingDefaultValues] {
+	return pulumix.Output[DomainInputMappingDefaultValues]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -462,6 +529,12 @@ func (o DomainInputMappingDefaultValuesPtrOutput) ToDomainInputMappingDefaultVal
 
 func (o DomainInputMappingDefaultValuesPtrOutput) ToDomainInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) DomainInputMappingDefaultValuesPtrOutput {
 	return o
+}
+
+func (o DomainInputMappingDefaultValuesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingDefaultValues] {
+	return pulumix.Output[*DomainInputMappingDefaultValues]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainInputMappingDefaultValuesPtrOutput) Elem() DomainInputMappingDefaultValuesOutput {
@@ -557,6 +630,12 @@ func (i DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingFieldsOutput)
 }
 
+func (i DomainInputMappingFieldsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingFields] {
+	return pulumix.Output[DomainInputMappingFields]{
+		OutputState: i.ToDomainInputMappingFieldsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsPtrOutput() DomainInputMappingFieldsPtrOutput {
 	return i.ToDomainInputMappingFieldsPtrOutputWithContext(context.Background())
 }
@@ -598,6 +677,12 @@ func (i *domainInputMappingFieldsPtrType) ToDomainInputMappingFieldsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingFieldsPtrOutput)
 }
 
+func (i *domainInputMappingFieldsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingFields] {
+	return pulumix.Output[*DomainInputMappingFields]{
+		OutputState: i.ToDomainInputMappingFieldsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainInputMappingFieldsOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingFieldsOutput) ElementType() reflect.Type {
@@ -620,6 +705,12 @@ func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInputMappingFields) *DomainInputMappingFields {
 		return &v
 	}).(DomainInputMappingFieldsPtrOutput)
+}
+
+func (o DomainInputMappingFieldsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingFields] {
+	return pulumix.Output[DomainInputMappingFields]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -664,6 +755,12 @@ func (o DomainInputMappingFieldsPtrOutput) ToDomainInputMappingFieldsPtrOutput()
 
 func (o DomainInputMappingFieldsPtrOutput) ToDomainInputMappingFieldsPtrOutputWithContext(ctx context.Context) DomainInputMappingFieldsPtrOutput {
 	return o
+}
+
+func (o DomainInputMappingFieldsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingFields] {
+	return pulumix.Output[*DomainInputMappingFields]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput {
@@ -789,6 +886,12 @@ func (i EventGridTopicIdentityArgs) ToEventGridTopicIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicIdentityOutput)
 }
 
+func (i EventGridTopicIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicIdentity] {
+	return pulumix.Output[EventGridTopicIdentity]{
+		OutputState: i.ToEventGridTopicIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventGridTopicIdentityArgs) ToEventGridTopicIdentityPtrOutput() EventGridTopicIdentityPtrOutput {
 	return i.ToEventGridTopicIdentityPtrOutputWithContext(context.Background())
 }
@@ -830,6 +933,12 @@ func (i *eventGridTopicIdentityPtrType) ToEventGridTopicIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicIdentityPtrOutput)
 }
 
+func (i *eventGridTopicIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopicIdentity] {
+	return pulumix.Output[*EventGridTopicIdentity]{
+		OutputState: i.ToEventGridTopicIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventGridTopicIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventGridTopicIdentityOutput) ElementType() reflect.Type {
@@ -852,6 +961,12 @@ func (o EventGridTopicIdentityOutput) ToEventGridTopicIdentityPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGridTopicIdentity) *EventGridTopicIdentity {
 		return &v
 	}).(EventGridTopicIdentityPtrOutput)
+}
+
+func (o EventGridTopicIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicIdentity] {
+	return pulumix.Output[EventGridTopicIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
@@ -890,6 +1005,12 @@ func (o EventGridTopicIdentityPtrOutput) ToEventGridTopicIdentityPtrOutput() Eve
 
 func (o EventGridTopicIdentityPtrOutput) ToEventGridTopicIdentityPtrOutputWithContext(ctx context.Context) EventGridTopicIdentityPtrOutput {
 	return o
+}
+
+func (o EventGridTopicIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopicIdentity] {
+	return pulumix.Output[*EventGridTopicIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventGridTopicIdentityPtrOutput) Elem() EventGridTopicIdentityOutput {
@@ -983,6 +1104,12 @@ func (i EventGridTopicInboundIpRuleArgs) ToEventGridTopicInboundIpRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInboundIpRuleOutput)
 }
 
+func (i EventGridTopicInboundIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicInboundIpRule] {
+	return pulumix.Output[EventGridTopicInboundIpRule]{
+		OutputState: i.ToEventGridTopicInboundIpRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventGridTopicInboundIpRuleArrayInput is an input type that accepts EventGridTopicInboundIpRuleArray and EventGridTopicInboundIpRuleArrayOutput values.
 // You can construct a concrete instance of `EventGridTopicInboundIpRuleArrayInput` via:
 //
@@ -1008,6 +1135,12 @@ func (i EventGridTopicInboundIpRuleArray) ToEventGridTopicInboundIpRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInboundIpRuleArrayOutput)
 }
 
+func (i EventGridTopicInboundIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventGridTopicInboundIpRule] {
+	return pulumix.Output[[]EventGridTopicInboundIpRule]{
+		OutputState: i.ToEventGridTopicInboundIpRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventGridTopicInboundIpRuleOutput struct{ *pulumi.OutputState }
 
 func (EventGridTopicInboundIpRuleOutput) ElementType() reflect.Type {
@@ -1020,6 +1153,12 @@ func (o EventGridTopicInboundIpRuleOutput) ToEventGridTopicInboundIpRuleOutput()
 
 func (o EventGridTopicInboundIpRuleOutput) ToEventGridTopicInboundIpRuleOutputWithContext(ctx context.Context) EventGridTopicInboundIpRuleOutput {
 	return o
+}
+
+func (o EventGridTopicInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicInboundIpRule] {
+	return pulumix.Output[EventGridTopicInboundIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`.
@@ -1044,6 +1183,12 @@ func (o EventGridTopicInboundIpRuleArrayOutput) ToEventGridTopicInboundIpRuleArr
 
 func (o EventGridTopicInboundIpRuleArrayOutput) ToEventGridTopicInboundIpRuleArrayOutputWithContext(ctx context.Context) EventGridTopicInboundIpRuleArrayOutput {
 	return o
+}
+
+func (o EventGridTopicInboundIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventGridTopicInboundIpRule] {
+	return pulumix.Output[[]EventGridTopicInboundIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventGridTopicInboundIpRuleArrayOutput) Index(i pulumi.IntInput) EventGridTopicInboundIpRuleOutput {
@@ -1093,6 +1238,12 @@ func (i EventGridTopicInputMappingDefaultValuesArgs) ToEventGridTopicInputMappin
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingDefaultValuesOutput)
 }
 
+func (i EventGridTopicInputMappingDefaultValuesArgs) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicInputMappingDefaultValues] {
+	return pulumix.Output[EventGridTopicInputMappingDefaultValues]{
+		OutputState: i.ToEventGridTopicInputMappingDefaultValuesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventGridTopicInputMappingDefaultValuesArgs) ToEventGridTopicInputMappingDefaultValuesPtrOutput() EventGridTopicInputMappingDefaultValuesPtrOutput {
 	return i.ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(context.Background())
 }
@@ -1134,6 +1285,12 @@ func (i *eventGridTopicInputMappingDefaultValuesPtrType) ToEventGridTopicInputMa
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingDefaultValuesPtrOutput)
 }
 
+func (i *eventGridTopicInputMappingDefaultValuesPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopicInputMappingDefaultValues] {
+	return pulumix.Output[*EventGridTopicInputMappingDefaultValues]{
+		OutputState: i.ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventGridTopicInputMappingDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (EventGridTopicInputMappingDefaultValuesOutput) ElementType() reflect.Type {
@@ -1156,6 +1313,12 @@ func (o EventGridTopicInputMappingDefaultValuesOutput) ToEventGridTopicInputMapp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGridTopicInputMappingDefaultValues) *EventGridTopicInputMappingDefaultValues {
 		return &v
 	}).(EventGridTopicInputMappingDefaultValuesPtrOutput)
+}
+
+func (o EventGridTopicInputMappingDefaultValuesOutput) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicInputMappingDefaultValues] {
+	return pulumix.Output[EventGridTopicInputMappingDefaultValues]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -1185,6 +1348,12 @@ func (o EventGridTopicInputMappingDefaultValuesPtrOutput) ToEventGridTopicInputM
 
 func (o EventGridTopicInputMappingDefaultValuesPtrOutput) ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesPtrOutput {
 	return o
+}
+
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopicInputMappingDefaultValues] {
+	return pulumix.Output[*EventGridTopicInputMappingDefaultValues]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventGridTopicInputMappingDefaultValuesPtrOutput) Elem() EventGridTopicInputMappingDefaultValuesOutput {
@@ -1280,6 +1449,12 @@ func (i EventGridTopicInputMappingFieldsArgs) ToEventGridTopicInputMappingFields
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingFieldsOutput)
 }
 
+func (i EventGridTopicInputMappingFieldsArgs) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicInputMappingFields] {
+	return pulumix.Output[EventGridTopicInputMappingFields]{
+		OutputState: i.ToEventGridTopicInputMappingFieldsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventGridTopicInputMappingFieldsArgs) ToEventGridTopicInputMappingFieldsPtrOutput() EventGridTopicInputMappingFieldsPtrOutput {
 	return i.ToEventGridTopicInputMappingFieldsPtrOutputWithContext(context.Background())
 }
@@ -1321,6 +1496,12 @@ func (i *eventGridTopicInputMappingFieldsPtrType) ToEventGridTopicInputMappingFi
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingFieldsPtrOutput)
 }
 
+func (i *eventGridTopicInputMappingFieldsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopicInputMappingFields] {
+	return pulumix.Output[*EventGridTopicInputMappingFields]{
+		OutputState: i.ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventGridTopicInputMappingFieldsOutput struct{ *pulumi.OutputState }
 
 func (EventGridTopicInputMappingFieldsOutput) ElementType() reflect.Type {
@@ -1343,6 +1524,12 @@ func (o EventGridTopicInputMappingFieldsOutput) ToEventGridTopicInputMappingFiel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGridTopicInputMappingFields) *EventGridTopicInputMappingFields {
 		return &v
 	}).(EventGridTopicInputMappingFieldsPtrOutput)
+}
+
+func (o EventGridTopicInputMappingFieldsOutput) ToOutput(ctx context.Context) pulumix.Output[EventGridTopicInputMappingFields] {
+	return pulumix.Output[EventGridTopicInputMappingFields]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -1387,6 +1574,12 @@ func (o EventGridTopicInputMappingFieldsPtrOutput) ToEventGridTopicInputMappingF
 
 func (o EventGridTopicInputMappingFieldsPtrOutput) ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsPtrOutput {
 	return o
+}
+
+func (o EventGridTopicInputMappingFieldsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventGridTopicInputMappingFields] {
+	return pulumix.Output[*EventGridTopicInputMappingFields]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventGridTopicInputMappingFieldsPtrOutput) Elem() EventGridTopicInputMappingFieldsOutput {
@@ -1512,6 +1705,12 @@ func (i EventHubCaptureDescriptionArgs) ToEventHubCaptureDescriptionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionOutput)
 }
 
+func (i EventHubCaptureDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[EventHubCaptureDescription] {
+	return pulumix.Output[EventHubCaptureDescription]{
+		OutputState: i.ToEventHubCaptureDescriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventHubCaptureDescriptionArgs) ToEventHubCaptureDescriptionPtrOutput() EventHubCaptureDescriptionPtrOutput {
 	return i.ToEventHubCaptureDescriptionPtrOutputWithContext(context.Background())
 }
@@ -1553,6 +1752,12 @@ func (i *eventHubCaptureDescriptionPtrType) ToEventHubCaptureDescriptionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionPtrOutput)
 }
 
+func (i *eventHubCaptureDescriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventHubCaptureDescription] {
+	return pulumix.Output[*EventHubCaptureDescription]{
+		OutputState: i.ToEventHubCaptureDescriptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubCaptureDescriptionOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionOutput) ElementType() reflect.Type {
@@ -1575,6 +1780,12 @@ func (o EventHubCaptureDescriptionOutput) ToEventHubCaptureDescriptionPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubCaptureDescription) *EventHubCaptureDescription {
 		return &v
 	}).(EventHubCaptureDescriptionPtrOutput)
+}
+
+func (o EventHubCaptureDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[EventHubCaptureDescription] {
+	return pulumix.Output[EventHubCaptureDescription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `destination` block as defined below.
@@ -1619,6 +1830,12 @@ func (o EventHubCaptureDescriptionPtrOutput) ToEventHubCaptureDescriptionPtrOutp
 
 func (o EventHubCaptureDescriptionPtrOutput) ToEventHubCaptureDescriptionPtrOutputWithContext(ctx context.Context) EventHubCaptureDescriptionPtrOutput {
 	return o
+}
+
+func (o EventHubCaptureDescriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubCaptureDescription] {
+	return pulumix.Output[*EventHubCaptureDescription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubCaptureDescriptionPtrOutput) Elem() EventHubCaptureDescriptionOutput {
@@ -1740,6 +1957,12 @@ func (i EventHubCaptureDescriptionDestinationArgs) ToEventHubCaptureDescriptionD
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionDestinationOutput)
 }
 
+func (i EventHubCaptureDescriptionDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[EventHubCaptureDescriptionDestination] {
+	return pulumix.Output[EventHubCaptureDescriptionDestination]{
+		OutputState: i.ToEventHubCaptureDescriptionDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventHubCaptureDescriptionDestinationArgs) ToEventHubCaptureDescriptionDestinationPtrOutput() EventHubCaptureDescriptionDestinationPtrOutput {
 	return i.ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(context.Background())
 }
@@ -1781,6 +2004,12 @@ func (i *eventHubCaptureDescriptionDestinationPtrType) ToEventHubCaptureDescript
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionDestinationPtrOutput)
 }
 
+func (i *eventHubCaptureDescriptionDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventHubCaptureDescriptionDestination] {
+	return pulumix.Output[*EventHubCaptureDescriptionDestination]{
+		OutputState: i.ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubCaptureDescriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionDestinationOutput) ElementType() reflect.Type {
@@ -1803,6 +2032,12 @@ func (o EventHubCaptureDescriptionDestinationOutput) ToEventHubCaptureDescriptio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubCaptureDescriptionDestination) *EventHubCaptureDescriptionDestination {
 		return &v
 	}).(EventHubCaptureDescriptionDestinationPtrOutput)
+}
+
+func (o EventHubCaptureDescriptionDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[EventHubCaptureDescriptionDestination] {
+	return pulumix.Output[EventHubCaptureDescriptionDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -1839,6 +2074,12 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) ToEventHubCaptureDescrip
 
 func (o EventHubCaptureDescriptionDestinationPtrOutput) ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx context.Context) EventHubCaptureDescriptionDestinationPtrOutput {
 	return o
+}
+
+func (o EventHubCaptureDescriptionDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubCaptureDescriptionDestination] {
+	return pulumix.Output[*EventHubCaptureDescriptionDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubCaptureDescriptionDestinationPtrOutput) Elem() EventHubCaptureDescriptionDestinationOutput {
@@ -1946,6 +2187,12 @@ func (i EventHubNamespaceIdentityArgs) ToEventHubNamespaceIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceIdentityOutput)
 }
 
+func (i EventHubNamespaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceIdentity] {
+	return pulumix.Output[EventHubNamespaceIdentity]{
+		OutputState: i.ToEventHubNamespaceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventHubNamespaceIdentityArgs) ToEventHubNamespaceIdentityPtrOutput() EventHubNamespaceIdentityPtrOutput {
 	return i.ToEventHubNamespaceIdentityPtrOutputWithContext(context.Background())
 }
@@ -1987,6 +2234,12 @@ func (i *eventHubNamespaceIdentityPtrType) ToEventHubNamespaceIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceIdentityPtrOutput)
 }
 
+func (i *eventHubNamespaceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespaceIdentity] {
+	return pulumix.Output[*EventHubNamespaceIdentity]{
+		OutputState: i.ToEventHubNamespaceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubNamespaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceIdentityOutput) ElementType() reflect.Type {
@@ -2009,6 +2262,12 @@ func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubNamespaceIdentity) *EventHubNamespaceIdentity {
 		return &v
 	}).(EventHubNamespaceIdentityPtrOutput)
+}
+
+func (o EventHubNamespaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceIdentity] {
+	return pulumix.Output[EventHubNamespaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
@@ -2047,6 +2306,12 @@ func (o EventHubNamespaceIdentityPtrOutput) ToEventHubNamespaceIdentityPtrOutput
 
 func (o EventHubNamespaceIdentityPtrOutput) ToEventHubNamespaceIdentityPtrOutputWithContext(ctx context.Context) EventHubNamespaceIdentityPtrOutput {
 	return o
+}
+
+func (o EventHubNamespaceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespaceIdentity] {
+	return pulumix.Output[*EventHubNamespaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubNamespaceIdentityPtrOutput) Elem() EventHubNamespaceIdentityOutput {
@@ -2156,6 +2421,12 @@ func (i EventHubNamespaceNetworkRulesetsArgs) ToEventHubNamespaceNetworkRulesets
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsOutput)
 }
 
+func (i EventHubNamespaceNetworkRulesetsArgs) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceNetworkRulesets] {
+	return pulumix.Output[EventHubNamespaceNetworkRulesets]{
+		OutputState: i.ToEventHubNamespaceNetworkRulesetsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventHubNamespaceNetworkRulesetsArgs) ToEventHubNamespaceNetworkRulesetsPtrOutput() EventHubNamespaceNetworkRulesetsPtrOutput {
 	return i.ToEventHubNamespaceNetworkRulesetsPtrOutputWithContext(context.Background())
 }
@@ -2197,6 +2468,12 @@ func (i *eventHubNamespaceNetworkRulesetsPtrType) ToEventHubNamespaceNetworkRule
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsPtrOutput)
 }
 
+func (i *eventHubNamespaceNetworkRulesetsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespaceNetworkRulesets] {
+	return pulumix.Output[*EventHubNamespaceNetworkRulesets]{
+		OutputState: i.ToEventHubNamespaceNetworkRulesetsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubNamespaceNetworkRulesetsOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsOutput) ElementType() reflect.Type {
@@ -2219,6 +2496,12 @@ func (o EventHubNamespaceNetworkRulesetsOutput) ToEventHubNamespaceNetworkRulese
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubNamespaceNetworkRulesets) *EventHubNamespaceNetworkRulesets {
 		return &v
 	}).(EventHubNamespaceNetworkRulesetsPtrOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsOutput) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceNetworkRulesets] {
+	return pulumix.Output[EventHubNamespaceNetworkRulesets]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
@@ -2262,6 +2545,12 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) ToEventHubNamespaceNetworkRul
 
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) ToEventHubNamespaceNetworkRulesetsPtrOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsPtrOutput {
 	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespaceNetworkRulesets] {
+	return pulumix.Output[*EventHubNamespaceNetworkRulesets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) Elem() EventHubNamespaceNetworkRulesetsOutput {
@@ -2363,6 +2652,12 @@ func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRu
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
 }
 
+func (i EventHubNamespaceNetworkRulesetsIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceNetworkRulesetsIpRule] {
+	return pulumix.Output[EventHubNamespaceNetworkRulesetsIpRule]{
+		OutputState: i.ToEventHubNamespaceNetworkRulesetsIpRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventHubNamespaceNetworkRulesetsIpRuleArrayInput is an input type that accepts EventHubNamespaceNetworkRulesetsIpRuleArray and EventHubNamespaceNetworkRulesetsIpRuleArrayOutput values.
 // You can construct a concrete instance of `EventHubNamespaceNetworkRulesetsIpRuleArrayInput` via:
 //
@@ -2388,6 +2683,12 @@ func (i EventHubNamespaceNetworkRulesetsIpRuleArray) ToEventHubNamespaceNetworkR
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
+func (i EventHubNamespaceNetworkRulesetsIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventHubNamespaceNetworkRulesetsIpRule] {
+	return pulumix.Output[[]EventHubNamespaceNetworkRulesetsIpRule]{
+		OutputState: i.ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubNamespaceNetworkRulesetsIpRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsIpRuleOutput) ElementType() reflect.Type {
@@ -2400,6 +2701,12 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetwork
 
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRuleOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleOutput {
 	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceNetworkRulesetsIpRule] {
+	return pulumix.Output[EventHubNamespaceNetworkRulesetsIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`.
@@ -2424,6 +2731,12 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToEventHubNamespaceNe
 
 func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToEventHubNamespaceNetworkRulesetsIpRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
 	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventHubNamespaceNetworkRulesetsIpRule] {
+	return pulumix.Output[[]EventHubNamespaceNetworkRulesetsIpRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceNetworkRulesetsIpRuleOutput {
@@ -2469,6 +2782,12 @@ func (i EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs) ToEventHubNamesp
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput)
 }
 
+func (i EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceNetworkRulesetsVirtualNetworkRule] {
+	return pulumix.Output[EventHubNamespaceNetworkRulesetsVirtualNetworkRule]{
+		OutputState: i.ToEventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayInput is an input type that accepts EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArray and EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayInput` via:
 //
@@ -2494,6 +2813,12 @@ func (i EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArray) ToEventHubNames
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
 }
 
+func (i EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventHubNamespaceNetworkRulesetsVirtualNetworkRule] {
+	return pulumix.Output[[]EventHubNamespaceNetworkRulesetsVirtualNetworkRule]{
+		OutputState: i.ToEventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -2506,6 +2831,12 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ToEventHubName
 
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput {
 	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventHubNamespaceNetworkRulesetsVirtualNetworkRule] {
+	return pulumix.Output[EventHubNamespaceNetworkRulesetsVirtualNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Are missing virtual network service endpoints ignored?
@@ -2532,6 +2863,12 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) ToEventHu
 
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
 	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventHubNamespaceNetworkRulesetsVirtualNetworkRule] {
+	return pulumix.Output[[]EventHubNamespaceNetworkRulesetsVirtualNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput {
@@ -2649,6 +2986,12 @@ func (i EventSubscriptionAdvancedFilterArgs) ToEventSubscriptionAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilter] {
+	return pulumix.Output[EventSubscriptionAdvancedFilter]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionAdvancedFilterArgs) ToEventSubscriptionAdvancedFilterPtrOutput() EventSubscriptionAdvancedFilterPtrOutput {
 	return i.ToEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Background())
 }
@@ -2690,6 +3033,12 @@ func (i *eventSubscriptionAdvancedFilterPtrType) ToEventSubscriptionAdvancedFilt
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterPtrOutput)
 }
 
+func (i *eventSubscriptionAdvancedFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAdvancedFilter] {
+	return pulumix.Output[*EventSubscriptionAdvancedFilter]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterOutput) ElementType() reflect.Type {
@@ -2712,6 +3061,12 @@ func (o EventSubscriptionAdvancedFilterOutput) ToEventSubscriptionAdvancedFilter
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionAdvancedFilter) *EventSubscriptionAdvancedFilter {
 		return &v
 	}).(EventSubscriptionAdvancedFilterPtrOutput)
+}
+
+func (o EventSubscriptionAdvancedFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilter] {
+	return pulumix.Output[EventSubscriptionAdvancedFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Compares a value of an event using a single boolean value.
@@ -2857,6 +3212,12 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) ToEventSubscriptionAdvancedFil
 
 func (o EventSubscriptionAdvancedFilterPtrOutput) ToEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAdvancedFilter] {
+	return pulumix.Output[*EventSubscriptionAdvancedFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterPtrOutput) Elem() EventSubscriptionAdvancedFilterOutput {
@@ -3102,6 +3463,12 @@ func (i EventSubscriptionAdvancedFilterBoolEqualArgs) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterBoolEqualOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterBoolEqualArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterBoolEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterBoolEqualArray and EventSubscriptionAdvancedFilterBoolEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterBoolEqualArrayInput` via:
 //
@@ -3127,6 +3494,12 @@ func (i EventSubscriptionAdvancedFilterBoolEqualArray) ToEventSubscriptionAdvanc
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterBoolEqualArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterBoolEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterBoolEqualOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterBoolEqualOutput) ElementType() reflect.Type {
@@ -3139,6 +3512,12 @@ func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToEventSubscriptionAdvan
 
 func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterBoolEqualOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3165,6 +3544,12 @@ func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterBoolEqualArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterBoolEqualOutput {
@@ -3206,6 +3591,12 @@ func (i EventSubscriptionAdvancedFilterIsNotNullArgs) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNotNullOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterIsNotNullArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterIsNotNullArrayInput is an input type that accepts EventSubscriptionAdvancedFilterIsNotNullArray and EventSubscriptionAdvancedFilterIsNotNullArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNotNullArrayInput` via:
 //
@@ -3231,6 +3622,12 @@ func (i EventSubscriptionAdvancedFilterIsNotNullArray) ToEventSubscriptionAdvanc
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNotNullArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterIsNotNullArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterIsNotNullOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterIsNotNullOutput) ElementType() reflect.Type {
@@ -3243,6 +3640,12 @@ func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvan
 
 func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3262,6 +3665,12 @@ func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterIsNotNullOutput {
@@ -3303,6 +3712,12 @@ func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput is an input type that accepts EventSubscriptionAdvancedFilterIsNullOrUndefinedArray and EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput` via:
 //
@@ -3328,6 +3743,12 @@ func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ElementType() reflect.Type {
@@ -3340,6 +3761,12 @@ func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscript
 
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3359,6 +3786,12 @@ func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToEventSubs
 
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
@@ -3408,6 +3841,12 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanArray and EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput` via:
 //
@@ -3433,6 +3872,12 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanArray) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberGreaterThanArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberGreaterThanOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ElementType() reflect.Type {
@@ -3445,6 +3890,12 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToEventSubscript
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3471,6 +3922,12 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToEventSubs
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberGreaterThanOutput {
@@ -3520,6 +3977,12 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToEventSubs
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray and EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput` via:
 //
@@ -3545,6 +4008,12 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToEventSub
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ElementType() reflect.Type {
@@ -3557,6 +4026,12 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToEventSu
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3583,6 +4058,12 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToEv
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
@@ -3632,6 +4113,12 @@ func (i EventSubscriptionAdvancedFilterNumberInArgs) ToEventSubscriptionAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInArray and EventSubscriptionAdvancedFilterNumberInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInArrayInput` via:
 //
@@ -3657,6 +4144,12 @@ func (i EventSubscriptionAdvancedFilterNumberInArray) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberInOutput) ElementType() reflect.Type {
@@ -3669,6 +4162,12 @@ func (o EventSubscriptionAdvancedFilterNumberInOutput) ToEventSubscriptionAdvanc
 
 func (o EventSubscriptionAdvancedFilterNumberInOutput) ToEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3695,6 +4194,12 @@ func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) ToEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberInOutput {
@@ -3744,6 +4249,12 @@ func (i EventSubscriptionAdvancedFilterNumberInRangeArgs) ToEventSubscriptionAdv
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInRangeOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberInRangeArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberInRangeArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInRangeArray and EventSubscriptionAdvancedFilterNumberInRangeArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInRangeArrayInput` via:
 //
@@ -3769,6 +4280,12 @@ func (i EventSubscriptionAdvancedFilterNumberInRangeArray) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInRangeArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberInRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberInRangeOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberInRangeOutput) ElementType() reflect.Type {
@@ -3781,6 +4298,12 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3807,6 +4330,12 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToEventSubscrip
 
 func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberInRangeOutput {
@@ -3856,6 +4385,12 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanArgs) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberLessThanArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberLessThanArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanArray and EventSubscriptionAdvancedFilterNumberLessThanArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanArrayInput` via:
 //
@@ -3881,6 +4416,12 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanArray) ToEventSubscriptionA
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberLessThanArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberLessThanOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberLessThanOutput) ElementType() reflect.Type {
@@ -3893,6 +4434,12 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3919,6 +4466,12 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToEventSubscri
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberLessThanOutput {
@@ -3968,6 +4521,12 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray and EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput` via:
 //
@@ -3993,6 +4552,12 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ElementType() reflect.Type {
@@ -4005,6 +4570,12 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4031,6 +4602,12 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToEvent
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
@@ -4080,6 +4657,12 @@ func (i EventSubscriptionAdvancedFilterNumberNotInArgs) ToEventSubscriptionAdvan
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberNotInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberNotInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInArray and EventSubscriptionAdvancedFilterNumberNotInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInArrayInput` via:
 //
@@ -4105,6 +4688,12 @@ func (i EventSubscriptionAdvancedFilterNumberNotInArray) ToEventSubscriptionAdva
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberNotInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberNotInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberNotInOutput) ElementType() reflect.Type {
@@ -4117,6 +4706,12 @@ func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToEventSubscriptionAdv
 
 func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4143,6 +4738,12 @@ func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberNotInOutput {
@@ -4192,6 +4793,12 @@ func (i EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToEventSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInRangeOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInRangeArray and EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput` via:
 //
@@ -4217,6 +4824,12 @@ func (i EventSubscriptionAdvancedFilterNumberNotInRangeArray) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterNumberNotInRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterNumberNotInRangeOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ElementType() reflect.Type {
@@ -4229,6 +4842,12 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4255,6 +4874,12 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
@@ -4304,6 +4929,12 @@ func (i EventSubscriptionAdvancedFilterStringBeginsWithArgs) ToEventSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringBeginsWithOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringBeginsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringBeginsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringBeginsWithArray and EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringBeginsWithArrayInput` via:
 //
@@ -4329,6 +4960,12 @@ func (i EventSubscriptionAdvancedFilterStringBeginsWithArray) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringBeginsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringBeginsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringBeginsWithOutput) ElementType() reflect.Type {
@@ -4341,6 +4978,12 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringBeginsWithOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4367,6 +5010,12 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringBeginsWithOutput {
@@ -4416,6 +5065,12 @@ func (i EventSubscriptionAdvancedFilterStringContainArgs) ToEventSubscriptionAdv
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringContainOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringContainArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringContain] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringContain]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringContainArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringContainArray and EventSubscriptionAdvancedFilterStringContainArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringContainArrayInput` via:
 //
@@ -4441,6 +5096,12 @@ func (i EventSubscriptionAdvancedFilterStringContainArray) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringContainArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringContainArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringContainOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringContainOutput) ElementType() reflect.Type {
@@ -4453,6 +5114,12 @@ func (o EventSubscriptionAdvancedFilterStringContainOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterStringContainOutput) ToEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringContainOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringContainOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringContain] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringContain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4479,6 +5146,12 @@ func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) ToEventSubscrip
 
 func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) ToEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringContainArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringContainOutput {
@@ -4528,6 +5201,12 @@ func (i EventSubscriptionAdvancedFilterStringEndsWithArgs) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringEndsWithOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringEndsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringEndsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringEndsWithArray and EventSubscriptionAdvancedFilterStringEndsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringEndsWithArrayInput` via:
 //
@@ -4553,6 +5232,12 @@ func (i EventSubscriptionAdvancedFilterStringEndsWithArray) ToEventSubscriptionA
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringEndsWithArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringEndsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringEndsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringEndsWithOutput) ElementType() reflect.Type {
@@ -4565,6 +5250,12 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringEndsWithOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4591,6 +5282,12 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToEventSubscri
 
 func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringEndsWithOutput {
@@ -4640,6 +5337,12 @@ func (i EventSubscriptionAdvancedFilterStringInArgs) ToEventSubscriptionAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringInOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringInArray and EventSubscriptionAdvancedFilterStringInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringInArrayInput` via:
 //
@@ -4665,6 +5368,12 @@ func (i EventSubscriptionAdvancedFilterStringInArray) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringInArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringInOutput) ElementType() reflect.Type {
@@ -4677,6 +5386,12 @@ func (o EventSubscriptionAdvancedFilterStringInOutput) ToEventSubscriptionAdvanc
 
 func (o EventSubscriptionAdvancedFilterStringInOutput) ToEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringInOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4703,6 +5418,12 @@ func (o EventSubscriptionAdvancedFilterStringInArrayOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterStringInArrayOutput) ToEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringInArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringInOutput {
@@ -4752,6 +5473,12 @@ func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToEventSubscript
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotBeginsWithOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotBeginsWithArray and EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput` via:
 //
@@ -4777,6 +5504,12 @@ func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToEventSubscrip
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringNotBeginsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ElementType() reflect.Type {
@@ -4789,6 +5522,12 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscri
 
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4815,6 +5554,12 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToEventSu
 
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
@@ -4864,6 +5609,12 @@ func (i EventSubscriptionAdvancedFilterStringNotContainArgs) ToEventSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotContainOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotContainArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringNotContainArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotContainArray and EventSubscriptionAdvancedFilterStringNotContainArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotContainArrayInput` via:
 //
@@ -4889,6 +5640,12 @@ func (i EventSubscriptionAdvancedFilterStringNotContainArray) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotContainArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotContainArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringNotContainOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotContainOutput) ElementType() reflect.Type {
@@ -4901,6 +5658,12 @@ func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -4927,6 +5690,12 @@ func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotContainOutput {
@@ -4976,6 +5745,12 @@ func (i EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotEndsWithOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotEndsWithArray and EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput` via:
 //
@@ -5001,6 +5776,12 @@ func (i EventSubscriptionAdvancedFilterStringNotEndsWithArray) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotEndsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringNotEndsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ElementType() reflect.Type {
@@ -5013,6 +5794,12 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscript
 
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -5039,6 +5826,12 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToEventSubs
 
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
@@ -5088,6 +5881,12 @@ func (i EventSubscriptionAdvancedFilterStringNotInArgs) ToEventSubscriptionAdvan
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotInOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionAdvancedFilterStringNotInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotInArray and EventSubscriptionAdvancedFilterStringNotInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotInArrayInput` via:
 //
@@ -5113,6 +5912,12 @@ func (i EventSubscriptionAdvancedFilterStringNotInArray) ToEventSubscriptionAdva
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotInArrayOutput)
 }
 
+func (i EventSubscriptionAdvancedFilterStringNotInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn]{
+		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAdvancedFilterStringNotInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotInOutput) ElementType() reflect.Type {
@@ -5125,6 +5930,12 @@ func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToEventSubscriptionAdv
 
 func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotInOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn] {
+	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -5151,6 +5962,12 @@ func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) ToEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotInArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn] {
+	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotInOutput {
@@ -5200,6 +6017,12 @@ func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunc
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointOutput)
 }
 
+func (i EventSubscriptionAzureFunctionEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAzureFunctionEndpoint] {
+	return pulumix.Output[EventSubscriptionAzureFunctionEndpoint]{
+		OutputState: i.ToEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput {
 	return i.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
 }
@@ -5241,6 +6064,12 @@ func (i *eventSubscriptionAzureFunctionEndpointPtrType) ToEventSubscriptionAzure
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointPtrOutput)
 }
 
+func (i *eventSubscriptionAzureFunctionEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAzureFunctionEndpoint] {
+	return pulumix.Output[*EventSubscriptionAzureFunctionEndpoint]{
+		OutputState: i.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionAzureFunctionEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAzureFunctionEndpointOutput) ElementType() reflect.Type {
@@ -5263,6 +6092,12 @@ func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionAzureFunctionEndpoint) *EventSubscriptionAzureFunctionEndpoint {
 		return &v
 	}).(EventSubscriptionAzureFunctionEndpointPtrOutput)
+}
+
+func (o EventSubscriptionAzureFunctionEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAzureFunctionEndpoint] {
+	return pulumix.Output[EventSubscriptionAzureFunctionEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
@@ -5292,6 +6127,12 @@ func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzur
 
 func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAzureFunctionEndpoint] {
+	return pulumix.Output[*EventSubscriptionAzureFunctionEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionAzureFunctionEndpointPtrOutput) Elem() EventSubscriptionAzureFunctionEndpointOutput {
@@ -5371,6 +6212,12 @@ func (i EventSubscriptionDeadLetterIdentityArgs) ToEventSubscriptionDeadLetterId
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeadLetterIdentityOutput)
 }
 
+func (i EventSubscriptionDeadLetterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeadLetterIdentity] {
+	return pulumix.Output[EventSubscriptionDeadLetterIdentity]{
+		OutputState: i.ToEventSubscriptionDeadLetterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionDeadLetterIdentityArgs) ToEventSubscriptionDeadLetterIdentityPtrOutput() EventSubscriptionDeadLetterIdentityPtrOutput {
 	return i.ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(context.Background())
 }
@@ -5412,6 +6259,12 @@ func (i *eventSubscriptionDeadLetterIdentityPtrType) ToEventSubscriptionDeadLett
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
+func (i *eventSubscriptionDeadLetterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeadLetterIdentity] {
+	return pulumix.Output[*EventSubscriptionDeadLetterIdentity]{
+		OutputState: i.ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionDeadLetterIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDeadLetterIdentityOutput) ElementType() reflect.Type {
@@ -5436,6 +6289,12 @@ func (o EventSubscriptionDeadLetterIdentityOutput) ToEventSubscriptionDeadLetter
 	}).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
+func (o EventSubscriptionDeadLetterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeadLetterIdentity] {
+	return pulumix.Output[EventSubscriptionDeadLetterIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeadLetterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDeadLetterIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -5458,6 +6317,12 @@ func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToEventSubscriptionDeadLet
 
 func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionDeadLetterIdentityPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeadLetterIdentity] {
+	return pulumix.Output[*EventSubscriptionDeadLetterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionDeadLetterIdentityPtrOutput) Elem() EventSubscriptionDeadLetterIdentityOutput {
@@ -5527,6 +6392,12 @@ func (i EventSubscriptionDeliveryIdentityArgs) ToEventSubscriptionDeliveryIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryIdentityOutput)
 }
 
+func (i EventSubscriptionDeliveryIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryIdentity] {
+	return pulumix.Output[EventSubscriptionDeliveryIdentity]{
+		OutputState: i.ToEventSubscriptionDeliveryIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionDeliveryIdentityArgs) ToEventSubscriptionDeliveryIdentityPtrOutput() EventSubscriptionDeliveryIdentityPtrOutput {
 	return i.ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(context.Background())
 }
@@ -5568,6 +6439,12 @@ func (i *eventSubscriptionDeliveryIdentityPtrType) ToEventSubscriptionDeliveryId
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
 
+func (i *eventSubscriptionDeliveryIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeliveryIdentity] {
+	return pulumix.Output[*EventSubscriptionDeliveryIdentity]{
+		OutputState: i.ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionDeliveryIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDeliveryIdentityOutput) ElementType() reflect.Type {
@@ -5592,6 +6469,12 @@ func (o EventSubscriptionDeliveryIdentityOutput) ToEventSubscriptionDeliveryIden
 	}).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
 
+func (o EventSubscriptionDeliveryIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryIdentity] {
+	return pulumix.Output[EventSubscriptionDeliveryIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeliveryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDeliveryIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -5614,6 +6497,12 @@ func (o EventSubscriptionDeliveryIdentityPtrOutput) ToEventSubscriptionDeliveryI
 
 func (o EventSubscriptionDeliveryIdentityPtrOutput) ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionDeliveryIdentityPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionDeliveryIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeliveryIdentity] {
+	return pulumix.Output[*EventSubscriptionDeliveryIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionDeliveryIdentityPtrOutput) Elem() EventSubscriptionDeliveryIdentityOutput {
@@ -5695,6 +6584,12 @@ func (i EventSubscriptionDeliveryPropertyArgs) ToEventSubscriptionDeliveryProper
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryPropertyOutput)
 }
 
+func (i EventSubscriptionDeliveryPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryProperty] {
+	return pulumix.Output[EventSubscriptionDeliveryProperty]{
+		OutputState: i.ToEventSubscriptionDeliveryPropertyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionDeliveryPropertyArrayInput is an input type that accepts EventSubscriptionDeliveryPropertyArray and EventSubscriptionDeliveryPropertyArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionDeliveryPropertyArrayInput` via:
 //
@@ -5720,6 +6615,12 @@ func (i EventSubscriptionDeliveryPropertyArray) ToEventSubscriptionDeliveryPrope
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryPropertyArrayOutput)
 }
 
+func (i EventSubscriptionDeliveryPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionDeliveryProperty] {
+	return pulumix.Output[[]EventSubscriptionDeliveryProperty]{
+		OutputState: i.ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionDeliveryPropertyOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDeliveryPropertyOutput) ElementType() reflect.Type {
@@ -5732,6 +6633,12 @@ func (o EventSubscriptionDeliveryPropertyOutput) ToEventSubscriptionDeliveryProp
 
 func (o EventSubscriptionDeliveryPropertyOutput) ToEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyOutput {
 	return o
+}
+
+func (o EventSubscriptionDeliveryPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryProperty] {
+	return pulumix.Output[EventSubscriptionDeliveryProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the header to send on to the destination
@@ -5771,6 +6678,12 @@ func (o EventSubscriptionDeliveryPropertyArrayOutput) ToEventSubscriptionDeliver
 
 func (o EventSubscriptionDeliveryPropertyArrayOutput) ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionDeliveryPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionDeliveryProperty] {
+	return pulumix.Output[[]EventSubscriptionDeliveryProperty]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) EventSubscriptionDeliveryPropertyOutput {
@@ -5816,6 +6729,12 @@ func (i EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionRetryPolicyOutput)
 }
 
+func (i EventSubscriptionRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionRetryPolicy] {
+	return pulumix.Output[EventSubscriptionRetryPolicy]{
+		OutputState: i.ToEventSubscriptionRetryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyPtrOutput() EventSubscriptionRetryPolicyPtrOutput {
 	return i.ToEventSubscriptionRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -5857,6 +6776,12 @@ func (i *eventSubscriptionRetryPolicyPtrType) ToEventSubscriptionRetryPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
+func (i *eventSubscriptionRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionRetryPolicy] {
+	return pulumix.Output[*EventSubscriptionRetryPolicy]{
+		OutputState: i.ToEventSubscriptionRetryPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionRetryPolicyOutput) ElementType() reflect.Type {
@@ -5881,6 +6806,12 @@ func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOut
 	}).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
+func (o EventSubscriptionRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionRetryPolicy] {
+	return pulumix.Output[EventSubscriptionRetryPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o EventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
@@ -5903,6 +6834,12 @@ func (o EventSubscriptionRetryPolicyPtrOutput) ToEventSubscriptionRetryPolicyPtr
 
 func (o EventSubscriptionRetryPolicyPtrOutput) ToEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) EventSubscriptionRetryPolicyPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionRetryPolicy] {
+	return pulumix.Output[*EventSubscriptionRetryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPolicyOutput {
@@ -5972,6 +6909,12 @@ func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
+func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination] {
+	return pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination]{
+		OutputState: i.ToEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
 	return i.ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
 }
@@ -6013,6 +6956,12 @@ func (i *eventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
 
+func (i *eventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination] {
+	return pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination]{
+		OutputState: i.ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionStorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
@@ -6037,6 +6986,12 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscrip
 	}).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
 
+func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination] {
+	return pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
@@ -6059,6 +7014,12 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToEventSubsc
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination] {
+	return pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() EventSubscriptionStorageBlobDeadLetterDestinationOutput {
@@ -6132,6 +7093,12 @@ func (i EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQue
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageQueueEndpointOutput)
 }
 
+func (i EventSubscriptionStorageQueueEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageQueueEndpoint] {
+	return pulumix.Output[EventSubscriptionStorageQueueEndpoint]{
+		OutputState: i.ToEventSubscriptionStorageQueueEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQueueEndpointPtrOutput() EventSubscriptionStorageQueueEndpointPtrOutput {
 	return i.ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Background())
 }
@@ -6173,6 +7140,12 @@ func (i *eventSubscriptionStorageQueueEndpointPtrType) ToEventSubscriptionStorag
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
+func (i *eventSubscriptionStorageQueueEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageQueueEndpoint] {
+	return pulumix.Output[*EventSubscriptionStorageQueueEndpoint]{
+		OutputState: i.ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionStorageQueueEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageQueueEndpointOutput) ElementType() reflect.Type {
@@ -6195,6 +7168,12 @@ func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionStorageQueueEndpoint) *EventSubscriptionStorageQueueEndpoint {
 		return &v
 	}).(EventSubscriptionStorageQueueEndpointPtrOutput)
+}
+
+func (o EventSubscriptionStorageQueueEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageQueueEndpoint] {
+	return pulumix.Output[EventSubscriptionStorageQueueEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Storage queue message time to live in seconds.
@@ -6224,6 +7203,12 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToEventSubscriptionStora
 
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionStorageQueueEndpointPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageQueueEndpoint] {
+	return pulumix.Output[*EventSubscriptionStorageQueueEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscriptionStorageQueueEndpointOutput {
@@ -6307,6 +7292,12 @@ func (i EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionSubjectFilterOutput)
 }
 
+func (i EventSubscriptionSubjectFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSubjectFilter] {
+	return pulumix.Output[EventSubscriptionSubjectFilter]{
+		OutputState: i.ToEventSubscriptionSubjectFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterPtrOutput() EventSubscriptionSubjectFilterPtrOutput {
 	return i.ToEventSubscriptionSubjectFilterPtrOutputWithContext(context.Background())
 }
@@ -6348,6 +7339,12 @@ func (i *eventSubscriptionSubjectFilterPtrType) ToEventSubscriptionSubjectFilter
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionSubjectFilterPtrOutput)
 }
 
+func (i *eventSubscriptionSubjectFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSubjectFilter] {
+	return pulumix.Output[*EventSubscriptionSubjectFilter]{
+		OutputState: i.ToEventSubscriptionSubjectFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionSubjectFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionSubjectFilterOutput) ElementType() reflect.Type {
@@ -6370,6 +7367,12 @@ func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionSubjectFilter) *EventSubscriptionSubjectFilter {
 		return &v
 	}).(EventSubscriptionSubjectFilterPtrOutput)
+}
+
+func (o EventSubscriptionSubjectFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSubjectFilter] {
+	return pulumix.Output[EventSubscriptionSubjectFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
@@ -6399,6 +7402,12 @@ func (o EventSubscriptionSubjectFilterPtrOutput) ToEventSubscriptionSubjectFilte
 
 func (o EventSubscriptionSubjectFilterPtrOutput) ToEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionSubjectFilterPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionSubjectFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSubjectFilter] {
+	return pulumix.Output[*EventSubscriptionSubjectFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubjectFilterOutput {
@@ -6494,6 +7503,12 @@ func (i EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionWebhookEndpointOutput)
 }
 
+func (i EventSubscriptionWebhookEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionWebhookEndpoint] {
+	return pulumix.Output[EventSubscriptionWebhookEndpoint]{
+		OutputState: i.ToEventSubscriptionWebhookEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpointPtrOutput() EventSubscriptionWebhookEndpointPtrOutput {
 	return i.ToEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Background())
 }
@@ -6535,6 +7550,12 @@ func (i *eventSubscriptionWebhookEndpointPtrType) ToEventSubscriptionWebhookEndp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionWebhookEndpointPtrOutput)
 }
 
+func (i *eventSubscriptionWebhookEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionWebhookEndpoint] {
+	return pulumix.Output[*EventSubscriptionWebhookEndpoint]{
+		OutputState: i.ToEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionWebhookEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionWebhookEndpointOutput) ElementType() reflect.Type {
@@ -6557,6 +7578,12 @@ func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpoi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionWebhookEndpoint) *EventSubscriptionWebhookEndpoint {
 		return &v
 	}).(EventSubscriptionWebhookEndpointPtrOutput)
+}
+
+func (o EventSubscriptionWebhookEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionWebhookEndpoint] {
+	return pulumix.Output[EventSubscriptionWebhookEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -6601,6 +7628,12 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEnd
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionWebhookEndpointPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionWebhookEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionWebhookEndpoint] {
+	return pulumix.Output[*EventSubscriptionWebhookEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebhookEndpointOutput {
@@ -6714,6 +7747,12 @@ func (i NamespaceCustomerManagedKeyTypeArgs) ToNamespaceCustomerManagedKeyTypeOu
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyTypeOutput)
 }
 
+func (i NamespaceCustomerManagedKeyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceCustomerManagedKeyType] {
+	return pulumix.Output[NamespaceCustomerManagedKeyType]{
+		OutputState: i.ToNamespaceCustomerManagedKeyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NamespaceCustomerManagedKeyTypeArgs) ToNamespaceCustomerManagedKeyTypePtrOutput() NamespaceCustomerManagedKeyTypePtrOutput {
 	return i.ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(context.Background())
 }
@@ -6755,6 +7794,12 @@ func (i *namespaceCustomerManagedKeyTypePtrType) ToNamespaceCustomerManagedKeyTy
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyTypePtrOutput)
 }
 
+func (i *namespaceCustomerManagedKeyTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*NamespaceCustomerManagedKeyType] {
+	return pulumix.Output[*NamespaceCustomerManagedKeyType]{
+		OutputState: i.ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceCustomerManagedKeyTypeOutput struct{ *pulumi.OutputState }
 
 func (NamespaceCustomerManagedKeyTypeOutput) ElementType() reflect.Type {
@@ -6777,6 +7822,12 @@ func (o NamespaceCustomerManagedKeyTypeOutput) ToNamespaceCustomerManagedKeyType
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceCustomerManagedKeyType) *NamespaceCustomerManagedKeyType {
 		return &v
 	}).(NamespaceCustomerManagedKeyTypePtrOutput)
+}
+
+func (o NamespaceCustomerManagedKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceCustomerManagedKeyType] {
+	return pulumix.Output[NamespaceCustomerManagedKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the User Assigned Identity that has access to the key.
@@ -6806,6 +7857,12 @@ func (o NamespaceCustomerManagedKeyTypePtrOutput) ToNamespaceCustomerManagedKeyT
 
 func (o NamespaceCustomerManagedKeyTypePtrOutput) ToNamespaceCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyTypePtrOutput {
 	return o
+}
+
+func (o NamespaceCustomerManagedKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceCustomerManagedKeyType] {
+	return pulumix.Output[*NamespaceCustomerManagedKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceCustomerManagedKeyTypePtrOutput) Elem() NamespaceCustomerManagedKeyTypeOutput {
@@ -6897,6 +7954,12 @@ func (i NamespaceIdentityArgs) ToNamespaceIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityOutput)
 }
 
+func (i NamespaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceIdentity] {
+	return pulumix.Output[NamespaceIdentity]{
+		OutputState: i.ToNamespaceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
 	return i.ToNamespaceIdentityPtrOutputWithContext(context.Background())
 }
@@ -6938,6 +8001,12 @@ func (i *namespaceIdentityPtrType) ToNamespaceIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityPtrOutput)
 }
 
+func (i *namespaceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*NamespaceIdentity] {
+	return pulumix.Output[*NamespaceIdentity]{
+		OutputState: i.ToNamespaceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (NamespaceIdentityOutput) ElementType() reflect.Type {
@@ -6960,6 +8029,12 @@ func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceIdentity) *NamespaceIdentity {
 		return &v
 	}).(NamespaceIdentityPtrOutput)
+}
+
+func (o NamespaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceIdentity] {
+	return pulumix.Output[NamespaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
@@ -6996,6 +8071,12 @@ func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutput() NamespaceIden
 
 func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
 	return o
+}
+
+func (o NamespaceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceIdentity] {
+	return pulumix.Output[*NamespaceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
@@ -7057,7 +8138,7 @@ type NamespaceNetworkRuleSet struct {
 	IpRules []string `pulumi:"ipRules"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
-	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
@@ -7081,7 +8162,7 @@ type NamespaceNetworkRuleSetArgs struct {
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput `pulumi:"networkRules"`
-	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed pulumi.BoolPtrInput `pulumi:"trustedServicesAllowed"`
@@ -7097,6 +8178,12 @@ func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetOutput() Namespace
 
 func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput)
+}
+
+func (i NamespaceNetworkRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSet] {
+	return pulumix.Output[NamespaceNetworkRuleSet]{
+		OutputState: i.ToNamespaceNetworkRuleSetOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetPtrOutput() NamespaceNetworkRuleSetPtrOutput {
@@ -7140,6 +8227,12 @@ func (i *namespaceNetworkRuleSetPtrType) ToNamespaceNetworkRuleSetPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetPtrOutput)
 }
 
+func (i *namespaceNetworkRuleSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*NamespaceNetworkRuleSet] {
+	return pulumix.Output[*NamespaceNetworkRuleSet]{
+		OutputState: i.ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
@@ -7164,6 +8257,12 @@ func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetPtrOutputWithCon
 	}).(NamespaceNetworkRuleSetPtrOutput)
 }
 
+func (o NamespaceNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSet] {
+	return pulumix.Output[NamespaceNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 func (o NamespaceNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
@@ -7179,7 +8278,7 @@ func (o NamespaceNetworkRuleSetOutput) NetworkRules() NamespaceNetworkRuleSetNet
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) []NamespaceNetworkRuleSetNetworkRule { return v.NetworkRules }).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
-// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 func (o NamespaceNetworkRuleSetOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7201,6 +8300,12 @@ func (o NamespaceNetworkRuleSetPtrOutput) ToNamespaceNetworkRuleSetPtrOutput() N
 
 func (o NamespaceNetworkRuleSetPtrOutput) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceNetworkRuleSet] {
+	return pulumix.Output[*NamespaceNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceNetworkRuleSetPtrOutput) Elem() NamespaceNetworkRuleSetOutput {
@@ -7243,7 +8348,7 @@ func (o NamespaceNetworkRuleSetPtrOutput) NetworkRules() NamespaceNetworkRuleSet
 	}).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
-// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
 func (o NamespaceNetworkRuleSetPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSet) *bool {
 		if v == nil {
@@ -7300,6 +8405,12 @@ func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToNamespaceNetworkRuleSetNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetNetworkRuleOutput)
 }
 
+func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: i.ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamespaceNetworkRuleSetNetworkRuleArrayInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArray and NamespaceNetworkRuleSetNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleArrayInput` via:
 //
@@ -7325,6 +8436,12 @@ func (i NamespaceNetworkRuleSetNetworkRuleArray) ToNamespaceNetworkRuleSetNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
+func (i NamespaceNetworkRuleSetNetworkRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: i.ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceNetworkRuleSetNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetNetworkRuleOutput) ElementType() reflect.Type {
@@ -7337,6 +8454,12 @@ func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetwo
 
 func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
@@ -7361,6 +8484,12 @@ func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToNamespaceNetworkRuleSet
 
 func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleArrayOutput {
 	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule] {
+	return pulumix.Output[[]NamespaceNetworkRuleSetNetworkRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) Index(i pulumi.IntInput) NamespaceNetworkRuleSetNetworkRuleOutput {
@@ -7414,6 +8543,12 @@ func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionOutput)
 }
 
+func (i SubscriptionClientScopedSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionClientScopedSubscription] {
+	return pulumix.Output[SubscriptionClientScopedSubscription]{
+		OutputState: i.ToSubscriptionClientScopedSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput {
 	return i.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(context.Background())
 }
@@ -7455,6 +8590,12 @@ func (i *subscriptionClientScopedSubscriptionPtrType) ToSubscriptionClientScoped
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionPtrOutput)
 }
 
+func (i *subscriptionClientScopedSubscriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionClientScopedSubscription] {
+	return pulumix.Output[*SubscriptionClientScopedSubscription]{
+		OutputState: i.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionClientScopedSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionClientScopedSubscriptionOutput) ElementType() reflect.Type {
@@ -7477,6 +8618,12 @@ func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionClientScopedSubscription) *SubscriptionClientScopedSubscription {
 		return &v
 	}).(SubscriptionClientScopedSubscriptionPtrOutput)
+}
+
+func (o SubscriptionClientScopedSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionClientScopedSubscription] {
+	return pulumix.Output[SubscriptionClientScopedSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
@@ -7508,6 +8655,12 @@ func (o SubscriptionClientScopedSubscriptionPtrOutput) ToSubscriptionClientScope
 
 func (o SubscriptionClientScopedSubscriptionPtrOutput) ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionPtrOutput {
 	return o
+}
+
+func (o SubscriptionClientScopedSubscriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionClientScopedSubscription] {
+	return pulumix.Output[*SubscriptionClientScopedSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionClientScopedSubscriptionPtrOutput) Elem() SubscriptionClientScopedSubscriptionOutput {
@@ -7621,6 +8774,12 @@ func (i SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilt
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleCorrelationFilterOutput)
 }
 
+func (i SubscriptionRuleCorrelationFilterArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[SubscriptionRuleCorrelationFilter]{
+		OutputState: i.ToSubscriptionRuleCorrelationFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilterPtrOutput() SubscriptionRuleCorrelationFilterPtrOutput {
 	return i.ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(context.Background())
 }
@@ -7662,6 +8821,12 @@ func (i *subscriptionRuleCorrelationFilterPtrType) ToSubscriptionRuleCorrelation
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleCorrelationFilterPtrOutput)
 }
 
+func (i *subscriptionRuleCorrelationFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[*SubscriptionRuleCorrelationFilter]{
+		OutputState: i.ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionRuleCorrelationFilterOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleCorrelationFilterOutput) ElementType() reflect.Type {
@@ -7684,6 +8849,12 @@ func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionRuleCorrelationFilter) *SubscriptionRuleCorrelationFilter {
 		return &v
 	}).(SubscriptionRuleCorrelationFilterPtrOutput)
+}
+
+func (o SubscriptionRuleCorrelationFilterOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[SubscriptionRuleCorrelationFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Content type of the message.
@@ -7745,6 +8916,12 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelatio
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ToSubscriptionRuleCorrelationFilterPtrOutputWithContext(ctx context.Context) SubscriptionRuleCorrelationFilterPtrOutput {
 	return o
+}
+
+func (o SubscriptionRuleCorrelationFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionRuleCorrelationFilter] {
+	return pulumix.Output[*SubscriptionRuleCorrelationFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorrelationFilterOutput {

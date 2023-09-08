@@ -18,6 +18,21 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     public static final EnvironmentArgs Empty = new EnvironmentArgs();
 
     /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * 
+     */
+    @Import(name="daprApplicationInsightsConnectionString")
+    private @Nullable Output<String> daprApplicationInsightsConnectionString;
+
+    /**
+     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * 
+     */
+    public Optional<Output<String>> daprApplicationInsightsConnectionString() {
+        return Optional.ofNullable(this.daprApplicationInsightsConnectionString);
+    }
+
+    /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -133,6 +148,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     private EnvironmentArgs() {}
 
     private EnvironmentArgs(EnvironmentArgs $) {
+        this.daprApplicationInsightsConnectionString = $.daprApplicationInsightsConnectionString;
         this.infrastructureSubnetId = $.infrastructureSubnetId;
         this.internalLoadBalancerEnabled = $.internalLoadBalancerEnabled;
         this.location = $.location;
@@ -158,6 +174,27 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EnvironmentArgs defaults) {
             $ = new EnvironmentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daprApplicationInsightsConnectionString(@Nullable Output<String> daprApplicationInsightsConnectionString) {
+            $.daprApplicationInsightsConnectionString = daprApplicationInsightsConnectionString;
+            return this;
+        }
+
+        /**
+         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daprApplicationInsightsConnectionString(String daprApplicationInsightsConnectionString) {
+            return daprApplicationInsightsConnectionString(Output.of(daprApplicationInsightsConnectionString));
         }
 
         /**

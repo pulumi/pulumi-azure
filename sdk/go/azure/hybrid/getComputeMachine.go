@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Hybrid Compute.
@@ -165,6 +166,12 @@ func (o GetComputeMachineResultOutput) ToGetComputeMachineResultOutput() GetComp
 
 func (o GetComputeMachineResultOutput) ToGetComputeMachineResultOutputWithContext(ctx context.Context) GetComputeMachineResultOutput {
 	return o
+}
+
+func (o GetComputeMachineResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineResult] {
+	return pulumix.Output[GetComputeMachineResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the AD fully qualified display name.

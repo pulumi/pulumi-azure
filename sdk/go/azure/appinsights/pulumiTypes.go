@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -66,6 +67,12 @@ func (i StandardWebTestRequestArgs) ToStandardWebTestRequestOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestOutput)
 }
 
+func (i StandardWebTestRequestArgs) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestRequest] {
+	return pulumix.Output[StandardWebTestRequest]{
+		OutputState: i.ToStandardWebTestRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StandardWebTestRequestArgs) ToStandardWebTestRequestPtrOutput() StandardWebTestRequestPtrOutput {
 	return i.ToStandardWebTestRequestPtrOutputWithContext(context.Background())
 }
@@ -107,6 +114,12 @@ func (i *standardWebTestRequestPtrType) ToStandardWebTestRequestPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestPtrOutput)
 }
 
+func (i *standardWebTestRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTestRequest] {
+	return pulumix.Output[*StandardWebTestRequest]{
+		OutputState: i.ToStandardWebTestRequestPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardWebTestRequestOutput struct{ *pulumi.OutputState }
 
 func (StandardWebTestRequestOutput) ElementType() reflect.Type {
@@ -129,6 +142,12 @@ func (o StandardWebTestRequestOutput) ToStandardWebTestRequestPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardWebTestRequest) *StandardWebTestRequest {
 		return &v
 	}).(StandardWebTestRequestPtrOutput)
+}
+
+func (o StandardWebTestRequestOutput) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestRequest] {
+	return pulumix.Output[StandardWebTestRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The WebTest request body.
@@ -173,6 +192,12 @@ func (o StandardWebTestRequestPtrOutput) ToStandardWebTestRequestPtrOutput() Sta
 
 func (o StandardWebTestRequestPtrOutput) ToStandardWebTestRequestPtrOutputWithContext(ctx context.Context) StandardWebTestRequestPtrOutput {
 	return o
+}
+
+func (o StandardWebTestRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTestRequest] {
+	return pulumix.Output[*StandardWebTestRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardWebTestRequestPtrOutput) Elem() StandardWebTestRequestOutput {
@@ -282,6 +307,12 @@ func (i StandardWebTestRequestHeaderArgs) ToStandardWebTestRequestHeaderOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestHeaderOutput)
 }
 
+func (i StandardWebTestRequestHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestRequestHeader] {
+	return pulumix.Output[StandardWebTestRequestHeader]{
+		OutputState: i.ToStandardWebTestRequestHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StandardWebTestRequestHeaderArrayInput is an input type that accepts StandardWebTestRequestHeaderArray and StandardWebTestRequestHeaderArrayOutput values.
 // You can construct a concrete instance of `StandardWebTestRequestHeaderArrayInput` via:
 //
@@ -307,6 +338,12 @@ func (i StandardWebTestRequestHeaderArray) ToStandardWebTestRequestHeaderArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestRequestHeaderArrayOutput)
 }
 
+func (i StandardWebTestRequestHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]StandardWebTestRequestHeader] {
+	return pulumix.Output[[]StandardWebTestRequestHeader]{
+		OutputState: i.ToStandardWebTestRequestHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardWebTestRequestHeaderOutput struct{ *pulumi.OutputState }
 
 func (StandardWebTestRequestHeaderOutput) ElementType() reflect.Type {
@@ -319,6 +356,12 @@ func (o StandardWebTestRequestHeaderOutput) ToStandardWebTestRequestHeaderOutput
 
 func (o StandardWebTestRequestHeaderOutput) ToStandardWebTestRequestHeaderOutputWithContext(ctx context.Context) StandardWebTestRequestHeaderOutput {
 	return o
+}
+
+func (o StandardWebTestRequestHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestRequestHeader] {
+	return pulumix.Output[StandardWebTestRequestHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name which should be used for a header in the request.
@@ -343,6 +386,12 @@ func (o StandardWebTestRequestHeaderArrayOutput) ToStandardWebTestRequestHeaderA
 
 func (o StandardWebTestRequestHeaderArrayOutput) ToStandardWebTestRequestHeaderArrayOutputWithContext(ctx context.Context) StandardWebTestRequestHeaderArrayOutput {
 	return o
+}
+
+func (o StandardWebTestRequestHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StandardWebTestRequestHeader] {
+	return pulumix.Output[[]StandardWebTestRequestHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardWebTestRequestHeaderArrayOutput) Index(i pulumi.IntInput) StandardWebTestRequestHeaderOutput {
@@ -396,6 +445,12 @@ func (i StandardWebTestValidationRulesArgs) ToStandardWebTestValidationRulesOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesOutput)
 }
 
+func (i StandardWebTestValidationRulesArgs) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestValidationRules] {
+	return pulumix.Output[StandardWebTestValidationRules]{
+		OutputState: i.ToStandardWebTestValidationRulesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StandardWebTestValidationRulesArgs) ToStandardWebTestValidationRulesPtrOutput() StandardWebTestValidationRulesPtrOutput {
 	return i.ToStandardWebTestValidationRulesPtrOutputWithContext(context.Background())
 }
@@ -437,6 +492,12 @@ func (i *standardWebTestValidationRulesPtrType) ToStandardWebTestValidationRules
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesPtrOutput)
 }
 
+func (i *standardWebTestValidationRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTestValidationRules] {
+	return pulumix.Output[*StandardWebTestValidationRules]{
+		OutputState: i.ToStandardWebTestValidationRulesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardWebTestValidationRulesOutput struct{ *pulumi.OutputState }
 
 func (StandardWebTestValidationRulesOutput) ElementType() reflect.Type {
@@ -459,6 +520,12 @@ func (o StandardWebTestValidationRulesOutput) ToStandardWebTestValidationRulesPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardWebTestValidationRules) *StandardWebTestValidationRules {
 		return &v
 	}).(StandardWebTestValidationRulesPtrOutput)
+}
+
+func (o StandardWebTestValidationRulesOutput) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestValidationRules] {
+	return pulumix.Output[StandardWebTestValidationRules]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `content` block as defined above.
@@ -493,6 +560,12 @@ func (o StandardWebTestValidationRulesPtrOutput) ToStandardWebTestValidationRule
 
 func (o StandardWebTestValidationRulesPtrOutput) ToStandardWebTestValidationRulesPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesPtrOutput {
 	return o
+}
+
+func (o StandardWebTestValidationRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTestValidationRules] {
+	return pulumix.Output[*StandardWebTestValidationRules]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardWebTestValidationRulesPtrOutput) Elem() StandardWebTestValidationRulesOutput {
@@ -586,6 +659,12 @@ func (i StandardWebTestValidationRulesContentArgs) ToStandardWebTestValidationRu
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesContentOutput)
 }
 
+func (i StandardWebTestValidationRulesContentArgs) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestValidationRulesContent] {
+	return pulumix.Output[StandardWebTestValidationRulesContent]{
+		OutputState: i.ToStandardWebTestValidationRulesContentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StandardWebTestValidationRulesContentArgs) ToStandardWebTestValidationRulesContentPtrOutput() StandardWebTestValidationRulesContentPtrOutput {
 	return i.ToStandardWebTestValidationRulesContentPtrOutputWithContext(context.Background())
 }
@@ -627,6 +706,12 @@ func (i *standardWebTestValidationRulesContentPtrType) ToStandardWebTestValidati
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestValidationRulesContentPtrOutput)
 }
 
+func (i *standardWebTestValidationRulesContentPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTestValidationRulesContent] {
+	return pulumix.Output[*StandardWebTestValidationRulesContent]{
+		OutputState: i.ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardWebTestValidationRulesContentOutput struct{ *pulumi.OutputState }
 
 func (StandardWebTestValidationRulesContentOutput) ElementType() reflect.Type {
@@ -649,6 +734,12 @@ func (o StandardWebTestValidationRulesContentOutput) ToStandardWebTestValidation
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardWebTestValidationRulesContent) *StandardWebTestValidationRulesContent {
 		return &v
 	}).(StandardWebTestValidationRulesContentPtrOutput)
+}
+
+func (o StandardWebTestValidationRulesContentOutput) ToOutput(ctx context.Context) pulumix.Output[StandardWebTestValidationRulesContent] {
+	return pulumix.Output[StandardWebTestValidationRulesContent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string value containing the content to match on.
@@ -678,6 +769,12 @@ func (o StandardWebTestValidationRulesContentPtrOutput) ToStandardWebTestValidat
 
 func (o StandardWebTestValidationRulesContentPtrOutput) ToStandardWebTestValidationRulesContentPtrOutputWithContext(ctx context.Context) StandardWebTestValidationRulesContentPtrOutput {
 	return o
+}
+
+func (o StandardWebTestValidationRulesContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTestValidationRulesContent] {
+	return pulumix.Output[*StandardWebTestValidationRulesContent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardWebTestValidationRulesContentPtrOutput) Elem() StandardWebTestValidationRulesContentOutput {
@@ -765,6 +862,12 @@ func (i WorkbookIdentityArgs) ToWorkbookIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookIdentityOutput)
 }
 
+func (i WorkbookIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[WorkbookIdentity] {
+	return pulumix.Output[WorkbookIdentity]{
+		OutputState: i.ToWorkbookIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkbookIdentityArgs) ToWorkbookIdentityPtrOutput() WorkbookIdentityPtrOutput {
 	return i.ToWorkbookIdentityPtrOutputWithContext(context.Background())
 }
@@ -806,6 +909,12 @@ func (i *workbookIdentityPtrType) ToWorkbookIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookIdentityPtrOutput)
 }
 
+func (i *workbookIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkbookIdentity] {
+	return pulumix.Output[*WorkbookIdentity]{
+		OutputState: i.ToWorkbookIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkbookIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkbookIdentityOutput) ElementType() reflect.Type {
@@ -828,6 +937,12 @@ func (o WorkbookIdentityOutput) ToWorkbookIdentityPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookIdentity) *WorkbookIdentity {
 		return &v
 	}).(WorkbookIdentityPtrOutput)
+}
+
+func (o WorkbookIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[WorkbookIdentity] {
+	return pulumix.Output[WorkbookIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
@@ -862,6 +977,12 @@ func (o WorkbookIdentityPtrOutput) ToWorkbookIdentityPtrOutput() WorkbookIdentit
 
 func (o WorkbookIdentityPtrOutput) ToWorkbookIdentityPtrOutputWithContext(ctx context.Context) WorkbookIdentityPtrOutput {
 	return o
+}
+
+func (o WorkbookIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkbookIdentity] {
+	return pulumix.Output[*WorkbookIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkbookIdentityPtrOutput) Elem() WorkbookIdentityOutput {
@@ -967,6 +1088,12 @@ func (i WorkbookTemplateGalleryArgs) ToWorkbookTemplateGalleryOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryOutput)
 }
 
+func (i WorkbookTemplateGalleryArgs) ToOutput(ctx context.Context) pulumix.Output[WorkbookTemplateGallery] {
+	return pulumix.Output[WorkbookTemplateGallery]{
+		OutputState: i.ToWorkbookTemplateGalleryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkbookTemplateGalleryArrayInput is an input type that accepts WorkbookTemplateGalleryArray and WorkbookTemplateGalleryArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateGalleryArrayInput` via:
 //
@@ -992,6 +1119,12 @@ func (i WorkbookTemplateGalleryArray) ToWorkbookTemplateGalleryArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryArrayOutput)
 }
 
+func (i WorkbookTemplateGalleryArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkbookTemplateGallery] {
+	return pulumix.Output[[]WorkbookTemplateGallery]{
+		OutputState: i.ToWorkbookTemplateGalleryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkbookTemplateGalleryOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateGalleryOutput) ElementType() reflect.Type {
@@ -1004,6 +1137,12 @@ func (o WorkbookTemplateGalleryOutput) ToWorkbookTemplateGalleryOutput() Workboo
 
 func (o WorkbookTemplateGalleryOutput) ToWorkbookTemplateGalleryOutputWithContext(ctx context.Context) WorkbookTemplateGalleryOutput {
 	return o
+}
+
+func (o WorkbookTemplateGalleryOutput) ToOutput(ctx context.Context) pulumix.Output[WorkbookTemplateGallery] {
+	return pulumix.Output[WorkbookTemplateGallery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Category for the gallery.
@@ -1045,6 +1184,12 @@ func (o WorkbookTemplateGalleryArrayOutput) ToWorkbookTemplateGalleryArrayOutput
 
 func (o WorkbookTemplateGalleryArrayOutput) ToWorkbookTemplateGalleryArrayOutputWithContext(ctx context.Context) WorkbookTemplateGalleryArrayOutput {
 	return o
+}
+
+func (o WorkbookTemplateGalleryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkbookTemplateGallery] {
+	return pulumix.Output[[]WorkbookTemplateGallery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkbookTemplateGalleryArrayOutput) Index(i pulumi.IntInput) WorkbookTemplateGalleryOutput {

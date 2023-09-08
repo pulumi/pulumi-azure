@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Insights WebTest.
@@ -316,6 +317,12 @@ func (i *WebTest) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestOutput)
 }
 
+func (i *WebTest) ToOutput(ctx context.Context) pulumix.Output[*WebTest] {
+	return pulumix.Output[*WebTest]{
+		OutputState: i.ToWebTestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebTestArrayInput is an input type that accepts WebTestArray and WebTestArrayOutput values.
 // You can construct a concrete instance of `WebTestArrayInput` via:
 //
@@ -339,6 +346,12 @@ func (i WebTestArray) ToWebTestArrayOutput() WebTestArrayOutput {
 
 func (i WebTestArray) ToWebTestArrayOutputWithContext(ctx context.Context) WebTestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestArrayOutput)
+}
+
+func (i WebTestArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebTest] {
+	return pulumix.Output[[]*WebTest]{
+		OutputState: i.ToWebTestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebTestMapInput is an input type that accepts WebTestMap and WebTestMapOutput values.
@@ -366,6 +379,12 @@ func (i WebTestMap) ToWebTestMapOutputWithContext(ctx context.Context) WebTestMa
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestMapOutput)
 }
 
+func (i WebTestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebTest] {
+	return pulumix.Output[map[string]*WebTest]{
+		OutputState: i.ToWebTestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebTestOutput struct{ *pulumi.OutputState }
 
 func (WebTestOutput) ElementType() reflect.Type {
@@ -378,6 +397,12 @@ func (o WebTestOutput) ToWebTestOutput() WebTestOutput {
 
 func (o WebTestOutput) ToWebTestOutputWithContext(ctx context.Context) WebTestOutput {
 	return o
+}
+
+func (o WebTestOutput) ToOutput(ctx context.Context) pulumix.Output[*WebTest] {
+	return pulumix.Output[*WebTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
@@ -465,6 +490,12 @@ func (o WebTestArrayOutput) ToWebTestArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o WebTestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebTest] {
+	return pulumix.Output[[]*WebTest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebTestArrayOutput) Index(i pulumi.IntInput) WebTestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebTest {
 		return vs[0].([]*WebTest)[vs[1].(int)]
@@ -483,6 +514,12 @@ func (o WebTestMapOutput) ToWebTestMapOutput() WebTestMapOutput {
 
 func (o WebTestMapOutput) ToWebTestMapOutputWithContext(ctx context.Context) WebTestMapOutput {
 	return o
+}
+
+func (o WebTestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebTest] {
+	return pulumix.Output[map[string]*WebTest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebTestMapOutput) MapIndex(k pulumi.StringInput) WebTestOutput {

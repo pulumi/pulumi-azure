@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
@@ -194,6 +195,12 @@ func (o GetAccountSASResultOutput) ToGetAccountSASResultOutput() GetAccountSASRe
 
 func (o GetAccountSASResultOutput) ToGetAccountSASResultOutputWithContext(ctx context.Context) GetAccountSASResultOutput {
 	return o
+}
+
+func (o GetAccountSASResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASResult] {
+	return pulumix.Output[GetAccountSASResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAccountSASResultOutput) ConnectionString() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft Defender Advanced Threat Protection Data Connector.
@@ -188,6 +189,12 @@ func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToDataConnector
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput)
 }
 
+func (i *DataConnectorMicrosoftDefenderAdvancedThreatProtection) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftDefenderAdvancedThreatProtection] {
+	return pulumix.Output[*DataConnectorMicrosoftDefenderAdvancedThreatProtection]{
+		OutputState: i.ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayInput is an input type that accepts DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray and DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput values.
 // You can construct a concrete instance of `DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayInput` via:
 //
@@ -211,6 +218,12 @@ func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray) ToDataConne
 
 func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput)
+}
+
+func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftDefenderAdvancedThreatProtection] {
+	return pulumix.Output[[]*DataConnectorMicrosoftDefenderAdvancedThreatProtection]{
+		OutputState: i.ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapInput is an input type that accepts DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap and DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput values.
@@ -238,6 +251,12 @@ func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap) ToDataConnect
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput)
 }
 
+func (i DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection] {
+	return pulumix.Output[map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection]{
+		OutputState: i.ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ElementType() reflect.Type {
@@ -250,6 +269,12 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConn
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
 	return o
+}
+
+func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftDefenderAdvancedThreatProtection] {
+	return pulumix.Output[*DataConnectorMicrosoftDefenderAdvancedThreatProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace that this Microsoft Defender Advanced Threat Protection Data Connector resides in. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
@@ -285,6 +310,12 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) ToDat
 	return o
 }
 
+func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftDefenderAdvancedThreatProtection] {
+	return pulumix.Output[[]*DataConnectorMicrosoftDefenderAdvancedThreatProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput) Index(i pulumi.IntInput) DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftDefenderAdvancedThreatProtection {
 		return vs[0].([]*DataConnectorMicrosoftDefenderAdvancedThreatProtection)[vs[1].(int)]
@@ -303,6 +334,12 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) ToDataC
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) ToDataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutputWithContext(ctx context.Context) DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput {
 	return o
+}
+
+func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection] {
+	return pulumix.Output[map[string]*DataConnectorMicrosoftDefenderAdvancedThreatProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput {

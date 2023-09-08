@@ -94,6 +94,21 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Is local authentication enabled? Defaults to `true`.
+     * 
+     */
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Is local authentication enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
+    }
+
+    /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -281,6 +296,7 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
         this.developerAppInsightsKey = $.developerAppInsightsKey;
         this.displayName = $.displayName;
         this.endpoint = $.endpoint;
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.luisAppIds = $.luisAppIds;
         this.luisKey = $.luisKey;
@@ -416,6 +432,27 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param localAuthenticationEnabled Is local authentication enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationEnabled Is local authentication enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
         }
 
         /**

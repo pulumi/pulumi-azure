@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
@@ -115,6 +116,12 @@ func (o LookupFrontdoorEndpointResultOutput) ToLookupFrontdoorEndpointResultOutp
 
 func (o LookupFrontdoorEndpointResultOutput) ToLookupFrontdoorEndpointResultOutputWithContext(ctx context.Context) LookupFrontdoorEndpointResultOutput {
 	return o
+}
+
+func (o LookupFrontdoorEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorEndpointResult] {
+	return pulumix.Output[LookupFrontdoorEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether this Front Door Endpoint is enabled or not.

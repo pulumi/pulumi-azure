@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Arc Kubernetes Cluster Extension.
@@ -271,6 +272,12 @@ func (i *ClusterExtension) ToClusterExtensionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionOutput)
 }
 
+func (i *ClusterExtension) ToOutput(ctx context.Context) pulumix.Output[*ClusterExtension] {
+	return pulumix.Output[*ClusterExtension]{
+		OutputState: i.ToClusterExtensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterExtensionArrayInput is an input type that accepts ClusterExtensionArray and ClusterExtensionArrayOutput values.
 // You can construct a concrete instance of `ClusterExtensionArrayInput` via:
 //
@@ -294,6 +301,12 @@ func (i ClusterExtensionArray) ToClusterExtensionArrayOutput() ClusterExtensionA
 
 func (i ClusterExtensionArray) ToClusterExtensionArrayOutputWithContext(ctx context.Context) ClusterExtensionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionArrayOutput)
+}
+
+func (i ClusterExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterExtension] {
+	return pulumix.Output[[]*ClusterExtension]{
+		OutputState: i.ToClusterExtensionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterExtensionMapInput is an input type that accepts ClusterExtensionMap and ClusterExtensionMapOutput values.
@@ -321,6 +334,12 @@ func (i ClusterExtensionMap) ToClusterExtensionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionMapOutput)
 }
 
+func (i ClusterExtensionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterExtension] {
+	return pulumix.Output[map[string]*ClusterExtension]{
+		OutputState: i.ToClusterExtensionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (ClusterExtensionOutput) ElementType() reflect.Type {
@@ -333,6 +352,12 @@ func (o ClusterExtensionOutput) ToClusterExtensionOutput() ClusterExtensionOutpu
 
 func (o ClusterExtensionOutput) ToClusterExtensionOutputWithContext(ctx context.Context) ClusterExtensionOutput {
 	return o
+}
+
+func (o ClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterExtension] {
+	return pulumix.Output[*ClusterExtension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
@@ -404,6 +429,12 @@ func (o ClusterExtensionArrayOutput) ToClusterExtensionArrayOutputWithContext(ct
 	return o
 }
 
+func (o ClusterExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterExtension] {
+	return pulumix.Output[[]*ClusterExtension]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterExtensionArrayOutput) Index(i pulumi.IntInput) ClusterExtensionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterExtension {
 		return vs[0].([]*ClusterExtension)[vs[1].(int)]
@@ -422,6 +453,12 @@ func (o ClusterExtensionMapOutput) ToClusterExtensionMapOutput() ClusterExtensio
 
 func (o ClusterExtensionMapOutput) ToClusterExtensionMapOutputWithContext(ctx context.Context) ClusterExtensionMapOutput {
 	return o
+}
+
+func (o ClusterExtensionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterExtension] {
+	return pulumix.Output[map[string]*ClusterExtension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterExtensionMapOutput) MapIndex(k pulumi.StringInput) ClusterExtensionOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Load Balancer NAT Rule.
@@ -252,6 +253,12 @@ func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
 }
 
+func (i *NatRule) ToOutput(ctx context.Context) pulumix.Output[*NatRule] {
+	return pulumix.Output[*NatRule]{
+		OutputState: i.ToNatRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NatRuleArrayInput is an input type that accepts NatRuleArray and NatRuleArrayOutput values.
 // You can construct a concrete instance of `NatRuleArrayInput` via:
 //
@@ -275,6 +282,12 @@ func (i NatRuleArray) ToNatRuleArrayOutput() NatRuleArrayOutput {
 
 func (i NatRuleArray) ToNatRuleArrayOutputWithContext(ctx context.Context) NatRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleArrayOutput)
+}
+
+func (i NatRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NatRule] {
+	return pulumix.Output[[]*NatRule]{
+		OutputState: i.ToNatRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NatRuleMapInput is an input type that accepts NatRuleMap and NatRuleMapOutput values.
@@ -302,6 +315,12 @@ func (i NatRuleMap) ToNatRuleMapOutputWithContext(ctx context.Context) NatRuleMa
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleMapOutput)
 }
 
+func (i NatRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatRule] {
+	return pulumix.Output[map[string]*NatRule]{
+		OutputState: i.ToNatRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NatRuleOutput struct{ *pulumi.OutputState }
 
 func (NatRuleOutput) ElementType() reflect.Type {
@@ -314,6 +333,12 @@ func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {
 
 func (o NatRuleOutput) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
 	return o
+}
+
+func (o NatRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NatRule] {
+	return pulumix.Output[*NatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a reference to backendAddressPool resource.
@@ -403,6 +428,12 @@ func (o NatRuleArrayOutput) ToNatRuleArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o NatRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NatRule] {
+	return pulumix.Output[[]*NatRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NatRuleArrayOutput) Index(i pulumi.IntInput) NatRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatRule {
 		return vs[0].([]*NatRule)[vs[1].(int)]
@@ -421,6 +452,12 @@ func (o NatRuleMapOutput) ToNatRuleMapOutput() NatRuleMapOutput {
 
 func (o NatRuleMapOutput) ToNatRuleMapOutputWithContext(ctx context.Context) NatRuleMapOutput {
 	return o
+}
+
+func (o NatRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatRule] {
+	return pulumix.Output[map[string]*NatRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NatRuleMapOutput) MapIndex(k pulumi.StringInput) NatRuleOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Active Directory Data Connector.
@@ -188,6 +189,12 @@ func (i *DataConnectorAzureActiveDirectory) ToDataConnectorAzureActiveDirectoryO
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureActiveDirectoryOutput)
 }
 
+func (i *DataConnectorAzureActiveDirectory) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAzureActiveDirectory] {
+	return pulumix.Output[*DataConnectorAzureActiveDirectory]{
+		OutputState: i.ToDataConnectorAzureActiveDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataConnectorAzureActiveDirectoryArrayInput is an input type that accepts DataConnectorAzureActiveDirectoryArray and DataConnectorAzureActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAzureActiveDirectoryArrayInput` via:
 //
@@ -211,6 +218,12 @@ func (i DataConnectorAzureActiveDirectoryArray) ToDataConnectorAzureActiveDirect
 
 func (i DataConnectorAzureActiveDirectoryArray) ToDataConnectorAzureActiveDirectoryArrayOutputWithContext(ctx context.Context) DataConnectorAzureActiveDirectoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureActiveDirectoryArrayOutput)
+}
+
+func (i DataConnectorAzureActiveDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAzureActiveDirectory] {
+	return pulumix.Output[[]*DataConnectorAzureActiveDirectory]{
+		OutputState: i.ToDataConnectorAzureActiveDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataConnectorAzureActiveDirectoryMapInput is an input type that accepts DataConnectorAzureActiveDirectoryMap and DataConnectorAzureActiveDirectoryMapOutput values.
@@ -238,6 +251,12 @@ func (i DataConnectorAzureActiveDirectoryMap) ToDataConnectorAzureActiveDirector
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureActiveDirectoryMapOutput)
 }
 
+func (i DataConnectorAzureActiveDirectoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAzureActiveDirectory] {
+	return pulumix.Output[map[string]*DataConnectorAzureActiveDirectory]{
+		OutputState: i.ToDataConnectorAzureActiveDirectoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataConnectorAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureActiveDirectoryOutput) ElementType() reflect.Type {
@@ -250,6 +269,12 @@ func (o DataConnectorAzureActiveDirectoryOutput) ToDataConnectorAzureActiveDirec
 
 func (o DataConnectorAzureActiveDirectoryOutput) ToDataConnectorAzureActiveDirectoryOutputWithContext(ctx context.Context) DataConnectorAzureActiveDirectoryOutput {
 	return o
+}
+
+func (o DataConnectorAzureActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAzureActiveDirectory] {
+	return pulumix.Output[*DataConnectorAzureActiveDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Log Analytics Workspace that this Azure Active Directory Data Connector resides in. Changing this forces a new Azure Active Directory Data Connector to be created.
@@ -283,6 +308,12 @@ func (o DataConnectorAzureActiveDirectoryArrayOutput) ToDataConnectorAzureActive
 	return o
 }
 
+func (o DataConnectorAzureActiveDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAzureActiveDirectory] {
+	return pulumix.Output[[]*DataConnectorAzureActiveDirectory]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataConnectorAzureActiveDirectoryArrayOutput) Index(i pulumi.IntInput) DataConnectorAzureActiveDirectoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAzureActiveDirectory {
 		return vs[0].([]*DataConnectorAzureActiveDirectory)[vs[1].(int)]
@@ -301,6 +332,12 @@ func (o DataConnectorAzureActiveDirectoryMapOutput) ToDataConnectorAzureActiveDi
 
 func (o DataConnectorAzureActiveDirectoryMapOutput) ToDataConnectorAzureActiveDirectoryMapOutputWithContext(ctx context.Context) DataConnectorAzureActiveDirectoryMapOutput {
 	return o
+}
+
+func (o DataConnectorAzureActiveDirectoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAzureActiveDirectory] {
+	return pulumix.Output[map[string]*DataConnectorAzureActiveDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataConnectorAzureActiveDirectoryMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAzureActiveDirectoryOutput {

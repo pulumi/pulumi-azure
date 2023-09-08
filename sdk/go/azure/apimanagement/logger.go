@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logger within an API Management Service.
@@ -240,6 +241,12 @@ func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
 }
 
+func (i *Logger) ToOutput(ctx context.Context) pulumix.Output[*Logger] {
+	return pulumix.Output[*Logger]{
+		OutputState: i.ToLoggerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoggerArrayInput is an input type that accepts LoggerArray and LoggerArrayOutput values.
 // You can construct a concrete instance of `LoggerArrayInput` via:
 //
@@ -263,6 +270,12 @@ func (i LoggerArray) ToLoggerArrayOutput() LoggerArrayOutput {
 
 func (i LoggerArray) ToLoggerArrayOutputWithContext(ctx context.Context) LoggerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerArrayOutput)
+}
+
+func (i LoggerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Logger] {
+	return pulumix.Output[[]*Logger]{
+		OutputState: i.ToLoggerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoggerMapInput is an input type that accepts LoggerMap and LoggerMapOutput values.
@@ -290,6 +303,12 @@ func (i LoggerMap) ToLoggerMapOutputWithContext(ctx context.Context) LoggerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerMapOutput)
 }
 
+func (i LoggerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Logger] {
+	return pulumix.Output[map[string]*Logger]{
+		OutputState: i.ToLoggerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerOutput) ElementType() reflect.Type {
@@ -302,6 +321,12 @@ func (o LoggerOutput) ToLoggerOutput() LoggerOutput {
 
 func (o LoggerOutput) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return o
+}
+
+func (o LoggerOutput) ToOutput(ctx context.Context) pulumix.Output[*Logger] {
+	return pulumix.Output[*Logger]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
@@ -358,6 +383,12 @@ func (o LoggerArrayOutput) ToLoggerArrayOutputWithContext(ctx context.Context) L
 	return o
 }
 
+func (o LoggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Logger] {
+	return pulumix.Output[[]*Logger]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggerArrayOutput) Index(i pulumi.IntInput) LoggerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Logger {
 		return vs[0].([]*Logger)[vs[1].(int)]
@@ -376,6 +407,12 @@ func (o LoggerMapOutput) ToLoggerMapOutput() LoggerMapOutput {
 
 func (o LoggerMapOutput) ToLoggerMapOutputWithContext(ctx context.Context) LoggerMapOutput {
 	return o
+}
+
+func (o LoggerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Logger] {
+	return pulumix.Output[map[string]*Logger]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggerMapOutput) MapIndex(k pulumi.StringInput) LoggerOutput {

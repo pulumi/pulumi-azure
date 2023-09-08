@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
@@ -113,6 +114,12 @@ func (o GetKubernetesServiceVersionsResultOutput) ToGetKubernetesServiceVersions
 
 func (o GetKubernetesServiceVersionsResultOutput) ToGetKubernetesServiceVersionsResultOutputWithContext(ctx context.Context) GetKubernetesServiceVersionsResultOutput {
 	return o
+}
+
+func (o GetKubernetesServiceVersionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetKubernetesServiceVersionsResult] {
+	return pulumix.Output[GetKubernetesServiceVersionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

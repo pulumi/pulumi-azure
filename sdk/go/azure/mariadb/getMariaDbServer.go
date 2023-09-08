@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing MariaDB Server.
@@ -120,6 +121,12 @@ func (o GetMariaDbServerResultOutput) ToGetMariaDbServerResultOutput() GetMariaD
 
 func (o GetMariaDbServerResultOutput) ToGetMariaDbServerResultOutputWithContext(ctx context.Context) GetMariaDbServerResultOutput {
 	return o
+}
+
+func (o GetMariaDbServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMariaDbServerResult] {
+	return pulumix.Output[GetMariaDbServerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Administrator login for the MariaDB Server.

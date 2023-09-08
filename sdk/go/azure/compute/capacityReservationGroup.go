@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Capacity Reservation Group.
@@ -184,6 +185,12 @@ func (i *CapacityReservationGroup) ToCapacityReservationGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationGroupOutput)
 }
 
+func (i *CapacityReservationGroup) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationGroup] {
+	return pulumix.Output[*CapacityReservationGroup]{
+		OutputState: i.ToCapacityReservationGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CapacityReservationGroupArrayInput is an input type that accepts CapacityReservationGroupArray and CapacityReservationGroupArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationGroupArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i CapacityReservationGroupArray) ToCapacityReservationGroupArrayOutput() C
 
 func (i CapacityReservationGroupArray) ToCapacityReservationGroupArrayOutputWithContext(ctx context.Context) CapacityReservationGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationGroupArrayOutput)
+}
+
+func (i CapacityReservationGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*CapacityReservationGroup] {
+	return pulumix.Output[[]*CapacityReservationGroup]{
+		OutputState: i.ToCapacityReservationGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CapacityReservationGroupMapInput is an input type that accepts CapacityReservationGroupMap and CapacityReservationGroupMapOutput values.
@@ -234,6 +247,12 @@ func (i CapacityReservationGroupMap) ToCapacityReservationGroupMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationGroupMapOutput)
 }
 
+func (i CapacityReservationGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CapacityReservationGroup] {
+	return pulumix.Output[map[string]*CapacityReservationGroup]{
+		OutputState: i.ToCapacityReservationGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityReservationGroupOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationGroupOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o CapacityReservationGroupOutput) ToCapacityReservationGroupOutput() Capac
 
 func (o CapacityReservationGroupOutput) ToCapacityReservationGroupOutputWithContext(ctx context.Context) CapacityReservationGroupOutput {
 	return o
+}
+
+func (o CapacityReservationGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationGroup] {
+	return pulumix.Output[*CapacityReservationGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
@@ -287,6 +312,12 @@ func (o CapacityReservationGroupArrayOutput) ToCapacityReservationGroupArrayOutp
 	return o
 }
 
+func (o CapacityReservationGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CapacityReservationGroup] {
+	return pulumix.Output[[]*CapacityReservationGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationGroupArrayOutput) Index(i pulumi.IntInput) CapacityReservationGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CapacityReservationGroup {
 		return vs[0].([]*CapacityReservationGroup)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o CapacityReservationGroupMapOutput) ToCapacityReservationGroupMapOutput()
 
 func (o CapacityReservationGroupMapOutput) ToCapacityReservationGroupMapOutputWithContext(ctx context.Context) CapacityReservationGroupMapOutput {
 	return o
+}
+
+func (o CapacityReservationGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CapacityReservationGroup] {
+	return pulumix.Output[map[string]*CapacityReservationGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationGroupMapOutput) MapIndex(k pulumi.StringInput) CapacityReservationGroupOutput {

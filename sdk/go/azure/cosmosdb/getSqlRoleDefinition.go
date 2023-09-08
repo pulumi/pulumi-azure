@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Cosmos DB SQL Role Definition.
@@ -117,6 +118,12 @@ func (o LookupSqlRoleDefinitionResultOutput) ToLookupSqlRoleDefinitionResultOutp
 
 func (o LookupSqlRoleDefinitionResultOutput) ToLookupSqlRoleDefinitionResultOutputWithContext(ctx context.Context) LookupSqlRoleDefinitionResultOutput {
 	return o
+}
+
+func (o LookupSqlRoleDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSqlRoleDefinitionResult] {
+	return pulumix.Output[LookupSqlRoleDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSqlRoleDefinitionResultOutput) AccountName() pulumi.StringOutput {

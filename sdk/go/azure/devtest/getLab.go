@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Dev Test Lab.
@@ -122,6 +123,12 @@ func (o LookupLabResultOutput) ToLookupLabResultOutput() LookupLabResultOutput {
 
 func (o LookupLabResultOutput) ToLookupLabResultOutputWithContext(ctx context.Context) LookupLabResultOutput {
 	return o
+}
+
+func (o LookupLabResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLabResult] {
+	return pulumix.Output[LookupLabResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Storage Account used for Artifact Storage.

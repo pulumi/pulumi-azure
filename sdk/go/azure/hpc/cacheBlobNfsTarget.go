@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Blob NFSv3 Target within a HPC Cache.
@@ -196,6 +197,12 @@ func (i *CacheBlobNfsTarget) ToCacheBlobNfsTargetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobNfsTargetOutput)
 }
 
+func (i *CacheBlobNfsTarget) ToOutput(ctx context.Context) pulumix.Output[*CacheBlobNfsTarget] {
+	return pulumix.Output[*CacheBlobNfsTarget]{
+		OutputState: i.ToCacheBlobNfsTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CacheBlobNfsTargetArrayInput is an input type that accepts CacheBlobNfsTargetArray and CacheBlobNfsTargetArrayOutput values.
 // You can construct a concrete instance of `CacheBlobNfsTargetArrayInput` via:
 //
@@ -219,6 +226,12 @@ func (i CacheBlobNfsTargetArray) ToCacheBlobNfsTargetArrayOutput() CacheBlobNfsT
 
 func (i CacheBlobNfsTargetArray) ToCacheBlobNfsTargetArrayOutputWithContext(ctx context.Context) CacheBlobNfsTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobNfsTargetArrayOutput)
+}
+
+func (i CacheBlobNfsTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*CacheBlobNfsTarget] {
+	return pulumix.Output[[]*CacheBlobNfsTarget]{
+		OutputState: i.ToCacheBlobNfsTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CacheBlobNfsTargetMapInput is an input type that accepts CacheBlobNfsTargetMap and CacheBlobNfsTargetMapOutput values.
@@ -246,6 +259,12 @@ func (i CacheBlobNfsTargetMap) ToCacheBlobNfsTargetMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CacheBlobNfsTargetMapOutput)
 }
 
+func (i CacheBlobNfsTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CacheBlobNfsTarget] {
+	return pulumix.Output[map[string]*CacheBlobNfsTarget]{
+		OutputState: i.ToCacheBlobNfsTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CacheBlobNfsTargetOutput struct{ *pulumi.OutputState }
 
 func (CacheBlobNfsTargetOutput) ElementType() reflect.Type {
@@ -258,6 +277,12 @@ func (o CacheBlobNfsTargetOutput) ToCacheBlobNfsTargetOutput() CacheBlobNfsTarge
 
 func (o CacheBlobNfsTargetOutput) ToCacheBlobNfsTargetOutputWithContext(ctx context.Context) CacheBlobNfsTargetOutput {
 	return o
+}
+
+func (o CacheBlobNfsTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheBlobNfsTarget] {
+	return pulumix.Output[*CacheBlobNfsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the access policy applied to this target. Defaults to `default`.
@@ -311,6 +336,12 @@ func (o CacheBlobNfsTargetArrayOutput) ToCacheBlobNfsTargetArrayOutputWithContex
 	return o
 }
 
+func (o CacheBlobNfsTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CacheBlobNfsTarget] {
+	return pulumix.Output[[]*CacheBlobNfsTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CacheBlobNfsTargetArrayOutput) Index(i pulumi.IntInput) CacheBlobNfsTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CacheBlobNfsTarget {
 		return vs[0].([]*CacheBlobNfsTarget)[vs[1].(int)]
@@ -329,6 +360,12 @@ func (o CacheBlobNfsTargetMapOutput) ToCacheBlobNfsTargetMapOutput() CacheBlobNf
 
 func (o CacheBlobNfsTargetMapOutput) ToCacheBlobNfsTargetMapOutputWithContext(ctx context.Context) CacheBlobNfsTargetMapOutput {
 	return o
+}
+
+func (o CacheBlobNfsTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CacheBlobNfsTarget] {
+	return pulumix.Output[map[string]*CacheBlobNfsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CacheBlobNfsTargetMapOutput) MapIndex(k pulumi.StringInput) CacheBlobNfsTargetOutput {

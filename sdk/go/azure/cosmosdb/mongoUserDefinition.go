@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cosmos DB Mongo User Definition.
@@ -231,6 +232,12 @@ func (i *MongoUserDefinition) ToMongoUserDefinitionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MongoUserDefinitionOutput)
 }
 
+func (i *MongoUserDefinition) ToOutput(ctx context.Context) pulumix.Output[*MongoUserDefinition] {
+	return pulumix.Output[*MongoUserDefinition]{
+		OutputState: i.ToMongoUserDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MongoUserDefinitionArrayInput is an input type that accepts MongoUserDefinitionArray and MongoUserDefinitionArrayOutput values.
 // You can construct a concrete instance of `MongoUserDefinitionArrayInput` via:
 //
@@ -254,6 +261,12 @@ func (i MongoUserDefinitionArray) ToMongoUserDefinitionArrayOutput() MongoUserDe
 
 func (i MongoUserDefinitionArray) ToMongoUserDefinitionArrayOutputWithContext(ctx context.Context) MongoUserDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoUserDefinitionArrayOutput)
+}
+
+func (i MongoUserDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*MongoUserDefinition] {
+	return pulumix.Output[[]*MongoUserDefinition]{
+		OutputState: i.ToMongoUserDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MongoUserDefinitionMapInput is an input type that accepts MongoUserDefinitionMap and MongoUserDefinitionMapOutput values.
@@ -281,6 +294,12 @@ func (i MongoUserDefinitionMap) ToMongoUserDefinitionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MongoUserDefinitionMapOutput)
 }
 
+func (i MongoUserDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoUserDefinition] {
+	return pulumix.Output[map[string]*MongoUserDefinition]{
+		OutputState: i.ToMongoUserDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MongoUserDefinitionOutput struct{ *pulumi.OutputState }
 
 func (MongoUserDefinitionOutput) ElementType() reflect.Type {
@@ -293,6 +312,12 @@ func (o MongoUserDefinitionOutput) ToMongoUserDefinitionOutput() MongoUserDefini
 
 func (o MongoUserDefinitionOutput) ToMongoUserDefinitionOutputWithContext(ctx context.Context) MongoUserDefinitionOutput {
 	return o
+}
+
+func (o MongoUserDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*MongoUserDefinition] {
+	return pulumix.Output[*MongoUserDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The resource ID of the Mongo DB. Changing this forces a new resource to be created.
@@ -331,6 +356,12 @@ func (o MongoUserDefinitionArrayOutput) ToMongoUserDefinitionArrayOutputWithCont
 	return o
 }
 
+func (o MongoUserDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MongoUserDefinition] {
+	return pulumix.Output[[]*MongoUserDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MongoUserDefinitionArrayOutput) Index(i pulumi.IntInput) MongoUserDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MongoUserDefinition {
 		return vs[0].([]*MongoUserDefinition)[vs[1].(int)]
@@ -349,6 +380,12 @@ func (o MongoUserDefinitionMapOutput) ToMongoUserDefinitionMapOutput() MongoUser
 
 func (o MongoUserDefinitionMapOutput) ToMongoUserDefinitionMapOutputWithContext(ctx context.Context) MongoUserDefinitionMapOutput {
 	return o
+}
+
+func (o MongoUserDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoUserDefinition] {
+	return pulumix.Output[map[string]*MongoUserDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MongoUserDefinitionMapOutput) MapIndex(k pulumi.StringInput) MongoUserDefinitionOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Storage Management Policy.
@@ -106,6 +107,12 @@ func (o GetPolicyResultOutput) ToGetPolicyResultOutput() GetPolicyResultOutput {
 
 func (o GetPolicyResultOutput) ToGetPolicyResultOutputWithContext(ctx context.Context) GetPolicyResultOutput {
 	return o
+}
+
+func (o GetPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyResult] {
+	return pulumix.Output[GetPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

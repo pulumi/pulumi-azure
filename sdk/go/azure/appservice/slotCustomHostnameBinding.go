@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Hostname Binding within an App Service Slot.
@@ -231,6 +232,12 @@ func (i *SlotCustomHostnameBinding) ToSlotCustomHostnameBindingOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SlotCustomHostnameBindingOutput)
 }
 
+func (i *SlotCustomHostnameBinding) ToOutput(ctx context.Context) pulumix.Output[*SlotCustomHostnameBinding] {
+	return pulumix.Output[*SlotCustomHostnameBinding]{
+		OutputState: i.ToSlotCustomHostnameBindingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SlotCustomHostnameBindingArrayInput is an input type that accepts SlotCustomHostnameBindingArray and SlotCustomHostnameBindingArrayOutput values.
 // You can construct a concrete instance of `SlotCustomHostnameBindingArrayInput` via:
 //
@@ -254,6 +261,12 @@ func (i SlotCustomHostnameBindingArray) ToSlotCustomHostnameBindingArrayOutput()
 
 func (i SlotCustomHostnameBindingArray) ToSlotCustomHostnameBindingArrayOutputWithContext(ctx context.Context) SlotCustomHostnameBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotCustomHostnameBindingArrayOutput)
+}
+
+func (i SlotCustomHostnameBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*SlotCustomHostnameBinding] {
+	return pulumix.Output[[]*SlotCustomHostnameBinding]{
+		OutputState: i.ToSlotCustomHostnameBindingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SlotCustomHostnameBindingMapInput is an input type that accepts SlotCustomHostnameBindingMap and SlotCustomHostnameBindingMapOutput values.
@@ -281,6 +294,12 @@ func (i SlotCustomHostnameBindingMap) ToSlotCustomHostnameBindingMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SlotCustomHostnameBindingMapOutput)
 }
 
+func (i SlotCustomHostnameBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlotCustomHostnameBinding] {
+	return pulumix.Output[map[string]*SlotCustomHostnameBinding]{
+		OutputState: i.ToSlotCustomHostnameBindingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SlotCustomHostnameBindingOutput struct{ *pulumi.OutputState }
 
 func (SlotCustomHostnameBindingOutput) ElementType() reflect.Type {
@@ -293,6 +312,12 @@ func (o SlotCustomHostnameBindingOutput) ToSlotCustomHostnameBindingOutput() Slo
 
 func (o SlotCustomHostnameBindingOutput) ToSlotCustomHostnameBindingOutputWithContext(ctx context.Context) SlotCustomHostnameBindingOutput {
 	return o
+}
+
+func (o SlotCustomHostnameBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*SlotCustomHostnameBinding] {
+	return pulumix.Output[*SlotCustomHostnameBinding]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the App Service Slot. Changing this forces a new resource to be created.
@@ -338,6 +363,12 @@ func (o SlotCustomHostnameBindingArrayOutput) ToSlotCustomHostnameBindingArrayOu
 	return o
 }
 
+func (o SlotCustomHostnameBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SlotCustomHostnameBinding] {
+	return pulumix.Output[[]*SlotCustomHostnameBinding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SlotCustomHostnameBindingArrayOutput) Index(i pulumi.IntInput) SlotCustomHostnameBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SlotCustomHostnameBinding {
 		return vs[0].([]*SlotCustomHostnameBinding)[vs[1].(int)]
@@ -356,6 +387,12 @@ func (o SlotCustomHostnameBindingMapOutput) ToSlotCustomHostnameBindingMapOutput
 
 func (o SlotCustomHostnameBindingMapOutput) ToSlotCustomHostnameBindingMapOutputWithContext(ctx context.Context) SlotCustomHostnameBindingMapOutput {
 	return o
+}
+
+func (o SlotCustomHostnameBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlotCustomHostnameBinding] {
+	return pulumix.Output[map[string]*SlotCustomHostnameBinding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SlotCustomHostnameBindingMapOutput) MapIndex(k pulumi.StringInput) SlotCustomHostnameBindingOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MS Teams integration for a Bot Channel
@@ -203,6 +204,12 @@ func (i *ChannelTeams) ToChannelTeamsOutputWithContext(ctx context.Context) Chan
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsOutput)
 }
 
+func (i *ChannelTeams) ToOutput(ctx context.Context) pulumix.Output[*ChannelTeams] {
+	return pulumix.Output[*ChannelTeams]{
+		OutputState: i.ToChannelTeamsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ChannelTeamsArrayInput is an input type that accepts ChannelTeamsArray and ChannelTeamsArrayOutput values.
 // You can construct a concrete instance of `ChannelTeamsArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i ChannelTeamsArray) ToChannelTeamsArrayOutput() ChannelTeamsArrayOutput {
 
 func (i ChannelTeamsArray) ToChannelTeamsArrayOutputWithContext(ctx context.Context) ChannelTeamsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsArrayOutput)
+}
+
+func (i ChannelTeamsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelTeams] {
+	return pulumix.Output[[]*ChannelTeams]{
+		OutputState: i.ToChannelTeamsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ChannelTeamsMapInput is an input type that accepts ChannelTeamsMap and ChannelTeamsMapOutput values.
@@ -253,6 +266,12 @@ func (i ChannelTeamsMap) ToChannelTeamsMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTeamsMapOutput)
 }
 
+func (i ChannelTeamsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelTeams] {
+	return pulumix.Output[map[string]*ChannelTeams]{
+		OutputState: i.ToChannelTeamsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ChannelTeamsOutput struct{ *pulumi.OutputState }
 
 func (ChannelTeamsOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o ChannelTeamsOutput) ToChannelTeamsOutput() ChannelTeamsOutput {
 
 func (o ChannelTeamsOutput) ToChannelTeamsOutputWithContext(ctx context.Context) ChannelTeamsOutput {
 	return o
+}
+
+func (o ChannelTeamsOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelTeams] {
+	return pulumix.Output[*ChannelTeams]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -306,6 +331,12 @@ func (o ChannelTeamsArrayOutput) ToChannelTeamsArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ChannelTeamsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelTeams] {
+	return pulumix.Output[[]*ChannelTeams]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelTeamsArrayOutput) Index(i pulumi.IntInput) ChannelTeamsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelTeams {
 		return vs[0].([]*ChannelTeams)[vs[1].(int)]
@@ -324,6 +355,12 @@ func (o ChannelTeamsMapOutput) ToChannelTeamsMapOutput() ChannelTeamsMapOutput {
 
 func (o ChannelTeamsMapOutput) ToChannelTeamsMapOutputWithContext(ctx context.Context) ChannelTeamsMapOutput {
 	return o
+}
+
+func (o ChannelTeamsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelTeams] {
+	return pulumix.Output[map[string]*ChannelTeams]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTeamsMapOutput) MapIndex(k pulumi.StringInput) ChannelTeamsOutput {

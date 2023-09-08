@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IoT Central Application Network Rule Set.
@@ -196,6 +197,12 @@ func (i *ApplicationNetworkRuleSet) ToApplicationNetworkRuleSetOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetOutput)
 }
 
+func (i *ApplicationNetworkRuleSet) ToOutput(ctx context.Context) pulumix.Output[*ApplicationNetworkRuleSet] {
+	return pulumix.Output[*ApplicationNetworkRuleSet]{
+		OutputState: i.ToApplicationNetworkRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationNetworkRuleSetArrayInput is an input type that accepts ApplicationNetworkRuleSetArray and ApplicationNetworkRuleSetArrayOutput values.
 // You can construct a concrete instance of `ApplicationNetworkRuleSetArrayInput` via:
 //
@@ -219,6 +226,12 @@ func (i ApplicationNetworkRuleSetArray) ToApplicationNetworkRuleSetArrayOutput()
 
 func (i ApplicationNetworkRuleSetArray) ToApplicationNetworkRuleSetArrayOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetArrayOutput)
+}
+
+func (i ApplicationNetworkRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationNetworkRuleSet] {
+	return pulumix.Output[[]*ApplicationNetworkRuleSet]{
+		OutputState: i.ToApplicationNetworkRuleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationNetworkRuleSetMapInput is an input type that accepts ApplicationNetworkRuleSetMap and ApplicationNetworkRuleSetMapOutput values.
@@ -246,6 +259,12 @@ func (i ApplicationNetworkRuleSetMap) ToApplicationNetworkRuleSetMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetMapOutput)
 }
 
+func (i ApplicationNetworkRuleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationNetworkRuleSet] {
+	return pulumix.Output[map[string]*ApplicationNetworkRuleSet]{
+		OutputState: i.ToApplicationNetworkRuleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNetworkRuleSetOutput) ElementType() reflect.Type {
@@ -258,6 +277,12 @@ func (o ApplicationNetworkRuleSetOutput) ToApplicationNetworkRuleSetOutput() App
 
 func (o ApplicationNetworkRuleSetOutput) ToApplicationNetworkRuleSetOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetOutput {
 	return o
+}
+
+func (o ApplicationNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationNetworkRuleSet] {
+	return pulumix.Output[*ApplicationNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
@@ -294,6 +319,12 @@ func (o ApplicationNetworkRuleSetArrayOutput) ToApplicationNetworkRuleSetArrayOu
 	return o
 }
 
+func (o ApplicationNetworkRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationNetworkRuleSet] {
+	return pulumix.Output[[]*ApplicationNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationNetworkRuleSetArrayOutput) Index(i pulumi.IntInput) ApplicationNetworkRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationNetworkRuleSet {
 		return vs[0].([]*ApplicationNetworkRuleSet)[vs[1].(int)]
@@ -312,6 +343,12 @@ func (o ApplicationNetworkRuleSetMapOutput) ToApplicationNetworkRuleSetMapOutput
 
 func (o ApplicationNetworkRuleSetMapOutput) ToApplicationNetworkRuleSetMapOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetMapOutput {
 	return o
+}
+
+func (o ApplicationNetworkRuleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationNetworkRuleSet] {
+	return pulumix.Output[map[string]*ApplicationNetworkRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationNetworkRuleSetMapOutput) MapIndex(k pulumi.StringInput) ApplicationNetworkRuleSetOutput {

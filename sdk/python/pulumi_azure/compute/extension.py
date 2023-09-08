@@ -26,6 +26,7 @@ class ExtensionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -52,6 +53,7 @@ class ExtensionArgs:
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
                > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
@@ -73,6 +75,8 @@ class ExtensionArgs:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if protected_settings_from_key_vault is not None:
             pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
@@ -211,6 +215,18 @@ class ExtensionArgs:
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @provision_after_extensions.setter
+    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "provision_after_extensions", value)
+
+    @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[str]]:
         """
@@ -246,6 +262,7 @@ class _ExtensionState:
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -266,6 +283,7 @@ class _ExtensionState:
         :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
@@ -293,6 +311,8 @@ class _ExtensionState:
             pulumi.set(__self__, "protected_settings", protected_settings)
         if protected_settings_from_key_vault is not None:
             pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if publisher is not None:
             pulumi.set(__self__, "publisher", publisher)
         if settings is not None:
@@ -383,6 +403,18 @@ class _ExtensionState:
     @protected_settings_from_key_vault.setter
     def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @provision_after_extensions.setter
+    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "provision_after_extensions", value)
 
     @property
     @pulumi.getter
@@ -476,6 +508,7 @@ class Extension(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -570,6 +603,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
@@ -685,6 +719,7 @@ class Extension(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -706,6 +741,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = None if protected_settings is None else pulumi.Output.secret(protected_settings)
             __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
+            __props__.__dict__["provision_after_extensions"] = provision_after_extensions
             if publisher is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher'")
             __props__.__dict__["publisher"] = publisher
@@ -738,6 +774,7 @@ class Extension(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             protected_settings: Optional[pulumi.Input[str]] = None,
             protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']]] = None,
+            provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             publisher: Optional[pulumi.Input[str]] = None,
             settings: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -763,6 +800,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are specified as a JSON object in a string.
                
@@ -788,6 +826,7 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["protected_settings"] = protected_settings
         __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
+        __props__.__dict__["provision_after_extensions"] = provision_after_extensions
         __props__.__dict__["publisher"] = publisher
         __props__.__dict__["settings"] = settings
         __props__.__dict__["tags"] = tags
@@ -849,6 +888,14 @@ class Extension(pulumi.CustomResource):
         > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         """
         return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
 
     @property
     @pulumi.getter

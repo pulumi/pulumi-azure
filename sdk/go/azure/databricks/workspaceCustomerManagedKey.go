@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -131,6 +132,12 @@ func (i *WorkspaceCustomerManagedKey) ToWorkspaceCustomerManagedKeyOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyOutput)
 }
 
+func (i *WorkspaceCustomerManagedKey) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceCustomerManagedKey] {
+	return pulumix.Output[*WorkspaceCustomerManagedKey]{
+		OutputState: i.ToWorkspaceCustomerManagedKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceCustomerManagedKeyArrayInput is an input type that accepts WorkspaceCustomerManagedKeyArray and WorkspaceCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceCustomerManagedKeyArrayInput` via:
 //
@@ -154,6 +161,12 @@ func (i WorkspaceCustomerManagedKeyArray) ToWorkspaceCustomerManagedKeyArrayOutp
 
 func (i WorkspaceCustomerManagedKeyArray) ToWorkspaceCustomerManagedKeyArrayOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyArrayOutput)
+}
+
+func (i WorkspaceCustomerManagedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceCustomerManagedKey] {
+	return pulumix.Output[[]*WorkspaceCustomerManagedKey]{
+		OutputState: i.ToWorkspaceCustomerManagedKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceCustomerManagedKeyMapInput is an input type that accepts WorkspaceCustomerManagedKeyMap and WorkspaceCustomerManagedKeyMapOutput values.
@@ -181,6 +194,12 @@ func (i WorkspaceCustomerManagedKeyMap) ToWorkspaceCustomerManagedKeyMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyMapOutput)
 }
 
+func (i WorkspaceCustomerManagedKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceCustomerManagedKey] {
+	return pulumix.Output[map[string]*WorkspaceCustomerManagedKey]{
+		OutputState: i.ToWorkspaceCustomerManagedKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -193,6 +212,12 @@ func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyOutput()
 
 func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyOutput {
 	return o
+}
+
+func (o WorkspaceCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceCustomerManagedKey] {
+	return pulumix.Output[*WorkspaceCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Key Vault.
@@ -221,6 +246,12 @@ func (o WorkspaceCustomerManagedKeyArrayOutput) ToWorkspaceCustomerManagedKeyArr
 	return o
 }
 
+func (o WorkspaceCustomerManagedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceCustomerManagedKey] {
+	return pulumix.Output[[]*WorkspaceCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) WorkspaceCustomerManagedKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceCustomerManagedKey {
 		return vs[0].([]*WorkspaceCustomerManagedKey)[vs[1].(int)]
@@ -239,6 +270,12 @@ func (o WorkspaceCustomerManagedKeyMapOutput) ToWorkspaceCustomerManagedKeyMapOu
 
 func (o WorkspaceCustomerManagedKeyMapOutput) ToWorkspaceCustomerManagedKeyMapOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyMapOutput {
 	return o
+}
+
+func (o WorkspaceCustomerManagedKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceCustomerManagedKey] {
+	return pulumix.Output[map[string]*WorkspaceCustomerManagedKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceCustomerManagedKeyOutput {

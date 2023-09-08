@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Load Balancer's Backend Address Pool.
@@ -127,6 +128,12 @@ func (o LookupBackendAddressPoolResultOutput) ToLookupBackendAddressPoolResultOu
 
 func (o LookupBackendAddressPoolResultOutput) ToLookupBackendAddressPoolResultOutputWithContext(ctx context.Context) LookupBackendAddressPoolResultOutput {
 	return o
+}
+
+func (o LookupBackendAddressPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBackendAddressPoolResult] {
+	return pulumix.Output[LookupBackendAddressPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `backendAddress` block as defined below.

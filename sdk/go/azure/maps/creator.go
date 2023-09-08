@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Maps Creator.
@@ -201,6 +202,12 @@ func (i *Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
 }
 
+func (i *Creator) ToOutput(ctx context.Context) pulumix.Output[*Creator] {
+	return pulumix.Output[*Creator]{
+		OutputState: i.ToCreatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CreatorArrayInput is an input type that accepts CreatorArray and CreatorArrayOutput values.
 // You can construct a concrete instance of `CreatorArrayInput` via:
 //
@@ -224,6 +231,12 @@ func (i CreatorArray) ToCreatorArrayOutput() CreatorArrayOutput {
 
 func (i CreatorArray) ToCreatorArrayOutputWithContext(ctx context.Context) CreatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorArrayOutput)
+}
+
+func (i CreatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Creator] {
+	return pulumix.Output[[]*Creator]{
+		OutputState: i.ToCreatorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CreatorMapInput is an input type that accepts CreatorMap and CreatorMapOutput values.
@@ -251,6 +264,12 @@ func (i CreatorMap) ToCreatorMapOutputWithContext(ctx context.Context) CreatorMa
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorMapOutput)
 }
 
+func (i CreatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Creator] {
+	return pulumix.Output[map[string]*Creator]{
+		OutputState: i.ToCreatorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CreatorOutput struct{ *pulumi.OutputState }
 
 func (CreatorOutput) ElementType() reflect.Type {
@@ -263,6 +282,12 @@ func (o CreatorOutput) ToCreatorOutput() CreatorOutput {
 
 func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput {
 	return o
+}
+
+func (o CreatorOutput) ToOutput(ctx context.Context) pulumix.Output[*Creator] {
+	return pulumix.Output[*Creator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
@@ -304,6 +329,12 @@ func (o CreatorArrayOutput) ToCreatorArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o CreatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Creator] {
+	return pulumix.Output[[]*Creator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CreatorArrayOutput) Index(i pulumi.IntInput) CreatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Creator {
 		return vs[0].([]*Creator)[vs[1].(int)]
@@ -322,6 +353,12 @@ func (o CreatorMapOutput) ToCreatorMapOutput() CreatorMapOutput {
 
 func (o CreatorMapOutput) ToCreatorMapOutputWithContext(ctx context.Context) CreatorMapOutput {
 	return o
+}
+
+func (o CreatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Creator] {
+	return pulumix.Output[map[string]*Creator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CreatorMapOutput) MapIndex(k pulumi.StringInput) CreatorOutput {

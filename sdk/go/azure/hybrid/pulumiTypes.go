@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -70,6 +71,12 @@ func (i GetComputeMachineAgentConfigurationArgs) ToGetComputeMachineAgentConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineAgentConfigurationOutput)
 }
 
+func (i GetComputeMachineAgentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineAgentConfiguration] {
+	return pulumix.Output[GetComputeMachineAgentConfiguration]{
+		OutputState: i.ToGetComputeMachineAgentConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineAgentConfigurationArrayInput is an input type that accepts GetComputeMachineAgentConfigurationArray and GetComputeMachineAgentConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineAgentConfigurationArrayInput` via:
 //
@@ -95,6 +102,12 @@ func (i GetComputeMachineAgentConfigurationArray) ToGetComputeMachineAgentConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineAgentConfigurationArrayOutput)
 }
 
+func (i GetComputeMachineAgentConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineAgentConfiguration] {
+	return pulumix.Output[[]GetComputeMachineAgentConfiguration]{
+		OutputState: i.ToGetComputeMachineAgentConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineAgentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineAgentConfigurationOutput) ElementType() reflect.Type {
@@ -107,6 +120,12 @@ func (o GetComputeMachineAgentConfigurationOutput) ToGetComputeMachineAgentConfi
 
 func (o GetComputeMachineAgentConfigurationOutput) ToGetComputeMachineAgentConfigurationOutputWithContext(ctx context.Context) GetComputeMachineAgentConfigurationOutput {
 	return o
+}
+
+func (o GetComputeMachineAgentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineAgentConfiguration] {
+	return pulumix.Output[GetComputeMachineAgentConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `extensionsAllowList` block as defined below.
@@ -162,6 +181,12 @@ func (o GetComputeMachineAgentConfigurationArrayOutput) ToGetComputeMachineAgent
 	return o
 }
 
+func (o GetComputeMachineAgentConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineAgentConfiguration] {
+	return pulumix.Output[[]GetComputeMachineAgentConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetComputeMachineAgentConfigurationArrayOutput) Index(i pulumi.IntInput) GetComputeMachineAgentConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComputeMachineAgentConfiguration {
 		return vs[0].([]GetComputeMachineAgentConfiguration)[vs[1].(int)]
@@ -205,6 +230,12 @@ func (i GetComputeMachineAgentConfigurationExtensionsAllowListArgs) ToGetCompute
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineAgentConfigurationExtensionsAllowListOutput)
 }
 
+func (i GetComputeMachineAgentConfigurationExtensionsAllowListArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineAgentConfigurationExtensionsAllowList] {
+	return pulumix.Output[GetComputeMachineAgentConfigurationExtensionsAllowList]{
+		OutputState: i.ToGetComputeMachineAgentConfigurationExtensionsAllowListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineAgentConfigurationExtensionsAllowListArrayInput is an input type that accepts GetComputeMachineAgentConfigurationExtensionsAllowListArray and GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineAgentConfigurationExtensionsAllowListArrayInput` via:
 //
@@ -230,6 +261,12 @@ func (i GetComputeMachineAgentConfigurationExtensionsAllowListArray) ToGetComput
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput)
 }
 
+func (i GetComputeMachineAgentConfigurationExtensionsAllowListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsAllowList] {
+	return pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsAllowList]{
+		OutputState: i.ToGetComputeMachineAgentConfigurationExtensionsAllowListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineAgentConfigurationExtensionsAllowListOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineAgentConfigurationExtensionsAllowListOutput) ElementType() reflect.Type {
@@ -242,6 +279,12 @@ func (o GetComputeMachineAgentConfigurationExtensionsAllowListOutput) ToGetCompu
 
 func (o GetComputeMachineAgentConfigurationExtensionsAllowListOutput) ToGetComputeMachineAgentConfigurationExtensionsAllowListOutputWithContext(ctx context.Context) GetComputeMachineAgentConfigurationExtensionsAllowListOutput {
 	return o
+}
+
+func (o GetComputeMachineAgentConfigurationExtensionsAllowListOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineAgentConfigurationExtensionsAllowList] {
+	return pulumix.Output[GetComputeMachineAgentConfigurationExtensionsAllowList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Publisher of the extension.
@@ -266,6 +309,12 @@ func (o GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput) ToGet
 
 func (o GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput) ToGetComputeMachineAgentConfigurationExtensionsAllowListArrayOutputWithContext(ctx context.Context) GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsAllowList] {
+	return pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsAllowList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineAgentConfigurationExtensionsAllowListArrayOutput) Index(i pulumi.IntInput) GetComputeMachineAgentConfigurationExtensionsAllowListOutput {
@@ -311,6 +360,12 @@ func (i GetComputeMachineAgentConfigurationExtensionsBlockListArgs) ToGetCompute
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineAgentConfigurationExtensionsBlockListOutput)
 }
 
+func (i GetComputeMachineAgentConfigurationExtensionsBlockListArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineAgentConfigurationExtensionsBlockList] {
+	return pulumix.Output[GetComputeMachineAgentConfigurationExtensionsBlockList]{
+		OutputState: i.ToGetComputeMachineAgentConfigurationExtensionsBlockListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineAgentConfigurationExtensionsBlockListArrayInput is an input type that accepts GetComputeMachineAgentConfigurationExtensionsBlockListArray and GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineAgentConfigurationExtensionsBlockListArrayInput` via:
 //
@@ -336,6 +391,12 @@ func (i GetComputeMachineAgentConfigurationExtensionsBlockListArray) ToGetComput
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput)
 }
 
+func (i GetComputeMachineAgentConfigurationExtensionsBlockListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsBlockList] {
+	return pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsBlockList]{
+		OutputState: i.ToGetComputeMachineAgentConfigurationExtensionsBlockListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineAgentConfigurationExtensionsBlockListOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineAgentConfigurationExtensionsBlockListOutput) ElementType() reflect.Type {
@@ -348,6 +409,12 @@ func (o GetComputeMachineAgentConfigurationExtensionsBlockListOutput) ToGetCompu
 
 func (o GetComputeMachineAgentConfigurationExtensionsBlockListOutput) ToGetComputeMachineAgentConfigurationExtensionsBlockListOutputWithContext(ctx context.Context) GetComputeMachineAgentConfigurationExtensionsBlockListOutput {
 	return o
+}
+
+func (o GetComputeMachineAgentConfigurationExtensionsBlockListOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineAgentConfigurationExtensionsBlockList] {
+	return pulumix.Output[GetComputeMachineAgentConfigurationExtensionsBlockList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Publisher of the extension.
@@ -372,6 +439,12 @@ func (o GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput) ToGet
 
 func (o GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput) ToGetComputeMachineAgentConfigurationExtensionsBlockListArrayOutputWithContext(ctx context.Context) GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsBlockList] {
+	return pulumix.Output[[]GetComputeMachineAgentConfigurationExtensionsBlockList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineAgentConfigurationExtensionsBlockListArrayOutput) Index(i pulumi.IntInput) GetComputeMachineAgentConfigurationExtensionsBlockListOutput {
@@ -413,6 +486,12 @@ func (i GetComputeMachineCloudMetadataArgs) ToGetComputeMachineCloudMetadataOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineCloudMetadataOutput)
 }
 
+func (i GetComputeMachineCloudMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineCloudMetadata] {
+	return pulumix.Output[GetComputeMachineCloudMetadata]{
+		OutputState: i.ToGetComputeMachineCloudMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineCloudMetadataArrayInput is an input type that accepts GetComputeMachineCloudMetadataArray and GetComputeMachineCloudMetadataArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineCloudMetadataArrayInput` via:
 //
@@ -438,6 +517,12 @@ func (i GetComputeMachineCloudMetadataArray) ToGetComputeMachineCloudMetadataArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineCloudMetadataArrayOutput)
 }
 
+func (i GetComputeMachineCloudMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineCloudMetadata] {
+	return pulumix.Output[[]GetComputeMachineCloudMetadata]{
+		OutputState: i.ToGetComputeMachineCloudMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineCloudMetadataOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineCloudMetadataOutput) ElementType() reflect.Type {
@@ -450,6 +535,12 @@ func (o GetComputeMachineCloudMetadataOutput) ToGetComputeMachineCloudMetadataOu
 
 func (o GetComputeMachineCloudMetadataOutput) ToGetComputeMachineCloudMetadataOutputWithContext(ctx context.Context) GetComputeMachineCloudMetadataOutput {
 	return o
+}
+
+func (o GetComputeMachineCloudMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineCloudMetadata] {
+	return pulumix.Output[GetComputeMachineCloudMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the cloud provider. For example `Azure`, `AWS` and `GCP`.
@@ -469,6 +560,12 @@ func (o GetComputeMachineCloudMetadataArrayOutput) ToGetComputeMachineCloudMetad
 
 func (o GetComputeMachineCloudMetadataArrayOutput) ToGetComputeMachineCloudMetadataArrayOutputWithContext(ctx context.Context) GetComputeMachineCloudMetadataArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineCloudMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineCloudMetadata] {
+	return pulumix.Output[[]GetComputeMachineCloudMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineCloudMetadataArrayOutput) Index(i pulumi.IntInput) GetComputeMachineCloudMetadataOutput {
@@ -522,6 +619,12 @@ func (i GetComputeMachineErrorDetailArgs) ToGetComputeMachineErrorDetailOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineErrorDetailOutput)
 }
 
+func (i GetComputeMachineErrorDetailArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineErrorDetail] {
+	return pulumix.Output[GetComputeMachineErrorDetail]{
+		OutputState: i.ToGetComputeMachineErrorDetailOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineErrorDetailArrayInput is an input type that accepts GetComputeMachineErrorDetailArray and GetComputeMachineErrorDetailArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineErrorDetailArrayInput` via:
 //
@@ -547,6 +650,12 @@ func (i GetComputeMachineErrorDetailArray) ToGetComputeMachineErrorDetailArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineErrorDetailArrayOutput)
 }
 
+func (i GetComputeMachineErrorDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineErrorDetail] {
+	return pulumix.Output[[]GetComputeMachineErrorDetail]{
+		OutputState: i.ToGetComputeMachineErrorDetailArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineErrorDetailOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineErrorDetailOutput) ElementType() reflect.Type {
@@ -559,6 +668,12 @@ func (o GetComputeMachineErrorDetailOutput) ToGetComputeMachineErrorDetailOutput
 
 func (o GetComputeMachineErrorDetailOutput) ToGetComputeMachineErrorDetailOutputWithContext(ctx context.Context) GetComputeMachineErrorDetailOutput {
 	return o
+}
+
+func (o GetComputeMachineErrorDetailOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineErrorDetail] {
+	return pulumix.Output[GetComputeMachineErrorDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `additionalInfo` block as defined above.
@@ -595,6 +710,12 @@ func (o GetComputeMachineErrorDetailArrayOutput) ToGetComputeMachineErrorDetailA
 
 func (o GetComputeMachineErrorDetailArrayOutput) ToGetComputeMachineErrorDetailArrayOutputWithContext(ctx context.Context) GetComputeMachineErrorDetailArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineErrorDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineErrorDetail] {
+	return pulumix.Output[[]GetComputeMachineErrorDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineErrorDetailArrayOutput) Index(i pulumi.IntInput) GetComputeMachineErrorDetailOutput {
@@ -640,6 +761,12 @@ func (i GetComputeMachineErrorDetailAdditionalInfoArgs) ToGetComputeMachineError
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineErrorDetailAdditionalInfoOutput)
 }
 
+func (i GetComputeMachineErrorDetailAdditionalInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineErrorDetailAdditionalInfo] {
+	return pulumix.Output[GetComputeMachineErrorDetailAdditionalInfo]{
+		OutputState: i.ToGetComputeMachineErrorDetailAdditionalInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineErrorDetailAdditionalInfoArrayInput is an input type that accepts GetComputeMachineErrorDetailAdditionalInfoArray and GetComputeMachineErrorDetailAdditionalInfoArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineErrorDetailAdditionalInfoArrayInput` via:
 //
@@ -665,6 +792,12 @@ func (i GetComputeMachineErrorDetailAdditionalInfoArray) ToGetComputeMachineErro
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineErrorDetailAdditionalInfoArrayOutput)
 }
 
+func (i GetComputeMachineErrorDetailAdditionalInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineErrorDetailAdditionalInfo] {
+	return pulumix.Output[[]GetComputeMachineErrorDetailAdditionalInfo]{
+		OutputState: i.ToGetComputeMachineErrorDetailAdditionalInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineErrorDetailAdditionalInfoOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineErrorDetailAdditionalInfoOutput) ElementType() reflect.Type {
@@ -677,6 +810,12 @@ func (o GetComputeMachineErrorDetailAdditionalInfoOutput) ToGetComputeMachineErr
 
 func (o GetComputeMachineErrorDetailAdditionalInfoOutput) ToGetComputeMachineErrorDetailAdditionalInfoOutputWithContext(ctx context.Context) GetComputeMachineErrorDetailAdditionalInfoOutput {
 	return o
+}
+
+func (o GetComputeMachineErrorDetailAdditionalInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineErrorDetailAdditionalInfo] {
+	return pulumix.Output[GetComputeMachineErrorDetailAdditionalInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The additional information message.
@@ -701,6 +840,12 @@ func (o GetComputeMachineErrorDetailAdditionalInfoArrayOutput) ToGetComputeMachi
 
 func (o GetComputeMachineErrorDetailAdditionalInfoArrayOutput) ToGetComputeMachineErrorDetailAdditionalInfoArrayOutputWithContext(ctx context.Context) GetComputeMachineErrorDetailAdditionalInfoArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineErrorDetailAdditionalInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineErrorDetailAdditionalInfo] {
+	return pulumix.Output[[]GetComputeMachineErrorDetailAdditionalInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineErrorDetailAdditionalInfoArrayOutput) Index(i pulumi.IntInput) GetComputeMachineErrorDetailAdditionalInfoOutput {
@@ -750,6 +895,12 @@ func (i GetComputeMachineIdentityArgs) ToGetComputeMachineIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineIdentityOutput)
 }
 
+func (i GetComputeMachineIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineIdentity] {
+	return pulumix.Output[GetComputeMachineIdentity]{
+		OutputState: i.ToGetComputeMachineIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineIdentityArrayInput is an input type that accepts GetComputeMachineIdentityArray and GetComputeMachineIdentityArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineIdentityArrayInput` via:
 //
@@ -775,6 +926,12 @@ func (i GetComputeMachineIdentityArray) ToGetComputeMachineIdentityArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineIdentityArrayOutput)
 }
 
+func (i GetComputeMachineIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineIdentity] {
+	return pulumix.Output[[]GetComputeMachineIdentity]{
+		OutputState: i.ToGetComputeMachineIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineIdentityOutput) ElementType() reflect.Type {
@@ -787,6 +944,12 @@ func (o GetComputeMachineIdentityOutput) ToGetComputeMachineIdentityOutput() Get
 
 func (o GetComputeMachineIdentityOutput) ToGetComputeMachineIdentityOutputWithContext(ctx context.Context) GetComputeMachineIdentityOutput {
 	return o
+}
+
+func (o GetComputeMachineIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineIdentity] {
+	return pulumix.Output[GetComputeMachineIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The principal ID of resource identity.
@@ -816,6 +979,12 @@ func (o GetComputeMachineIdentityArrayOutput) ToGetComputeMachineIdentityArrayOu
 
 func (o GetComputeMachineIdentityArrayOutput) ToGetComputeMachineIdentityArrayOutputWithContext(ctx context.Context) GetComputeMachineIdentityArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineIdentity] {
+	return pulumix.Output[[]GetComputeMachineIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineIdentityArrayOutput) Index(i pulumi.IntInput) GetComputeMachineIdentityOutput {
@@ -869,6 +1038,12 @@ func (i GetComputeMachineLocationDataArgs) ToGetComputeMachineLocationDataOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineLocationDataOutput)
 }
 
+func (i GetComputeMachineLocationDataArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineLocationData] {
+	return pulumix.Output[GetComputeMachineLocationData]{
+		OutputState: i.ToGetComputeMachineLocationDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineLocationDataArrayInput is an input type that accepts GetComputeMachineLocationDataArray and GetComputeMachineLocationDataArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineLocationDataArrayInput` via:
 //
@@ -894,6 +1069,12 @@ func (i GetComputeMachineLocationDataArray) ToGetComputeMachineLocationDataArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineLocationDataArrayOutput)
 }
 
+func (i GetComputeMachineLocationDataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineLocationData] {
+	return pulumix.Output[[]GetComputeMachineLocationData]{
+		OutputState: i.ToGetComputeMachineLocationDataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineLocationDataOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineLocationDataOutput) ElementType() reflect.Type {
@@ -906,6 +1087,12 @@ func (o GetComputeMachineLocationDataOutput) ToGetComputeMachineLocationDataOutp
 
 func (o GetComputeMachineLocationDataOutput) ToGetComputeMachineLocationDataOutputWithContext(ctx context.Context) GetComputeMachineLocationDataOutput {
 	return o
+}
+
+func (o GetComputeMachineLocationDataOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineLocationData] {
+	return pulumix.Output[GetComputeMachineLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The city or locality where the resource is located.
@@ -940,6 +1127,12 @@ func (o GetComputeMachineLocationDataArrayOutput) ToGetComputeMachineLocationDat
 
 func (o GetComputeMachineLocationDataArrayOutput) ToGetComputeMachineLocationDataArrayOutputWithContext(ctx context.Context) GetComputeMachineLocationDataArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineLocationDataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineLocationData] {
+	return pulumix.Output[[]GetComputeMachineLocationData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineLocationDataArrayOutput) Index(i pulumi.IntInput) GetComputeMachineLocationDataOutput {
@@ -989,6 +1182,12 @@ func (i GetComputeMachineOsProfileArgs) ToGetComputeMachineOsProfileOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileOutput)
 }
 
+func (i GetComputeMachineOsProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfile] {
+	return pulumix.Output[GetComputeMachineOsProfile]{
+		OutputState: i.ToGetComputeMachineOsProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineOsProfileArrayInput is an input type that accepts GetComputeMachineOsProfileArray and GetComputeMachineOsProfileArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineOsProfileArrayInput` via:
 //
@@ -1014,6 +1213,12 @@ func (i GetComputeMachineOsProfileArray) ToGetComputeMachineOsProfileArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileArrayOutput)
 }
 
+func (i GetComputeMachineOsProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfile] {
+	return pulumix.Output[[]GetComputeMachineOsProfile]{
+		OutputState: i.ToGetComputeMachineOsProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineOsProfileOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineOsProfileOutput) ElementType() reflect.Type {
@@ -1026,6 +1231,12 @@ func (o GetComputeMachineOsProfileOutput) ToGetComputeMachineOsProfileOutput() G
 
 func (o GetComputeMachineOsProfileOutput) ToGetComputeMachineOsProfileOutputWithContext(ctx context.Context) GetComputeMachineOsProfileOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfile] {
+	return pulumix.Output[GetComputeMachineOsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the host OS name of the hybrid machine.
@@ -1059,6 +1270,12 @@ func (o GetComputeMachineOsProfileArrayOutput) ToGetComputeMachineOsProfileArray
 
 func (o GetComputeMachineOsProfileArrayOutput) ToGetComputeMachineOsProfileArrayOutputWithContext(ctx context.Context) GetComputeMachineOsProfileArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfile] {
+	return pulumix.Output[[]GetComputeMachineOsProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineOsProfileArrayOutput) Index(i pulumi.IntInput) GetComputeMachineOsProfileOutput {
@@ -1100,6 +1317,12 @@ func (i GetComputeMachineOsProfileLinuxConfigurationArgs) ToGetComputeMachineOsP
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileLinuxConfigurationOutput)
 }
 
+func (i GetComputeMachineOsProfileLinuxConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileLinuxConfiguration] {
+	return pulumix.Output[GetComputeMachineOsProfileLinuxConfiguration]{
+		OutputState: i.ToGetComputeMachineOsProfileLinuxConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineOsProfileLinuxConfigurationArrayInput is an input type that accepts GetComputeMachineOsProfileLinuxConfigurationArray and GetComputeMachineOsProfileLinuxConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineOsProfileLinuxConfigurationArrayInput` via:
 //
@@ -1125,6 +1348,12 @@ func (i GetComputeMachineOsProfileLinuxConfigurationArray) ToGetComputeMachineOs
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileLinuxConfigurationArrayOutput)
 }
 
+func (i GetComputeMachineOsProfileLinuxConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileLinuxConfiguration] {
+	return pulumix.Output[[]GetComputeMachineOsProfileLinuxConfiguration]{
+		OutputState: i.ToGetComputeMachineOsProfileLinuxConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineOsProfileLinuxConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineOsProfileLinuxConfigurationOutput) ElementType() reflect.Type {
@@ -1137,6 +1366,12 @@ func (o GetComputeMachineOsProfileLinuxConfigurationOutput) ToGetComputeMachineO
 
 func (o GetComputeMachineOsProfileLinuxConfigurationOutput) ToGetComputeMachineOsProfileLinuxConfigurationOutputWithContext(ctx context.Context) GetComputeMachineOsProfileLinuxConfigurationOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileLinuxConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileLinuxConfiguration] {
+	return pulumix.Output[GetComputeMachineOsProfileLinuxConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `patchSettings` block as defined above.
@@ -1158,6 +1393,12 @@ func (o GetComputeMachineOsProfileLinuxConfigurationArrayOutput) ToGetComputeMac
 
 func (o GetComputeMachineOsProfileLinuxConfigurationArrayOutput) ToGetComputeMachineOsProfileLinuxConfigurationArrayOutputWithContext(ctx context.Context) GetComputeMachineOsProfileLinuxConfigurationArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileLinuxConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileLinuxConfiguration] {
+	return pulumix.Output[[]GetComputeMachineOsProfileLinuxConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineOsProfileLinuxConfigurationArrayOutput) Index(i pulumi.IntInput) GetComputeMachineOsProfileLinuxConfigurationOutput {
@@ -1203,6 +1444,12 @@ func (i GetComputeMachineOsProfileLinuxConfigurationPatchSettingArgs) ToGetCompu
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput)
 }
 
+func (i GetComputeMachineOsProfileLinuxConfigurationPatchSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileLinuxConfigurationPatchSetting] {
+	return pulumix.Output[GetComputeMachineOsProfileLinuxConfigurationPatchSetting]{
+		OutputState: i.ToGetComputeMachineOsProfileLinuxConfigurationPatchSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayInput is an input type that accepts GetComputeMachineOsProfileLinuxConfigurationPatchSettingArray and GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayInput` via:
 //
@@ -1228,6 +1475,12 @@ func (i GetComputeMachineOsProfileLinuxConfigurationPatchSettingArray) ToGetComp
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput)
 }
 
+func (i GetComputeMachineOsProfileLinuxConfigurationPatchSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileLinuxConfigurationPatchSetting] {
+	return pulumix.Output[[]GetComputeMachineOsProfileLinuxConfigurationPatchSetting]{
+		OutputState: i.ToGetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput) ElementType() reflect.Type {
@@ -1240,6 +1493,12 @@ func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput) ToGetCom
 
 func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput) ToGetComputeMachineOsProfileLinuxConfigurationPatchSettingOutputWithContext(ctx context.Context) GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileLinuxConfigurationPatchSetting] {
+	return pulumix.Output[GetComputeMachineOsProfileLinuxConfigurationPatchSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the assessment mode.
@@ -1264,6 +1523,12 @@ func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput) ToG
 
 func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput) ToGetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutputWithContext(ctx context.Context) GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileLinuxConfigurationPatchSetting] {
+	return pulumix.Output[[]GetComputeMachineOsProfileLinuxConfigurationPatchSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrayOutput) Index(i pulumi.IntInput) GetComputeMachineOsProfileLinuxConfigurationPatchSettingOutput {
@@ -1305,6 +1570,12 @@ func (i GetComputeMachineOsProfileWindowsConfigurationArgs) ToGetComputeMachineO
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileWindowsConfigurationOutput)
 }
 
+func (i GetComputeMachineOsProfileWindowsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileWindowsConfiguration] {
+	return pulumix.Output[GetComputeMachineOsProfileWindowsConfiguration]{
+		OutputState: i.ToGetComputeMachineOsProfileWindowsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineOsProfileWindowsConfigurationArrayInput is an input type that accepts GetComputeMachineOsProfileWindowsConfigurationArray and GetComputeMachineOsProfileWindowsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineOsProfileWindowsConfigurationArrayInput` via:
 //
@@ -1330,6 +1601,12 @@ func (i GetComputeMachineOsProfileWindowsConfigurationArray) ToGetComputeMachine
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileWindowsConfigurationArrayOutput)
 }
 
+func (i GetComputeMachineOsProfileWindowsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileWindowsConfiguration] {
+	return pulumix.Output[[]GetComputeMachineOsProfileWindowsConfiguration]{
+		OutputState: i.ToGetComputeMachineOsProfileWindowsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineOsProfileWindowsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineOsProfileWindowsConfigurationOutput) ElementType() reflect.Type {
@@ -1342,6 +1619,12 @@ func (o GetComputeMachineOsProfileWindowsConfigurationOutput) ToGetComputeMachin
 
 func (o GetComputeMachineOsProfileWindowsConfigurationOutput) ToGetComputeMachineOsProfileWindowsConfigurationOutputWithContext(ctx context.Context) GetComputeMachineOsProfileWindowsConfigurationOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileWindowsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileWindowsConfiguration] {
+	return pulumix.Output[GetComputeMachineOsProfileWindowsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `patchSettings` block as defined above.
@@ -1363,6 +1646,12 @@ func (o GetComputeMachineOsProfileWindowsConfigurationArrayOutput) ToGetComputeM
 
 func (o GetComputeMachineOsProfileWindowsConfigurationArrayOutput) ToGetComputeMachineOsProfileWindowsConfigurationArrayOutputWithContext(ctx context.Context) GetComputeMachineOsProfileWindowsConfigurationArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileWindowsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileWindowsConfiguration] {
+	return pulumix.Output[[]GetComputeMachineOsProfileWindowsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineOsProfileWindowsConfigurationArrayOutput) Index(i pulumi.IntInput) GetComputeMachineOsProfileWindowsConfigurationOutput {
@@ -1408,6 +1697,12 @@ func (i GetComputeMachineOsProfileWindowsConfigurationPatchSettingArgs) ToGetCom
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput)
 }
 
+func (i GetComputeMachineOsProfileWindowsConfigurationPatchSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileWindowsConfigurationPatchSetting] {
+	return pulumix.Output[GetComputeMachineOsProfileWindowsConfigurationPatchSetting]{
+		OutputState: i.ToGetComputeMachineOsProfileWindowsConfigurationPatchSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayInput is an input type that accepts GetComputeMachineOsProfileWindowsConfigurationPatchSettingArray and GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayInput` via:
 //
@@ -1433,6 +1728,12 @@ func (i GetComputeMachineOsProfileWindowsConfigurationPatchSettingArray) ToGetCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput)
 }
 
+func (i GetComputeMachineOsProfileWindowsConfigurationPatchSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileWindowsConfigurationPatchSetting] {
+	return pulumix.Output[[]GetComputeMachineOsProfileWindowsConfigurationPatchSetting]{
+		OutputState: i.ToGetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput) ElementType() reflect.Type {
@@ -1445,6 +1746,12 @@ func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput) ToGetC
 
 func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput) ToGetComputeMachineOsProfileWindowsConfigurationPatchSettingOutputWithContext(ctx context.Context) GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineOsProfileWindowsConfigurationPatchSetting] {
+	return pulumix.Output[GetComputeMachineOsProfileWindowsConfigurationPatchSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the assessment mode.
@@ -1469,6 +1776,12 @@ func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput) T
 
 func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput) ToGetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutputWithContext(ctx context.Context) GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineOsProfileWindowsConfigurationPatchSetting] {
+	return pulumix.Output[[]GetComputeMachineOsProfileWindowsConfigurationPatchSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrayOutput) Index(i pulumi.IntInput) GetComputeMachineOsProfileWindowsConfigurationPatchSettingOutput {
@@ -1514,6 +1827,12 @@ func (i GetComputeMachineServiceStatusArgs) ToGetComputeMachineServiceStatusOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineServiceStatusOutput)
 }
 
+func (i GetComputeMachineServiceStatusArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineServiceStatus] {
+	return pulumix.Output[GetComputeMachineServiceStatus]{
+		OutputState: i.ToGetComputeMachineServiceStatusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineServiceStatusArrayInput is an input type that accepts GetComputeMachineServiceStatusArray and GetComputeMachineServiceStatusArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineServiceStatusArrayInput` via:
 //
@@ -1539,6 +1858,12 @@ func (i GetComputeMachineServiceStatusArray) ToGetComputeMachineServiceStatusArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineServiceStatusArrayOutput)
 }
 
+func (i GetComputeMachineServiceStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineServiceStatus] {
+	return pulumix.Output[[]GetComputeMachineServiceStatus]{
+		OutputState: i.ToGetComputeMachineServiceStatusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineServiceStatusOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineServiceStatusOutput) ElementType() reflect.Type {
@@ -1551,6 +1876,12 @@ func (o GetComputeMachineServiceStatusOutput) ToGetComputeMachineServiceStatusOu
 
 func (o GetComputeMachineServiceStatusOutput) ToGetComputeMachineServiceStatusOutputWithContext(ctx context.Context) GetComputeMachineServiceStatusOutput {
 	return o
+}
+
+func (o GetComputeMachineServiceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineServiceStatus] {
+	return pulumix.Output[GetComputeMachineServiceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `extensionService` block as defined above.
@@ -1579,6 +1910,12 @@ func (o GetComputeMachineServiceStatusArrayOutput) ToGetComputeMachineServiceSta
 
 func (o GetComputeMachineServiceStatusArrayOutput) ToGetComputeMachineServiceStatusArrayOutputWithContext(ctx context.Context) GetComputeMachineServiceStatusArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineServiceStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineServiceStatus] {
+	return pulumix.Output[[]GetComputeMachineServiceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineServiceStatusArrayOutput) Index(i pulumi.IntInput) GetComputeMachineServiceStatusOutput {
@@ -1624,6 +1961,12 @@ func (i GetComputeMachineServiceStatusExtensionServiceArgs) ToGetComputeMachineS
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineServiceStatusExtensionServiceOutput)
 }
 
+func (i GetComputeMachineServiceStatusExtensionServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineServiceStatusExtensionService] {
+	return pulumix.Output[GetComputeMachineServiceStatusExtensionService]{
+		OutputState: i.ToGetComputeMachineServiceStatusExtensionServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineServiceStatusExtensionServiceArrayInput is an input type that accepts GetComputeMachineServiceStatusExtensionServiceArray and GetComputeMachineServiceStatusExtensionServiceArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineServiceStatusExtensionServiceArrayInput` via:
 //
@@ -1649,6 +1992,12 @@ func (i GetComputeMachineServiceStatusExtensionServiceArray) ToGetComputeMachine
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineServiceStatusExtensionServiceArrayOutput)
 }
 
+func (i GetComputeMachineServiceStatusExtensionServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineServiceStatusExtensionService] {
+	return pulumix.Output[[]GetComputeMachineServiceStatusExtensionService]{
+		OutputState: i.ToGetComputeMachineServiceStatusExtensionServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineServiceStatusExtensionServiceOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineServiceStatusExtensionServiceOutput) ElementType() reflect.Type {
@@ -1661,6 +2010,12 @@ func (o GetComputeMachineServiceStatusExtensionServiceOutput) ToGetComputeMachin
 
 func (o GetComputeMachineServiceStatusExtensionServiceOutput) ToGetComputeMachineServiceStatusExtensionServiceOutputWithContext(ctx context.Context) GetComputeMachineServiceStatusExtensionServiceOutput {
 	return o
+}
+
+func (o GetComputeMachineServiceStatusExtensionServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineServiceStatusExtensionService] {
+	return pulumix.Output[GetComputeMachineServiceStatusExtensionService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behavior of the service when the Arc-enabled machine starts up.
@@ -1685,6 +2040,12 @@ func (o GetComputeMachineServiceStatusExtensionServiceArrayOutput) ToGetComputeM
 
 func (o GetComputeMachineServiceStatusExtensionServiceArrayOutput) ToGetComputeMachineServiceStatusExtensionServiceArrayOutputWithContext(ctx context.Context) GetComputeMachineServiceStatusExtensionServiceArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineServiceStatusExtensionServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineServiceStatusExtensionService] {
+	return pulumix.Output[[]GetComputeMachineServiceStatusExtensionService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineServiceStatusExtensionServiceArrayOutput) Index(i pulumi.IntInput) GetComputeMachineServiceStatusExtensionServiceOutput {
@@ -1730,6 +2091,12 @@ func (i GetComputeMachineServiceStatusGuestConfigurationServiceArgs) ToGetComput
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineServiceStatusGuestConfigurationServiceOutput)
 }
 
+func (i GetComputeMachineServiceStatusGuestConfigurationServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineServiceStatusGuestConfigurationService] {
+	return pulumix.Output[GetComputeMachineServiceStatusGuestConfigurationService]{
+		OutputState: i.ToGetComputeMachineServiceStatusGuestConfigurationServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComputeMachineServiceStatusGuestConfigurationServiceArrayInput is an input type that accepts GetComputeMachineServiceStatusGuestConfigurationServiceArray and GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput values.
 // You can construct a concrete instance of `GetComputeMachineServiceStatusGuestConfigurationServiceArrayInput` via:
 //
@@ -1755,6 +2122,12 @@ func (i GetComputeMachineServiceStatusGuestConfigurationServiceArray) ToGetCompu
 	return pulumi.ToOutputWithContext(ctx, i).(GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput)
 }
 
+func (i GetComputeMachineServiceStatusGuestConfigurationServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineServiceStatusGuestConfigurationService] {
+	return pulumix.Output[[]GetComputeMachineServiceStatusGuestConfigurationService]{
+		OutputState: i.ToGetComputeMachineServiceStatusGuestConfigurationServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComputeMachineServiceStatusGuestConfigurationServiceOutput struct{ *pulumi.OutputState }
 
 func (GetComputeMachineServiceStatusGuestConfigurationServiceOutput) ElementType() reflect.Type {
@@ -1767,6 +2140,12 @@ func (o GetComputeMachineServiceStatusGuestConfigurationServiceOutput) ToGetComp
 
 func (o GetComputeMachineServiceStatusGuestConfigurationServiceOutput) ToGetComputeMachineServiceStatusGuestConfigurationServiceOutputWithContext(ctx context.Context) GetComputeMachineServiceStatusGuestConfigurationServiceOutput {
 	return o
+}
+
+func (o GetComputeMachineServiceStatusGuestConfigurationServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetComputeMachineServiceStatusGuestConfigurationService] {
+	return pulumix.Output[GetComputeMachineServiceStatusGuestConfigurationService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The behavior of the service when the Arc-enabled machine starts up.
@@ -1791,6 +2170,12 @@ func (o GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput) ToGe
 
 func (o GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput) ToGetComputeMachineServiceStatusGuestConfigurationServiceArrayOutputWithContext(ctx context.Context) GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput {
 	return o
+}
+
+func (o GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComputeMachineServiceStatusGuestConfigurationService] {
+	return pulumix.Output[[]GetComputeMachineServiceStatusGuestConfigurationService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComputeMachineServiceStatusGuestConfigurationServiceArrayOutput) Index(i pulumi.IntInput) GetComputeMachineServiceStatusGuestConfigurationServiceOutput {

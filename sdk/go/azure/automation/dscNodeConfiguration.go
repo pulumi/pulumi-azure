@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Automation DSC Node Configuration.
@@ -229,6 +230,12 @@ func (i *DscNodeConfiguration) ToDscNodeConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationOutput)
 }
 
+func (i *DscNodeConfiguration) ToOutput(ctx context.Context) pulumix.Output[*DscNodeConfiguration] {
+	return pulumix.Output[*DscNodeConfiguration]{
+		OutputState: i.ToDscNodeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DscNodeConfigurationArrayInput is an input type that accepts DscNodeConfigurationArray and DscNodeConfigurationArrayOutput values.
 // You can construct a concrete instance of `DscNodeConfigurationArrayInput` via:
 //
@@ -252,6 +259,12 @@ func (i DscNodeConfigurationArray) ToDscNodeConfigurationArrayOutput() DscNodeCo
 
 func (i DscNodeConfigurationArray) ToDscNodeConfigurationArrayOutputWithContext(ctx context.Context) DscNodeConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationArrayOutput)
+}
+
+func (i DscNodeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DscNodeConfiguration] {
+	return pulumix.Output[[]*DscNodeConfiguration]{
+		OutputState: i.ToDscNodeConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DscNodeConfigurationMapInput is an input type that accepts DscNodeConfigurationMap and DscNodeConfigurationMapOutput values.
@@ -279,6 +292,12 @@ func (i DscNodeConfigurationMap) ToDscNodeConfigurationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationMapOutput)
 }
 
+func (i DscNodeConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DscNodeConfiguration] {
+	return pulumix.Output[map[string]*DscNodeConfiguration]{
+		OutputState: i.ToDscNodeConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DscNodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscNodeConfigurationOutput) ElementType() reflect.Type {
@@ -291,6 +310,12 @@ func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutput() DscNodeConfig
 
 func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutputWithContext(ctx context.Context) DscNodeConfigurationOutput {
 	return o
+}
+
+func (o DscNodeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*DscNodeConfiguration] {
+	return pulumix.Output[*DscNodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -331,6 +356,12 @@ func (o DscNodeConfigurationArrayOutput) ToDscNodeConfigurationArrayOutputWithCo
 	return o
 }
 
+func (o DscNodeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DscNodeConfiguration] {
+	return pulumix.Output[[]*DscNodeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DscNodeConfigurationArrayOutput) Index(i pulumi.IntInput) DscNodeConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DscNodeConfiguration {
 		return vs[0].([]*DscNodeConfiguration)[vs[1].(int)]
@@ -349,6 +380,12 @@ func (o DscNodeConfigurationMapOutput) ToDscNodeConfigurationMapOutput() DscNode
 
 func (o DscNodeConfigurationMapOutput) ToDscNodeConfigurationMapOutputWithContext(ctx context.Context) DscNodeConfigurationMapOutput {
 	return o
+}
+
+func (o DscNodeConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DscNodeConfiguration] {
+	return pulumix.Output[map[string]*DscNodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DscNodeConfigurationMapOutput) MapIndex(k pulumi.StringInput) DscNodeConfigurationOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information a Mobile Network Packet Core Data Plane.
@@ -122,6 +123,12 @@ func (o LookupNetworkPacketCoreDataPlaneResultOutput) ToLookupNetworkPacketCoreD
 
 func (o LookupNetworkPacketCoreDataPlaneResultOutput) ToLookupNetworkPacketCoreDataPlaneResultOutputWithContext(ctx context.Context) LookupNetworkPacketCoreDataPlaneResultOutput {
 	return o
+}
+
+func (o LookupNetworkPacketCoreDataPlaneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkPacketCoreDataPlaneResult] {
+	return pulumix.Output[LookupNetworkPacketCoreDataPlaneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

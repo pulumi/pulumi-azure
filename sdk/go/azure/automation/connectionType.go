@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages anAutomation Connection Type.
@@ -208,6 +209,12 @@ func (i *ConnectionType) ToConnectionTypeOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeOutput)
 }
 
+func (i *ConnectionType) ToOutput(ctx context.Context) pulumix.Output[*ConnectionType] {
+	return pulumix.Output[*ConnectionType]{
+		OutputState: i.ToConnectionTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionTypeArrayInput is an input type that accepts ConnectionTypeArray and ConnectionTypeArrayOutput values.
 // You can construct a concrete instance of `ConnectionTypeArrayInput` via:
 //
@@ -231,6 +238,12 @@ func (i ConnectionTypeArray) ToConnectionTypeArrayOutput() ConnectionTypeArrayOu
 
 func (i ConnectionTypeArray) ToConnectionTypeArrayOutputWithContext(ctx context.Context) ConnectionTypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeArrayOutput)
+}
+
+func (i ConnectionTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionType] {
+	return pulumix.Output[[]*ConnectionType]{
+		OutputState: i.ToConnectionTypeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectionTypeMapInput is an input type that accepts ConnectionTypeMap and ConnectionTypeMapOutput values.
@@ -258,6 +271,12 @@ func (i ConnectionTypeMap) ToConnectionTypeMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeMapOutput)
 }
 
+func (i ConnectionTypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionType] {
+	return pulumix.Output[map[string]*ConnectionType]{
+		OutputState: i.ToConnectionTypeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (ConnectionTypeOutput) ElementType() reflect.Type {
@@ -270,6 +289,12 @@ func (o ConnectionTypeOutput) ToConnectionTypeOutput() ConnectionTypeOutput {
 
 func (o ConnectionTypeOutput) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
 	return o
+}
+
+func (o ConnectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionType] {
+	return pulumix.Output[*ConnectionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -311,6 +336,12 @@ func (o ConnectionTypeArrayOutput) ToConnectionTypeArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ConnectionTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionType] {
+	return pulumix.Output[[]*ConnectionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionTypeArrayOutput) Index(i pulumi.IntInput) ConnectionTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionType {
 		return vs[0].([]*ConnectionType)[vs[1].(int)]
@@ -329,6 +360,12 @@ func (o ConnectionTypeMapOutput) ToConnectionTypeMapOutput() ConnectionTypeMapOu
 
 func (o ConnectionTypeMapOutput) ToConnectionTypeMapOutputWithContext(ctx context.Context) ConnectionTypeMapOutput {
 	return o
+}
+
+func (o ConnectionTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionType] {
+	return pulumix.Output[map[string]*ConnectionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionTypeMapOutput) MapIndex(k pulumi.StringInput) ConnectionTypeOutput {

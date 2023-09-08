@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cost Anomaly Alert.
@@ -186,6 +187,12 @@ func (i *AnomalyAlert) ToAnomalyAlertOutputWithContext(ctx context.Context) Anom
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyAlertOutput)
 }
 
+func (i *AnomalyAlert) ToOutput(ctx context.Context) pulumix.Output[*AnomalyAlert] {
+	return pulumix.Output[*AnomalyAlert]{
+		OutputState: i.ToAnomalyAlertOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnomalyAlertArrayInput is an input type that accepts AnomalyAlertArray and AnomalyAlertArrayOutput values.
 // You can construct a concrete instance of `AnomalyAlertArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i AnomalyAlertArray) ToAnomalyAlertArrayOutput() AnomalyAlertArrayOutput {
 
 func (i AnomalyAlertArray) ToAnomalyAlertArrayOutputWithContext(ctx context.Context) AnomalyAlertArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyAlertArrayOutput)
+}
+
+func (i AnomalyAlertArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalyAlert] {
+	return pulumix.Output[[]*AnomalyAlert]{
+		OutputState: i.ToAnomalyAlertArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnomalyAlertMapInput is an input type that accepts AnomalyAlertMap and AnomalyAlertMapOutput values.
@@ -236,6 +249,12 @@ func (i AnomalyAlertMap) ToAnomalyAlertMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyAlertMapOutput)
 }
 
+func (i AnomalyAlertMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalyAlert] {
+	return pulumix.Output[map[string]*AnomalyAlert]{
+		OutputState: i.ToAnomalyAlertMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyAlertOutput struct{ *pulumi.OutputState }
 
 func (AnomalyAlertOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o AnomalyAlertOutput) ToAnomalyAlertOutput() AnomalyAlertOutput {
 
 func (o AnomalyAlertOutput) ToAnomalyAlertOutputWithContext(ctx context.Context) AnomalyAlertOutput {
 	return o
+}
+
+func (o AnomalyAlertOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyAlert] {
+	return pulumix.Output[*AnomalyAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The display name which should be used for this Cost Anomaly Alert.
@@ -289,6 +314,12 @@ func (o AnomalyAlertArrayOutput) ToAnomalyAlertArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o AnomalyAlertArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalyAlert] {
+	return pulumix.Output[[]*AnomalyAlert]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyAlertArrayOutput) Index(i pulumi.IntInput) AnomalyAlertOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnomalyAlert {
 		return vs[0].([]*AnomalyAlert)[vs[1].(int)]
@@ -307,6 +338,12 @@ func (o AnomalyAlertMapOutput) ToAnomalyAlertMapOutput() AnomalyAlertMapOutput {
 
 func (o AnomalyAlertMapOutput) ToAnomalyAlertMapOutputWithContext(ctx context.Context) AnomalyAlertMapOutput {
 	return o
+}
+
+func (o AnomalyAlertMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalyAlert] {
+	return pulumix.Output[map[string]*AnomalyAlert]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyAlertMapOutput) MapIndex(k pulumi.StringInput) AnomalyAlertOutput {

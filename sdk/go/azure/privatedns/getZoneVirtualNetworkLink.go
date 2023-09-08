@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
@@ -116,6 +117,12 @@ func (o LookupZoneVirtualNetworkLinkResultOutput) ToLookupZoneVirtualNetworkLink
 
 func (o LookupZoneVirtualNetworkLinkResultOutput) ToLookupZoneVirtualNetworkLinkResultOutputWithContext(ctx context.Context) LookupZoneVirtualNetworkLinkResultOutput {
 	return o
+}
+
+func (o LookupZoneVirtualNetworkLinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupZoneVirtualNetworkLinkResult] {
+	return pulumix.Output[LookupZoneVirtualNetworkLinkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

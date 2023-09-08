@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a Function App.
@@ -137,6 +138,12 @@ func (o LookupFunctionAppResultOutput) ToLookupFunctionAppResultOutput() LookupF
 
 func (o LookupFunctionAppResultOutput) ToLookupFunctionAppResultOutputWithContext(ctx context.Context) LookupFunctionAppResultOutput {
 	return o
+}
+
+func (o LookupFunctionAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionAppResult] {
+	return pulumix.Output[LookupFunctionAppResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the App Service Plan within which to create this Function App.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Spring Cloud Service.
@@ -327,6 +328,12 @@ func (i *SpringCloudService) ToSpringCloudServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceOutput)
 }
 
+func (i *SpringCloudService) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudService] {
+	return pulumix.Output[*SpringCloudService]{
+		OutputState: i.ToSpringCloudServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpringCloudServiceArrayInput is an input type that accepts SpringCloudServiceArray and SpringCloudServiceArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceArrayInput` via:
 //
@@ -350,6 +357,12 @@ func (i SpringCloudServiceArray) ToSpringCloudServiceArrayOutput() SpringCloudSe
 
 func (i SpringCloudServiceArray) ToSpringCloudServiceArrayOutputWithContext(ctx context.Context) SpringCloudServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceArrayOutput)
+}
+
+func (i SpringCloudServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudService] {
+	return pulumix.Output[[]*SpringCloudService]{
+		OutputState: i.ToSpringCloudServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpringCloudServiceMapInput is an input type that accepts SpringCloudServiceMap and SpringCloudServiceMapOutput values.
@@ -377,6 +390,12 @@ func (i SpringCloudServiceMap) ToSpringCloudServiceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceMapOutput)
 }
 
+func (i SpringCloudServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudService] {
+	return pulumix.Output[map[string]*SpringCloudService]{
+		OutputState: i.ToSpringCloudServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpringCloudServiceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceOutput) ElementType() reflect.Type {
@@ -389,6 +408,12 @@ func (o SpringCloudServiceOutput) ToSpringCloudServiceOutput() SpringCloudServic
 
 func (o SpringCloudServiceOutput) ToSpringCloudServiceOutputWithContext(ctx context.Context) SpringCloudServiceOutput {
 	return o
+}
+
+func (o SpringCloudServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudService] {
+	return pulumix.Output[*SpringCloudService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
@@ -503,6 +528,12 @@ func (o SpringCloudServiceArrayOutput) ToSpringCloudServiceArrayOutputWithContex
 	return o
 }
 
+func (o SpringCloudServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudService] {
+	return pulumix.Output[[]*SpringCloudService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpringCloudServiceArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudService {
 		return vs[0].([]*SpringCloudService)[vs[1].(int)]
@@ -521,6 +552,12 @@ func (o SpringCloudServiceMapOutput) ToSpringCloudServiceMapOutput() SpringCloud
 
 func (o SpringCloudServiceMapOutput) ToSpringCloudServiceMapOutputWithContext(ctx context.Context) SpringCloudServiceMapOutput {
 	return o
+}
+
+func (o SpringCloudServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudService] {
+	return pulumix.Output[map[string]*SpringCloudService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpringCloudServiceMapOutput) MapIndex(k pulumi.StringInput) SpringCloudServiceOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an SQL Notebook Workspace.
@@ -197,6 +198,12 @@ func (i *NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceOutput)
 }
 
+func (i *NotebookWorkspace) ToOutput(ctx context.Context) pulumix.Output[*NotebookWorkspace] {
+	return pulumix.Output[*NotebookWorkspace]{
+		OutputState: i.ToNotebookWorkspaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotebookWorkspaceArrayInput is an input type that accepts NotebookWorkspaceArray and NotebookWorkspaceArrayOutput values.
 // You can construct a concrete instance of `NotebookWorkspaceArrayInput` via:
 //
@@ -220,6 +227,12 @@ func (i NotebookWorkspaceArray) ToNotebookWorkspaceArrayOutput() NotebookWorkspa
 
 func (i NotebookWorkspaceArray) ToNotebookWorkspaceArrayOutputWithContext(ctx context.Context) NotebookWorkspaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceArrayOutput)
+}
+
+func (i NotebookWorkspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotebookWorkspace] {
+	return pulumix.Output[[]*NotebookWorkspace]{
+		OutputState: i.ToNotebookWorkspaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotebookWorkspaceMapInput is an input type that accepts NotebookWorkspaceMap and NotebookWorkspaceMapOutput values.
@@ -247,6 +260,12 @@ func (i NotebookWorkspaceMap) ToNotebookWorkspaceMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceMapOutput)
 }
 
+func (i NotebookWorkspaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotebookWorkspace] {
+	return pulumix.Output[map[string]*NotebookWorkspace]{
+		OutputState: i.ToNotebookWorkspaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotebookWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (NotebookWorkspaceOutput) ElementType() reflect.Type {
@@ -259,6 +278,12 @@ func (o NotebookWorkspaceOutput) ToNotebookWorkspaceOutput() NotebookWorkspaceOu
 
 func (o NotebookWorkspaceOutput) ToNotebookWorkspaceOutputWithContext(ctx context.Context) NotebookWorkspaceOutput {
 	return o
+}
+
+func (o NotebookWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*NotebookWorkspace] {
+	return pulumix.Output[*NotebookWorkspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created.
@@ -295,6 +320,12 @@ func (o NotebookWorkspaceArrayOutput) ToNotebookWorkspaceArrayOutputWithContext(
 	return o
 }
 
+func (o NotebookWorkspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotebookWorkspace] {
+	return pulumix.Output[[]*NotebookWorkspace]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotebookWorkspaceArrayOutput) Index(i pulumi.IntInput) NotebookWorkspaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotebookWorkspace {
 		return vs[0].([]*NotebookWorkspace)[vs[1].(int)]
@@ -313,6 +344,12 @@ func (o NotebookWorkspaceMapOutput) ToNotebookWorkspaceMapOutput() NotebookWorks
 
 func (o NotebookWorkspaceMapOutput) ToNotebookWorkspaceMapOutputWithContext(ctx context.Context) NotebookWorkspaceMapOutput {
 	return o
+}
+
+func (o NotebookWorkspaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotebookWorkspace] {
+	return pulumix.Output[map[string]*NotebookWorkspace]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotebookWorkspaceMapOutput) MapIndex(k pulumi.StringInput) NotebookWorkspaceOutput {

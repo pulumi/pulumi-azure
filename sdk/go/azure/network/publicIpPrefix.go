@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Public IP Prefix.
@@ -254,6 +255,12 @@ func (i *PublicIpPrefix) ToPublicIpPrefixOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixOutput)
 }
 
+func (i *PublicIpPrefix) ToOutput(ctx context.Context) pulumix.Output[*PublicIpPrefix] {
+	return pulumix.Output[*PublicIpPrefix]{
+		OutputState: i.ToPublicIpPrefixOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PublicIpPrefixArrayInput is an input type that accepts PublicIpPrefixArray and PublicIpPrefixArrayOutput values.
 // You can construct a concrete instance of `PublicIpPrefixArrayInput` via:
 //
@@ -277,6 +284,12 @@ func (i PublicIpPrefixArray) ToPublicIpPrefixArrayOutput() PublicIpPrefixArrayOu
 
 func (i PublicIpPrefixArray) ToPublicIpPrefixArrayOutputWithContext(ctx context.Context) PublicIpPrefixArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixArrayOutput)
+}
+
+func (i PublicIpPrefixArray) ToOutput(ctx context.Context) pulumix.Output[[]*PublicIpPrefix] {
+	return pulumix.Output[[]*PublicIpPrefix]{
+		OutputState: i.ToPublicIpPrefixArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PublicIpPrefixMapInput is an input type that accepts PublicIpPrefixMap and PublicIpPrefixMapOutput values.
@@ -304,6 +317,12 @@ func (i PublicIpPrefixMap) ToPublicIpPrefixMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpPrefixMapOutput)
 }
 
+func (i PublicIpPrefixMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicIpPrefix] {
+	return pulumix.Output[map[string]*PublicIpPrefix]{
+		OutputState: i.ToPublicIpPrefixMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicIpPrefixOutput struct{ *pulumi.OutputState }
 
 func (PublicIpPrefixOutput) ElementType() reflect.Type {
@@ -316,6 +335,12 @@ func (o PublicIpPrefixOutput) ToPublicIpPrefixOutput() PublicIpPrefixOutput {
 
 func (o PublicIpPrefixOutput) ToPublicIpPrefixOutputWithContext(ctx context.Context) PublicIpPrefixOutput {
 	return o
+}
+
+func (o PublicIpPrefixOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicIpPrefix] {
+	return pulumix.Output[*PublicIpPrefix]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IP address prefix value that was allocated.
@@ -383,6 +408,12 @@ func (o PublicIpPrefixArrayOutput) ToPublicIpPrefixArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o PublicIpPrefixArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PublicIpPrefix] {
+	return pulumix.Output[[]*PublicIpPrefix]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PublicIpPrefixArrayOutput) Index(i pulumi.IntInput) PublicIpPrefixOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicIpPrefix {
 		return vs[0].([]*PublicIpPrefix)[vs[1].(int)]
@@ -401,6 +432,12 @@ func (o PublicIpPrefixMapOutput) ToPublicIpPrefixMapOutput() PublicIpPrefixMapOu
 
 func (o PublicIpPrefixMapOutput) ToPublicIpPrefixMapOutputWithContext(ctx context.Context) PublicIpPrefixMapOutput {
 	return o
+}
+
+func (o PublicIpPrefixMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicIpPrefix] {
+	return pulumix.Output[map[string]*PublicIpPrefix]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicIpPrefixMapOutput) MapIndex(k pulumi.StringInput) PublicIpPrefixOutput {

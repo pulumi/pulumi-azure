@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Instance to back up Disk.
@@ -260,6 +261,12 @@ func (i *BackupInstanceDisk) ToBackupInstanceDiskOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceDiskOutput)
 }
 
+func (i *BackupInstanceDisk) ToOutput(ctx context.Context) pulumix.Output[*BackupInstanceDisk] {
+	return pulumix.Output[*BackupInstanceDisk]{
+		OutputState: i.ToBackupInstanceDiskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BackupInstanceDiskArrayInput is an input type that accepts BackupInstanceDiskArray and BackupInstanceDiskArrayOutput values.
 // You can construct a concrete instance of `BackupInstanceDiskArrayInput` via:
 //
@@ -283,6 +290,12 @@ func (i BackupInstanceDiskArray) ToBackupInstanceDiskArrayOutput() BackupInstanc
 
 func (i BackupInstanceDiskArray) ToBackupInstanceDiskArrayOutputWithContext(ctx context.Context) BackupInstanceDiskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceDiskArrayOutput)
+}
+
+func (i BackupInstanceDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupInstanceDisk] {
+	return pulumix.Output[[]*BackupInstanceDisk]{
+		OutputState: i.ToBackupInstanceDiskArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BackupInstanceDiskMapInput is an input type that accepts BackupInstanceDiskMap and BackupInstanceDiskMapOutput values.
@@ -310,6 +323,12 @@ func (i BackupInstanceDiskMap) ToBackupInstanceDiskMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceDiskMapOutput)
 }
 
+func (i BackupInstanceDiskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupInstanceDisk] {
+	return pulumix.Output[map[string]*BackupInstanceDisk]{
+		OutputState: i.ToBackupInstanceDiskMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BackupInstanceDiskOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceDiskOutput) ElementType() reflect.Type {
@@ -322,6 +341,12 @@ func (o BackupInstanceDiskOutput) ToBackupInstanceDiskOutput() BackupInstanceDis
 
 func (o BackupInstanceDiskOutput) ToBackupInstanceDiskOutputWithContext(ctx context.Context) BackupInstanceDiskOutput {
 	return o
+}
+
+func (o BackupInstanceDiskOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupInstanceDisk] {
+	return pulumix.Output[*BackupInstanceDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Backup Policy.
@@ -368,6 +393,12 @@ func (o BackupInstanceDiskArrayOutput) ToBackupInstanceDiskArrayOutputWithContex
 	return o
 }
 
+func (o BackupInstanceDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupInstanceDisk] {
+	return pulumix.Output[[]*BackupInstanceDisk]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BackupInstanceDiskArrayOutput) Index(i pulumi.IntInput) BackupInstanceDiskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupInstanceDisk {
 		return vs[0].([]*BackupInstanceDisk)[vs[1].(int)]
@@ -386,6 +417,12 @@ func (o BackupInstanceDiskMapOutput) ToBackupInstanceDiskMapOutput() BackupInsta
 
 func (o BackupInstanceDiskMapOutput) ToBackupInstanceDiskMapOutputWithContext(ctx context.Context) BackupInstanceDiskMapOutput {
 	return o
+}
+
+func (o BackupInstanceDiskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupInstanceDisk] {
+	return pulumix.Output[map[string]*BackupInstanceDisk]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BackupInstanceDiskMapOutput) MapIndex(k pulumi.StringInput) BackupInstanceDiskOutput {

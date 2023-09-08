@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i ClusterExtensionIdentityArgs) ToClusterExtensionIdentityOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionIdentityOutput)
 }
 
+func (i ClusterExtensionIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterExtensionIdentity] {
+	return pulumix.Output[ClusterExtensionIdentity]{
+		OutputState: i.ToClusterExtensionIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterExtensionIdentityArgs) ToClusterExtensionIdentityPtrOutput() ClusterExtensionIdentityPtrOutput {
 	return i.ToClusterExtensionIdentityPtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *clusterExtensionIdentityPtrType) ToClusterExtensionIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionIdentityPtrOutput)
 }
 
+func (i *clusterExtensionIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterExtensionIdentity] {
+	return pulumix.Output[*ClusterExtensionIdentity]{
+		OutputState: i.ToClusterExtensionIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterExtensionIdentityOutput struct{ *pulumi.OutputState }
 
 func (ClusterExtensionIdentityOutput) ElementType() reflect.Type {
@@ -117,6 +130,12 @@ func (o ClusterExtensionIdentityOutput) ToClusterExtensionIdentityPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterExtensionIdentity) *ClusterExtensionIdentity {
 		return &v
 	}).(ClusterExtensionIdentityPtrOutput)
+}
+
+func (o ClusterExtensionIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterExtensionIdentity] {
+	return pulumix.Output[ClusterExtensionIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -146,6 +165,12 @@ func (o ClusterExtensionIdentityPtrOutput) ToClusterExtensionIdentityPtrOutput()
 
 func (o ClusterExtensionIdentityPtrOutput) ToClusterExtensionIdentityPtrOutputWithContext(ctx context.Context) ClusterExtensionIdentityPtrOutput {
 	return o
+}
+
+func (o ClusterExtensionIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterExtensionIdentity] {
+	return pulumix.Output[*ClusterExtensionIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterExtensionIdentityPtrOutput) Elem() ClusterExtensionIdentityOutput {
@@ -229,6 +254,12 @@ func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
 }
 
+func (i ClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterIdentity] {
+	return pulumix.Output[ClusterIdentity]{
+		OutputState: i.ToClusterIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterIdentityArgs) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
 	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
 }
@@ -270,6 +301,12 @@ func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPtrOutput)
 }
 
+func (i *clusterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterIdentity] {
+	return pulumix.Output[*ClusterIdentity]{
+		OutputState: i.ToClusterIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityOutput) ElementType() reflect.Type {
@@ -292,6 +329,12 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
 		return &v
 	}).(ClusterIdentityPtrOutput)
+}
+
+func (o ClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterIdentity] {
+	return pulumix.Output[ClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -321,6 +364,12 @@ func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutput() ClusterIdentityPt
 
 func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
 	return o
+}
+
+func (o ClusterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterIdentity] {
+	return pulumix.Output[*ClusterIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
@@ -420,6 +469,12 @@ func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStorageOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageOutput)
 }
 
+func (i FluxConfigurationBlobStorageArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorage] {
+	return pulumix.Output[FluxConfigurationBlobStorage]{
+		OutputState: i.ToFluxConfigurationBlobStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBlobStorageArgs) ToFluxConfigurationBlobStoragePtrOutput() FluxConfigurationBlobStoragePtrOutput {
 	return i.ToFluxConfigurationBlobStoragePtrOutputWithContext(context.Background())
 }
@@ -461,6 +516,12 @@ func (i *fluxConfigurationBlobStoragePtrType) ToFluxConfigurationBlobStoragePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStoragePtrOutput)
 }
 
+func (i *fluxConfigurationBlobStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorage] {
+	return pulumix.Output[*FluxConfigurationBlobStorage]{
+		OutputState: i.ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBlobStorageOutput) ElementType() reflect.Type {
@@ -483,6 +544,12 @@ func (o FluxConfigurationBlobStorageOutput) ToFluxConfigurationBlobStoragePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBlobStorage) *FluxConfigurationBlobStorage {
 		return &v
 	}).(FluxConfigurationBlobStoragePtrOutput)
+}
+
+func (o FluxConfigurationBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorage] {
+	return pulumix.Output[FluxConfigurationBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the account key (shared key) to access the storage account.
@@ -534,6 +601,12 @@ func (o FluxConfigurationBlobStoragePtrOutput) ToFluxConfigurationBlobStoragePtr
 
 func (o FluxConfigurationBlobStoragePtrOutput) ToFluxConfigurationBlobStoragePtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStoragePtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBlobStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorage] {
+	return pulumix.Output[*FluxConfigurationBlobStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBlobStoragePtrOutput) Elem() FluxConfigurationBlobStorageOutput {
@@ -669,6 +742,12 @@ func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlo
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalOutput)
 }
 
+func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: i.ToFluxConfigurationBlobStorageServicePrincipalOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBlobStorageServicePrincipalArgs) ToFluxConfigurationBlobStorageServicePrincipalPtrOutput() FluxConfigurationBlobStorageServicePrincipalPtrOutput {
 	return i.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(context.Background())
 }
@@ -710,6 +789,12 @@ func (i *fluxConfigurationBlobStorageServicePrincipalPtrType) ToFluxConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
 }
 
+func (i *fluxConfigurationBlobStorageServicePrincipalPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: i.ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBlobStorageServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBlobStorageServicePrincipalOutput) ElementType() reflect.Type {
@@ -732,6 +817,12 @@ func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToFluxConfigurationB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBlobStorageServicePrincipal) *FluxConfigurationBlobStorageServicePrincipal {
 		return &v
 	}).(FluxConfigurationBlobStorageServicePrincipalPtrOutput)
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64-encoded certificate used to authenticate a Service Principal .
@@ -776,6 +867,12 @@ func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToFluxConfigurati
 
 func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToFluxConfigurationBlobStorageServicePrincipalPtrOutputWithContext(ctx context.Context) FluxConfigurationBlobStorageServicePrincipalPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal] {
+	return pulumix.Output[*FluxConfigurationBlobStorageServicePrincipal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBlobStorageServicePrincipalPtrOutput) Elem() FluxConfigurationBlobStorageServicePrincipalOutput {
@@ -909,6 +1006,12 @@ func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketOutput)
 }
 
+func (i FluxConfigurationBucketArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBucket] {
+	return pulumix.Output[FluxConfigurationBucket]{
+		OutputState: i.ToFluxConfigurationBucketOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationBucketArgs) ToFluxConfigurationBucketPtrOutput() FluxConfigurationBucketPtrOutput {
 	return i.ToFluxConfigurationBucketPtrOutputWithContext(context.Background())
 }
@@ -950,6 +1053,12 @@ func (i *fluxConfigurationBucketPtrType) ToFluxConfigurationBucketPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationBucketPtrOutput)
 }
 
+func (i *fluxConfigurationBucketPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBucket] {
+	return pulumix.Output[*FluxConfigurationBucket]{
+		OutputState: i.ToFluxConfigurationBucketPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationBucketOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationBucketOutput) ElementType() reflect.Type {
@@ -972,6 +1081,12 @@ func (o FluxConfigurationBucketOutput) ToFluxConfigurationBucketPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationBucket) *FluxConfigurationBucket {
 		return &v
 	}).(FluxConfigurationBucketPtrOutput)
+}
+
+func (o FluxConfigurationBucketOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationBucket] {
+	return pulumix.Output[FluxConfigurationBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the plaintext access key used to securely access the S3 bucket.
@@ -1026,6 +1141,12 @@ func (o FluxConfigurationBucketPtrOutput) ToFluxConfigurationBucketPtrOutput() F
 
 func (o FluxConfigurationBucketPtrOutput) ToFluxConfigurationBucketPtrOutputWithContext(ctx context.Context) FluxConfigurationBucketPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationBucketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationBucket] {
+	return pulumix.Output[*FluxConfigurationBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationBucketPtrOutput) Elem() FluxConfigurationBucketOutput {
@@ -1191,6 +1312,12 @@ func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryOutput)
 }
 
+func (i FluxConfigurationGitRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationGitRepository] {
+	return pulumix.Output[FluxConfigurationGitRepository]{
+		OutputState: i.ToFluxConfigurationGitRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FluxConfigurationGitRepositoryArgs) ToFluxConfigurationGitRepositoryPtrOutput() FluxConfigurationGitRepositoryPtrOutput {
 	return i.ToFluxConfigurationGitRepositoryPtrOutputWithContext(context.Background())
 }
@@ -1232,6 +1359,12 @@ func (i *fluxConfigurationGitRepositoryPtrType) ToFluxConfigurationGitRepository
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationGitRepositoryPtrOutput)
 }
 
+func (i *fluxConfigurationGitRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationGitRepository] {
+	return pulumix.Output[*FluxConfigurationGitRepository]{
+		OutputState: i.ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationGitRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationGitRepositoryOutput) ElementType() reflect.Type {
@@ -1254,6 +1387,12 @@ func (o FluxConfigurationGitRepositoryOutput) ToFluxConfigurationGitRepositoryPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationGitRepository) *FluxConfigurationGitRepository {
 		return &v
 	}).(FluxConfigurationGitRepositoryPtrOutput)
+}
+
+func (o FluxConfigurationGitRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationGitRepository] {
+	return pulumix.Output[FluxConfigurationGitRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
@@ -1323,6 +1462,12 @@ func (o FluxConfigurationGitRepositoryPtrOutput) ToFluxConfigurationGitRepositor
 
 func (o FluxConfigurationGitRepositoryPtrOutput) ToFluxConfigurationGitRepositoryPtrOutputWithContext(ctx context.Context) FluxConfigurationGitRepositoryPtrOutput {
 	return o
+}
+
+func (o FluxConfigurationGitRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfigurationGitRepository] {
+	return pulumix.Output[*FluxConfigurationGitRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationGitRepositoryPtrOutput) Elem() FluxConfigurationGitRepositoryOutput {
@@ -1506,6 +1651,12 @@ func (i FluxConfigurationKustomizationArgs) ToFluxConfigurationKustomizationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationOutput)
 }
 
+func (i FluxConfigurationKustomizationArgs) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationKustomization] {
+	return pulumix.Output[FluxConfigurationKustomization]{
+		OutputState: i.ToFluxConfigurationKustomizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FluxConfigurationKustomizationArrayInput is an input type that accepts FluxConfigurationKustomizationArray and FluxConfigurationKustomizationArrayOutput values.
 // You can construct a concrete instance of `FluxConfigurationKustomizationArrayInput` via:
 //
@@ -1531,6 +1682,12 @@ func (i FluxConfigurationKustomizationArray) ToFluxConfigurationKustomizationArr
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationArrayOutput)
 }
 
+func (i FluxConfigurationKustomizationArray) ToOutput(ctx context.Context) pulumix.Output[[]FluxConfigurationKustomization] {
+	return pulumix.Output[[]FluxConfigurationKustomization]{
+		OutputState: i.ToFluxConfigurationKustomizationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationKustomizationOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationKustomizationOutput) ElementType() reflect.Type {
@@ -1543,6 +1700,12 @@ func (o FluxConfigurationKustomizationOutput) ToFluxConfigurationKustomizationOu
 
 func (o FluxConfigurationKustomizationOutput) ToFluxConfigurationKustomizationOutputWithContext(ctx context.Context) FluxConfigurationKustomizationOutput {
 	return o
+}
+
+func (o FluxConfigurationKustomizationOutput) ToOutput(ctx context.Context) pulumix.Output[FluxConfigurationKustomization] {
+	return pulumix.Output[FluxConfigurationKustomization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
@@ -1597,6 +1760,12 @@ func (o FluxConfigurationKustomizationArrayOutput) ToFluxConfigurationKustomizat
 
 func (o FluxConfigurationKustomizationArrayOutput) ToFluxConfigurationKustomizationArrayOutputWithContext(ctx context.Context) FluxConfigurationKustomizationArrayOutput {
 	return o
+}
+
+func (o FluxConfigurationKustomizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FluxConfigurationKustomization] {
+	return pulumix.Output[[]FluxConfigurationKustomization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationKustomizationArrayOutput) Index(i pulumi.IntInput) FluxConfigurationKustomizationOutput {

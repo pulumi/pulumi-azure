@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Relay Hybrid Connection.
@@ -200,6 +201,12 @@ func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionOutput)
 }
 
+func (i *HybridConnection) ToOutput(ctx context.Context) pulumix.Output[*HybridConnection] {
+	return pulumix.Output[*HybridConnection]{
+		OutputState: i.ToHybridConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HybridConnectionArrayInput is an input type that accepts HybridConnectionArray and HybridConnectionArrayOutput values.
 // You can construct a concrete instance of `HybridConnectionArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i HybridConnectionArray) ToHybridConnectionArrayOutput() HybridConnectionA
 
 func (i HybridConnectionArray) ToHybridConnectionArrayOutputWithContext(ctx context.Context) HybridConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionArrayOutput)
+}
+
+func (i HybridConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*HybridConnection] {
+	return pulumix.Output[[]*HybridConnection]{
+		OutputState: i.ToHybridConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HybridConnectionMapInput is an input type that accepts HybridConnectionMap and HybridConnectionMapOutput values.
@@ -250,6 +263,12 @@ func (i HybridConnectionMap) ToHybridConnectionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionMapOutput)
 }
 
+func (i HybridConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HybridConnection] {
+	return pulumix.Output[map[string]*HybridConnection]{
+		OutputState: i.ToHybridConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o HybridConnectionOutput) ToHybridConnectionOutput() HybridConnectionOutpu
 
 func (o HybridConnectionOutput) ToHybridConnectionOutputWithContext(ctx context.Context) HybridConnectionOutput {
 	return o
+}
+
+func (o HybridConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*HybridConnection] {
+	return pulumix.Output[*HybridConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -303,6 +328,12 @@ func (o HybridConnectionArrayOutput) ToHybridConnectionArrayOutputWithContext(ct
 	return o
 }
 
+func (o HybridConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HybridConnection] {
+	return pulumix.Output[[]*HybridConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HybridConnectionArrayOutput) Index(i pulumi.IntInput) HybridConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HybridConnection {
 		return vs[0].([]*HybridConnection)[vs[1].(int)]
@@ -321,6 +352,12 @@ func (o HybridConnectionMapOutput) ToHybridConnectionMapOutput() HybridConnectio
 
 func (o HybridConnectionMapOutput) ToHybridConnectionMapOutputWithContext(ctx context.Context) HybridConnectionMapOutput {
 	return o
+}
+
+func (o HybridConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HybridConnection] {
+	return pulumix.Output[map[string]*HybridConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HybridConnectionMapOutput) MapIndex(k pulumi.StringInput) HybridConnectionOutput {

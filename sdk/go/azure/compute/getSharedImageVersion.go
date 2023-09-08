@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
@@ -139,6 +140,12 @@ func (o LookupSharedImageVersionResultOutput) ToLookupSharedImageVersionResultOu
 
 func (o LookupSharedImageVersionResultOutput) ToLookupSharedImageVersionResultOutputWithContext(ctx context.Context) LookupSharedImageVersionResultOutput {
 	return o
+}
+
+func (o LookupSharedImageVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSharedImageVersionResult] {
+	return pulumix.Output[LookupSharedImageVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is this Image Version excluded from the `latest` filter?

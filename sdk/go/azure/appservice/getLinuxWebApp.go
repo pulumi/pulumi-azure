@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Linux Web App.
@@ -172,6 +173,12 @@ func (o LookupLinuxWebAppResultOutput) ToLookupLinuxWebAppResultOutput() LookupL
 
 func (o LookupLinuxWebAppResultOutput) ToLookupLinuxWebAppResultOutputWithContext(ctx context.Context) LookupLinuxWebAppResultOutput {
 	return o
+}
+
+func (o LookupLinuxWebAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLinuxWebAppResult] {
+	return pulumix.Output[LookupLinuxWebAppResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `appMetadata` block as defined below.

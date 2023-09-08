@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Container App.
@@ -127,6 +128,12 @@ func (o LookupAppResultOutput) ToLookupAppResultOutput() LookupAppResultOutput {
 
 func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Context) LookupAppResultOutput {
 	return o
+}
+
+func (o LookupAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppResult] {
+	return pulumix.Output[LookupAppResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Container App Environment this Container App is linked to.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Pricing Tier for Azure Security Center in the current subscription.
@@ -169,6 +170,12 @@ func (i *SubscriptionPricing) ToSubscriptionPricingOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingOutput)
 }
 
+func (i *SubscriptionPricing) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPricing] {
+	return pulumix.Output[*SubscriptionPricing]{
+		OutputState: i.ToSubscriptionPricingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionPricingArrayInput is an input type that accepts SubscriptionPricingArray and SubscriptionPricingArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPricingArrayInput` via:
 //
@@ -192,6 +199,12 @@ func (i SubscriptionPricingArray) ToSubscriptionPricingArrayOutput() Subscriptio
 
 func (i SubscriptionPricingArray) ToSubscriptionPricingArrayOutputWithContext(ctx context.Context) SubscriptionPricingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingArrayOutput)
+}
+
+func (i SubscriptionPricingArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPricing] {
+	return pulumix.Output[[]*SubscriptionPricing]{
+		OutputState: i.ToSubscriptionPricingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionPricingMapInput is an input type that accepts SubscriptionPricingMap and SubscriptionPricingMapOutput values.
@@ -219,6 +232,12 @@ func (i SubscriptionPricingMap) ToSubscriptionPricingMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingMapOutput)
 }
 
+func (i SubscriptionPricingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPricing] {
+	return pulumix.Output[map[string]*SubscriptionPricing]{
+		OutputState: i.ToSubscriptionPricingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionPricingOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPricingOutput) ElementType() reflect.Type {
@@ -231,6 +250,12 @@ func (o SubscriptionPricingOutput) ToSubscriptionPricingOutput() SubscriptionPri
 
 func (o SubscriptionPricingOutput) ToSubscriptionPricingOutputWithContext(ctx context.Context) SubscriptionPricingOutput {
 	return o
+}
+
+func (o SubscriptionPricingOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPricing] {
+	return pulumix.Output[*SubscriptionPricing]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `extension` blocks as defined below.
@@ -267,6 +292,12 @@ func (o SubscriptionPricingArrayOutput) ToSubscriptionPricingArrayOutputWithCont
 	return o
 }
 
+func (o SubscriptionPricingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPricing] {
+	return pulumix.Output[[]*SubscriptionPricing]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionPricingArrayOutput) Index(i pulumi.IntInput) SubscriptionPricingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionPricing {
 		return vs[0].([]*SubscriptionPricing)[vs[1].(int)]
@@ -285,6 +316,12 @@ func (o SubscriptionPricingMapOutput) ToSubscriptionPricingMapOutput() Subscript
 
 func (o SubscriptionPricingMapOutput) ToSubscriptionPricingMapOutputWithContext(ctx context.Context) SubscriptionPricingMapOutput {
 	return o
+}
+
+func (o SubscriptionPricingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPricing] {
+	return pulumix.Output[map[string]*SubscriptionPricing]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionPricingMapOutput) MapIndex(k pulumi.StringInput) SubscriptionPricingOutput {

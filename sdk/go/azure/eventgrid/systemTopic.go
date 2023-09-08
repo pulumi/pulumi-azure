@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Event Grid System Topic.
@@ -251,6 +252,12 @@ func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) System
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicOutput)
 }
 
+func (i *SystemTopic) ToOutput(ctx context.Context) pulumix.Output[*SystemTopic] {
+	return pulumix.Output[*SystemTopic]{
+		OutputState: i.ToSystemTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SystemTopicArrayInput is an input type that accepts SystemTopicArray and SystemTopicArrayOutput values.
 // You can construct a concrete instance of `SystemTopicArrayInput` via:
 //
@@ -274,6 +281,12 @@ func (i SystemTopicArray) ToSystemTopicArrayOutput() SystemTopicArrayOutput {
 
 func (i SystemTopicArray) ToSystemTopicArrayOutputWithContext(ctx context.Context) SystemTopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicArrayOutput)
+}
+
+func (i SystemTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*SystemTopic] {
+	return pulumix.Output[[]*SystemTopic]{
+		OutputState: i.ToSystemTopicArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SystemTopicMapInput is an input type that accepts SystemTopicMap and SystemTopicMapOutput values.
@@ -301,6 +314,12 @@ func (i SystemTopicMap) ToSystemTopicMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicMapOutput)
 }
 
+func (i SystemTopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SystemTopic] {
+	return pulumix.Output[map[string]*SystemTopic]{
+		OutputState: i.ToSystemTopicMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SystemTopicOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicOutput) ElementType() reflect.Type {
@@ -313,6 +332,12 @@ func (o SystemTopicOutput) ToSystemTopicOutput() SystemTopicOutput {
 
 func (o SystemTopicOutput) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
 	return o
+}
+
+func (o SystemTopicOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopic] {
+	return pulumix.Output[*SystemTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `identity` block as defined below.
@@ -373,6 +398,12 @@ func (o SystemTopicArrayOutput) ToSystemTopicArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SystemTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SystemTopic] {
+	return pulumix.Output[[]*SystemTopic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SystemTopicArrayOutput) Index(i pulumi.IntInput) SystemTopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SystemTopic {
 		return vs[0].([]*SystemTopic)[vs[1].(int)]
@@ -391,6 +422,12 @@ func (o SystemTopicMapOutput) ToSystemTopicMapOutput() SystemTopicMapOutput {
 
 func (o SystemTopicMapOutput) ToSystemTopicMapOutputWithContext(ctx context.Context) SystemTopicMapOutput {
 	return o
+}
+
+func (o SystemTopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SystemTopic] {
+	return pulumix.Output[map[string]*SystemTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SystemTopicMapOutput) MapIndex(k pulumi.StringInput) SystemTopicOutput {

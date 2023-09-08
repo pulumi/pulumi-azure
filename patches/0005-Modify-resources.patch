@@ -1,4 +1,4 @@
-From 74b359f643f3701a952fd907dc81a5dd8fc9a1c1 Mon Sep 17 00:00:00 2001
+From 492d44a5a4e3ce840d519ffac5b62d39f727a7f2 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 28 Aug 2023 14:57:22 -0700
 Subject: [PATCH 5/9] Modify resources
@@ -546,10 +546,10 @@ index 12b8af4999..f83e49383a 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 7e904aea50..110e0e9a55 100644
+index 067f87c652..54458c348c 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1115,7 +1115,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1126,7 +1126,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -628,7 +628,7 @@ index 0895e96c1e..4a5cefbcf0 100644
  								string(databaseAccountCapabilitiesEnableAggregationPipeline),
  								string(databaseAccountCapabilitiesEnableCassandra),
 diff --git a/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go b/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go
-index 1b81a69cd5..ddc4e99f90 100644
+index e6a2b93e01..f9665d9631 100644
 --- a/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go
 +++ b/internal/services/cosmos/cosmosdb_cassandra_cluster_resource_test.go
 @@ -18,6 +18,17 @@ import (
@@ -871,7 +871,7 @@ index 7b6a855890..bb66854a36 100644
  								string(devices.EncodingAvro),
  								string(devices.EncodingAvroDeflate),
 diff --git a/internal/services/keyvault/key_vault_certificate_resource.go b/internal/services/keyvault/key_vault_certificate_resource.go
-index 93e5e59396..dd6002f16d 100644
+index f872971b34..64db21f970 100644
 --- a/internal/services/keyvault/key_vault_certificate_resource.go
 +++ b/internal/services/keyvault/key_vault_certificate_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -1351,7 +1351,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 85feed693d..9732e2c2ee 100644
+index 5f00d7466f..0e7f4ae71b 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1362,7 +1362,7 @@ index 85feed693d..9732e2c2ee 100644
  	"log"
  	"strings"
  	"time"
-@@ -1017,7 +1018,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1382,7 +1383,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1372,7 +1372,7 @@ index 85feed693d..9732e2c2ee 100644
  						},
  					},
  
-@@ -1028,7 +1030,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1393,7 +1395,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						ValidateFunc: validation.StringInSlice([]string{
  							"Disabled",
  							"Enabled",
@@ -1381,7 +1381,7 @@ index 85feed693d..9732e2c2ee 100644
  					},
  
  					"email_addresses": {
-@@ -1054,7 +1056,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1419,7 +1421,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  							string(sql.SecurityAlertPolicyStateDisabled),
  							string(sql.SecurityAlertPolicyStateEnabled),
  							string(sql.SecurityAlertPolicyStateNew),
@@ -1919,7 +1919,7 @@ index e31d500aed..9f21a2f2fa 100644
  
  						"sa_datasize": {
 diff --git a/internal/services/network/virtual_network_gateway_resource.go b/internal/services/network/virtual_network_gateway_resource.go
-index 3856d6e759..dff2cd3a9d 100644
+index 814422deb6..0fdb6b799b 100644
 --- a/internal/services/network/virtual_network_gateway_resource.go
 +++ b/internal/services/network/virtual_network_gateway_resource.go
 @@ -6,6 +6,7 @@ package network
@@ -2145,7 +2145,7 @@ index 55a2040979..d9067bf24c 100644
  
  			"storage_mode_type": {
 diff --git a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
-index acbe307857..a7f15f28e1 100644
+index 7bad070caf..40b1585f79 100644
 --- a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 +++ b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 @@ -233,7 +233,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
@@ -2932,5 +2932,5 @@ index da8c25a5b0..fa2bfff38e 100644
  	}
  
 -- 
-2.41.0
+2.39.1
 

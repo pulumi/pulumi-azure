@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Sim Group.
@@ -246,6 +247,12 @@ func (i *NetworkSimGroup) ToNetworkSimGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimGroupOutput)
 }
 
+func (i *NetworkSimGroup) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimGroup] {
+	return pulumix.Output[*NetworkSimGroup]{
+		OutputState: i.ToNetworkSimGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkSimGroupArrayInput is an input type that accepts NetworkSimGroupArray and NetworkSimGroupArrayOutput values.
 // You can construct a concrete instance of `NetworkSimGroupArrayInput` via:
 //
@@ -269,6 +276,12 @@ func (i NetworkSimGroupArray) ToNetworkSimGroupArrayOutput() NetworkSimGroupArra
 
 func (i NetworkSimGroupArray) ToNetworkSimGroupArrayOutputWithContext(ctx context.Context) NetworkSimGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimGroupArrayOutput)
+}
+
+func (i NetworkSimGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSimGroup] {
+	return pulumix.Output[[]*NetworkSimGroup]{
+		OutputState: i.ToNetworkSimGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkSimGroupMapInput is an input type that accepts NetworkSimGroupMap and NetworkSimGroupMapOutput values.
@@ -296,6 +309,12 @@ func (i NetworkSimGroupMap) ToNetworkSimGroupMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimGroupMapOutput)
 }
 
+func (i NetworkSimGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSimGroup] {
+	return pulumix.Output[map[string]*NetworkSimGroup]{
+		OutputState: i.ToNetworkSimGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkSimGroupOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimGroupOutput) ElementType() reflect.Type {
@@ -308,6 +327,12 @@ func (o NetworkSimGroupOutput) ToNetworkSimGroupOutput() NetworkSimGroupOutput {
 
 func (o NetworkSimGroupOutput) ToNetworkSimGroupOutputWithContext(ctx context.Context) NetworkSimGroupOutput {
 	return o
+}
+
+func (o NetworkSimGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimGroup] {
+	return pulumix.Output[*NetworkSimGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A key to encrypt the SIM data that belongs to this SIM group.
@@ -356,6 +381,12 @@ func (o NetworkSimGroupArrayOutput) ToNetworkSimGroupArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o NetworkSimGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSimGroup] {
+	return pulumix.Output[[]*NetworkSimGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkSimGroupArrayOutput) Index(i pulumi.IntInput) NetworkSimGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSimGroup {
 		return vs[0].([]*NetworkSimGroup)[vs[1].(int)]
@@ -374,6 +405,12 @@ func (o NetworkSimGroupMapOutput) ToNetworkSimGroupMapOutput() NetworkSimGroupMa
 
 func (o NetworkSimGroupMapOutput) ToNetworkSimGroupMapOutputWithContext(ctx context.Context) NetworkSimGroupMapOutput {
 	return o
+}
+
+func (o NetworkSimGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSimGroup] {
+	return pulumix.Output[map[string]*NetworkSimGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkSimGroupMapOutput) MapIndex(k pulumi.StringInput) NetworkSimGroupOutput {

@@ -11,6 +11,7 @@ import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
 import com.pulumi.azure.config.outputs.FeaturesManagedDisk;
 import com.pulumi.azure.config.outputs.FeaturesResourceGroup;
+import com.pulumi.azure.config.outputs.FeaturesSubscription;
 import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
 import com.pulumi.azure.config.outputs.FeaturesVirtualMachine;
 import com.pulumi.azure.config.outputs.FeaturesVirtualMachineScaleSet;
@@ -29,6 +30,7 @@ public final class Features {
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
     private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesResourceGroup resourceGroup;
+    private @Nullable FeaturesSubscription subscription;
     private @Nullable FeaturesTemplateDeployment templateDeployment;
     private @Nullable FeaturesVirtualMachine virtualMachine;
     private @Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet;
@@ -58,6 +60,9 @@ public final class Features {
     public Optional<FeaturesResourceGroup> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
     }
+    public Optional<FeaturesSubscription> subscription() {
+        return Optional.ofNullable(this.subscription);
+    }
     public Optional<FeaturesTemplateDeployment> templateDeployment() {
         return Optional.ofNullable(this.templateDeployment);
     }
@@ -85,6 +90,7 @@ public final class Features {
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
         private @Nullable FeaturesManagedDisk managedDisk;
         private @Nullable FeaturesResourceGroup resourceGroup;
+        private @Nullable FeaturesSubscription subscription;
         private @Nullable FeaturesTemplateDeployment templateDeployment;
         private @Nullable FeaturesVirtualMachine virtualMachine;
         private @Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet;
@@ -99,6 +105,7 @@ public final class Features {
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
     	      this.managedDisk = defaults.managedDisk;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.subscription = defaults.subscription;
     	      this.templateDeployment = defaults.templateDeployment;
     	      this.virtualMachine = defaults.virtualMachine;
     	      this.virtualMachineScaleSet = defaults.virtualMachineScaleSet;
@@ -145,6 +152,11 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder subscription(@Nullable FeaturesSubscription subscription) {
+            this.subscription = subscription;
+            return this;
+        }
+        @CustomType.Setter
         public Builder templateDeployment(@Nullable FeaturesTemplateDeployment templateDeployment) {
             this.templateDeployment = templateDeployment;
             return this;
@@ -169,6 +181,7 @@ public final class Features {
             o.logAnalyticsWorkspace = logAnalyticsWorkspace;
             o.managedDisk = managedDisk;
             o.resourceGroup = resourceGroup;
+            o.subscription = subscription;
             o.templateDeployment = templateDeployment;
             o.virtualMachine = virtualMachine;
             o.virtualMachineScaleSet = virtualMachineScaleSet;

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft SQL Azure Managed Instance.
@@ -575,6 +576,12 @@ func (i *ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceOutput)
 }
 
+func (i *ManagedInstance) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstance] {
+	return pulumix.Output[*ManagedInstance]{
+		OutputState: i.ToManagedInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedInstanceArrayInput is an input type that accepts ManagedInstanceArray and ManagedInstanceArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceArrayInput` via:
 //
@@ -598,6 +605,12 @@ func (i ManagedInstanceArray) ToManagedInstanceArrayOutput() ManagedInstanceArra
 
 func (i ManagedInstanceArray) ToManagedInstanceArrayOutputWithContext(ctx context.Context) ManagedInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceArrayOutput)
+}
+
+func (i ManagedInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstance] {
+	return pulumix.Output[[]*ManagedInstance]{
+		OutputState: i.ToManagedInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedInstanceMapInput is an input type that accepts ManagedInstanceMap and ManagedInstanceMapOutput values.
@@ -625,6 +638,12 @@ func (i ManagedInstanceMap) ToManagedInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceMapOutput)
 }
 
+func (i ManagedInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstance] {
+	return pulumix.Output[map[string]*ManagedInstance]{
+		OutputState: i.ToManagedInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedInstanceOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceOutput) ElementType() reflect.Type {
@@ -637,6 +656,12 @@ func (o ManagedInstanceOutput) ToManagedInstanceOutput() ManagedInstanceOutput {
 
 func (o ManagedInstanceOutput) ToManagedInstanceOutputWithContext(ctx context.Context) ManagedInstanceOutput {
 	return o
+}
+
+func (o ManagedInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstance] {
+	return pulumix.Output[*ManagedInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -758,6 +783,12 @@ func (o ManagedInstanceArrayOutput) ToManagedInstanceArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ManagedInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstance] {
+	return pulumix.Output[[]*ManagedInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedInstanceArrayOutput) Index(i pulumi.IntInput) ManagedInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstance {
 		return vs[0].([]*ManagedInstance)[vs[1].(int)]
@@ -776,6 +807,12 @@ func (o ManagedInstanceMapOutput) ToManagedInstanceMapOutput() ManagedInstanceMa
 
 func (o ManagedInstanceMapOutput) ToManagedInstanceMapOutputWithContext(ctx context.Context) ManagedInstanceMapOutput {
 	return o
+}
+
+func (o ManagedInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstance] {
+	return pulumix.Output[map[string]*ManagedInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedInstanceMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceOutput {

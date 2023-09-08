@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Azure Maps Account.
@@ -115,6 +116,12 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutput() LookupAccountRe
 
 func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx context.Context) LookupAccountResultOutput {
 	return o
+}
+
+func (o LookupAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccountResult] {
+	return pulumix.Output[LookupAccountResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

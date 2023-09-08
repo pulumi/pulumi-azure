@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Virtual Network Gateway Connection.
@@ -158,6 +159,12 @@ func (o GetGatewayConnectionResultOutput) ToGetGatewayConnectionResultOutput() G
 
 func (o GetGatewayConnectionResultOutput) ToGetGatewayConnectionResultOutputWithContext(ctx context.Context) GetGatewayConnectionResultOutput {
 	return o
+}
+
+func (o GetGatewayConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGatewayConnectionResult] {
+	return pulumix.Output[GetGatewayConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The authorization key associated with the

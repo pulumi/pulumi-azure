@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Application Security Group.
@@ -108,6 +109,12 @@ func (o LookupApplicationSecurityGroupResultOutput) ToLookupApplicationSecurityG
 
 func (o LookupApplicationSecurityGroupResultOutput) ToLookupApplicationSecurityGroupResultOutputWithContext(ctx context.Context) LookupApplicationSecurityGroupResultOutput {
 	return o
+}
+
+func (o LookupApplicationSecurityGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationSecurityGroupResult] {
+	return pulumix.Output[LookupApplicationSecurityGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Policy Exemption.
@@ -259,6 +260,12 @@ func (i *ResourcePolicyExemption) ToResourcePolicyExemptionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyExemptionOutput)
 }
 
+func (i *ResourcePolicyExemption) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicyExemption] {
+	return pulumix.Output[*ResourcePolicyExemption]{
+		OutputState: i.ToResourcePolicyExemptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourcePolicyExemptionArrayInput is an input type that accepts ResourcePolicyExemptionArray and ResourcePolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyExemptionArrayInput` via:
 //
@@ -282,6 +289,12 @@ func (i ResourcePolicyExemptionArray) ToResourcePolicyExemptionArrayOutput() Res
 
 func (i ResourcePolicyExemptionArray) ToResourcePolicyExemptionArrayOutputWithContext(ctx context.Context) ResourcePolicyExemptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyExemptionArrayOutput)
+}
+
+func (i ResourcePolicyExemptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourcePolicyExemption] {
+	return pulumix.Output[[]*ResourcePolicyExemption]{
+		OutputState: i.ToResourcePolicyExemptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourcePolicyExemptionMapInput is an input type that accepts ResourcePolicyExemptionMap and ResourcePolicyExemptionMapOutput values.
@@ -309,6 +322,12 @@ func (i ResourcePolicyExemptionMap) ToResourcePolicyExemptionMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyExemptionMapOutput)
 }
 
+func (i ResourcePolicyExemptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourcePolicyExemption] {
+	return pulumix.Output[map[string]*ResourcePolicyExemption]{
+		OutputState: i.ToResourcePolicyExemptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourcePolicyExemptionOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyExemptionOutput) ElementType() reflect.Type {
@@ -321,6 +340,12 @@ func (o ResourcePolicyExemptionOutput) ToResourcePolicyExemptionOutput() Resourc
 
 func (o ResourcePolicyExemptionOutput) ToResourcePolicyExemptionOutputWithContext(ctx context.Context) ResourcePolicyExemptionOutput {
 	return o
+}
+
+func (o ResourcePolicyExemptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicyExemption] {
+	return pulumix.Output[*ResourcePolicyExemption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A description to use for this Policy Exemption.
@@ -382,6 +407,12 @@ func (o ResourcePolicyExemptionArrayOutput) ToResourcePolicyExemptionArrayOutput
 	return o
 }
 
+func (o ResourcePolicyExemptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourcePolicyExemption] {
+	return pulumix.Output[[]*ResourcePolicyExemption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourcePolicyExemptionArrayOutput) Index(i pulumi.IntInput) ResourcePolicyExemptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourcePolicyExemption {
 		return vs[0].([]*ResourcePolicyExemption)[vs[1].(int)]
@@ -400,6 +431,12 @@ func (o ResourcePolicyExemptionMapOutput) ToResourcePolicyExemptionMapOutput() R
 
 func (o ResourcePolicyExemptionMapOutput) ToResourcePolicyExemptionMapOutputWithContext(ctx context.Context) ResourcePolicyExemptionMapOutput {
 	return o
+}
+
+func (o ResourcePolicyExemptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourcePolicyExemption] {
+	return pulumix.Output[map[string]*ResourcePolicyExemption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourcePolicyExemptionMapOutput) MapIndex(k pulumi.StringInput) ResourcePolicyExemptionOutput {

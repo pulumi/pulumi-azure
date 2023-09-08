@@ -147,12 +147,16 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
     /**
      * The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
      * 
+     * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * 
      */
     @Import(name="excludedPaths")
     private @Nullable Output<List<String>> excludedPaths;
 
     /**
      * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * 
+     * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
      * 
      */
     public Optional<Output<List<String>>> excludedPaths() {
@@ -586,6 +590,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
         /**
          * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
          * 
+         * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * 
          * @return builder
          * 
          */
@@ -597,6 +603,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
         /**
          * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
          * 
+         * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+         * 
          * @return builder
          * 
          */
@@ -606,6 +614,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2Args extends com.pulumi.r
 
         /**
          * @param excludedPaths The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+         * 
+         * &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
          * 
          * @return builder
          * 

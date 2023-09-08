@@ -24,7 +24,7 @@ class SecretArgs:
         """
         The set of arguments for constructing a Secret resource.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
+        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
@@ -62,7 +62,7 @@ class SecretArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Specifies the value of the Key Vault Secret.
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 
         > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
@@ -157,7 +157,7 @@ class _SecretState:
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
+        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -286,7 +286,7 @@ class _SecretState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the value of the Key Vault Secret.
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 
         > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
@@ -337,6 +337,14 @@ class Secret(pulumi.CustomResource):
         """
         Manages a Key Vault Secret.
 
+        <<<<<<< HEAD
+        > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_secrets_on_destroy` for more information.
+
+        =======
+        > > > > > > > 8d78c87098 (Update-documentation)
         ## Example Usage
 
         ```python
@@ -387,7 +395,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
+        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
@@ -400,6 +408,14 @@ class Secret(pulumi.CustomResource):
         """
         Manages a Key Vault Secret.
 
+        <<<<<<< HEAD
+        > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_secrets_on_destroy` for more information.
+
+        =======
+        > > > > > > > 8d78c87098 (Update-documentation)
         ## Example Usage
 
         ```python
@@ -526,7 +542,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
+        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -617,7 +633,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        Specifies the value of the Key Vault Secret.
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
 
         > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """

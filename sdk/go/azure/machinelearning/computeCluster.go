@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Machine Learning Compute Cluster.
@@ -366,6 +367,12 @@ func (i *ComputeCluster) ToComputeClusterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterOutput)
 }
 
+func (i *ComputeCluster) ToOutput(ctx context.Context) pulumix.Output[*ComputeCluster] {
+	return pulumix.Output[*ComputeCluster]{
+		OutputState: i.ToComputeClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ComputeClusterArrayInput is an input type that accepts ComputeClusterArray and ComputeClusterArrayOutput values.
 // You can construct a concrete instance of `ComputeClusterArrayInput` via:
 //
@@ -389,6 +396,12 @@ func (i ComputeClusterArray) ToComputeClusterArrayOutput() ComputeClusterArrayOu
 
 func (i ComputeClusterArray) ToComputeClusterArrayOutputWithContext(ctx context.Context) ComputeClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterArrayOutput)
+}
+
+func (i ComputeClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*ComputeCluster] {
+	return pulumix.Output[[]*ComputeCluster]{
+		OutputState: i.ToComputeClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ComputeClusterMapInput is an input type that accepts ComputeClusterMap and ComputeClusterMapOutput values.
@@ -416,6 +429,12 @@ func (i ComputeClusterMap) ToComputeClusterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterMapOutput)
 }
 
+func (i ComputeClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ComputeCluster] {
+	return pulumix.Output[map[string]*ComputeCluster]{
+		OutputState: i.ToComputeClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ComputeClusterOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterOutput) ElementType() reflect.Type {
@@ -428,6 +447,12 @@ func (o ComputeClusterOutput) ToComputeClusterOutput() ComputeClusterOutput {
 
 func (o ComputeClusterOutput) ToComputeClusterOutputWithContext(ctx context.Context) ComputeClusterOutput {
 	return o
+}
+
+func (o ComputeClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeCluster] {
+	return pulumix.Output[*ComputeCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -514,6 +539,12 @@ func (o ComputeClusterArrayOutput) ToComputeClusterArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ComputeClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ComputeCluster] {
+	return pulumix.Output[[]*ComputeCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ComputeClusterArrayOutput) Index(i pulumi.IntInput) ComputeClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ComputeCluster {
 		return vs[0].([]*ComputeCluster)[vs[1].(int)]
@@ -532,6 +563,12 @@ func (o ComputeClusterMapOutput) ToComputeClusterMapOutput() ComputeClusterMapOu
 
 func (o ComputeClusterMapOutput) ToComputeClusterMapOutputWithContext(ctx context.Context) ComputeClusterMapOutput {
 	return o
+}
+
+func (o ComputeClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ComputeCluster] {
+	return pulumix.Output[map[string]*ComputeCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComputeClusterMapOutput) MapIndex(k pulumi.StringInput) ComputeClusterOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
@@ -271,6 +272,12 @@ func (i *Lock) ToLockOutputWithContext(ctx context.Context) LockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LockOutput)
 }
 
+func (i *Lock) ToOutput(ctx context.Context) pulumix.Output[*Lock] {
+	return pulumix.Output[*Lock]{
+		OutputState: i.ToLockOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LockArrayInput is an input type that accepts LockArray and LockArrayOutput values.
 // You can construct a concrete instance of `LockArrayInput` via:
 //
@@ -294,6 +301,12 @@ func (i LockArray) ToLockArrayOutput() LockArrayOutput {
 
 func (i LockArray) ToLockArrayOutputWithContext(ctx context.Context) LockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LockArrayOutput)
+}
+
+func (i LockArray) ToOutput(ctx context.Context) pulumix.Output[[]*Lock] {
+	return pulumix.Output[[]*Lock]{
+		OutputState: i.ToLockArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LockMapInput is an input type that accepts LockMap and LockMapOutput values.
@@ -321,6 +334,12 @@ func (i LockMap) ToLockMapOutputWithContext(ctx context.Context) LockMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LockMapOutput)
 }
 
+func (i LockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Lock] {
+	return pulumix.Output[map[string]*Lock]{
+		OutputState: i.ToLockMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LockOutput struct{ *pulumi.OutputState }
 
 func (LockOutput) ElementType() reflect.Type {
@@ -333,6 +352,12 @@ func (o LockOutput) ToLockOutput() LockOutput {
 
 func (o LockOutput) ToLockOutputWithContext(ctx context.Context) LockOutput {
 	return o
+}
+
+func (o LockOutput) ToOutput(ctx context.Context) pulumix.Output[*Lock] {
+	return pulumix.Output[*Lock]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
@@ -371,6 +396,12 @@ func (o LockArrayOutput) ToLockArrayOutputWithContext(ctx context.Context) LockA
 	return o
 }
 
+func (o LockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Lock] {
+	return pulumix.Output[[]*Lock]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LockArrayOutput) Index(i pulumi.IntInput) LockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Lock {
 		return vs[0].([]*Lock)[vs[1].(int)]
@@ -389,6 +420,12 @@ func (o LockMapOutput) ToLockMapOutput() LockMapOutput {
 
 func (o LockMapOutput) ToLockMapOutputWithContext(ctx context.Context) LockMapOutput {
 	return o
+}
+
+func (o LockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Lock] {
+	return pulumix.Output[map[string]*Lock]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LockMapOutput) MapIndex(k pulumi.StringInput) LockOutput {

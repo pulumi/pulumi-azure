@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -187,6 +188,12 @@ func (i *NamespaceSchemaGroup) ToNamespaceSchemaGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceSchemaGroupOutput)
 }
 
+func (i *NamespaceSchemaGroup) ToOutput(ctx context.Context) pulumix.Output[*NamespaceSchemaGroup] {
+	return pulumix.Output[*NamespaceSchemaGroup]{
+		OutputState: i.ToNamespaceSchemaGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamespaceSchemaGroupArrayInput is an input type that accepts NamespaceSchemaGroupArray and NamespaceSchemaGroupArrayOutput values.
 // You can construct a concrete instance of `NamespaceSchemaGroupArrayInput` via:
 //
@@ -210,6 +217,12 @@ func (i NamespaceSchemaGroupArray) ToNamespaceSchemaGroupArrayOutput() Namespace
 
 func (i NamespaceSchemaGroupArray) ToNamespaceSchemaGroupArrayOutputWithContext(ctx context.Context) NamespaceSchemaGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceSchemaGroupArrayOutput)
+}
+
+func (i NamespaceSchemaGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceSchemaGroup] {
+	return pulumix.Output[[]*NamespaceSchemaGroup]{
+		OutputState: i.ToNamespaceSchemaGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NamespaceSchemaGroupMapInput is an input type that accepts NamespaceSchemaGroupMap and NamespaceSchemaGroupMapOutput values.
@@ -237,6 +250,12 @@ func (i NamespaceSchemaGroupMap) ToNamespaceSchemaGroupMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceSchemaGroupMapOutput)
 }
 
+func (i NamespaceSchemaGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceSchemaGroup] {
+	return pulumix.Output[map[string]*NamespaceSchemaGroup]{
+		OutputState: i.ToNamespaceSchemaGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceSchemaGroupOutput struct{ *pulumi.OutputState }
 
 func (NamespaceSchemaGroupOutput) ElementType() reflect.Type {
@@ -249,6 +268,12 @@ func (o NamespaceSchemaGroupOutput) ToNamespaceSchemaGroupOutput() NamespaceSche
 
 func (o NamespaceSchemaGroupOutput) ToNamespaceSchemaGroupOutputWithContext(ctx context.Context) NamespaceSchemaGroupOutput {
 	return o
+}
+
+func (o NamespaceSchemaGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceSchemaGroup] {
+	return pulumix.Output[*NamespaceSchemaGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of this schema group. Changing this forces a new resource to be created.
@@ -285,6 +310,12 @@ func (o NamespaceSchemaGroupArrayOutput) ToNamespaceSchemaGroupArrayOutputWithCo
 	return o
 }
 
+func (o NamespaceSchemaGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceSchemaGroup] {
+	return pulumix.Output[[]*NamespaceSchemaGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NamespaceSchemaGroupArrayOutput) Index(i pulumi.IntInput) NamespaceSchemaGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamespaceSchemaGroup {
 		return vs[0].([]*NamespaceSchemaGroup)[vs[1].(int)]
@@ -303,6 +334,12 @@ func (o NamespaceSchemaGroupMapOutput) ToNamespaceSchemaGroupMapOutput() Namespa
 
 func (o NamespaceSchemaGroupMapOutput) ToNamespaceSchemaGroupMapOutputWithContext(ctx context.Context) NamespaceSchemaGroupMapOutput {
 	return o
+}
+
+func (o NamespaceSchemaGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceSchemaGroup] {
+	return pulumix.Output[map[string]*NamespaceSchemaGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceSchemaGroupMapOutput) MapIndex(k pulumi.StringInput) NamespaceSchemaGroupOutput {

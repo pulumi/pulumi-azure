@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Applies a Guest Configuration Policy to a Virtual Machine.
@@ -277,6 +278,12 @@ func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAss
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentOutput)
 }
 
+func (i *VirtualMachineConfigurationAssignment) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineConfigurationAssignment] {
+	return pulumix.Output[*VirtualMachineConfigurationAssignment]{
+		OutputState: i.ToVirtualMachineConfigurationAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualMachineConfigurationAssignmentArrayInput is an input type that accepts VirtualMachineConfigurationAssignmentArray and VirtualMachineConfigurationAssignmentArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentArrayInput` via:
 //
@@ -300,6 +307,12 @@ func (i VirtualMachineConfigurationAssignmentArray) ToVirtualMachineConfiguratio
 
 func (i VirtualMachineConfigurationAssignmentArray) ToVirtualMachineConfigurationAssignmentArrayOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentArrayOutput)
+}
+
+func (i VirtualMachineConfigurationAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineConfigurationAssignment] {
+	return pulumix.Output[[]*VirtualMachineConfigurationAssignment]{
+		OutputState: i.ToVirtualMachineConfigurationAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualMachineConfigurationAssignmentMapInput is an input type that accepts VirtualMachineConfigurationAssignmentMap and VirtualMachineConfigurationAssignmentMapOutput values.
@@ -327,6 +340,12 @@ func (i VirtualMachineConfigurationAssignmentMap) ToVirtualMachineConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentMapOutput)
 }
 
+func (i VirtualMachineConfigurationAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineConfigurationAssignment] {
+	return pulumix.Output[map[string]*VirtualMachineConfigurationAssignment]{
+		OutputState: i.ToVirtualMachineConfigurationAssignmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualMachineConfigurationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentOutput) ElementType() reflect.Type {
@@ -339,6 +358,12 @@ func (o VirtualMachineConfigurationAssignmentOutput) ToVirtualMachineConfigurati
 
 func (o VirtualMachineConfigurationAssignmentOutput) ToVirtualMachineConfigurationAssignmentOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentOutput {
 	return o
+}
+
+func (o VirtualMachineConfigurationAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineConfigurationAssignment] {
+	return pulumix.Output[*VirtualMachineConfigurationAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `configuration` block as defined below.
@@ -377,6 +402,12 @@ func (o VirtualMachineConfigurationAssignmentArrayOutput) ToVirtualMachineConfig
 	return o
 }
 
+func (o VirtualMachineConfigurationAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineConfigurationAssignment] {
+	return pulumix.Output[[]*VirtualMachineConfigurationAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualMachineConfigurationAssignmentArrayOutput) Index(i pulumi.IntInput) VirtualMachineConfigurationAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachineConfigurationAssignment {
 		return vs[0].([]*VirtualMachineConfigurationAssignment)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o VirtualMachineConfigurationAssignmentMapOutput) ToVirtualMachineConfigur
 
 func (o VirtualMachineConfigurationAssignmentMapOutput) ToVirtualMachineConfigurationAssignmentMapOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentMapOutput {
 	return o
+}
+
+func (o VirtualMachineConfigurationAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineConfigurationAssignment] {
+	return pulumix.Output[map[string]*VirtualMachineConfigurationAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualMachineConfigurationAssignmentMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineConfigurationAssignmentOutput {

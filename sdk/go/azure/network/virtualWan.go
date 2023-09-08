@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual WAN.
@@ -214,6 +215,12 @@ func (i *VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
 }
 
+func (i *VirtualWan) ToOutput(ctx context.Context) pulumix.Output[*VirtualWan] {
+	return pulumix.Output[*VirtualWan]{
+		OutputState: i.ToVirtualWanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualWanArrayInput is an input type that accepts VirtualWanArray and VirtualWanArrayOutput values.
 // You can construct a concrete instance of `VirtualWanArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i VirtualWanArray) ToVirtualWanArrayOutput() VirtualWanArrayOutput {
 
 func (i VirtualWanArray) ToVirtualWanArrayOutputWithContext(ctx context.Context) VirtualWanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanArrayOutput)
+}
+
+func (i VirtualWanArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualWan] {
+	return pulumix.Output[[]*VirtualWan]{
+		OutputState: i.ToVirtualWanArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualWanMapInput is an input type that accepts VirtualWanMap and VirtualWanMapOutput values.
@@ -264,6 +277,12 @@ func (i VirtualWanMap) ToVirtualWanMapOutputWithContext(ctx context.Context) Vir
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanMapOutput)
 }
 
+func (i VirtualWanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualWan] {
+	return pulumix.Output[map[string]*VirtualWan]{
+		OutputState: i.ToVirtualWanMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualWanOutput struct{ *pulumi.OutputState }
 
 func (VirtualWanOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o VirtualWanOutput) ToVirtualWanOutput() VirtualWanOutput {
 
 func (o VirtualWanOutput) ToVirtualWanOutputWithContext(ctx context.Context) VirtualWanOutput {
 	return o
+}
+
+func (o VirtualWanOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualWan] {
+	return pulumix.Output[*VirtualWan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -332,6 +357,12 @@ func (o VirtualWanArrayOutput) ToVirtualWanArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o VirtualWanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualWan] {
+	return pulumix.Output[[]*VirtualWan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualWanArrayOutput) Index(i pulumi.IntInput) VirtualWanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualWan {
 		return vs[0].([]*VirtualWan)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o VirtualWanMapOutput) ToVirtualWanMapOutput() VirtualWanMapOutput {
 
 func (o VirtualWanMapOutput) ToVirtualWanMapOutputWithContext(ctx context.Context) VirtualWanMapOutput {
 	return o
+}
+
+func (o VirtualWanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualWan] {
+	return pulumix.Output[map[string]*VirtualWan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualWanMapOutput) MapIndex(k pulumi.StringInput) VirtualWanOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto / Cosmos Database Data Connection.
@@ -346,6 +347,12 @@ func (i *CosmosdbDataConnection) ToCosmosdbDataConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CosmosdbDataConnectionOutput)
 }
 
+func (i *CosmosdbDataConnection) ToOutput(ctx context.Context) pulumix.Output[*CosmosdbDataConnection] {
+	return pulumix.Output[*CosmosdbDataConnection]{
+		OutputState: i.ToCosmosdbDataConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CosmosdbDataConnectionArrayInput is an input type that accepts CosmosdbDataConnectionArray and CosmosdbDataConnectionArrayOutput values.
 // You can construct a concrete instance of `CosmosdbDataConnectionArrayInput` via:
 //
@@ -369,6 +376,12 @@ func (i CosmosdbDataConnectionArray) ToCosmosdbDataConnectionArrayOutput() Cosmo
 
 func (i CosmosdbDataConnectionArray) ToCosmosdbDataConnectionArrayOutputWithContext(ctx context.Context) CosmosdbDataConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CosmosdbDataConnectionArrayOutput)
+}
+
+func (i CosmosdbDataConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*CosmosdbDataConnection] {
+	return pulumix.Output[[]*CosmosdbDataConnection]{
+		OutputState: i.ToCosmosdbDataConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CosmosdbDataConnectionMapInput is an input type that accepts CosmosdbDataConnectionMap and CosmosdbDataConnectionMapOutput values.
@@ -396,6 +409,12 @@ func (i CosmosdbDataConnectionMap) ToCosmosdbDataConnectionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CosmosdbDataConnectionMapOutput)
 }
 
+func (i CosmosdbDataConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CosmosdbDataConnection] {
+	return pulumix.Output[map[string]*CosmosdbDataConnection]{
+		OutputState: i.ToCosmosdbDataConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CosmosdbDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (CosmosdbDataConnectionOutput) ElementType() reflect.Type {
@@ -408,6 +427,12 @@ func (o CosmosdbDataConnectionOutput) ToCosmosdbDataConnectionOutput() CosmosdbD
 
 func (o CosmosdbDataConnectionOutput) ToCosmosdbDataConnectionOutputWithContext(ctx context.Context) CosmosdbDataConnectionOutput {
 	return o
+}
+
+func (o CosmosdbDataConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*CosmosdbDataConnection] {
+	return pulumix.Output[*CosmosdbDataConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
@@ -464,6 +489,12 @@ func (o CosmosdbDataConnectionArrayOutput) ToCosmosdbDataConnectionArrayOutputWi
 	return o
 }
 
+func (o CosmosdbDataConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CosmosdbDataConnection] {
+	return pulumix.Output[[]*CosmosdbDataConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CosmosdbDataConnectionArrayOutput) Index(i pulumi.IntInput) CosmosdbDataConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CosmosdbDataConnection {
 		return vs[0].([]*CosmosdbDataConnection)[vs[1].(int)]
@@ -482,6 +513,12 @@ func (o CosmosdbDataConnectionMapOutput) ToCosmosdbDataConnectionMapOutput() Cos
 
 func (o CosmosdbDataConnectionMapOutput) ToCosmosdbDataConnectionMapOutputWithContext(ctx context.Context) CosmosdbDataConnectionMapOutput {
 	return o
+}
+
+func (o CosmosdbDataConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CosmosdbDataConnection] {
+	return pulumix.Output[map[string]*CosmosdbDataConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CosmosdbDataConnectionMapOutput) MapIndex(k pulumi.StringInput) CosmosdbDataConnectionOutput {

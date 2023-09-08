@@ -9662,6 +9662,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -10744,6 +10746,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -11903,6 +11907,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -13132,6 +13138,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -15092,6 +15100,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -16133,6 +16143,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -17249,6 +17261,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -18552,6 +18566,8 @@ export namespace appservice {
         defaultProvider?: string;
         /**
          * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
          */
         excludedPaths?: string[];
         /**
@@ -21648,6 +21664,7 @@ export namespace batch {
     }
 
     export interface GetPoolNetworkConfiguration {
+        acceleratedNetworkingEnabled: boolean;
         /**
          * The scope of dynamic vnet assignment.
          */
@@ -22012,6 +22029,12 @@ export namespace batch {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
+         * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+         *
+         * **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+         */
+        automaticUpgradeEnabled?: boolean;
+        /**
          * The name of the virtual machine extension.
          */
         name: string;
@@ -22184,6 +22207,10 @@ export namespace batch {
 
     export interface PoolNetworkConfiguration {
         /**
+         * Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        acceleratedNetworkingEnabled?: boolean;
+        /**
          * The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
          */
         dynamicVnetAssignmentScope?: string;
@@ -22202,7 +22229,7 @@ export namespace batch {
         /**
          * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
          */
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface PoolNetworkConfigurationEndpointConfiguration {
@@ -28109,6 +28136,7 @@ export namespace config {
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
         managedDisk?: outputs.config.FeaturesManagedDisk;
         resourceGroup?: outputs.config.FeaturesResourceGroup;
+        subscription?: outputs.config.FeaturesSubscription;
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
         virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
@@ -28154,6 +28182,10 @@ export namespace config {
 
     export interface FeaturesResourceGroup {
         preventDeletionIfContainsResources?: boolean;
+    }
+
+    export interface FeaturesSubscription {
+        preventCancellationOnDestroy?: boolean;
     }
 
     export interface FeaturesTemplateDeployment {
@@ -31783,9 +31815,9 @@ export namespace containerservice {
          */
         networkPlugin: string;
         /**
-         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
          *
-         * > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`.
+         * > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
          */
         networkPluginMode?: string;
         /**
@@ -38946,7 +38978,7 @@ export namespace eventhub {
          */
         networkRules?: outputs.eventhub.NamespaceNetworkRuleSetNetworkRule[];
         /**
-         * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
          */
         publicNetworkAccessEnabled?: boolean;
         /**
@@ -50285,6 +50317,8 @@ export namespace monitoring {
         categoryGroup?: string;
         /**
          * A `retentionPolicy` block as defined below.
+         *
+         * @deprecated `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: outputs.monitoring.DiagnosticSettingEnabledLogRetentionPolicy;
     }
@@ -54434,7 +54468,7 @@ export namespace network {
          */
         name: string;
         /**
-         * One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
+         * One or more `protocols` blocks as defined below.
          */
         protocols?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
         /**
@@ -54499,7 +54533,7 @@ export namespace network {
          */
         name: string;
         /**
-         * One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
+         * One or more `protocols` blocks as defined below.
          */
         protocols: string[];
         /**
@@ -54567,7 +54601,7 @@ export namespace network {
          */
         name: string;
         /**
-         * One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
+         * One or more `protocols` blocks as defined below.
          */
         protocols: string[];
         /**
@@ -56161,9 +56195,21 @@ export namespace network {
          */
         associatedRouteTableId: string;
         /**
+         * The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         */
+        inboundRouteMapId?: string;
+        /**
+         * The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         */
+        outboundRouteMapId?: string;
+        /**
          * A `propagatedRouteTable` block as defined below.
          */
         propagatedRouteTable: outputs.network.VirtualHubConnectionRoutingPropagatedRouteTable;
+        /**
+         * The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+         */
+        staticVnetLocalRouteOverrideCriteria?: string;
         /**
          * A `staticVnetRoute` block as defined below.
          */
@@ -59742,7 +59788,7 @@ export namespace servicebus {
          */
         networkRules?: outputs.servicebus.NamespaceNetworkRuleSetNetworkRule[];
         /**
-         * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
          */
         publicNetworkAccessEnabled?: boolean;
         /**

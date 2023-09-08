@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Key Vault.
@@ -129,6 +130,12 @@ func (o LookupKeyVaultResultOutput) ToLookupKeyVaultResultOutput() LookupKeyVaul
 
 func (o LookupKeyVaultResultOutput) ToLookupKeyVaultResultOutputWithContext(ctx context.Context) LookupKeyVaultResultOutput {
 	return o
+}
+
+func (o LookupKeyVaultResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyVaultResult] {
+	return pulumix.Output[LookupKeyVaultResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `accessPolicy` blocks as defined below.

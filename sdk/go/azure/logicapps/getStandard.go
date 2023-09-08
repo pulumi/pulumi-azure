@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Logic App Standard instance.
@@ -134,6 +135,12 @@ func (o LookupStandardResultOutput) ToLookupStandardResultOutput() LookupStandar
 
 func (o LookupStandardResultOutput) ToLookupStandardResultOutputWithContext(ctx context.Context) LookupStandardResultOutput {
 	return o
+}
+
+func (o LookupStandardResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStandardResult] {
+	return pulumix.Output[LookupStandardResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupStandardResultOutput) AppServicePlanId() pulumi.StringOutput {

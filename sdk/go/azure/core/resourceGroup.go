@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -160,6 +161,12 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
+func (i *ResourceGroup) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroup] {
+	return pulumix.Output[*ResourceGroup]{
+		OutputState: i.ToResourceGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceGroupArrayInput is an input type that accepts ResourceGroupArray and ResourceGroupArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupArrayInput` via:
 //
@@ -183,6 +190,12 @@ func (i ResourceGroupArray) ToResourceGroupArrayOutput() ResourceGroupArrayOutpu
 
 func (i ResourceGroupArray) ToResourceGroupArrayOutputWithContext(ctx context.Context) ResourceGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupArrayOutput)
+}
+
+func (i ResourceGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroup] {
+	return pulumix.Output[[]*ResourceGroup]{
+		OutputState: i.ToResourceGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceGroupMapInput is an input type that accepts ResourceGroupMap and ResourceGroupMapOutput values.
@@ -210,6 +223,12 @@ func (i ResourceGroupMap) ToResourceGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupMapOutput)
 }
 
+func (i ResourceGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroup] {
+	return pulumix.Output[map[string]*ResourceGroup]{
+		OutputState: i.ToResourceGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
@@ -222,6 +241,12 @@ func (o ResourceGroupOutput) ToResourceGroupOutput() ResourceGroupOutput {
 
 func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Context) ResourceGroupOutput {
 	return o
+}
+
+func (o ResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroup] {
+	return pulumix.Output[*ResourceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
@@ -258,6 +283,12 @@ func (o ResourceGroupArrayOutput) ToResourceGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ResourceGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroup] {
+	return pulumix.Output[[]*ResourceGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceGroupArrayOutput) Index(i pulumi.IntInput) ResourceGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroup {
 		return vs[0].([]*ResourceGroup)[vs[1].(int)]
@@ -276,6 +307,12 @@ func (o ResourceGroupMapOutput) ToResourceGroupMapOutput() ResourceGroupMapOutpu
 
 func (o ResourceGroupMapOutput) ToResourceGroupMapOutputWithContext(ctx context.Context) ResourceGroupMapOutput {
 	return o
+}
+
+func (o ResourceGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroup] {
+	return pulumix.Output[map[string]*ResourceGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceGroupMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupOutput {

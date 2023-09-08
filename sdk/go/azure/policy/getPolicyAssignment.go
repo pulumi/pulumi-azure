@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Policy Assignment.
@@ -124,6 +125,12 @@ func (o GetPolicyAssignmentResultOutput) ToGetPolicyAssignmentResultOutput() Get
 
 func (o GetPolicyAssignmentResultOutput) ToGetPolicyAssignmentResultOutputWithContext(ctx context.Context) GetPolicyAssignmentResultOutput {
 	return o
+}
+
+func (o GetPolicyAssignmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyAssignmentResult] {
+	return pulumix.Output[GetPolicyAssignmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of this Policy Assignment.

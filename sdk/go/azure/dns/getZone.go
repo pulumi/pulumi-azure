@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing DNS Zone.
@@ -116,6 +117,12 @@ func (o LookupZoneResultOutput) ToLookupZoneResultOutput() LookupZoneResultOutpu
 
 func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.Context) LookupZoneResultOutput {
 	return o
+}
+
+func (o LookupZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupZoneResult] {
+	return pulumix.Output[LookupZoneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

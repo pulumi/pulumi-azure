@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfileOutp
 
 func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfileOutputWithContext(ctx context.Context) ModuleManagementNetworkProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleManagementNetworkProfileOutput)
+}
+
+func (i ModuleManagementNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[ModuleManagementNetworkProfile] {
+	return pulumix.Output[ModuleManagementNetworkProfile]{
+		OutputState: i.ToModuleManagementNetworkProfileOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ModuleManagementNetworkProfileArgs) ToModuleManagementNetworkProfilePtrOutput() ModuleManagementNetworkProfilePtrOutput {
@@ -91,6 +98,12 @@ func (i *moduleManagementNetworkProfilePtrType) ToModuleManagementNetworkProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleManagementNetworkProfilePtrOutput)
 }
 
+func (i *moduleManagementNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*ModuleManagementNetworkProfile] {
+	return pulumix.Output[*ModuleManagementNetworkProfile]{
+		OutputState: i.ToModuleManagementNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModuleManagementNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (ModuleManagementNetworkProfileOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o ModuleManagementNetworkProfileOutput) ToModuleManagementNetworkProfilePt
 	}).(ModuleManagementNetworkProfilePtrOutput)
 }
 
+func (o ModuleManagementNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[ModuleManagementNetworkProfile] {
+	return pulumix.Output[ModuleManagementNetworkProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
 func (o ModuleManagementNetworkProfileOutput) NetworkInterfacePrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModuleManagementNetworkProfile) []string { return v.NetworkInterfacePrivateIpAddresses }).(pulumi.StringArrayOutput)
@@ -137,6 +156,12 @@ func (o ModuleManagementNetworkProfilePtrOutput) ToModuleManagementNetworkProfil
 
 func (o ModuleManagementNetworkProfilePtrOutput) ToModuleManagementNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleManagementNetworkProfilePtrOutput {
 	return o
+}
+
+func (o ModuleManagementNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModuleManagementNetworkProfile] {
+	return pulumix.Output[*ModuleManagementNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModuleManagementNetworkProfilePtrOutput) Elem() ModuleManagementNetworkProfileOutput {
@@ -206,6 +231,12 @@ func (i ModuleNetworkProfileArgs) ToModuleNetworkProfileOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleNetworkProfileOutput)
 }
 
+func (i ModuleNetworkProfileArgs) ToOutput(ctx context.Context) pulumix.Output[ModuleNetworkProfile] {
+	return pulumix.Output[ModuleNetworkProfile]{
+		OutputState: i.ToModuleNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ModuleNetworkProfileArgs) ToModuleNetworkProfilePtrOutput() ModuleNetworkProfilePtrOutput {
 	return i.ToModuleNetworkProfilePtrOutputWithContext(context.Background())
 }
@@ -247,6 +278,12 @@ func (i *moduleNetworkProfilePtrType) ToModuleNetworkProfilePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleNetworkProfilePtrOutput)
 }
 
+func (i *moduleNetworkProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*ModuleNetworkProfile] {
+	return pulumix.Output[*ModuleNetworkProfile]{
+		OutputState: i.ToModuleNetworkProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModuleNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (ModuleNetworkProfileOutput) ElementType() reflect.Type {
@@ -271,6 +308,12 @@ func (o ModuleNetworkProfileOutput) ToModuleNetworkProfilePtrOutputWithContext(c
 	}).(ModuleNetworkProfilePtrOutput)
 }
 
+func (o ModuleNetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[ModuleNetworkProfile] {
+	return pulumix.Output[ModuleNetworkProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
 func (o ModuleNetworkProfileOutput) NetworkInterfacePrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModuleNetworkProfile) []string { return v.NetworkInterfacePrivateIpAddresses }).(pulumi.StringArrayOutput)
@@ -293,6 +336,12 @@ func (o ModuleNetworkProfilePtrOutput) ToModuleNetworkProfilePtrOutput() ModuleN
 
 func (o ModuleNetworkProfilePtrOutput) ToModuleNetworkProfilePtrOutputWithContext(ctx context.Context) ModuleNetworkProfilePtrOutput {
 	return o
+}
+
+func (o ModuleNetworkProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModuleNetworkProfile] {
+	return pulumix.Output[*ModuleNetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModuleNetworkProfilePtrOutput) Elem() ModuleNetworkProfileOutput {

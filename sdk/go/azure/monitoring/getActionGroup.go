@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the properties of an Action Group.
@@ -131,6 +132,12 @@ func (o LookupActionGroupResultOutput) ToLookupActionGroupResultOutput() LookupA
 
 func (o LookupActionGroupResultOutput) ToLookupActionGroupResultOutputWithContext(ctx context.Context) LookupActionGroupResultOutput {
 	return o
+}
+
+func (o LookupActionGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActionGroupResult] {
+	return pulumix.Output[LookupActionGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `armRoleReceiver` blocks as defined below.

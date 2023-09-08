@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Arc Kubernetes Flux Configuration.
@@ -274,6 +275,12 @@ func (i *FluxConfiguration) ToFluxConfigurationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationOutput)
 }
 
+func (i *FluxConfiguration) ToOutput(ctx context.Context) pulumix.Output[*FluxConfiguration] {
+	return pulumix.Output[*FluxConfiguration]{
+		OutputState: i.ToFluxConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FluxConfigurationArrayInput is an input type that accepts FluxConfigurationArray and FluxConfigurationArrayOutput values.
 // You can construct a concrete instance of `FluxConfigurationArrayInput` via:
 //
@@ -297,6 +304,12 @@ func (i FluxConfigurationArray) ToFluxConfigurationArrayOutput() FluxConfigurati
 
 func (i FluxConfigurationArray) ToFluxConfigurationArrayOutputWithContext(ctx context.Context) FluxConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationArrayOutput)
+}
+
+func (i FluxConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*FluxConfiguration] {
+	return pulumix.Output[[]*FluxConfiguration]{
+		OutputState: i.ToFluxConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FluxConfigurationMapInput is an input type that accepts FluxConfigurationMap and FluxConfigurationMapOutput values.
@@ -324,6 +337,12 @@ func (i FluxConfigurationMap) ToFluxConfigurationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationMapOutput)
 }
 
+func (i FluxConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FluxConfiguration] {
+	return pulumix.Output[map[string]*FluxConfiguration]{
+		OutputState: i.ToFluxConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FluxConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationOutput) ElementType() reflect.Type {
@@ -336,6 +355,12 @@ func (o FluxConfigurationOutput) ToFluxConfigurationOutput() FluxConfigurationOu
 
 func (o FluxConfigurationOutput) ToFluxConfigurationOutputWithContext(ctx context.Context) FluxConfigurationOutput {
 	return o
+}
+
+func (o FluxConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*FluxConfiguration] {
+	return pulumix.Output[*FluxConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `blobStorage` block as defined below.
@@ -397,6 +422,12 @@ func (o FluxConfigurationArrayOutput) ToFluxConfigurationArrayOutputWithContext(
 	return o
 }
 
+func (o FluxConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FluxConfiguration] {
+	return pulumix.Output[[]*FluxConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FluxConfigurationArrayOutput) Index(i pulumi.IntInput) FluxConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FluxConfiguration {
 		return vs[0].([]*FluxConfiguration)[vs[1].(int)]
@@ -415,6 +446,12 @@ func (o FluxConfigurationMapOutput) ToFluxConfigurationMapOutput() FluxConfigura
 
 func (o FluxConfigurationMapOutput) ToFluxConfigurationMapOutputWithContext(ctx context.Context) FluxConfigurationMapOutput {
 	return o
+}
+
+func (o FluxConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FluxConfiguration] {
+	return pulumix.Output[map[string]*FluxConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FluxConfigurationMapOutput) MapIndex(k pulumi.StringInput) FluxConfigurationOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Cost Management View for a Subscription.
@@ -258,6 +259,12 @@ func (i *SubscriptionCostManagementView) ToSubscriptionCostManagementViewOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewOutput)
 }
 
+func (i *SubscriptionCostManagementView) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementView] {
+	return pulumix.Output[*SubscriptionCostManagementView]{
+		OutputState: i.ToSubscriptionCostManagementViewOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionCostManagementViewArrayInput is an input type that accepts SubscriptionCostManagementViewArray and SubscriptionCostManagementViewArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementViewArrayInput` via:
 //
@@ -281,6 +288,12 @@ func (i SubscriptionCostManagementViewArray) ToSubscriptionCostManagementViewArr
 
 func (i SubscriptionCostManagementViewArray) ToSubscriptionCostManagementViewArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewArrayOutput)
+}
+
+func (i SubscriptionCostManagementViewArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionCostManagementView] {
+	return pulumix.Output[[]*SubscriptionCostManagementView]{
+		OutputState: i.ToSubscriptionCostManagementViewArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionCostManagementViewMapInput is an input type that accepts SubscriptionCostManagementViewMap and SubscriptionCostManagementViewMapOutput values.
@@ -308,6 +321,12 @@ func (i SubscriptionCostManagementViewMap) ToSubscriptionCostManagementViewMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewMapOutput)
 }
 
+func (i SubscriptionCostManagementViewMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionCostManagementView] {
+	return pulumix.Output[map[string]*SubscriptionCostManagementView]{
+		OutputState: i.ToSubscriptionCostManagementViewMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionCostManagementViewOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementViewOutput) ElementType() reflect.Type {
@@ -320,6 +339,12 @@ func (o SubscriptionCostManagementViewOutput) ToSubscriptionCostManagementViewOu
 
 func (o SubscriptionCostManagementViewOutput) ToSubscriptionCostManagementViewOutputWithContext(ctx context.Context) SubscriptionCostManagementViewOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementView] {
+	return pulumix.Output[*SubscriptionCostManagementView]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
@@ -388,6 +413,12 @@ func (o SubscriptionCostManagementViewArrayOutput) ToSubscriptionCostManagementV
 	return o
 }
 
+func (o SubscriptionCostManagementViewArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionCostManagementView] {
+	return pulumix.Output[[]*SubscriptionCostManagementView]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionCostManagementViewArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionCostManagementView {
 		return vs[0].([]*SubscriptionCostManagementView)[vs[1].(int)]
@@ -406,6 +437,12 @@ func (o SubscriptionCostManagementViewMapOutput) ToSubscriptionCostManagementVie
 
 func (o SubscriptionCostManagementViewMapOutput) ToSubscriptionCostManagementViewMapOutputWithContext(ctx context.Context) SubscriptionCostManagementViewMapOutput {
 	return o
+}
+
+func (o SubscriptionCostManagementViewMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionCostManagementView] {
+	return pulumix.Output[map[string]*SubscriptionCostManagementView]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionCostManagementViewMapOutput) MapIndex(k pulumi.StringInput) SubscriptionCostManagementViewOutput {

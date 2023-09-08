@@ -19,6 +19,14 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+        /// 
+        /// **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
+
+        /// <summary>
         /// The name of the virtual machine extension.
         /// </summary>
         [Input("name", required: true)]

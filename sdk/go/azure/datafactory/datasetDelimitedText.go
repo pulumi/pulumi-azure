@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
@@ -394,6 +395,12 @@ func (i *DatasetDelimitedText) ToDatasetDelimitedTextOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextOutput)
 }
 
+func (i *DatasetDelimitedText) ToOutput(ctx context.Context) pulumix.Output[*DatasetDelimitedText] {
+	return pulumix.Output[*DatasetDelimitedText]{
+		OutputState: i.ToDatasetDelimitedTextOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetDelimitedTextArrayInput is an input type that accepts DatasetDelimitedTextArray and DatasetDelimitedTextArrayOutput values.
 // You can construct a concrete instance of `DatasetDelimitedTextArrayInput` via:
 //
@@ -417,6 +424,12 @@ func (i DatasetDelimitedTextArray) ToDatasetDelimitedTextArrayOutput() DatasetDe
 
 func (i DatasetDelimitedTextArray) ToDatasetDelimitedTextArrayOutputWithContext(ctx context.Context) DatasetDelimitedTextArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextArrayOutput)
+}
+
+func (i DatasetDelimitedTextArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetDelimitedText] {
+	return pulumix.Output[[]*DatasetDelimitedText]{
+		OutputState: i.ToDatasetDelimitedTextArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatasetDelimitedTextMapInput is an input type that accepts DatasetDelimitedTextMap and DatasetDelimitedTextMapOutput values.
@@ -444,6 +457,12 @@ func (i DatasetDelimitedTextMap) ToDatasetDelimitedTextMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextMapOutput)
 }
 
+func (i DatasetDelimitedTextMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetDelimitedText] {
+	return pulumix.Output[map[string]*DatasetDelimitedText]{
+		OutputState: i.ToDatasetDelimitedTextMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetDelimitedTextOutput struct{ *pulumi.OutputState }
 
 func (DatasetDelimitedTextOutput) ElementType() reflect.Type {
@@ -456,6 +475,12 @@ func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextOutput() DatasetDelimi
 
 func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextOutputWithContext(ctx context.Context) DatasetDelimitedTextOutput {
 	return o
+}
+
+func (o DatasetDelimitedTextOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetDelimitedText] {
+	return pulumix.Output[*DatasetDelimitedText]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -587,6 +612,12 @@ func (o DatasetDelimitedTextArrayOutput) ToDatasetDelimitedTextArrayOutputWithCo
 	return o
 }
 
+func (o DatasetDelimitedTextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetDelimitedText] {
+	return pulumix.Output[[]*DatasetDelimitedText]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetDelimitedTextArrayOutput) Index(i pulumi.IntInput) DatasetDelimitedTextOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetDelimitedText {
 		return vs[0].([]*DatasetDelimitedText)[vs[1].(int)]
@@ -605,6 +636,12 @@ func (o DatasetDelimitedTextMapOutput) ToDatasetDelimitedTextMapOutput() Dataset
 
 func (o DatasetDelimitedTextMapOutput) ToDatasetDelimitedTextMapOutputWithContext(ctx context.Context) DatasetDelimitedTextMapOutput {
 	return o
+}
+
+func (o DatasetDelimitedTextMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetDelimitedText] {
+	return pulumix.Output[map[string]*DatasetDelimitedText]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetDelimitedTextMapOutput) MapIndex(k pulumi.StringInput) DatasetDelimitedTextOutput {

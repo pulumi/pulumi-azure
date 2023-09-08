@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Application Volume Group for SAP HANA application.
@@ -119,6 +120,12 @@ func (o LookupVolumeGroupSapHanaResultOutput) ToLookupVolumeGroupSapHanaResultOu
 
 func (o LookupVolumeGroupSapHanaResultOutput) ToLookupVolumeGroupSapHanaResultOutputWithContext(ctx context.Context) LookupVolumeGroupSapHanaResultOutput {
 	return o
+}
+
+func (o LookupVolumeGroupSapHanaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVolumeGroupSapHanaResult] {
+	return pulumix.Output[LookupVolumeGroupSapHanaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVolumeGroupSapHanaResultOutput) AccountName() pulumi.StringOutput {

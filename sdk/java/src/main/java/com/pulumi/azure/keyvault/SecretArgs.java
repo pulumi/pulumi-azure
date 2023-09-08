@@ -107,7 +107,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the value of the Key Vault Secret.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
      * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
      * 
@@ -116,7 +116,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> value;
 
     /**
-     * @return Specifies the value of the Key Vault Secret.
+     * @return Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
      * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
      * 
@@ -282,7 +282,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value Specifies the value of the Key Vault Secret.
+         * @param value Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
          * 
          * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
          * 
@@ -295,7 +295,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value Specifies the value of the Key Vault Secret.
+         * @param value Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
          * 
          * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
          * 

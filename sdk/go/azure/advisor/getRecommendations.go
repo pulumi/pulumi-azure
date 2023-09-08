@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Advisor Recommendations.
@@ -111,6 +112,12 @@ func (o GetRecommendationsResultOutput) ToGetRecommendationsResultOutput() GetRe
 
 func (o GetRecommendationsResultOutput) ToGetRecommendationsResultOutputWithContext(ctx context.Context) GetRecommendationsResultOutput {
 	return o
+}
+
+func (o GetRecommendationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRecommendationsResult] {
+	return pulumix.Output[GetRecommendationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRecommendationsResultOutput) FilterByCategories() pulumi.StringArrayOutput {

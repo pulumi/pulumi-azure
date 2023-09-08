@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs>? _protocols;
 
         /// <summary>
-        /// One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        /// One or more `protocols` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs> Protocols
         {

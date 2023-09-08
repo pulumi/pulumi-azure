@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Threat Intelligence Indicator.
@@ -417,6 +418,12 @@ func (i *ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorOutput)
 }
 
+func (i *ThreatIntelligenceIndicator) ToOutput(ctx context.Context) pulumix.Output[*ThreatIntelligenceIndicator] {
+	return pulumix.Output[*ThreatIntelligenceIndicator]{
+		OutputState: i.ToThreatIntelligenceIndicatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThreatIntelligenceIndicatorArrayInput is an input type that accepts ThreatIntelligenceIndicatorArray and ThreatIntelligenceIndicatorArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelligenceIndicatorArrayInput` via:
 //
@@ -440,6 +447,12 @@ func (i ThreatIntelligenceIndicatorArray) ToThreatIntelligenceIndicatorArrayOutp
 
 func (i ThreatIntelligenceIndicatorArray) ToThreatIntelligenceIndicatorArrayOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorArrayOutput)
+}
+
+func (i ThreatIntelligenceIndicatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThreatIntelligenceIndicator] {
+	return pulumix.Output[[]*ThreatIntelligenceIndicator]{
+		OutputState: i.ToThreatIntelligenceIndicatorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ThreatIntelligenceIndicatorMapInput is an input type that accepts ThreatIntelligenceIndicatorMap and ThreatIntelligenceIndicatorMapOutput values.
@@ -467,6 +480,12 @@ func (i ThreatIntelligenceIndicatorMap) ToThreatIntelligenceIndicatorMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorMapOutput)
 }
 
+func (i ThreatIntelligenceIndicatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreatIntelligenceIndicator] {
+	return pulumix.Output[map[string]*ThreatIntelligenceIndicator]{
+		OutputState: i.ToThreatIntelligenceIndicatorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThreatIntelligenceIndicatorOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorOutput) ElementType() reflect.Type {
@@ -479,6 +498,12 @@ func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutput()
 
 func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorOutput) ToOutput(ctx context.Context) pulumix.Output[*ThreatIntelligenceIndicator] {
+	return pulumix.Output[*ThreatIntelligenceIndicator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Confidence levels of the Threat Intelligence Indicator.
@@ -642,6 +667,12 @@ func (o ThreatIntelligenceIndicatorArrayOutput) ToThreatIntelligenceIndicatorArr
 	return o
 }
 
+func (o ThreatIntelligenceIndicatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThreatIntelligenceIndicator] {
+	return pulumix.Output[[]*ThreatIntelligenceIndicator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ThreatIntelligenceIndicatorArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceIndicatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreatIntelligenceIndicator {
 		return vs[0].([]*ThreatIntelligenceIndicator)[vs[1].(int)]
@@ -660,6 +691,12 @@ func (o ThreatIntelligenceIndicatorMapOutput) ToThreatIntelligenceIndicatorMapOu
 
 func (o ThreatIntelligenceIndicatorMapOutput) ToThreatIntelligenceIndicatorMapOutputWithContext(ctx context.Context) ThreatIntelligenceIndicatorMapOutput {
 	return o
+}
+
+func (o ThreatIntelligenceIndicatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreatIntelligenceIndicator] {
+	return pulumix.Output[map[string]*ThreatIntelligenceIndicator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThreatIntelligenceIndicatorMapOutput) MapIndex(k pulumi.StringInput) ThreatIntelligenceIndicatorOutput {

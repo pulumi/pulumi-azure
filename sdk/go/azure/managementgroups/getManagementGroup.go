@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Management Group.
@@ -119,6 +120,12 @@ func (o LookupManagementGroupResultOutput) ToLookupManagementGroupResultOutput()
 
 func (o LookupManagementGroupResultOutput) ToLookupManagementGroupResultOutputWithContext(ctx context.Context) LookupManagementGroupResultOutput {
 	return o
+}
+
+func (o LookupManagementGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupManagementGroupResult] {
+	return pulumix.Output[LookupManagementGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of Management Group IDs which directly or indirectly belong to this Management Group.

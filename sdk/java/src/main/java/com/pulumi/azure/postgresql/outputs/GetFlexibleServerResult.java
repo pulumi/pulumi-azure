@@ -18,6 +18,11 @@ public final class GetFlexibleServerResult {
      */
     private String administratorLogin;
     /**
+     * @return Is the storage auto grow for PostgreSQL Flexible Server enabled?
+     * 
+     */
+    private Boolean autoGrowEnabled;
+    /**
      * @return The backup retention days for the PostgreSQL Flexible Server.
      * 
      */
@@ -77,6 +82,13 @@ public final class GetFlexibleServerResult {
      */
     public String administratorLogin() {
         return this.administratorLogin;
+    }
+    /**
+     * @return Is the storage auto grow for PostgreSQL Flexible Server enabled?
+     * 
+     */
+    public Boolean autoGrowEnabled() {
+        return this.autoGrowEnabled;
     }
     /**
      * @return The backup retention days for the PostgreSQL Flexible Server.
@@ -165,6 +177,7 @@ public final class GetFlexibleServerResult {
     @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
+        private Boolean autoGrowEnabled;
         private Integer backupRetentionDays;
         private String delegatedSubnetId;
         private String fqdn;
@@ -181,6 +194,7 @@ public final class GetFlexibleServerResult {
         public Builder(GetFlexibleServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
+    	      this.autoGrowEnabled = defaults.autoGrowEnabled;
     	      this.backupRetentionDays = defaults.backupRetentionDays;
     	      this.delegatedSubnetId = defaults.delegatedSubnetId;
     	      this.fqdn = defaults.fqdn;
@@ -198,6 +212,11 @@ public final class GetFlexibleServerResult {
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
+            this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
             return this;
         }
         @CustomType.Setter
@@ -263,6 +282,7 @@ public final class GetFlexibleServerResult {
         public GetFlexibleServerResult build() {
             final var o = new GetFlexibleServerResult();
             o.administratorLogin = administratorLogin;
+            o.autoGrowEnabled = autoGrowEnabled;
             o.backupRetentionDays = backupRetentionDays;
             o.delegatedSubnetId = delegatedSubnetId;
             o.fqdn = fqdn;

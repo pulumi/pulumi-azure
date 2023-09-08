@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -287,6 +288,12 @@ func (i *RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesE
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineOutput)
 }
 
+func (i *RulesEngine) ToOutput(ctx context.Context) pulumix.Output[*RulesEngine] {
+	return pulumix.Output[*RulesEngine]{
+		OutputState: i.ToRulesEngineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesEngineArrayInput is an input type that accepts RulesEngineArray and RulesEngineArrayOutput values.
 // You can construct a concrete instance of `RulesEngineArrayInput` via:
 //
@@ -310,6 +317,12 @@ func (i RulesEngineArray) ToRulesEngineArrayOutput() RulesEngineArrayOutput {
 
 func (i RulesEngineArray) ToRulesEngineArrayOutputWithContext(ctx context.Context) RulesEngineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineArrayOutput)
+}
+
+func (i RulesEngineArray) ToOutput(ctx context.Context) pulumix.Output[[]*RulesEngine] {
+	return pulumix.Output[[]*RulesEngine]{
+		OutputState: i.ToRulesEngineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RulesEngineMapInput is an input type that accepts RulesEngineMap and RulesEngineMapOutput values.
@@ -337,6 +350,12 @@ func (i RulesEngineMap) ToRulesEngineMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineMapOutput)
 }
 
+func (i RulesEngineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RulesEngine] {
+	return pulumix.Output[map[string]*RulesEngine]{
+		OutputState: i.ToRulesEngineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesEngineOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineOutput) ElementType() reflect.Type {
@@ -349,6 +368,12 @@ func (o RulesEngineOutput) ToRulesEngineOutput() RulesEngineOutput {
 
 func (o RulesEngineOutput) ToRulesEngineOutputWithContext(ctx context.Context) RulesEngineOutput {
 	return o
+}
+
+func (o RulesEngineOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesEngine] {
+	return pulumix.Output[*RulesEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether this Rules engine configuration is enabled? Defaults to `true`.
@@ -394,6 +419,12 @@ func (o RulesEngineArrayOutput) ToRulesEngineArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o RulesEngineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RulesEngine] {
+	return pulumix.Output[[]*RulesEngine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RulesEngineArrayOutput) Index(i pulumi.IntInput) RulesEngineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RulesEngine {
 		return vs[0].([]*RulesEngine)[vs[1].(int)]
@@ -412,6 +443,12 @@ func (o RulesEngineMapOutput) ToRulesEngineMapOutput() RulesEngineMapOutput {
 
 func (o RulesEngineMapOutput) ToRulesEngineMapOutputWithContext(ctx context.Context) RulesEngineMapOutput {
 	return o
+}
+
+func (o RulesEngineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RulesEngine] {
+	return pulumix.Output[map[string]*RulesEngine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesEngineMapOutput) MapIndex(k pulumi.StringInput) RulesEngineOutput {

@@ -52,6 +52,10 @@ export interface GetFlexibleServerResult {
      */
     readonly administratorLogin: string;
     /**
+     * Is the storage auto grow for PostgreSQL Flexible Server enabled?
+     */
+    readonly autoGrowEnabled: boolean;
+    /**
      * The backup retention days for the PostgreSQL Flexible Server.
      */
     readonly backupRetentionDays: number;

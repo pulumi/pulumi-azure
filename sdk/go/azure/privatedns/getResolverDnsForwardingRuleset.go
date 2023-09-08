@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
@@ -109,6 +110,12 @@ func (o LookupResolverDnsForwardingRulesetResultOutput) ToLookupResolverDnsForwa
 
 func (o LookupResolverDnsForwardingRulesetResultOutput) ToLookupResolverDnsForwardingRulesetResultOutputWithContext(ctx context.Context) LookupResolverDnsForwardingRulesetResultOutput {
 	return o
+}
+
+func (o LookupResolverDnsForwardingRulesetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverDnsForwardingRulesetResult] {
+	return pulumix.Output[LookupResolverDnsForwardingRulesetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Dataset inside an Azure Data Factory. This is a generic resource that supports all different Dataset Types.
@@ -350,6 +351,12 @@ func (i *CustomDataset) ToCustomDatasetOutputWithContext(ctx context.Context) Cu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetOutput)
 }
 
+func (i *CustomDataset) ToOutput(ctx context.Context) pulumix.Output[*CustomDataset] {
+	return pulumix.Output[*CustomDataset]{
+		OutputState: i.ToCustomDatasetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDatasetArrayInput is an input type that accepts CustomDatasetArray and CustomDatasetArrayOutput values.
 // You can construct a concrete instance of `CustomDatasetArrayInput` via:
 //
@@ -373,6 +380,12 @@ func (i CustomDatasetArray) ToCustomDatasetArrayOutput() CustomDatasetArrayOutpu
 
 func (i CustomDatasetArray) ToCustomDatasetArrayOutputWithContext(ctx context.Context) CustomDatasetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetArrayOutput)
+}
+
+func (i CustomDatasetArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDataset] {
+	return pulumix.Output[[]*CustomDataset]{
+		OutputState: i.ToCustomDatasetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomDatasetMapInput is an input type that accepts CustomDatasetMap and CustomDatasetMapOutput values.
@@ -400,6 +413,12 @@ func (i CustomDatasetMap) ToCustomDatasetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetMapOutput)
 }
 
+func (i CustomDatasetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDataset] {
+	return pulumix.Output[map[string]*CustomDataset]{
+		OutputState: i.ToCustomDatasetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDatasetOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetOutput) ElementType() reflect.Type {
@@ -412,6 +431,12 @@ func (o CustomDatasetOutput) ToCustomDatasetOutput() CustomDatasetOutput {
 
 func (o CustomDatasetOutput) ToCustomDatasetOutputWithContext(ctx context.Context) CustomDatasetOutput {
 	return o
+}
+
+func (o CustomDatasetOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDataset] {
+	return pulumix.Output[*CustomDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -483,6 +508,12 @@ func (o CustomDatasetArrayOutput) ToCustomDatasetArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o CustomDatasetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDataset] {
+	return pulumix.Output[[]*CustomDataset]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomDatasetArrayOutput) Index(i pulumi.IntInput) CustomDatasetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDataset {
 		return vs[0].([]*CustomDataset)[vs[1].(int)]
@@ -501,6 +532,12 @@ func (o CustomDatasetMapOutput) ToCustomDatasetMapOutput() CustomDatasetMapOutpu
 
 func (o CustomDatasetMapOutput) ToCustomDatasetMapOutputWithContext(ctx context.Context) CustomDatasetMapOutput {
 	return o
+}
+
+func (o CustomDatasetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDataset] {
+	return pulumix.Output[map[string]*CustomDataset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDatasetMapOutput) MapIndex(k pulumi.StringInput) CustomDatasetOutput {

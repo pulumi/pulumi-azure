@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Public IP Address.
@@ -221,6 +222,12 @@ func (o GetPublicIPResultOutput) ToGetPublicIPResultOutput() GetPublicIPResultOu
 
 func (o GetPublicIPResultOutput) ToGetPublicIPResultOutputWithContext(ctx context.Context) GetPublicIPResultOutput {
 	return o
+}
+
+func (o GetPublicIPResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPublicIPResult] {
+	return pulumix.Output[GetPublicIPResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPublicIPResultOutput) AllocationMethod() pulumi.StringOutput {

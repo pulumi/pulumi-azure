@@ -19,6 +19,13 @@ public final class PoolExtension {
      */
     private @Nullable Boolean autoUpgradeMinorVersion;
     /**
+     * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+     * 
+     */
+    private @Nullable Boolean automaticUpgradeEnabled;
+    /**
      * @return The name of the virtual machine extension.
      * 
      */
@@ -61,6 +68,15 @@ public final class PoolExtension {
      */
     public Optional<Boolean> autoUpgradeMinorVersion() {
         return Optional.ofNullable(this.autoUpgradeMinorVersion);
+    }
+    /**
+     * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
+     * 
+     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+     * 
+     */
+    public Optional<Boolean> automaticUpgradeEnabled() {
+        return Optional.ofNullable(this.automaticUpgradeEnabled);
     }
     /**
      * @return The name of the virtual machine extension.
@@ -122,6 +138,7 @@ public final class PoolExtension {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoUpgradeMinorVersion;
+        private @Nullable Boolean automaticUpgradeEnabled;
         private String name;
         private @Nullable String protectedSettings;
         private @Nullable List<String> provisionAfterExtensions;
@@ -133,6 +150,7 @@ public final class PoolExtension {
         public Builder(PoolExtension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoUpgradeMinorVersion = defaults.autoUpgradeMinorVersion;
+    	      this.automaticUpgradeEnabled = defaults.automaticUpgradeEnabled;
     	      this.name = defaults.name;
     	      this.protectedSettings = defaults.protectedSettings;
     	      this.provisionAfterExtensions = defaults.provisionAfterExtensions;
@@ -145,6 +163,11 @@ public final class PoolExtension {
         @CustomType.Setter
         public Builder autoUpgradeMinorVersion(@Nullable Boolean autoUpgradeMinorVersion) {
             this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder automaticUpgradeEnabled(@Nullable Boolean automaticUpgradeEnabled) {
+            this.automaticUpgradeEnabled = automaticUpgradeEnabled;
             return this;
         }
         @CustomType.Setter
@@ -188,6 +211,7 @@ public final class PoolExtension {
         public PoolExtension build() {
             final var o = new PoolExtension();
             o.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            o.automaticUpgradeEnabled = automaticUpgradeEnabled;
             o.name = name;
             o.protectedSettings = protectedSettings;
             o.provisionAfterExtensions = provisionAfterExtensions;

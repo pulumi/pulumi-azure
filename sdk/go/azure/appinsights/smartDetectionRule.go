@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Insights Smart Detection Rule.
@@ -202,6 +203,12 @@ func (i *SmartDetectionRule) ToSmartDetectionRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectionRuleOutput)
 }
 
+func (i *SmartDetectionRule) ToOutput(ctx context.Context) pulumix.Output[*SmartDetectionRule] {
+	return pulumix.Output[*SmartDetectionRule]{
+		OutputState: i.ToSmartDetectionRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SmartDetectionRuleArrayInput is an input type that accepts SmartDetectionRuleArray and SmartDetectionRuleArrayOutput values.
 // You can construct a concrete instance of `SmartDetectionRuleArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i SmartDetectionRuleArray) ToSmartDetectionRuleArrayOutput() SmartDetectio
 
 func (i SmartDetectionRuleArray) ToSmartDetectionRuleArrayOutputWithContext(ctx context.Context) SmartDetectionRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectionRuleArrayOutput)
+}
+
+func (i SmartDetectionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SmartDetectionRule] {
+	return pulumix.Output[[]*SmartDetectionRule]{
+		OutputState: i.ToSmartDetectionRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SmartDetectionRuleMapInput is an input type that accepts SmartDetectionRuleMap and SmartDetectionRuleMapOutput values.
@@ -252,6 +265,12 @@ func (i SmartDetectionRuleMap) ToSmartDetectionRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectionRuleMapOutput)
 }
 
+func (i SmartDetectionRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmartDetectionRule] {
+	return pulumix.Output[map[string]*SmartDetectionRule]{
+		OutputState: i.ToSmartDetectionRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SmartDetectionRuleOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectionRuleOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o SmartDetectionRuleOutput) ToSmartDetectionRuleOutput() SmartDetectionRul
 
 func (o SmartDetectionRuleOutput) ToSmartDetectionRuleOutputWithContext(ctx context.Context) SmartDetectionRuleOutput {
 	return o
+}
+
+func (o SmartDetectionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SmartDetectionRule] {
+	return pulumix.Output[*SmartDetectionRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
@@ -307,6 +332,12 @@ func (o SmartDetectionRuleArrayOutput) ToSmartDetectionRuleArrayOutputWithContex
 	return o
 }
 
+func (o SmartDetectionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SmartDetectionRule] {
+	return pulumix.Output[[]*SmartDetectionRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SmartDetectionRuleArrayOutput) Index(i pulumi.IntInput) SmartDetectionRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SmartDetectionRule {
 		return vs[0].([]*SmartDetectionRule)[vs[1].(int)]
@@ -325,6 +356,12 @@ func (o SmartDetectionRuleMapOutput) ToSmartDetectionRuleMapOutput() SmartDetect
 
 func (o SmartDetectionRuleMapOutput) ToSmartDetectionRuleMapOutputWithContext(ctx context.Context) SmartDetectionRuleMapOutput {
 	return o
+}
+
+func (o SmartDetectionRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmartDetectionRule] {
+	return pulumix.Output[map[string]*SmartDetectionRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SmartDetectionRuleMapOutput) MapIndex(k pulumi.StringInput) SmartDetectionRuleOutput {

@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -77,6 +78,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:containerapp/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
+    /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * 
+     */
+    @Export(name="daprApplicationInsightsConnectionString", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> daprApplicationInsightsConnectionString;
+
+    /**
+     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * 
+     */
+    public Output<Optional<String>> daprApplicationInsightsConnectionString() {
+        return Codegen.optional(this.daprApplicationInsightsConnectionString);
+    }
     /**
      * The default, publicly resolvable, name of this Container App Environment.
      * 
@@ -286,6 +301,9 @@ public class Environment extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "daprApplicationInsightsConnectionString"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

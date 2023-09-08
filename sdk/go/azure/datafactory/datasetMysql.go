@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MySQL Dataset inside a Azure Data Factory.
@@ -261,6 +262,12 @@ func (i *DatasetMysql) ToDatasetMysqlOutputWithContext(ctx context.Context) Data
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlOutput)
 }
 
+func (i *DatasetMysql) ToOutput(ctx context.Context) pulumix.Output[*DatasetMysql] {
+	return pulumix.Output[*DatasetMysql]{
+		OutputState: i.ToDatasetMysqlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetMysqlArrayInput is an input type that accepts DatasetMysqlArray and DatasetMysqlArrayOutput values.
 // You can construct a concrete instance of `DatasetMysqlArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i DatasetMysqlArray) ToDatasetMysqlArrayOutput() DatasetMysqlArrayOutput {
 
 func (i DatasetMysqlArray) ToDatasetMysqlArrayOutputWithContext(ctx context.Context) DatasetMysqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlArrayOutput)
+}
+
+func (i DatasetMysqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetMysql] {
+	return pulumix.Output[[]*DatasetMysql]{
+		OutputState: i.ToDatasetMysqlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatasetMysqlMapInput is an input type that accepts DatasetMysqlMap and DatasetMysqlMapOutput values.
@@ -311,6 +324,12 @@ func (i DatasetMysqlMap) ToDatasetMysqlMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlMapOutput)
 }
 
+func (i DatasetMysqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetMysql] {
+	return pulumix.Output[map[string]*DatasetMysql]{
+		OutputState: i.ToDatasetMysqlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetMysqlOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o DatasetMysqlOutput) ToDatasetMysqlOutput() DatasetMysqlOutput {
 
 func (o DatasetMysqlOutput) ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput {
 	return o
+}
+
+func (o DatasetMysqlOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetMysql] {
+	return pulumix.Output[*DatasetMysql]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset MySQL.
@@ -391,6 +416,12 @@ func (o DatasetMysqlArrayOutput) ToDatasetMysqlArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o DatasetMysqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetMysql] {
+	return pulumix.Output[[]*DatasetMysql]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetMysqlArrayOutput) Index(i pulumi.IntInput) DatasetMysqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetMysql {
 		return vs[0].([]*DatasetMysql)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o DatasetMysqlMapOutput) ToDatasetMysqlMapOutput() DatasetMysqlMapOutput {
 
 func (o DatasetMysqlMapOutput) ToDatasetMysqlMapOutputWithContext(ctx context.Context) DatasetMysqlMapOutput {
 	return o
+}
+
+func (o DatasetMysqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetMysql] {
+	return pulumix.Output[map[string]*DatasetMysql]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetMysqlMapOutput) MapIndex(k pulumi.StringInput) DatasetMysqlOutput {

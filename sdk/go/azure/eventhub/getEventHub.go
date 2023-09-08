@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing EventHub.
@@ -114,6 +115,12 @@ func (o LookupEventHubResultOutput) ToLookupEventHubResultOutput() LookupEventHu
 
 func (o LookupEventHubResultOutput) ToLookupEventHubResultOutputWithContext(ctx context.Context) LookupEventHubResultOutput {
 	return o
+}
+
+func (o LookupEventHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventHubResult] {
+	return pulumix.Output[LookupEventHubResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

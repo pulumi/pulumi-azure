@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -115,6 +116,12 @@ func (o LookupAAAARecordResultOutput) ToLookupAAAARecordResultOutput() LookupAAA
 
 func (o LookupAAAARecordResultOutput) ToLookupAAAARecordResultOutputWithContext(ctx context.Context) LookupAAAARecordResultOutput {
 	return o
+}
+
+func (o LookupAAAARecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAAAARecordResult] {
+	return pulumix.Output[LookupAAAARecordResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN of the Private DNS AAAA Record.

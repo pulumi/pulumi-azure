@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SQL Database within a Cosmos DB Account.
@@ -193,6 +194,12 @@ func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDat
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
 }
 
+func (i *SqlDatabase) ToOutput(ctx context.Context) pulumix.Output[*SqlDatabase] {
+	return pulumix.Output[*SqlDatabase]{
+		OutputState: i.ToSqlDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlDatabaseArrayInput is an input type that accepts SqlDatabaseArray and SqlDatabaseArrayOutput values.
 // You can construct a concrete instance of `SqlDatabaseArrayInput` via:
 //
@@ -216,6 +223,12 @@ func (i SqlDatabaseArray) ToSqlDatabaseArrayOutput() SqlDatabaseArrayOutput {
 
 func (i SqlDatabaseArray) ToSqlDatabaseArrayOutputWithContext(ctx context.Context) SqlDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseArrayOutput)
+}
+
+func (i SqlDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlDatabase] {
+	return pulumix.Output[[]*SqlDatabase]{
+		OutputState: i.ToSqlDatabaseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SqlDatabaseMapInput is an input type that accepts SqlDatabaseMap and SqlDatabaseMapOutput values.
@@ -243,6 +256,12 @@ func (i SqlDatabaseMap) ToSqlDatabaseMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseMapOutput)
 }
 
+func (i SqlDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlDatabase] {
+	return pulumix.Output[map[string]*SqlDatabase]{
+		OutputState: i.ToSqlDatabaseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
@@ -255,6 +274,12 @@ func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {
 
 func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDatabaseOutput {
 	return o
+}
+
+func (o SqlDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlDatabase] {
+	return pulumix.Output[*SqlDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
@@ -297,6 +322,12 @@ func (o SqlDatabaseArrayOutput) ToSqlDatabaseArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SqlDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlDatabase] {
+	return pulumix.Output[[]*SqlDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SqlDatabaseArrayOutput) Index(i pulumi.IntInput) SqlDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlDatabase {
 		return vs[0].([]*SqlDatabase)[vs[1].(int)]
@@ -315,6 +346,12 @@ func (o SqlDatabaseMapOutput) ToSqlDatabaseMapOutput() SqlDatabaseMapOutput {
 
 func (o SqlDatabaseMapOutput) ToSqlDatabaseMapOutputWithContext(ctx context.Context) SqlDatabaseMapOutput {
 	return o
+}
+
+func (o SqlDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlDatabase] {
+	return pulumix.Output[map[string]*SqlDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlDatabaseMapOutput) MapIndex(k pulumi.StringInput) SqlDatabaseOutput {

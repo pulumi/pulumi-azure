@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -115,6 +116,12 @@ func (o LookupTxtRecordResultOutput) ToLookupTxtRecordResultOutput() LookupTxtRe
 
 func (o LookupTxtRecordResultOutput) ToLookupTxtRecordResultOutputWithContext(ctx context.Context) LookupTxtRecordResultOutput {
 	return o
+}
+
+func (o LookupTxtRecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTxtRecordResult] {
+	return pulumix.Output[LookupTxtRecordResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The FQDN of the Private DNS TXT Record.

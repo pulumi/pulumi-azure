@@ -7,6 +7,14 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Secret.
  *
+ * <<<<<<< HEAD
+ * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ *
+ * > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedSecretsOnDestroy` for more information.
+ *
+ * =======
+ * > > > > > > > 8d78c87098 (Update-documentation)
  * ## Example Usage
  *
  * ```typescript
@@ -112,7 +120,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the value of the Key Vault Secret.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
@@ -214,7 +222,7 @@ export interface SecretState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the value of the Key Vault Secret.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
@@ -258,7 +266,7 @@ export interface SecretArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the value of the Key Vault Secret.
+     * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */

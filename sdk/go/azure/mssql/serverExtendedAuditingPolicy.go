@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MS SQL Server Extended Auditing Policy.
@@ -401,6 +402,12 @@ func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyOutput)
 }
 
+func (i *ServerExtendedAuditingPolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerExtendedAuditingPolicy] {
+	return pulumix.Output[*ServerExtendedAuditingPolicy]{
+		OutputState: i.ToServerExtendedAuditingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerExtendedAuditingPolicyArrayInput is an input type that accepts ServerExtendedAuditingPolicyArray and ServerExtendedAuditingPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerExtendedAuditingPolicyArrayInput` via:
 //
@@ -424,6 +431,12 @@ func (i ServerExtendedAuditingPolicyArray) ToServerExtendedAuditingPolicyArrayOu
 
 func (i ServerExtendedAuditingPolicyArray) ToServerExtendedAuditingPolicyArrayOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyArrayOutput)
+}
+
+func (i ServerExtendedAuditingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerExtendedAuditingPolicy] {
+	return pulumix.Output[[]*ServerExtendedAuditingPolicy]{
+		OutputState: i.ToServerExtendedAuditingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerExtendedAuditingPolicyMapInput is an input type that accepts ServerExtendedAuditingPolicyMap and ServerExtendedAuditingPolicyMapOutput values.
@@ -451,6 +464,12 @@ func (i ServerExtendedAuditingPolicyMap) ToServerExtendedAuditingPolicyMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyMapOutput)
 }
 
+func (i ServerExtendedAuditingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerExtendedAuditingPolicy] {
+	return pulumix.Output[map[string]*ServerExtendedAuditingPolicy]{
+		OutputState: i.ToServerExtendedAuditingPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
@@ -463,6 +482,12 @@ func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutput
 
 func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput {
 	return o
+}
+
+func (o ServerExtendedAuditingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerExtendedAuditingPolicy] {
+	return pulumix.Output[*ServerExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -523,6 +548,12 @@ func (o ServerExtendedAuditingPolicyArrayOutput) ToServerExtendedAuditingPolicyA
 	return o
 }
 
+func (o ServerExtendedAuditingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerExtendedAuditingPolicy] {
+	return pulumix.Output[[]*ServerExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerExtendedAuditingPolicyArrayOutput) Index(i pulumi.IntInput) ServerExtendedAuditingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerExtendedAuditingPolicy {
 		return vs[0].([]*ServerExtendedAuditingPolicy)[vs[1].(int)]
@@ -541,6 +572,12 @@ func (o ServerExtendedAuditingPolicyMapOutput) ToServerExtendedAuditingPolicyMap
 
 func (o ServerExtendedAuditingPolicyMapOutput) ToServerExtendedAuditingPolicyMapOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyMapOutput {
 	return o
+}
+
+func (o ServerExtendedAuditingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerExtendedAuditingPolicy] {
+	return pulumix.Output[map[string]*ServerExtendedAuditingPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerExtendedAuditingPolicyOutput {

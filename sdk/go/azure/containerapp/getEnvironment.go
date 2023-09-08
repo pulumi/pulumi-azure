@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Container App Environment.
@@ -123,6 +124,12 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutput() LookupE
 
 func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContext(ctx context.Context) LookupEnvironmentResultOutput {
 	return o
+}
+
+func (o LookupEnvironmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentResult] {
+	return pulumix.Output[LookupEnvironmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default publicly resolvable name of this Container App Environment. This is generated at creation time to be globally unique.

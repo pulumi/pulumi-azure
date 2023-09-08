@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Gallery Application Version.
@@ -297,6 +298,12 @@ func (i *GalleryApplicationVersion) ToGalleryApplicationVersionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionOutput)
 }
 
+func (i *GalleryApplicationVersion) ToOutput(ctx context.Context) pulumix.Output[*GalleryApplicationVersion] {
+	return pulumix.Output[*GalleryApplicationVersion]{
+		OutputState: i.ToGalleryApplicationVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GalleryApplicationVersionArrayInput is an input type that accepts GalleryApplicationVersionArray and GalleryApplicationVersionArrayOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionArrayInput` via:
 //
@@ -320,6 +327,12 @@ func (i GalleryApplicationVersionArray) ToGalleryApplicationVersionArrayOutput()
 
 func (i GalleryApplicationVersionArray) ToGalleryApplicationVersionArrayOutputWithContext(ctx context.Context) GalleryApplicationVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionArrayOutput)
+}
+
+func (i GalleryApplicationVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*GalleryApplicationVersion] {
+	return pulumix.Output[[]*GalleryApplicationVersion]{
+		OutputState: i.ToGalleryApplicationVersionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GalleryApplicationVersionMapInput is an input type that accepts GalleryApplicationVersionMap and GalleryApplicationVersionMapOutput values.
@@ -347,6 +360,12 @@ func (i GalleryApplicationVersionMap) ToGalleryApplicationVersionMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionMapOutput)
 }
 
+func (i GalleryApplicationVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GalleryApplicationVersion] {
+	return pulumix.Output[map[string]*GalleryApplicationVersion]{
+		OutputState: i.ToGalleryApplicationVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GalleryApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionOutput) ElementType() reflect.Type {
@@ -359,6 +378,12 @@ func (o GalleryApplicationVersionOutput) ToGalleryApplicationVersionOutput() Gal
 
 func (o GalleryApplicationVersionOutput) ToGalleryApplicationVersionOutputWithContext(ctx context.Context) GalleryApplicationVersionOutput {
 	return o
+}
+
+func (o GalleryApplicationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*GalleryApplicationVersion] {
+	return pulumix.Output[*GalleryApplicationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Should the Gallery Application reports health. Defaults to `false`.
@@ -427,6 +452,12 @@ func (o GalleryApplicationVersionArrayOutput) ToGalleryApplicationVersionArrayOu
 	return o
 }
 
+func (o GalleryApplicationVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GalleryApplicationVersion] {
+	return pulumix.Output[[]*GalleryApplicationVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GalleryApplicationVersionArrayOutput) Index(i pulumi.IntInput) GalleryApplicationVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GalleryApplicationVersion {
 		return vs[0].([]*GalleryApplicationVersion)[vs[1].(int)]
@@ -445,6 +476,12 @@ func (o GalleryApplicationVersionMapOutput) ToGalleryApplicationVersionMapOutput
 
 func (o GalleryApplicationVersionMapOutput) ToGalleryApplicationVersionMapOutputWithContext(ctx context.Context) GalleryApplicationVersionMapOutput {
 	return o
+}
+
+func (o GalleryApplicationVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GalleryApplicationVersion] {
+	return pulumix.Output[map[string]*GalleryApplicationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GalleryApplicationVersionMapOutput) MapIndex(k pulumi.StringInput) GalleryApplicationVersionOutput {

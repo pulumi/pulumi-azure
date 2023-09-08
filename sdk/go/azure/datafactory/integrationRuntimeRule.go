@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Factory Azure Integration Runtime.
@@ -231,6 +232,12 @@ func (i *IntegrationRuntimeRule) ToIntegrationRuntimeRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleOutput)
 }
 
+func (i *IntegrationRuntimeRule) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeRule] {
+	return pulumix.Output[*IntegrationRuntimeRule]{
+		OutputState: i.ToIntegrationRuntimeRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IntegrationRuntimeRuleArrayInput is an input type that accepts IntegrationRuntimeRuleArray and IntegrationRuntimeRuleArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeRuleArrayInput` via:
 //
@@ -254,6 +261,12 @@ func (i IntegrationRuntimeRuleArray) ToIntegrationRuntimeRuleArrayOutput() Integ
 
 func (i IntegrationRuntimeRuleArray) ToIntegrationRuntimeRuleArrayOutputWithContext(ctx context.Context) IntegrationRuntimeRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleArrayOutput)
+}
+
+func (i IntegrationRuntimeRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeRule] {
+	return pulumix.Output[[]*IntegrationRuntimeRule]{
+		OutputState: i.ToIntegrationRuntimeRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IntegrationRuntimeRuleMapInput is an input type that accepts IntegrationRuntimeRuleMap and IntegrationRuntimeRuleMapOutput values.
@@ -281,6 +294,12 @@ func (i IntegrationRuntimeRuleMap) ToIntegrationRuntimeRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeRuleMapOutput)
 }
 
+func (i IntegrationRuntimeRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeRule] {
+	return pulumix.Output[map[string]*IntegrationRuntimeRule]{
+		OutputState: i.ToIntegrationRuntimeRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IntegrationRuntimeRuleOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeRuleOutput) ElementType() reflect.Type {
@@ -293,6 +312,12 @@ func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRuleOutput() Integrati
 
 func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRuleOutputWithContext(ctx context.Context) IntegrationRuntimeRuleOutput {
 	return o
+}
+
+func (o IntegrationRuntimeRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeRule] {
+	return pulumix.Output[*IntegrationRuntimeRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
@@ -354,6 +379,12 @@ func (o IntegrationRuntimeRuleArrayOutput) ToIntegrationRuntimeRuleArrayOutputWi
 	return o
 }
 
+func (o IntegrationRuntimeRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeRule] {
+	return pulumix.Output[[]*IntegrationRuntimeRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IntegrationRuntimeRuleArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeRule {
 		return vs[0].([]*IntegrationRuntimeRule)[vs[1].(int)]
@@ -372,6 +403,12 @@ func (o IntegrationRuntimeRuleMapOutput) ToIntegrationRuntimeRuleMapOutput() Int
 
 func (o IntegrationRuntimeRuleMapOutput) ToIntegrationRuntimeRuleMapOutputWithContext(ctx context.Context) IntegrationRuntimeRuleMapOutput {
 	return o
+}
+
+func (o IntegrationRuntimeRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeRule] {
+	return pulumix.Output[map[string]*IntegrationRuntimeRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IntegrationRuntimeRuleMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeRuleOutput {

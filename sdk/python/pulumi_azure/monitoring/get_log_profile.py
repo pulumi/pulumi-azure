@@ -119,6 +119,8 @@ def get_log_profile(name: Optional[str] = None,
     """
     Use this data source to access the properties of a Log Profile.
 
+    !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
+
     ## Example Usage
 
     ```python
@@ -152,6 +154,8 @@ def get_log_profile_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogProfileResult]:
     """
     Use this data source to access the properties of a Log Profile.
+
+    !> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
 
     ## Example Usage
 

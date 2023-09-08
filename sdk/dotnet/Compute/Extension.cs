@@ -173,6 +173,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ExtensionProtectedSettingsFromKeyVault?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        [Output("provisionAfterExtensions")]
+        public Output<ImmutableArray<string>> ProvisionAfterExtensions { get; private set; } = null!;
+
+        /// <summary>
         /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publisher")]
@@ -324,6 +330,18 @@ namespace Pulumi.Azure.Compute
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.ExtensionProtectedSettingsFromKeyVaultArgs>? ProtectedSettingsFromKeyVault { get; set; }
 
+        [Input("provisionAfterExtensions")]
+        private InputList<string>? _provisionAfterExtensions;
+
+        /// <summary>
+        /// Specifies the collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public InputList<string> ProvisionAfterExtensions
+        {
+            get => _provisionAfterExtensions ?? (_provisionAfterExtensions = new InputList<string>());
+            set => _provisionAfterExtensions = value;
+        }
+
         /// <summary>
         /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         /// </summary>
@@ -439,6 +457,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.ExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }
+
+        [Input("provisionAfterExtensions")]
+        private InputList<string>? _provisionAfterExtensions;
+
+        /// <summary>
+        /// Specifies the collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public InputList<string> ProvisionAfterExtensions
+        {
+            get => _provisionAfterExtensions ?? (_provisionAfterExtensions = new InputList<string>());
+            set => _provisionAfterExtensions = value;
+        }
 
         /// <summary>
         /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.

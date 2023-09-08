@@ -11,6 +11,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesSubscriptionArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesVirtualMachineArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesVirtualMachineScaleSetArgs;
@@ -81,6 +82,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.resourceGroup);
     }
 
+    @Import(name="subscription")
+    private @Nullable Output<ProviderFeaturesSubscriptionArgs> subscription;
+
+    public Optional<Output<ProviderFeaturesSubscriptionArgs>> subscription() {
+        return Optional.ofNullable(this.subscription);
+    }
+
     @Import(name="templateDeployment")
     private @Nullable Output<ProviderFeaturesTemplateDeploymentArgs> templateDeployment;
 
@@ -113,6 +121,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
         this.managedDisk = $.managedDisk;
         this.resourceGroup = $.resourceGroup;
+        this.subscription = $.subscription;
         this.templateDeployment = $.templateDeployment;
         this.virtualMachine = $.virtualMachine;
         this.virtualMachineScaleSet = $.virtualMachineScaleSet;
@@ -206,6 +215,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder resourceGroup(ProviderFeaturesResourceGroupArgs resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        public Builder subscription(@Nullable Output<ProviderFeaturesSubscriptionArgs> subscription) {
+            $.subscription = subscription;
+            return this;
+        }
+
+        public Builder subscription(ProviderFeaturesSubscriptionArgs subscription) {
+            return subscription(Output.of(subscription));
         }
 
         public Builder templateDeployment(@Nullable Output<ProviderFeaturesTemplateDeploymentArgs> templateDeployment) {

@@ -92,14 +92,14 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
     }
 
     /**
-     * One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+     * One or more `protocols` blocks as defined below.
      * 
      */
     @Import(name="protocols", required=true)
     private Output<List<String>> protocols;
 
     /**
-     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+     * @return One or more `protocols` blocks as defined below.
      * 
      */
     public Output<List<String>> protocols() {
@@ -313,7 +313,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         /**
-         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+         * @param protocols One or more `protocols` blocks as defined below.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         /**
-         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+         * @param protocols One or more `protocols` blocks as defined below.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         /**
-         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+         * @param protocols One or more `protocols` blocks as defined below.
          * 
          * @return builder
          * 

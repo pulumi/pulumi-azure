@@ -20,6 +20,7 @@ class FlexibleServerArgs:
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
@@ -49,6 +50,7 @@ class FlexibleServerArgs:
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -85,6 +87,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "administrator_password", administrator_password)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if auto_grow_enabled is not None:
+            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if create_mode is not None:
@@ -175,6 +179,18 @@ class FlexibleServerArgs:
     @authentication.setter
     def authentication(self, value: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @auto_grow_enabled.setter
+    def auto_grow_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_grow_enabled", value)
 
     @property
     @pulumi.getter(name="backupRetentionDays")
@@ -418,6 +434,7 @@ class _FlexibleServerState:
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
@@ -449,6 +466,7 @@ class _FlexibleServerState:
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -487,6 +505,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "administrator_password", administrator_password)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if auto_grow_enabled is not None:
+            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
         if create_mode is not None:
@@ -571,6 +591,18 @@ class _FlexibleServerState:
     @authentication.setter
     def authentication(self, value: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']]):
         pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @auto_grow_enabled.setter
+    def auto_grow_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_grow_enabled", value)
 
     @property
     @pulumi.getter(name="backupRetentionDays")
@@ -852,6 +884,7 @@ class FlexibleServer(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']]] = None,
@@ -935,6 +968,7 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -1042,6 +1076,7 @@ class FlexibleServer(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']]] = None,
@@ -1074,6 +1109,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_password"] = None if administrator_password is None else pulumi.Output.secret(administrator_password)
             __props__.__dict__["authentication"] = authentication
+            __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["customer_managed_key"] = customer_managed_key
@@ -1113,6 +1149,7 @@ class FlexibleServer(pulumi.CustomResource):
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_password: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']]] = None,
+            auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['FlexibleServerCustomerManagedKeyArgs']]] = None,
@@ -1149,6 +1186,7 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         :param pulumi.Input[pulumi.InputType['FlexibleServerAuthenticationArgs']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -1188,6 +1226,7 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_password"] = administrator_password
         __props__.__dict__["authentication"] = authentication
+        __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
         __props__.__dict__["backup_retention_days"] = backup_retention_days
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["customer_managed_key"] = customer_managed_key
@@ -1239,6 +1278,14 @@ class FlexibleServer(pulumi.CustomResource):
         An `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
 
     @property
     @pulumi.getter(name="backupRetentionDays")

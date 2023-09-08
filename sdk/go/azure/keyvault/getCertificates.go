@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a list of certificate names from an existing Key Vault.
@@ -85,6 +86,12 @@ func (o GetCertificatesResultOutput) ToGetCertificatesResultOutput() GetCertific
 
 func (o GetCertificatesResultOutput) ToGetCertificatesResultOutputWithContext(ctx context.Context) GetCertificatesResultOutput {
 	return o
+}
+
+func (o GetCertificatesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificatesResult] {
+	return pulumix.Output[GetCertificatesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `certificates` blocks as defined below.

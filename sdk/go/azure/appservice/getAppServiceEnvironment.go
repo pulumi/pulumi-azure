@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing App Service Environment.
@@ -121,6 +122,12 @@ func (o GetAppServiceEnvironmentResultOutput) ToGetAppServiceEnvironmentResultOu
 
 func (o GetAppServiceEnvironmentResultOutput) ToGetAppServiceEnvironmentResultOutputWithContext(ctx context.Context) GetAppServiceEnvironmentResultOutput {
 	return o
+}
+
+func (o GetAppServiceEnvironmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppServiceEnvironmentResult] {
+	return pulumix.Output[GetAppServiceEnvironmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Zero or more `clusterSetting` blocks as defined below.

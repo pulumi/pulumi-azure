@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Watcher.
@@ -174,6 +175,12 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
 }
 
+func (i *NetworkWatcher) ToOutput(ctx context.Context) pulumix.Output[*NetworkWatcher] {
+	return pulumix.Output[*NetworkWatcher]{
+		OutputState: i.ToNetworkWatcherOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkWatcherArrayInput is an input type that accepts NetworkWatcherArray and NetworkWatcherArrayOutput values.
 // You can construct a concrete instance of `NetworkWatcherArrayInput` via:
 //
@@ -197,6 +204,12 @@ func (i NetworkWatcherArray) ToNetworkWatcherArrayOutput() NetworkWatcherArrayOu
 
 func (i NetworkWatcherArray) ToNetworkWatcherArrayOutputWithContext(ctx context.Context) NetworkWatcherArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherArrayOutput)
+}
+
+func (i NetworkWatcherArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkWatcher] {
+	return pulumix.Output[[]*NetworkWatcher]{
+		OutputState: i.ToNetworkWatcherArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkWatcherMapInput is an input type that accepts NetworkWatcherMap and NetworkWatcherMapOutput values.
@@ -224,6 +237,12 @@ func (i NetworkWatcherMap) ToNetworkWatcherMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherMapOutput)
 }
 
+func (i NetworkWatcherMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkWatcher] {
+	return pulumix.Output[map[string]*NetworkWatcher]{
+		OutputState: i.ToNetworkWatcherMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
@@ -236,6 +255,12 @@ func (o NetworkWatcherOutput) ToNetworkWatcherOutput() NetworkWatcherOutput {
 
 func (o NetworkWatcherOutput) ToNetworkWatcherOutputWithContext(ctx context.Context) NetworkWatcherOutput {
 	return o
+}
+
+func (o NetworkWatcherOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkWatcher] {
+	return pulumix.Output[*NetworkWatcher]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -272,6 +297,12 @@ func (o NetworkWatcherArrayOutput) ToNetworkWatcherArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NetworkWatcherArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkWatcher] {
+	return pulumix.Output[[]*NetworkWatcher]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkWatcherArrayOutput) Index(i pulumi.IntInput) NetworkWatcherOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkWatcher {
 		return vs[0].([]*NetworkWatcher)[vs[1].(int)]
@@ -290,6 +321,12 @@ func (o NetworkWatcherMapOutput) ToNetworkWatcherMapOutput() NetworkWatcherMapOu
 
 func (o NetworkWatcherMapOutput) ToNetworkWatcherMapOutputWithContext(ctx context.Context) NetworkWatcherMapOutput {
 	return o
+}
+
+func (o NetworkWatcherMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkWatcher] {
+	return pulumix.Output[map[string]*NetworkWatcher]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkWatcherMapOutput) MapIndex(k pulumi.StringInput) NetworkWatcherOutput {

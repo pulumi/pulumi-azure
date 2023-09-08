@@ -1,4 +1,4 @@
-From ad3d7c94a08269c078011393ba364db819f048c2 Mon Sep 17 00:00:00 2001
+From 08f99bd350adf8b6d407592a802d09caa2845fb6 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Wed, 9 Aug 2023 13:05:13 -1000
 Subject: [PATCH 9/9] remove defaults backup retention policies
@@ -39,5 +39,5 @@ index 097e3ab2f0..313190d12c 100644
  							"retention_yearly.0.weeks",
  							"retention_yearly.0.weekdays",
 -- 
-2.41.0
+2.39.1
 

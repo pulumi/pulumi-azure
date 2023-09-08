@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i DicomServiceAuthenticationArgs) ToDicomServiceAuthenticationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationOutput)
 }
 
+func (i DicomServiceAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[DicomServiceAuthentication] {
+	return pulumix.Output[DicomServiceAuthentication]{
+		OutputState: i.ToDicomServiceAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DicomServiceAuthenticationArrayInput is an input type that accepts DicomServiceAuthenticationArray and DicomServiceAuthenticationArrayOutput values.
 // You can construct a concrete instance of `DicomServiceAuthenticationArrayInput` via:
 //
@@ -73,6 +80,12 @@ func (i DicomServiceAuthenticationArray) ToDicomServiceAuthenticationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationArrayOutput)
 }
 
+func (i DicomServiceAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]DicomServiceAuthentication] {
+	return pulumix.Output[[]DicomServiceAuthentication]{
+		OutputState: i.ToDicomServiceAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DicomServiceAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceAuthenticationOutput) ElementType() reflect.Type {
@@ -85,6 +98,12 @@ func (o DicomServiceAuthenticationOutput) ToDicomServiceAuthenticationOutput() D
 
 func (o DicomServiceAuthenticationOutput) ToDicomServiceAuthenticationOutputWithContext(ctx context.Context) DicomServiceAuthenticationOutput {
 	return o
+}
+
+func (o DicomServiceAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[DicomServiceAuthentication] {
+	return pulumix.Output[DicomServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
@@ -108,6 +127,12 @@ func (o DicomServiceAuthenticationArrayOutput) ToDicomServiceAuthenticationArray
 
 func (o DicomServiceAuthenticationArrayOutput) ToDicomServiceAuthenticationArrayOutputWithContext(ctx context.Context) DicomServiceAuthenticationArrayOutput {
 	return o
+}
+
+func (o DicomServiceAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DicomServiceAuthentication] {
+	return pulumix.Output[[]DicomServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DicomServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) DicomServiceAuthenticationOutput {
@@ -157,6 +182,12 @@ func (i DicomServiceIdentityArgs) ToDicomServiceIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceIdentityOutput)
 }
 
+func (i DicomServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[DicomServiceIdentity] {
+	return pulumix.Output[DicomServiceIdentity]{
+		OutputState: i.ToDicomServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DicomServiceIdentityArgs) ToDicomServiceIdentityPtrOutput() DicomServiceIdentityPtrOutput {
 	return i.ToDicomServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -198,6 +229,12 @@ func (i *dicomServiceIdentityPtrType) ToDicomServiceIdentityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceIdentityPtrOutput)
 }
 
+func (i *dicomServiceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*DicomServiceIdentity] {
+	return pulumix.Output[*DicomServiceIdentity]{
+		OutputState: i.ToDicomServiceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DicomServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceIdentityOutput) ElementType() reflect.Type {
@@ -220,6 +257,12 @@ func (o DicomServiceIdentityOutput) ToDicomServiceIdentityPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DicomServiceIdentity) *DicomServiceIdentity {
 		return &v
 	}).(DicomServiceIdentityPtrOutput)
+}
+
+func (o DicomServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[DicomServiceIdentity] {
+	return pulumix.Output[DicomServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
@@ -252,6 +295,12 @@ func (o DicomServiceIdentityPtrOutput) ToDicomServiceIdentityPtrOutput() DicomSe
 
 func (o DicomServiceIdentityPtrOutput) ToDicomServiceIdentityPtrOutputWithContext(ctx context.Context) DicomServiceIdentityPtrOutput {
 	return o
+}
+
+func (o DicomServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DicomServiceIdentity] {
+	return pulumix.Output[*DicomServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DicomServiceIdentityPtrOutput) Elem() DicomServiceIdentityOutput {
@@ -339,6 +388,12 @@ func (i DicomServicePrivateEndpointArgs) ToDicomServicePrivateEndpointOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServicePrivateEndpointOutput)
 }
 
+func (i DicomServicePrivateEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[DicomServicePrivateEndpoint] {
+	return pulumix.Output[DicomServicePrivateEndpoint]{
+		OutputState: i.ToDicomServicePrivateEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DicomServicePrivateEndpointArrayInput is an input type that accepts DicomServicePrivateEndpointArray and DicomServicePrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `DicomServicePrivateEndpointArrayInput` via:
 //
@@ -364,6 +419,12 @@ func (i DicomServicePrivateEndpointArray) ToDicomServicePrivateEndpointArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServicePrivateEndpointArrayOutput)
 }
 
+func (i DicomServicePrivateEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]DicomServicePrivateEndpoint] {
+	return pulumix.Output[[]DicomServicePrivateEndpoint]{
+		OutputState: i.ToDicomServicePrivateEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DicomServicePrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (DicomServicePrivateEndpointOutput) ElementType() reflect.Type {
@@ -376,6 +437,12 @@ func (o DicomServicePrivateEndpointOutput) ToDicomServicePrivateEndpointOutput()
 
 func (o DicomServicePrivateEndpointOutput) ToDicomServicePrivateEndpointOutputWithContext(ctx context.Context) DicomServicePrivateEndpointOutput {
 	return o
+}
+
+func (o DicomServicePrivateEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[DicomServicePrivateEndpoint] {
+	return pulumix.Output[DicomServicePrivateEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Healthcare DICOM Service.
@@ -400,6 +467,12 @@ func (o DicomServicePrivateEndpointArrayOutput) ToDicomServicePrivateEndpointArr
 
 func (o DicomServicePrivateEndpointArrayOutput) ToDicomServicePrivateEndpointArrayOutputWithContext(ctx context.Context) DicomServicePrivateEndpointArrayOutput {
 	return o
+}
+
+func (o DicomServicePrivateEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DicomServicePrivateEndpoint] {
+	return pulumix.Output[[]DicomServicePrivateEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomServicePrivateEndpointOutput {
@@ -447,6 +520,12 @@ func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationOutput)
 }
 
+func (i FhirServiceAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[FhirServiceAuthentication] {
+	return pulumix.Output[FhirServiceAuthentication]{
+		OutputState: i.ToFhirServiceAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationPtrOutput() FhirServiceAuthenticationPtrOutput {
 	return i.ToFhirServiceAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -488,6 +567,12 @@ func (i *fhirServiceAuthenticationPtrType) ToFhirServiceAuthenticationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationPtrOutput)
 }
 
+func (i *fhirServiceAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FhirServiceAuthentication] {
+	return pulumix.Output[*FhirServiceAuthentication]{
+		OutputState: i.ToFhirServiceAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FhirServiceAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAuthenticationOutput) ElementType() reflect.Type {
@@ -510,6 +595,12 @@ func (o FhirServiceAuthenticationOutput) ToFhirServiceAuthenticationPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceAuthentication) *FhirServiceAuthentication {
 		return &v
 	}).(FhirServiceAuthenticationPtrOutput)
+}
+
+func (o FhirServiceAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[FhirServiceAuthentication] {
+	return pulumix.Output[FhirServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
@@ -538,6 +629,12 @@ func (o FhirServiceAuthenticationPtrOutput) ToFhirServiceAuthenticationPtrOutput
 
 func (o FhirServiceAuthenticationPtrOutput) ToFhirServiceAuthenticationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationPtrOutput {
 	return o
+}
+
+func (o FhirServiceAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirServiceAuthentication] {
+	return pulumix.Output[*FhirServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FhirServiceAuthenticationPtrOutput) Elem() FhirServiceAuthenticationOutput {
@@ -628,6 +725,12 @@ func (i FhirServiceCorsArgs) ToFhirServiceCorsOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsOutput)
 }
 
+func (i FhirServiceCorsArgs) ToOutput(ctx context.Context) pulumix.Output[FhirServiceCors] {
+	return pulumix.Output[FhirServiceCors]{
+		OutputState: i.ToFhirServiceCorsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FhirServiceCorsArgs) ToFhirServiceCorsPtrOutput() FhirServiceCorsPtrOutput {
 	return i.ToFhirServiceCorsPtrOutputWithContext(context.Background())
 }
@@ -669,6 +772,12 @@ func (i *fhirServiceCorsPtrType) ToFhirServiceCorsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsPtrOutput)
 }
 
+func (i *fhirServiceCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FhirServiceCors] {
+	return pulumix.Output[*FhirServiceCors]{
+		OutputState: i.ToFhirServiceCorsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FhirServiceCorsOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceCorsOutput) ElementType() reflect.Type {
@@ -691,6 +800,12 @@ func (o FhirServiceCorsOutput) ToFhirServiceCorsPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceCors) *FhirServiceCors {
 		return &v
 	}).(FhirServiceCorsPtrOutput)
+}
+
+func (o FhirServiceCorsOutput) ToOutput(ctx context.Context) pulumix.Output[FhirServiceCors] {
+	return pulumix.Output[FhirServiceCors]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A set of headers to be allowed via CORS.
@@ -730,6 +845,12 @@ func (o FhirServiceCorsPtrOutput) ToFhirServiceCorsPtrOutput() FhirServiceCorsPt
 
 func (o FhirServiceCorsPtrOutput) ToFhirServiceCorsPtrOutputWithContext(ctx context.Context) FhirServiceCorsPtrOutput {
 	return o
+}
+
+func (o FhirServiceCorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirServiceCors] {
+	return pulumix.Output[*FhirServiceCors]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FhirServiceCorsPtrOutput) Elem() FhirServiceCorsOutput {
@@ -833,6 +954,12 @@ func (i FhirServiceIdentityArgs) ToFhirServiceIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceIdentityOutput)
 }
 
+func (i FhirServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[FhirServiceIdentity] {
+	return pulumix.Output[FhirServiceIdentity]{
+		OutputState: i.ToFhirServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FhirServiceIdentityArgs) ToFhirServiceIdentityPtrOutput() FhirServiceIdentityPtrOutput {
 	return i.ToFhirServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -874,6 +1001,12 @@ func (i *fhirServiceIdentityPtrType) ToFhirServiceIdentityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceIdentityPtrOutput)
 }
 
+func (i *fhirServiceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*FhirServiceIdentity] {
+	return pulumix.Output[*FhirServiceIdentity]{
+		OutputState: i.ToFhirServiceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FhirServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceIdentityOutput) ElementType() reflect.Type {
@@ -896,6 +1029,12 @@ func (o FhirServiceIdentityOutput) ToFhirServiceIdentityPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceIdentity) *FhirServiceIdentity {
 		return &v
 	}).(FhirServiceIdentityPtrOutput)
+}
+
+func (o FhirServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[FhirServiceIdentity] {
+	return pulumix.Output[FhirServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
@@ -928,6 +1067,12 @@ func (o FhirServiceIdentityPtrOutput) ToFhirServiceIdentityPtrOutput() FhirServi
 
 func (o FhirServiceIdentityPtrOutput) ToFhirServiceIdentityPtrOutputWithContext(ctx context.Context) FhirServiceIdentityPtrOutput {
 	return o
+}
+
+func (o FhirServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirServiceIdentity] {
+	return pulumix.Output[*FhirServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FhirServiceIdentityPtrOutput) Elem() FhirServiceIdentityOutput {
@@ -1019,6 +1164,12 @@ func (i FhirServiceOciArtifactArgs) ToFhirServiceOciArtifactOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOciArtifactOutput)
 }
 
+func (i FhirServiceOciArtifactArgs) ToOutput(ctx context.Context) pulumix.Output[FhirServiceOciArtifact] {
+	return pulumix.Output[FhirServiceOciArtifact]{
+		OutputState: i.ToFhirServiceOciArtifactOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FhirServiceOciArtifactArrayInput is an input type that accepts FhirServiceOciArtifactArray and FhirServiceOciArtifactArrayOutput values.
 // You can construct a concrete instance of `FhirServiceOciArtifactArrayInput` via:
 //
@@ -1044,6 +1195,12 @@ func (i FhirServiceOciArtifactArray) ToFhirServiceOciArtifactArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOciArtifactArrayOutput)
 }
 
+func (i FhirServiceOciArtifactArray) ToOutput(ctx context.Context) pulumix.Output[[]FhirServiceOciArtifact] {
+	return pulumix.Output[[]FhirServiceOciArtifact]{
+		OutputState: i.ToFhirServiceOciArtifactArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FhirServiceOciArtifactOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceOciArtifactOutput) ElementType() reflect.Type {
@@ -1056,6 +1213,12 @@ func (o FhirServiceOciArtifactOutput) ToFhirServiceOciArtifactOutput() FhirServi
 
 func (o FhirServiceOciArtifactOutput) ToFhirServiceOciArtifactOutputWithContext(ctx context.Context) FhirServiceOciArtifactOutput {
 	return o
+}
+
+func (o FhirServiceOciArtifactOutput) ToOutput(ctx context.Context) pulumix.Output[FhirServiceOciArtifact] {
+	return pulumix.Output[FhirServiceOciArtifact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
@@ -1085,6 +1248,12 @@ func (o FhirServiceOciArtifactArrayOutput) ToFhirServiceOciArtifactArrayOutput()
 
 func (o FhirServiceOciArtifactArrayOutput) ToFhirServiceOciArtifactArrayOutputWithContext(ctx context.Context) FhirServiceOciArtifactArrayOutput {
 	return o
+}
+
+func (o FhirServiceOciArtifactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FhirServiceOciArtifact] {
+	return pulumix.Output[[]FhirServiceOciArtifact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FhirServiceOciArtifactArrayOutput) Index(i pulumi.IntInput) FhirServiceOciArtifactOutput {
@@ -1136,6 +1305,12 @@ func (i MedtechServiceIdentityArgs) ToMedtechServiceIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceIdentityOutput)
 }
 
+func (i MedtechServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[MedtechServiceIdentity] {
+	return pulumix.Output[MedtechServiceIdentity]{
+		OutputState: i.ToMedtechServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MedtechServiceIdentityArgs) ToMedtechServiceIdentityPtrOutput() MedtechServiceIdentityPtrOutput {
 	return i.ToMedtechServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -1177,6 +1352,12 @@ func (i *medtechServiceIdentityPtrType) ToMedtechServiceIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceIdentityPtrOutput)
 }
 
+func (i *medtechServiceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*MedtechServiceIdentity] {
+	return pulumix.Output[*MedtechServiceIdentity]{
+		OutputState: i.ToMedtechServiceIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MedtechServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (MedtechServiceIdentityOutput) ElementType() reflect.Type {
@@ -1199,6 +1380,12 @@ func (o MedtechServiceIdentityOutput) ToMedtechServiceIdentityPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MedtechServiceIdentity) *MedtechServiceIdentity {
 		return &v
 	}).(MedtechServiceIdentityPtrOutput)
+}
+
+func (o MedtechServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[MedtechServiceIdentity] {
+	return pulumix.Output[MedtechServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MedtechServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -1232,6 +1419,12 @@ func (o MedtechServiceIdentityPtrOutput) ToMedtechServiceIdentityPtrOutput() Med
 
 func (o MedtechServiceIdentityPtrOutput) ToMedtechServiceIdentityPtrOutputWithContext(ctx context.Context) MedtechServiceIdentityPtrOutput {
 	return o
+}
+
+func (o MedtechServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MedtechServiceIdentity] {
+	return pulumix.Output[*MedtechServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MedtechServiceIdentityPtrOutput) Elem() MedtechServiceIdentityOutput {
@@ -1326,6 +1519,12 @@ func (i ServiceAuthenticationConfigurationArgs) ToServiceAuthenticationConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationOutput)
 }
 
+func (i ServiceAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAuthenticationConfiguration] {
+	return pulumix.Output[ServiceAuthenticationConfiguration]{
+		OutputState: i.ToServiceAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceAuthenticationConfigurationArgs) ToServiceAuthenticationConfigurationPtrOutput() ServiceAuthenticationConfigurationPtrOutput {
 	return i.ToServiceAuthenticationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1367,6 +1566,12 @@ func (i *serviceAuthenticationConfigurationPtrType) ToServiceAuthenticationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationPtrOutput)
 }
 
+func (i *serviceAuthenticationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAuthenticationConfiguration] {
+	return pulumix.Output[*ServiceAuthenticationConfiguration]{
+		OutputState: i.ToServiceAuthenticationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -1389,6 +1594,12 @@ func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthenticationConfiguration) *ServiceAuthenticationConfiguration {
 		return &v
 	}).(ServiceAuthenticationConfigurationPtrOutput)
+}
+
+func (o ServiceAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAuthenticationConfiguration] {
+	return pulumix.Output[ServiceAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
@@ -1419,6 +1630,12 @@ func (o ServiceAuthenticationConfigurationPtrOutput) ToServiceAuthenticationConf
 
 func (o ServiceAuthenticationConfigurationPtrOutput) ToServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationPtrOutput {
 	return o
+}
+
+func (o ServiceAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAuthenticationConfiguration] {
+	return pulumix.Output[*ServiceAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceAuthenticationConfigurationPtrOutput) Elem() ServiceAuthenticationConfigurationOutput {
@@ -1511,6 +1728,12 @@ func (i ServiceCorsConfigurationArgs) ToServiceCorsConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationOutput)
 }
 
+func (i ServiceCorsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceCorsConfiguration] {
+	return pulumix.Output[ServiceCorsConfiguration]{
+		OutputState: i.ToServiceCorsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceCorsConfigurationArgs) ToServiceCorsConfigurationPtrOutput() ServiceCorsConfigurationPtrOutput {
 	return i.ToServiceCorsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1552,6 +1775,12 @@ func (i *serviceCorsConfigurationPtrType) ToServiceCorsConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationPtrOutput)
 }
 
+func (i *serviceCorsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceCorsConfiguration] {
+	return pulumix.Output[*ServiceCorsConfiguration]{
+		OutputState: i.ToServiceCorsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorsConfigurationOutput) ElementType() reflect.Type {
@@ -1574,6 +1803,12 @@ func (o ServiceCorsConfigurationOutput) ToServiceCorsConfigurationPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCorsConfiguration) *ServiceCorsConfiguration {
 		return &v
 	}).(ServiceCorsConfigurationPtrOutput)
+}
+
+func (o ServiceCorsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCorsConfiguration] {
+	return pulumix.Output[ServiceCorsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Boolean) If credentials are allowed via CORS.
@@ -1613,6 +1848,12 @@ func (o ServiceCorsConfigurationPtrOutput) ToServiceCorsConfigurationPtrOutput()
 
 func (o ServiceCorsConfigurationPtrOutput) ToServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationPtrOutput {
 	return o
+}
+
+func (o ServiceCorsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCorsConfiguration] {
+	return pulumix.Output[*ServiceCorsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceCorsConfigurationPtrOutput) Elem() ServiceCorsConfigurationOutput {
@@ -1712,6 +1953,12 @@ func (i WorkspacePrivateEndpointConnectionArgs) ToWorkspacePrivateEndpointConnec
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePrivateEndpointConnectionOutput)
 }
 
+func (i WorkspacePrivateEndpointConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspacePrivateEndpointConnection] {
+	return pulumix.Output[WorkspacePrivateEndpointConnection]{
+		OutputState: i.ToWorkspacePrivateEndpointConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspacePrivateEndpointConnectionArrayInput is an input type that accepts WorkspacePrivateEndpointConnectionArray and WorkspacePrivateEndpointConnectionArrayOutput values.
 // You can construct a concrete instance of `WorkspacePrivateEndpointConnectionArrayInput` via:
 //
@@ -1737,6 +1984,12 @@ func (i WorkspacePrivateEndpointConnectionArray) ToWorkspacePrivateEndpointConne
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePrivateEndpointConnectionArrayOutput)
 }
 
+func (i WorkspacePrivateEndpointConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspacePrivateEndpointConnection] {
+	return pulumix.Output[[]WorkspacePrivateEndpointConnection]{
+		OutputState: i.ToWorkspacePrivateEndpointConnectionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspacePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (WorkspacePrivateEndpointConnectionOutput) ElementType() reflect.Type {
@@ -1749,6 +2002,12 @@ func (o WorkspacePrivateEndpointConnectionOutput) ToWorkspacePrivateEndpointConn
 
 func (o WorkspacePrivateEndpointConnectionOutput) ToWorkspacePrivateEndpointConnectionOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionOutput {
 	return o
+}
+
+func (o WorkspacePrivateEndpointConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspacePrivateEndpointConnection] {
+	return pulumix.Output[WorkspacePrivateEndpointConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Healthcare Workspace.
@@ -1773,6 +2032,12 @@ func (o WorkspacePrivateEndpointConnectionArrayOutput) ToWorkspacePrivateEndpoin
 
 func (o WorkspacePrivateEndpointConnectionArrayOutput) ToWorkspacePrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionArrayOutput {
 	return o
+}
+
+func (o WorkspacePrivateEndpointConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspacePrivateEndpointConnection] {
+	return pulumix.Output[[]WorkspacePrivateEndpointConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspacePrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) WorkspacePrivateEndpointConnectionOutput {
@@ -1816,6 +2081,12 @@ func (i GetDicomServiceAuthenticationArgs) ToGetDicomServiceAuthenticationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceAuthenticationOutput)
 }
 
+func (i GetDicomServiceAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDicomServiceAuthentication] {
+	return pulumix.Output[GetDicomServiceAuthentication]{
+		OutputState: i.ToGetDicomServiceAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDicomServiceAuthenticationArrayInput is an input type that accepts GetDicomServiceAuthenticationArray and GetDicomServiceAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetDicomServiceAuthenticationArrayInput` via:
 //
@@ -1841,6 +2112,12 @@ func (i GetDicomServiceAuthenticationArray) ToGetDicomServiceAuthenticationArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceAuthenticationArrayOutput)
 }
 
+func (i GetDicomServiceAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDicomServiceAuthentication] {
+	return pulumix.Output[[]GetDicomServiceAuthentication]{
+		OutputState: i.ToGetDicomServiceAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDicomServiceAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetDicomServiceAuthenticationOutput) ElementType() reflect.Type {
@@ -1853,6 +2130,12 @@ func (o GetDicomServiceAuthenticationOutput) ToGetDicomServiceAuthenticationOutp
 
 func (o GetDicomServiceAuthenticationOutput) ToGetDicomServiceAuthenticationOutputWithContext(ctx context.Context) GetDicomServiceAuthenticationOutput {
 	return o
+}
+
+func (o GetDicomServiceAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDicomServiceAuthentication] {
+	return pulumix.Output[GetDicomServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
@@ -1876,6 +2159,12 @@ func (o GetDicomServiceAuthenticationArrayOutput) ToGetDicomServiceAuthenticatio
 
 func (o GetDicomServiceAuthenticationArrayOutput) ToGetDicomServiceAuthenticationArrayOutputWithContext(ctx context.Context) GetDicomServiceAuthenticationArrayOutput {
 	return o
+}
+
+func (o GetDicomServiceAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDicomServiceAuthentication] {
+	return pulumix.Output[[]GetDicomServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDicomServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) GetDicomServiceAuthenticationOutput {
@@ -1921,6 +2210,12 @@ func (i GetDicomServiceIdentityArgs) ToGetDicomServiceIdentityOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceIdentityOutput)
 }
 
+func (i GetDicomServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetDicomServiceIdentity] {
+	return pulumix.Output[GetDicomServiceIdentity]{
+		OutputState: i.ToGetDicomServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDicomServiceIdentityArrayInput is an input type that accepts GetDicomServiceIdentityArray and GetDicomServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetDicomServiceIdentityArrayInput` via:
 //
@@ -1946,6 +2241,12 @@ func (i GetDicomServiceIdentityArray) ToGetDicomServiceIdentityArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceIdentityArrayOutput)
 }
 
+func (i GetDicomServiceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDicomServiceIdentity] {
+	return pulumix.Output[[]GetDicomServiceIdentity]{
+		OutputState: i.ToGetDicomServiceIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDicomServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetDicomServiceIdentityOutput) ElementType() reflect.Type {
@@ -1958,6 +2259,12 @@ func (o GetDicomServiceIdentityOutput) ToGetDicomServiceIdentityOutput() GetDico
 
 func (o GetDicomServiceIdentityOutput) ToGetDicomServiceIdentityOutputWithContext(ctx context.Context) GetDicomServiceIdentityOutput {
 	return o
+}
+
+func (o GetDicomServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetDicomServiceIdentity] {
+	return pulumix.Output[GetDicomServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDicomServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -1988,6 +2295,12 @@ func (o GetDicomServiceIdentityArrayOutput) ToGetDicomServiceIdentityArrayOutput
 
 func (o GetDicomServiceIdentityArrayOutput) ToGetDicomServiceIdentityArrayOutputWithContext(ctx context.Context) GetDicomServiceIdentityArrayOutput {
 	return o
+}
+
+func (o GetDicomServiceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDicomServiceIdentity] {
+	return pulumix.Output[[]GetDicomServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDicomServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetDicomServiceIdentityOutput {
@@ -2033,6 +2346,12 @@ func (i GetDicomServicePrivateEndpointArgs) ToGetDicomServicePrivateEndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServicePrivateEndpointOutput)
 }
 
+func (i GetDicomServicePrivateEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetDicomServicePrivateEndpoint] {
+	return pulumix.Output[GetDicomServicePrivateEndpoint]{
+		OutputState: i.ToGetDicomServicePrivateEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDicomServicePrivateEndpointArrayInput is an input type that accepts GetDicomServicePrivateEndpointArray and GetDicomServicePrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `GetDicomServicePrivateEndpointArrayInput` via:
 //
@@ -2058,6 +2377,12 @@ func (i GetDicomServicePrivateEndpointArray) ToGetDicomServicePrivateEndpointArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServicePrivateEndpointArrayOutput)
 }
 
+func (i GetDicomServicePrivateEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDicomServicePrivateEndpoint] {
+	return pulumix.Output[[]GetDicomServicePrivateEndpoint]{
+		OutputState: i.ToGetDicomServicePrivateEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDicomServicePrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetDicomServicePrivateEndpointOutput) ElementType() reflect.Type {
@@ -2070,6 +2395,12 @@ func (o GetDicomServicePrivateEndpointOutput) ToGetDicomServicePrivateEndpointOu
 
 func (o GetDicomServicePrivateEndpointOutput) ToGetDicomServicePrivateEndpointOutputWithContext(ctx context.Context) GetDicomServicePrivateEndpointOutput {
 	return o
+}
+
+func (o GetDicomServicePrivateEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetDicomServicePrivateEndpoint] {
+	return pulumix.Output[GetDicomServicePrivateEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Healthcare DICOM Service.
@@ -2094,6 +2425,12 @@ func (o GetDicomServicePrivateEndpointArrayOutput) ToGetDicomServicePrivateEndpo
 
 func (o GetDicomServicePrivateEndpointArrayOutput) ToGetDicomServicePrivateEndpointArrayOutputWithContext(ctx context.Context) GetDicomServicePrivateEndpointArrayOutput {
 	return o
+}
+
+func (o GetDicomServicePrivateEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDicomServicePrivateEndpoint] {
+	return pulumix.Output[[]GetDicomServicePrivateEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetDicomServicePrivateEndpointOutput {
@@ -2139,6 +2476,12 @@ func (i GetFhirServiceAuthenticationArgs) ToGetFhirServiceAuthenticationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceAuthenticationOutput)
 }
 
+func (i GetFhirServiceAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetFhirServiceAuthentication] {
+	return pulumix.Output[GetFhirServiceAuthentication]{
+		OutputState: i.ToGetFhirServiceAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFhirServiceAuthenticationArrayInput is an input type that accepts GetFhirServiceAuthenticationArray and GetFhirServiceAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetFhirServiceAuthenticationArrayInput` via:
 //
@@ -2164,6 +2507,12 @@ func (i GetFhirServiceAuthenticationArray) ToGetFhirServiceAuthenticationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceAuthenticationArrayOutput)
 }
 
+func (i GetFhirServiceAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFhirServiceAuthentication] {
+	return pulumix.Output[[]GetFhirServiceAuthentication]{
+		OutputState: i.ToGetFhirServiceAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFhirServiceAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetFhirServiceAuthenticationOutput) ElementType() reflect.Type {
@@ -2176,6 +2525,12 @@ func (o GetFhirServiceAuthenticationOutput) ToGetFhirServiceAuthenticationOutput
 
 func (o GetFhirServiceAuthenticationOutput) ToGetFhirServiceAuthenticationOutputWithContext(ctx context.Context) GetFhirServiceAuthenticationOutput {
 	return o
+}
+
+func (o GetFhirServiceAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetFhirServiceAuthentication] {
+	return pulumix.Output[GetFhirServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
@@ -2203,6 +2558,12 @@ func (o GetFhirServiceAuthenticationArrayOutput) ToGetFhirServiceAuthenticationA
 
 func (o GetFhirServiceAuthenticationArrayOutput) ToGetFhirServiceAuthenticationArrayOutputWithContext(ctx context.Context) GetFhirServiceAuthenticationArrayOutput {
 	return o
+}
+
+func (o GetFhirServiceAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFhirServiceAuthentication] {
+	return pulumix.Output[[]GetFhirServiceAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFhirServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) GetFhirServiceAuthenticationOutput {
@@ -2260,6 +2621,12 @@ func (i GetFhirServiceCorArgs) ToGetFhirServiceCorOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceCorOutput)
 }
 
+func (i GetFhirServiceCorArgs) ToOutput(ctx context.Context) pulumix.Output[GetFhirServiceCor] {
+	return pulumix.Output[GetFhirServiceCor]{
+		OutputState: i.ToGetFhirServiceCorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFhirServiceCorArrayInput is an input type that accepts GetFhirServiceCorArray and GetFhirServiceCorArrayOutput values.
 // You can construct a concrete instance of `GetFhirServiceCorArrayInput` via:
 //
@@ -2285,6 +2652,12 @@ func (i GetFhirServiceCorArray) ToGetFhirServiceCorArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceCorArrayOutput)
 }
 
+func (i GetFhirServiceCorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFhirServiceCor] {
+	return pulumix.Output[[]GetFhirServiceCor]{
+		OutputState: i.ToGetFhirServiceCorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFhirServiceCorOutput struct{ *pulumi.OutputState }
 
 func (GetFhirServiceCorOutput) ElementType() reflect.Type {
@@ -2297,6 +2670,12 @@ func (o GetFhirServiceCorOutput) ToGetFhirServiceCorOutput() GetFhirServiceCorOu
 
 func (o GetFhirServiceCorOutput) ToGetFhirServiceCorOutputWithContext(ctx context.Context) GetFhirServiceCorOutput {
 	return o
+}
+
+func (o GetFhirServiceCorOutput) ToOutput(ctx context.Context) pulumix.Output[GetFhirServiceCor] {
+	return pulumix.Output[GetFhirServiceCor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The set of headers to be allowed via CORS.
@@ -2336,6 +2715,12 @@ func (o GetFhirServiceCorArrayOutput) ToGetFhirServiceCorArrayOutput() GetFhirSe
 
 func (o GetFhirServiceCorArrayOutput) ToGetFhirServiceCorArrayOutputWithContext(ctx context.Context) GetFhirServiceCorArrayOutput {
 	return o
+}
+
+func (o GetFhirServiceCorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFhirServiceCor] {
+	return pulumix.Output[[]GetFhirServiceCor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFhirServiceCorArrayOutput) Index(i pulumi.IntInput) GetFhirServiceCorOutput {
@@ -2387,6 +2772,12 @@ func (i GetFhirServiceIdentityArgs) ToGetFhirServiceIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceIdentityOutput)
 }
 
+func (i GetFhirServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetFhirServiceIdentity] {
+	return pulumix.Output[GetFhirServiceIdentity]{
+		OutputState: i.ToGetFhirServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFhirServiceIdentityArrayInput is an input type that accepts GetFhirServiceIdentityArray and GetFhirServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetFhirServiceIdentityArrayInput` via:
 //
@@ -2412,6 +2803,12 @@ func (i GetFhirServiceIdentityArray) ToGetFhirServiceIdentityArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetFhirServiceIdentityArrayOutput)
 }
 
+func (i GetFhirServiceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFhirServiceIdentity] {
+	return pulumix.Output[[]GetFhirServiceIdentity]{
+		OutputState: i.ToGetFhirServiceIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFhirServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetFhirServiceIdentityOutput) ElementType() reflect.Type {
@@ -2424,6 +2821,12 @@ func (o GetFhirServiceIdentityOutput) ToGetFhirServiceIdentityOutput() GetFhirSe
 
 func (o GetFhirServiceIdentityOutput) ToGetFhirServiceIdentityOutputWithContext(ctx context.Context) GetFhirServiceIdentityOutput {
 	return o
+}
+
+func (o GetFhirServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetFhirServiceIdentity] {
+	return pulumix.Output[GetFhirServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFhirServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -2457,6 +2860,12 @@ func (o GetFhirServiceIdentityArrayOutput) ToGetFhirServiceIdentityArrayOutput()
 
 func (o GetFhirServiceIdentityArrayOutput) ToGetFhirServiceIdentityArrayOutputWithContext(ctx context.Context) GetFhirServiceIdentityArrayOutput {
 	return o
+}
+
+func (o GetFhirServiceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFhirServiceIdentity] {
+	return pulumix.Output[[]GetFhirServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFhirServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetFhirServiceIdentityOutput {
@@ -2508,6 +2917,12 @@ func (i GetMedtechServiceIdentityArgs) ToGetMedtechServiceIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetMedtechServiceIdentityOutput)
 }
 
+func (i GetMedtechServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetMedtechServiceIdentity] {
+	return pulumix.Output[GetMedtechServiceIdentity]{
+		OutputState: i.ToGetMedtechServiceIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetMedtechServiceIdentityArrayInput is an input type that accepts GetMedtechServiceIdentityArray and GetMedtechServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetMedtechServiceIdentityArrayInput` via:
 //
@@ -2533,6 +2948,12 @@ func (i GetMedtechServiceIdentityArray) ToGetMedtechServiceIdentityArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetMedtechServiceIdentityArrayOutput)
 }
 
+func (i GetMedtechServiceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMedtechServiceIdentity] {
+	return pulumix.Output[[]GetMedtechServiceIdentity]{
+		OutputState: i.ToGetMedtechServiceIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetMedtechServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetMedtechServiceIdentityOutput) ElementType() reflect.Type {
@@ -2545,6 +2966,12 @@ func (o GetMedtechServiceIdentityOutput) ToGetMedtechServiceIdentityOutput() Get
 
 func (o GetMedtechServiceIdentityOutput) ToGetMedtechServiceIdentityOutputWithContext(ctx context.Context) GetMedtechServiceIdentityOutput {
 	return o
+}
+
+func (o GetMedtechServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetMedtechServiceIdentity] {
+	return pulumix.Output[GetMedtechServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetMedtechServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -2578,6 +3005,12 @@ func (o GetMedtechServiceIdentityArrayOutput) ToGetMedtechServiceIdentityArrayOu
 
 func (o GetMedtechServiceIdentityArrayOutput) ToGetMedtechServiceIdentityArrayOutputWithContext(ctx context.Context) GetMedtechServiceIdentityArrayOutput {
 	return o
+}
+
+func (o GetMedtechServiceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMedtechServiceIdentity] {
+	return pulumix.Output[[]GetMedtechServiceIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetMedtechServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetMedtechServiceIdentityOutput {
@@ -2627,6 +3060,12 @@ func (i GetServiceAuthenticationConfigurationArgs) ToGetServiceAuthenticationCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceAuthenticationConfigurationOutput)
 }
 
+func (i GetServiceAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceAuthenticationConfiguration] {
+	return pulumix.Output[GetServiceAuthenticationConfiguration]{
+		OutputState: i.ToGetServiceAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceAuthenticationConfigurationArrayInput is an input type that accepts GetServiceAuthenticationConfigurationArray and GetServiceAuthenticationConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceAuthenticationConfigurationArrayInput` via:
 //
@@ -2652,6 +3091,12 @@ func (i GetServiceAuthenticationConfigurationArray) ToGetServiceAuthenticationCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceAuthenticationConfigurationArrayOutput)
 }
 
+func (i GetServiceAuthenticationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceAuthenticationConfiguration] {
+	return pulumix.Output[[]GetServiceAuthenticationConfiguration]{
+		OutputState: i.ToGetServiceAuthenticationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -2664,6 +3109,12 @@ func (o GetServiceAuthenticationConfigurationOutput) ToGetServiceAuthenticationC
 
 func (o GetServiceAuthenticationConfigurationOutput) ToGetServiceAuthenticationConfigurationOutputWithContext(ctx context.Context) GetServiceAuthenticationConfigurationOutput {
 	return o
+}
+
+func (o GetServiceAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceAuthenticationConfiguration] {
+	return pulumix.Output[GetServiceAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The intended audience to receive authentication tokens for the service.
@@ -2693,6 +3144,12 @@ func (o GetServiceAuthenticationConfigurationArrayOutput) ToGetServiceAuthentica
 
 func (o GetServiceAuthenticationConfigurationArrayOutput) ToGetServiceAuthenticationConfigurationArrayOutputWithContext(ctx context.Context) GetServiceAuthenticationConfigurationArrayOutput {
 	return o
+}
+
+func (o GetServiceAuthenticationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceAuthenticationConfiguration] {
+	return pulumix.Output[[]GetServiceAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceAuthenticationConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceAuthenticationConfigurationOutput {
@@ -2750,6 +3207,12 @@ func (i GetServiceCorsConfigurationArgs) ToGetServiceCorsConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCorsConfigurationOutput)
 }
 
+func (i GetServiceCorsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceCorsConfiguration] {
+	return pulumix.Output[GetServiceCorsConfiguration]{
+		OutputState: i.ToGetServiceCorsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceCorsConfigurationArrayInput is an input type that accepts GetServiceCorsConfigurationArray and GetServiceCorsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceCorsConfigurationArrayInput` via:
 //
@@ -2775,6 +3238,12 @@ func (i GetServiceCorsConfigurationArray) ToGetServiceCorsConfigurationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCorsConfigurationArrayOutput)
 }
 
+func (i GetServiceCorsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceCorsConfiguration] {
+	return pulumix.Output[[]GetServiceCorsConfiguration]{
+		OutputState: i.ToGetServiceCorsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceCorsConfigurationOutput) ElementType() reflect.Type {
@@ -2787,6 +3256,12 @@ func (o GetServiceCorsConfigurationOutput) ToGetServiceCorsConfigurationOutput()
 
 func (o GetServiceCorsConfigurationOutput) ToGetServiceCorsConfigurationOutputWithContext(ctx context.Context) GetServiceCorsConfigurationOutput {
 	return o
+}
+
+func (o GetServiceCorsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceCorsConfiguration] {
+	return pulumix.Output[GetServiceCorsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Are credentials are allowed via CORS?
@@ -2826,6 +3301,12 @@ func (o GetServiceCorsConfigurationArrayOutput) ToGetServiceCorsConfigurationArr
 
 func (o GetServiceCorsConfigurationArrayOutput) ToGetServiceCorsConfigurationArrayOutputWithContext(ctx context.Context) GetServiceCorsConfigurationArrayOutput {
 	return o
+}
+
+func (o GetServiceCorsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceCorsConfiguration] {
+	return pulumix.Output[[]GetServiceCorsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceCorsConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceCorsConfigurationOutput {

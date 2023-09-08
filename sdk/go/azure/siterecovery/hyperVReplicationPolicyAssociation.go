@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Site Recovery replication policy for HyperV within a Recovery Vault.
@@ -191,6 +192,12 @@ func (i *HyperVReplicationPolicyAssociation) ToHyperVReplicationPolicyAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicationPolicyAssociationOutput)
 }
 
+func (i *HyperVReplicationPolicyAssociation) ToOutput(ctx context.Context) pulumix.Output[*HyperVReplicationPolicyAssociation] {
+	return pulumix.Output[*HyperVReplicationPolicyAssociation]{
+		OutputState: i.ToHyperVReplicationPolicyAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HyperVReplicationPolicyAssociationArrayInput is an input type that accepts HyperVReplicationPolicyAssociationArray and HyperVReplicationPolicyAssociationArrayOutput values.
 // You can construct a concrete instance of `HyperVReplicationPolicyAssociationArrayInput` via:
 //
@@ -214,6 +221,12 @@ func (i HyperVReplicationPolicyAssociationArray) ToHyperVReplicationPolicyAssoci
 
 func (i HyperVReplicationPolicyAssociationArray) ToHyperVReplicationPolicyAssociationArrayOutputWithContext(ctx context.Context) HyperVReplicationPolicyAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicationPolicyAssociationArrayOutput)
+}
+
+func (i HyperVReplicationPolicyAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*HyperVReplicationPolicyAssociation] {
+	return pulumix.Output[[]*HyperVReplicationPolicyAssociation]{
+		OutputState: i.ToHyperVReplicationPolicyAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HyperVReplicationPolicyAssociationMapInput is an input type that accepts HyperVReplicationPolicyAssociationMap and HyperVReplicationPolicyAssociationMapOutput values.
@@ -241,6 +254,12 @@ func (i HyperVReplicationPolicyAssociationMap) ToHyperVReplicationPolicyAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicationPolicyAssociationMapOutput)
 }
 
+func (i HyperVReplicationPolicyAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HyperVReplicationPolicyAssociation] {
+	return pulumix.Output[map[string]*HyperVReplicationPolicyAssociation]{
+		OutputState: i.ToHyperVReplicationPolicyAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HyperVReplicationPolicyAssociationOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicationPolicyAssociationOutput) ElementType() reflect.Type {
@@ -253,6 +272,12 @@ func (o HyperVReplicationPolicyAssociationOutput) ToHyperVReplicationPolicyAssoc
 
 func (o HyperVReplicationPolicyAssociationOutput) ToHyperVReplicationPolicyAssociationOutputWithContext(ctx context.Context) HyperVReplicationPolicyAssociationOutput {
 	return o
+}
+
+func (o HyperVReplicationPolicyAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*HyperVReplicationPolicyAssociation] {
+	return pulumix.Output[*HyperVReplicationPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
@@ -284,6 +309,12 @@ func (o HyperVReplicationPolicyAssociationArrayOutput) ToHyperVReplicationPolicy
 	return o
 }
 
+func (o HyperVReplicationPolicyAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HyperVReplicationPolicyAssociation] {
+	return pulumix.Output[[]*HyperVReplicationPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HyperVReplicationPolicyAssociationArrayOutput) Index(i pulumi.IntInput) HyperVReplicationPolicyAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HyperVReplicationPolicyAssociation {
 		return vs[0].([]*HyperVReplicationPolicyAssociation)[vs[1].(int)]
@@ -302,6 +333,12 @@ func (o HyperVReplicationPolicyAssociationMapOutput) ToHyperVReplicationPolicyAs
 
 func (o HyperVReplicationPolicyAssociationMapOutput) ToHyperVReplicationPolicyAssociationMapOutputWithContext(ctx context.Context) HyperVReplicationPolicyAssociationMapOutput {
 	return o
+}
+
+func (o HyperVReplicationPolicyAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HyperVReplicationPolicyAssociation] {
+	return pulumix.Output[map[string]*HyperVReplicationPolicyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HyperVReplicationPolicyAssociationMapOutput) MapIndex(k pulumi.StringInput) HyperVReplicationPolicyAssociationOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
@@ -222,6 +223,12 @@ func (i *FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutput)
 }
 
+func (i *FunctionJavaScriptUDF) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavaScriptUDF] {
+	return pulumix.Output[*FunctionJavaScriptUDF]{
+		OutputState: i.ToFunctionJavaScriptUDFOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionJavaScriptUDFArrayInput is an input type that accepts FunctionJavaScriptUDFArray and FunctionJavaScriptUDFArrayOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFArrayInput` via:
 //
@@ -245,6 +252,12 @@ func (i FunctionJavaScriptUDFArray) ToFunctionJavaScriptUDFArrayOutput() Functio
 
 func (i FunctionJavaScriptUDFArray) ToFunctionJavaScriptUDFArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFArrayOutput)
+}
+
+func (i FunctionJavaScriptUDFArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionJavaScriptUDF] {
+	return pulumix.Output[[]*FunctionJavaScriptUDF]{
+		OutputState: i.ToFunctionJavaScriptUDFArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionJavaScriptUDFMapInput is an input type that accepts FunctionJavaScriptUDFMap and FunctionJavaScriptUDFMapOutput values.
@@ -272,6 +285,12 @@ func (i FunctionJavaScriptUDFMap) ToFunctionJavaScriptUDFMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFMapOutput)
 }
 
+func (i FunctionJavaScriptUDFMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionJavaScriptUDF] {
+	return pulumix.Output[map[string]*FunctionJavaScriptUDF]{
+		OutputState: i.ToFunctionJavaScriptUDFMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionJavaScriptUDFOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFOutput) ElementType() reflect.Type {
@@ -284,6 +303,12 @@ func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFOutput() FunctionJav
 
 func (o FunctionJavaScriptUDFOutput) ToFunctionJavaScriptUDFOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutput {
 	return o
+}
+
+func (o FunctionJavaScriptUDFOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionJavaScriptUDF] {
+	return pulumix.Output[*FunctionJavaScriptUDF]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more `input` blocks as defined below.
@@ -330,6 +355,12 @@ func (o FunctionJavaScriptUDFArrayOutput) ToFunctionJavaScriptUDFArrayOutputWith
 	return o
 }
 
+func (o FunctionJavaScriptUDFArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionJavaScriptUDF] {
+	return pulumix.Output[[]*FunctionJavaScriptUDF]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionJavaScriptUDFArrayOutput) Index(i pulumi.IntInput) FunctionJavaScriptUDFOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionJavaScriptUDF {
 		return vs[0].([]*FunctionJavaScriptUDF)[vs[1].(int)]
@@ -348,6 +379,12 @@ func (o FunctionJavaScriptUDFMapOutput) ToFunctionJavaScriptUDFMapOutput() Funct
 
 func (o FunctionJavaScriptUDFMapOutput) ToFunctionJavaScriptUDFMapOutputWithContext(ctx context.Context) FunctionJavaScriptUDFMapOutput {
 	return o
+}
+
+func (o FunctionJavaScriptUDFMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionJavaScriptUDF] {
+	return pulumix.Output[map[string]*FunctionJavaScriptUDF]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionJavaScriptUDFMapOutput) MapIndex(k pulumi.StringInput) FunctionJavaScriptUDFOutput {

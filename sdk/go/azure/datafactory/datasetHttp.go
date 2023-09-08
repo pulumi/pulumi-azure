@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure HTTP Dataset inside an Azure Data Factory.
@@ -285,6 +286,12 @@ func (i *DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) Datase
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpOutput)
 }
 
+func (i *DatasetHttp) ToOutput(ctx context.Context) pulumix.Output[*DatasetHttp] {
+	return pulumix.Output[*DatasetHttp]{
+		OutputState: i.ToDatasetHttpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetHttpArrayInput is an input type that accepts DatasetHttpArray and DatasetHttpArrayOutput values.
 // You can construct a concrete instance of `DatasetHttpArrayInput` via:
 //
@@ -308,6 +315,12 @@ func (i DatasetHttpArray) ToDatasetHttpArrayOutput() DatasetHttpArrayOutput {
 
 func (i DatasetHttpArray) ToDatasetHttpArrayOutputWithContext(ctx context.Context) DatasetHttpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpArrayOutput)
+}
+
+func (i DatasetHttpArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetHttp] {
+	return pulumix.Output[[]*DatasetHttp]{
+		OutputState: i.ToDatasetHttpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DatasetHttpMapInput is an input type that accepts DatasetHttpMap and DatasetHttpMapOutput values.
@@ -335,6 +348,12 @@ func (i DatasetHttpMap) ToDatasetHttpMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpMapOutput)
 }
 
+func (i DatasetHttpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetHttp] {
+	return pulumix.Output[map[string]*DatasetHttp]{
+		OutputState: i.ToDatasetHttpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetHttpOutput struct{ *pulumi.OutputState }
 
 func (DatasetHttpOutput) ElementType() reflect.Type {
@@ -347,6 +366,12 @@ func (o DatasetHttpOutput) ToDatasetHttpOutput() DatasetHttpOutput {
 
 func (o DatasetHttpOutput) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
 	return o
+}
+
+func (o DatasetHttpOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetHttp] {
+	return pulumix.Output[*DatasetHttp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -425,6 +450,12 @@ func (o DatasetHttpArrayOutput) ToDatasetHttpArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o DatasetHttpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetHttp] {
+	return pulumix.Output[[]*DatasetHttp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetHttpArrayOutput) Index(i pulumi.IntInput) DatasetHttpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetHttp {
 		return vs[0].([]*DatasetHttp)[vs[1].(int)]
@@ -443,6 +474,12 @@ func (o DatasetHttpMapOutput) ToDatasetHttpMapOutput() DatasetHttpMapOutput {
 
 func (o DatasetHttpMapOutput) ToDatasetHttpMapOutputWithContext(ctx context.Context) DatasetHttpMapOutput {
 	return o
+}
+
+func (o DatasetHttpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetHttp] {
+	return pulumix.Output[map[string]*DatasetHttp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetHttpMapOutput) MapIndex(k pulumi.StringInput) DatasetHttpOutput {

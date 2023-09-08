@@ -176,6 +176,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.authentication;
     }
     /**
+     * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="autoGrowEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> autoGrowEnabled;
+
+    /**
+     * @return Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> autoGrowEnabled() {
+        return Codegen.optional(this.autoGrowEnabled);
+    }
+    /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      * 
      */

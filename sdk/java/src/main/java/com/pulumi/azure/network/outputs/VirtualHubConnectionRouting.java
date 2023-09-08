@@ -20,10 +20,25 @@ public final class VirtualHubConnectionRouting {
      */
     private @Nullable String associatedRouteTableId;
     /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    private @Nullable String inboundRouteMapId;
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    private @Nullable String outboundRouteMapId;
+    /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
     private @Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable;
+    /**
+     * @return The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String staticVnetLocalRouteOverrideCriteria;
     /**
      * @return A `static_vnet_route` block as defined below.
      * 
@@ -39,11 +54,32 @@ public final class VirtualHubConnectionRouting {
         return Optional.ofNullable(this.associatedRouteTableId);
     }
     /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    public Optional<String> inboundRouteMapId() {
+        return Optional.ofNullable(this.inboundRouteMapId);
+    }
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    public Optional<String> outboundRouteMapId() {
+        return Optional.ofNullable(this.outboundRouteMapId);
+    }
+    /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
     public Optional<VirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTable() {
         return Optional.ofNullable(this.propagatedRouteTable);
+    }
+    /**
+     * @return The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> staticVnetLocalRouteOverrideCriteria() {
+        return Optional.ofNullable(this.staticVnetLocalRouteOverrideCriteria);
     }
     /**
      * @return A `static_vnet_route` block as defined below.
@@ -63,13 +99,19 @@ public final class VirtualHubConnectionRouting {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String associatedRouteTableId;
+        private @Nullable String inboundRouteMapId;
+        private @Nullable String outboundRouteMapId;
         private @Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable;
+        private @Nullable String staticVnetLocalRouteOverrideCriteria;
         private @Nullable List<VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
         public Builder() {}
         public Builder(VirtualHubConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTableId = defaults.associatedRouteTableId;
+    	      this.inboundRouteMapId = defaults.inboundRouteMapId;
+    	      this.outboundRouteMapId = defaults.outboundRouteMapId;
     	      this.propagatedRouteTable = defaults.propagatedRouteTable;
+    	      this.staticVnetLocalRouteOverrideCriteria = defaults.staticVnetLocalRouteOverrideCriteria;
     	      this.staticVnetRoutes = defaults.staticVnetRoutes;
         }
 
@@ -79,8 +121,23 @@ public final class VirtualHubConnectionRouting {
             return this;
         }
         @CustomType.Setter
+        public Builder inboundRouteMapId(@Nullable String inboundRouteMapId) {
+            this.inboundRouteMapId = inboundRouteMapId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outboundRouteMapId(@Nullable String outboundRouteMapId) {
+            this.outboundRouteMapId = outboundRouteMapId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
             this.propagatedRouteTable = propagatedRouteTable;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder staticVnetLocalRouteOverrideCriteria(@Nullable String staticVnetLocalRouteOverrideCriteria) {
+            this.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
             return this;
         }
         @CustomType.Setter
@@ -94,7 +151,10 @@ public final class VirtualHubConnectionRouting {
         public VirtualHubConnectionRouting build() {
             final var o = new VirtualHubConnectionRouting();
             o.associatedRouteTableId = associatedRouteTableId;
+            o.inboundRouteMapId = inboundRouteMapId;
+            o.outboundRouteMapId = outboundRouteMapId;
             o.propagatedRouteTable = propagatedRouteTable;
+            o.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
             o.staticVnetRoutes = staticVnetRoutes;
             return o;
         }

@@ -101,6 +101,10 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
+     * Is local authentication enabled? Defaults to `true`.
+     */
+    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -167,6 +171,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["luisAppIds"] = state ? state.luisAppIds : undefined;
             resourceInputs["luisKey"] = state ? state.luisKey : undefined;
@@ -195,6 +200,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["luisAppIds"] = args ? args.luisAppIds : undefined;
             resourceInputs["luisKey"] = args?.luisKey ? pulumi.secret(args.luisKey) : undefined;
@@ -239,6 +245,10 @@ export interface ServiceAzureBotState {
      * The Azure Bot Service endpoint.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * Is local authentication enabled? Defaults to `true`.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
@@ -313,6 +323,10 @@ export interface ServiceAzureBotArgs {
      * The Azure Bot Service endpoint.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * Is local authentication enabled? Defaults to `true`.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */

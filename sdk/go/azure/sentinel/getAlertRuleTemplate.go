@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Sentinel Alert Rule Template.
@@ -119,6 +120,12 @@ func (o GetAlertRuleTemplateResultOutput) ToGetAlertRuleTemplateResultOutput() G
 
 func (o GetAlertRuleTemplateResultOutput) ToGetAlertRuleTemplateResultOutputWithContext(ctx context.Context) GetAlertRuleTemplateResultOutput {
 	return o
+}
+
+func (o GetAlertRuleTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAlertRuleTemplateResult] {
+	return pulumix.Output[GetAlertRuleTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAlertRuleTemplateResultOutput) DisplayName() pulumi.StringOutput {

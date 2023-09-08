@@ -50,6 +50,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? DefaultProvider;
         /// <summary>
         /// The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        /// 
+        /// &gt; **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>

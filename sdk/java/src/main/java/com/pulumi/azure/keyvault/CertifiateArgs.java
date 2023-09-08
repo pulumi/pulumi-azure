@@ -19,14 +19,14 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertifiateArgs Empty = new CertifiateArgs();
 
     /**
-     * A `certificate` block as defined below, used to Import an existing certificate.
+     * A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<CertifiateCertificateArgs> certificate;
 
     /**
-     * @return A `certificate` block as defined below, used to Import an existing certificate.
+     * @return A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      * 
      */
     public Optional<Output<CertifiateCertificateArgs>> certificate() {
@@ -34,7 +34,7 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+     * A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
@@ -43,7 +43,7 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<CertifiateCertificatePolicyArgs> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+     * @return A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
@@ -126,7 +126,7 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate A `certificate` block as defined below, used to Import an existing certificate.
+         * @param certificate A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate A `certificate` block as defined below, used to Import an existing certificate.
+         * @param certificate A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
          * 
          * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
          * 
@@ -160,7 +160,7 @@ public final class CertifiateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
          * 
          * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
          * 

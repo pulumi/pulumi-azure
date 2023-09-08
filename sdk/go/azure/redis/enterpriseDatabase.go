@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Redis Enterprise Database.
@@ -312,6 +313,12 @@ func (i *EnterpriseDatabase) ToEnterpriseDatabaseOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseOutput)
 }
 
+func (i *EnterpriseDatabase) ToOutput(ctx context.Context) pulumix.Output[*EnterpriseDatabase] {
+	return pulumix.Output[*EnterpriseDatabase]{
+		OutputState: i.ToEnterpriseDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnterpriseDatabaseArrayInput is an input type that accepts EnterpriseDatabaseArray and EnterpriseDatabaseArrayOutput values.
 // You can construct a concrete instance of `EnterpriseDatabaseArrayInput` via:
 //
@@ -335,6 +342,12 @@ func (i EnterpriseDatabaseArray) ToEnterpriseDatabaseArrayOutput() EnterpriseDat
 
 func (i EnterpriseDatabaseArray) ToEnterpriseDatabaseArrayOutputWithContext(ctx context.Context) EnterpriseDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseArrayOutput)
+}
+
+func (i EnterpriseDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnterpriseDatabase] {
+	return pulumix.Output[[]*EnterpriseDatabase]{
+		OutputState: i.ToEnterpriseDatabaseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnterpriseDatabaseMapInput is an input type that accepts EnterpriseDatabaseMap and EnterpriseDatabaseMapOutput values.
@@ -362,6 +375,12 @@ func (i EnterpriseDatabaseMap) ToEnterpriseDatabaseMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseMapOutput)
 }
 
+func (i EnterpriseDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnterpriseDatabase] {
+	return pulumix.Output[map[string]*EnterpriseDatabase]{
+		OutputState: i.ToEnterpriseDatabaseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnterpriseDatabaseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabaseOutput) ElementType() reflect.Type {
@@ -374,6 +393,12 @@ func (o EnterpriseDatabaseOutput) ToEnterpriseDatabaseOutput() EnterpriseDatabas
 
 func (o EnterpriseDatabaseOutput) ToEnterpriseDatabaseOutputWithContext(ctx context.Context) EnterpriseDatabaseOutput {
 	return o
+}
+
+func (o EnterpriseDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*EnterpriseDatabase] {
+	return pulumix.Output[*EnterpriseDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
@@ -456,6 +481,12 @@ func (o EnterpriseDatabaseArrayOutput) ToEnterpriseDatabaseArrayOutputWithContex
 	return o
 }
 
+func (o EnterpriseDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnterpriseDatabase] {
+	return pulumix.Output[[]*EnterpriseDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnterpriseDatabaseArrayOutput) Index(i pulumi.IntInput) EnterpriseDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnterpriseDatabase {
 		return vs[0].([]*EnterpriseDatabase)[vs[1].(int)]
@@ -474,6 +505,12 @@ func (o EnterpriseDatabaseMapOutput) ToEnterpriseDatabaseMapOutput() EnterpriseD
 
 func (o EnterpriseDatabaseMapOutput) ToEnterpriseDatabaseMapOutputWithContext(ctx context.Context) EnterpriseDatabaseMapOutput {
 	return o
+}
+
+func (o EnterpriseDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnterpriseDatabase] {
+	return pulumix.Output[map[string]*EnterpriseDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnterpriseDatabaseMapOutput) MapIndex(k pulumi.StringInput) EnterpriseDatabaseOutput {

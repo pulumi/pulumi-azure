@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a ServiceBus Subscription Rule.
@@ -294,6 +295,12 @@ func (i *SubscriptionRule) ToSubscriptionRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleOutput)
 }
 
+func (i *SubscriptionRule) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionRule] {
+	return pulumix.Output[*SubscriptionRule]{
+		OutputState: i.ToSubscriptionRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubscriptionRuleArrayInput is an input type that accepts SubscriptionRuleArray and SubscriptionRuleArrayOutput values.
 // You can construct a concrete instance of `SubscriptionRuleArrayInput` via:
 //
@@ -317,6 +324,12 @@ func (i SubscriptionRuleArray) ToSubscriptionRuleArrayOutput() SubscriptionRuleA
 
 func (i SubscriptionRuleArray) ToSubscriptionRuleArrayOutputWithContext(ctx context.Context) SubscriptionRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleArrayOutput)
+}
+
+func (i SubscriptionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionRule] {
+	return pulumix.Output[[]*SubscriptionRule]{
+		OutputState: i.ToSubscriptionRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubscriptionRuleMapInput is an input type that accepts SubscriptionRuleMap and SubscriptionRuleMapOutput values.
@@ -344,6 +357,12 @@ func (i SubscriptionRuleMap) ToSubscriptionRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleMapOutput)
 }
 
+func (i SubscriptionRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionRule] {
+	return pulumix.Output[map[string]*SubscriptionRule]{
+		OutputState: i.ToSubscriptionRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubscriptionRuleOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleOutput) ElementType() reflect.Type {
@@ -356,6 +375,12 @@ func (o SubscriptionRuleOutput) ToSubscriptionRuleOutput() SubscriptionRuleOutpu
 
 func (o SubscriptionRuleOutput) ToSubscriptionRuleOutputWithContext(ctx context.Context) SubscriptionRuleOutput {
 	return o
+}
+
+func (o SubscriptionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionRule] {
+	return pulumix.Output[*SubscriptionRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -406,6 +431,12 @@ func (o SubscriptionRuleArrayOutput) ToSubscriptionRuleArrayOutputWithContext(ct
 	return o
 }
 
+func (o SubscriptionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionRule] {
+	return pulumix.Output[[]*SubscriptionRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionRuleArrayOutput) Index(i pulumi.IntInput) SubscriptionRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionRule {
 		return vs[0].([]*SubscriptionRule)[vs[1].(int)]
@@ -424,6 +455,12 @@ func (o SubscriptionRuleMapOutput) ToSubscriptionRuleMapOutput() SubscriptionRul
 
 func (o SubscriptionRuleMapOutput) ToSubscriptionRuleMapOutputWithContext(ctx context.Context) SubscriptionRuleMapOutput {
 	return o
+}
+
+func (o SubscriptionRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionRule] {
+	return pulumix.Output[map[string]*SubscriptionRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionRuleMapOutput) MapIndex(k pulumi.StringInput) SubscriptionRuleOutput {
