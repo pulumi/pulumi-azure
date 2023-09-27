@@ -32,7 +32,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      * 
      */
-    @Export(name="cdnFrontdoorCustomDomainId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorCustomDomainId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorCustomDomainId;
 
     /**
@@ -48,7 +48,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * &gt; **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
      * 
      */
-    @Export(name="cdnFrontdoorRouteIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="cdnFrontdoorRouteIds", type=List.class, parameters={String.class})
     private Output<List<String>> cdnFrontdoorRouteIds;
 
     /**

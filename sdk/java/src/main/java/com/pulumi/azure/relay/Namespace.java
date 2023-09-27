@@ -73,7 +73,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -87,7 +87,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The Identifier for Azure Insights metrics.
      * 
      */
-    @Export(name="metricId", refs={String.class}, tree="[0]")
+    @Export(name="metricId", type=String.class, parameters={})
     private Output<String> metricId;
 
     /**
@@ -101,7 +101,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -129,7 +129,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -143,7 +143,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -157,7 +157,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -171,7 +171,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -185,7 +185,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name of the SKU to use. At this time the only supported value is `Standard`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -199,7 +199,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

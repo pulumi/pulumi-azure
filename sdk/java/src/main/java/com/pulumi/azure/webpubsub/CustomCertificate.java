@@ -31,7 +31,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * The certificate version of the Web PubSub Custom Certificate.
      * 
      */
-    @Export(name="certificateVersion", refs={String.class}, tree="[0]")
+    @Export(name="certificateVersion", type=String.class, parameters={})
     private Output<String> certificateVersion;
 
     /**
@@ -47,7 +47,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      * 
      */
-    @Export(name="customCertificateId", refs={String.class}, tree="[0]")
+    @Export(name="customCertificateId", type=String.class, parameters={})
     private Output<String> customCertificateId;
 
     /**
@@ -63,7 +63,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -79,7 +79,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      * 
      */
-    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
+    @Export(name="webPubsubId", type=String.class, parameters={})
     private Output<String> webPubsubId;
 
     /**

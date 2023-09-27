@@ -85,7 +85,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", refs={String.class}, tree="[0]")
+    @Export(name="botName", type=String.class, parameters={})
     private Output<String> botName;
 
     /**
@@ -99,7 +99,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * Specifies the webhook for Microsoft Teams channel calls.
      * 
      */
-    @Export(name="callingWebHook", refs={String.class}, tree="[0]")
+    @Export(name="callingWebHook", type=String.class, parameters={})
     private Output<String> callingWebHook;
 
     /**
@@ -110,10 +110,24 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
         return this.callingWebHook;
     }
     /**
+     * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     * 
+     */
+    @Export(name="deploymentEnvironment", type=String.class, parameters={})
+    private Output</* @Nullable */ String> deploymentEnvironment;
+
+    /**
+     * @return The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     * 
+     */
+    public Output<Optional<String>> deploymentEnvironment() {
+        return Codegen.optional(this.deploymentEnvironment);
+    }
+    /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      * 
      */
-    @Export(name="enableCalling", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableCalling", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableCalling;
 
     /**
@@ -127,7 +141,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -141,7 +155,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

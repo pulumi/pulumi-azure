@@ -153,6 +153,7 @@ type GetPublicIPArgs struct {
 
 // A collection of values returned by getPublicIP.
 type GetPublicIPResult struct {
+	// The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
 	// The DDoS protection mode of the public IP.
 	DdosProtectionMode string `pulumi:"ddosProtectionMode"`
@@ -171,11 +172,13 @@ type GetPublicIPResult struct {
 	// A mapping of tags to assigned to the resource.
 	IpTags map[string]string `pulumi:"ipTags"`
 	// The IP version being used, for example `IPv4` or `IPv6`.
-	IpVersion         string `pulumi:"ipVersion"`
+	IpVersion string `pulumi:"ipVersion"`
+	// The region that this public ip exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	ReverseFqdn       string `pulumi:"reverseFqdn"`
+	// The fully qualified domain name that resolves to this public IP address.
+	ReverseFqdn string `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
@@ -230,6 +233,7 @@ func (o GetPublicIPResultOutput) ToOutput(ctx context.Context) pulumix.Output[Ge
 	}
 }
 
+// The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 func (o GetPublicIPResultOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.AllocationMethod }).(pulumi.StringOutput)
 }
@@ -279,6 +283,7 @@ func (o GetPublicIPResultOutput) IpVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.IpVersion }).(pulumi.StringOutput)
 }
 
+// The region that this public ip exists.
 func (o GetPublicIPResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -291,6 +296,7 @@ func (o GetPublicIPResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The fully qualified domain name that resolves to this public IP address.
 func (o GetPublicIPResultOutput) ReverseFqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPResult) string { return v.ReverseFqdn }).(pulumi.StringOutput)
 }

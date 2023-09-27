@@ -90,7 +90,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      * 
      */
-    @Export(name="listen", refs={Boolean.class}, tree="[0]")
+    @Export(name="listen", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> listen;
 
     /**
@@ -104,7 +104,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
-    @Export(name="manage", refs={Boolean.class}, tree="[0]")
+    @Export(name="manage", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> manage;
 
     /**
@@ -118,7 +118,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * The Primary Connection String for the Authorization Rule.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -146,7 +146,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      * 
      */
-    @Export(name="primaryConnectionStringAlias", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> primaryConnectionStringAlias;
 
     /**
@@ -160,7 +160,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * The Primary Key for the Authorization Rule.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -176,7 +176,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
-    @Export(name="queueId", refs={String.class}, tree="[0]")
+    @Export(name="queueId", type=String.class, parameters={})
     private Output<String> queueId;
 
     /**
@@ -192,7 +192,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * The Secondary Connection String for the Authorization Rule.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -206,7 +206,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * The alias Secondary Connection String for the ServiceBus Namespace
      * 
      */
-    @Export(name="secondaryConnectionStringAlias", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionStringAlias", type=String.class, parameters={})
     private Output<String> secondaryConnectionStringAlias;
 
     /**
@@ -220,7 +220,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * The Secondary Key for the Authorization Rule.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -234,7 +234,7 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      * 
      */
-    @Export(name="send", refs={Boolean.class}, tree="[0]")
+    @Export(name="send", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> send;
 
     /**

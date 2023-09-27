@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Redis.Inputs
     {
         /// <summary>
         /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
         /// </summary>
         [Input("aofBackupEnabled")]
         public Input<bool>? AofBackupEnabled { get; set; }

@@ -264,7 +264,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * The resource ID of the Data Collection Endpoint that this rule can be used with.
      * 
      */
-    @Export(name="dataCollectionEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="dataCollectionEndpointId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataCollectionEndpointId;
 
     /**
@@ -278,7 +278,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * One or more `data_flow` blocks as defined below.
      * 
      */
-    @Export(name="dataFlows", refs={List.class,DataCollectionRuleDataFlow.class}, tree="[0,1]")
+    @Export(name="dataFlows", type=List.class, parameters={DataCollectionRuleDataFlow.class})
     private Output<List<DataCollectionRuleDataFlow>> dataFlows;
 
     /**
@@ -292,7 +292,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
-    @Export(name="dataSources", refs={DataCollectionRuleDataSources.class}, tree="[0]")
+    @Export(name="dataSources", type=DataCollectionRuleDataSources.class, parameters={})
     private Output</* @Nullable */ DataCollectionRuleDataSources> dataSources;
 
     /**
@@ -306,7 +306,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * The description of the Data Collection Rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -320,7 +320,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * A `destinations` block as defined below.
      * 
      */
-    @Export(name="destinations", refs={DataCollectionRuleDestinations.class}, tree="[0]")
+    @Export(name="destinations", type=DataCollectionRuleDestinations.class, parameters={})
     private Output<DataCollectionRuleDestinations> destinations;
 
     /**
@@ -334,7 +334,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={DataCollectionRuleIdentity.class}, tree="[0]")
+    @Export(name="identity", type=DataCollectionRuleIdentity.class, parameters={})
     private Output</* @Nullable */ DataCollectionRuleIdentity> identity;
 
     /**
@@ -348,7 +348,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * The immutable ID of the Data Collection Rule.
      * 
      */
-    @Export(name="immutableId", refs={String.class}, tree="[0]")
+    @Export(name="immutableId", type=String.class, parameters={})
     private Output<String> immutableId;
 
     /**
@@ -364,7 +364,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output</* @Nullable */ String> kind;
 
     /**
@@ -380,7 +380,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -394,7 +394,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -408,7 +408,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -422,7 +422,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * A `stream_declaration` block as defined below.
      * 
      */
-    @Export(name="streamDeclarations", refs={List.class,DataCollectionRuleStreamDeclaration.class}, tree="[0,1]")
+    @Export(name="streamDeclarations", type=List.class, parameters={DataCollectionRuleStreamDeclaration.class})
     private Output</* @Nullable */ List<DataCollectionRuleStreamDeclaration>> streamDeclarations;
 
     /**
@@ -436,7 +436,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Data Collection Rule.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

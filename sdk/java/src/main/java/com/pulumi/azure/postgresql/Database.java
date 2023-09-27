@@ -86,7 +86,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="charset", refs={String.class}, tree="[0]")
+    @Export(name="charset", type=String.class, parameters={})
     private Output<String> charset;
 
     /**
@@ -100,7 +100,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the Collation for the PostgreSQL Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Note that Microsoft uses different [notation](https://msdn.microsoft.com/library/windows/desktop/dd373814.aspx) - en-US instead of en_US. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", refs={String.class}, tree="[0]")
+    @Export(name="collation", type=String.class, parameters={})
     private Output<String> collation;
 
     /**
@@ -114,7 +114,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**

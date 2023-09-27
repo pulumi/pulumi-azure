@@ -4699,6 +4699,8 @@ type ApplicationGatewaySku struct {
 	// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
 	Name string `pulumi:"name"`
 	// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+	//
+	// !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
 	Tier string `pulumi:"tier"`
 }
 
@@ -4719,6 +4721,8 @@ type ApplicationGatewaySkuArgs struct {
 	// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+	//
+	// !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -4828,6 +4832,8 @@ func (o ApplicationGatewaySkuOutput) Name() pulumi.StringOutput {
 }
 
 // The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+//
+// !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
 func (o ApplicationGatewaySkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewaySku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -4883,6 +4889,8 @@ func (o ApplicationGatewaySkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+//
+// !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
 func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySku) *string {
 		if v == nil {
@@ -5340,6 +5348,8 @@ type ApplicationGatewaySslProfile struct {
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
 	// Should client certificate issuer DN be verified? Defaults to `false`.
 	VerifyClientCertIssuerDn *bool `pulumi:"verifyClientCertIssuerDn"`
+	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+	VerifyClientCertificateRevocation *string `pulumi:"verifyClientCertificateRevocation"`
 }
 
 // ApplicationGatewaySslProfileInput is an input type that accepts ApplicationGatewaySslProfileArgs and ApplicationGatewaySslProfileOutput values.
@@ -5364,6 +5374,8 @@ type ApplicationGatewaySslProfileArgs struct {
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
 	// Should client certificate issuer DN be verified? Defaults to `false`.
 	VerifyClientCertIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertIssuerDn"`
+	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+	VerifyClientCertificateRevocation pulumi.StringPtrInput `pulumi:"verifyClientCertificateRevocation"`
 }
 
 func (ApplicationGatewaySslProfileArgs) ElementType() reflect.Type {
@@ -5458,6 +5470,11 @@ func (o ApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulu
 // Should client certificate issuer DN be verified? Defaults to `false`.
 func (o ApplicationGatewaySslProfileOutput) VerifyClientCertIssuerDn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *bool { return v.VerifyClientCertIssuerDn }).(pulumi.BoolPtrOutput)
+}
+
+// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+func (o ApplicationGatewaySslProfileOutput) VerifyClientCertificateRevocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) *string { return v.VerifyClientCertificateRevocation }).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewaySslProfileArrayOutput struct{ *pulumi.OutputState }
@@ -19727,6 +19744,145 @@ func (o RouteTableRouteArrayOutput) Index(i pulumi.IntInput) RouteTableRouteOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTableRoute {
 		return vs[0].([]RouteTableRoute)[vs[1].(int)]
 	}).(RouteTableRouteOutput)
+}
+
+type RoutingIntentRoutingPolicy struct {
+	// A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+	Destinations []string `pulumi:"destinations"`
+	// The unique name for the routing policy.
+	Name string `pulumi:"name"`
+	// The resource ID of the next hop on which this routing policy is applicable to.
+	NextHop string `pulumi:"nextHop"`
+}
+
+// RoutingIntentRoutingPolicyInput is an input type that accepts RoutingIntentRoutingPolicyArgs and RoutingIntentRoutingPolicyOutput values.
+// You can construct a concrete instance of `RoutingIntentRoutingPolicyInput` via:
+//
+//	RoutingIntentRoutingPolicyArgs{...}
+type RoutingIntentRoutingPolicyInput interface {
+	pulumi.Input
+
+	ToRoutingIntentRoutingPolicyOutput() RoutingIntentRoutingPolicyOutput
+	ToRoutingIntentRoutingPolicyOutputWithContext(context.Context) RoutingIntentRoutingPolicyOutput
+}
+
+type RoutingIntentRoutingPolicyArgs struct {
+	// A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// The unique name for the routing policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource ID of the next hop on which this routing policy is applicable to.
+	NextHop pulumi.StringInput `pulumi:"nextHop"`
+}
+
+func (RoutingIntentRoutingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingIntentRoutingPolicy)(nil)).Elem()
+}
+
+func (i RoutingIntentRoutingPolicyArgs) ToRoutingIntentRoutingPolicyOutput() RoutingIntentRoutingPolicyOutput {
+	return i.ToRoutingIntentRoutingPolicyOutputWithContext(context.Background())
+}
+
+func (i RoutingIntentRoutingPolicyArgs) ToRoutingIntentRoutingPolicyOutputWithContext(ctx context.Context) RoutingIntentRoutingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingIntentRoutingPolicyOutput)
+}
+
+func (i RoutingIntentRoutingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RoutingIntentRoutingPolicy] {
+	return pulumix.Output[RoutingIntentRoutingPolicy]{
+		OutputState: i.ToRoutingIntentRoutingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RoutingIntentRoutingPolicyArrayInput is an input type that accepts RoutingIntentRoutingPolicyArray and RoutingIntentRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RoutingIntentRoutingPolicyArrayInput` via:
+//
+//	RoutingIntentRoutingPolicyArray{ RoutingIntentRoutingPolicyArgs{...} }
+type RoutingIntentRoutingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToRoutingIntentRoutingPolicyArrayOutput() RoutingIntentRoutingPolicyArrayOutput
+	ToRoutingIntentRoutingPolicyArrayOutputWithContext(context.Context) RoutingIntentRoutingPolicyArrayOutput
+}
+
+type RoutingIntentRoutingPolicyArray []RoutingIntentRoutingPolicyInput
+
+func (RoutingIntentRoutingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingIntentRoutingPolicy)(nil)).Elem()
+}
+
+func (i RoutingIntentRoutingPolicyArray) ToRoutingIntentRoutingPolicyArrayOutput() RoutingIntentRoutingPolicyArrayOutput {
+	return i.ToRoutingIntentRoutingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingIntentRoutingPolicyArray) ToRoutingIntentRoutingPolicyArrayOutputWithContext(ctx context.Context) RoutingIntentRoutingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingIntentRoutingPolicyArrayOutput)
+}
+
+func (i RoutingIntentRoutingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]RoutingIntentRoutingPolicy] {
+	return pulumix.Output[[]RoutingIntentRoutingPolicy]{
+		OutputState: i.ToRoutingIntentRoutingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RoutingIntentRoutingPolicyOutput struct{ *pulumi.OutputState }
+
+func (RoutingIntentRoutingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingIntentRoutingPolicy)(nil)).Elem()
+}
+
+func (o RoutingIntentRoutingPolicyOutput) ToRoutingIntentRoutingPolicyOutput() RoutingIntentRoutingPolicyOutput {
+	return o
+}
+
+func (o RoutingIntentRoutingPolicyOutput) ToRoutingIntentRoutingPolicyOutputWithContext(ctx context.Context) RoutingIntentRoutingPolicyOutput {
+	return o
+}
+
+func (o RoutingIntentRoutingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RoutingIntentRoutingPolicy] {
+	return pulumix.Output[RoutingIntentRoutingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+func (o RoutingIntentRoutingPolicyOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingIntentRoutingPolicy) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// The unique name for the routing policy.
+func (o RoutingIntentRoutingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingIntentRoutingPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the next hop on which this routing policy is applicable to.
+func (o RoutingIntentRoutingPolicyOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingIntentRoutingPolicy) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+type RoutingIntentRoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingIntentRoutingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingIntentRoutingPolicy)(nil)).Elem()
+}
+
+func (o RoutingIntentRoutingPolicyArrayOutput) ToRoutingIntentRoutingPolicyArrayOutput() RoutingIntentRoutingPolicyArrayOutput {
+	return o
+}
+
+func (o RoutingIntentRoutingPolicyArrayOutput) ToRoutingIntentRoutingPolicyArrayOutputWithContext(ctx context.Context) RoutingIntentRoutingPolicyArrayOutput {
+	return o
+}
+
+func (o RoutingIntentRoutingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RoutingIntentRoutingPolicy] {
+	return pulumix.Output[[]RoutingIntentRoutingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RoutingIntentRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RoutingIntentRoutingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingIntentRoutingPolicy {
+		return vs[0].([]RoutingIntentRoutingPolicy)[vs[1].(int)]
+	}).(RoutingIntentRoutingPolicyOutput)
 }
 
 type SubnetDelegation struct {
@@ -34764,6 +34920,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleMatchCriterionArrayInput)(nil)).Elem(), RouteMapRuleMatchCriterionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableRouteInput)(nil)).Elem(), RouteTableRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableRouteArrayInput)(nil)).Elem(), RouteTableRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingIntentRoutingPolicyInput)(nil)).Elem(), RoutingIntentRoutingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingIntentRoutingPolicyArrayInput)(nil)).Elem(), RoutingIntentRoutingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationInput)(nil)).Elem(), SubnetDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationArrayInput)(nil)).Elem(), SubnetDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationServiceDelegationInput)(nil)).Elem(), SubnetDelegationServiceDelegationArgs{})
@@ -35156,6 +35314,8 @@ func init() {
 	pulumi.RegisterOutputType(RouteMapRuleMatchCriterionArrayOutput{})
 	pulumi.RegisterOutputType(RouteTableRouteOutput{})
 	pulumi.RegisterOutputType(RouteTableRouteArrayOutput{})
+	pulumi.RegisterOutputType(RoutingIntentRoutingPolicyOutput{})
+	pulumi.RegisterOutputType(RoutingIntentRoutingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationServiceDelegationOutput{})

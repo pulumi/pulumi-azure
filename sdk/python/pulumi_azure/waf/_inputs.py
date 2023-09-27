@@ -32,20 +32,36 @@ class PolicyCustomRuleArgs:
                  match_conditions: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]],
                  priority: pulumi.Input[int],
                  rule_type: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 group_rate_limit_by: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rate_limit_duration: Optional[pulumi.Input[str]] = None,
+                 rate_limit_threshold: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] action: Type of action. Possible values are `Allow`, `Block` and `Log`.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_conditions` blocks as defined below.
         :param pulumi.Input[int] priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_type: Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+        :param pulumi.Input[str] rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
+        :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        :param pulumi.Input[str] group_rate_limit_by: Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param pulumi.Input[str] rate_limit_duration: Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        :param pulumi.Input[int] rate_limit_threshold: Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match_conditions", match_conditions)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if group_rate_limit_by is not None:
+            pulumi.set(__self__, "group_rate_limit_by", group_rate_limit_by)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rate_limit_duration is not None:
+            pulumi.set(__self__, "rate_limit_duration", rate_limit_duration)
+        if rate_limit_threshold is not None:
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
 
     @property
     @pulumi.getter
@@ -87,13 +103,37 @@ class PolicyCustomRuleArgs:
     @pulumi.getter(name="ruleType")
     def rule_type(self) -> pulumi.Input[str]:
         """
-        Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+        Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
     def rule_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="groupRateLimitBy")
+    def group_rate_limit_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        """
+        return pulumi.get(self, "group_rate_limit_by")
+
+    @group_rate_limit_by.setter
+    def group_rate_limit_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_rate_limit_by", value)
 
     @property
     @pulumi.getter
@@ -106,6 +146,30 @@ class PolicyCustomRuleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="rateLimitDuration")
+    def rate_limit_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        """
+        return pulumi.get(self, "rate_limit_duration")
+
+    @rate_limit_duration.setter
+    def rate_limit_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rate_limit_duration", value)
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+    @rate_limit_threshold.setter
+    def rate_limit_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rate_limit_threshold", value)
 
 
 @pulumi.input_type
@@ -602,7 +666,8 @@ class PolicyPolicySettingsArgs:
                  log_scrubbing: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArgs']] = None,
                  max_request_body_size_in_kb: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 request_body_check: Optional[pulumi.Input[bool]] = None):
+                 request_body_check: Optional[pulumi.Input[bool]] = None,
+                 request_body_inspect_limit_in_kb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[int] file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
@@ -610,6 +675,7 @@ class PolicyPolicySettingsArgs:
         :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[bool] request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
+        :param pulumi.Input[int] request_body_inspect_limit_in_kb: Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -623,6 +689,8 @@ class PolicyPolicySettingsArgs:
             pulumi.set(__self__, "mode", mode)
         if request_body_check is not None:
             pulumi.set(__self__, "request_body_check", request_body_check)
+        if request_body_inspect_limit_in_kb is not None:
+            pulumi.set(__self__, "request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
 
     @property
     @pulumi.getter
@@ -695,6 +763,18 @@ class PolicyPolicySettingsArgs:
     @request_body_check.setter
     def request_body_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "request_body_check", value)
+
+    @property
+    @pulumi.getter(name="requestBodyInspectLimitInKb")
+    def request_body_inspect_limit_in_kb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+        """
+        return pulumi.get(self, "request_body_inspect_limit_in_kb")
+
+    @request_body_inspect_limit_in_kb.setter
+    def request_body_inspect_limit_in_kb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "request_body_inspect_limit_in_kb", value)
 
 
 @pulumi.input_type

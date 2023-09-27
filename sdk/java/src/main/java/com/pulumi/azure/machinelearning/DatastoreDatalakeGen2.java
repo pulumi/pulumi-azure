@@ -122,7 +122,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * An URL used for authentication.
      * 
      */
-    @Export(name="authorityUrl", refs={String.class}, tree="[0]")
+    @Export(name="authorityUrl", type=String.class, parameters={})
     private Output<String> authorityUrl;
 
     /**
@@ -136,7 +136,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * The object ID of the Service Principal.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientId;
 
     /**
@@ -150,7 +150,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * The secret of the Service Principal.
      * 
      */
-    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    @Export(name="clientSecret", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientSecret;
 
     /**
@@ -164,7 +164,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -178,7 +178,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * Indicates whether this Machines Learning DataStore is the default for the Workspace.
      * 
      */
-    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
+    @Export(name="isDefault", type=Boolean.class, parameters={})
     private Output<Boolean> isDefault;
 
     /**
@@ -192,7 +192,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -206,7 +206,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      * 
      */
-    @Export(name="serviceDataIdentity", refs={String.class}, tree="[0]")
+    @Export(name="serviceDataIdentity", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceDataIdentity;
 
     /**
@@ -220,7 +220,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
+    @Export(name="storageContainerId", type=String.class, parameters={})
     private Output<String> storageContainerId;
 
     /**
@@ -234,7 +234,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -248,7 +248,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * The ID of the Tenant which the Service Principal belongs to.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output</* @Nullable */ String> tenantId;
 
     /**
@@ -262,7 +262,7 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

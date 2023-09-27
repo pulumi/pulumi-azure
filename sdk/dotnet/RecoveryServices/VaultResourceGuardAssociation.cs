@@ -63,6 +63,8 @@ namespace Pulumi.Azure.RecoveryServices
     {
         /// <summary>
         /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -127,6 +129,8 @@ namespace Pulumi.Azure.RecoveryServices
     {
         /// <summary>
         /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -153,6 +157,8 @@ namespace Pulumi.Azure.RecoveryServices
     {
         /// <summary>
         /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

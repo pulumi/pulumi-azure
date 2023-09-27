@@ -109,7 +109,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * 3. Cannot end with a hyphen
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server to which this MySQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -159,7 +159,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn&#39;t expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**

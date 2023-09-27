@@ -15,8 +15,6 @@ namespace Pulumi.Azure.Storage.Outputs
     {
         /// <summary>
         /// A `active_directory` block as defined below. Required when `directory_type` is `AD`.
-        /// 
-        /// &gt; **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
         /// </summary>
         public readonly Outputs.AccountAzureFilesAuthenticationActiveDirectory? ActiveDirectory;
         /// <summary>

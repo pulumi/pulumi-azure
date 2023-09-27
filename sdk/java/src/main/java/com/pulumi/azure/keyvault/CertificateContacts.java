@@ -109,7 +109,7 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * One or more `contact` blocks as defined below.
      * 
      */
-    @Export(name="contacts", refs={List.class,CertificateContactsContact.class}, tree="[0,1]")
+    @Export(name="contacts", type=List.class, parameters={CertificateContactsContact.class})
     private Output<List<CertificateContactsContact>> contacts;
 
     /**
@@ -123,7 +123,7 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**

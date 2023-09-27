@@ -77,7 +77,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
      * 
      */
-    @Export(name="bandwidthInGbps", refs={Integer.class}, tree="[0]")
+    @Export(name="bandwidthInGbps", type=Integer.class, parameters={})
     private Output<Integer> bandwidthInGbps;
 
     /**
@@ -91,7 +91,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
      * 
      */
-    @Export(name="billingType", refs={String.class}, tree="[0]")
+    @Export(name="billingType", type=String.class, parameters={})
     private Output<String> billingType;
 
     /**
@@ -105,7 +105,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      * 
      */
-    @Export(name="encapsulation", refs={String.class}, tree="[0]")
+    @Export(name="encapsulation", type=String.class, parameters={})
     private Output<String> encapsulation;
 
     /**
@@ -119,7 +119,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The EtherType of the Express Route Port.
      * 
      */
-    @Export(name="ethertype", refs={String.class}, tree="[0]")
+    @Export(name="ethertype", type=String.class, parameters={})
     private Output<String> ethertype;
 
     /**
@@ -133,7 +133,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The resource GUID of the Express Route Port.
      * 
      */
-    @Export(name="guid", refs={String.class}, tree="[0]")
+    @Export(name="guid", type=String.class, parameters={})
     private Output<String> guid;
 
     /**
@@ -147,7 +147,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ExpressRoutePortIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ExpressRoutePortIdentity.class, parameters={})
     private Output</* @Nullable */ ExpressRoutePortIdentity> identity;
 
     /**
@@ -161,7 +161,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * A list of `link` blocks as defined below.
      * 
      */
-    @Export(name="link1", refs={ExpressRoutePortLink1.class}, tree="[0]")
+    @Export(name="link1", type=ExpressRoutePortLink1.class, parameters={})
     private Output<ExpressRoutePortLink1> link1;
 
     /**
@@ -175,7 +175,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * A list of `link` blocks as defined below.
      * 
      */
-    @Export(name="link2", refs={ExpressRoutePortLink2.class}, tree="[0]")
+    @Export(name="link2", type=ExpressRoutePortLink2.class, parameters={})
     private Output<ExpressRoutePortLink2> link2;
 
     /**
@@ -189,7 +189,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -203,7 +203,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The maximum transmission unit of the Express Route Port.
      * 
      */
-    @Export(name="mtu", refs={String.class}, tree="[0]")
+    @Export(name="mtu", type=String.class, parameters={})
     private Output<String> mtu;
 
     /**
@@ -217,7 +217,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -231,7 +231,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
      * 
      */
-    @Export(name="peeringLocation", refs={String.class}, tree="[0]")
+    @Export(name="peeringLocation", type=String.class, parameters={})
     private Output<String> peeringLocation;
 
     /**
@@ -245,7 +245,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -259,7 +259,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Express Route Port.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

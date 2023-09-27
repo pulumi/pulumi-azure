@@ -95,7 +95,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * Resource data plane URI.
      * 
      */
-    @Export(name="dataPlaneUri", refs={String.class}, tree="[0]")
+    @Export(name="dataPlaneUri", type=String.class, parameters={})
     private Output<String> dataPlaneUri;
 
     /**
@@ -109,7 +109,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * Description of the resource. Changing this forces a new Load Test to be created.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      * 
      */
-    @Export(name="identity", refs={LoadTestIdentity.class}, tree="[0]")
+    @Export(name="identity", type=LoadTestIdentity.class, parameters={})
     private Output</* @Nullable */ LoadTestIdentity> identity;
 
     /**
@@ -137,7 +137,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -151,7 +151,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -179,7 +179,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Load Test.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

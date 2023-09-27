@@ -103,7 +103,7 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
+    @Export(name="networkSecurityGroupId", type=String.class, parameters={})
     private Output<String> networkSecurityGroupId;
 
     /**
@@ -117,7 +117,7 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
      * The ID of the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**

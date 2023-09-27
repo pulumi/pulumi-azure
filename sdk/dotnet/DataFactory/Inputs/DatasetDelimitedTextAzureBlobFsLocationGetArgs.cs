@@ -13,10 +13,28 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class DatasetDelimitedTextAzureBlobFsLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicFileSystemEnabled")]
+        public Input<bool>? DynamicFileSystemEnabled { get; set; }
+
+        /// <summary>
+        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicFilenameEnabled")]
+        public Input<bool>? DynamicFilenameEnabled { get; set; }
+
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicPathEnabled")]
+        public Input<bool>? DynamicPathEnabled { get; set; }
+
+        /// <summary>
         /// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
         /// </summary>
-        [Input("fileSystem", required: true)]
-        public Input<string> FileSystem { get; set; } = null!;
+        [Input("fileSystem")]
+        public Input<string>? FileSystem { get; set; }
 
         /// <summary>
         /// The filename of the file.

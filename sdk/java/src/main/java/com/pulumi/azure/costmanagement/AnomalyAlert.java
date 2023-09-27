@@ -65,7 +65,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * The display name which should be used for this Cost Anomaly Alert.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -79,7 +79,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * Specifies a list of email addresses which the Anomaly Alerts are send to.
      * 
      */
-    @Export(name="emailAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="emailAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> emailAddresses;
 
     /**
@@ -93,7 +93,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
      * 
      */
-    @Export(name="emailSubject", refs={String.class}, tree="[0]")
+    @Export(name="emailSubject", type=String.class, parameters={})
     private Output<String> emailSubject;
 
     /**
@@ -107,7 +107,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
      * 
      */
-    @Export(name="message", refs={String.class}, tree="[0]")
+    @Export(name="message", type=String.class, parameters={})
     private Output</* @Nullable */ String> message;
 
     /**
@@ -121,7 +121,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

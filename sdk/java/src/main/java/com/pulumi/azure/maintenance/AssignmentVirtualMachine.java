@@ -133,7 +133,7 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -147,7 +147,7 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maintenanceConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="maintenanceConfigurationId", type=String.class, parameters={})
     private Output<String> maintenanceConfigurationId;
 
     /**
@@ -161,7 +161,7 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      * Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**

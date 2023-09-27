@@ -82,7 +82,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
      * 
      */
-    @Export(name="allowedFqdns", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="allowedFqdns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> allowedFqdns;
 
     /**
@@ -96,7 +96,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      * 
      */
-    @Export(name="allowedIpRanges", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="allowedIpRanges", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> allowedIpRanges;
 
     /**
@@ -110,7 +110,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      * 
      */
-    @Export(name="autoStopEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoStopEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoStopEnabled;
 
     /**
@@ -124,7 +124,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Kusto Cluster URI to be used for data ingestion.
      * 
      */
-    @Export(name="dataIngestionUri", refs={String.class}, tree="[0]")
+    @Export(name="dataIngestionUri", type=String.class, parameters={})
     private Output<String> dataIngestionUri;
 
     /**
@@ -138,7 +138,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies if the cluster&#39;s disks are encrypted.
      * 
      */
-    @Export(name="diskEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="diskEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> diskEncryptionEnabled;
 
     /**
@@ -152,7 +152,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Is the cluster&#39;s double encryption enabled? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="doubleEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="doubleEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> doubleEncryptionEnabled;
 
     /**
@@ -168,7 +168,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
-    @Export(name="engine", refs={String.class}, tree="[0]")
+    @Export(name="engine", type=String.class, parameters={})
     private Output</* @Nullable */ String> engine;
 
     public Output<Optional<String>> engine() {
@@ -178,7 +178,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ClusterIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ClusterIdentity.class, parameters={})
     private Output</* @Nullable */ ClusterIdentity> identity;
 
     /**
@@ -194,7 +194,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      * 
      */
-    @Export(name="languageExtensions", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="languageExtensions", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> languageExtensions;
 
     /**
@@ -210,7 +210,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -224,7 +224,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -238,7 +238,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * An `optimized_auto_scale` block as defined below.
      * 
      */
-    @Export(name="optimizedAutoScale", refs={ClusterOptimizedAutoScale.class}, tree="[0]")
+    @Export(name="optimizedAutoScale", type=ClusterOptimizedAutoScale.class, parameters={})
     private Output</* @Nullable */ ClusterOptimizedAutoScale> optimizedAutoScale;
 
     /**
@@ -252,7 +252,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
      * 
      */
-    @Export(name="outboundNetworkAccessRestricted", refs={Boolean.class}, tree="[0]")
+    @Export(name="outboundNetworkAccessRestricted", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> outboundNetworkAccessRestricted;
 
     /**
@@ -266,7 +266,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
      * 
      */
-    @Export(name="publicIpType", refs={String.class}, tree="[0]")
+    @Export(name="publicIpType", type=String.class, parameters={})
     private Output</* @Nullable */ String> publicIpType;
 
     /**
@@ -280,7 +280,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Is the public network access enabled? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -294,7 +294,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies if the purge operations are enabled.
      * 
      */
-    @Export(name="purgeEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="purgeEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> purgeEnabled;
 
     /**
@@ -308,7 +308,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -322,7 +322,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `sku` block as defined below.
      * 
      */
-    @Export(name="sku", refs={ClusterSku.class}, tree="[0]")
+    @Export(name="sku", type=ClusterSku.class, parameters={})
     private Output<ClusterSku> sku;
 
     /**
@@ -336,7 +336,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies if the streaming ingest is enabled.
      * 
      */
-    @Export(name="streamingIngestionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="streamingIngestionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> streamingIngestionEnabled;
 
     /**
@@ -350,7 +350,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -366,7 +366,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
      * 
      */
-    @Export(name="trustedExternalTenants", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="trustedExternalTenants", type=List.class, parameters={String.class})
     private Output<List<String>> trustedExternalTenants;
 
     /**
@@ -382,7 +382,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The FQDN of the Azure Kusto Cluster.
      * 
      */
-    @Export(name="uri", refs={String.class}, tree="[0]")
+    @Export(name="uri", type=String.class, parameters={})
     private Output<String> uri;
 
     /**
@@ -396,7 +396,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkConfiguration", refs={ClusterVirtualNetworkConfiguration.class}, tree="[0]")
+    @Export(name="virtualNetworkConfiguration", type=ClusterVirtualNetworkConfiguration.class, parameters={})
     private Output</* @Nullable */ ClusterVirtualNetworkConfiguration> virtualNetworkConfiguration;
 
     /**
@@ -410,7 +410,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

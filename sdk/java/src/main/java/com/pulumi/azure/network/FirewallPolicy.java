@@ -79,7 +79,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * Whether enable auto learn private ip range.
      * 
      */
-    @Export(name="autoLearnPrivateRangesEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoLearnPrivateRangesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoLearnPrivateRangesEnabled;
 
     /**
@@ -93,7 +93,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the base Firewall Policy.
      * 
      */
-    @Export(name="basePolicyId", refs={String.class}, tree="[0]")
+    @Export(name="basePolicyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> basePolicyId;
 
     /**
@@ -107,7 +107,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A list of reference to child Firewall Policies of this Firewall Policy.
      * 
      */
-    @Export(name="childPolicies", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="childPolicies", type=List.class, parameters={String.class})
     private Output<List<String>> childPolicies;
 
     /**
@@ -121,7 +121,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A `dns` block as defined below.
      * 
      */
-    @Export(name="dns", refs={FirewallPolicyDns.class}, tree="[0]")
+    @Export(name="dns", type=FirewallPolicyDns.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyDns> dns;
 
     /**
@@ -135,7 +135,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A `explicit_proxy` block as defined below.
      * 
      */
-    @Export(name="explicitProxy", refs={FirewallPolicyExplicitProxy.class}, tree="[0]")
+    @Export(name="explicitProxy", type=FirewallPolicyExplicitProxy.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyExplicitProxy> explicitProxy;
 
     /**
@@ -149,7 +149,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.
      * 
      */
-    @Export(name="firewalls", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="firewalls", type=List.class, parameters={String.class})
     private Output<List<String>> firewalls;
 
     /**
@@ -163,7 +163,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={FirewallPolicyIdentity.class}, tree="[0]")
+    @Export(name="identity", type=FirewallPolicyIdentity.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyIdentity> identity;
 
     /**
@@ -177,7 +177,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * An `insights` block as defined below.
      * 
      */
-    @Export(name="insights", refs={FirewallPolicyInsights.class}, tree="[0]")
+    @Export(name="insights", type=FirewallPolicyInsights.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyInsights> insights;
 
     /**
@@ -191,7 +191,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A `intrusion_detection` block as defined below.
      * 
      */
-    @Export(name="intrusionDetection", refs={FirewallPolicyIntrusionDetection.class}, tree="[0]")
+    @Export(name="intrusionDetection", type=FirewallPolicyIntrusionDetection.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyIntrusionDetection> intrusionDetection;
 
     /**
@@ -205,7 +205,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -219,7 +219,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -233,7 +233,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A list of private IP ranges to which traffic will not be SNAT.
      * 
      */
-    @Export(name="privateIpRanges", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="privateIpRanges", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> privateIpRanges;
 
     /**
@@ -247,7 +247,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -261,7 +261,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
      * 
      */
-    @Export(name="ruleCollectionGroups", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="ruleCollectionGroups", type=List.class, parameters={String.class})
     private Output<List<String>> ruleCollectionGroups;
 
     /**
@@ -275,7 +275,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -289,7 +289,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
      * 
      */
-    @Export(name="sqlRedirectAllowed", refs={Boolean.class}, tree="[0]")
+    @Export(name="sqlRedirectAllowed", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> sqlRedirectAllowed;
 
     /**
@@ -303,7 +303,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Firewall Policy.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -317,7 +317,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A `threat_intelligence_allowlist` block as defined below.
      * 
      */
-    @Export(name="threatIntelligenceAllowlist", refs={FirewallPolicyThreatIntelligenceAllowlist.class}, tree="[0]")
+    @Export(name="threatIntelligenceAllowlist", type=FirewallPolicyThreatIntelligenceAllowlist.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlist;
 
     /**
@@ -331,7 +331,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      * 
      */
-    @Export(name="threatIntelligenceMode", refs={String.class}, tree="[0]")
+    @Export(name="threatIntelligenceMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> threatIntelligenceMode;
 
     /**
@@ -345,7 +345,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A `tls_certificate` block as defined below.
      * 
      */
-    @Export(name="tlsCertificate", refs={FirewallPolicyTlsCertificate.class}, tree="[0]")
+    @Export(name="tlsCertificate", type=FirewallPolicyTlsCertificate.class, parameters={})
     private Output</* @Nullable */ FirewallPolicyTlsCertificate> tlsCertificate;
 
     /**

@@ -79,7 +79,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Windows Event Log to collect events from.
      * 
      */
-    @Export(name="eventLogName", refs={String.class}, tree="[0]")
+    @Export(name="eventLogName", type=String.class, parameters={})
     private Output<String> eventLogName;
 
     /**
@@ -93,7 +93,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
      * 
      */
-    @Export(name="eventTypes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="eventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> eventTypes;
 
     /**
@@ -107,7 +107,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -135,7 +135,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      * 
      */
-    @Export(name="workspaceName", refs={String.class}, tree="[0]")
+    @Export(name="workspaceName", type=String.class, parameters={})
     private Output<String> workspaceName;
 
     /**

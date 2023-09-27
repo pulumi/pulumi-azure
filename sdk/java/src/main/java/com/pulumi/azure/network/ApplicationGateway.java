@@ -129,8 +129,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .sku(ApplicationGatewaySkuArgs.builder()
- *                 .name(&#34;Standard_Small&#34;)
- *                 .tier(&#34;Standard&#34;)
+ *                 .name(&#34;Standard_v2&#34;)
+ *                 .tier(&#34;Standard_v2&#34;)
  *                 .capacity(2)
  *                 .build())
  *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
@@ -164,6 +164,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .requestRoutingRules(ApplicationGatewayRequestRoutingRuleArgs.builder()
  *                 .name(requestRoutingRuleName)
+ *                 .priority(9)
  *                 .ruleType(&#34;Basic&#34;)
  *                 .httpListenerName(listenerName)
  *                 .backendAddressPoolName(backendAddressPoolName)
@@ -190,7 +191,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `authentication_certificate` blocks as defined below.
      * 
      */
-    @Export(name="authenticationCertificates", refs={List.class,ApplicationGatewayAuthenticationCertificate.class}, tree="[0,1]")
+    @Export(name="authenticationCertificates", type=List.class, parameters={ApplicationGatewayAuthenticationCertificate.class})
     private Output</* @Nullable */ List<ApplicationGatewayAuthenticationCertificate>> authenticationCertificates;
 
     /**
@@ -204,7 +205,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * A `autoscale_configuration` block as defined below.
      * 
      */
-    @Export(name="autoscaleConfiguration", refs={ApplicationGatewayAutoscaleConfiguration.class}, tree="[0]")
+    @Export(name="autoscaleConfiguration", type=ApplicationGatewayAutoscaleConfiguration.class, parameters={})
     private Output</* @Nullable */ ApplicationGatewayAutoscaleConfiguration> autoscaleConfiguration;
 
     /**
@@ -218,7 +219,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `backend_address_pool` blocks as defined below.
      * 
      */
-    @Export(name="backendAddressPools", refs={List.class,ApplicationGatewayBackendAddressPool.class}, tree="[0,1]")
+    @Export(name="backendAddressPools", type=List.class, parameters={ApplicationGatewayBackendAddressPool.class})
     private Output<List<ApplicationGatewayBackendAddressPool>> backendAddressPools;
 
     /**
@@ -232,7 +233,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `backend_http_settings` blocks as defined below.
      * 
      */
-    @Export(name="backendHttpSettings", refs={List.class,ApplicationGatewayBackendHttpSetting.class}, tree="[0,1]")
+    @Export(name="backendHttpSettings", type=List.class, parameters={ApplicationGatewayBackendHttpSetting.class})
     private Output<List<ApplicationGatewayBackendHttpSetting>> backendHttpSettings;
 
     /**
@@ -246,7 +247,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `custom_error_configuration` blocks as defined below.
      * 
      */
-    @Export(name="customErrorConfigurations", refs={List.class,ApplicationGatewayCustomErrorConfiguration.class}, tree="[0,1]")
+    @Export(name="customErrorConfigurations", type=List.class, parameters={ApplicationGatewayCustomErrorConfiguration.class})
     private Output</* @Nullable */ List<ApplicationGatewayCustomErrorConfiguration>> customErrorConfigurations;
 
     /**
@@ -260,7 +261,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      * 
      */
-    @Export(name="enableHttp2", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableHttp2", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableHttp2;
 
     /**
@@ -274,7 +275,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * Is FIPS enabled on the Application Gateway?
      * 
      */
-    @Export(name="fipsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="fipsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> fipsEnabled;
 
     /**
@@ -288,7 +289,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * The ID of the Web Application Firewall Policy.
      * 
      */
-    @Export(name="firewallPolicyId", refs={String.class}, tree="[0]")
+    @Export(name="firewallPolicyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> firewallPolicyId;
 
     /**
@@ -302,7 +303,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * Is the Firewall Policy associated with the Application Gateway?
      * 
      */
-    @Export(name="forceFirewallPolicyAssociation", refs={Boolean.class}, tree="[0]")
+    @Export(name="forceFirewallPolicyAssociation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceFirewallPolicyAssociation;
 
     /**
@@ -316,7 +317,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `frontend_ip_configuration` blocks as defined below.
      * 
      */
-    @Export(name="frontendIpConfigurations", refs={List.class,ApplicationGatewayFrontendIpConfiguration.class}, tree="[0,1]")
+    @Export(name="frontendIpConfigurations", type=List.class, parameters={ApplicationGatewayFrontendIpConfiguration.class})
     private Output<List<ApplicationGatewayFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
@@ -330,7 +331,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `frontend_port` blocks as defined below.
      * 
      */
-    @Export(name="frontendPorts", refs={List.class,ApplicationGatewayFrontendPort.class}, tree="[0,1]")
+    @Export(name="frontendPorts", type=List.class, parameters={ApplicationGatewayFrontendPort.class})
     private Output<List<ApplicationGatewayFrontendPort>> frontendPorts;
 
     /**
@@ -344,7 +345,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `gateway_ip_configuration` blocks as defined below.
      * 
      */
-    @Export(name="gatewayIpConfigurations", refs={List.class,ApplicationGatewayGatewayIpConfiguration.class}, tree="[0,1]")
+    @Export(name="gatewayIpConfigurations", type=List.class, parameters={ApplicationGatewayGatewayIpConfiguration.class})
     private Output<List<ApplicationGatewayGatewayIpConfiguration>> gatewayIpConfigurations;
 
     /**
@@ -358,7 +359,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * A `global` block as defined below.
      * 
      */
-    @Export(name="global", refs={ApplicationGatewayGlobal.class}, tree="[0]")
+    @Export(name="global", type=ApplicationGatewayGlobal.class, parameters={})
     private Output</* @Nullable */ ApplicationGatewayGlobal> global;
 
     /**
@@ -372,7 +373,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `http_listener` blocks as defined below.
      * 
      */
-    @Export(name="httpListeners", refs={List.class,ApplicationGatewayHttpListener.class}, tree="[0,1]")
+    @Export(name="httpListeners", type=List.class, parameters={ApplicationGatewayHttpListener.class})
     private Output<List<ApplicationGatewayHttpListener>> httpListeners;
 
     /**
@@ -386,7 +387,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ApplicationGatewayIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ApplicationGatewayIdentity.class, parameters={})
     private Output</* @Nullable */ ApplicationGatewayIdentity> identity;
 
     /**
@@ -400,7 +401,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -414,7 +415,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -428,7 +429,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * A list of `private_endpoint_connection` blocks as defined below.
      * 
      */
-    @Export(name="privateEndpointConnections", refs={List.class,ApplicationGatewayPrivateEndpointConnection.class}, tree="[0,1]")
+    @Export(name="privateEndpointConnections", type=List.class, parameters={ApplicationGatewayPrivateEndpointConnection.class})
     private Output<List<ApplicationGatewayPrivateEndpointConnection>> privateEndpointConnections;
 
     /**
@@ -442,7 +443,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `private_link_configuration` blocks as defined below.
      * 
      */
-    @Export(name="privateLinkConfigurations", refs={List.class,ApplicationGatewayPrivateLinkConfiguration.class}, tree="[0,1]")
+    @Export(name="privateLinkConfigurations", type=List.class, parameters={ApplicationGatewayPrivateLinkConfiguration.class})
     private Output</* @Nullable */ List<ApplicationGatewayPrivateLinkConfiguration>> privateLinkConfigurations;
 
     /**
@@ -456,7 +457,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `probe` blocks as defined below.
      * 
      */
-    @Export(name="probes", refs={List.class,ApplicationGatewayProbe.class}, tree="[0,1]")
+    @Export(name="probes", type=List.class, parameters={ApplicationGatewayProbe.class})
     private Output</* @Nullable */ List<ApplicationGatewayProbe>> probes;
 
     /**
@@ -470,7 +471,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `redirect_configuration` blocks as defined below.
      * 
      */
-    @Export(name="redirectConfigurations", refs={List.class,ApplicationGatewayRedirectConfiguration.class}, tree="[0,1]")
+    @Export(name="redirectConfigurations", type=List.class, parameters={ApplicationGatewayRedirectConfiguration.class})
     private Output</* @Nullable */ List<ApplicationGatewayRedirectConfiguration>> redirectConfigurations;
 
     /**
@@ -484,7 +485,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `request_routing_rule` blocks as defined below.
      * 
      */
-    @Export(name="requestRoutingRules", refs={List.class,ApplicationGatewayRequestRoutingRule.class}, tree="[0,1]")
+    @Export(name="requestRoutingRules", type=List.class, parameters={ApplicationGatewayRequestRoutingRule.class})
     private Output<List<ApplicationGatewayRequestRoutingRule>> requestRoutingRules;
 
     /**
@@ -498,7 +499,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -512,7 +513,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
      * 
      */
-    @Export(name="rewriteRuleSets", refs={List.class,ApplicationGatewayRewriteRuleSet.class}, tree="[0,1]")
+    @Export(name="rewriteRuleSets", type=List.class, parameters={ApplicationGatewayRewriteRuleSet.class})
     private Output</* @Nullable */ List<ApplicationGatewayRewriteRuleSet>> rewriteRuleSets;
 
     /**
@@ -526,7 +527,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * A `sku` block as defined below.
      * 
      */
-    @Export(name="sku", refs={ApplicationGatewaySku.class}, tree="[0]")
+    @Export(name="sku", type=ApplicationGatewaySku.class, parameters={})
     private Output<ApplicationGatewaySku> sku;
 
     /**
@@ -540,7 +541,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `ssl_certificate` blocks as defined below.
      * 
      */
-    @Export(name="sslCertificates", refs={List.class,ApplicationGatewaySslCertificate.class}, tree="[0,1]")
+    @Export(name="sslCertificates", type=List.class, parameters={ApplicationGatewaySslCertificate.class})
     private Output</* @Nullable */ List<ApplicationGatewaySslCertificate>> sslCertificates;
 
     /**
@@ -554,7 +555,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * a `ssl_policy` block as defined below.
      * 
      */
-    @Export(name="sslPolicy", refs={ApplicationGatewaySslPolicy.class}, tree="[0]")
+    @Export(name="sslPolicy", type=ApplicationGatewaySslPolicy.class, parameters={})
     private Output<ApplicationGatewaySslPolicy> sslPolicy;
 
     /**
@@ -570,7 +571,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
-    @Export(name="sslProfiles", refs={List.class,ApplicationGatewaySslProfile.class}, tree="[0,1]")
+    @Export(name="sslProfiles", type=List.class, parameters={ApplicationGatewaySslProfile.class})
     private Output</* @Nullable */ List<ApplicationGatewaySslProfile>> sslProfiles;
 
     /**
@@ -586,7 +587,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -600,7 +601,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `trusted_client_certificate` blocks as defined below.
      * 
      */
-    @Export(name="trustedClientCertificates", refs={List.class,ApplicationGatewayTrustedClientCertificate.class}, tree="[0,1]")
+    @Export(name="trustedClientCertificates", type=List.class, parameters={ApplicationGatewayTrustedClientCertificate.class})
     private Output</* @Nullable */ List<ApplicationGatewayTrustedClientCertificate>> trustedClientCertificates;
 
     /**
@@ -614,7 +615,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `trusted_root_certificate` blocks as defined below.
      * 
      */
-    @Export(name="trustedRootCertificates", refs={List.class,ApplicationGatewayTrustedRootCertificate.class}, tree="[0,1]")
+    @Export(name="trustedRootCertificates", type=List.class, parameters={ApplicationGatewayTrustedRootCertificate.class})
     private Output</* @Nullable */ List<ApplicationGatewayTrustedRootCertificate>> trustedRootCertificates;
 
     /**
@@ -628,7 +629,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * One or more `url_path_map` blocks as defined below.
      * 
      */
-    @Export(name="urlPathMaps", refs={List.class,ApplicationGatewayUrlPathMap.class}, tree="[0,1]")
+    @Export(name="urlPathMaps", type=List.class, parameters={ApplicationGatewayUrlPathMap.class})
     private Output</* @Nullable */ List<ApplicationGatewayUrlPathMap>> urlPathMaps;
 
     /**
@@ -642,7 +643,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * A `waf_configuration` block as defined below.
      * 
      */
-    @Export(name="wafConfiguration", refs={ApplicationGatewayWafConfiguration.class}, tree="[0]")
+    @Export(name="wafConfiguration", type=ApplicationGatewayWafConfiguration.class, parameters={})
     private Output</* @Nullable */ ApplicationGatewayWafConfiguration> wafConfiguration;
 
     /**
@@ -656,7 +657,7 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

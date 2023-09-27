@@ -1350,14 +1350,22 @@ func (o AppSecretArrayOutput) Index(i pulumi.IntInput) AppSecretOutput {
 }
 
 type AppTemplate struct {
+	// One or more `azureQueueScaleRule` blocks as defined below.
+	AzureQueueScaleRules []AppTemplateAzureQueueScaleRule `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
 	Containers []AppTemplateContainer `pulumi:"containers"`
+	// One or more `customScaleRule` blocks as defined below.
+	CustomScaleRules []AppTemplateCustomScaleRule `pulumi:"customScaleRules"`
+	// One or more `httpScaleRule` blocks as defined below.
+	HttpScaleRules []AppTemplateHttpScaleRule `pulumi:"httpScaleRules"`
 	// The maximum number of replicas for this container.
 	MaxReplicas *int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas *int `pulumi:"minReplicas"`
 	// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 	RevisionSuffix *string `pulumi:"revisionSuffix"`
+	// One or more `tcpScaleRule` blocks as defined below.
+	TcpScaleRules []AppTemplateTcpScaleRule `pulumi:"tcpScaleRules"`
 	// A `volume` block as detailed below.
 	Volumes []AppTemplateVolume `pulumi:"volumes"`
 }
@@ -1374,14 +1382,22 @@ type AppTemplateInput interface {
 }
 
 type AppTemplateArgs struct {
+	// One or more `azureQueueScaleRule` blocks as defined below.
+	AzureQueueScaleRules AppTemplateAzureQueueScaleRuleArrayInput `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
 	Containers AppTemplateContainerArrayInput `pulumi:"containers"`
+	// One or more `customScaleRule` blocks as defined below.
+	CustomScaleRules AppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
+	// One or more `httpScaleRule` blocks as defined below.
+	HttpScaleRules AppTemplateHttpScaleRuleArrayInput `pulumi:"httpScaleRules"`
 	// The maximum number of replicas for this container.
 	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas pulumi.IntPtrInput `pulumi:"minReplicas"`
 	// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 	RevisionSuffix pulumi.StringPtrInput `pulumi:"revisionSuffix"`
+	// One or more `tcpScaleRule` blocks as defined below.
+	TcpScaleRules AppTemplateTcpScaleRuleArrayInput `pulumi:"tcpScaleRules"`
 	// A `volume` block as detailed below.
 	Volumes AppTemplateVolumeArrayInput `pulumi:"volumes"`
 }
@@ -1481,9 +1497,24 @@ func (o AppTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[AppTempl
 	}
 }
 
+// One or more `azureQueueScaleRule` blocks as defined below.
+func (o AppTemplateOutput) AzureQueueScaleRules() AppTemplateAzureQueueScaleRuleArrayOutput {
+	return o.ApplyT(func(v AppTemplate) []AppTemplateAzureQueueScaleRule { return v.AzureQueueScaleRules }).(AppTemplateAzureQueueScaleRuleArrayOutput)
+}
+
 // One or more `container` blocks as detailed below.
 func (o AppTemplateOutput) Containers() AppTemplateContainerArrayOutput {
 	return o.ApplyT(func(v AppTemplate) []AppTemplateContainer { return v.Containers }).(AppTemplateContainerArrayOutput)
+}
+
+// One or more `customScaleRule` blocks as defined below.
+func (o AppTemplateOutput) CustomScaleRules() AppTemplateCustomScaleRuleArrayOutput {
+	return o.ApplyT(func(v AppTemplate) []AppTemplateCustomScaleRule { return v.CustomScaleRules }).(AppTemplateCustomScaleRuleArrayOutput)
+}
+
+// One or more `httpScaleRule` blocks as defined below.
+func (o AppTemplateOutput) HttpScaleRules() AppTemplateHttpScaleRuleArrayOutput {
+	return o.ApplyT(func(v AppTemplate) []AppTemplateHttpScaleRule { return v.HttpScaleRules }).(AppTemplateHttpScaleRuleArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -1499,6 +1530,11 @@ func (o AppTemplateOutput) MinReplicas() pulumi.IntPtrOutput {
 // The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 func (o AppTemplateOutput) RevisionSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplate) *string { return v.RevisionSuffix }).(pulumi.StringPtrOutput)
+}
+
+// One or more `tcpScaleRule` blocks as defined below.
+func (o AppTemplateOutput) TcpScaleRules() AppTemplateTcpScaleRuleArrayOutput {
+	return o.ApplyT(func(v AppTemplate) []AppTemplateTcpScaleRule { return v.TcpScaleRules }).(AppTemplateTcpScaleRuleArrayOutput)
 }
 
 // A `volume` block as detailed below.
@@ -1536,6 +1572,16 @@ func (o AppTemplatePtrOutput) Elem() AppTemplateOutput {
 	}).(AppTemplateOutput)
 }
 
+// One or more `azureQueueScaleRule` blocks as defined below.
+func (o AppTemplatePtrOutput) AzureQueueScaleRules() AppTemplateAzureQueueScaleRuleArrayOutput {
+	return o.ApplyT(func(v *AppTemplate) []AppTemplateAzureQueueScaleRule {
+		if v == nil {
+			return nil
+		}
+		return v.AzureQueueScaleRules
+	}).(AppTemplateAzureQueueScaleRuleArrayOutput)
+}
+
 // One or more `container` blocks as detailed below.
 func (o AppTemplatePtrOutput) Containers() AppTemplateContainerArrayOutput {
 	return o.ApplyT(func(v *AppTemplate) []AppTemplateContainer {
@@ -1544,6 +1590,26 @@ func (o AppTemplatePtrOutput) Containers() AppTemplateContainerArrayOutput {
 		}
 		return v.Containers
 	}).(AppTemplateContainerArrayOutput)
+}
+
+// One or more `customScaleRule` blocks as defined below.
+func (o AppTemplatePtrOutput) CustomScaleRules() AppTemplateCustomScaleRuleArrayOutput {
+	return o.ApplyT(func(v *AppTemplate) []AppTemplateCustomScaleRule {
+		if v == nil {
+			return nil
+		}
+		return v.CustomScaleRules
+	}).(AppTemplateCustomScaleRuleArrayOutput)
+}
+
+// One or more `httpScaleRule` blocks as defined below.
+func (o AppTemplatePtrOutput) HttpScaleRules() AppTemplateHttpScaleRuleArrayOutput {
+	return o.ApplyT(func(v *AppTemplate) []AppTemplateHttpScaleRule {
+		if v == nil {
+			return nil
+		}
+		return v.HttpScaleRules
+	}).(AppTemplateHttpScaleRuleArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -1576,6 +1642,16 @@ func (o AppTemplatePtrOutput) RevisionSuffix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// One or more `tcpScaleRule` blocks as defined below.
+func (o AppTemplatePtrOutput) TcpScaleRules() AppTemplateTcpScaleRuleArrayOutput {
+	return o.ApplyT(func(v *AppTemplate) []AppTemplateTcpScaleRule {
+		if v == nil {
+			return nil
+		}
+		return v.TcpScaleRules
+	}).(AppTemplateTcpScaleRuleArrayOutput)
+}
+
 // A `volume` block as detailed below.
 func (o AppTemplatePtrOutput) Volumes() AppTemplateVolumeArrayOutput {
 	return o.ApplyT(func(v *AppTemplate) []AppTemplateVolume {
@@ -1584,6 +1660,286 @@ func (o AppTemplatePtrOutput) Volumes() AppTemplateVolumeArrayOutput {
 		}
 		return v.Volumes
 	}).(AppTemplateVolumeArrayOutput)
+}
+
+type AppTemplateAzureQueueScaleRule struct {
+	// One or more `authentication` blocks as defined below.
+	Authentications []AppTemplateAzureQueueScaleRuleAuthentication `pulumi:"authentications"`
+	// The name of the Scaling Rule
+	Name string `pulumi:"name"`
+	// The value of the length of the queue to trigger scaling actions.
+	QueueLength int `pulumi:"queueLength"`
+	// The name of the Azure Queue
+	QueueName string `pulumi:"queueName"`
+}
+
+// AppTemplateAzureQueueScaleRuleInput is an input type that accepts AppTemplateAzureQueueScaleRuleArgs and AppTemplateAzureQueueScaleRuleOutput values.
+// You can construct a concrete instance of `AppTemplateAzureQueueScaleRuleInput` via:
+//
+//	AppTemplateAzureQueueScaleRuleArgs{...}
+type AppTemplateAzureQueueScaleRuleInput interface {
+	pulumi.Input
+
+	ToAppTemplateAzureQueueScaleRuleOutput() AppTemplateAzureQueueScaleRuleOutput
+	ToAppTemplateAzureQueueScaleRuleOutputWithContext(context.Context) AppTemplateAzureQueueScaleRuleOutput
+}
+
+type AppTemplateAzureQueueScaleRuleArgs struct {
+	// One or more `authentication` blocks as defined below.
+	Authentications AppTemplateAzureQueueScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	// The name of the Scaling Rule
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the length of the queue to trigger scaling actions.
+	QueueLength pulumi.IntInput `pulumi:"queueLength"`
+	// The name of the Azure Queue
+	QueueName pulumi.StringInput `pulumi:"queueName"`
+}
+
+func (AppTemplateAzureQueueScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateAzureQueueScaleRuleArgs) ToAppTemplateAzureQueueScaleRuleOutput() AppTemplateAzureQueueScaleRuleOutput {
+	return i.ToAppTemplateAzureQueueScaleRuleOutputWithContext(context.Background())
+}
+
+func (i AppTemplateAzureQueueScaleRuleArgs) ToAppTemplateAzureQueueScaleRuleOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleOutput)
+}
+
+func (i AppTemplateAzureQueueScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[AppTemplateAzureQueueScaleRule]{
+		OutputState: i.ToAppTemplateAzureQueueScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateAzureQueueScaleRuleArrayInput is an input type that accepts AppTemplateAzureQueueScaleRuleArray and AppTemplateAzureQueueScaleRuleArrayOutput values.
+// You can construct a concrete instance of `AppTemplateAzureQueueScaleRuleArrayInput` via:
+//
+//	AppTemplateAzureQueueScaleRuleArray{ AppTemplateAzureQueueScaleRuleArgs{...} }
+type AppTemplateAzureQueueScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateAzureQueueScaleRuleArrayOutput() AppTemplateAzureQueueScaleRuleArrayOutput
+	ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(context.Context) AppTemplateAzureQueueScaleRuleArrayOutput
+}
+
+type AppTemplateAzureQueueScaleRuleArray []AppTemplateAzureQueueScaleRuleInput
+
+func (AppTemplateAzureQueueScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateAzureQueueScaleRuleArray) ToAppTemplateAzureQueueScaleRuleArrayOutput() AppTemplateAzureQueueScaleRuleArrayOutput {
+	return i.ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateAzureQueueScaleRuleArray) ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleArrayOutput)
+}
+
+func (i AppTemplateAzureQueueScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[[]AppTemplateAzureQueueScaleRule]{
+		OutputState: i.ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateAzureQueueScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateAzureQueueScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateAzureQueueScaleRuleOutput) ToAppTemplateAzureQueueScaleRuleOutput() AppTemplateAzureQueueScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleOutput) ToAppTemplateAzureQueueScaleRuleOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[AppTemplateAzureQueueScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// One or more `authentication` blocks as defined below.
+func (o AppTemplateAzureQueueScaleRuleOutput) Authentications() AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v AppTemplateAzureQueueScaleRule) []AppTemplateAzureQueueScaleRuleAuthentication {
+		return v.Authentications
+	}).(AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput)
+}
+
+// The name of the Scaling Rule
+func (o AppTemplateAzureQueueScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateAzureQueueScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the length of the queue to trigger scaling actions.
+func (o AppTemplateAzureQueueScaleRuleOutput) QueueLength() pulumi.IntOutput {
+	return o.ApplyT(func(v AppTemplateAzureQueueScaleRule) int { return v.QueueLength }).(pulumi.IntOutput)
+}
+
+// The name of the Azure Queue
+func (o AppTemplateAzureQueueScaleRuleOutput) QueueName() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateAzureQueueScaleRule) string { return v.QueueName }).(pulumi.StringOutput)
+}
+
+type AppTemplateAzureQueueScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateAzureQueueScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateAzureQueueScaleRuleArrayOutput) ToAppTemplateAzureQueueScaleRuleArrayOutput() AppTemplateAzureQueueScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleArrayOutput) ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[[]AppTemplateAzureQueueScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateAzureQueueScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateAzureQueueScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateAzureQueueScaleRule {
+		return vs[0].([]AppTemplateAzureQueueScaleRule)[vs[1].(int)]
+	}).(AppTemplateAzureQueueScaleRuleOutput)
+}
+
+type AppTemplateAzureQueueScaleRuleAuthentication struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName string `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// AppTemplateAzureQueueScaleRuleAuthenticationInput is an input type that accepts AppTemplateAzureQueueScaleRuleAuthenticationArgs and AppTemplateAzureQueueScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `AppTemplateAzureQueueScaleRuleAuthenticationInput` via:
+//
+//	AppTemplateAzureQueueScaleRuleAuthenticationArgs{...}
+type AppTemplateAzureQueueScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToAppTemplateAzureQueueScaleRuleAuthenticationOutput() AppTemplateAzureQueueScaleRuleAuthenticationOutput
+	ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(context.Context) AppTemplateAzureQueueScaleRuleAuthenticationOutput
+}
+
+type AppTemplateAzureQueueScaleRuleAuthenticationArgs struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (AppTemplateAzureQueueScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateAzureQueueScaleRuleAuthenticationArgs) ToAppTemplateAzureQueueScaleRuleAuthenticationOutput() AppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return i.ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i AppTemplateAzureQueueScaleRuleAuthenticationArgs) ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleAuthenticationOutput)
+}
+
+func (i AppTemplateAzureQueueScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateAzureQueueScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateAzureQueueScaleRuleAuthenticationArray and AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `AppTemplateAzureQueueScaleRuleAuthenticationArrayInput` via:
+//
+//	AppTemplateAzureQueueScaleRuleAuthenticationArray{ AppTemplateAzureQueueScaleRuleAuthenticationArgs{...} }
+type AppTemplateAzureQueueScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput() AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput
+	ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(context.Context) AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput
+}
+
+type AppTemplateAzureQueueScaleRuleAuthenticationArray []AppTemplateAzureQueueScaleRuleAuthenticationInput
+
+func (AppTemplateAzureQueueScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateAzureQueueScaleRuleAuthenticationArray) ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput() AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return i.ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateAzureQueueScaleRuleAuthenticationArray) ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput)
+}
+
+func (i AppTemplateAzureQueueScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateAzureQueueScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateAzureQueueScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) ToAppTemplateAzureQueueScaleRuleAuthenticationOutput() AppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the Container App Secret to use for this Scale Rule Authentication.
+func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateAzureQueueScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateAzureQueueScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput() AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateAzureQueueScaleRuleAuthentication {
+		return vs[0].([]AppTemplateAzureQueueScaleRuleAuthentication)[vs[1].(int)]
+	}).(AppTemplateAzureQueueScaleRuleAuthenticationOutput)
 }
 
 type AppTemplateContainer struct {
@@ -3079,6 +3435,824 @@ func (o AppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) App
 	}).(AppTemplateContainerVolumeMountOutput)
 }
 
+type AppTemplateCustomScaleRule struct {
+	// Zero or more `authentication` blocks as defined below.
+	Authentications []AppTemplateCustomScaleRuleAuthentication `pulumi:"authentications"`
+	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+	CustomRuleType string `pulumi:"customRuleType"`
+	// A map of string key-value pairs to configure the Custom Scale Rule.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The name of the Scaling Rule
+	Name string `pulumi:"name"`
+}
+
+// AppTemplateCustomScaleRuleInput is an input type that accepts AppTemplateCustomScaleRuleArgs and AppTemplateCustomScaleRuleOutput values.
+// You can construct a concrete instance of `AppTemplateCustomScaleRuleInput` via:
+//
+//	AppTemplateCustomScaleRuleArgs{...}
+type AppTemplateCustomScaleRuleInput interface {
+	pulumi.Input
+
+	ToAppTemplateCustomScaleRuleOutput() AppTemplateCustomScaleRuleOutput
+	ToAppTemplateCustomScaleRuleOutputWithContext(context.Context) AppTemplateCustomScaleRuleOutput
+}
+
+type AppTemplateCustomScaleRuleArgs struct {
+	// Zero or more `authentication` blocks as defined below.
+	Authentications AppTemplateCustomScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
+	// A map of string key-value pairs to configure the Custom Scale Rule.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The name of the Scaling Rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppTemplateCustomScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateCustomScaleRuleArgs) ToAppTemplateCustomScaleRuleOutput() AppTemplateCustomScaleRuleOutput {
+	return i.ToAppTemplateCustomScaleRuleOutputWithContext(context.Background())
+}
+
+func (i AppTemplateCustomScaleRuleArgs) ToAppTemplateCustomScaleRuleOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleOutput)
+}
+
+func (i AppTemplateCustomScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRule] {
+	return pulumix.Output[AppTemplateCustomScaleRule]{
+		OutputState: i.ToAppTemplateCustomScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateCustomScaleRuleArrayInput is an input type that accepts AppTemplateCustomScaleRuleArray and AppTemplateCustomScaleRuleArrayOutput values.
+// You can construct a concrete instance of `AppTemplateCustomScaleRuleArrayInput` via:
+//
+//	AppTemplateCustomScaleRuleArray{ AppTemplateCustomScaleRuleArgs{...} }
+type AppTemplateCustomScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateCustomScaleRuleArrayOutput() AppTemplateCustomScaleRuleArrayOutput
+	ToAppTemplateCustomScaleRuleArrayOutputWithContext(context.Context) AppTemplateCustomScaleRuleArrayOutput
+}
+
+type AppTemplateCustomScaleRuleArray []AppTemplateCustomScaleRuleInput
+
+func (AppTemplateCustomScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateCustomScaleRuleArray) ToAppTemplateCustomScaleRuleArrayOutput() AppTemplateCustomScaleRuleArrayOutput {
+	return i.ToAppTemplateCustomScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateCustomScaleRuleArray) ToAppTemplateCustomScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleArrayOutput)
+}
+
+func (i AppTemplateCustomScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRule] {
+	return pulumix.Output[[]AppTemplateCustomScaleRule]{
+		OutputState: i.ToAppTemplateCustomScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateCustomScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateCustomScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateCustomScaleRuleOutput) ToAppTemplateCustomScaleRuleOutput() AppTemplateCustomScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleOutput) ToAppTemplateCustomScaleRuleOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRule] {
+	return pulumix.Output[AppTemplateCustomScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Zero or more `authentication` blocks as defined below.
+func (o AppTemplateCustomScaleRuleOutput) Authentications() AppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRule) []AppTemplateCustomScaleRuleAuthentication {
+		return v.Authentications
+	}).(AppTemplateCustomScaleRuleAuthenticationArrayOutput)
+}
+
+// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+func (o AppTemplateCustomScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
+}
+
+// A map of string key-value pairs to configure the Custom Scale Rule.
+func (o AppTemplateCustomScaleRuleOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRule) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the Scaling Rule
+func (o AppTemplateCustomScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AppTemplateCustomScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateCustomScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateCustomScaleRuleArrayOutput) ToAppTemplateCustomScaleRuleArrayOutput() AppTemplateCustomScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleArrayOutput) ToAppTemplateCustomScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRule] {
+	return pulumix.Output[[]AppTemplateCustomScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateCustomScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateCustomScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateCustomScaleRule {
+		return vs[0].([]AppTemplateCustomScaleRule)[vs[1].(int)]
+	}).(AppTemplateCustomScaleRuleOutput)
+}
+
+type AppTemplateCustomScaleRuleAuthentication struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName string `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// AppTemplateCustomScaleRuleAuthenticationInput is an input type that accepts AppTemplateCustomScaleRuleAuthenticationArgs and AppTemplateCustomScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `AppTemplateCustomScaleRuleAuthenticationInput` via:
+//
+//	AppTemplateCustomScaleRuleAuthenticationArgs{...}
+type AppTemplateCustomScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToAppTemplateCustomScaleRuleAuthenticationOutput() AppTemplateCustomScaleRuleAuthenticationOutput
+	ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(context.Context) AppTemplateCustomScaleRuleAuthenticationOutput
+}
+
+type AppTemplateCustomScaleRuleAuthenticationArgs struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (AppTemplateCustomScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateCustomScaleRuleAuthenticationArgs) ToAppTemplateCustomScaleRuleAuthenticationOutput() AppTemplateCustomScaleRuleAuthenticationOutput {
+	return i.ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i AppTemplateCustomScaleRuleAuthenticationArgs) ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleAuthenticationOutput)
+}
+
+func (i AppTemplateCustomScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateCustomScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateCustomScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateCustomScaleRuleAuthenticationArray and AppTemplateCustomScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `AppTemplateCustomScaleRuleAuthenticationArrayInput` via:
+//
+//	AppTemplateCustomScaleRuleAuthenticationArray{ AppTemplateCustomScaleRuleAuthenticationArgs{...} }
+type AppTemplateCustomScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateCustomScaleRuleAuthenticationArrayOutput() AppTemplateCustomScaleRuleAuthenticationArrayOutput
+	ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(context.Context) AppTemplateCustomScaleRuleAuthenticationArrayOutput
+}
+
+type AppTemplateCustomScaleRuleAuthenticationArray []AppTemplateCustomScaleRuleAuthenticationInput
+
+func (AppTemplateCustomScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateCustomScaleRuleAuthenticationArray) ToAppTemplateCustomScaleRuleAuthenticationArrayOutput() AppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return i.ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateCustomScaleRuleAuthenticationArray) ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleAuthenticationArrayOutput)
+}
+
+func (i AppTemplateCustomScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateCustomScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateCustomScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationOutput) ToAppTemplateCustomScaleRuleAuthenticationOutput() AppTemplateCustomScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationOutput) ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateCustomScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the Container App Secret to use for this Scale Rule Authentication.
+func (o AppTemplateCustomScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+func (o AppTemplateCustomScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type AppTemplateCustomScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateCustomScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) ToAppTemplateCustomScaleRuleAuthenticationArrayOutput() AppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateCustomScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateCustomScaleRuleAuthentication {
+		return vs[0].([]AppTemplateCustomScaleRuleAuthentication)[vs[1].(int)]
+	}).(AppTemplateCustomScaleRuleAuthenticationOutput)
+}
+
+type AppTemplateHttpScaleRule struct {
+	// Zero or more `authentication` blocks as defined below.
+	Authentications []AppTemplateHttpScaleRuleAuthentication `pulumi:"authentications"`
+	// The number of concurrent requests to trigger scaling.
+	ConcurrentRequests string `pulumi:"concurrentRequests"`
+	// The name of the Scaling Rule
+	Name string `pulumi:"name"`
+}
+
+// AppTemplateHttpScaleRuleInput is an input type that accepts AppTemplateHttpScaleRuleArgs and AppTemplateHttpScaleRuleOutput values.
+// You can construct a concrete instance of `AppTemplateHttpScaleRuleInput` via:
+//
+//	AppTemplateHttpScaleRuleArgs{...}
+type AppTemplateHttpScaleRuleInput interface {
+	pulumi.Input
+
+	ToAppTemplateHttpScaleRuleOutput() AppTemplateHttpScaleRuleOutput
+	ToAppTemplateHttpScaleRuleOutputWithContext(context.Context) AppTemplateHttpScaleRuleOutput
+}
+
+type AppTemplateHttpScaleRuleArgs struct {
+	// Zero or more `authentication` blocks as defined below.
+	Authentications AppTemplateHttpScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	// The number of concurrent requests to trigger scaling.
+	ConcurrentRequests pulumi.StringInput `pulumi:"concurrentRequests"`
+	// The name of the Scaling Rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppTemplateHttpScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateHttpScaleRuleArgs) ToAppTemplateHttpScaleRuleOutput() AppTemplateHttpScaleRuleOutput {
+	return i.ToAppTemplateHttpScaleRuleOutputWithContext(context.Background())
+}
+
+func (i AppTemplateHttpScaleRuleArgs) ToAppTemplateHttpScaleRuleOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleOutput)
+}
+
+func (i AppTemplateHttpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRule] {
+	return pulumix.Output[AppTemplateHttpScaleRule]{
+		OutputState: i.ToAppTemplateHttpScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateHttpScaleRuleArrayInput is an input type that accepts AppTemplateHttpScaleRuleArray and AppTemplateHttpScaleRuleArrayOutput values.
+// You can construct a concrete instance of `AppTemplateHttpScaleRuleArrayInput` via:
+//
+//	AppTemplateHttpScaleRuleArray{ AppTemplateHttpScaleRuleArgs{...} }
+type AppTemplateHttpScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateHttpScaleRuleArrayOutput() AppTemplateHttpScaleRuleArrayOutput
+	ToAppTemplateHttpScaleRuleArrayOutputWithContext(context.Context) AppTemplateHttpScaleRuleArrayOutput
+}
+
+type AppTemplateHttpScaleRuleArray []AppTemplateHttpScaleRuleInput
+
+func (AppTemplateHttpScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateHttpScaleRuleArray) ToAppTemplateHttpScaleRuleArrayOutput() AppTemplateHttpScaleRuleArrayOutput {
+	return i.ToAppTemplateHttpScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateHttpScaleRuleArray) ToAppTemplateHttpScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleArrayOutput)
+}
+
+func (i AppTemplateHttpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRule] {
+	return pulumix.Output[[]AppTemplateHttpScaleRule]{
+		OutputState: i.ToAppTemplateHttpScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateHttpScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateHttpScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateHttpScaleRuleOutput) ToAppTemplateHttpScaleRuleOutput() AppTemplateHttpScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleOutput) ToAppTemplateHttpScaleRuleOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRule] {
+	return pulumix.Output[AppTemplateHttpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Zero or more `authentication` blocks as defined below.
+func (o AppTemplateHttpScaleRuleOutput) Authentications() AppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v AppTemplateHttpScaleRule) []AppTemplateHttpScaleRuleAuthentication { return v.Authentications }).(AppTemplateHttpScaleRuleAuthenticationArrayOutput)
+}
+
+// The number of concurrent requests to trigger scaling.
+func (o AppTemplateHttpScaleRuleOutput) ConcurrentRequests() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateHttpScaleRule) string { return v.ConcurrentRequests }).(pulumi.StringOutput)
+}
+
+// The name of the Scaling Rule
+func (o AppTemplateHttpScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateHttpScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AppTemplateHttpScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateHttpScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateHttpScaleRuleArrayOutput) ToAppTemplateHttpScaleRuleArrayOutput() AppTemplateHttpScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleArrayOutput) ToAppTemplateHttpScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRule] {
+	return pulumix.Output[[]AppTemplateHttpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateHttpScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateHttpScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateHttpScaleRule {
+		return vs[0].([]AppTemplateHttpScaleRule)[vs[1].(int)]
+	}).(AppTemplateHttpScaleRuleOutput)
+}
+
+type AppTemplateHttpScaleRuleAuthentication struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName string `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter *string `pulumi:"triggerParameter"`
+}
+
+// AppTemplateHttpScaleRuleAuthenticationInput is an input type that accepts AppTemplateHttpScaleRuleAuthenticationArgs and AppTemplateHttpScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `AppTemplateHttpScaleRuleAuthenticationInput` via:
+//
+//	AppTemplateHttpScaleRuleAuthenticationArgs{...}
+type AppTemplateHttpScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToAppTemplateHttpScaleRuleAuthenticationOutput() AppTemplateHttpScaleRuleAuthenticationOutput
+	ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(context.Context) AppTemplateHttpScaleRuleAuthenticationOutput
+}
+
+type AppTemplateHttpScaleRuleAuthenticationArgs struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter pulumi.StringPtrInput `pulumi:"triggerParameter"`
+}
+
+func (AppTemplateHttpScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateHttpScaleRuleAuthenticationArgs) ToAppTemplateHttpScaleRuleAuthenticationOutput() AppTemplateHttpScaleRuleAuthenticationOutput {
+	return i.ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i AppTemplateHttpScaleRuleAuthenticationArgs) ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleAuthenticationOutput)
+}
+
+func (i AppTemplateHttpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateHttpScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateHttpScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateHttpScaleRuleAuthenticationArray and AppTemplateHttpScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `AppTemplateHttpScaleRuleAuthenticationArrayInput` via:
+//
+//	AppTemplateHttpScaleRuleAuthenticationArray{ AppTemplateHttpScaleRuleAuthenticationArgs{...} }
+type AppTemplateHttpScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateHttpScaleRuleAuthenticationArrayOutput() AppTemplateHttpScaleRuleAuthenticationArrayOutput
+	ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(context.Context) AppTemplateHttpScaleRuleAuthenticationArrayOutput
+}
+
+type AppTemplateHttpScaleRuleAuthenticationArray []AppTemplateHttpScaleRuleAuthenticationInput
+
+func (AppTemplateHttpScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateHttpScaleRuleAuthenticationArray) ToAppTemplateHttpScaleRuleAuthenticationArrayOutput() AppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return i.ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateHttpScaleRuleAuthenticationArray) ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleAuthenticationArrayOutput)
+}
+
+func (i AppTemplateHttpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateHttpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateHttpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationOutput) ToAppTemplateHttpScaleRuleAuthenticationOutput() AppTemplateHttpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationOutput) ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateHttpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the Container App Secret to use for this Scale Rule Authentication.
+func (o AppTemplateHttpScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateHttpScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+func (o AppTemplateHttpScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateHttpScaleRuleAuthentication) *string { return v.TriggerParameter }).(pulumi.StringPtrOutput)
+}
+
+type AppTemplateHttpScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateHttpScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) ToAppTemplateHttpScaleRuleAuthenticationArrayOutput() AppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateHttpScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateHttpScaleRuleAuthentication {
+		return vs[0].([]AppTemplateHttpScaleRuleAuthentication)[vs[1].(int)]
+	}).(AppTemplateHttpScaleRuleAuthenticationOutput)
+}
+
+type AppTemplateTcpScaleRule struct {
+	// Zero or more `authentication` blocks as defined below.
+	Authentications []AppTemplateTcpScaleRuleAuthentication `pulumi:"authentications"`
+	// The number of concurrent requests to trigger scaling.
+	ConcurrentRequests string `pulumi:"concurrentRequests"`
+	// The name of the Scaling Rule
+	Name string `pulumi:"name"`
+}
+
+// AppTemplateTcpScaleRuleInput is an input type that accepts AppTemplateTcpScaleRuleArgs and AppTemplateTcpScaleRuleOutput values.
+// You can construct a concrete instance of `AppTemplateTcpScaleRuleInput` via:
+//
+//	AppTemplateTcpScaleRuleArgs{...}
+type AppTemplateTcpScaleRuleInput interface {
+	pulumi.Input
+
+	ToAppTemplateTcpScaleRuleOutput() AppTemplateTcpScaleRuleOutput
+	ToAppTemplateTcpScaleRuleOutputWithContext(context.Context) AppTemplateTcpScaleRuleOutput
+}
+
+type AppTemplateTcpScaleRuleArgs struct {
+	// Zero or more `authentication` blocks as defined below.
+	Authentications AppTemplateTcpScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	// The number of concurrent requests to trigger scaling.
+	ConcurrentRequests pulumi.StringInput `pulumi:"concurrentRequests"`
+	// The name of the Scaling Rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppTemplateTcpScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateTcpScaleRuleArgs) ToAppTemplateTcpScaleRuleOutput() AppTemplateTcpScaleRuleOutput {
+	return i.ToAppTemplateTcpScaleRuleOutputWithContext(context.Background())
+}
+
+func (i AppTemplateTcpScaleRuleArgs) ToAppTemplateTcpScaleRuleOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleOutput)
+}
+
+func (i AppTemplateTcpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRule] {
+	return pulumix.Output[AppTemplateTcpScaleRule]{
+		OutputState: i.ToAppTemplateTcpScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateTcpScaleRuleArrayInput is an input type that accepts AppTemplateTcpScaleRuleArray and AppTemplateTcpScaleRuleArrayOutput values.
+// You can construct a concrete instance of `AppTemplateTcpScaleRuleArrayInput` via:
+//
+//	AppTemplateTcpScaleRuleArray{ AppTemplateTcpScaleRuleArgs{...} }
+type AppTemplateTcpScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateTcpScaleRuleArrayOutput() AppTemplateTcpScaleRuleArrayOutput
+	ToAppTemplateTcpScaleRuleArrayOutputWithContext(context.Context) AppTemplateTcpScaleRuleArrayOutput
+}
+
+type AppTemplateTcpScaleRuleArray []AppTemplateTcpScaleRuleInput
+
+func (AppTemplateTcpScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (i AppTemplateTcpScaleRuleArray) ToAppTemplateTcpScaleRuleArrayOutput() AppTemplateTcpScaleRuleArrayOutput {
+	return i.ToAppTemplateTcpScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateTcpScaleRuleArray) ToAppTemplateTcpScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleArrayOutput)
+}
+
+func (i AppTemplateTcpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRule] {
+	return pulumix.Output[[]AppTemplateTcpScaleRule]{
+		OutputState: i.ToAppTemplateTcpScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateTcpScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateTcpScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateTcpScaleRuleOutput) ToAppTemplateTcpScaleRuleOutput() AppTemplateTcpScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleOutput) ToAppTemplateTcpScaleRuleOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRule] {
+	return pulumix.Output[AppTemplateTcpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Zero or more `authentication` blocks as defined below.
+func (o AppTemplateTcpScaleRuleOutput) Authentications() AppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v AppTemplateTcpScaleRule) []AppTemplateTcpScaleRuleAuthentication { return v.Authentications }).(AppTemplateTcpScaleRuleAuthenticationArrayOutput)
+}
+
+// The number of concurrent requests to trigger scaling.
+func (o AppTemplateTcpScaleRuleOutput) ConcurrentRequests() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateTcpScaleRule) string { return v.ConcurrentRequests }).(pulumi.StringOutput)
+}
+
+// The name of the Scaling Rule
+func (o AppTemplateTcpScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateTcpScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AppTemplateTcpScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateTcpScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (o AppTemplateTcpScaleRuleArrayOutput) ToAppTemplateTcpScaleRuleArrayOutput() AppTemplateTcpScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleArrayOutput) ToAppTemplateTcpScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleArrayOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRule] {
+	return pulumix.Output[[]AppTemplateTcpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateTcpScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateTcpScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateTcpScaleRule {
+		return vs[0].([]AppTemplateTcpScaleRule)[vs[1].(int)]
+	}).(AppTemplateTcpScaleRuleOutput)
+}
+
+type AppTemplateTcpScaleRuleAuthentication struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName string `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter *string `pulumi:"triggerParameter"`
+}
+
+// AppTemplateTcpScaleRuleAuthenticationInput is an input type that accepts AppTemplateTcpScaleRuleAuthenticationArgs and AppTemplateTcpScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `AppTemplateTcpScaleRuleAuthenticationInput` via:
+//
+//	AppTemplateTcpScaleRuleAuthenticationArgs{...}
+type AppTemplateTcpScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToAppTemplateTcpScaleRuleAuthenticationOutput() AppTemplateTcpScaleRuleAuthenticationOutput
+	ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(context.Context) AppTemplateTcpScaleRuleAuthenticationOutput
+}
+
+type AppTemplateTcpScaleRuleAuthenticationArgs struct {
+	// The name of the Container App Secret to use for this Scale Rule Authentication.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+	TriggerParameter pulumi.StringPtrInput `pulumi:"triggerParameter"`
+}
+
+func (AppTemplateTcpScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateTcpScaleRuleAuthenticationArgs) ToAppTemplateTcpScaleRuleAuthenticationOutput() AppTemplateTcpScaleRuleAuthenticationOutput {
+	return i.ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i AppTemplateTcpScaleRuleAuthenticationArgs) ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleAuthenticationOutput)
+}
+
+func (i AppTemplateTcpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateTcpScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AppTemplateTcpScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateTcpScaleRuleAuthenticationArray and AppTemplateTcpScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `AppTemplateTcpScaleRuleAuthenticationArrayInput` via:
+//
+//	AppTemplateTcpScaleRuleAuthenticationArray{ AppTemplateTcpScaleRuleAuthenticationArgs{...} }
+type AppTemplateTcpScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateTcpScaleRuleAuthenticationArrayOutput() AppTemplateTcpScaleRuleAuthenticationArrayOutput
+	ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(context.Context) AppTemplateTcpScaleRuleAuthenticationArrayOutput
+}
+
+type AppTemplateTcpScaleRuleAuthenticationArray []AppTemplateTcpScaleRuleAuthenticationInput
+
+func (AppTemplateTcpScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i AppTemplateTcpScaleRuleAuthenticationArray) ToAppTemplateTcpScaleRuleAuthenticationArrayOutput() AppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return i.ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateTcpScaleRuleAuthenticationArray) ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleAuthenticationArrayOutput)
+}
+
+func (i AppTemplateTcpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication]{
+		OutputState: i.ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AppTemplateTcpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateTcpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationOutput) ToAppTemplateTcpScaleRuleAuthenticationOutput() AppTemplateTcpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationOutput) ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[AppTemplateTcpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the Container App Secret to use for this Scale Rule Authentication.
+func (o AppTemplateTcpScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateTcpScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+func (o AppTemplateTcpScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateTcpScaleRuleAuthentication) *string { return v.TriggerParameter }).(pulumi.StringPtrOutput)
+}
+
+type AppTemplateTcpScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateTcpScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) ToAppTemplateTcpScaleRuleAuthenticationArrayOutput() AppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateTcpScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateTcpScaleRuleAuthentication {
+		return vs[0].([]AppTemplateTcpScaleRuleAuthentication)[vs[1].(int)]
+	}).(AppTemplateTcpScaleRuleAuthenticationOutput)
+}
+
 type AppTemplateVolume struct {
 	// The name of the volume.
 	Name string `pulumi:"name"`
@@ -4509,14 +5683,18 @@ func (o GetAppSecretArrayOutput) Index(i pulumi.IntInput) GetAppSecretOutput {
 }
 
 type GetAppTemplate struct {
+	AzureQueueScaleRules []GetAppTemplateAzureQueueScaleRule `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
-	Containers []GetAppTemplateContainer `pulumi:"containers"`
+	Containers       []GetAppTemplateContainer       `pulumi:"containers"`
+	CustomScaleRules []GetAppTemplateCustomScaleRule `pulumi:"customScaleRules"`
+	HttpScaleRules   []GetAppTemplateHttpScaleRule   `pulumi:"httpScaleRules"`
 	// The maximum number of replicas for this container.
 	MaxReplicas int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas int `pulumi:"minReplicas"`
 	// The suffix string to which this `trafficWeight` applies.
-	RevisionSuffix string `pulumi:"revisionSuffix"`
+	RevisionSuffix string                       `pulumi:"revisionSuffix"`
+	TcpScaleRules  []GetAppTemplateTcpScaleRule `pulumi:"tcpScaleRules"`
 	// A `volume` block as detailed below.
 	Volumes []GetAppTemplateVolume `pulumi:"volumes"`
 }
@@ -4533,14 +5711,18 @@ type GetAppTemplateInput interface {
 }
 
 type GetAppTemplateArgs struct {
+	AzureQueueScaleRules GetAppTemplateAzureQueueScaleRuleArrayInput `pulumi:"azureQueueScaleRules"`
 	// One or more `container` blocks as detailed below.
-	Containers GetAppTemplateContainerArrayInput `pulumi:"containers"`
+	Containers       GetAppTemplateContainerArrayInput       `pulumi:"containers"`
+	CustomScaleRules GetAppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
+	HttpScaleRules   GetAppTemplateHttpScaleRuleArrayInput   `pulumi:"httpScaleRules"`
 	// The maximum number of replicas for this container.
 	MaxReplicas pulumi.IntInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
 	MinReplicas pulumi.IntInput `pulumi:"minReplicas"`
 	// The suffix string to which this `trafficWeight` applies.
-	RevisionSuffix pulumi.StringInput `pulumi:"revisionSuffix"`
+	RevisionSuffix pulumi.StringInput                   `pulumi:"revisionSuffix"`
+	TcpScaleRules  GetAppTemplateTcpScaleRuleArrayInput `pulumi:"tcpScaleRules"`
 	// A `volume` block as detailed below.
 	Volumes GetAppTemplateVolumeArrayInput `pulumi:"volumes"`
 }
@@ -4614,9 +5796,21 @@ func (o GetAppTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetAp
 	}
 }
 
+func (o GetAppTemplateOutput) AzureQueueScaleRules() GetAppTemplateAzureQueueScaleRuleArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateAzureQueueScaleRule { return v.AzureQueueScaleRules }).(GetAppTemplateAzureQueueScaleRuleArrayOutput)
+}
+
 // One or more `container` blocks as detailed below.
 func (o GetAppTemplateOutput) Containers() GetAppTemplateContainerArrayOutput {
 	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateContainer { return v.Containers }).(GetAppTemplateContainerArrayOutput)
+}
+
+func (o GetAppTemplateOutput) CustomScaleRules() GetAppTemplateCustomScaleRuleArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateCustomScaleRule { return v.CustomScaleRules }).(GetAppTemplateCustomScaleRuleArrayOutput)
+}
+
+func (o GetAppTemplateOutput) HttpScaleRules() GetAppTemplateHttpScaleRuleArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateHttpScaleRule { return v.HttpScaleRules }).(GetAppTemplateHttpScaleRuleArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -4632,6 +5826,10 @@ func (o GetAppTemplateOutput) MinReplicas() pulumi.IntOutput {
 // The suffix string to which this `trafficWeight` applies.
 func (o GetAppTemplateOutput) RevisionSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplate) string { return v.RevisionSuffix }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateOutput) TcpScaleRules() GetAppTemplateTcpScaleRuleArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateTcpScaleRule { return v.TcpScaleRules }).(GetAppTemplateTcpScaleRuleArrayOutput)
 }
 
 // A `volume` block as detailed below.
@@ -4663,6 +5861,274 @@ func (o GetAppTemplateArrayOutput) Index(i pulumi.IntInput) GetAppTemplateOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplate {
 		return vs[0].([]GetAppTemplate)[vs[1].(int)]
 	}).(GetAppTemplateOutput)
+}
+
+type GetAppTemplateAzureQueueScaleRule struct {
+	Authentications []GetAppTemplateAzureQueueScaleRuleAuthentication `pulumi:"authentications"`
+	// The name of the Container App.
+	Name        string `pulumi:"name"`
+	QueueLength int    `pulumi:"queueLength"`
+	QueueName   string `pulumi:"queueName"`
+}
+
+// GetAppTemplateAzureQueueScaleRuleInput is an input type that accepts GetAppTemplateAzureQueueScaleRuleArgs and GetAppTemplateAzureQueueScaleRuleOutput values.
+// You can construct a concrete instance of `GetAppTemplateAzureQueueScaleRuleInput` via:
+//
+//	GetAppTemplateAzureQueueScaleRuleArgs{...}
+type GetAppTemplateAzureQueueScaleRuleInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateAzureQueueScaleRuleOutput() GetAppTemplateAzureQueueScaleRuleOutput
+	ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(context.Context) GetAppTemplateAzureQueueScaleRuleOutput
+}
+
+type GetAppTemplateAzureQueueScaleRuleArgs struct {
+	Authentications GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	// The name of the Container App.
+	Name        pulumi.StringInput `pulumi:"name"`
+	QueueLength pulumi.IntInput    `pulumi:"queueLength"`
+	QueueName   pulumi.StringInput `pulumi:"queueName"`
+}
+
+func (GetAppTemplateAzureQueueScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleArgs) ToGetAppTemplateAzureQueueScaleRuleOutput() GetAppTemplateAzureQueueScaleRuleOutput {
+	return i.ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleArgs) ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleOutput)
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[GetAppTemplateAzureQueueScaleRule]{
+		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateAzureQueueScaleRuleArrayInput is an input type that accepts GetAppTemplateAzureQueueScaleRuleArray and GetAppTemplateAzureQueueScaleRuleArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateAzureQueueScaleRuleArrayInput` via:
+//
+//	GetAppTemplateAzureQueueScaleRuleArray{ GetAppTemplateAzureQueueScaleRuleArgs{...} }
+type GetAppTemplateAzureQueueScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateAzureQueueScaleRuleArrayOutput() GetAppTemplateAzureQueueScaleRuleArrayOutput
+	ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(context.Context) GetAppTemplateAzureQueueScaleRuleArrayOutput
+}
+
+type GetAppTemplateAzureQueueScaleRuleArray []GetAppTemplateAzureQueueScaleRuleInput
+
+func (GetAppTemplateAzureQueueScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleArray) ToGetAppTemplateAzureQueueScaleRuleArrayOutput() GetAppTemplateAzureQueueScaleRuleArrayOutput {
+	return i.ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleArray) ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleArrayOutput)
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRule]{
+		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateAzureQueueScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateAzureQueueScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleOutput) ToGetAppTemplateAzureQueueScaleRuleOutput() GetAppTemplateAzureQueueScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleOutput) ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[GetAppTemplateAzureQueueScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleOutput) Authentications() GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateAzureQueueScaleRule) []GetAppTemplateAzureQueueScaleRuleAuthentication {
+		return v.Authentications
+	}).(GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput)
+}
+
+// The name of the Container App.
+func (o GetAppTemplateAzureQueueScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateAzureQueueScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleOutput) QueueLength() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateAzureQueueScaleRule) int { return v.QueueLength }).(pulumi.IntOutput)
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleOutput) QueueName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateAzureQueueScaleRule) string { return v.QueueName }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateAzureQueueScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateAzureQueueScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateAzureQueueScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) ToGetAppTemplateAzureQueueScaleRuleArrayOutput() GetAppTemplateAzureQueueScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRule] {
+	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateAzureQueueScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateAzureQueueScaleRule {
+		return vs[0].([]GetAppTemplateAzureQueueScaleRule)[vs[1].(int)]
+	}).(GetAppTemplateAzureQueueScaleRuleOutput)
+}
+
+type GetAppTemplateAzureQueueScaleRuleAuthentication struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       string `pulumi:"secretName"`
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// GetAppTemplateAzureQueueScaleRuleAuthenticationInput is an input type that accepts GetAppTemplateAzureQueueScaleRuleAuthenticationArgs and GetAppTemplateAzureQueueScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `GetAppTemplateAzureQueueScaleRuleAuthenticationInput` via:
+//
+//	GetAppTemplateAzureQueueScaleRuleAuthenticationArgs{...}
+type GetAppTemplateAzureQueueScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutput() GetAppTemplateAzureQueueScaleRuleAuthenticationOutput
+	ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationOutput
+}
+
+type GetAppTemplateAzureQueueScaleRuleAuthenticationArgs struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       pulumi.StringInput `pulumi:"secretName"`
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (GetAppTemplateAzureQueueScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArgs) ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutput() GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return i.ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArgs) ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleAuthenticationOutput)
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateAzureQueueScaleRuleAuthenticationArray and GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput` via:
+//
+//	GetAppTemplateAzureQueueScaleRuleAuthenticationArray{ GetAppTemplateAzureQueueScaleRuleAuthenticationArgs{...} }
+type GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput() GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput
+	ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput
+}
+
+type GetAppTemplateAzureQueueScaleRuleAuthenticationArray []GetAppTemplateAzureQueueScaleRuleAuthenticationInput
+
+func (GetAppTemplateAzureQueueScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArray) ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput() GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return i.ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArray) ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput)
+}
+
+func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateAzureQueueScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutput() GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateAzureQueueScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateAzureQueueScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateAzureQueueScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput() GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateAzureQueueScaleRuleAuthentication {
+		return vs[0].([]GetAppTemplateAzureQueueScaleRuleAuthentication)[vs[1].(int)]
+	}).(GetAppTemplateAzureQueueScaleRuleAuthenticationOutput)
 }
 
 type GetAppTemplateContainer struct {
@@ -6138,13 +7604,805 @@ func (o GetAppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetAppTemplateContainerVolumeMountOutput)
 }
 
+type GetAppTemplateCustomScaleRule struct {
+	Authentications []GetAppTemplateCustomScaleRuleAuthentication `pulumi:"authentications"`
+	CustomRuleType  string                                        `pulumi:"customRuleType"`
+	Metadata        map[string]string                             `pulumi:"metadata"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+}
+
+// GetAppTemplateCustomScaleRuleInput is an input type that accepts GetAppTemplateCustomScaleRuleArgs and GetAppTemplateCustomScaleRuleOutput values.
+// You can construct a concrete instance of `GetAppTemplateCustomScaleRuleInput` via:
+//
+//	GetAppTemplateCustomScaleRuleArgs{...}
+type GetAppTemplateCustomScaleRuleInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateCustomScaleRuleOutput() GetAppTemplateCustomScaleRuleOutput
+	ToGetAppTemplateCustomScaleRuleOutputWithContext(context.Context) GetAppTemplateCustomScaleRuleOutput
+}
+
+type GetAppTemplateCustomScaleRuleArgs struct {
+	Authentications GetAppTemplateCustomScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	CustomRuleType  pulumi.StringInput                                    `pulumi:"customRuleType"`
+	Metadata        pulumi.StringMapInput                                 `pulumi:"metadata"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAppTemplateCustomScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateCustomScaleRuleArgs) ToGetAppTemplateCustomScaleRuleOutput() GetAppTemplateCustomScaleRuleOutput {
+	return i.ToGetAppTemplateCustomScaleRuleOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateCustomScaleRuleArgs) ToGetAppTemplateCustomScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleOutput)
+}
+
+func (i GetAppTemplateCustomScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRule] {
+	return pulumix.Output[GetAppTemplateCustomScaleRule]{
+		OutputState: i.ToGetAppTemplateCustomScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateCustomScaleRuleArrayInput is an input type that accepts GetAppTemplateCustomScaleRuleArray and GetAppTemplateCustomScaleRuleArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateCustomScaleRuleArrayInput` via:
+//
+//	GetAppTemplateCustomScaleRuleArray{ GetAppTemplateCustomScaleRuleArgs{...} }
+type GetAppTemplateCustomScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateCustomScaleRuleArrayOutput() GetAppTemplateCustomScaleRuleArrayOutput
+	ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(context.Context) GetAppTemplateCustomScaleRuleArrayOutput
+}
+
+type GetAppTemplateCustomScaleRuleArray []GetAppTemplateCustomScaleRuleInput
+
+func (GetAppTemplateCustomScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateCustomScaleRuleArray) ToGetAppTemplateCustomScaleRuleArrayOutput() GetAppTemplateCustomScaleRuleArrayOutput {
+	return i.ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateCustomScaleRuleArray) ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleArrayOutput)
+}
+
+func (i GetAppTemplateCustomScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRule] {
+	return pulumix.Output[[]GetAppTemplateCustomScaleRule]{
+		OutputState: i.ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateCustomScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateCustomScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateCustomScaleRuleOutput) ToGetAppTemplateCustomScaleRuleOutput() GetAppTemplateCustomScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleOutput) ToGetAppTemplateCustomScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRule] {
+	return pulumix.Output[GetAppTemplateCustomScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateCustomScaleRuleOutput) Authentications() GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRule) []GetAppTemplateCustomScaleRuleAuthentication {
+		return v.Authentications
+	}).(GetAppTemplateCustomScaleRuleAuthenticationArrayOutput)
+}
+
+func (o GetAppTemplateCustomScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateCustomScaleRuleOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRule) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the Container App.
+func (o GetAppTemplateCustomScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateCustomScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateCustomScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateCustomScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateCustomScaleRuleArrayOutput) ToGetAppTemplateCustomScaleRuleArrayOutput() GetAppTemplateCustomScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleArrayOutput) ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRule] {
+	return pulumix.Output[[]GetAppTemplateCustomScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateCustomScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateCustomScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateCustomScaleRule {
+		return vs[0].([]GetAppTemplateCustomScaleRule)[vs[1].(int)]
+	}).(GetAppTemplateCustomScaleRuleOutput)
+}
+
+type GetAppTemplateCustomScaleRuleAuthentication struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       string `pulumi:"secretName"`
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// GetAppTemplateCustomScaleRuleAuthenticationInput is an input type that accepts GetAppTemplateCustomScaleRuleAuthenticationArgs and GetAppTemplateCustomScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `GetAppTemplateCustomScaleRuleAuthenticationInput` via:
+//
+//	GetAppTemplateCustomScaleRuleAuthenticationArgs{...}
+type GetAppTemplateCustomScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateCustomScaleRuleAuthenticationOutput() GetAppTemplateCustomScaleRuleAuthenticationOutput
+	ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(context.Context) GetAppTemplateCustomScaleRuleAuthenticationOutput
+}
+
+type GetAppTemplateCustomScaleRuleAuthenticationArgs struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       pulumi.StringInput `pulumi:"secretName"`
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (GetAppTemplateCustomScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateCustomScaleRuleAuthenticationArgs) ToGetAppTemplateCustomScaleRuleAuthenticationOutput() GetAppTemplateCustomScaleRuleAuthenticationOutput {
+	return i.ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateCustomScaleRuleAuthenticationArgs) ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleAuthenticationOutput)
+}
+
+func (i GetAppTemplateCustomScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateCustomScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateCustomScaleRuleAuthenticationArray and GetAppTemplateCustomScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateCustomScaleRuleAuthenticationArrayInput` via:
+//
+//	GetAppTemplateCustomScaleRuleAuthenticationArray{ GetAppTemplateCustomScaleRuleAuthenticationArgs{...} }
+type GetAppTemplateCustomScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutput() GetAppTemplateCustomScaleRuleAuthenticationArrayOutput
+	ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(context.Context) GetAppTemplateCustomScaleRuleAuthenticationArrayOutput
+}
+
+type GetAppTemplateCustomScaleRuleAuthenticationArray []GetAppTemplateCustomScaleRuleAuthenticationInput
+
+func (GetAppTemplateCustomScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateCustomScaleRuleAuthenticationArray) ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutput() GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return i.ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateCustomScaleRuleAuthenticationArray) ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleAuthenticationArrayOutput)
+}
+
+func (i GetAppTemplateCustomScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateCustomScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateCustomScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) ToGetAppTemplateCustomScaleRuleAuthenticationOutput() GetAppTemplateCustomScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateCustomScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateCustomScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutput() GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateCustomScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateCustomScaleRuleAuthentication {
+		return vs[0].([]GetAppTemplateCustomScaleRuleAuthentication)[vs[1].(int)]
+	}).(GetAppTemplateCustomScaleRuleAuthenticationOutput)
+}
+
+type GetAppTemplateHttpScaleRule struct {
+	Authentications    []GetAppTemplateHttpScaleRuleAuthentication `pulumi:"authentications"`
+	ConcurrentRequests string                                      `pulumi:"concurrentRequests"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+}
+
+// GetAppTemplateHttpScaleRuleInput is an input type that accepts GetAppTemplateHttpScaleRuleArgs and GetAppTemplateHttpScaleRuleOutput values.
+// You can construct a concrete instance of `GetAppTemplateHttpScaleRuleInput` via:
+//
+//	GetAppTemplateHttpScaleRuleArgs{...}
+type GetAppTemplateHttpScaleRuleInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateHttpScaleRuleOutput() GetAppTemplateHttpScaleRuleOutput
+	ToGetAppTemplateHttpScaleRuleOutputWithContext(context.Context) GetAppTemplateHttpScaleRuleOutput
+}
+
+type GetAppTemplateHttpScaleRuleArgs struct {
+	Authentications    GetAppTemplateHttpScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	ConcurrentRequests pulumi.StringInput                                  `pulumi:"concurrentRequests"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAppTemplateHttpScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateHttpScaleRuleArgs) ToGetAppTemplateHttpScaleRuleOutput() GetAppTemplateHttpScaleRuleOutput {
+	return i.ToGetAppTemplateHttpScaleRuleOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateHttpScaleRuleArgs) ToGetAppTemplateHttpScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleOutput)
+}
+
+func (i GetAppTemplateHttpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRule] {
+	return pulumix.Output[GetAppTemplateHttpScaleRule]{
+		OutputState: i.ToGetAppTemplateHttpScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateHttpScaleRuleArrayInput is an input type that accepts GetAppTemplateHttpScaleRuleArray and GetAppTemplateHttpScaleRuleArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateHttpScaleRuleArrayInput` via:
+//
+//	GetAppTemplateHttpScaleRuleArray{ GetAppTemplateHttpScaleRuleArgs{...} }
+type GetAppTemplateHttpScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateHttpScaleRuleArrayOutput() GetAppTemplateHttpScaleRuleArrayOutput
+	ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(context.Context) GetAppTemplateHttpScaleRuleArrayOutput
+}
+
+type GetAppTemplateHttpScaleRuleArray []GetAppTemplateHttpScaleRuleInput
+
+func (GetAppTemplateHttpScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateHttpScaleRuleArray) ToGetAppTemplateHttpScaleRuleArrayOutput() GetAppTemplateHttpScaleRuleArrayOutput {
+	return i.ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateHttpScaleRuleArray) ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleArrayOutput)
+}
+
+func (i GetAppTemplateHttpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRule] {
+	return pulumix.Output[[]GetAppTemplateHttpScaleRule]{
+		OutputState: i.ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateHttpScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateHttpScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateHttpScaleRuleOutput) ToGetAppTemplateHttpScaleRuleOutput() GetAppTemplateHttpScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleOutput) ToGetAppTemplateHttpScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRule] {
+	return pulumix.Output[GetAppTemplateHttpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateHttpScaleRuleOutput) Authentications() GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateHttpScaleRule) []GetAppTemplateHttpScaleRuleAuthentication {
+		return v.Authentications
+	}).(GetAppTemplateHttpScaleRuleAuthenticationArrayOutput)
+}
+
+func (o GetAppTemplateHttpScaleRuleOutput) ConcurrentRequests() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateHttpScaleRule) string { return v.ConcurrentRequests }).(pulumi.StringOutput)
+}
+
+// The name of the Container App.
+func (o GetAppTemplateHttpScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateHttpScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateHttpScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateHttpScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateHttpScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateHttpScaleRuleArrayOutput) ToGetAppTemplateHttpScaleRuleArrayOutput() GetAppTemplateHttpScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleArrayOutput) ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRule] {
+	return pulumix.Output[[]GetAppTemplateHttpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateHttpScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateHttpScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateHttpScaleRule {
+		return vs[0].([]GetAppTemplateHttpScaleRule)[vs[1].(int)]
+	}).(GetAppTemplateHttpScaleRuleOutput)
+}
+
+type GetAppTemplateHttpScaleRuleAuthentication struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       string `pulumi:"secretName"`
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// GetAppTemplateHttpScaleRuleAuthenticationInput is an input type that accepts GetAppTemplateHttpScaleRuleAuthenticationArgs and GetAppTemplateHttpScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `GetAppTemplateHttpScaleRuleAuthenticationInput` via:
+//
+//	GetAppTemplateHttpScaleRuleAuthenticationArgs{...}
+type GetAppTemplateHttpScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateHttpScaleRuleAuthenticationOutput() GetAppTemplateHttpScaleRuleAuthenticationOutput
+	ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(context.Context) GetAppTemplateHttpScaleRuleAuthenticationOutput
+}
+
+type GetAppTemplateHttpScaleRuleAuthenticationArgs struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       pulumi.StringInput `pulumi:"secretName"`
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (GetAppTemplateHttpScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateHttpScaleRuleAuthenticationArgs) ToGetAppTemplateHttpScaleRuleAuthenticationOutput() GetAppTemplateHttpScaleRuleAuthenticationOutput {
+	return i.ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateHttpScaleRuleAuthenticationArgs) ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleAuthenticationOutput)
+}
+
+func (i GetAppTemplateHttpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateHttpScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateHttpScaleRuleAuthenticationArray and GetAppTemplateHttpScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateHttpScaleRuleAuthenticationArrayInput` via:
+//
+//	GetAppTemplateHttpScaleRuleAuthenticationArray{ GetAppTemplateHttpScaleRuleAuthenticationArgs{...} }
+type GetAppTemplateHttpScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutput() GetAppTemplateHttpScaleRuleAuthenticationArrayOutput
+	ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(context.Context) GetAppTemplateHttpScaleRuleAuthenticationArrayOutput
+}
+
+type GetAppTemplateHttpScaleRuleAuthenticationArray []GetAppTemplateHttpScaleRuleAuthenticationInput
+
+func (GetAppTemplateHttpScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateHttpScaleRuleAuthenticationArray) ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutput() GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return i.ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateHttpScaleRuleAuthenticationArray) ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleAuthenticationArrayOutput)
+}
+
+func (i GetAppTemplateHttpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateHttpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateHttpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) ToGetAppTemplateHttpScaleRuleAuthenticationOutput() GetAppTemplateHttpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateHttpScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateHttpScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateHttpScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateHttpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutput() GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateHttpScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateHttpScaleRuleAuthentication {
+		return vs[0].([]GetAppTemplateHttpScaleRuleAuthentication)[vs[1].(int)]
+	}).(GetAppTemplateHttpScaleRuleAuthenticationOutput)
+}
+
+type GetAppTemplateTcpScaleRule struct {
+	Authentications    []GetAppTemplateTcpScaleRuleAuthentication `pulumi:"authentications"`
+	ConcurrentRequests string                                     `pulumi:"concurrentRequests"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+}
+
+// GetAppTemplateTcpScaleRuleInput is an input type that accepts GetAppTemplateTcpScaleRuleArgs and GetAppTemplateTcpScaleRuleOutput values.
+// You can construct a concrete instance of `GetAppTemplateTcpScaleRuleInput` via:
+//
+//	GetAppTemplateTcpScaleRuleArgs{...}
+type GetAppTemplateTcpScaleRuleInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateTcpScaleRuleOutput() GetAppTemplateTcpScaleRuleOutput
+	ToGetAppTemplateTcpScaleRuleOutputWithContext(context.Context) GetAppTemplateTcpScaleRuleOutput
+}
+
+type GetAppTemplateTcpScaleRuleArgs struct {
+	Authentications    GetAppTemplateTcpScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
+	ConcurrentRequests pulumi.StringInput                                 `pulumi:"concurrentRequests"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAppTemplateTcpScaleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateTcpScaleRuleArgs) ToGetAppTemplateTcpScaleRuleOutput() GetAppTemplateTcpScaleRuleOutput {
+	return i.ToGetAppTemplateTcpScaleRuleOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateTcpScaleRuleArgs) ToGetAppTemplateTcpScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleOutput)
+}
+
+func (i GetAppTemplateTcpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRule] {
+	return pulumix.Output[GetAppTemplateTcpScaleRule]{
+		OutputState: i.ToGetAppTemplateTcpScaleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateTcpScaleRuleArrayInput is an input type that accepts GetAppTemplateTcpScaleRuleArray and GetAppTemplateTcpScaleRuleArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateTcpScaleRuleArrayInput` via:
+//
+//	GetAppTemplateTcpScaleRuleArray{ GetAppTemplateTcpScaleRuleArgs{...} }
+type GetAppTemplateTcpScaleRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateTcpScaleRuleArrayOutput() GetAppTemplateTcpScaleRuleArrayOutput
+	ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(context.Context) GetAppTemplateTcpScaleRuleArrayOutput
+}
+
+type GetAppTemplateTcpScaleRuleArray []GetAppTemplateTcpScaleRuleInput
+
+func (GetAppTemplateTcpScaleRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (i GetAppTemplateTcpScaleRuleArray) ToGetAppTemplateTcpScaleRuleArrayOutput() GetAppTemplateTcpScaleRuleArrayOutput {
+	return i.ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateTcpScaleRuleArray) ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleArrayOutput)
+}
+
+func (i GetAppTemplateTcpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRule] {
+	return pulumix.Output[[]GetAppTemplateTcpScaleRule]{
+		OutputState: i.ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateTcpScaleRuleOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateTcpScaleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateTcpScaleRuleOutput) ToGetAppTemplateTcpScaleRuleOutput() GetAppTemplateTcpScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleOutput) ToGetAppTemplateTcpScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRule] {
+	return pulumix.Output[GetAppTemplateTcpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateTcpScaleRuleOutput) Authentications() GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateTcpScaleRule) []GetAppTemplateTcpScaleRuleAuthentication {
+		return v.Authentications
+	}).(GetAppTemplateTcpScaleRuleAuthenticationArrayOutput)
+}
+
+func (o GetAppTemplateTcpScaleRuleOutput) ConcurrentRequests() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateTcpScaleRule) string { return v.ConcurrentRequests }).(pulumi.StringOutput)
+}
+
+// The name of the Container App.
+func (o GetAppTemplateTcpScaleRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateTcpScaleRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateTcpScaleRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateTcpScaleRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateTcpScaleRule)(nil)).Elem()
+}
+
+func (o GetAppTemplateTcpScaleRuleArrayOutput) ToGetAppTemplateTcpScaleRuleArrayOutput() GetAppTemplateTcpScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleArrayOutput) ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRule] {
+	return pulumix.Output[[]GetAppTemplateTcpScaleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateTcpScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateTcpScaleRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateTcpScaleRule {
+		return vs[0].([]GetAppTemplateTcpScaleRule)[vs[1].(int)]
+	}).(GetAppTemplateTcpScaleRuleOutput)
+}
+
+type GetAppTemplateTcpScaleRuleAuthentication struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       string `pulumi:"secretName"`
+	TriggerParameter string `pulumi:"triggerParameter"`
+}
+
+// GetAppTemplateTcpScaleRuleAuthenticationInput is an input type that accepts GetAppTemplateTcpScaleRuleAuthenticationArgs and GetAppTemplateTcpScaleRuleAuthenticationOutput values.
+// You can construct a concrete instance of `GetAppTemplateTcpScaleRuleAuthenticationInput` via:
+//
+//	GetAppTemplateTcpScaleRuleAuthenticationArgs{...}
+type GetAppTemplateTcpScaleRuleAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateTcpScaleRuleAuthenticationOutput() GetAppTemplateTcpScaleRuleAuthenticationOutput
+	ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(context.Context) GetAppTemplateTcpScaleRuleAuthenticationOutput
+}
+
+type GetAppTemplateTcpScaleRuleAuthenticationArgs struct {
+	// The name of the secret that contains the value for this environment variable.
+	SecretName       pulumi.StringInput `pulumi:"secretName"`
+	TriggerParameter pulumi.StringInput `pulumi:"triggerParameter"`
+}
+
+func (GetAppTemplateTcpScaleRuleAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateTcpScaleRuleAuthenticationArgs) ToGetAppTemplateTcpScaleRuleAuthenticationOutput() GetAppTemplateTcpScaleRuleAuthenticationOutput {
+	return i.ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateTcpScaleRuleAuthenticationArgs) ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleAuthenticationOutput)
+}
+
+func (i GetAppTemplateTcpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetAppTemplateTcpScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateTcpScaleRuleAuthenticationArray and GetAppTemplateTcpScaleRuleAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateTcpScaleRuleAuthenticationArrayInput` via:
+//
+//	GetAppTemplateTcpScaleRuleAuthenticationArray{ GetAppTemplateTcpScaleRuleAuthenticationArgs{...} }
+type GetAppTemplateTcpScaleRuleAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutput() GetAppTemplateTcpScaleRuleAuthenticationArrayOutput
+	ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(context.Context) GetAppTemplateTcpScaleRuleAuthenticationArrayOutput
+}
+
+type GetAppTemplateTcpScaleRuleAuthenticationArray []GetAppTemplateTcpScaleRuleAuthenticationInput
+
+func (GetAppTemplateTcpScaleRuleAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (i GetAppTemplateTcpScaleRuleAuthenticationArray) ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutput() GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return i.ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateTcpScaleRuleAuthenticationArray) ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleAuthenticationArrayOutput)
+}
+
+func (i GetAppTemplateTcpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication]{
+		OutputState: i.ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetAppTemplateTcpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateTcpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) ToGetAppTemplateTcpScaleRuleAuthenticationOutput() GetAppTemplateTcpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleAuthenticationOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateTcpScaleRuleAuthentication) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) TriggerParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateTcpScaleRuleAuthentication) string { return v.TriggerParameter }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateTcpScaleRuleAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateTcpScaleRuleAuthentication)(nil)).Elem()
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutput() GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication] {
+	return pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateTcpScaleRuleAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateTcpScaleRuleAuthentication {
+		return vs[0].([]GetAppTemplateTcpScaleRuleAuthentication)[vs[1].(int)]
+	}).(GetAppTemplateTcpScaleRuleAuthenticationOutput)
+}
+
 type GetAppTemplateVolume struct {
 	// The name of the Container App.
 	Name string `pulumi:"name"`
 	// The name of the `AzureFile` storage.
-	StorageName *string `pulumi:"storageName"`
+	StorageName string `pulumi:"storageName"`
 	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
-	StorageType *string `pulumi:"storageType"`
+	StorageType string `pulumi:"storageType"`
 }
 
 // GetAppTemplateVolumeInput is an input type that accepts GetAppTemplateVolumeArgs and GetAppTemplateVolumeOutput values.
@@ -6162,9 +8420,9 @@ type GetAppTemplateVolumeArgs struct {
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the `AzureFile` storage.
-	StorageName pulumi.StringPtrInput `pulumi:"storageName"`
+	StorageName pulumi.StringInput `pulumi:"storageName"`
 	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
-	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 }
 
 func (GetAppTemplateVolumeArgs) ElementType() reflect.Type {
@@ -6242,13 +8500,13 @@ func (o GetAppTemplateVolumeOutput) Name() pulumi.StringOutput {
 }
 
 // The name of the `AzureFile` storage.
-func (o GetAppTemplateVolumeOutput) StorageName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAppTemplateVolume) *string { return v.StorageName }).(pulumi.StringPtrOutput)
+func (o GetAppTemplateVolumeOutput) StorageName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateVolume) string { return v.StorageName }).(pulumi.StringOutput)
 }
 
 // The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
-func (o GetAppTemplateVolumeOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAppTemplateVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+func (o GetAppTemplateVolumeOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateVolume) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
 type GetAppTemplateVolumeArrayOutput struct{ *pulumi.OutputState }
@@ -6294,6 +8552,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSecretArrayInput)(nil)).Elem(), AppSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInput)(nil)).Elem(), AppTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplatePtrInput)(nil)).Elem(), AppTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateAzureQueueScaleRuleInput)(nil)).Elem(), AppTemplateAzureQueueScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateAzureQueueScaleRuleArrayInput)(nil)).Elem(), AppTemplateAzureQueueScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateAzureQueueScaleRuleAuthenticationInput)(nil)).Elem(), AppTemplateAzureQueueScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateAzureQueueScaleRuleAuthenticationArrayInput)(nil)).Elem(), AppTemplateAzureQueueScaleRuleAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerInput)(nil)).Elem(), AppTemplateContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerArrayInput)(nil)).Elem(), AppTemplateContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerEnvInput)(nil)).Elem(), AppTemplateContainerEnvArgs{})
@@ -6312,6 +8574,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerStartupProbeHeaderArrayInput)(nil)).Elem(), AppTemplateContainerStartupProbeHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerVolumeMountInput)(nil)).Elem(), AppTemplateContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateContainerVolumeMountArrayInput)(nil)).Elem(), AppTemplateContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateCustomScaleRuleInput)(nil)).Elem(), AppTemplateCustomScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateCustomScaleRuleArrayInput)(nil)).Elem(), AppTemplateCustomScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateCustomScaleRuleAuthenticationInput)(nil)).Elem(), AppTemplateCustomScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateCustomScaleRuleAuthenticationArrayInput)(nil)).Elem(), AppTemplateCustomScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleInput)(nil)).Elem(), AppTemplateHttpScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleArrayInput)(nil)).Elem(), AppTemplateHttpScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleAuthenticationInput)(nil)).Elem(), AppTemplateHttpScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleAuthenticationArrayInput)(nil)).Elem(), AppTemplateHttpScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleInput)(nil)).Elem(), AppTemplateTcpScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleArrayInput)(nil)).Elem(), AppTemplateTcpScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleAuthenticationInput)(nil)).Elem(), AppTemplateTcpScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleAuthenticationArrayInput)(nil)).Elem(), AppTemplateTcpScaleRuleAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateVolumeInput)(nil)).Elem(), AppTemplateVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateVolumeArrayInput)(nil)).Elem(), AppTemplateVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentMetadataInput)(nil)).Elem(), EnvironmentDaprComponentMetadataArgs{})
@@ -6334,6 +8608,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppSecretArrayInput)(nil)).Elem(), GetAppSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInput)(nil)).Elem(), GetAppTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateArrayInput)(nil)).Elem(), GetAppTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateAzureQueueScaleRuleInput)(nil)).Elem(), GetAppTemplateAzureQueueScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateAzureQueueScaleRuleArrayInput)(nil)).Elem(), GetAppTemplateAzureQueueScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateAzureQueueScaleRuleAuthenticationInput)(nil)).Elem(), GetAppTemplateAzureQueueScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput)(nil)).Elem(), GetAppTemplateAzureQueueScaleRuleAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerInput)(nil)).Elem(), GetAppTemplateContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerArrayInput)(nil)).Elem(), GetAppTemplateContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerEnvInput)(nil)).Elem(), GetAppTemplateContainerEnvArgs{})
@@ -6352,6 +8630,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerStartupProbeHeaderArrayInput)(nil)).Elem(), GetAppTemplateContainerStartupProbeHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerVolumeMountInput)(nil)).Elem(), GetAppTemplateContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerVolumeMountArrayInput)(nil)).Elem(), GetAppTemplateContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateCustomScaleRuleInput)(nil)).Elem(), GetAppTemplateCustomScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateCustomScaleRuleArrayInput)(nil)).Elem(), GetAppTemplateCustomScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateCustomScaleRuleAuthenticationInput)(nil)).Elem(), GetAppTemplateCustomScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateCustomScaleRuleAuthenticationArrayInput)(nil)).Elem(), GetAppTemplateCustomScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleArrayInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleAuthenticationInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleAuthenticationArrayInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleArrayInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleAuthenticationInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleAuthenticationArrayInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateVolumeInput)(nil)).Elem(), GetAppTemplateVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateVolumeArrayInput)(nil)).Elem(), GetAppTemplateVolumeArray{})
 	pulumi.RegisterOutputType(AppDaprOutput{})
@@ -6370,6 +8660,10 @@ func init() {
 	pulumi.RegisterOutputType(AppSecretArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateOutput{})
 	pulumi.RegisterOutputType(AppTemplatePtrOutput{})
+	pulumi.RegisterOutputType(AppTemplateAzureQueueScaleRuleOutput{})
+	pulumi.RegisterOutputType(AppTemplateAzureQueueScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateAzureQueueScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerEnvOutput{})
@@ -6388,6 +8682,18 @@ func init() {
 	pulumi.RegisterOutputType(AppTemplateContainerStartupProbeHeaderArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(AppTemplateContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateCustomScaleRuleOutput{})
+	pulumi.RegisterOutputType(AppTemplateCustomScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateCustomScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(AppTemplateCustomScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleOutput{})
+	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleOutput{})
+	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateVolumeOutput{})
 	pulumi.RegisterOutputType(AppTemplateVolumeArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentMetadataOutput{})
@@ -6410,6 +8716,10 @@ func init() {
 	pulumi.RegisterOutputType(GetAppSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateAzureQueueScaleRuleOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateAzureQueueScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateAzureQueueScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateContainerOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateContainerArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateContainerEnvOutput{})
@@ -6428,6 +8738,18 @@ func init() {
 	pulumi.RegisterOutputType(GetAppTemplateContainerStartupProbeHeaderArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateCustomScaleRuleOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateCustomScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateCustomScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateCustomScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateVolumeOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateVolumeArrayOutput{})
 }

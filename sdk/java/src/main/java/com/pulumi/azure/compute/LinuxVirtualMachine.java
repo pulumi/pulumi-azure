@@ -147,7 +147,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A `additional_capabilities` block as defined below.
      * 
      */
-    @Export(name="additionalCapabilities", refs={LinuxVirtualMachineAdditionalCapabilities.class}, tree="[0]")
+    @Export(name="additionalCapabilities", type=LinuxVirtualMachineAdditionalCapabilities.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineAdditionalCapabilities> additionalCapabilities;
 
     /**
@@ -164,7 +164,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
-    @Export(name="adminPassword", refs={String.class}, tree="[0]")
+    @Export(name="adminPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> adminPassword;
 
     /**
@@ -183,7 +183,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
-    @Export(name="adminSshKeys", refs={List.class,LinuxVirtualMachineAdminSshKey.class}, tree="[0,1]")
+    @Export(name="adminSshKeys", type=List.class, parameters={LinuxVirtualMachineAdminSshKey.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineAdminSshKey>> adminSshKeys;
 
     /**
@@ -199,7 +199,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="adminUsername", refs={String.class}, tree="[0]")
+    @Export(name="adminUsername", type=String.class, parameters={})
     private Output<String> adminUsername;
 
     /**
@@ -213,7 +213,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
-    @Export(name="allowExtensionOperations", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowExtensionOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowExtensionOperations;
 
     /**
@@ -227,7 +227,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="availabilitySetId", refs={String.class}, tree="[0]")
+    @Export(name="availabilitySetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> availabilitySetId;
 
     /**
@@ -241,7 +241,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A `boot_diagnostics` block as defined below.
      * 
      */
-    @Export(name="bootDiagnostics", refs={LinuxVirtualMachineBootDiagnostics.class}, tree="[0]")
+    @Export(name="bootDiagnostics", type=LinuxVirtualMachineBootDiagnostics.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineBootDiagnostics> bootDiagnostics;
 
     /**
@@ -257,7 +257,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
-    @Export(name="bypassPlatformSafetyChecksOnUserScheduleEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="bypassPlatformSafetyChecksOnUserScheduleEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> bypassPlatformSafetyChecksOnUserScheduleEnabled;
 
     /**
@@ -275,7 +275,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
      * 
      */
-    @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
@@ -291,7 +291,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="computerName", refs={String.class}, tree="[0]")
+    @Export(name="computerName", type=String.class, parameters={})
     private Output<String> computerName;
 
     /**
@@ -305,7 +305,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customData", refs={String.class}, tree="[0]")
+    @Export(name="customData", type=String.class, parameters={})
     private Output</* @Nullable */ String> customData;
 
     /**
@@ -319,7 +319,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
      * 
      */
-    @Export(name="dedicatedHostGroupId", refs={String.class}, tree="[0]")
+    @Export(name="dedicatedHostGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dedicatedHostGroupId;
 
     /**
@@ -333,7 +333,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
      * 
      */
-    @Export(name="dedicatedHostId", refs={String.class}, tree="[0]")
+    @Export(name="dedicatedHostId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dedicatedHostId;
 
     /**
@@ -351,7 +351,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
-    @Export(name="disablePasswordAuthentication", refs={Boolean.class}, tree="[0]")
+    @Export(name="disablePasswordAuthentication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disablePasswordAuthentication;
 
     /**
@@ -369,7 +369,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
      * 
      */
-    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    @Export(name="edgeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -383,7 +383,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      * 
      */
-    @Export(name="encryptionAtHostEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="encryptionAtHostEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> encryptionAtHostEnabled;
 
     /**
@@ -399,7 +399,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
-    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
+    @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -415,7 +415,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
      * 
      */
-    @Export(name="extensionsTimeBudget", refs={String.class}, tree="[0]")
+    @Export(name="extensionsTimeBudget", type=String.class, parameters={})
     private Output</* @Nullable */ String> extensionsTimeBudget;
 
     /**
@@ -429,7 +429,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * One or more `gallery_application` blocks as defined below.
      * 
      */
-    @Export(name="galleryApplications", refs={List.class,LinuxVirtualMachineGalleryApplication.class}, tree="[0,1]")
+    @Export(name="galleryApplications", type=List.class, parameters={LinuxVirtualMachineGalleryApplication.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineGalleryApplication>> galleryApplications;
 
     /**
@@ -443,7 +443,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={LinuxVirtualMachineIdentity.class}, tree="[0]")
+    @Export(name="identity", type=LinuxVirtualMachineIdentity.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineIdentity> identity;
 
     /**
@@ -457,7 +457,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
      * 
      */
-    @Export(name="licenseType", refs={String.class}, tree="[0]")
+    @Export(name="licenseType", type=String.class, parameters={})
     private Output</* @Nullable */ String> licenseType;
 
     /**
@@ -471,7 +471,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -487,7 +487,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
-    @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
+    @Export(name="maxBidPrice", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
@@ -503,7 +503,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -517,7 +517,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      * 
      */
-    @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="networkInterfaceIds", type=List.class, parameters={String.class})
     private Output<List<String>> networkInterfaceIds;
 
     /**
@@ -531,7 +531,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A `os_disk` block as defined below.
      * 
      */
-    @Export(name="osDisk", refs={LinuxVirtualMachineOsDisk.class}, tree="[0]")
+    @Export(name="osDisk", type=LinuxVirtualMachineOsDisk.class, parameters={})
     private Output<LinuxVirtualMachineOsDisk> osDisk;
 
     /**
@@ -547,7 +547,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
-    @Export(name="patchAssessmentMode", refs={String.class}, tree="[0]")
+    @Export(name="patchAssessmentMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> patchAssessmentMode;
 
     /**
@@ -565,7 +565,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
      * 
      */
-    @Export(name="patchMode", refs={String.class}, tree="[0]")
+    @Export(name="patchMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> patchMode;
 
     /**
@@ -581,7 +581,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="plan", refs={LinuxVirtualMachinePlan.class}, tree="[0]")
+    @Export(name="plan", type=LinuxVirtualMachinePlan.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachinePlan> plan;
 
     /**
@@ -595,7 +595,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
      * 
      */
-    @Export(name="platformFaultDomain", refs={Integer.class}, tree="[0]")
+    @Export(name="platformFaultDomain", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> platformFaultDomain;
 
     /**
@@ -609,7 +609,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="priority", refs={String.class}, tree="[0]")
+    @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -623,7 +623,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Primary Private IP Address assigned to this Virtual Machine.
      * 
      */
-    @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="privateIpAddress", type=String.class, parameters={})
     private Output<String> privateIpAddress;
 
     /**
@@ -637,7 +637,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A list of Private IP Addresses assigned to this Virtual Machine.
      * 
      */
-    @Export(name="privateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="privateIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> privateIpAddresses;
 
     /**
@@ -653,7 +653,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
-    @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
+    @Export(name="provisionVmAgent", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> provisionVmAgent;
 
     /**
@@ -669,7 +669,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      * 
      */
-    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -683,7 +683,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Primary Public IP Address assigned to this Virtual Machine.
      * 
      */
-    @Export(name="publicIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="publicIpAddress", type=String.class, parameters={})
     private Output<String> publicIpAddress;
 
     /**
@@ -697,7 +697,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A list of the Public IP Addresses assigned to this Virtual Machine.
      * 
      */
-    @Export(name="publicIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="publicIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> publicIpAddresses;
 
     /**
@@ -713,7 +713,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
-    @Export(name="rebootSetting", refs={String.class}, tree="[0]")
+    @Export(name="rebootSetting", type=String.class, parameters={})
     private Output</* @Nullable */ String> rebootSetting;
 
     /**
@@ -729,7 +729,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -743,7 +743,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * One or more `secret` blocks as defined below.
      * 
      */
-    @Export(name="secrets", refs={List.class,LinuxVirtualMachineSecret.class}, tree="[0,1]")
+    @Export(name="secrets", type=List.class, parameters={LinuxVirtualMachineSecret.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineSecret>> secrets;
 
     /**
@@ -757,7 +757,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="secureBootEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="secureBootEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> secureBootEnabled;
 
     /**
@@ -771,7 +771,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      * 
      */
-    @Export(name="size", refs={String.class}, tree="[0]")
+    @Export(name="size", type=String.class, parameters={})
     private Output<String> size;
 
     /**
@@ -787,7 +787,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
-    @Export(name="sourceImageId", refs={String.class}, tree="[0]")
+    @Export(name="sourceImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
@@ -805,7 +805,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
-    @Export(name="sourceImageReference", refs={LinuxVirtualMachineSourceImageReference.class}, tree="[0]")
+    @Export(name="sourceImageReference", type=LinuxVirtualMachineSourceImageReference.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineSourceImageReference> sourceImageReference;
 
     /**
@@ -821,7 +821,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to this Virtual Machine.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -835,7 +835,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A `termination_notification` block as defined below.
      * 
      */
-    @Export(name="terminationNotification", refs={LinuxVirtualMachineTerminationNotification.class}, tree="[0]")
+    @Export(name="terminationNotification", type=LinuxVirtualMachineTerminationNotification.class, parameters={})
     private Output<LinuxVirtualMachineTerminationNotification> terminationNotification;
 
     /**
@@ -849,7 +849,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      * 
      */
-    @Export(name="userData", refs={String.class}, tree="[0]")
+    @Export(name="userData", type=String.class, parameters={})
     private Output</* @Nullable */ String> userData;
 
     /**
@@ -863,7 +863,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**
@@ -879,7 +879,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
      */
-    @Export(name="virtualMachineScaleSetId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineScaleSetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualMachineScaleSetId;
 
     /**
@@ -895,7 +895,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vtpmEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="vtpmEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> vtpmEnabled;
 
     /**
@@ -909,7 +909,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      * 
      */
-    @Export(name="zone", refs={String.class}, tree="[0]")
+    @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
     /**

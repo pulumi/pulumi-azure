@@ -3,7 +3,11 @@
 
 package com.pulumi.azure.containerapp.inputs;
 
+import com.pulumi.azure.containerapp.inputs.AppTemplateAzureQueueScaleRuleArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateContainerArgs;
+import com.pulumi.azure.containerapp.inputs.AppTemplateCustomScaleRuleArgs;
+import com.pulumi.azure.containerapp.inputs.AppTemplateHttpScaleRuleArgs;
+import com.pulumi.azure.containerapp.inputs.AppTemplateTcpScaleRuleArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateVolumeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -20,6 +24,21 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppTemplateArgs Empty = new AppTemplateArgs();
 
     /**
+     * One or more `azure_queue_scale_rule` blocks as defined below.
+     * 
+     */
+    @Import(name="azureQueueScaleRules")
+    private @Nullable Output<List<AppTemplateAzureQueueScaleRuleArgs>> azureQueueScaleRules;
+
+    /**
+     * @return One or more `azure_queue_scale_rule` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AppTemplateAzureQueueScaleRuleArgs>>> azureQueueScaleRules() {
+        return Optional.ofNullable(this.azureQueueScaleRules);
+    }
+
+    /**
      * One or more `container` blocks as detailed below.
      * 
      */
@@ -32,6 +51,36 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<List<AppTemplateContainerArgs>> containers() {
         return this.containers;
+    }
+
+    /**
+     * One or more `custom_scale_rule` blocks as defined below.
+     * 
+     */
+    @Import(name="customScaleRules")
+    private @Nullable Output<List<AppTemplateCustomScaleRuleArgs>> customScaleRules;
+
+    /**
+     * @return One or more `custom_scale_rule` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AppTemplateCustomScaleRuleArgs>>> customScaleRules() {
+        return Optional.ofNullable(this.customScaleRules);
+    }
+
+    /**
+     * One or more `http_scale_rule` blocks as defined below.
+     * 
+     */
+    @Import(name="httpScaleRules")
+    private @Nullable Output<List<AppTemplateHttpScaleRuleArgs>> httpScaleRules;
+
+    /**
+     * @return One or more `http_scale_rule` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AppTemplateHttpScaleRuleArgs>>> httpScaleRules() {
+        return Optional.ofNullable(this.httpScaleRules);
     }
 
     /**
@@ -80,6 +129,21 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more `tcp_scale_rule` blocks as defined below.
+     * 
+     */
+    @Import(name="tcpScaleRules")
+    private @Nullable Output<List<AppTemplateTcpScaleRuleArgs>> tcpScaleRules;
+
+    /**
+     * @return One or more `tcp_scale_rule` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AppTemplateTcpScaleRuleArgs>>> tcpScaleRules() {
+        return Optional.ofNullable(this.tcpScaleRules);
+    }
+
+    /**
      * A `volume` block as detailed below.
      * 
      */
@@ -97,10 +161,14 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     private AppTemplateArgs() {}
 
     private AppTemplateArgs(AppTemplateArgs $) {
+        this.azureQueueScaleRules = $.azureQueueScaleRules;
         this.containers = $.containers;
+        this.customScaleRules = $.customScaleRules;
+        this.httpScaleRules = $.httpScaleRules;
         this.maxReplicas = $.maxReplicas;
         this.minReplicas = $.minReplicas;
         this.revisionSuffix = $.revisionSuffix;
+        this.tcpScaleRules = $.tcpScaleRules;
         this.volumes = $.volumes;
     }
 
@@ -120,6 +188,37 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(AppTemplateArgs defaults) {
             $ = new AppTemplateArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param azureQueueScaleRules One or more `azure_queue_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureQueueScaleRules(@Nullable Output<List<AppTemplateAzureQueueScaleRuleArgs>> azureQueueScaleRules) {
+            $.azureQueueScaleRules = azureQueueScaleRules;
+            return this;
+        }
+
+        /**
+         * @param azureQueueScaleRules One or more `azure_queue_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureQueueScaleRules(List<AppTemplateAzureQueueScaleRuleArgs> azureQueueScaleRules) {
+            return azureQueueScaleRules(Output.of(azureQueueScaleRules));
+        }
+
+        /**
+         * @param azureQueueScaleRules One or more `azure_queue_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureQueueScaleRules(AppTemplateAzureQueueScaleRuleArgs... azureQueueScaleRules) {
+            return azureQueueScaleRules(List.of(azureQueueScaleRules));
         }
 
         /**
@@ -151,6 +250,68 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder containers(AppTemplateContainerArgs... containers) {
             return containers(List.of(containers));
+        }
+
+        /**
+         * @param customScaleRules One or more `custom_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customScaleRules(@Nullable Output<List<AppTemplateCustomScaleRuleArgs>> customScaleRules) {
+            $.customScaleRules = customScaleRules;
+            return this;
+        }
+
+        /**
+         * @param customScaleRules One or more `custom_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customScaleRules(List<AppTemplateCustomScaleRuleArgs> customScaleRules) {
+            return customScaleRules(Output.of(customScaleRules));
+        }
+
+        /**
+         * @param customScaleRules One or more `custom_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customScaleRules(AppTemplateCustomScaleRuleArgs... customScaleRules) {
+            return customScaleRules(List.of(customScaleRules));
+        }
+
+        /**
+         * @param httpScaleRules One or more `http_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpScaleRules(@Nullable Output<List<AppTemplateHttpScaleRuleArgs>> httpScaleRules) {
+            $.httpScaleRules = httpScaleRules;
+            return this;
+        }
+
+        /**
+         * @param httpScaleRules One or more `http_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpScaleRules(List<AppTemplateHttpScaleRuleArgs> httpScaleRules) {
+            return httpScaleRules(Output.of(httpScaleRules));
+        }
+
+        /**
+         * @param httpScaleRules One or more `http_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpScaleRules(AppTemplateHttpScaleRuleArgs... httpScaleRules) {
+            return httpScaleRules(List.of(httpScaleRules));
         }
 
         /**
@@ -214,6 +375,37 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder revisionSuffix(String revisionSuffix) {
             return revisionSuffix(Output.of(revisionSuffix));
+        }
+
+        /**
+         * @param tcpScaleRules One or more `tcp_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpScaleRules(@Nullable Output<List<AppTemplateTcpScaleRuleArgs>> tcpScaleRules) {
+            $.tcpScaleRules = tcpScaleRules;
+            return this;
+        }
+
+        /**
+         * @param tcpScaleRules One or more `tcp_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpScaleRules(List<AppTemplateTcpScaleRuleArgs> tcpScaleRules) {
+            return tcpScaleRules(Output.of(tcpScaleRules));
+        }
+
+        /**
+         * @param tcpScaleRules One or more `tcp_scale_rule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpScaleRules(AppTemplateTcpScaleRuleArgs... tcpScaleRules) {
+            return tcpScaleRules(List.of(tcpScaleRules));
         }
 
         /**

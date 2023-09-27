@@ -78,7 +78,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Atlas Kafka endpoint primary connection string.
      * 
      */
-    @Export(name="atlasKafkaEndpointPrimaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="atlasKafkaEndpointPrimaryConnectionString", type=String.class, parameters={})
     private Output<String> atlasKafkaEndpointPrimaryConnectionString;
 
     /**
@@ -92,7 +92,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Atlas Kafka endpoint secondary connection string.
      * 
      */
-    @Export(name="atlasKafkaEndpointSecondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="atlasKafkaEndpointSecondaryConnectionString", type=String.class, parameters={})
     private Output<String> atlasKafkaEndpointSecondaryConnectionString;
 
     /**
@@ -106,7 +106,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Catalog endpoint.
      * 
      */
-    @Export(name="catalogEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="catalogEndpoint", type=String.class, parameters={})
     private Output<String> catalogEndpoint;
 
     /**
@@ -120,7 +120,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Guardian endpoint.
      * 
      */
-    @Export(name="guardianEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="guardianEndpoint", type=String.class, parameters={})
     private Output<String> guardianEndpoint;
 
     /**
@@ -134,7 +134,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
+    @Export(name="identity", type=AccountIdentity.class, parameters={})
     private Output<AccountIdentity> identity;
 
     /**
@@ -148,7 +148,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -164,7 +164,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
      * 
      */
-    @Export(name="managedResourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="managedResourceGroupName", type=String.class, parameters={})
     private Output<String> managedResourceGroupName;
 
     /**
@@ -180,7 +180,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `managed_resources` block as defined below.
      * 
      */
-    @Export(name="managedResources", refs={List.class,AccountManagedResource.class}, tree="[0,1]")
+    @Export(name="managedResources", type=List.class, parameters={AccountManagedResource.class})
     private Output<List<AccountManagedResource>> managedResources;
 
     /**
@@ -194,7 +194,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -208,7 +208,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Should the Purview Account be visible to the public network? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkEnabled;
 
     /**
@@ -222,7 +222,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -236,7 +236,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Scan endpoint.
      * 
      */
-    @Export(name="scanEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="scanEndpoint", type=String.class, parameters={})
     private Output<String> scanEndpoint;
 
     /**
@@ -250,7 +250,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Purview Account.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

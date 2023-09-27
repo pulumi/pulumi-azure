@@ -71,7 +71,7 @@ public class CapacityReservationGroup extends com.pulumi.resources.CustomResourc
      * The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -85,7 +85,7 @@ public class CapacityReservationGroup extends com.pulumi.resources.CustomResourc
      * Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class CapacityReservationGroup extends com.pulumi.resources.CustomResourc
      * Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -113,7 +113,7 @@ public class CapacityReservationGroup extends com.pulumi.resources.CustomResourc
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -127,7 +127,7 @@ public class CapacityReservationGroup extends com.pulumi.resources.CustomResourc
      * Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

@@ -78,7 +78,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -92,7 +92,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -106,7 +106,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -120,7 +120,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sqlImageOffer", refs={String.class}, tree="[0]")
+    @Export(name="sqlImageOffer", type=String.class, parameters={})
     private Output<String> sqlImageOffer;
 
     /**
@@ -134,7 +134,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
      * 
      */
-    @Export(name="sqlImageSku", refs={String.class}, tree="[0]")
+    @Export(name="sqlImageSku", type=String.class, parameters={})
     private Output<String> sqlImageSku;
 
     /**
@@ -148,7 +148,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -162,7 +162,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * A `wsfc_domain_profile` block as defined below.
      * 
      */
-    @Export(name="wsfcDomainProfile", refs={VirtualMachineGroupWsfcDomainProfile.class}, tree="[0]")
+    @Export(name="wsfcDomainProfile", type=VirtualMachineGroupWsfcDomainProfile.class, parameters={})
     private Output<VirtualMachineGroupWsfcDomainProfile> wsfcDomainProfile;
 
     /**

@@ -79,7 +79,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * One or more `acl` blocks as defined below.
      * 
      */
-    @Export(name="acls", refs={List.class,TableAcl.class}, tree="[0,1]")
+    @Export(name="acls", type=List.class, parameters={TableAcl.class})
     private Output</* @Nullable */ List<TableAcl>> acls;
 
     /**
@@ -93,7 +93,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**

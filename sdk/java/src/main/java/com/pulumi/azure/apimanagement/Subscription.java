@@ -89,7 +89,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * Determines whether tracing can be enabled. Defaults to `true`.
      * 
      */
-    @Export(name="allowTracing", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowTracing", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowTracing;
 
     /**
@@ -105,7 +105,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      * 
      */
-    @Export(name="apiId", refs={String.class}, tree="[0]")
+    @Export(name="apiId", type=String.class, parameters={})
     private Output</* @Nullable */ String> apiId;
 
     /**
@@ -121,7 +121,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -135,7 +135,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The display name of this Subscription.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -149,7 +149,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The primary subscription key to use for the subscription.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -165,7 +165,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * &gt; **Info:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
      * 
      */
-    @Export(name="productId", refs={String.class}, tree="[0]")
+    @Export(name="productId", type=String.class, parameters={})
     private Output</* @Nullable */ String> productId;
 
     /**
@@ -181,7 +181,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -195,7 +195,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The secondary subscription key to use for the subscription.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -209,7 +209,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      * 
      */
-    @Export(name="state", refs={String.class}, tree="[0]")
+    @Export(name="state", type=String.class, parameters={})
     private Output</* @Nullable */ String> state;
 
     /**
@@ -223,7 +223,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
@@ -237,7 +237,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="userId", refs={String.class}, tree="[0]")
+    @Export(name="userId", type=String.class, parameters={})
     private Output</* @Nullable */ String> userId;
 
     /**

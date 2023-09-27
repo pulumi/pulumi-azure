@@ -79,6 +79,10 @@ type VaultResourceGuardAssociation struct {
 	pulumi.CustomResourceState
 
 	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId pulumi.StringOutput `pulumi:"resourceGuardId"`
@@ -123,6 +127,10 @@ func GetVaultResourceGuardAssociation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
 type vaultResourceGuardAssociationState struct {
 	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
 	Name *string `pulumi:"name"`
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId *string `pulumi:"resourceGuardId"`
@@ -132,6 +140,10 @@ type vaultResourceGuardAssociationState struct {
 
 type VaultResourceGuardAssociationState struct {
 	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
 	Name pulumi.StringPtrInput
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId pulumi.StringPtrInput
@@ -145,6 +157,10 @@ func (VaultResourceGuardAssociationState) ElementType() reflect.Type {
 
 type vaultResourceGuardAssociationArgs struct {
 	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
 	Name *string `pulumi:"name"`
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId string `pulumi:"resourceGuardId"`
@@ -155,6 +171,10 @@ type vaultResourceGuardAssociationArgs struct {
 // The set of arguments for constructing a VaultResourceGuardAssociation resource.
 type VaultResourceGuardAssociationArgs struct {
 	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
 	Name pulumi.StringPtrInput
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId pulumi.StringInput
@@ -274,6 +294,10 @@ func (o VaultResourceGuardAssociationOutput) ToOutput(ctx context.Context) pulum
 }
 
 // Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+//
+// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
 func (o VaultResourceGuardAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultResourceGuardAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

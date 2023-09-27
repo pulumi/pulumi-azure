@@ -104,7 +104,7 @@ public class MongoUserDefinition extends com.pulumi.resources.CustomResource {
      * The resource ID of the Mongo DB. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cosmosMongoDatabaseId", refs={String.class}, tree="[0]")
+    @Export(name="cosmosMongoDatabaseId", type=String.class, parameters={})
     private Output<String> cosmosMongoDatabaseId;
 
     /**
@@ -120,7 +120,7 @@ public class MongoUserDefinition extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
      * 
      */
-    @Export(name="inheritedRoleNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="inheritedRoleNames", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> inheritedRoleNames;
 
     /**
@@ -136,7 +136,7 @@ public class MongoUserDefinition extends com.pulumi.resources.CustomResource {
      * The password for the Mongo User Definition.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
@@ -150,7 +150,7 @@ public class MongoUserDefinition extends com.pulumi.resources.CustomResource {
      * The username for the Mongo User Definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="username", refs={String.class}, tree="[0]")
+    @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
     /**

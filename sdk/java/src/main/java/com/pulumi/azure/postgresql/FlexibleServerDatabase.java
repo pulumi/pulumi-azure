@@ -82,7 +82,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      * 
      */
-    @Export(name="charset", refs={String.class}, tree="[0]")
+    @Export(name="charset", type=String.class, parameters={})
     private Output</* @Nullable */ String> charset;
 
     /**
@@ -96,7 +96,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      * 
      */
-    @Export(name="collation", refs={String.class}, tree="[0]")
+    @Export(name="collation", type=String.class, parameters={})
     private Output</* @Nullable */ String> collation;
 
     /**
@@ -110,7 +110,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      * 
      */
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**

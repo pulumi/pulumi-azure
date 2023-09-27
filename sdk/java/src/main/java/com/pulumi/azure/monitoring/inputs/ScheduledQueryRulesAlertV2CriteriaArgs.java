@@ -52,12 +52,16 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
     /**
      * Specifies the column containing the metric measure number.
      * 
+     * &gt; **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+     * 
      */
     @Import(name="metricMeasureColumn")
     private @Nullable Output<String> metricMeasureColumn;
 
     /**
      * @return Specifies the column containing the metric measure number.
+     * 
+     * &gt; **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
      * 
      */
     public Optional<Output<String>> metricMeasureColumn() {
@@ -225,6 +229,8 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         /**
          * @param metricMeasureColumn Specifies the column containing the metric measure number.
          * 
+         * &gt; **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+         * 
          * @return builder
          * 
          */
@@ -235,6 +241,8 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
 
         /**
          * @param metricMeasureColumn Specifies the column containing the metric measure number.
+         * 
+         * &gt; **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
          * 
          * @return builder
          * 

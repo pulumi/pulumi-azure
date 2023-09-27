@@ -44,6 +44,11 @@ public final class PolicyPolicySettings {
      * 
      */
     private @Nullable Boolean requestBodyCheck;
+    /**
+     * @return Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+     * 
+     */
+    private @Nullable Integer requestBodyInspectLimitInKb;
 
     private PolicyPolicySettings() {}
     /**
@@ -88,6 +93,13 @@ public final class PolicyPolicySettings {
     public Optional<Boolean> requestBodyCheck() {
         return Optional.ofNullable(this.requestBodyCheck);
     }
+    /**
+     * @return Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+     * 
+     */
+    public Optional<Integer> requestBodyInspectLimitInKb() {
+        return Optional.ofNullable(this.requestBodyInspectLimitInKb);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -104,6 +116,7 @@ public final class PolicyPolicySettings {
         private @Nullable Integer maxRequestBodySizeInKb;
         private @Nullable String mode;
         private @Nullable Boolean requestBodyCheck;
+        private @Nullable Integer requestBodyInspectLimitInKb;
         public Builder() {}
         public Builder(PolicyPolicySettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -113,6 +126,7 @@ public final class PolicyPolicySettings {
     	      this.maxRequestBodySizeInKb = defaults.maxRequestBodySizeInKb;
     	      this.mode = defaults.mode;
     	      this.requestBodyCheck = defaults.requestBodyCheck;
+    	      this.requestBodyInspectLimitInKb = defaults.requestBodyInspectLimitInKb;
         }
 
         @CustomType.Setter
@@ -145,6 +159,11 @@ public final class PolicyPolicySettings {
             this.requestBodyCheck = requestBodyCheck;
             return this;
         }
+        @CustomType.Setter
+        public Builder requestBodyInspectLimitInKb(@Nullable Integer requestBodyInspectLimitInKb) {
+            this.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
+            return this;
+        }
         public PolicyPolicySettings build() {
             final var o = new PolicyPolicySettings();
             o.enabled = enabled;
@@ -153,6 +172,7 @@ public final class PolicyPolicySettings {
             o.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
             o.mode = mode;
             o.requestBodyCheck = requestBodyCheck;
+            o.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
             return o;
         }
     }

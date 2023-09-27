@@ -36,7 +36,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A `custom_parameters` block as documented below.
      * 
      */
-    @Export(name="customParameters", refs={WorkspaceCustomParameters.class}, tree="[0]")
+    @Export(name="customParameters", type=WorkspaceCustomParameters.class, parameters={})
     private Output<WorkspaceCustomParameters> customParameters;
 
     /**
@@ -50,7 +50,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      * 
      */
-    @Export(name="customerManagedKeyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="customerManagedKeyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> customerManagedKeyEnabled;
 
     /**
@@ -64,7 +64,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
      * 
      */
-    @Export(name="diskEncryptionSetId", refs={String.class}, tree="[0]")
+    @Export(name="diskEncryptionSetId", type=String.class, parameters={})
     private Output<String> diskEncryptionSetId;
 
     /**
@@ -78,7 +78,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="infrastructureEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
 
     /**
@@ -92,7 +92,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadBalancerBackendAddressPoolId", refs={String.class}, tree="[0]")
+    @Export(name="loadBalancerBackendAddressPoolId", type=String.class, parameters={})
     private Output</* @Nullable */ String> loadBalancerBackendAddressPoolId;
 
     /**
@@ -106,7 +106,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -120,7 +120,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Customer managed encryption properties for the Databricks Workspace managed disks.
      * 
      */
-    @Export(name="managedDiskCmkKeyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="managedDiskCmkKeyVaultKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedDiskCmkKeyVaultKeyId;
 
     /**
@@ -134,7 +134,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
      * 
      */
-    @Export(name="managedDiskCmkRotationToLatestVersionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="managedDiskCmkRotationToLatestVersionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> managedDiskCmkRotationToLatestVersionEnabled;
 
     /**
@@ -148,7 +148,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A `managed_disk_identity` block as documented below.
      * 
      */
-    @Export(name="managedDiskIdentities", refs={List.class,WorkspaceManagedDiskIdentity.class}, tree="[0,1]")
+    @Export(name="managedDiskIdentities", type=List.class, parameters={WorkspaceManagedDiskIdentity.class})
     private Output<List<WorkspaceManagedDiskIdentity>> managedDiskIdentities;
 
     /**
@@ -162,7 +162,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      * 
      */
-    @Export(name="managedResourceGroupId", refs={String.class}, tree="[0]")
+    @Export(name="managedResourceGroupId", type=String.class, parameters={})
     private Output<String> managedResourceGroupId;
 
     /**
@@ -178,7 +178,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Make sure that this field is unique if you have multiple Databrick Workspaces deployed in your subscription and choose to not have the `managed_resource_group_name` auto generated by the Azure Resource Provider. Having multiple Databrick Workspaces deployed in the same subscription with the same `manage_resource_group_name` may result in some resources that cannot be deleted.
      * 
      */
-    @Export(name="managedResourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="managedResourceGroupName", type=String.class, parameters={})
     private Output<String> managedResourceGroupName;
 
     /**
@@ -194,7 +194,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      * 
      */
-    @Export(name="managedServicesCmkKeyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="managedServicesCmkKeyVaultKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedServicesCmkKeyVaultKeyId;
 
     /**
@@ -208,7 +208,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -222,7 +222,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
      * 
      */
-    @Export(name="networkSecurityGroupRulesRequired", refs={String.class}, tree="[0]")
+    @Export(name="networkSecurityGroupRulesRequired", type=String.class, parameters={})
     private Output<String> networkSecurityGroupRulesRequired;
 
     /**
@@ -236,7 +236,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -250,7 +250,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -266,7 +266,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -282,7 +282,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A `storage_account_identity` block as documented below.
      * 
      */
-    @Export(name="storageAccountIdentities", refs={List.class,WorkspaceStorageAccountIdentity.class}, tree="[0,1]")
+    @Export(name="storageAccountIdentities", type=List.class, parameters={WorkspaceStorageAccountIdentity.class})
     private Output<List<WorkspaceStorageAccountIdentity>> storageAccountIdentities;
 
     /**
@@ -296,7 +296,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -310,7 +310,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The unique identifier of the databricks workspace in Databricks control plane.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**
@@ -324,7 +324,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The workspace URL which is of the format &#39;adb-{workspaceId}.{random}.azuredatabricks.net&#39;
      * 
      */
-    @Export(name="workspaceUrl", refs={String.class}, tree="[0]")
+    @Export(name="workspaceUrl", type=String.class, parameters={})
     private Output<String> workspaceUrl;
 
     /**

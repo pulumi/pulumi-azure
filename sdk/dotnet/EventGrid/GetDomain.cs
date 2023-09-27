@@ -132,6 +132,10 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainIdentityResult> Identities;
+        /// <summary>
         /// One or more `inbound_ip_rule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainInboundIpRuleResult> InboundIpRules;
@@ -176,6 +180,8 @@ namespace Pulumi.Azure.EventGrid
 
             string id,
 
+            ImmutableArray<Outputs.GetDomainIdentityResult> identities,
+
             ImmutableArray<Outputs.GetDomainInboundIpRuleResult> inboundIpRules,
 
             ImmutableArray<Outputs.GetDomainInputMappingDefaultValueResult> inputMappingDefaultValues,
@@ -200,6 +206,7 @@ namespace Pulumi.Azure.EventGrid
         {
             Endpoint = endpoint;
             Id = id;
+            Identities = identities;
             InboundIpRules = inboundIpRules;
             InputMappingDefaultValues = inputMappingDefaultValues;
             InputMappingFields = inputMappingFields;

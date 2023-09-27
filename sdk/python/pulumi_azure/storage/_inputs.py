@@ -71,8 +71,6 @@ class AccountAzureFilesAuthenticationArgs:
         """
         :param pulumi.Input[str] directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
-               
-               > **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
         """
         pulumi.set(__self__, "directory_type", directory_type)
         if active_directory is not None:
@@ -95,8 +93,6 @@ class AccountAzureFilesAuthenticationArgs:
     def active_directory(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]:
         """
         A `active_directory` block as defined below. Required when `directory_type` is `AD`.
-
-        > **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
         """
         return pulumi.get(self, "active_directory")
 
@@ -110,24 +106,28 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
     def __init__(__self__, *,
                  domain_guid: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
-                 domain_sid: pulumi.Input[str],
-                 forest_name: pulumi.Input[str],
-                 netbios_domain_name: pulumi.Input[str],
-                 storage_sid: pulumi.Input[str]):
+                 domain_sid: Optional[pulumi.Input[str]] = None,
+                 forest_name: Optional[pulumi.Input[str]] = None,
+                 netbios_domain_name: Optional[pulumi.Input[str]] = None,
+                 storage_sid: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain_guid: Specifies the domain GUID.
         :param pulumi.Input[str] domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
-        :param pulumi.Input[str] domain_sid: Specifies the security identifier (SID).
-        :param pulumi.Input[str] forest_name: Specifies the Active Directory forest.
-        :param pulumi.Input[str] netbios_domain_name: Specifies the NetBIOS domain name.
-        :param pulumi.Input[str] storage_sid: Specifies the security identifier (SID) for Azure Storage.
+        :param pulumi.Input[str] domain_sid: Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+        :param pulumi.Input[str] forest_name: Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+        :param pulumi.Input[str] netbios_domain_name: Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+        :param pulumi.Input[str] storage_sid: Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
         """
         pulumi.set(__self__, "domain_guid", domain_guid)
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_sid", domain_sid)
-        pulumi.set(__self__, "forest_name", forest_name)
-        pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
-        pulumi.set(__self__, "storage_sid", storage_sid)
+        if domain_sid is not None:
+            pulumi.set(__self__, "domain_sid", domain_sid)
+        if forest_name is not None:
+            pulumi.set(__self__, "forest_name", forest_name)
+        if netbios_domain_name is not None:
+            pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+        if storage_sid is not None:
+            pulumi.set(__self__, "storage_sid", storage_sid)
 
     @property
     @pulumi.getter(name="domainGuid")
@@ -155,50 +155,50 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="domainSid")
-    def domain_sid(self) -> pulumi.Input[str]:
+    def domain_sid(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the security identifier (SID).
+        Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "domain_sid")
 
     @domain_sid.setter
-    def domain_sid(self, value: pulumi.Input[str]):
+    def domain_sid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_sid", value)
 
     @property
     @pulumi.getter(name="forestName")
-    def forest_name(self) -> pulumi.Input[str]:
+    def forest_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Active Directory forest.
+        Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "forest_name")
 
     @forest_name.setter
-    def forest_name(self, value: pulumi.Input[str]):
+    def forest_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "forest_name", value)
 
     @property
     @pulumi.getter(name="netbiosDomainName")
-    def netbios_domain_name(self) -> pulumi.Input[str]:
+    def netbios_domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the NetBIOS domain name.
+        Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "netbios_domain_name")
 
     @netbios_domain_name.setter
-    def netbios_domain_name(self, value: pulumi.Input[str]):
+    def netbios_domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "netbios_domain_name", value)
 
     @property
     @pulumi.getter(name="storageSid")
-    def storage_sid(self) -> pulumi.Input[str]:
+    def storage_sid(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the security identifier (SID) for Azure Storage.
+        Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
         """
         return pulumi.get(self, "storage_sid")
 
     @storage_sid.setter
-    def storage_sid(self, value: pulumi.Input[str]):
+    def storage_sid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_sid", value)
 
 
@@ -216,14 +216,24 @@ class AccountBlobPropertiesArgs:
                  versioning_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
+               
+               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param pulumi.Input[int] change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+               
+               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs'] container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
         :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
         :param pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs'] delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param pulumi.Input[bool] last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
+               
+               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param pulumi.Input['AccountBlobPropertiesRestorePolicyArgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+               
+               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
+               
+               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         if change_feed_enabled is not None:
             pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
@@ -249,6 +259,8 @@ class AccountBlobPropertiesArgs:
     def change_feed_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the blob service properties for change feed events enabled? Default to `false`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "change_feed_enabled")
 
@@ -261,6 +273,8 @@ class AccountBlobPropertiesArgs:
     def change_feed_retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "change_feed_retention_in_days")
 
@@ -321,6 +335,8 @@ class AccountBlobPropertiesArgs:
     def last_access_time_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the last access time based tracking enabled? Default to `false`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "last_access_time_enabled")
 
@@ -333,6 +349,8 @@ class AccountBlobPropertiesArgs:
     def restore_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]:
         """
         A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "restore_policy")
 
@@ -345,6 +363,8 @@ class AccountBlobPropertiesArgs:
     def versioning_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is versioning enabled? Default to `false`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "versioning_enabled")
 

@@ -97,7 +97,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", refs={String.class}, tree="[0]")
+    @Export(name="collation", type=String.class, parameters={})
     private Output<String> collation;
 
     /**
@@ -111,7 +111,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
      * 
      */
-    @Export(name="createMode", refs={String.class}, tree="[0]")
+    @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
@@ -125,7 +125,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The creation date of the SQL Database.
      * 
      */
-    @Export(name="creationDate", refs={String.class}, tree="[0]")
+    @Export(name="creationDate", type=String.class, parameters={})
     private Output<String> creationDate;
 
     /**
@@ -139,7 +139,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The default secondary location of the SQL Database.
      * 
      */
-    @Export(name="defaultSecondaryLocation", refs={String.class}, tree="[0]")
+    @Export(name="defaultSecondaryLocation", type=String.class, parameters={})
     private Output<String> defaultSecondaryLocation;
 
     /**
@@ -153,7 +153,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      * 
      */
-    @Export(name="edition", refs={String.class}, tree="[0]")
+    @Export(name="edition", type=String.class, parameters={})
     private Output<String> edition;
 
     /**
@@ -167,7 +167,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the elastic database pool.
      * 
      */
-    @Export(name="elasticPoolName", refs={String.class}, tree="[0]")
+    @Export(name="elasticPoolName", type=String.class, parameters={})
     private Output<String> elasticPoolName;
 
     /**
@@ -177,7 +177,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<String> elasticPoolName() {
         return this.elasticPoolName;
     }
-    @Export(name="encryption", refs={String.class}, tree="[0]")
+    @Export(name="encryption", type=String.class, parameters={})
     private Output<String> encryption;
 
     public Output<String> encryption() {
@@ -187,7 +187,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A Database Import block as documented below. `create_mode` must be set to `Default`.
      * 
      */
-    @Export(name="import", refs={DatabaseImport.class}, tree="[0]")
+    @Export(name="import", type=DatabaseImport.class, parameters={})
     private Output</* @Nullable */ DatabaseImport> import_;
 
     /**
@@ -201,7 +201,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -215,7 +215,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
      * 
      */
-    @Export(name="maxSizeBytes", refs={String.class}, tree="[0]")
+    @Export(name="maxSizeBytes", type=String.class, parameters={})
     private Output<String> maxSizeBytes;
 
     /**
@@ -225,7 +225,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<String> maxSizeBytes() {
         return this.maxSizeBytes;
     }
-    @Export(name="maxSizeGb", refs={String.class}, tree="[0]")
+    @Export(name="maxSizeGb", type=String.class, parameters={})
     private Output<String> maxSizeGb;
 
     public Output<String> maxSizeGb() {
@@ -235,7 +235,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -249,7 +249,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
      * 
      */
-    @Export(name="readScale", refs={Boolean.class}, tree="[0]")
+    @Export(name="readScale", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> readScale;
 
     /**
@@ -264,7 +264,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * .
      * 
      */
-    @Export(name="requestedServiceObjectiveId", refs={String.class}, tree="[0]")
+    @Export(name="requestedServiceObjectiveId", type=String.class, parameters={})
     private Output<String> requestedServiceObjectiveId;
 
     /**
@@ -279,7 +279,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      * 
      */
-    @Export(name="requestedServiceObjectiveName", refs={String.class}, tree="[0]")
+    @Export(name="requestedServiceObjectiveName", type=String.class, parameters={})
     private Output<String> requestedServiceObjectiveName;
 
     /**
@@ -293,7 +293,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -307,7 +307,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      * 
      */
-    @Export(name="restorePointInTime", refs={String.class}, tree="[0]")
+    @Export(name="restorePointInTime", type=String.class, parameters={})
     private Output<String> restorePointInTime;
 
     /**
@@ -321,7 +321,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -335,7 +335,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
      * 
      */
-    @Export(name="sourceDatabaseDeletionDate", refs={String.class}, tree="[0]")
+    @Export(name="sourceDatabaseDeletionDate", type=String.class, parameters={})
     private Output<String> sourceDatabaseDeletionDate;
 
     /**
@@ -349,7 +349,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The URI of the source database if `create_mode` value is not `Default`.
      * 
      */
-    @Export(name="sourceDatabaseId", refs={String.class}, tree="[0]")
+    @Export(name="sourceDatabaseId", type=String.class, parameters={})
     private Output<String> sourceDatabaseId;
 
     /**
@@ -363,7 +363,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -377,7 +377,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
      * 
      */
-    @Export(name="threatDetectionPolicy", refs={DatabaseThreatDetectionPolicy.class}, tree="[0]")
+    @Export(name="threatDetectionPolicy", type=DatabaseThreatDetectionPolicy.class, parameters={})
     private Output<DatabaseThreatDetectionPolicy> threatDetectionPolicy;
 
     /**
@@ -391,7 +391,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      * 
      */
-    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

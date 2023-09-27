@@ -14,12 +14,16 @@ namespace Pulumi.Azure.Storage.Inputs
     {
         /// <summary>
         /// Is the blob service properties for change feed events enabled? Default to `false`.
+        /// 
+        /// &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         /// </summary>
         [Input("changeFeedEnabled")]
         public Input<bool>? ChangeFeedEnabled { get; set; }
 
         /// <summary>
         /// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+        /// 
+        /// &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         /// </summary>
         [Input("changeFeedRetentionInDays")]
         public Input<int>? ChangeFeedRetentionInDays { get; set; }
@@ -56,18 +60,24 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// Is the last access time based tracking enabled? Default to `false`.
+        /// 
+        /// &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         /// </summary>
         [Input("lastAccessTimeEnabled")]
         public Input<bool>? LastAccessTimeEnabled { get; set; }
 
         /// <summary>
         /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+        /// 
+        /// &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         /// </summary>
         [Input("restorePolicy")]
         public Input<Inputs.AccountBlobPropertiesRestorePolicyArgs>? RestorePolicy { get; set; }
 
         /// <summary>
         /// Is versioning enabled? Default to `false`.
+        /// 
+        /// &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         /// </summary>
         [Input("versioningEnabled")]
         public Input<bool>? VersioningEnabled { get; set; }

@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.datafactory.DatasetParquetArgs;
 import com.pulumi.azure.datafactory.inputs.DatasetParquetState;
+import com.pulumi.azure.datafactory.outputs.DatasetParquetAzureBlobFsLocation;
 import com.pulumi.azure.datafactory.outputs.DatasetParquetAzureBlobStorageLocation;
 import com.pulumi.azure.datafactory.outputs.DatasetParquetHttpServerLocation;
 import com.pulumi.azure.datafactory.outputs.DatasetParquetSchemaColumn;
@@ -97,7 +98,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * The following supported locations for a Parquet Dataset:
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -113,7 +114,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Dataset.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -124,12 +125,26 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
+     * A `azure_blob_fs_location` block as defined below.
+     * 
+     */
+    @Export(name="azureBlobFsLocation", type=DatasetParquetAzureBlobFsLocation.class, parameters={})
+    private Output</* @Nullable */ DatasetParquetAzureBlobFsLocation> azureBlobFsLocation;
+
+    /**
+     * @return A `azure_blob_fs_location` block as defined below.
+     * 
+     */
+    public Output<Optional<DatasetParquetAzureBlobFsLocation>> azureBlobFsLocation() {
+        return Codegen.optional(this.azureBlobFsLocation);
+    }
+    /**
      * A `azure_blob_storage_location` block as defined below.
      * 
      * The following supported arguments are specific to Parquet Dataset:
      * 
      */
-    @Export(name="azureBlobStorageLocation", refs={DatasetParquetAzureBlobStorageLocation.class}, tree="[0]")
+    @Export(name="azureBlobStorageLocation", type=DatasetParquetAzureBlobStorageLocation.class, parameters={})
     private Output</* @Nullable */ DatasetParquetAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
@@ -145,7 +160,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      * 
      */
-    @Export(name="compressionCodec", refs={String.class}, tree="[0]")
+    @Export(name="compressionCodec", type=String.class, parameters={})
     private Output</* @Nullable */ String> compressionCodec;
 
     /**
@@ -159,7 +174,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * Specifies the compression level. Possible values are `Optimal` and `Fastest`,
      * 
      */
-    @Export(name="compressionLevel", refs={String.class}, tree="[0]")
+    @Export(name="compressionLevel", type=String.class, parameters={})
     private Output</* @Nullable */ String> compressionLevel;
 
     /**
@@ -173,7 +188,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -187,7 +202,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Dataset.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -201,7 +216,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      * 
      */
-    @Export(name="folder", refs={String.class}, tree="[0]")
+    @Export(name="folder", type=String.class, parameters={})
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -215,7 +230,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * A `http_server_location` block as defined below.
      * 
      */
-    @Export(name="httpServerLocation", refs={DatasetParquetHttpServerLocation.class}, tree="[0]")
+    @Export(name="httpServerLocation", type=DatasetParquetHttpServerLocation.class, parameters={})
     private Output</* @Nullable */ DatasetParquetHttpServerLocation> httpServerLocation;
 
     /**
@@ -229,7 +244,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * The Data Factory Linked Service name in which to associate the Dataset with.
      * 
      */
-    @Export(name="linkedServiceName", refs={String.class}, tree="[0]")
+    @Export(name="linkedServiceName", type=String.class, parameters={})
     private Output<String> linkedServiceName;
 
     /**
@@ -243,7 +258,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -257,7 +272,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Dataset.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -271,7 +286,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * A `schema_column` block as defined below.
      * 
      */
-    @Export(name="schemaColumns", refs={List.class,DatasetParquetSchemaColumn.class}, tree="[0,1]")
+    @Export(name="schemaColumns", type=List.class, parameters={DatasetParquetSchemaColumn.class})
     private Output</* @Nullable */ List<DatasetParquetSchemaColumn>> schemaColumns;
 
     /**

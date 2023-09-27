@@ -135,7 +135,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A `datadog_organization` block as defined below.
      * 
      */
-    @Export(name="datadogOrganization", refs={MonitorDatadogOrganization.class}, tree="[0]")
+    @Export(name="datadogOrganization", type=MonitorDatadogOrganization.class, parameters={})
     private Output<MonitorDatadogOrganization> datadogOrganization;
 
     /**
@@ -149,7 +149,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={MonitorIdentity.class}, tree="[0]")
+    @Export(name="identity", type=MonitorIdentity.class, parameters={})
     private Output</* @Nullable */ MonitorIdentity> identity;
 
     /**
@@ -163,7 +163,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -177,7 +177,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
      * 
      */
-    @Export(name="marketplaceSubscriptionStatus", refs={String.class}, tree="[0]")
+    @Export(name="marketplaceSubscriptionStatus", type=String.class, parameters={})
     private Output<String> marketplaceSubscriptionStatus;
 
     /**
@@ -191,7 +191,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Is monitoring enabled? Defaults to`true`.
      * 
      */
-    @Export(name="monitoringEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="monitoringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> monitoringEnabled;
 
     /**
@@ -205,7 +205,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -219,7 +219,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -233,7 +233,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The name which should be used for this sku.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -247,7 +247,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Datadog Monitor.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -261,7 +261,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A `user` block as defined below.
      * 
      */
-    @Export(name="user", refs={MonitorUser.class}, tree="[0]")
+    @Export(name="user", type=MonitorUser.class, parameters={})
     private Output<MonitorUser> user;
 
     /**

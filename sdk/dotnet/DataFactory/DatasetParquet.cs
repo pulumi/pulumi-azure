@@ -81,6 +81,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
+        /// A `azure_blob_fs_location` block as defined below.
+        /// </summary>
+        [Output("azureBlobFsLocation")]
+        public Output<Outputs.DatasetParquetAzureBlobFsLocation?> AzureBlobFsLocation { get; private set; } = null!;
+
+        /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
         /// 
         /// The following supported arguments are specific to Parquet Dataset:
@@ -221,6 +227,12 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
+        /// A `azure_blob_fs_location` block as defined below.
+        /// </summary>
+        [Input("azureBlobFsLocation")]
+        public Input<Inputs.DatasetParquetAzureBlobFsLocationArgs>? AzureBlobFsLocation { get; set; }
+
+        /// <summary>
         /// A `azure_blob_storage_location` block as defined below.
         /// 
         /// The following supported arguments are specific to Parquet Dataset:
@@ -333,6 +345,12 @@ namespace Pulumi.Azure.DataFactory
             get => _annotations ?? (_annotations = new InputList<string>());
             set => _annotations = value;
         }
+
+        /// <summary>
+        /// A `azure_blob_fs_location` block as defined below.
+        /// </summary>
+        [Input("azureBlobFsLocation")]
+        public Input<Inputs.DatasetParquetAzureBlobFsLocationGetArgs>? AzureBlobFsLocation { get; set; }
 
         /// <summary>
         /// A `azure_blob_storage_location` block as defined below.

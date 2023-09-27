@@ -105,7 +105,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * The Storage Account Access Key.
      * 
      */
-    @Export(name="accessKey", refs={String.class}, tree="[0]")
+    @Export(name="accessKey", type=String.class, parameters={})
     private Output<String> accessKey;
 
     /**
@@ -119,7 +119,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accessMode", refs={String.class}, tree="[0]")
+    @Export(name="accessMode", type=String.class, parameters={})
     private Output<String> accessMode;
 
     /**
@@ -133,7 +133,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -147,7 +147,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerAppEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="containerAppEnvironmentId", type=String.class, parameters={})
     private Output<String> containerAppEnvironmentId;
 
     /**
@@ -161,7 +161,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * The name for this Container App Environment Storage. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="shareName", refs={String.class}, tree="[0]")
+    @Export(name="shareName", type=String.class, parameters={})
     private Output<String> shareName;
 
     /**

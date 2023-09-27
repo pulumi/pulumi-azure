@@ -88,7 +88,7 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      * The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
      * 
      */
-    @Export(name="apiId", refs={String.class}, tree="[0]")
+    @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
@@ -102,7 +102,7 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      * The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

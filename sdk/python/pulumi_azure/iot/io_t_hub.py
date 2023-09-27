@@ -26,6 +26,7 @@ class IoTHubArgs:
                  fallback_route: Optional[pulumi.Input['IoTHubFallbackRouteArgs']] = None,
                  file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
                  identity: Optional[pulumi.Input['IoTHubIdentityArgs']] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -47,6 +48,7 @@ class IoTHubArgs:
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -73,6 +75,8 @@ class IoTHubArgs:
             pulumi.set(__self__, "file_upload", file_upload)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if min_tls_version is not None:
@@ -211,6 +215,18 @@ class IoTHubArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -312,6 +328,7 @@ class _IoTHubState:
                  file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['IoTHubIdentityArgs']] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -341,6 +358,7 @@ class _IoTHubState:
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -381,6 +399,8 @@ class _IoTHubState:
             pulumi.set(__self__, "hostname", hostname)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if min_tls_version is not None:
@@ -575,6 +595,18 @@ class _IoTHubState:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -720,6 +752,7 @@ class IoTHub(pulumi.CustomResource):
                  fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
                  file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -775,6 +808,7 @@ class IoTHub(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            local_authentication_enabled=False,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
@@ -854,6 +888,7 @@ class IoTHub(pulumi.CustomResource):
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -915,6 +950,7 @@ class IoTHub(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            local_authentication_enabled=False,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
@@ -1005,6 +1041,7 @@ class IoTHub(pulumi.CustomResource):
                  fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
                  file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1031,6 +1068,7 @@ class IoTHub(pulumi.CustomResource):
             __props__.__dict__["fallback_route"] = fallback_route
             __props__.__dict__["file_upload"] = file_upload
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["min_tls_version"] = min_tls_version
             __props__.__dict__["name"] = name
@@ -1076,6 +1114,7 @@ class IoTHub(pulumi.CustomResource):
             file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
+            local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1110,6 +1149,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -1140,6 +1180,7 @@ class IoTHub(pulumi.CustomResource):
         __props__.__dict__["file_upload"] = file_upload
         __props__.__dict__["hostname"] = hostname
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["min_tls_version"] = min_tls_version
         __props__.__dict__["name"] = name
@@ -1266,6 +1307,14 @@ class IoTHub(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
 
     @property
     @pulumi.getter

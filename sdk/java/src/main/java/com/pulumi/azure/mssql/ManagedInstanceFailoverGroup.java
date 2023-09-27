@@ -34,7 +34,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -48,7 +48,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceId", refs={String.class}, tree="[0]")
+    @Export(name="managedInstanceId", type=String.class, parameters={})
     private Output<String> managedInstanceId;
 
     /**
@@ -62,7 +62,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -76,7 +76,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="partnerManagedInstanceId", refs={String.class}, tree="[0]")
+    @Export(name="partnerManagedInstanceId", type=String.class, parameters={})
     private Output<String> partnerManagedInstanceId;
 
     /**
@@ -90,7 +90,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * A `partner_region` block as defined below.
      * 
      */
-    @Export(name="partnerRegions", refs={List.class,ManagedInstanceFailoverGroupPartnerRegion.class}, tree="[0,1]")
+    @Export(name="partnerRegions", type=List.class, parameters={ManagedInstanceFailoverGroupPartnerRegion.class})
     private Output<List<ManagedInstanceFailoverGroupPartnerRegion>> partnerRegions;
 
     /**
@@ -104,7 +104,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * A `read_write_endpoint_failover_policy` block as defined below.
      * 
      */
-    @Export(name="readWriteEndpointFailoverPolicy", refs={ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.class}, tree="[0]")
+    @Export(name="readWriteEndpointFailoverPolicy", type=ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.class, parameters={})
     private Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy;
 
     /**
@@ -118,7 +118,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * Failover policy for the read-only endpoint. Defaults to `true`.
      * 
      */
-    @Export(name="readonlyEndpointFailoverPolicyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="readonlyEndpointFailoverPolicyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> readonlyEndpointFailoverPolicyEnabled;
 
     /**
@@ -132,7 +132,7 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      * The partner replication role of the Managed Instance Failover Group.
      * 
      */
-    @Export(name="role", refs={String.class}, tree="[0]")
+    @Export(name="role", type=String.class, parameters={})
     private Output<String> role;
 
     /**

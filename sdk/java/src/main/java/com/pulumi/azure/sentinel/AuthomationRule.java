@@ -99,7 +99,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * One or more `action_incident` blocks as defined below.
      * 
      */
-    @Export(name="actionIncidents", refs={List.class,AuthomationRuleActionIncident.class}, tree="[0,1]")
+    @Export(name="actionIncidents", type=List.class, parameters={AuthomationRuleActionIncident.class})
     private Output</* @Nullable */ List<AuthomationRuleActionIncident>> actionIncidents;
 
     /**
@@ -115,7 +115,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
      * 
      */
-    @Export(name="actionPlaybooks", refs={List.class,AuthomationRuleActionPlaybook.class}, tree="[0,1]")
+    @Export(name="actionPlaybooks", type=List.class, parameters={AuthomationRuleActionPlaybook.class})
     private Output</* @Nullable */ List<AuthomationRuleActionPlaybook>> actionPlaybooks;
 
     /**
@@ -131,7 +131,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
-    @Export(name="conditionJson", refs={String.class}, tree="[0]")
+    @Export(name="conditionJson", type=String.class, parameters={})
     private Output<String> conditionJson;
 
     /**
@@ -151,7 +151,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This is deprecated in favor of `condition_json` */
-    @Export(name="conditions", refs={List.class,AuthomationRuleCondition.class}, tree="[0,1]")
+    @Export(name="conditions", type=List.class, parameters={AuthomationRuleCondition.class})
     private Output<List<AuthomationRuleCondition>> conditions;
 
     /**
@@ -167,7 +167,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The display name which should be used for this Sentinel Automation Rule.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -181,7 +181,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -195,7 +195,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
      * 
      */
-    @Export(name="expiration", refs={String.class}, tree="[0]")
+    @Export(name="expiration", type=String.class, parameters={})
     private Output</* @Nullable */ String> expiration;
 
     /**
@@ -209,7 +209,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -223,7 +223,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -237,7 +237,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      * 
      */
-    @Export(name="order", refs={Integer.class}, tree="[0]")
+    @Export(name="order", type=Integer.class, parameters={})
     private Output<Integer> order;
 
     /**
@@ -251,7 +251,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
      * 
      */
-    @Export(name="triggersOn", refs={String.class}, tree="[0]")
+    @Export(name="triggersOn", type=String.class, parameters={})
     private Output</* @Nullable */ String> triggersOn;
 
     /**
@@ -265,7 +265,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
      * 
      */
-    @Export(name="triggersWhen", refs={String.class}, tree="[0]")
+    @Export(name="triggersWhen", type=String.class, parameters={})
     private Output</* @Nullable */ String> triggersWhen;
 
     /**

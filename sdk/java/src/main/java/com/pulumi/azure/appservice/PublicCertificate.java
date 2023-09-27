@@ -91,7 +91,7 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
      * The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
-    @Export(name="appServiceName", refs={String.class}, tree="[0]")
+    @Export(name="appServiceName", type=String.class, parameters={})
     private Output<String> appServiceName;
 
     /**
@@ -105,7 +105,7 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
      * The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
-    @Export(name="blob", refs={String.class}, tree="[0]")
+    @Export(name="blob", type=String.class, parameters={})
     private Output<String> blob;
 
     /**
@@ -119,7 +119,7 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
      * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
-    @Export(name="certificateLocation", refs={String.class}, tree="[0]")
+    @Export(name="certificateLocation", type=String.class, parameters={})
     private Output<String> certificateLocation;
 
     /**
@@ -133,7 +133,7 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
      * The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
-    @Export(name="certificateName", refs={String.class}, tree="[0]")
+    @Export(name="certificateName", type=String.class, parameters={})
     private Output<String> certificateName;
 
     /**
@@ -147,7 +147,7 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -161,7 +161,7 @@ public class PublicCertificate extends com.pulumi.resources.CustomResource {
      * The thumbprint of the public certificate.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**

@@ -128,7 +128,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * The list of endpoints which will be enriched.
      * 
      */
-    @Export(name="endpointNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="endpointNames", type=List.class, parameters={String.class})
     private Output<List<String>> endpointNames;
 
     /**
@@ -142,7 +142,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubName", refs={String.class}, tree="[0]")
+    @Export(name="iothubName", type=String.class, parameters={})
     private Output<String> iothubName;
 
     /**
@@ -156,7 +156,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="key", refs={String.class}, tree="[0]")
+    @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
@@ -170,7 +170,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -184,7 +184,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
      * 
      */
-    @Export(name="value", refs={String.class}, tree="[0]")
+    @Export(name="value", type=String.class, parameters={})
     private Output<String> value;
 
     /**

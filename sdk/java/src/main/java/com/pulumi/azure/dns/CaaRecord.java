@@ -101,7 +101,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * The FQDN of the DNS CAA Record.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -115,7 +115,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;@&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * A list of values that make up the CAA record. Each `record` block supports fields documented below.
      * 
      */
-    @Export(name="records", refs={List.class,CaaRecordRecord.class}, tree="[0,1]")
+    @Export(name="records", type=List.class, parameters={CaaRecordRecord.class})
     private Output<List<CaaRecordRecord>> records;
 
     /**
@@ -143,7 +143,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -157,7 +157,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -171,7 +171,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * The Time To Live (TTL) of the DNS record in seconds.
      * 
      */
-    @Export(name="ttl", refs={Integer.class}, tree="[0]")
+    @Export(name="ttl", type=Integer.class, parameters={})
     private Output<Integer> ttl;
 
     /**
@@ -185,7 +185,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneName", refs={String.class}, tree="[0]")
+    @Export(name="zoneName", type=String.class, parameters={})
     private Output<String> zoneName;
 
     /**

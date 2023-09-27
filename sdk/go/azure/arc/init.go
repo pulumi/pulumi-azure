@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:arc/privateLinkScope:PrivateLinkScope":
 		r = &PrivateLinkScope{}
+	case "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance":
+		r = &ResourceBridgeAppliance{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"arc/privateLinkScope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"arc/resourceBridgeAppliance",
 		&module{version},
 	)
 }

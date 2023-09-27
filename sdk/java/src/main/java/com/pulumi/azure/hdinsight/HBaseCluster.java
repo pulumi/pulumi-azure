@@ -138,7 +138,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterVersion", refs={String.class}, tree="[0]")
+    @Export(name="clusterVersion", type=String.class, parameters={})
     private Output<String> clusterVersion;
 
     /**
@@ -152,7 +152,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `component_version` block as defined below.
      * 
      */
-    @Export(name="componentVersion", refs={HBaseClusterComponentVersion.class}, tree="[0]")
+    @Export(name="componentVersion", type=HBaseClusterComponentVersion.class, parameters={})
     private Output<HBaseClusterComponentVersion> componentVersion;
 
     /**
@@ -166,7 +166,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `compute_isolation` block as defined below.
      * 
      */
-    @Export(name="computeIsolation", refs={HBaseClusterComputeIsolation.class}, tree="[0]")
+    @Export(name="computeIsolation", type=HBaseClusterComputeIsolation.class, parameters={})
     private Output</* @Nullable */ HBaseClusterComputeIsolation> computeIsolation;
 
     /**
@@ -180,7 +180,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * One or more `disk_encryption` block as defined below.
      * 
      */
-    @Export(name="diskEncryptions", refs={List.class,HBaseClusterDiskEncryption.class}, tree="[0,1]")
+    @Export(name="diskEncryptions", type=List.class, parameters={HBaseClusterDiskEncryption.class})
     private Output</* @Nullable */ List<HBaseClusterDiskEncryption>> diskEncryptions;
 
     /**
@@ -194,7 +194,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * An `extension` block as defined below.
      * 
      */
-    @Export(name="extension", refs={HBaseClusterExtension.class}, tree="[0]")
+    @Export(name="extension", type=HBaseClusterExtension.class, parameters={})
     private Output</* @Nullable */ HBaseClusterExtension> extension;
 
     /**
@@ -208,7 +208,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `gateway` block as defined below.
      * 
      */
-    @Export(name="gateway", refs={HBaseClusterGateway.class}, tree="[0]")
+    @Export(name="gateway", type=HBaseClusterGateway.class, parameters={})
     private Output<HBaseClusterGateway> gateway;
 
     /**
@@ -222,7 +222,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
      * 
      */
-    @Export(name="httpsEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="httpsEndpoint", type=String.class, parameters={})
     private Output<String> httpsEndpoint;
 
     /**
@@ -236,7 +236,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -250,7 +250,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `metastores` block as defined below.
      * 
      */
-    @Export(name="metastores", refs={HBaseClusterMetastores.class}, tree="[0]")
+    @Export(name="metastores", type=HBaseClusterMetastores.class, parameters={})
     private Output</* @Nullable */ HBaseClusterMetastores> metastores;
 
     /**
@@ -264,7 +264,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `monitor` block as defined below.
      * 
      */
-    @Export(name="monitor", refs={HBaseClusterMonitor.class}, tree="[0]")
+    @Export(name="monitor", type=HBaseClusterMonitor.class, parameters={})
     private Output</* @Nullable */ HBaseClusterMonitor> monitor;
 
     /**
@@ -278,7 +278,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -292,7 +292,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `network` block as defined below.
      * 
      */
-    @Export(name="network", refs={HBaseClusterNetwork.class}, tree="[0]")
+    @Export(name="network", type=HBaseClusterNetwork.class, parameters={})
     private Output</* @Nullable */ HBaseClusterNetwork> network;
 
     /**
@@ -306,7 +306,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -320,7 +320,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `roles` block as defined below.
      * 
      */
-    @Export(name="roles", refs={HBaseClusterRoles.class}, tree="[0]")
+    @Export(name="roles", type=HBaseClusterRoles.class, parameters={})
     private Output<HBaseClusterRoles> roles;
 
     /**
@@ -334,7 +334,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityProfile", refs={HBaseClusterSecurityProfile.class}, tree="[0]")
+    @Export(name="securityProfile", type=HBaseClusterSecurityProfile.class, parameters={})
     private Output</* @Nullable */ HBaseClusterSecurityProfile> securityProfile;
 
     /**
@@ -348,7 +348,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      * 
      */
-    @Export(name="sshEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="sshEndpoint", type=String.class, parameters={})
     private Output<String> sshEndpoint;
 
     /**
@@ -362,7 +362,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A `storage_account_gen2` block as defined below.
      * 
      */
-    @Export(name="storageAccountGen2", refs={HBaseClusterStorageAccountGen2.class}, tree="[0]")
+    @Export(name="storageAccountGen2", type=HBaseClusterStorageAccountGen2.class, parameters={})
     private Output</* @Nullable */ HBaseClusterStorageAccountGen2> storageAccountGen2;
 
     /**
@@ -376,7 +376,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` block as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,HBaseClusterStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={HBaseClusterStorageAccount.class})
     private Output</* @Nullable */ List<HBaseClusterStorageAccount>> storageAccounts;
 
     /**
@@ -390,7 +390,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -404,7 +404,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tier", refs={String.class}, tree="[0]")
+    @Export(name="tier", type=String.class, parameters={})
     private Output<String> tier;
 
     /**
@@ -420,7 +420,7 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
-    @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
+    @Export(name="tlsMinVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> tlsMinVersion;
 
     /**

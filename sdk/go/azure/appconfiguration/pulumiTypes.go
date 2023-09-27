@@ -1099,6 +1099,154 @@ func (o ConfigurationStorePrimaryWriteKeyArrayOutput) Index(i pulumi.IntInput) C
 	}).(ConfigurationStorePrimaryWriteKeyOutput)
 }
 
+type ConfigurationStoreReplica struct {
+	// The URL of the App Configuration Replica.
+	Endpoint *string `pulumi:"endpoint"`
+	// The ID of the Access Key.
+	Id *string `pulumi:"id"`
+	// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+	Location string `pulumi:"location"`
+	// Specifies the name of the replica. Changing this forces a new replica to be created.
+	Name string `pulumi:"name"`
+}
+
+// ConfigurationStoreReplicaInput is an input type that accepts ConfigurationStoreReplicaArgs and ConfigurationStoreReplicaOutput values.
+// You can construct a concrete instance of `ConfigurationStoreReplicaInput` via:
+//
+//	ConfigurationStoreReplicaArgs{...}
+type ConfigurationStoreReplicaInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreReplicaOutput() ConfigurationStoreReplicaOutput
+	ToConfigurationStoreReplicaOutputWithContext(context.Context) ConfigurationStoreReplicaOutput
+}
+
+type ConfigurationStoreReplicaArgs struct {
+	// The URL of the App Configuration Replica.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The ID of the Access Key.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Specifies the name of the replica. Changing this forces a new replica to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ConfigurationStoreReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (i ConfigurationStoreReplicaArgs) ToConfigurationStoreReplicaOutput() ConfigurationStoreReplicaOutput {
+	return i.ToConfigurationStoreReplicaOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreReplicaArgs) ToConfigurationStoreReplicaOutputWithContext(ctx context.Context) ConfigurationStoreReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreReplicaOutput)
+}
+
+func (i ConfigurationStoreReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreReplica] {
+	return pulumix.Output[ConfigurationStoreReplica]{
+		OutputState: i.ToConfigurationStoreReplicaOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ConfigurationStoreReplicaArrayInput is an input type that accepts ConfigurationStoreReplicaArray and ConfigurationStoreReplicaArrayOutput values.
+// You can construct a concrete instance of `ConfigurationStoreReplicaArrayInput` via:
+//
+//	ConfigurationStoreReplicaArray{ ConfigurationStoreReplicaArgs{...} }
+type ConfigurationStoreReplicaArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreReplicaArrayOutput() ConfigurationStoreReplicaArrayOutput
+	ToConfigurationStoreReplicaArrayOutputWithContext(context.Context) ConfigurationStoreReplicaArrayOutput
+}
+
+type ConfigurationStoreReplicaArray []ConfigurationStoreReplicaInput
+
+func (ConfigurationStoreReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (i ConfigurationStoreReplicaArray) ToConfigurationStoreReplicaArrayOutput() ConfigurationStoreReplicaArrayOutput {
+	return i.ToConfigurationStoreReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreReplicaArray) ToConfigurationStoreReplicaArrayOutputWithContext(ctx context.Context) ConfigurationStoreReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreReplicaArrayOutput)
+}
+
+func (i ConfigurationStoreReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreReplica] {
+	return pulumix.Output[[]ConfigurationStoreReplica]{
+		OutputState: i.ToConfigurationStoreReplicaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConfigurationStoreReplicaOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (o ConfigurationStoreReplicaOutput) ToConfigurationStoreReplicaOutput() ConfigurationStoreReplicaOutput {
+	return o
+}
+
+func (o ConfigurationStoreReplicaOutput) ToConfigurationStoreReplicaOutputWithContext(ctx context.Context) ConfigurationStoreReplicaOutput {
+	return o
+}
+
+func (o ConfigurationStoreReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreReplica] {
+	return pulumix.Output[ConfigurationStoreReplica]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The URL of the App Configuration Replica.
+func (o ConfigurationStoreReplicaOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreReplica) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Access Key.
+func (o ConfigurationStoreReplicaOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreReplica) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+func (o ConfigurationStoreReplicaOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationStoreReplica) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the replica. Changing this forces a new replica to be created.
+func (o ConfigurationStoreReplicaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationStoreReplica) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ConfigurationStoreReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (o ConfigurationStoreReplicaArrayOutput) ToConfigurationStoreReplicaArrayOutput() ConfigurationStoreReplicaArrayOutput {
+	return o
+}
+
+func (o ConfigurationStoreReplicaArrayOutput) ToConfigurationStoreReplicaArrayOutputWithContext(ctx context.Context) ConfigurationStoreReplicaArrayOutput {
+	return o
+}
+
+func (o ConfigurationStoreReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreReplica] {
+	return pulumix.Output[[]ConfigurationStoreReplica]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationStoreReplicaArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStoreReplica {
+		return vs[0].([]ConfigurationStoreReplica)[vs[1].(int)]
+	}).(ConfigurationStoreReplicaOutput)
+}
+
 type ConfigurationStoreSecondaryReadKey struct {
 	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 	ConnectionString *string `pulumi:"connectionString"`
@@ -2108,6 +2256,154 @@ func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) Index(i pulumi.IntInput
 	}).(GetConfigurationStorePrimaryWriteKeyOutput)
 }
 
+type GetConfigurationStoreReplica struct {
+	// The URL of the App Configuration Replica.
+	Endpoint string `pulumi:"endpoint"`
+	// The ID of the Access Key.
+	Id string `pulumi:"id"`
+	// The supported Azure location where the App Configuration Replica exists.
+	Location string `pulumi:"location"`
+	// The Name of this App Configuration.
+	Name string `pulumi:"name"`
+}
+
+// GetConfigurationStoreReplicaInput is an input type that accepts GetConfigurationStoreReplicaArgs and GetConfigurationStoreReplicaOutput values.
+// You can construct a concrete instance of `GetConfigurationStoreReplicaInput` via:
+//
+//	GetConfigurationStoreReplicaArgs{...}
+type GetConfigurationStoreReplicaInput interface {
+	pulumi.Input
+
+	ToGetConfigurationStoreReplicaOutput() GetConfigurationStoreReplicaOutput
+	ToGetConfigurationStoreReplicaOutputWithContext(context.Context) GetConfigurationStoreReplicaOutput
+}
+
+type GetConfigurationStoreReplicaArgs struct {
+	// The URL of the App Configuration Replica.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The ID of the Access Key.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The supported Azure location where the App Configuration Replica exists.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The Name of this App Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetConfigurationStoreReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (i GetConfigurationStoreReplicaArgs) ToGetConfigurationStoreReplicaOutput() GetConfigurationStoreReplicaOutput {
+	return i.ToGetConfigurationStoreReplicaOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationStoreReplicaArgs) ToGetConfigurationStoreReplicaOutputWithContext(ctx context.Context) GetConfigurationStoreReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreReplicaOutput)
+}
+
+func (i GetConfigurationStoreReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreReplica] {
+	return pulumix.Output[GetConfigurationStoreReplica]{
+		OutputState: i.ToGetConfigurationStoreReplicaOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetConfigurationStoreReplicaArrayInput is an input type that accepts GetConfigurationStoreReplicaArray and GetConfigurationStoreReplicaArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationStoreReplicaArrayInput` via:
+//
+//	GetConfigurationStoreReplicaArray{ GetConfigurationStoreReplicaArgs{...} }
+type GetConfigurationStoreReplicaArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationStoreReplicaArrayOutput() GetConfigurationStoreReplicaArrayOutput
+	ToGetConfigurationStoreReplicaArrayOutputWithContext(context.Context) GetConfigurationStoreReplicaArrayOutput
+}
+
+type GetConfigurationStoreReplicaArray []GetConfigurationStoreReplicaInput
+
+func (GetConfigurationStoreReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (i GetConfigurationStoreReplicaArray) ToGetConfigurationStoreReplicaArrayOutput() GetConfigurationStoreReplicaArrayOutput {
+	return i.ToGetConfigurationStoreReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationStoreReplicaArray) ToGetConfigurationStoreReplicaArrayOutputWithContext(ctx context.Context) GetConfigurationStoreReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreReplicaArrayOutput)
+}
+
+func (i GetConfigurationStoreReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreReplica] {
+	return pulumix.Output[[]GetConfigurationStoreReplica]{
+		OutputState: i.ToGetConfigurationStoreReplicaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetConfigurationStoreReplicaOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationStoreReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (o GetConfigurationStoreReplicaOutput) ToGetConfigurationStoreReplicaOutput() GetConfigurationStoreReplicaOutput {
+	return o
+}
+
+func (o GetConfigurationStoreReplicaOutput) ToGetConfigurationStoreReplicaOutputWithContext(ctx context.Context) GetConfigurationStoreReplicaOutput {
+	return o
+}
+
+func (o GetConfigurationStoreReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreReplica] {
+	return pulumix.Output[GetConfigurationStoreReplica]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The URL of the App Configuration Replica.
+func (o GetConfigurationStoreReplicaOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreReplica) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The ID of the Access Key.
+func (o GetConfigurationStoreReplicaOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreReplica) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The supported Azure location where the App Configuration Replica exists.
+func (o GetConfigurationStoreReplicaOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreReplica) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Name of this App Configuration.
+func (o GetConfigurationStoreReplicaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreReplica) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetConfigurationStoreReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationStoreReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationStoreReplica)(nil)).Elem()
+}
+
+func (o GetConfigurationStoreReplicaArrayOutput) ToGetConfigurationStoreReplicaArrayOutput() GetConfigurationStoreReplicaArrayOutput {
+	return o
+}
+
+func (o GetConfigurationStoreReplicaArrayOutput) ToGetConfigurationStoreReplicaArrayOutputWithContext(ctx context.Context) GetConfigurationStoreReplicaArrayOutput {
+	return o
+}
+
+func (o GetConfigurationStoreReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreReplica] {
+	return pulumix.Output[[]GetConfigurationStoreReplica]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetConfigurationStoreReplicaArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStoreReplica {
+		return vs[0].([]GetConfigurationStoreReplica)[vs[1].(int)]
+	}).(GetConfigurationStoreReplicaOutput)
+}
+
 type GetConfigurationStoreSecondaryReadKey struct {
 	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
@@ -2401,6 +2697,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStorePrimaryReadKeyArrayInput)(nil)).Elem(), ConfigurationStorePrimaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStorePrimaryWriteKeyInput)(nil)).Elem(), ConfigurationStorePrimaryWriteKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStorePrimaryWriteKeyArrayInput)(nil)).Elem(), ConfigurationStorePrimaryWriteKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreReplicaInput)(nil)).Elem(), ConfigurationStoreReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreReplicaArrayInput)(nil)).Elem(), ConfigurationStoreReplicaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryReadKeyInput)(nil)).Elem(), ConfigurationStoreSecondaryReadKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryReadKeyArrayInput)(nil)).Elem(), ConfigurationStoreSecondaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryWriteKeyInput)(nil)).Elem(), ConfigurationStoreSecondaryWriteKeyArgs{})
@@ -2415,6 +2713,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryReadKeyArrayInput)(nil)).Elem(), GetConfigurationStorePrimaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryWriteKeyInput)(nil)).Elem(), GetConfigurationStorePrimaryWriteKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryWriteKeyArrayInput)(nil)).Elem(), GetConfigurationStorePrimaryWriteKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreReplicaInput)(nil)).Elem(), GetConfigurationStoreReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreReplicaArrayInput)(nil)).Elem(), GetConfigurationStoreReplicaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreSecondaryReadKeyInput)(nil)).Elem(), GetConfigurationStoreSecondaryReadKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreSecondaryReadKeyArrayInput)(nil)).Elem(), GetConfigurationStoreSecondaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreSecondaryWriteKeyInput)(nil)).Elem(), GetConfigurationStoreSecondaryWriteKeyArgs{})
@@ -2433,6 +2733,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryWriteKeyOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryWriteKeyArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreReplicaOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreReplicaArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryReadKeyOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryWriteKeyOutput{})
@@ -2447,6 +2749,8 @@ func init() {
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryWriteKeyOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryWriteKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationStoreReplicaOutput{})
+	pulumi.RegisterOutputType(GetConfigurationStoreReplicaArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStoreSecondaryReadKeyOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStoreSecondaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStoreSecondaryWriteKeyOutput{})

@@ -26,6 +26,8 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+        /// 
+        /// !&gt; **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
         /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;

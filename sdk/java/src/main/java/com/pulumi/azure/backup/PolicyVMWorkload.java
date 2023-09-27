@@ -110,7 +110,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * One or more `protection_policy` blocks as defined below.
      * 
      */
-    @Export(name="protectionPolicies", refs={List.class,PolicyVMWorkloadProtectionPolicy.class}, tree="[0,1]")
+    @Export(name="protectionPolicies", type=List.class, parameters={PolicyVMWorkloadProtectionPolicy.class})
     private Output<List<PolicyVMWorkloadProtectionPolicy>> protectionPolicies;
 
     /**
@@ -138,7 +138,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
@@ -152,7 +152,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -166,7 +166,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * A `settings` block as defined below.
      * 
      */
-    @Export(name="settings", refs={PolicyVMWorkloadSettings.class}, tree="[0]")
+    @Export(name="settings", type=PolicyVMWorkloadSettings.class, parameters={})
     private Output<PolicyVMWorkloadSettings> settings;
 
     /**
@@ -180,7 +180,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workloadType", refs={String.class}, tree="[0]")
+    @Export(name="workloadType", type=String.class, parameters={})
     private Output<String> workloadType;
 
     /**

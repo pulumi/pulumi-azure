@@ -88,7 +88,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * Specifies the resource id of monitor action group.
      * 
      */
-    @Export(name="actionGroupId", refs={String.class}, tree="[0]")
+    @Export(name="actionGroupId", type=String.class, parameters={})
     private Output<String> actionGroupId;
 
     /**
@@ -102,7 +102,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * A `condition` block as defined below.
      * 
      */
-    @Export(name="condition", refs={ActionRuleActionGroupCondition.class}, tree="[0]")
+    @Export(name="condition", type=ActionRuleActionGroupCondition.class, parameters={})
     private Output</* @Nullable */ ActionRuleActionGroupCondition> condition;
 
     /**
@@ -116,7 +116,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * Specifies a description for the Action Rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * Is the Action Rule enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -144,7 +144,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -158,7 +158,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -172,7 +172,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * A `scope` block as defined below.
      * 
      */
-    @Export(name="scope", refs={ActionRuleActionGroupScope.class}, tree="[0]")
+    @Export(name="scope", type=ActionRuleActionGroupScope.class, parameters={})
     private Output</* @Nullable */ ActionRuleActionGroupScope> scope;
 
     /**
@@ -186,7 +186,7 @@ public class ActionRuleActionGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

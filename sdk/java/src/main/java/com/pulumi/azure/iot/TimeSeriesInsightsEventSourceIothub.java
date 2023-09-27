@@ -119,7 +119,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the name of the IotHub Consumer Group that holds the partitions from which events will be read.
      * 
      */
-    @Export(name="consumerGroupName", refs={String.class}, tree="[0]")
+    @Export(name="consumerGroupName", type=String.class, parameters={})
     private Output<String> consumerGroupName;
 
     /**
@@ -133,7 +133,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the id of the IoT Time Series Insights Environment that the Event Source should be associated with. Changing this forces a new resource to created.
      * 
      */
-    @Export(name="environmentId", refs={String.class}, tree="[0]")
+    @Export(name="environmentId", type=String.class, parameters={})
     private Output<String> environmentId;
 
     /**
@@ -147,7 +147,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the resource id where events will be coming from.
      * 
      */
-    @Export(name="eventSourceResourceId", refs={String.class}, tree="[0]")
+    @Export(name="eventSourceResourceId", type=String.class, parameters={})
     private Output<String> eventSourceResourceId;
 
     /**
@@ -161,7 +161,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the name of the IotHub which will be associated with this resource.
      * 
      */
-    @Export(name="iothubName", refs={String.class}, tree="[0]")
+    @Export(name="iothubName", type=String.class, parameters={})
     private Output<String> iothubName;
 
     /**
@@ -175,7 +175,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -189,7 +189,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the name of the Azure IoT Time Series Insights IoTHub Event Source. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -203,7 +203,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the value of the Shared Access Policy key that grants the Time Series Insights service read access to the IotHub.
      * 
      */
-    @Export(name="sharedAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="sharedAccessKey", type=String.class, parameters={})
     private Output<String> sharedAccessKey;
 
     /**
@@ -217,7 +217,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the name of the Shared Access key that grants the Event Source access to the IotHub.
      * 
      */
-    @Export(name="sharedAccessKeyName", refs={String.class}, tree="[0]")
+    @Export(name="sharedAccessKeyName", type=String.class, parameters={})
     private Output<String> sharedAccessKeyName;
 
     /**
@@ -231,7 +231,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -245,7 +245,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * Specifies the value that will be used as the event source&#39;s timestamp. This value defaults to the event creation time.
      * 
      */
-    @Export(name="timestampPropertyName", refs={String.class}, tree="[0]")
+    @Export(name="timestampPropertyName", type=String.class, parameters={})
     private Output<String> timestampPropertyName;
 
     /**

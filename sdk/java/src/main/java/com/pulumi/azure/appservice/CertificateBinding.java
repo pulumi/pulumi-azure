@@ -31,7 +31,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * The name of the App Service to which the certificate was bound.
      * 
      */
-    @Export(name="appServiceName", refs={String.class}, tree="[0]")
+    @Export(name="appServiceName", type=String.class, parameters={})
     private Output<String> appServiceName;
 
     /**
@@ -45,7 +45,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
      * 
      */
-    @Export(name="certificateId", refs={String.class}, tree="[0]")
+    @Export(name="certificateId", type=String.class, parameters={})
     private Output<String> certificateId;
 
     /**
@@ -59,7 +59,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * The hostname of the bound certificate.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -73,7 +73,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
      * 
      */
-    @Export(name="hostnameBindingId", refs={String.class}, tree="[0]")
+    @Export(name="hostnameBindingId", type=String.class, parameters={})
     private Output<String> hostnameBindingId;
 
     /**
@@ -87,7 +87,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
      * 
      */
-    @Export(name="sslState", refs={String.class}, tree="[0]")
+    @Export(name="sslState", type=String.class, parameters={})
     private Output<String> sslState;
 
     /**
@@ -101,7 +101,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * The certificate thumbprint.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**

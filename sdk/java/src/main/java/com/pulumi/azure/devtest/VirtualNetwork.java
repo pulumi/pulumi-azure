@@ -84,7 +84,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * A description for the Virtual Network.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -98,7 +98,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labName", refs={String.class}, tree="[0]")
+    @Export(name="labName", type=String.class, parameters={})
     private Output<String> labName;
 
     /**
@@ -112,7 +112,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -140,7 +140,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * A `subnet` block as defined below.
      * 
      */
-    @Export(name="subnet", refs={VirtualNetworkSubnet.class}, tree="[0]")
+    @Export(name="subnet", type=VirtualNetworkSubnet.class, parameters={})
     private Output<VirtualNetworkSubnet> subnet;
 
     /**
@@ -154,7 +154,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -168,7 +168,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The unique immutable identifier of the Dev Test Virtual Network.
      * 
      */
-    @Export(name="uniqueIdentifier", refs={String.class}, tree="[0]")
+    @Export(name="uniqueIdentifier", type=String.class, parameters={})
     private Output<String> uniqueIdentifier;
 
     /**

@@ -80,7 +80,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The name of the Logic App Integration Account Assembly.
      * 
      */
-    @Export(name="assemblyName", refs={String.class}, tree="[0]")
+    @Export(name="assemblyName", type=String.class, parameters={})
     private Output<String> assemblyName;
 
     /**
@@ -94,7 +94,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
      * 
      */
-    @Export(name="assemblyVersion", refs={String.class}, tree="[0]")
+    @Export(name="assemblyVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> assemblyVersion;
 
     /**
@@ -108,7 +108,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The content of the Logic App Integration Account Assembly.
      * 
      */
-    @Export(name="content", refs={String.class}, tree="[0]")
+    @Export(name="content", type=String.class, parameters={})
     private Output</* @Nullable */ String> content;
 
     /**
@@ -122,7 +122,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The content link URI of the Logic App Integration Account Assembly.
      * 
      */
-    @Export(name="contentLinkUri", refs={String.class}, tree="[0]")
+    @Export(name="contentLinkUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentLinkUri;
 
     /**
@@ -136,7 +136,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="integrationAccountName", type=String.class, parameters={})
     private Output<String> integrationAccountName;
 
     /**
@@ -150,7 +150,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The metadata of the Logic App Integration Account Assembly.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -164,7 +164,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -178,7 +178,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

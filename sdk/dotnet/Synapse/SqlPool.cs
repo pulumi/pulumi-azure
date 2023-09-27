@@ -59,6 +59,7 @@ namespace Pulumi.Azure.Synapse
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         SkuName = "DW100c",
     ///         CreateMode = "Default",
+    ///         StorageAccountType = "GRS",
     ///     });
     /// 
     /// });
@@ -76,13 +77,13 @@ namespace Pulumi.Azure.Synapse
     public partial class SqlPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("collation")]
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -94,13 +95,13 @@ namespace Pulumi.Azure.Synapse
         public Output<bool?> DataEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         /// </summary>
         [Output("geoBackupPolicyEnabled")]
         public Output<bool?> GeoBackupPolicyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -112,7 +113,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> RecoveryDatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("restore")]
         public Output<Outputs.SqlPoolRestore?> Restore { get; private set; } = null!;
@@ -122,6 +123,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+        /// </summary>
+        [Output("storageAccountType")]
+        public Output<string?> StorageAccountType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
@@ -182,13 +189,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -200,13 +207,13 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("geoBackupPolicyEnabled")]
         public Input<bool>? GeoBackupPolicyEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -218,7 +225,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? RecoveryDatabaseId { get; set; }
 
         /// <summary>
-        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("restore")]
         public Input<Inputs.SqlPoolRestoreArgs>? Restore { get; set; }
@@ -228,6 +235,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         /// <summary>
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
@@ -256,13 +269,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+        /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+        /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -274,13 +287,13 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// Is geo-backup policy enabled? Defaults to `true`.
+        /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("geoBackupPolicyEnabled")]
         public Input<bool>? GeoBackupPolicyEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+        /// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -292,7 +305,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? RecoveryDatabaseId { get; set; }
 
         /// <summary>
-        /// A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("restore")]
         public Input<Inputs.SqlPoolRestoreGetArgs>? Restore { get; set; }
@@ -302,6 +315,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         /// <summary>
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.

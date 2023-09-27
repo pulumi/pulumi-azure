@@ -318,7 +318,7 @@ public class ReplicaSet extends com.pulumi.resources.CustomResource {
      * A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
      * 
      */
-    @Export(name="domainControllerIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="domainControllerIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> domainControllerIpAddresses;
 
     /**
@@ -332,7 +332,7 @@ public class ReplicaSet extends com.pulumi.resources.CustomResource {
      * The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="domainServiceId", refs={String.class}, tree="[0]")
+    @Export(name="domainServiceId", type=String.class, parameters={})
     private Output<String> domainServiceId;
 
     /**
@@ -346,7 +346,7 @@ public class ReplicaSet extends com.pulumi.resources.CustomResource {
      * The publicly routable IP address for the domain controllers in this Replica Set.
      * 
      */
-    @Export(name="externalAccessIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="externalAccessIpAddress", type=String.class, parameters={})
     private Output<String> externalAccessIpAddress;
 
     /**
@@ -360,7 +360,7 @@ public class ReplicaSet extends com.pulumi.resources.CustomResource {
      * The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -374,7 +374,7 @@ public class ReplicaSet extends com.pulumi.resources.CustomResource {
      * The current service status for the replica set.
      * 
      */
-    @Export(name="serviceStatus", refs={String.class}, tree="[0]")
+    @Export(name="serviceStatus", type=String.class, parameters={})
     private Output<String> serviceStatus;
 
     /**
@@ -388,7 +388,7 @@ public class ReplicaSet extends com.pulumi.resources.CustomResource {
      * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**

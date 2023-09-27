@@ -16,17 +16,21 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -57,6 +61,18 @@ class AccountArgs:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -84,6 +100,7 @@ class AccountArgs:
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -93,6 +110,7 @@ class _AccountState:
                  x_ms_client_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
@@ -101,6 +119,8 @@ class _AccountState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
         """
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_access_key is not None:
@@ -115,6 +135,18 @@ class _AccountState:
             pulumi.set(__self__, "tags", tags)
         if x_ms_client_id is not None:
             pulumi.set(__self__, "x_ms_client_id", x_ms_client_id)
+
+    @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @property
     @pulumi.getter
@@ -206,6 +238,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -224,6 +257,7 @@ class Account(pulumi.CustomResource):
         example_account = azure.maps.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             sku_name="S1",
+            local_authentication_enabled=True,
             tags={
                 "environment": "Test",
             })
@@ -239,6 +273,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
@@ -263,6 +298,7 @@ class Account(pulumi.CustomResource):
         example_account = azure.maps.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             sku_name="S1",
+            local_authentication_enabled=True,
             tags={
                 "environment": "Test",
             })
@@ -291,6 +327,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -304,6 +341,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -327,6 +365,7 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -341,6 +380,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
@@ -353,6 +393,7 @@ class Account(pulumi.CustomResource):
 
         __props__ = _AccountState.__new__(_AccountState)
 
+        __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -361,6 +402,14 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["x_ms_client_id"] = x_ms_client_id
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
 
     @property
     @pulumi.getter

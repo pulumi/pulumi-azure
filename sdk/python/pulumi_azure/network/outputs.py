@@ -118,6 +118,7 @@ __all__ = [
     'RouteMapRuleActionParameter',
     'RouteMapRuleMatchCriterion',
     'RouteTableRoute',
+    'RoutingIntentRoutingPolicy',
     'SubnetDelegation',
     'SubnetDelegationServiceDelegation',
     'SubnetServiceEndpointStoragePolicyDefinition',
@@ -2522,6 +2523,8 @@ class ApplicationGatewaySku(dict):
         """
         :param str name: The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
         :param str tier: The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+               
+               !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
         :param int capacity: The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
         """
         pulumi.set(__self__, "name", name)
@@ -2542,6 +2545,8 @@ class ApplicationGatewaySku(dict):
     def tier(self) -> str:
         """
         The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+
+        !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
         """
         return pulumi.get(self, "tier")
 
@@ -2774,6 +2779,8 @@ class ApplicationGatewaySslProfile(dict):
             suggest = "trusted_client_certificate_names"
         elif key == "verifyClientCertIssuerDn":
             suggest = "verify_client_cert_issuer_dn"
+        elif key == "verifyClientCertificateRevocation":
+            suggest = "verify_client_certificate_revocation"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslProfile. Access the value via the '{suggest}' property getter instead.")
@@ -2791,13 +2798,15 @@ class ApplicationGatewaySslProfile(dict):
                  id: Optional[str] = None,
                  ssl_policy: Optional['outputs.ApplicationGatewaySslProfileSslPolicy'] = None,
                  trusted_client_certificate_names: Optional[Sequence[str]] = None,
-                 verify_client_cert_issuer_dn: Optional[bool] = None):
+                 verify_client_cert_issuer_dn: Optional[bool] = None,
+                 verify_client_certificate_revocation: Optional[str] = None):
         """
         :param str name: The name of the SSL Profile that is unique within this Application Gateway.
         :param str id: The ID of the Rewrite Rule Set
         :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl_policy` block as defined below.
         :param Sequence[str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified? Defaults to `false`.
+        :param str verify_client_certificate_revocation: Specify the method to check client certificate revocation status. Possible value is `OCSP`.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
@@ -2808,6 +2817,8 @@ class ApplicationGatewaySslProfile(dict):
             pulumi.set(__self__, "trusted_client_certificate_names", trusted_client_certificate_names)
         if verify_client_cert_issuer_dn is not None:
             pulumi.set(__self__, "verify_client_cert_issuer_dn", verify_client_cert_issuer_dn)
+        if verify_client_certificate_revocation is not None:
+            pulumi.set(__self__, "verify_client_certificate_revocation", verify_client_certificate_revocation)
 
     @property
     @pulumi.getter
@@ -2848,6 +2859,14 @@ class ApplicationGatewaySslProfile(dict):
         Should client certificate issuer DN be verified? Defaults to `false`.
         """
         return pulumi.get(self, "verify_client_cert_issuer_dn")
+
+    @property
+    @pulumi.getter(name="verifyClientCertificateRevocation")
+    def verify_client_certificate_revocation(self) -> Optional[str]:
+        """
+        Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+        """
+        return pulumi.get(self, "verify_client_certificate_revocation")
 
 
 @pulumi.output_type
@@ -8787,6 +8806,63 @@ class RouteTableRoute(dict):
         Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
         return pulumi.get(self, "next_hop_in_ip_address")
+
+
+@pulumi.output_type
+class RoutingIntentRoutingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextHop":
+            suggest = "next_hop"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingIntentRoutingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingIntentRoutingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingIntentRoutingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destinations: Sequence[str],
+                 name: str,
+                 next_hop: str):
+        """
+        :param Sequence[str] destinations: A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+        :param str name: The unique name for the routing policy.
+        :param str next_hop: The resource ID of the next hop on which this routing policy is applicable to.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_hop", next_hop)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence[str]:
+        """
+        A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The unique name for the routing policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> str:
+        """
+        The resource ID of the next hop on which this routing policy is applicable to.
+        """
+        return pulumi.get(self, "next_hop")
 
 
 @pulumi.output_type

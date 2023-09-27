@@ -96,7 +96,7 @@ public class NetworkManagerSecurityAdminConfiguration extends com.pulumi.resourc
      * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      * 
      */
-    @Export(name="applyOnNetworkIntentPolicyBasedServices", refs={String.class}, tree="[0]")
+    @Export(name="applyOnNetworkIntentPolicyBasedServices", type=String.class, parameters={})
     private Output</* @Nullable */ String> applyOnNetworkIntentPolicyBasedServices;
 
     /**
@@ -110,7 +110,7 @@ public class NetworkManagerSecurityAdminConfiguration extends com.pulumi.resourc
      * A description of the Security Admin Configuration.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -124,7 +124,7 @@ public class NetworkManagerSecurityAdminConfiguration extends com.pulumi.resourc
      * Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class NetworkManagerSecurityAdminConfiguration extends com.pulumi.resourc
      * Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
      * 
      */
-    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
+    @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**

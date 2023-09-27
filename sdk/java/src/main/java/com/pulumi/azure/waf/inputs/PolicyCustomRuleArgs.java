@@ -6,6 +6,7 @@ package com.pulumi.azure.waf.inputs;
 import com.pulumi.azure.waf.inputs.PolicyCustomRuleMatchConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -31,6 +32,36 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
      */
     public Output<String> action() {
         return this.action;
+    }
+
+    /**
+     * Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+     * 
+     */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
+
+    /**
+     * @return Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
+    }
+
+    /**
+     * Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * 
+     */
+    @Import(name="groupRateLimitBy")
+    private @Nullable Output<String> groupRateLimitBy;
+
+    /**
+     * @return Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * 
+     */
+    public Optional<Output<String>> groupRateLimitBy() {
+        return Optional.ofNullable(this.groupRateLimitBy);
     }
 
     /**
@@ -79,14 +110,44 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+     * Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+     * 
+     */
+    @Import(name="rateLimitDuration")
+    private @Nullable Output<String> rateLimitDuration;
+
+    /**
+     * @return Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+     * 
+     */
+    public Optional<Output<String>> rateLimitDuration() {
+        return Optional.ofNullable(this.rateLimitDuration);
+    }
+
+    /**
+     * Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+     * 
+     */
+    @Import(name="rateLimitThreshold")
+    private @Nullable Output<Integer> rateLimitThreshold;
+
+    /**
+     * @return Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+     * 
+     */
+    public Optional<Output<Integer>> rateLimitThreshold() {
+        return Optional.ofNullable(this.rateLimitThreshold);
+    }
+
+    /**
+     * Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
      * 
      */
     @Import(name="ruleType", required=true)
     private Output<String> ruleType;
 
     /**
-     * @return Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+     * @return Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
      * 
      */
     public Output<String> ruleType() {
@@ -97,9 +158,13 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
 
     private PolicyCustomRuleArgs(PolicyCustomRuleArgs $) {
         this.action = $.action;
+        this.enabled = $.enabled;
+        this.groupRateLimitBy = $.groupRateLimitBy;
         this.matchConditions = $.matchConditions;
         this.name = $.name;
         this.priority = $.priority;
+        this.rateLimitDuration = $.rateLimitDuration;
+        this.rateLimitThreshold = $.rateLimitThreshold;
         this.ruleType = $.ruleType;
     }
 
@@ -140,6 +205,48 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder action(String action) {
             return action(Output.of(action));
+        }
+
+        /**
+         * @param enabled Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
+            $.enabled = enabled;
+            return this;
+        }
+
+        /**
+         * @param enabled Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(Boolean enabled) {
+            return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param groupRateLimitBy Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupRateLimitBy(@Nullable Output<String> groupRateLimitBy) {
+            $.groupRateLimitBy = groupRateLimitBy;
+            return this;
+        }
+
+        /**
+         * @param groupRateLimitBy Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupRateLimitBy(String groupRateLimitBy) {
+            return groupRateLimitBy(Output.of(groupRateLimitBy));
         }
 
         /**
@@ -216,7 +323,49 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ruleType Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+         * @param rateLimitDuration Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimitDuration(@Nullable Output<String> rateLimitDuration) {
+            $.rateLimitDuration = rateLimitDuration;
+            return this;
+        }
+
+        /**
+         * @param rateLimitDuration Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimitDuration(String rateLimitDuration) {
+            return rateLimitDuration(Output.of(rateLimitDuration));
+        }
+
+        /**
+         * @param rateLimitThreshold Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimitThreshold(@Nullable Output<Integer> rateLimitThreshold) {
+            $.rateLimitThreshold = rateLimitThreshold;
+            return this;
+        }
+
+        /**
+         * @param rateLimitThreshold Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimitThreshold(Integer rateLimitThreshold) {
+            return rateLimitThreshold(Output.of(rateLimitThreshold));
+        }
+
+        /**
+         * @param ruleType Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
          * 
          * @return builder
          * 
@@ -227,7 +376,7 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ruleType Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+         * @param ruleType Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
          * 
          * @return builder
          * 

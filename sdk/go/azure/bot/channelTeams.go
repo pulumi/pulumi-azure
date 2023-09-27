@@ -81,6 +81,8 @@ type ChannelTeams struct {
 	BotName pulumi.StringOutput `pulumi:"botName"`
 	// Specifies the webhook for Microsoft Teams channel calls.
 	CallingWebHook pulumi.StringOutput `pulumi:"callingWebHook"`
+	// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+	DeploymentEnvironment pulumi.StringPtrOutput `pulumi:"deploymentEnvironment"`
 	// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
 	EnableCalling pulumi.BoolPtrOutput `pulumi:"enableCalling"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -129,6 +131,8 @@ type channelTeamsState struct {
 	BotName *string `pulumi:"botName"`
 	// Specifies the webhook for Microsoft Teams channel calls.
 	CallingWebHook *string `pulumi:"callingWebHook"`
+	// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+	DeploymentEnvironment *string `pulumi:"deploymentEnvironment"`
 	// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
 	EnableCalling *bool `pulumi:"enableCalling"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -142,6 +146,8 @@ type ChannelTeamsState struct {
 	BotName pulumi.StringPtrInput
 	// Specifies the webhook for Microsoft Teams channel calls.
 	CallingWebHook pulumi.StringPtrInput
+	// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+	DeploymentEnvironment pulumi.StringPtrInput
 	// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
 	EnableCalling pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -159,6 +165,8 @@ type channelTeamsArgs struct {
 	BotName string `pulumi:"botName"`
 	// Specifies the webhook for Microsoft Teams channel calls.
 	CallingWebHook *string `pulumi:"callingWebHook"`
+	// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+	DeploymentEnvironment *string `pulumi:"deploymentEnvironment"`
 	// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
 	EnableCalling *bool `pulumi:"enableCalling"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -173,6 +181,8 @@ type ChannelTeamsArgs struct {
 	BotName pulumi.StringInput
 	// Specifies the webhook for Microsoft Teams channel calls.
 	CallingWebHook pulumi.StringPtrInput
+	// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+	DeploymentEnvironment pulumi.StringPtrInput
 	// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
 	EnableCalling pulumi.BoolPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -300,6 +310,11 @@ func (o ChannelTeamsOutput) BotName() pulumi.StringOutput {
 // Specifies the webhook for Microsoft Teams channel calls.
 func (o ChannelTeamsOutput) CallingWebHook() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelTeams) pulumi.StringOutput { return v.CallingWebHook }).(pulumi.StringOutput)
+}
+
+// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+func (o ChannelTeamsOutput) DeploymentEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelTeams) pulumi.StringPtrOutput { return v.DeploymentEnvironment }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.

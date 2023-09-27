@@ -151,10 +151,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/customerManagedKey:CustomerManagedKey")
 public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
     /**
+     * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     * 
+     */
+    @Export(name="federatedIdentityClientId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> federatedIdentityClientId;
+
+    /**
+     * @return The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     * 
+     */
+    public Output<Optional<String>> federatedIdentityClientId() {
+        return Codegen.optional(this.federatedIdentityClientId);
+    }
+    /**
      * The name of Key Vault Key.
      * 
      */
-    @Export(name="keyName", refs={String.class}, tree="[0]")
+    @Export(name="keyName", type=String.class, parameters={})
     private Output<String> keyName;
 
     /**
@@ -164,25 +178,31 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
     public Output<String> keyName() {
         return this.keyName;
     }
+    @Export(name="keyVaultId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> keyVaultId;
+
+    public Output<Optional<String>> keyVaultId() {
+        return Codegen.optional(this.keyVaultId);
+    }
     /**
-     * The ID of the Key Vault.
+     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
-    private Output<String> keyVaultId;
+    @Export(name="keyVaultUri", type=String.class, parameters={})
+    private Output<String> keyVaultUri;
 
     /**
-     * @return The ID of the Key Vault.
+     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
      * 
      */
-    public Output<String> keyVaultId() {
-        return this.keyVaultId;
+    public Output<String> keyVaultUri() {
+        return this.keyVaultUri;
     }
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      * 
      */
-    @Export(name="keyVersion", refs={String.class}, tree="[0]")
+    @Export(name="keyVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVersion;
 
     /**
@@ -196,7 +216,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -210,7 +230,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of a user assigned identity.
      * 
      */
-    @Export(name="userAssignedIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="userAssignedIdentityId", type=String.class, parameters={})
     private Output</* @Nullable */ String> userAssignedIdentityId;
 
     /**

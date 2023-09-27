@@ -87,7 +87,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * Sets the file’s Content-Disposition header.
      * 
      */
-    @Export(name="contentDisposition", refs={String.class}, tree="[0]")
+    @Export(name="contentDisposition", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentDisposition;
 
     /**
@@ -101,7 +101,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * Specifies which content encodings have been applied to the file.
      * 
      */
-    @Export(name="contentEncoding", refs={String.class}, tree="[0]")
+    @Export(name="contentEncoding", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentEncoding;
 
     /**
@@ -115,7 +115,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * The length in bytes of the file content
      * 
      */
-    @Export(name="contentLength", refs={Integer.class}, tree="[0]")
+    @Export(name="contentLength", type=Integer.class, parameters={})
     private Output<Integer> contentLength;
 
     /**
@@ -129,7 +129,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="contentMd5", refs={String.class}, tree="[0]")
+    @Export(name="contentMd5", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentMd5;
 
     /**
@@ -143,7 +143,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * The content type of the share file. Defaults to `application/octet-stream`.
      * 
      */
-    @Export(name="contentType", refs={String.class}, tree="[0]")
+    @Export(name="contentType", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentType;
 
     /**
@@ -157,7 +157,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * A mapping of metadata to assign to this file.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -171,7 +171,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -185,7 +185,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
-    @Export(name="path", refs={String.class}, tree="[0]")
+    @Export(name="path", type=String.class, parameters={})
     private Output</* @Nullable */ String> path;
 
     /**
@@ -199,7 +199,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="source", refs={String.class}, tree="[0]")
+    @Export(name="source", type=String.class, parameters={})
     private Output</* @Nullable */ String> source;
 
     /**
@@ -213,7 +213,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageShareId", refs={String.class}, tree="[0]")
+    @Export(name="storageShareId", type=String.class, parameters={})
     private Output<String> storageShareId;
 
     /**

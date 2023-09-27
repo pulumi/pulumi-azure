@@ -166,7 +166,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      * 
      */
-    @Export(name="active", refs={Boolean.class}, tree="[0]")
+    @Export(name="active", type=Boolean.class, parameters={})
     private Output<Boolean> active;
 
     /**
@@ -182,7 +182,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      * 
      */
-    @Export(name="customerManagedKeyName", refs={String.class}, tree="[0]")
+    @Export(name="customerManagedKeyName", type=String.class, parameters={})
     private Output<String> customerManagedKeyName;
 
     /**
@@ -196,7 +196,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
      * 
      */
-    @Export(name="customerManagedKeyVersionlessId", refs={String.class}, tree="[0]")
+    @Export(name="customerManagedKeyVersionlessId", type=String.class, parameters={})
     private Output</* @Nullable */ String> customerManagedKeyVersionlessId;
 
     /**
@@ -210,7 +210,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse Workspace where the encryption key should be configured.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**

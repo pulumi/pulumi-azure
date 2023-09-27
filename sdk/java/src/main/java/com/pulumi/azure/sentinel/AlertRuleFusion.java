@@ -95,7 +95,7 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
      * The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
+    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
     private Output<String> alertRuleTemplateGuid;
 
     /**
@@ -109,7 +109,7 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
      * Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -123,7 +123,7 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -137,7 +137,7 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
      * One or more `source` blocks as defined below.
      * 
      */
-    @Export(name="sources", refs={List.class,AlertRuleFusionSource.class}, tree="[0,1]")
+    @Export(name="sources", type=List.class, parameters={AlertRuleFusionSource.class})
     private Output<List<AlertRuleFusionSource>> sources;
 
     /**

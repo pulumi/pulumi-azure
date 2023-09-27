@@ -107,7 +107,7 @@ public class RouteServerBgpConnection extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class RouteServerBgpConnection extends com.pulumi.resources.CustomResourc
      * The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="peerAsn", refs={Integer.class}, tree="[0]")
+    @Export(name="peerAsn", type=Integer.class, parameters={})
     private Output<Integer> peerAsn;
 
     /**
@@ -135,7 +135,7 @@ public class RouteServerBgpConnection extends com.pulumi.resources.CustomResourc
      * The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="peerIp", refs={String.class}, tree="[0]")
+    @Export(name="peerIp", type=String.class, parameters={})
     private Output<String> peerIp;
 
     /**
@@ -149,7 +149,7 @@ public class RouteServerBgpConnection extends com.pulumi.resources.CustomResourc
      * The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="routeServerId", refs={String.class}, tree="[0]")
+    @Export(name="routeServerId", type=String.class, parameters={})
     private Output<String> routeServerId;
 
     /**

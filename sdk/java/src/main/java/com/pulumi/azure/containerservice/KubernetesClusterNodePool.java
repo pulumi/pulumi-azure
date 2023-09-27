@@ -104,7 +104,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
@@ -120,7 +120,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
-    @Export(name="customCaTrustEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="customCaTrustEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> customCaTrustEnabled;
 
     /**
@@ -136,7 +136,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      * 
      */
-    @Export(name="enableAutoScaling", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableAutoScaling", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableAutoScaling;
 
     /**
@@ -152,7 +152,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      * 
      */
-    @Export(name="enableHostEncryption", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableHostEncryption", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableHostEncryption;
 
     /**
@@ -168,7 +168,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Should each node have a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="enableNodePublicIp", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableNodePublicIp", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableNodePublicIp;
 
     /**
@@ -184,7 +184,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
      * 
      */
-    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
+    @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -202,7 +202,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      * 
      */
-    @Export(name="fipsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="fipsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> fipsEnabled;
 
     /**
@@ -218,7 +218,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hostGroupId", refs={String.class}, tree="[0]")
+    @Export(name="hostGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostGroupId;
 
     /**
@@ -232,7 +232,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kubeletConfig", refs={KubernetesClusterNodePoolKubeletConfig.class}, tree="[0]")
+    @Export(name="kubeletConfig", type=KubernetesClusterNodePoolKubeletConfig.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolKubeletConfig> kubeletConfig;
 
     /**
@@ -246,7 +246,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
      * 
      */
-    @Export(name="kubeletDiskType", refs={String.class}, tree="[0]")
+    @Export(name="kubeletDiskType", type=String.class, parameters={})
     private Output<String> kubeletDiskType;
 
     /**
@@ -262,7 +262,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
      * 
      */
-    @Export(name="kubernetesClusterId", refs={String.class}, tree="[0]")
+    @Export(name="kubernetesClusterId", type=String.class, parameters={})
     private Output<String> kubernetesClusterId;
 
     /**
@@ -278,7 +278,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="linuxOsConfig", refs={KubernetesClusterNodePoolLinuxOsConfig.class}, tree="[0]")
+    @Export(name="linuxOsConfig", type=KubernetesClusterNodePoolLinuxOsConfig.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolLinuxOsConfig> linuxOsConfig;
 
     /**
@@ -292,7 +292,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
      * 
      */
-    @Export(name="maxCount", refs={Integer.class}, tree="[0]")
+    @Export(name="maxCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxCount;
 
     /**
@@ -306,7 +306,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maxPods", refs={Integer.class}, tree="[0]")
+    @Export(name="maxPods", type=Integer.class, parameters={})
     private Output<Integer> maxPods;
 
     /**
@@ -320,7 +320,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="messageOfTheDay", refs={String.class}, tree="[0]")
+    @Export(name="messageOfTheDay", type=String.class, parameters={})
     private Output</* @Nullable */ String> messageOfTheDay;
 
     /**
@@ -334,7 +334,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
      * 
      */
-    @Export(name="minCount", refs={Integer.class}, tree="[0]")
+    @Export(name="minCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> minCount;
 
     /**
@@ -348,7 +348,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -364,7 +364,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -382,7 +382,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** If you&#39;re specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      */
-    @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
+    @Export(name="nodeCount", type=Integer.class, parameters={})
     private Output<Integer> nodeCount;
 
     /**
@@ -398,7 +398,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      * 
      */
-    @Export(name="nodeLabels", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="nodeLabels", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> nodeLabels;
 
     /**
@@ -412,7 +412,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A `node_network_profile` block as documented below.
      * 
      */
-    @Export(name="nodeNetworkProfile", refs={KubernetesClusterNodePoolNodeNetworkProfile.class}, tree="[0]")
+    @Export(name="nodeNetworkProfile", type=KubernetesClusterNodePoolNodeNetworkProfile.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolNodeNetworkProfile> nodeNetworkProfile;
 
     /**
@@ -426,7 +426,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="nodePublicIpPrefixId", refs={String.class}, tree="[0]")
+    @Export(name="nodePublicIpPrefixId", type=String.class, parameters={})
     private Output</* @Nullable */ String> nodePublicIpPrefixId;
 
     /**
@@ -440,7 +440,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="nodeTaints", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="nodeTaints", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> nodeTaints;
 
     /**
@@ -456,7 +456,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
      * 
      */
-    @Export(name="orchestratorVersion", refs={String.class}, tree="[0]")
+    @Export(name="orchestratorVersion", type=String.class, parameters={})
     private Output<String> orchestratorVersion;
 
     /**
@@ -472,7 +472,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osDiskSizeGb", refs={Integer.class}, tree="[0]")
+    @Export(name="osDiskSizeGb", type=Integer.class, parameters={})
     private Output<Integer> osDiskSizeGb;
 
     /**
@@ -486,7 +486,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osDiskType", refs={String.class}, tree="[0]")
+    @Export(name="osDiskType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osDiskType;
 
     /**
@@ -500,7 +500,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osSku", refs={String.class}, tree="[0]")
+    @Export(name="osSku", type=String.class, parameters={})
     private Output<String> osSku;
 
     /**
@@ -514,7 +514,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      * 
      */
-    @Export(name="osType", refs={String.class}, tree="[0]")
+    @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
@@ -528,7 +528,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="podSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="podSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> podSubnetId;
 
     /**
@@ -542,7 +542,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="priority", refs={String.class}, tree="[0]")
+    @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -558,7 +558,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
      * 
      */
-    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -574,7 +574,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      * 
      */
-    @Export(name="scaleDownMode", refs={String.class}, tree="[0]")
+    @Export(name="scaleDownMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> scaleDownMode;
 
     /**
@@ -588,7 +588,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="snapshotId", refs={String.class}, tree="[0]")
+    @Export(name="snapshotId", type=String.class, parameters={})
     private Output</* @Nullable */ String> snapshotId;
 
     /**
@@ -604,7 +604,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** This field can only be configured when `priority` is set to `Spot`.
      * 
      */
-    @Export(name="spotMaxPrice", refs={Double.class}, tree="[0]")
+    @Export(name="spotMaxPrice", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> spotMaxPrice;
 
     /**
@@ -622,7 +622,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -638,7 +638,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ultraSsdEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="ultraSsdEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ultraSsdEnabled;
 
     /**
@@ -652,7 +652,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A `upgrade_settings` block as documented below.
      * 
      */
-    @Export(name="upgradeSettings", refs={KubernetesClusterNodePoolUpgradeSettings.class}, tree="[0]")
+    @Export(name="upgradeSettings", type=KubernetesClusterNodePoolUpgradeSettings.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolUpgradeSettings> upgradeSettings;
 
     /**
@@ -666,7 +666,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vmSize", refs={String.class}, tree="[0]")
+    @Export(name="vmSize", type=String.class, parameters={})
     private Output<String> vmSize;
 
     /**
@@ -682,7 +682,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** A route table must be configured on this Subnet.
      * 
      */
-    @Export(name="vnetSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="vnetSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> vnetSubnetId;
 
     /**
@@ -698,7 +698,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * A `windows_profile` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="windowsProfile", refs={KubernetesClusterNodePoolWindowsProfile.class}, tree="[0]")
+    @Export(name="windowsProfile", type=KubernetesClusterNodePoolWindowsProfile.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterNodePoolWindowsProfile> windowsProfile;
 
     /**
@@ -716,7 +716,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      * 
      */
-    @Export(name="workloadRuntime", refs={String.class}, tree="[0]")
+    @Export(name="workloadRuntime", type=String.class, parameters={})
     private Output</* @Nullable */ String> workloadRuntime;
 
     /**
@@ -734,7 +734,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

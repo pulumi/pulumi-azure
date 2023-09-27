@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.eventgrid.outputs;
 
+import com.pulumi.azure.eventgrid.outputs.GetDomainIdentity;
 import com.pulumi.azure.eventgrid.outputs.GetDomainInboundIpRule;
 import com.pulumi.azure.eventgrid.outputs.GetDomainInputMappingDefaultValue;
 import com.pulumi.azure.eventgrid.outputs.GetDomainInputMappingField;
@@ -25,6 +26,11 @@ public final class GetDomainResult {
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as documented below.
+     * 
+     */
+    private List<GetDomainIdentity> identities;
     /**
      * @return One or more `inbound_ip_rule` blocks as defined below.
      * 
@@ -87,6 +93,13 @@ public final class GetDomainResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return An `identity` block as documented below.
+     * 
+     */
+    public List<GetDomainIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return One or more `inbound_ip_rule` blocks as defined below.
@@ -169,6 +182,7 @@ public final class GetDomainResult {
     public static final class Builder {
         private String endpoint;
         private String id;
+        private List<GetDomainIdentity> identities;
         private List<GetDomainInboundIpRule> inboundIpRules;
         private List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues;
         private List<GetDomainInputMappingField> inputMappingFields;
@@ -185,6 +199,7 @@ public final class GetDomainResult {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.inboundIpRules = defaults.inboundIpRules;
     	      this.inputMappingDefaultValues = defaults.inputMappingDefaultValues;
     	      this.inputMappingFields = defaults.inputMappingFields;
@@ -207,6 +222,14 @@ public final class GetDomainResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetDomainIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetDomainIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder inboundIpRules(List<GetDomainInboundIpRule> inboundIpRules) {
@@ -276,6 +299,7 @@ public final class GetDomainResult {
             final var o = new GetDomainResult();
             o.endpoint = endpoint;
             o.id = id;
+            o.identities = identities;
             o.inboundIpRules = inboundIpRules;
             o.inputMappingDefaultValues = inputMappingDefaultValues;
             o.inputMappingFields = inputMappingFields;

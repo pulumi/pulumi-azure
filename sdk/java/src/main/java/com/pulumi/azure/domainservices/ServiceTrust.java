@@ -74,7 +74,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
      * 
      */
-    @Export(name="domainServiceId", refs={String.class}, tree="[0]")
+    @Export(name="domainServiceId", type=String.class, parameters={})
     private Output<String> domainServiceId;
 
     /**
@@ -88,7 +88,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -102,7 +102,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * The password of the inbound trust set in the on-premise Active Directory Domain Service.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
@@ -116,7 +116,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service.
      * 
      */
-    @Export(name="trustedDomainDnsIps", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="trustedDomainDnsIps", type=List.class, parameters={String.class})
     private Output<List<String>> trustedDomainDnsIps;
 
     /**
@@ -130,7 +130,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * The FQDN of the on-premise Active Directory Domain Service.
      * 
      */
-    @Export(name="trustedDomainFqdn", refs={String.class}, tree="[0]")
+    @Export(name="trustedDomainFqdn", type=String.class, parameters={})
     private Output<String> trustedDomainFqdn;
 
     /**

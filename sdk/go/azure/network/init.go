@@ -135,6 +135,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteServerBgpConnection{}
 	case "azure:network/routeTable:RouteTable":
 		r = &RouteTable{}
+	case "azure:network/routingIntent:RoutingIntent":
+		r = &RoutingIntent{}
 	case "azure:network/securityPartnerProvider:SecurityPartnerProvider":
 		r = &SecurityPartnerProvider{}
 	case "azure:network/subnet:Subnet":
@@ -487,6 +489,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/routeTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/routingIntent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

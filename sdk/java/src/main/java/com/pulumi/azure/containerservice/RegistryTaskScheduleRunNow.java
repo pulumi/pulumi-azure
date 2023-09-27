@@ -84,7 +84,7 @@ public class RegistryTaskScheduleRunNow extends com.pulumi.resources.CustomResou
      * The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
      * 
      */
-    @Export(name="containerRegistryTaskId", refs={String.class}, tree="[0]")
+    @Export(name="containerRegistryTaskId", type=String.class, parameters={})
     private Output<String> containerRegistryTaskId;
 
     /**

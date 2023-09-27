@@ -77,7 +77,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -91,7 +91,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * Integration runtime description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The primary integration runtime authentication key.
      * 
      */
-    @Export(name="primaryAuthorizationKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryAuthorizationKey", type=String.class, parameters={})
     private Output<String> primaryAuthorizationKey;
 
     /**
@@ -133,7 +133,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="rbacAuthorizations", refs={List.class,IntegrationRuntimeSelfHostedRbacAuthorization.class}, tree="[0,1]")
+    @Export(name="rbacAuthorizations", type=List.class, parameters={IntegrationRuntimeSelfHostedRbacAuthorization.class})
     private Output</* @Nullable */ List<IntegrationRuntimeSelfHostedRbacAuthorization>> rbacAuthorizations;
 
     /**
@@ -147,7 +147,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The secondary integration runtime authentication key.
      * 
      */
-    @Export(name="secondaryAuthorizationKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryAuthorizationKey", type=String.class, parameters={})
     private Output<String> secondaryAuthorizationKey;
 
     /**

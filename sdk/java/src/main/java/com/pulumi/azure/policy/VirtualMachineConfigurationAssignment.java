@@ -163,7 +163,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * A `configuration` block as defined below.
      * 
      */
-    @Export(name="configuration", refs={VirtualMachineConfigurationAssignmentConfiguration.class}, tree="[0]")
+    @Export(name="configuration", type=VirtualMachineConfigurationAssignmentConfiguration.class, parameters={})
     private Output<VirtualMachineConfigurationAssignmentConfiguration> configuration;
 
     /**
@@ -177,7 +177,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -191,7 +191,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -205,7 +205,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**

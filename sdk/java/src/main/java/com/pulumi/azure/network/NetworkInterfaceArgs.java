@@ -20,6 +20,44 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     public static final NetworkInterfaceArgs Empty = new NetworkInterfaceArgs();
 
     /**
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     * 
+     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    @Import(name="auxiliaryMode")
+    private @Nullable Output<String> auxiliaryMode;
+
+    /**
+     * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     * 
+     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    public Optional<Output<String>> auxiliaryMode() {
+        return Optional.ofNullable(this.auxiliaryMode);
+    }
+
+    /**
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * 
+     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    @Import(name="auxiliarySku")
+    private @Nullable Output<String> auxiliarySku;
+
+    /**
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * 
+     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    public Optional<Output<String>> auxiliarySku() {
+        return Optional.ofNullable(this.auxiliarySku);
+    }
+
+    /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      * 
      * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -184,6 +222,8 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     private NetworkInterfaceArgs() {}
 
     private NetworkInterfaceArgs(NetworkInterfaceArgs $) {
+        this.auxiliaryMode = $.auxiliaryMode;
+        this.auxiliarySku = $.auxiliarySku;
         this.dnsServers = $.dnsServers;
         this.edgeZone = $.edgeZone;
         this.enableAcceleratedNetworking = $.enableAcceleratedNetworking;
@@ -212,6 +252,56 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
 
         public Builder(NetworkInterfaceArgs defaults) {
             $ = new NetworkInterfaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param auxiliaryMode Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+         * 
+         * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliaryMode(@Nullable Output<String> auxiliaryMode) {
+            $.auxiliaryMode = auxiliaryMode;
+            return this;
+        }
+
+        /**
+         * @param auxiliaryMode Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+         * 
+         * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliaryMode(String auxiliaryMode) {
+            return auxiliaryMode(Output.of(auxiliaryMode));
+        }
+
+        /**
+         * @param auxiliarySku Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         * 
+         * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliarySku(@Nullable Output<String> auxiliarySku) {
+            $.auxiliarySku = auxiliarySku;
+            return this;
+        }
+
+        /**
+         * @param auxiliarySku Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         * 
+         * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auxiliarySku(String auxiliarySku) {
+            return auxiliarySku(Output.of(auxiliarySku));
         }
 
         /**

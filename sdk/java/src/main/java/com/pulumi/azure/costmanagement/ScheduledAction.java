@@ -72,7 +72,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
      * 
      */
-    @Export(name="dayOfMonth", refs={Integer.class}, tree="[0]")
+    @Export(name="dayOfMonth", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dayOfMonth;
 
     /**
@@ -86,7 +86,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
      * 
      */
-    @Export(name="daysOfWeeks", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="daysOfWeeks", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> daysOfWeeks;
 
     /**
@@ -100,7 +100,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * User visible input name of the Cost Management Scheduled Action.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -114,7 +114,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      * 
      */
-    @Export(name="emailAddressSender", refs={String.class}, tree="[0]")
+    @Export(name="emailAddressSender", type=String.class, parameters={})
     private Output<String> emailAddressSender;
 
     /**
@@ -128,7 +128,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Specifies a list of email addresses that will receive the Scheduled Action.
      * 
      */
-    @Export(name="emailAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="emailAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> emailAddresses;
 
     /**
@@ -142,7 +142,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Subject of the email. Length is limited to 70 characters.
      * 
      */
-    @Export(name="emailSubject", refs={String.class}, tree="[0]")
+    @Export(name="emailSubject", type=String.class, parameters={})
     private Output<String> emailSubject;
 
     /**
@@ -156,7 +156,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The end date and time of the Scheduled Action (UTC).
      * 
      */
-    @Export(name="endDate", refs={String.class}, tree="[0]")
+    @Export(name="endDate", type=String.class, parameters={})
     private Output<String> endDate;
 
     /**
@@ -170,7 +170,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
      * 
      */
-    @Export(name="frequency", refs={String.class}, tree="[0]")
+    @Export(name="frequency", type=String.class, parameters={})
     private Output<String> frequency;
 
     /**
@@ -184,7 +184,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
      * 
      */
-    @Export(name="hourOfDay", refs={Integer.class}, tree="[0]")
+    @Export(name="hourOfDay", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> hourOfDay;
 
     /**
@@ -198,7 +198,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Message to be added in the email. Length is limited to 250 characters.
      * 
      */
-    @Export(name="message", refs={String.class}, tree="[0]")
+    @Export(name="message", type=String.class, parameters={})
     private Output</* @Nullable */ String> message;
 
     /**
@@ -212,7 +212,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The start date and time of the Scheduled Action (UTC).
      * 
      */
-    @Export(name="startDate", refs={String.class}, tree="[0]")
+    @Export(name="startDate", type=String.class, parameters={})
     private Output<String> startDate;
 
     /**
@@ -240,7 +240,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * The ID of the Cost Management View that is used by the Scheduled Action.
      * 
      */
-    @Export(name="viewId", refs={String.class}, tree="[0]")
+    @Export(name="viewId", type=String.class, parameters={})
     private Output<String> viewId;
 
     /**
@@ -254,7 +254,7 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
      * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
      * 
      */
-    @Export(name="weeksOfMonths", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="weeksOfMonths", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> weeksOfMonths;
 
     /**

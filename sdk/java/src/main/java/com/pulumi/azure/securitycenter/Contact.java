@@ -68,7 +68,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * Whether to send security alerts notifications to the security contact.
      * 
      */
-    @Export(name="alertNotifications", refs={Boolean.class}, tree="[0]")
+    @Export(name="alertNotifications", type=Boolean.class, parameters={})
     private Output<Boolean> alertNotifications;
 
     /**
@@ -82,7 +82,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * Whether to send security alerts notifications to subscription admins.
      * 
      */
-    @Export(name="alertsToAdmins", refs={Boolean.class}, tree="[0]")
+    @Export(name="alertsToAdmins", type=Boolean.class, parameters={})
     private Output<Boolean> alertsToAdmins;
 
     /**
@@ -96,7 +96,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The email of the Security Center Contact.
      * 
      */
-    @Export(name="email", refs={String.class}, tree="[0]")
+    @Export(name="email", type=String.class, parameters={})
     private Output<String> email;
 
     /**
@@ -110,7 +110,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The name of the Security Center Contact. Defaults to `default1`.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The phone number of the Security Center Contact.
      * 
      */
-    @Export(name="phone", refs={String.class}, tree="[0]")
+    @Export(name="phone", type=String.class, parameters={})
     private Output</* @Nullable */ String> phone;
 
     /**

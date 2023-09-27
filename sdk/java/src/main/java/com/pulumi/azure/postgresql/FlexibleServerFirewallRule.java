@@ -81,7 +81,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
      * 
      */
-    @Export(name="endIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="endIpAddress", type=String.class, parameters={})
     private Output<String> endIpAddress;
 
     /**
@@ -95,7 +95,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
      * 
      */
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
@@ -123,7 +123,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
      * 
      */
-    @Export(name="startIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="startIpAddress", type=String.class, parameters={})
     private Output<String> startIpAddress;
 
     /**

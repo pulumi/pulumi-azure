@@ -90,7 +90,7 @@ public class KubernetesFleetManager extends com.pulumi.resources.CustomResource 
      * A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet&#39;s hub. Changing this forces a new Kubernetes Fleet Manager to be created.
      * 
      */
-    @Export(name="hubProfile", refs={KubernetesFleetManagerHubProfile.class}, tree="[0]")
+    @Export(name="hubProfile", type=KubernetesFleetManagerHubProfile.class, parameters={})
     private Output</* @Nullable */ KubernetesFleetManagerHubProfile> hubProfile;
 
     /**
@@ -104,7 +104,7 @@ public class KubernetesFleetManager extends com.pulumi.resources.CustomResource 
      * The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -118,7 +118,7 @@ public class KubernetesFleetManager extends com.pulumi.resources.CustomResource 
      * Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class KubernetesFleetManager extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -146,7 +146,7 @@ public class KubernetesFleetManager extends com.pulumi.resources.CustomResource 
      * A mapping of tags which should be assigned to the Kubernetes Fleet Manager.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

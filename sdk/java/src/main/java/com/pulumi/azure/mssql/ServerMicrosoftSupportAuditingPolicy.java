@@ -222,7 +222,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
      * 
      */
-    @Export(name="blobStorageEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="blobStorageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> blobStorageEndpoint;
 
     /**
@@ -238,7 +238,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -254,7 +254,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
-    @Export(name="logMonitoringEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="logMonitoringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
     /**
@@ -268,7 +268,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
@@ -282,7 +282,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * The access key to use for the auditing storage account.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -296,7 +296,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * The ID of the Subscription containing the Storage Account.
      * 
      */
-    @Export(name="storageAccountSubscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountSubscriptionId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountSubscriptionId;
 
     /**

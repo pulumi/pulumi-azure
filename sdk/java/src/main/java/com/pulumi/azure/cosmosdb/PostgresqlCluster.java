@@ -78,7 +78,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The password of the administrator login.
      * 
      */
-    @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
+    @Export(name="administratorLoginPassword", type=String.class, parameters={})
     private Output<String> administratorLoginPassword;
 
     /**
@@ -92,7 +92,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
      * 
      */
-    @Export(name="citusVersion", refs={String.class}, tree="[0]")
+    @Export(name="citusVersion", type=String.class, parameters={})
     private Output<String> citusVersion;
 
     /**
@@ -106,7 +106,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * Is public access enabled on coordinator? Defaults to `true`.
      * 
      */
-    @Export(name="coordinatorPublicIpAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="coordinatorPublicIpAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> coordinatorPublicIpAccessEnabled;
 
     /**
@@ -120,7 +120,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
      * 
      */
-    @Export(name="coordinatorServerEdition", refs={String.class}, tree="[0]")
+    @Export(name="coordinatorServerEdition", type=String.class, parameters={})
     private Output</* @Nullable */ String> coordinatorServerEdition;
 
     /**
@@ -136,7 +136,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      * 
      */
-    @Export(name="coordinatorStorageQuotaInMb", refs={Integer.class}, tree="[0]")
+    @Export(name="coordinatorStorageQuotaInMb", type=Integer.class, parameters={})
     private Output<Integer> coordinatorStorageQuotaInMb;
 
     /**
@@ -152,7 +152,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      * 
      */
-    @Export(name="coordinatorVcoreCount", refs={Integer.class}, tree="[0]")
+    @Export(name="coordinatorVcoreCount", type=Integer.class, parameters={})
     private Output<Integer> coordinatorVcoreCount;
 
     /**
@@ -166,7 +166,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
      * 
      */
-    @Export(name="earliestRestoreTime", refs={String.class}, tree="[0]")
+    @Export(name="earliestRestoreTime", type=String.class, parameters={})
     private Output<String> earliestRestoreTime;
 
     /**
@@ -180,7 +180,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
      * 
      */
-    @Export(name="haEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="haEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> haEnabled;
 
     /**
@@ -194,7 +194,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -208,7 +208,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * A `maintenance_window` block as defined below.
      * 
      */
-    @Export(name="maintenanceWindow", refs={PostgresqlClusterMaintenanceWindow.class}, tree="[0]")
+    @Export(name="maintenanceWindow", type=PostgresqlClusterMaintenanceWindow.class, parameters={})
     private Output</* @Nullable */ PostgresqlClusterMaintenanceWindow> maintenanceWindow;
 
     /**
@@ -222,7 +222,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -236,7 +236,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
      * 
      */
-    @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
+    @Export(name="nodeCount", type=Integer.class, parameters={})
     private Output<Integer> nodeCount;
 
     /**
@@ -250,7 +250,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * Is public access enabled on worker nodes. Defaults to `false`.
      * 
      */
-    @Export(name="nodePublicIpAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="nodePublicIpAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> nodePublicIpAccessEnabled;
 
     /**
@@ -264,7 +264,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`.
      * 
      */
-    @Export(name="nodeServerEdition", refs={String.class}, tree="[0]")
+    @Export(name="nodeServerEdition", type=String.class, parameters={})
     private Output</* @Nullable */ String> nodeServerEdition;
 
     /**
@@ -278,7 +278,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
      * 
      */
-    @Export(name="nodeStorageQuotaInMb", refs={Integer.class}, tree="[0]")
+    @Export(name="nodeStorageQuotaInMb", type=Integer.class, parameters={})
     private Output<Integer> nodeStorageQuotaInMb;
 
     /**
@@ -292,7 +292,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`.
      * 
      */
-    @Export(name="nodeVcores", refs={Integer.class}, tree="[0]")
+    @Export(name="nodeVcores", type=Integer.class, parameters={})
     private Output<Integer> nodeVcores;
 
     /**
@@ -306,7 +306,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="pointInTimeInUtc", refs={String.class}, tree="[0]")
+    @Export(name="pointInTimeInUtc", type=String.class, parameters={})
     private Output</* @Nullable */ String> pointInTimeInUtc;
 
     /**
@@ -320,7 +320,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
      * 
      */
-    @Export(name="preferredPrimaryZone", refs={String.class}, tree="[0]")
+    @Export(name="preferredPrimaryZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> preferredPrimaryZone;
 
     /**
@@ -334,7 +334,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -348,7 +348,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      * 
      */
-    @Export(name="shardsOnCoordinatorEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="shardsOnCoordinatorEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> shardsOnCoordinatorEnabled;
 
     /**
@@ -362,7 +362,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceLocation", refs={String.class}, tree="[0]")
+    @Export(name="sourceLocation", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceLocation;
 
     /**
@@ -376,7 +376,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
+    @Export(name="sourceResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
@@ -390,7 +390,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
      * 
      */
-    @Export(name="sqlVersion", refs={String.class}, tree="[0]")
+    @Export(name="sqlVersion", type=String.class, parameters={})
     private Output<String> sqlVersion;
 
     /**
@@ -404,7 +404,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

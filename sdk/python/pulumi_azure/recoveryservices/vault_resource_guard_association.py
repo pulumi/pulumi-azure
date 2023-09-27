@@ -22,9 +22,14 @@ class VaultResourceGuardAssociationArgs:
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
         pulumi.set(__self__, "resource_guard_id", resource_guard_id)
         pulumi.set(__self__, "vault_id", vault_id)
+        if name is not None:
+            warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -57,7 +62,12 @@ class VaultResourceGuardAssociationArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+
+        > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "name")
 
     @name.setter
@@ -74,9 +84,14 @@ class _VaultResourceGuardAssociationState:
         """
         Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
+        if name is not None:
+            warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_guard_id is not None:
@@ -89,7 +104,12 @@ class _VaultResourceGuardAssociationState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+
+        > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "name")
 
     @name.setter
@@ -164,6 +184,8 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
@@ -231,6 +253,9 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VaultResourceGuardAssociationArgs.__new__(VaultResourceGuardAssociationArgs)
 
+            if name is not None and not opts.urn:
+                warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
             __props__.__dict__["name"] = name
             if resource_guard_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_guard_id'")
@@ -259,6 +284,8 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
@@ -276,7 +303,12 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+
+        > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
+        warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "name")
 
     @property

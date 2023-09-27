@@ -84,8 +84,8 @@ namespace Pulumi.Azure.Network
     ///         Location = exampleResourceGroup.Location,
     ///         Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
     ///         {
-    ///             Name = "Standard_Small",
-    ///             Tier = "Standard",
+    ///             Name = "Standard_v2",
+    ///             Tier = "Standard_v2",
     ///             Capacity = 2,
     ///         },
     ///         GatewayIpConfigurations = new[]
@@ -146,6 +146,7 @@ namespace Pulumi.Azure.Network
     ///             new Azure.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
     ///             {
     ///                 Name = requestRoutingRuleName,
+    ///                 Priority = 9,
     ///                 RuleType = "Basic",
     ///                 HttpListenerName = listenerName,
     ///                 BackendAddressPoolName = backendAddressPoolName,

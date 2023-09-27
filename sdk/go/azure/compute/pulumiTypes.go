@@ -20151,6 +20151,8 @@ func (o SharedImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 type SharedImageVersionTargetRegion struct {
 	// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+	ExcludeFromLatestEnabled *bool `pulumi:"excludeFromLatestEnabled"`
 	// The Azure Region in which this Image Version should exist.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
@@ -20173,6 +20175,8 @@ type SharedImageVersionTargetRegionInput interface {
 type SharedImageVersionTargetRegionArgs struct {
 	// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+	ExcludeFromLatestEnabled pulumi.BoolPtrInput `pulumi:"excludeFromLatestEnabled"`
 	// The Azure Region in which this Image Version should exist.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
@@ -20253,6 +20257,11 @@ func (o SharedImageVersionTargetRegionOutput) ToOutput(ctx context.Context) pulu
 // The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
 func (o SharedImageVersionTargetRegionOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+func (o SharedImageVersionTargetRegionOutput) ExcludeFromLatestEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SharedImageVersionTargetRegion) *bool { return v.ExcludeFromLatestEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Azure Region in which this Image Version should exist.

@@ -100,7 +100,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -114,7 +114,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specify the name of the database migration project. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Name of the database migration service where resource belongs to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceName", refs={String.class}, tree="[0]")
+    @Export(name="serviceName", type=String.class, parameters={})
     private Output<String> serviceName;
 
     /**
@@ -156,7 +156,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The platform type of the migration source. Currently only support: `SQL`(on-premises SQL Server). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourcePlatform", refs={String.class}, tree="[0]")
+    @Export(name="sourcePlatform", type=String.class, parameters={})
     private Output<String> sourcePlatform;
 
     /**
@@ -170,7 +170,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assigned to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -184,7 +184,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The platform type of the migration target. Currently only support: `SQLDB`(Azure SQL Database). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetPlatform", refs={String.class}, tree="[0]")
+    @Export(name="targetPlatform", type=String.class, parameters={})
     private Output<String> targetPlatform;
 
     /**

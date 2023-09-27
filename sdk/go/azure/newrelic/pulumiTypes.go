@@ -450,13 +450,299 @@ func (o MonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagRuleLogTagFilter struct {
+	// Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+	Action string `pulumi:"action"`
+	// Specifies the name (also known as the key) of the tag.
+	Name string `pulumi:"name"`
+	// Specifies the value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// TagRuleLogTagFilterInput is an input type that accepts TagRuleLogTagFilterArgs and TagRuleLogTagFilterOutput values.
+// You can construct a concrete instance of `TagRuleLogTagFilterInput` via:
+//
+//	TagRuleLogTagFilterArgs{...}
+type TagRuleLogTagFilterInput interface {
+	pulumi.Input
+
+	ToTagRuleLogTagFilterOutput() TagRuleLogTagFilterOutput
+	ToTagRuleLogTagFilterOutputWithContext(context.Context) TagRuleLogTagFilterOutput
+}
+
+type TagRuleLogTagFilterArgs struct {
+	// Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Specifies the name (also known as the key) of the tag.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the value of the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagRuleLogTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRuleLogTagFilter)(nil)).Elem()
+}
+
+func (i TagRuleLogTagFilterArgs) ToTagRuleLogTagFilterOutput() TagRuleLogTagFilterOutput {
+	return i.ToTagRuleLogTagFilterOutputWithContext(context.Background())
+}
+
+func (i TagRuleLogTagFilterArgs) ToTagRuleLogTagFilterOutputWithContext(ctx context.Context) TagRuleLogTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRuleLogTagFilterOutput)
+}
+
+func (i TagRuleLogTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TagRuleLogTagFilter] {
+	return pulumix.Output[TagRuleLogTagFilter]{
+		OutputState: i.ToTagRuleLogTagFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TagRuleLogTagFilterArrayInput is an input type that accepts TagRuleLogTagFilterArray and TagRuleLogTagFilterArrayOutput values.
+// You can construct a concrete instance of `TagRuleLogTagFilterArrayInput` via:
+//
+//	TagRuleLogTagFilterArray{ TagRuleLogTagFilterArgs{...} }
+type TagRuleLogTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToTagRuleLogTagFilterArrayOutput() TagRuleLogTagFilterArrayOutput
+	ToTagRuleLogTagFilterArrayOutputWithContext(context.Context) TagRuleLogTagFilterArrayOutput
+}
+
+type TagRuleLogTagFilterArray []TagRuleLogTagFilterInput
+
+func (TagRuleLogTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRuleLogTagFilter)(nil)).Elem()
+}
+
+func (i TagRuleLogTagFilterArray) ToTagRuleLogTagFilterArrayOutput() TagRuleLogTagFilterArrayOutput {
+	return i.ToTagRuleLogTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i TagRuleLogTagFilterArray) ToTagRuleLogTagFilterArrayOutputWithContext(ctx context.Context) TagRuleLogTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRuleLogTagFilterArrayOutput)
+}
+
+func (i TagRuleLogTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleLogTagFilter] {
+	return pulumix.Output[[]TagRuleLogTagFilter]{
+		OutputState: i.ToTagRuleLogTagFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TagRuleLogTagFilterOutput struct{ *pulumi.OutputState }
+
+func (TagRuleLogTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRuleLogTagFilter)(nil)).Elem()
+}
+
+func (o TagRuleLogTagFilterOutput) ToTagRuleLogTagFilterOutput() TagRuleLogTagFilterOutput {
+	return o
+}
+
+func (o TagRuleLogTagFilterOutput) ToTagRuleLogTagFilterOutputWithContext(ctx context.Context) TagRuleLogTagFilterOutput {
+	return o
+}
+
+func (o TagRuleLogTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TagRuleLogTagFilter] {
+	return pulumix.Output[TagRuleLogTagFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+func (o TagRuleLogTagFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRuleLogTagFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Specifies the name (also known as the key) of the tag.
+func (o TagRuleLogTagFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRuleLogTagFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the value of the tag.
+func (o TagRuleLogTagFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRuleLogTagFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagRuleLogTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (TagRuleLogTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRuleLogTagFilter)(nil)).Elem()
+}
+
+func (o TagRuleLogTagFilterArrayOutput) ToTagRuleLogTagFilterArrayOutput() TagRuleLogTagFilterArrayOutput {
+	return o
+}
+
+func (o TagRuleLogTagFilterArrayOutput) ToTagRuleLogTagFilterArrayOutputWithContext(ctx context.Context) TagRuleLogTagFilterArrayOutput {
+	return o
+}
+
+func (o TagRuleLogTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleLogTagFilter] {
+	return pulumix.Output[[]TagRuleLogTagFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TagRuleLogTagFilterArrayOutput) Index(i pulumi.IntInput) TagRuleLogTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagRuleLogTagFilter {
+		return vs[0].([]TagRuleLogTagFilter)[vs[1].(int)]
+	}).(TagRuleLogTagFilterOutput)
+}
+
+type TagRuleMetricTagFilter struct {
+	// Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+	Action string `pulumi:"action"`
+	// Specifies the name (also known as the key) of the tag.
+	Name string `pulumi:"name"`
+	// Specifies the value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// TagRuleMetricTagFilterInput is an input type that accepts TagRuleMetricTagFilterArgs and TagRuleMetricTagFilterOutput values.
+// You can construct a concrete instance of `TagRuleMetricTagFilterInput` via:
+//
+//	TagRuleMetricTagFilterArgs{...}
+type TagRuleMetricTagFilterInput interface {
+	pulumi.Input
+
+	ToTagRuleMetricTagFilterOutput() TagRuleMetricTagFilterOutput
+	ToTagRuleMetricTagFilterOutputWithContext(context.Context) TagRuleMetricTagFilterOutput
+}
+
+type TagRuleMetricTagFilterArgs struct {
+	// Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Specifies the name (also known as the key) of the tag.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the value of the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagRuleMetricTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRuleMetricTagFilter)(nil)).Elem()
+}
+
+func (i TagRuleMetricTagFilterArgs) ToTagRuleMetricTagFilterOutput() TagRuleMetricTagFilterOutput {
+	return i.ToTagRuleMetricTagFilterOutputWithContext(context.Background())
+}
+
+func (i TagRuleMetricTagFilterArgs) ToTagRuleMetricTagFilterOutputWithContext(ctx context.Context) TagRuleMetricTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRuleMetricTagFilterOutput)
+}
+
+func (i TagRuleMetricTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TagRuleMetricTagFilter] {
+	return pulumix.Output[TagRuleMetricTagFilter]{
+		OutputState: i.ToTagRuleMetricTagFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TagRuleMetricTagFilterArrayInput is an input type that accepts TagRuleMetricTagFilterArray and TagRuleMetricTagFilterArrayOutput values.
+// You can construct a concrete instance of `TagRuleMetricTagFilterArrayInput` via:
+//
+//	TagRuleMetricTagFilterArray{ TagRuleMetricTagFilterArgs{...} }
+type TagRuleMetricTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToTagRuleMetricTagFilterArrayOutput() TagRuleMetricTagFilterArrayOutput
+	ToTagRuleMetricTagFilterArrayOutputWithContext(context.Context) TagRuleMetricTagFilterArrayOutput
+}
+
+type TagRuleMetricTagFilterArray []TagRuleMetricTagFilterInput
+
+func (TagRuleMetricTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRuleMetricTagFilter)(nil)).Elem()
+}
+
+func (i TagRuleMetricTagFilterArray) ToTagRuleMetricTagFilterArrayOutput() TagRuleMetricTagFilterArrayOutput {
+	return i.ToTagRuleMetricTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i TagRuleMetricTagFilterArray) ToTagRuleMetricTagFilterArrayOutputWithContext(ctx context.Context) TagRuleMetricTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRuleMetricTagFilterArrayOutput)
+}
+
+func (i TagRuleMetricTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleMetricTagFilter] {
+	return pulumix.Output[[]TagRuleMetricTagFilter]{
+		OutputState: i.ToTagRuleMetricTagFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TagRuleMetricTagFilterOutput struct{ *pulumi.OutputState }
+
+func (TagRuleMetricTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRuleMetricTagFilter)(nil)).Elem()
+}
+
+func (o TagRuleMetricTagFilterOutput) ToTagRuleMetricTagFilterOutput() TagRuleMetricTagFilterOutput {
+	return o
+}
+
+func (o TagRuleMetricTagFilterOutput) ToTagRuleMetricTagFilterOutputWithContext(ctx context.Context) TagRuleMetricTagFilterOutput {
+	return o
+}
+
+func (o TagRuleMetricTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TagRuleMetricTagFilter] {
+	return pulumix.Output[TagRuleMetricTagFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+func (o TagRuleMetricTagFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRuleMetricTagFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Specifies the name (also known as the key) of the tag.
+func (o TagRuleMetricTagFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRuleMetricTagFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the value of the tag.
+func (o TagRuleMetricTagFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRuleMetricTagFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagRuleMetricTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (TagRuleMetricTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRuleMetricTagFilter)(nil)).Elem()
+}
+
+func (o TagRuleMetricTagFilterArrayOutput) ToTagRuleMetricTagFilterArrayOutput() TagRuleMetricTagFilterArrayOutput {
+	return o
+}
+
+func (o TagRuleMetricTagFilterArrayOutput) ToTagRuleMetricTagFilterArrayOutputWithContext(ctx context.Context) TagRuleMetricTagFilterArrayOutput {
+	return o
+}
+
+func (o TagRuleMetricTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleMetricTagFilter] {
+	return pulumix.Output[[]TagRuleMetricTagFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TagRuleMetricTagFilterArrayOutput) Index(i pulumi.IntInput) TagRuleMetricTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagRuleMetricTagFilter {
+		return vs[0].([]TagRuleMetricTagFilter)[vs[1].(int)]
+	}).(TagRuleMetricTagFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorPlanInput)(nil)).Elem(), MonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorPlanPtrInput)(nil)).Elem(), MonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserInput)(nil)).Elem(), MonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserPtrInput)(nil)).Elem(), MonitorUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleLogTagFilterInput)(nil)).Elem(), TagRuleLogTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleLogTagFilterArrayInput)(nil)).Elem(), TagRuleLogTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleMetricTagFilterInput)(nil)).Elem(), TagRuleMetricTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRuleMetricTagFilterArrayInput)(nil)).Elem(), TagRuleMetricTagFilterArray{})
 	pulumi.RegisterOutputType(MonitorPlanOutput{})
 	pulumi.RegisterOutputType(MonitorPlanPtrOutput{})
 	pulumi.RegisterOutputType(MonitorUserOutput{})
 	pulumi.RegisterOutputType(MonitorUserPtrOutput{})
+	pulumi.RegisterOutputType(TagRuleLogTagFilterOutput{})
+	pulumi.RegisterOutputType(TagRuleLogTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(TagRuleMetricTagFilterOutput{})
+	pulumi.RegisterOutputType(TagRuleMetricTagFilterArrayOutput{})
 }

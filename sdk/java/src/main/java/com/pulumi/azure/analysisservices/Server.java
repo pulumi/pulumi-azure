@@ -85,7 +85,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * List of email addresses of admin users.
      * 
      */
-    @Export(name="adminUsers", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="adminUsers", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> adminUsers;
 
     /**
@@ -99,7 +99,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * URI and SAS token for a blob container to store backups.
      * 
      */
-    @Export(name="backupBlobContainerUri", refs={String.class}, tree="[0]")
+    @Export(name="backupBlobContainerUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> backupBlobContainerUri;
 
     /**
@@ -113,7 +113,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Indicates if the Power BI service is allowed to access or not.
      * 
      */
-    @Export(name="enablePowerBiService", refs={Boolean.class}, tree="[0]")
+    @Export(name="enablePowerBiService", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enablePowerBiService;
 
     /**
@@ -127,7 +127,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * One or more `ipv4_firewall_rule` block(s) as defined below.
      * 
      */
-    @Export(name="ipv4FirewallRules", refs={List.class,ServerIpv4FirewallRule.class}, tree="[0,1]")
+    @Export(name="ipv4FirewallRules", type=List.class, parameters={ServerIpv4FirewallRule.class})
     private Output</* @Nullable */ List<ServerIpv4FirewallRule>> ipv4FirewallRules;
 
     /**
@@ -141,7 +141,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -155,7 +155,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Specifies the name of the firewall rule.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
      * 
      */
-    @Export(name="querypoolConnectionMode", refs={String.class}, tree="[0]")
+    @Export(name="querypoolConnectionMode", type=String.class, parameters={})
     private Output<String> querypoolConnectionMode;
 
     /**
@@ -183,7 +183,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -197,7 +197,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The full name of the Analysis Services Server.
      * 
      */
-    @Export(name="serverFullName", refs={String.class}, tree="[0]")
+    @Export(name="serverFullName", type=String.class, parameters={})
     private Output<String> serverFullName;
 
     /**
@@ -211,7 +211,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -225,7 +225,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

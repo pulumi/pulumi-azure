@@ -99,7 +99,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
-    @Export(name="ignoreMissingVnetServiceEndpoint", refs={Boolean.class}, tree="[0]")
+    @Export(name="ignoreMissingVnetServiceEndpoint", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
@@ -115,7 +115,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
@@ -143,7 +143,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The ID of the subnet from which the SQL server will accept communications.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**

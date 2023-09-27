@@ -1078,6 +1078,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appservice/appConnection",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/appConnection:AppConnection": "AppConnection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appservice/appService",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -1386,6 +1394,14 @@ _utilities.register(
   "fqn": "pulumi_azure.arc",
   "classes": {
    "azure:arc/privateLinkScope:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "arc/resourceBridgeAppliance",
+  "fqn": "pulumi_azure.arc",
+  "classes": {
+   "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance": "ResourceBridgeAppliance"
   }
  },
  {
@@ -3150,6 +3166,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/datasetAzureSqlTable",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable": "DatasetAzureSqlTable"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/datasetBinary",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -4314,6 +4338,14 @@ _utilities.register(
   "fqn": "pulumi_azure.iot",
   "classes": {
    "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy": "DpsSharedAccessPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "iot/endpointCosmosdbAccount",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount": "EndpointCosmosdbAccount"
   }
  },
  {
@@ -6542,6 +6574,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/routingIntent",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/routingIntent:RoutingIntent": "RoutingIntent"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/securityPartnerProvider",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -6778,6 +6818,14 @@ _utilities.register(
   "fqn": "pulumi_azure.newrelic",
   "classes": {
    "azure:newrelic/monitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "newrelic/tagRule",
+  "fqn": "pulumi_azure.newrelic",
+  "classes": {
+   "azure:newrelic/tagRule:TagRule": "TagRule"
   }
  },
  {

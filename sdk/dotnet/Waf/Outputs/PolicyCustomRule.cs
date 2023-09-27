@@ -18,6 +18,14 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
+        /// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        /// </summary>
+        public readonly string? GroupRateLimitBy;
+        /// <summary>
         /// One or more `match_conditions` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyCustomRuleMatchCondition> MatchConditions;
@@ -30,7 +38,15 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+        /// Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        /// </summary>
+        public readonly string? RateLimitDuration;
+        /// <summary>
+        /// Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+        /// </summary>
+        public readonly int? RateLimitThreshold;
+        /// <summary>
+        /// Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         /// </summary>
         public readonly string RuleType;
 
@@ -38,18 +54,30 @@ namespace Pulumi.Azure.Waf.Outputs
         private PolicyCustomRule(
             string action,
 
+            bool? enabled,
+
+            string? groupRateLimitBy,
+
             ImmutableArray<Outputs.PolicyCustomRuleMatchCondition> matchConditions,
 
             string? name,
 
             int priority,
 
+            string? rateLimitDuration,
+
+            int? rateLimitThreshold,
+
             string ruleType)
         {
             Action = action;
+            Enabled = enabled;
+            GroupRateLimitBy = groupRateLimitBy;
             MatchConditions = matchConditions;
             Name = name;
             Priority = priority;
+            RateLimitDuration = rateLimitDuration;
+            RateLimitThreshold = rateLimitThreshold;
             RuleType = ruleType;
         }
     }

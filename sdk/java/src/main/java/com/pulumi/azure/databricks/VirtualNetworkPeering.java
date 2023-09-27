@@ -99,7 +99,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="addressSpacePrefixes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="addressSpacePrefixes", type=List.class, parameters={String.class})
     private Output<List<String>> addressSpacePrefixes;
 
     /**
@@ -113,7 +113,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
      * 
      */
-    @Export(name="allowForwardedTraffic", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowForwardedTraffic", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowForwardedTraffic;
 
     /**
@@ -127,7 +127,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
      * 
      */
-    @Export(name="allowGatewayTransit", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowGatewayTransit", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowGatewayTransit;
 
     /**
@@ -141,7 +141,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
      * 
      */
-    @Export(name="allowVirtualNetworkAccess", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowVirtualNetworkAccess", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowVirtualNetworkAccess;
 
     /**
@@ -155,7 +155,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="remoteAddressSpacePrefixes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="remoteAddressSpacePrefixes", type=List.class, parameters={String.class})
     private Output<List<String>> remoteAddressSpacePrefixes;
 
     /**
@@ -185,7 +185,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
      * 
      */
-    @Export(name="remoteVirtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="remoteVirtualNetworkId", type=String.class, parameters={})
     private Output<String> remoteVirtualNetworkId;
 
     /**
@@ -201,7 +201,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -217,7 +217,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
      * 
      */
-    @Export(name="useRemoteGateways", refs={Boolean.class}, tree="[0]")
+    @Export(name="useRemoteGateways", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useRemoteGateways;
 
     /**
@@ -235,7 +235,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `virtual_network_id` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
      * 
      */
-    @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkId", type=String.class, parameters={})
     private Output<String> virtualNetworkId;
 
     /**
@@ -251,7 +251,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

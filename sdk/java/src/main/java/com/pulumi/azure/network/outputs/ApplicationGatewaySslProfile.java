@@ -39,6 +39,11 @@ public final class ApplicationGatewaySslProfile {
      * 
      */
     private @Nullable Boolean verifyClientCertIssuerDn;
+    /**
+     * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * 
+     */
+    private @Nullable String verifyClientCertificateRevocation;
 
     private ApplicationGatewaySslProfile() {}
     /**
@@ -76,6 +81,13 @@ public final class ApplicationGatewaySslProfile {
     public Optional<Boolean> verifyClientCertIssuerDn() {
         return Optional.ofNullable(this.verifyClientCertIssuerDn);
     }
+    /**
+     * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * 
+     */
+    public Optional<String> verifyClientCertificateRevocation() {
+        return Optional.ofNullable(this.verifyClientCertificateRevocation);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -91,6 +103,7 @@ public final class ApplicationGatewaySslProfile {
         private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
         private @Nullable List<String> trustedClientCertificateNames;
         private @Nullable Boolean verifyClientCertIssuerDn;
+        private @Nullable String verifyClientCertificateRevocation;
         public Builder() {}
         public Builder(ApplicationGatewaySslProfile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,6 +112,7 @@ public final class ApplicationGatewaySslProfile {
     	      this.sslPolicy = defaults.sslPolicy;
     	      this.trustedClientCertificateNames = defaults.trustedClientCertificateNames;
     	      this.verifyClientCertIssuerDn = defaults.verifyClientCertIssuerDn;
+    	      this.verifyClientCertificateRevocation = defaults.verifyClientCertificateRevocation;
         }
 
         @CustomType.Setter
@@ -129,6 +143,11 @@ public final class ApplicationGatewaySslProfile {
             this.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
             return this;
         }
+        @CustomType.Setter
+        public Builder verifyClientCertificateRevocation(@Nullable String verifyClientCertificateRevocation) {
+            this.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
+            return this;
+        }
         public ApplicationGatewaySslProfile build() {
             final var o = new ApplicationGatewaySslProfile();
             o.id = id;
@@ -136,6 +155,7 @@ public final class ApplicationGatewaySslProfile {
             o.sslPolicy = sslPolicy;
             o.trustedClientCertificateNames = trustedClientCertificateNames;
             o.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
+            o.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
             return o;
         }
     }

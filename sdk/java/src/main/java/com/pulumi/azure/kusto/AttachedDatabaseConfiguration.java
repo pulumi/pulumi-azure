@@ -118,7 +118,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
      * 
      */
-    @Export(name="attachedDatabaseNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="attachedDatabaseNames", type=List.class, parameters={String.class})
     private Output<List<String>> attachedDatabaseNames;
 
     /**
@@ -132,7 +132,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", refs={String.class}, tree="[0]")
+    @Export(name="clusterName", type=String.class, parameters={})
     private Output<String> clusterName;
 
     /**
@@ -146,7 +146,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
+    @Export(name="clusterResourceId", type=String.class, parameters={})
     private Output<String> clusterResourceId;
 
     /**
@@ -160,7 +160,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", refs={String.class}, tree="[0]")
+    @Export(name="databaseName", type=String.class, parameters={})
     private Output<String> databaseName;
 
     /**
@@ -174,7 +174,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
      * 
      */
-    @Export(name="defaultPrincipalModificationKind", refs={String.class}, tree="[0]")
+    @Export(name="defaultPrincipalModificationKind", type=String.class, parameters={})
     private Output</* @Nullable */ String> defaultPrincipalModificationKind;
 
     /**
@@ -188,7 +188,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -202,7 +202,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -216,7 +216,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -230,7 +230,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * A `sharing` block as defined below.
      * 
      */
-    @Export(name="sharing", refs={AttachedDatabaseConfigurationSharing.class}, tree="[0]")
+    @Export(name="sharing", type=AttachedDatabaseConfigurationSharing.class, parameters={})
     private Output</* @Nullable */ AttachedDatabaseConfigurationSharing> sharing;
 
     /**

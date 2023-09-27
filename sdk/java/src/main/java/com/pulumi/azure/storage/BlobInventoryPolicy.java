@@ -100,7 +100,7 @@ public class BlobInventoryPolicy extends com.pulumi.resources.CustomResource {
      * One or more `rules` blocks as defined below.
      * 
      */
-    @Export(name="rules", refs={List.class,BlobInventoryPolicyRule.class}, tree="[0,1]")
+    @Export(name="rules", type=List.class, parameters={BlobInventoryPolicyRule.class})
     private Output<List<BlobInventoryPolicyRule>> rules;
 
     /**
@@ -114,7 +114,7 @@ public class BlobInventoryPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**

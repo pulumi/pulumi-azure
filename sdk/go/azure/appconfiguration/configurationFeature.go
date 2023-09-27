@@ -108,8 +108,8 @@ type ConfigurationFeature struct {
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
 	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of one or more numbers representing the value of the percentage required to enable this feature.
-	PercentageFilterValue pulumi.IntPtrOutput `pulumi:"percentageFilterValue"`
+	// A number representing the value of the percentage required to enable this feature.
+	PercentageFilterValue pulumi.Float64PtrOutput `pulumi:"percentageFilterValue"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `targetingFilter` block as defined below.
@@ -166,8 +166,8 @@ type configurationFeatureState struct {
 	Locked *bool `pulumi:"locked"`
 	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of one or more numbers representing the value of the percentage required to enable this feature.
-	PercentageFilterValue *int `pulumi:"percentageFilterValue"`
+	// A number representing the value of the percentage required to enable this feature.
+	PercentageFilterValue *float64 `pulumi:"percentageFilterValue"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `targetingFilter` block as defined below.
@@ -192,8 +192,8 @@ type ConfigurationFeatureState struct {
 	Locked pulumi.BoolPtrInput
 	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of one or more numbers representing the value of the percentage required to enable this feature.
-	PercentageFilterValue pulumi.IntPtrInput
+	// A number representing the value of the percentage required to enable this feature.
+	PercentageFilterValue pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `targetingFilter` block as defined below.
@@ -222,8 +222,8 @@ type configurationFeatureArgs struct {
 	Locked *bool `pulumi:"locked"`
 	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of one or more numbers representing the value of the percentage required to enable this feature.
-	PercentageFilterValue *int `pulumi:"percentageFilterValue"`
+	// A number representing the value of the percentage required to enable this feature.
+	PercentageFilterValue *float64 `pulumi:"percentageFilterValue"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `targetingFilter` block as defined below.
@@ -249,8 +249,8 @@ type ConfigurationFeatureArgs struct {
 	Locked pulumi.BoolPtrInput
 	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of one or more numbers representing the value of the percentage required to enable this feature.
-	PercentageFilterValue pulumi.IntPtrInput
+	// A number representing the value of the percentage required to enable this feature.
+	PercentageFilterValue pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `targetingFilter` block as defined below.
@@ -409,9 +409,9 @@ func (o ConfigurationFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of one or more numbers representing the value of the percentage required to enable this feature.
-func (o ConfigurationFeatureOutput) PercentageFilterValue() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ConfigurationFeature) pulumi.IntPtrOutput { return v.PercentageFilterValue }).(pulumi.IntPtrOutput)
+// A number representing the value of the percentage required to enable this feature.
+func (o ConfigurationFeatureOutput) PercentageFilterValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationFeature) pulumi.Float64PtrOutput { return v.PercentageFilterValue }).(pulumi.Float64PtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

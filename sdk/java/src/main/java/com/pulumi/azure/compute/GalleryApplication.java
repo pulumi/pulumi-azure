@@ -78,7 +78,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * A description of the Gallery Application.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -92,7 +92,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The end of life date in RFC3339 format of the Gallery Application.
      * 
      */
-    @Export(name="endOfLifeDate", refs={String.class}, tree="[0]")
+    @Export(name="endOfLifeDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> endOfLifeDate;
 
     /**
@@ -106,7 +106,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The End User Licence Agreement of the Gallery Application.
      * 
      */
-    @Export(name="eula", refs={String.class}, tree="[0]")
+    @Export(name="eula", type=String.class, parameters={})
     private Output</* @Nullable */ String> eula;
 
     /**
@@ -120,7 +120,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="galleryId", refs={String.class}, tree="[0]")
+    @Export(name="galleryId", type=String.class, parameters={})
     private Output<String> galleryId;
 
     /**
@@ -134,7 +134,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -148,7 +148,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The name of the Gallery Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The URI containing the Privacy Statement associated with the Gallery Application.
      * 
      */
-    @Export(name="privacyStatementUri", refs={String.class}, tree="[0]")
+    @Export(name="privacyStatementUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> privacyStatementUri;
 
     /**
@@ -176,7 +176,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The URI containing the Release Notes associated with the Gallery Application.
      * 
      */
-    @Export(name="releaseNoteUri", refs={String.class}, tree="[0]")
+    @Export(name="releaseNoteUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> releaseNoteUri;
 
     /**
@@ -190,7 +190,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="supportedOsType", refs={String.class}, tree="[0]")
+    @Export(name="supportedOsType", type=String.class, parameters={})
     private Output<String> supportedOsType;
 
     /**
@@ -204,7 +204,7 @@ public class GalleryApplication extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Gallery Application.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

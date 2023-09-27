@@ -37,6 +37,10 @@ namespace Pulumi.Azure.Waf.Outputs
         /// Is Request Body Inspection enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? RequestBodyCheck;
+        /// <summary>
+        /// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+        /// </summary>
+        public readonly int? RequestBodyInspectLimitInKb;
 
         [OutputConstructor]
         private PolicyPolicySettings(
@@ -50,7 +54,9 @@ namespace Pulumi.Azure.Waf.Outputs
 
             string? mode,
 
-            bool? requestBodyCheck)
+            bool? requestBodyCheck,
+
+            int? requestBodyInspectLimitInKb)
         {
             Enabled = enabled;
             FileUploadLimitInMb = fileUploadLimitInMb;
@@ -58,6 +64,7 @@ namespace Pulumi.Azure.Waf.Outputs
             MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;
             RequestBodyCheck = requestBodyCheck;
+            RequestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
         }
     }
 }

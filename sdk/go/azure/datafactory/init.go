@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataFlow{}
 	case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
 		r = &DatasetAzureBlob{}
+	case "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable":
+		r = &DatasetAzureSqlTable{}
 	case "azure:datafactory/datasetBinary:DatasetBinary":
 		r = &DatasetBinary{}
 	case "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi":
@@ -141,6 +143,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/datasetAzureBlob",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/datasetAzureSqlTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

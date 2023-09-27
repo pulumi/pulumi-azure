@@ -81,7 +81,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * The Name of the API Management Service where this Google Identity Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -95,7 +95,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * Client Id for Google Sign-in.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -109,7 +109,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * Client secret for Google Sign-in.
      * 
      */
-    @Export(name="clientSecret", refs={String.class}, tree="[0]")
+    @Export(name="clientSecret", type=String.class, parameters={})
     private Output<String> clientSecret;
 
     /**
@@ -123,7 +123,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

@@ -123,7 +123,7 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceId", refs={String.class}, tree="[0]")
+    @Export(name="appServiceId", type=String.class, parameters={})
     private Output<String> appServiceId;
 
     /**
@@ -137,7 +137,7 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      * The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="slotName", refs={String.class}, tree="[0]")
+    @Export(name="slotName", type=String.class, parameters={})
     private Output<String> slotName;
 
     /**
@@ -151,7 +151,7 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      * The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**

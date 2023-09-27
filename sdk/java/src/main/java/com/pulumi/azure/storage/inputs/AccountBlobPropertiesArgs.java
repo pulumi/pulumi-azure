@@ -25,12 +25,16 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     /**
      * Is the blob service properties for change feed events enabled? Default to `false`.
      * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * 
      */
     @Import(name="changeFeedEnabled")
     private @Nullable Output<Boolean> changeFeedEnabled;
 
     /**
      * @return Is the blob service properties for change feed events enabled? Default to `false`.
+     * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Output<Boolean>> changeFeedEnabled() {
@@ -40,12 +44,16 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     /**
      * The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
      * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * 
      */
     @Import(name="changeFeedRetentionInDays")
     private @Nullable Output<Integer> changeFeedRetentionInDays;
 
     /**
      * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+     * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Output<Integer>> changeFeedRetentionInDays() {
@@ -115,12 +123,16 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     /**
      * Is the last access time based tracking enabled? Default to `false`.
      * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * 
      */
     @Import(name="lastAccessTimeEnabled")
     private @Nullable Output<Boolean> lastAccessTimeEnabled;
 
     /**
      * @return Is the last access time based tracking enabled? Default to `false`.
+     * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Output<Boolean>> lastAccessTimeEnabled() {
@@ -130,12 +142,16 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     /**
      * A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * 
      */
     @Import(name="restorePolicy")
     private @Nullable Output<AccountBlobPropertiesRestorePolicyArgs> restorePolicy;
 
     /**
      * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+     * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Output<AccountBlobPropertiesRestorePolicyArgs>> restorePolicy() {
@@ -145,12 +161,16 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     /**
      * Is versioning enabled? Default to `false`.
      * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * 
      */
     @Import(name="versioningEnabled")
     private @Nullable Output<Boolean> versioningEnabled;
 
     /**
      * @return Is versioning enabled? Default to `false`.
+     * 
+     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Output<Boolean>> versioningEnabled() {
@@ -192,6 +212,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         /**
          * @param changeFeedEnabled Is the blob service properties for change feed events enabled? Default to `false`.
          * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * 
          * @return builder
          * 
          */
@@ -203,6 +225,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         /**
          * @param changeFeedEnabled Is the blob service properties for change feed events enabled? Default to `false`.
          * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * 
          * @return builder
          * 
          */
@@ -212,6 +236,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
 
         /**
          * @param changeFeedRetentionInDays The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
          * @return builder
          * 
@@ -223,6 +249,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
 
         /**
          * @param changeFeedRetentionInDays The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
          * @return builder
          * 
@@ -328,6 +356,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         /**
          * @param lastAccessTimeEnabled Is the last access time based tracking enabled? Default to `false`.
          * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * 
          * @return builder
          * 
          */
@@ -339,6 +369,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         /**
          * @param lastAccessTimeEnabled Is the last access time based tracking enabled? Default to `false`.
          * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * 
          * @return builder
          * 
          */
@@ -348,6 +380,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
 
         /**
          * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+         * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
          * @return builder
          * 
@@ -360,6 +394,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         /**
          * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
          * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * 
          * @return builder
          * 
          */
@@ -369,6 +405,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
 
         /**
          * @param versioningEnabled Is versioning enabled? Default to `false`.
+         * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
          * @return builder
          * 
@@ -380,6 +418,8 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
 
         /**
          * @param versioningEnabled Is versioning enabled? Default to `false`.
+         * 
+         * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          * 
          * @return builder
          * 

@@ -149,7 +149,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -163,7 +163,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="identity", refs={ComputeClusterIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ComputeClusterIdentity.class, parameters={})
     private Output</* @Nullable */ ComputeClusterIdentity> identity;
 
     /**
@@ -177,7 +177,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -191,7 +191,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -205,7 +205,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="machineLearningWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="machineLearningWorkspaceId", type=String.class, parameters={})
     private Output<String> machineLearningWorkspaceId;
 
     /**
@@ -219,7 +219,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -233,7 +233,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="nodePublicIpEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="nodePublicIpEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> nodePublicIpEnabled;
 
     /**
@@ -247,7 +247,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="scaleSettings", refs={ComputeClusterScaleSettings.class}, tree="[0]")
+    @Export(name="scaleSettings", type=ComputeClusterScaleSettings.class, parameters={})
     private Output<ComputeClusterScaleSettings> scaleSettings;
 
     /**
@@ -261,7 +261,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="ssh", refs={ComputeClusterSsh.class}, tree="[0]")
+    @Export(name="ssh", type=ComputeClusterSsh.class, parameters={})
     private Output</* @Nullable */ ComputeClusterSsh> ssh;
 
     /**
@@ -275,7 +275,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="sshPublicAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="sshPublicAccessEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> sshPublicAccessEnabled;
 
     /**
@@ -289,7 +289,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="subnetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="subnetResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> subnetResourceId;
 
     /**
@@ -303,7 +303,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -317,7 +317,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      * 
      */
-    @Export(name="vmPriority", refs={String.class}, tree="[0]")
+    @Export(name="vmPriority", type=String.class, parameters={})
     private Output<String> vmPriority;
 
     /**
@@ -331,7 +331,7 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    @Export(name="vmSize", refs={String.class}, tree="[0]")
+    @Export(name="vmSize", type=String.class, parameters={})
     private Output<String> vmSize;
 
     /**

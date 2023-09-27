@@ -100,7 +100,7 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
      * Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
      * 
      */
-    @Export(name="backupRepeatingTimeIntervals", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="backupRepeatingTimeIntervals", type=List.class, parameters={String.class})
     private Output<List<String>> backupRepeatingTimeIntervals;
 
     /**
@@ -114,7 +114,7 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
      * The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
-    @Export(name="defaultRetentionDuration", refs={String.class}, tree="[0]")
+    @Export(name="defaultRetentionDuration", type=String.class, parameters={})
     private Output<String> defaultRetentionDuration;
 
     /**
@@ -128,7 +128,7 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
      * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
-    @Export(name="retentionRules", refs={List.class,BackupPolicyDiskRetentionRule.class}, tree="[0,1]")
+    @Export(name="retentionRules", type=List.class, parameters={BackupPolicyDiskRetentionRule.class})
     private Output</* @Nullable */ List<BackupPolicyDiskRetentionRule>> retentionRules;
 
     /**
@@ -156,7 +156,7 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
      * The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
-    @Export(name="vaultId", refs={String.class}, tree="[0]")
+    @Export(name="vaultId", type=String.class, parameters={})
     private Output<String> vaultId;
 
     /**

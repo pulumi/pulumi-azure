@@ -122,7 +122,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The Ki value for the SIM.
      * 
      */
-    @Export(name="authenticationKey", refs={String.class}, tree="[0]")
+    @Export(name="authenticationKey", type=String.class, parameters={})
     private Output<String> authenticationKey;
 
     /**
@@ -136,7 +136,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value.
      * 
      */
-    @Export(name="deviceType", refs={String.class}, tree="[0]")
+    @Export(name="deviceType", type=String.class, parameters={})
     private Output</* @Nullable */ String> deviceType;
 
     /**
@@ -150,7 +150,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created.
      * 
      */
-    @Export(name="integratedCircuitCardIdentifier", refs={String.class}, tree="[0]")
+    @Export(name="integratedCircuitCardIdentifier", type=String.class, parameters={})
     private Output<String> integratedCircuitCardIdentifier;
 
     /**
@@ -164,7 +164,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created.
      * 
      */
-    @Export(name="internationalMobileSubscriberIdentity", refs={String.class}, tree="[0]")
+    @Export(name="internationalMobileSubscriberIdentity", type=String.class, parameters={})
     private Output<String> internationalMobileSubscriberIdentity;
 
     /**
@@ -178,7 +178,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created.
      * 
      */
-    @Export(name="mobileNetworkSimGroupId", refs={String.class}, tree="[0]")
+    @Export(name="mobileNetworkSimGroupId", type=String.class, parameters={})
     private Output<String> mobileNetworkSimGroupId;
 
     /**
@@ -192,7 +192,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -206,7 +206,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The Opc value for the SIM.
      * 
      */
-    @Export(name="operatorKeyCode", refs={String.class}, tree="[0]")
+    @Export(name="operatorKeyCode", type=String.class, parameters={})
     private Output<String> operatorKeyCode;
 
     /**
@@ -220,7 +220,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The ID of SIM policy used by this SIM.
      * 
      */
-    @Export(name="simPolicyId", refs={String.class}, tree="[0]")
+    @Export(name="simPolicyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> simPolicyId;
 
     /**
@@ -234,7 +234,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The state of the SIM resource.
      * 
      */
-    @Export(name="simState", refs={String.class}, tree="[0]")
+    @Export(name="simState", type=String.class, parameters={})
     private Output<String> simState;
 
     /**
@@ -248,7 +248,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * A `static_ip_configuration` block as defined below.
      * 
      */
-    @Export(name="staticIpConfigurations", refs={List.class,NetworkSimStaticIpConfiguration.class}, tree="[0,1]")
+    @Export(name="staticIpConfigurations", type=List.class, parameters={NetworkSimStaticIpConfiguration.class})
     private Output</* @Nullable */ List<NetworkSimStaticIpConfiguration>> staticIpConfigurations;
 
     /**
@@ -262,7 +262,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The public key fingerprint of the SIM vendor who provided this SIM, if any.
      * 
      */
-    @Export(name="vendorKeyFingerprint", refs={String.class}, tree="[0]")
+    @Export(name="vendorKeyFingerprint", type=String.class, parameters={})
     private Output<String> vendorKeyFingerprint;
 
     /**
@@ -276,7 +276,7 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
      * The name of the SIM vendor who provided this SIM, if any.
      * 
      */
-    @Export(name="vendorName", refs={String.class}, tree="[0]")
+    @Export(name="vendorName", type=String.class, parameters={})
     private Output<String> vendorName;
 
     /**

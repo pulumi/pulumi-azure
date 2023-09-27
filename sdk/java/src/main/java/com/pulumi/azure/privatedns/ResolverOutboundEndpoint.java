@@ -105,7 +105,7 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
      * Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -119,7 +119,7 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
      * Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
      * Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
      * 
      */
-    @Export(name="privateDnsResolverId", refs={String.class}, tree="[0]")
+    @Export(name="privateDnsResolverId", type=String.class, parameters={})
     private Output<String> privateDnsResolverId;
 
     /**
@@ -147,7 +147,7 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
      * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -161,7 +161,7 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
      * A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

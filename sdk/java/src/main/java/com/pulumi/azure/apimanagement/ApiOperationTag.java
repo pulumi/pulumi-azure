@@ -88,7 +88,7 @@ public class ApiOperationTag extends com.pulumi.resources.CustomResource {
      * The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
      * 
      */
-    @Export(name="apiOperationId", refs={String.class}, tree="[0]")
+    @Export(name="apiOperationId", type=String.class, parameters={})
     private Output<String> apiOperationId;
 
     /**
@@ -102,7 +102,7 @@ public class ApiOperationTag extends com.pulumi.resources.CustomResource {
      * The display name of the API Management API Operation Tag.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -116,7 +116,7 @@ public class ApiOperationTag extends com.pulumi.resources.CustomResource {
      * The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

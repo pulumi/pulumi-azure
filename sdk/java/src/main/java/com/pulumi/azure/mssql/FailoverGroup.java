@@ -114,7 +114,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A set of database names to include in the failover group.
      * 
      */
-    @Export(name="databases", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="databases", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> databases;
 
     /**
@@ -128,7 +128,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * The name of the Failover Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A `partner_server` block as defined below.
      * 
      */
-    @Export(name="partnerServers", refs={List.class,FailoverGroupPartnerServer.class}, tree="[0,1]")
+    @Export(name="partnerServers", type=List.class, parameters={FailoverGroupPartnerServer.class})
     private Output<List<FailoverGroupPartnerServer>> partnerServers;
 
     /**
@@ -156,7 +156,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A `read_write_endpoint_failover_policy` block as defined below.
      * 
      */
-    @Export(name="readWriteEndpointFailoverPolicy", refs={FailoverGroupReadWriteEndpointFailoverPolicy.class}, tree="[0]")
+    @Export(name="readWriteEndpointFailoverPolicy", type=FailoverGroupReadWriteEndpointFailoverPolicy.class, parameters={})
     private Output<FailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy;
 
     /**
@@ -170,7 +170,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * Whether failover is enabled for the readonly endpoint. Defaults to `false`.
      * 
      */
-    @Export(name="readonlyEndpointFailoverPolicyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="readonlyEndpointFailoverPolicyEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> readonlyEndpointFailoverPolicyEnabled;
 
     /**
@@ -184,7 +184,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
@@ -198,7 +198,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

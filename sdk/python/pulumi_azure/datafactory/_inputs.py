@@ -28,6 +28,7 @@ __all__ = [
     'DataFlowTransformationFlowletArgs',
     'DataFlowTransformationLinkedServiceArgs',
     'DatasetAzureBlobSchemaColumnArgs',
+    'DatasetAzureSqlTableSchemaColumnArgs',
     'DatasetBinaryAzureBlobStorageLocationArgs',
     'DatasetBinaryCompressionArgs',
     'DatasetBinaryHttpServerLocationArgs',
@@ -42,6 +43,7 @@ __all__ = [
     'DatasetJsonHttpServerLocationArgs',
     'DatasetJsonSchemaColumnArgs',
     'DatasetMysqlSchemaColumnArgs',
+    'DatasetParquetAzureBlobFsLocationArgs',
     'DatasetParquetAzureBlobStorageLocationArgs',
     'DatasetParquetHttpServerLocationArgs',
     'DatasetParquetSchemaColumnArgs',
@@ -1066,6 +1068,60 @@ class DatasetAzureBlobSchemaColumnArgs:
 
 
 @pulumi.input_type
+class DatasetAzureSqlTableSchemaColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] description: The description of the column.
+        :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class DatasetBinaryAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
@@ -1415,30 +1471,79 @@ class DatasetCosmosDBApiSchemaColumnArgs:
 @pulumi.input_type
 class DatasetDelimitedTextAzureBlobFsLocationArgs:
     def __init__(__self__, *,
-                 file_system: pulumi.Input[str],
+                 dynamic_file_system_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+                 file_system: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] dynamic_file_system_enabled: Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] file_system: The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
         :param pulumi.Input[str] filename: The filename of the file.
         :param pulumi.Input[str] path: The folder path to the file.
         """
-        pulumi.set(__self__, "file_system", file_system)
+        if dynamic_file_system_enabled is not None:
+            pulumi.set(__self__, "dynamic_file_system_enabled", dynamic_file_system_enabled)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if path is not None:
             pulumi.set(__self__, "path", path)
 
     @property
+    @pulumi.getter(name="dynamicFileSystemEnabled")
+    def dynamic_file_system_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_file_system_enabled")
+
+    @dynamic_file_system_enabled.setter
+    def dynamic_file_system_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_file_system_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
+
+    @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> pulumi.Input[str]:
+    def file_system(self) -> Optional[pulumi.Input[str]]:
         """
         The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: pulumi.Input[str]):
+    def file_system(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system", value)
 
     @property
@@ -2053,6 +2158,109 @@ class DatasetMysqlSchemaColumnArgs:
 
 
 @pulumi.input_type
+class DatasetParquetAzureBlobFsLocationArgs:
+    def __init__(__self__, *,
+                 dynamic_file_system_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+                 file_system: Optional[pulumi.Input[str]] = None,
+                 filename: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] dynamic_file_system_enabled: Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[str] file_system: The container on the Azure Data Lake Storage Account hosting the file.
+        :param pulumi.Input[str] filename: The filename of the file on the Azure Data Lake Storage Account.
+        :param pulumi.Input[str] path: The folder path to the file on the Azure Data Lake Storage Account.
+        """
+        if dynamic_file_system_enabled is not None:
+            pulumi.set(__self__, "dynamic_file_system_enabled", dynamic_file_system_enabled)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="dynamicFileSystemEnabled")
+    def dynamic_file_system_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_file_system_enabled")
+
+    @dynamic_file_system_enabled.setter
+    def dynamic_file_system_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_file_system_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional[pulumi.Input[str]]:
+        """
+        The container on the Azure Data Lake Storage Account hosting the file.
+        """
+        return pulumi.get(self, "file_system")
+
+    @file_system.setter
+    def file_system(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filename of the file on the Azure Data Lake Storage Account.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path to the file on the Azure Data Lake Storage Account.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
 class DatasetParquetAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
@@ -2066,8 +2274,8 @@ class DatasetParquetAzureBlobStorageLocationArgs:
         :param pulumi.Input[bool] dynamic_container_enabled: Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
-        :param pulumi.Input[str] filename: The filename of the file on the web server.
-        :param pulumi.Input[str] path: The folder path to the file on the web server.
+        :param pulumi.Input[str] filename: The filename of the file on the Azure Blob Storage Account.
+        :param pulumi.Input[str] path: The folder path to the file on the Azure Blob Storage Account.
         """
         pulumi.set(__self__, "container", container)
         if dynamic_container_enabled is not None:
@@ -2133,7 +2341,7 @@ class DatasetParquetAzureBlobStorageLocationArgs:
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[str]]:
         """
-        The filename of the file on the web server.
+        The filename of the file on the Azure Blob Storage Account.
         """
         return pulumi.get(self, "filename")
 
@@ -2145,7 +2353,7 @@ class DatasetParquetAzureBlobStorageLocationArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The folder path to the file on the web server.
+        The folder path to the file on the Azure Blob Storage Account.
         """
         return pulumi.get(self, "path")
 
@@ -2478,13 +2686,15 @@ class FactoryGithubConfigurationArgs:
                  branch_name: pulumi.Input[str],
                  git_url: pulumi.Input[str],
                  repository_name: pulumi.Input[str],
-                 root_folder: pulumi.Input[str]):
+                 root_folder: pulumi.Input[str],
+                 publishing_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] account_name: Specifies the GitHub account name.
         :param pulumi.Input[str] branch_name: Specifies the branch of the repository to get code from.
         :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+        :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `false`.
                
                > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
@@ -2493,6 +2703,8 @@ class FactoryGithubConfigurationArgs:
         pulumi.set(__self__, "git_url", git_url)
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
+        if publishing_enabled is not None:
+            pulumi.set(__self__, "publishing_enabled", publishing_enabled)
 
     @property
     @pulumi.getter(name="accountName")
@@ -2547,14 +2759,26 @@ class FactoryGithubConfigurationArgs:
     def root_folder(self) -> pulumi.Input[str]:
         """
         Specifies the root folder within the repository. Set to `/` for the top level.
-
-        > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
         return pulumi.get(self, "root_folder")
 
     @root_folder.setter
     def root_folder(self, value: pulumi.Input[str]):
         pulumi.set(self, "root_folder", value)
+
+    @property
+    @pulumi.getter(name="publishingEnabled")
+    def publishing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is automated publishing enabled? Defaults to `false`.
+
+        > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+        """
+        return pulumi.get(self, "publishing_enabled")
+
+    @publishing_enabled.setter
+    def publishing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publishing_enabled", value)
 
 
 @pulumi.input_type
@@ -2695,7 +2919,8 @@ class FactoryVstsConfigurationArgs:
                  project_name: pulumi.Input[str],
                  repository_name: pulumi.Input[str],
                  root_folder: pulumi.Input[str],
-                 tenant_id: pulumi.Input[str]):
+                 tenant_id: pulumi.Input[str],
+                 publishing_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] account_name: Specifies the VSTS account name.
         :param pulumi.Input[str] branch_name: Specifies the branch of the repository to get code from.
@@ -2703,6 +2928,7 @@ class FactoryVstsConfigurationArgs:
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
+        :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `false`.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -2710,6 +2936,8 @@ class FactoryVstsConfigurationArgs:
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if publishing_enabled is not None:
+            pulumi.set(__self__, "publishing_enabled", publishing_enabled)
 
     @property
     @pulumi.getter(name="accountName")
@@ -2782,6 +3010,18 @@ class FactoryVstsConfigurationArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="publishingEnabled")
+    def publishing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is automated publishing enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "publishing_enabled")
+
+    @publishing_enabled.setter
+    def publishing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publishing_enabled", value)
 
 
 @pulumi.input_type

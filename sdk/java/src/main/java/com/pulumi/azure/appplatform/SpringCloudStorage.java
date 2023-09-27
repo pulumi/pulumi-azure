@@ -85,7 +85,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created.
      * 
      */
-    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudServiceId", type=String.class, parameters={})
     private Output<String> springCloudServiceId;
 
     /**
@@ -113,7 +113,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * The access key of the Azure Storage Account.
      * 
      */
-    @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountKey", type=String.class, parameters={})
     private Output<String> storageAccountKey;
 
     /**
@@ -127,7 +127,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * The account name of the Azure Storage Account.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**

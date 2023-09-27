@@ -81,7 +81,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      * 
      */
-    @Export(name="allocationPolicy", refs={String.class}, tree="[0]")
+    @Export(name="allocationPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> allocationPolicy;
 
     /**
@@ -95,7 +95,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dataResidencyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="dataResidencyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dataResidencyEnabled;
 
     /**
@@ -109,7 +109,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * The device endpoint of the IoT Device Provisioning Service.
      * 
      */
-    @Export(name="deviceProvisioningHostName", refs={String.class}, tree="[0]")
+    @Export(name="deviceProvisioningHostName", type=String.class, parameters={})
     private Output<String> deviceProvisioningHostName;
 
     /**
@@ -123,7 +123,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * The unique identifier of the IoT Device Provisioning Service.
      * 
      */
-    @Export(name="idScope", refs={String.class}, tree="[0]")
+    @Export(name="idScope", type=String.class, parameters={})
     private Output<String> idScope;
 
     /**
@@ -137,7 +137,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * An `ip_filter_rule` block as defined below.
      * 
      */
-    @Export(name="ipFilterRules", refs={List.class,IotHubDpsIpFilterRule.class}, tree="[0,1]")
+    @Export(name="ipFilterRules", type=List.class, parameters={IotHubDpsIpFilterRule.class})
     private Output</* @Nullable */ List<IotHubDpsIpFilterRule>> ipFilterRules;
 
     /**
@@ -151,7 +151,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * A `linked_hub` block as defined below.
      * 
      */
-    @Export(name="linkedHubs", refs={List.class,IotHubDpsLinkedHub.class}, tree="[0,1]")
+    @Export(name="linkedHubs", type=List.class, parameters={IotHubDpsLinkedHub.class})
     private Output</* @Nullable */ List<IotHubDpsLinkedHub>> linkedHubs;
 
     /**
@@ -165,7 +165,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -179,7 +179,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -193,7 +193,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * Whether requests from Public Network are allowed. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -207,7 +207,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -221,7 +221,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * The service endpoint of the IoT Device Provisioning Service.
      * 
      */
-    @Export(name="serviceOperationsHostName", refs={String.class}, tree="[0]")
+    @Export(name="serviceOperationsHostName", type=String.class, parameters={})
     private Output<String> serviceOperationsHostName;
 
     /**
@@ -235,7 +235,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * A `sku` block as defined below.
      * 
      */
-    @Export(name="sku", refs={IotHubDpsSku.class}, tree="[0]")
+    @Export(name="sku", type=IotHubDpsSku.class, parameters={})
     private Output<IotHubDpsSku> sku;
 
     /**
@@ -249,7 +249,7 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

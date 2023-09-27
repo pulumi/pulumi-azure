@@ -112,7 +112,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this App Service.
      * 
      */
-    @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
+    @Export(name="appServicePlanId", type=String.class, parameters={})
     private Output<String> appServicePlanId;
 
     /**
@@ -126,7 +126,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A key-value pair of App Settings.
      * 
      */
-    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> appSettings;
 
     /**
@@ -140,7 +140,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", refs={AppServiceAuthSettings.class}, tree="[0]")
+    @Export(name="authSettings", type=AppServiceAuthSettings.class, parameters={})
     private Output<AppServiceAuthSettings> authSettings;
 
     /**
@@ -154,7 +154,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", refs={AppServiceBackup.class}, tree="[0]")
+    @Export(name="backup", type=AppServiceBackup.class, parameters={})
     private Output</* @Nullable */ AppServiceBackup> backup;
 
     /**
@@ -168,7 +168,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      * 
      */
-    @Export(name="clientAffinityEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientAffinityEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientAffinityEnabled;
 
     /**
@@ -182,7 +182,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      * 
      */
-    @Export(name="clientCertEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientCertEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientCertEnabled;
 
     /**
@@ -196,7 +196,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
-    @Export(name="clientCertMode", refs={String.class}, tree="[0]")
+    @Export(name="clientCertMode", type=String.class, parameters={})
     private Output<String> clientCertMode;
 
     /**
@@ -210,7 +210,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * One or more `connection_string` blocks as defined below.
      * 
      */
-    @Export(name="connectionStrings", refs={List.class,AppServiceConnectionString.class}, tree="[0,1]")
+    @Export(name="connectionStrings", type=List.class, parameters={AppServiceConnectionString.class})
     private Output<List<AppServiceConnectionString>> connectionStrings;
 
     /**
@@ -224,7 +224,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
+    @Export(name="customDomainVerificationId", type=String.class, parameters={})
     private Output<String> customDomainVerificationId;
 
     /**
@@ -238,7 +238,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      * 
      */
-    @Export(name="defaultSiteHostname", refs={String.class}, tree="[0]")
+    @Export(name="defaultSiteHostname", type=String.class, parameters={})
     private Output<String> defaultSiteHostname;
 
     /**
@@ -252,7 +252,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Is the App Service Enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -266,7 +266,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Can the App Service only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="httpsOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -280,7 +280,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={AppServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=AppServiceIdentity.class, parameters={})
     private Output</* @Nullable */ AppServiceIdentity> identity;
 
     /**
@@ -294,7 +294,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -308,7 +308,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -322,7 +322,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A `logs` block as defined below.
      * 
      */
-    @Export(name="logs", refs={AppServiceLogs.class}, tree="[0]")
+    @Export(name="logs", type=AppServiceLogs.class, parameters={})
     private Output<AppServiceLogs> logs;
 
     /**
@@ -336,7 +336,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -350,7 +350,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
-    @Export(name="outboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> outboundIpAddressLists;
 
     /**
@@ -364,7 +364,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      * 
      */
-    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="outboundIpAddresses", type=String.class, parameters={})
     private Output<String> outboundIpAddresses;
 
     /**
@@ -378,7 +378,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
      * 
      */
-    @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="possibleOutboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
@@ -392,7 +392,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -406,7 +406,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -420,7 +420,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A `site_config` block as defined below.
      * 
      */
-    @Export(name="siteConfig", refs={AppServiceSiteConfig.class}, tree="[0]")
+    @Export(name="siteConfig", type=AppServiceSiteConfig.class, parameters={})
     private Output<AppServiceSiteConfig> siteConfig;
 
     /**
@@ -434,7 +434,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
-    @Export(name="siteCredentials", refs={List.class,AppServiceSiteCredential.class}, tree="[0,1]")
+    @Export(name="siteCredentials", type=List.class, parameters={AppServiceSiteCredential.class})
     private Output<List<AppServiceSiteCredential>> siteCredentials;
 
     /**
@@ -448,7 +448,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A Source Control block as defined below
      * 
      */
-    @Export(name="sourceControl", refs={AppServiceSourceControl.class}, tree="[0]")
+    @Export(name="sourceControl", type=AppServiceSourceControl.class, parameters={})
     private Output<AppServiceSourceControl> sourceControl;
 
     /**
@@ -462,7 +462,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,AppServiceStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={AppServiceStorageAccount.class})
     private Output<List<AppServiceStorageAccount>> storageAccounts;
 
     /**
@@ -476,7 +476,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

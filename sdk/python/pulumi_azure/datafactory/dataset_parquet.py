@@ -20,6 +20,7 @@ class DatasetParquetArgs:
                  linked_service_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class DatasetParquetArgs:
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input['DatasetParquetAzureBlobFsLocationArgs'] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
@@ -55,6 +57,8 @@ class DatasetParquetArgs:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if azure_blob_fs_location is not None:
+            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
             pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if compression_codec is not None:
@@ -123,6 +127,18 @@ class DatasetParquetArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="azureBlobFsLocation")
+    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]:
+        """
+        A `azure_blob_fs_location` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_fs_location")
+
+    @azure_blob_fs_location.setter
+    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]):
+        pulumi.set(self, "azure_blob_fs_location", value)
 
     @property
     @pulumi.getter(name="azureBlobStorageLocation")
@@ -240,6 +256,7 @@ class _DatasetParquetState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
@@ -257,6 +274,7 @@ class _DatasetParquetState:
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input['DatasetParquetAzureBlobFsLocationArgs'] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
@@ -275,6 +293,8 @@ class _DatasetParquetState:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if azure_blob_fs_location is not None:
+            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
             pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if compression_codec is not None:
@@ -323,6 +343,18 @@ class _DatasetParquetState:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="azureBlobFsLocation")
+    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]:
+        """
+        A `azure_blob_fs_location` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_fs_location")
+
+    @azure_blob_fs_location.setter
+    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]):
+        pulumi.set(self, "azure_blob_fs_location", value)
 
     @property
     @pulumi.getter(name="azureBlobStorageLocation")
@@ -466,6 +498,7 @@ class DatasetParquet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
@@ -519,6 +552,7 @@ class DatasetParquet(pulumi.CustomResource):
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
@@ -591,6 +625,7 @@ class DatasetParquet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
@@ -613,6 +648,7 @@ class DatasetParquet(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
+            __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["compression_codec"] = compression_codec
             __props__.__dict__["compression_level"] = compression_level
@@ -640,6 +676,7 @@ class DatasetParquet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']]] = None,
             azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
             compression_codec: Optional[pulumi.Input[str]] = None,
             compression_level: Optional[pulumi.Input[str]] = None,
@@ -662,6 +699,7 @@ class DatasetParquet(pulumi.CustomResource):
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
@@ -682,6 +720,7 @@ class DatasetParquet(pulumi.CustomResource):
 
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
         __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
         __props__.__dict__["compression_codec"] = compression_codec
         __props__.__dict__["compression_level"] = compression_level
@@ -712,6 +751,14 @@ class DatasetParquet(pulumi.CustomResource):
         List of tags that can be used for describing the Data Factory Dataset.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="azureBlobFsLocation")
+    def azure_blob_fs_location(self) -> pulumi.Output[Optional['outputs.DatasetParquetAzureBlobFsLocation']]:
+        """
+        A `azure_blob_fs_location` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_fs_location")
 
     @property
     @pulumi.getter(name="azureBlobStorageLocation")

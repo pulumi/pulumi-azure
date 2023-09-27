@@ -72,7 +72,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -86,7 +86,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Is public network access enabled? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -114,7 +114,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -128,7 +128,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Azure Monitor Workspace.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

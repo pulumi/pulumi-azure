@@ -30,11 +30,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly bool? DynamicPathEnabled;
         /// <summary>
-        /// The filename of the file on the web server.
+        /// The filename of the file on the Azure Blob Storage Account.
         /// </summary>
         public readonly string? Filename;
         /// <summary>
-        /// The folder path to the file on the web server.
+        /// The folder path to the file on the Azure Blob Storage Account.
         /// </summary>
         public readonly string? Path;
 

@@ -153,7 +153,7 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
-    @Export(name="caching", refs={String.class}, tree="[0]")
+    @Export(name="caching", type=String.class, parameters={})
     private Output<String> caching;
 
     /**
@@ -167,7 +167,7 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="createOption", refs={String.class}, tree="[0]")
+    @Export(name="createOption", type=String.class, parameters={})
     private Output</* @Nullable */ String> createOption;
 
     /**
@@ -181,7 +181,7 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="lun", refs={Integer.class}, tree="[0]")
+    @Export(name="lun", type=Integer.class, parameters={})
     private Output<Integer> lun;
 
     /**
@@ -195,7 +195,7 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedDiskId", refs={String.class}, tree="[0]")
+    @Export(name="managedDiskId", type=String.class, parameters={})
     private Output<String> managedDiskId;
 
     /**
@@ -209,7 +209,7 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**
@@ -223,7 +223,7 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      * 
      */
-    @Export(name="writeAcceleratorEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="writeAcceleratorEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> writeAcceleratorEnabled;
 
     /**

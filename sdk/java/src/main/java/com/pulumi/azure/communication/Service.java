@@ -70,7 +70,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
      * 
      */
-    @Export(name="dataLocation", refs={String.class}, tree="[0]")
+    @Export(name="dataLocation", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataLocation;
 
     /**
@@ -84,7 +84,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -98,7 +98,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The primary connection string of the Communication Service.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -112,7 +112,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The primary key of the Communication Service.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -126,7 +126,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -140,7 +140,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The secondary connection string of the Communication Service.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -154,7 +154,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The secondary key of the Communication Service.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -168,7 +168,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Communication Service.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

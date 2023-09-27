@@ -35,7 +35,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      * 
      */
-    @Export(name="arcMachineId", refs={String.class}, tree="[0]")
+    @Export(name="arcMachineId", type=String.class, parameters={})
     private Output<String> arcMachineId;
 
     /**
@@ -53,7 +53,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` will be automatically ignored.
      * 
      */
-    @Export(name="automaticUpgradeEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="automaticUpgradeEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
     /**
@@ -71,7 +71,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      * 
      */
-    @Export(name="forceUpdateTag", refs={String.class}, tree="[0]")
+    @Export(name="forceUpdateTag", type=String.class, parameters={})
     private Output</* @Nullable */ String> forceUpdateTag;
 
     /**
@@ -85,7 +85,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -99,7 +99,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Json formatted protected settings for the extension.
      * 
      */
-    @Export(name="protectedSettings", refs={String.class}, tree="[0]")
+    @Export(name="protectedSettings", type=String.class, parameters={})
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
@@ -127,7 +127,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      * 
      */
-    @Export(name="publisher", refs={String.class}, tree="[0]")
+    @Export(name="publisher", type=String.class, parameters={})
     private Output<String> publisher;
 
     /**
@@ -141,7 +141,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Json formatted public settings for the extension.
      * 
      */
-    @Export(name="settings", refs={String.class}, tree="[0]")
+    @Export(name="settings", type=String.class, parameters={})
     private Output</* @Nullable */ String> settings;
 
     /**
@@ -155,7 +155,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Hybrid Compute Machine Extension.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -169,7 +169,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
@@ -185,7 +185,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * **NOTE:** 1. When `automatic_upgrade_enabled` is set to `false` and no `type_handler_version` is specified, the `type_handler_version` change should be manually ignored by `ignore_changes` lifecycle block. This is because the `type_handler_version` is set by the Azure platform when the extension is created. 2. When `automatic_upgrade_enabled` is set to `false` and `type_handler_version` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `type_handler_version`, `1.24.1` will be considered as no diff.
      * 
      */
-    @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
+    @Export(name="typeHandlerVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> typeHandlerVersion;
 
     /**

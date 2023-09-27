@@ -89,7 +89,7 @@ public class NetworkSite extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Mobile Network Site should exist. Changing this forces a new Mobile Network Site to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -103,7 +103,7 @@ public class NetworkSite extends com.pulumi.resources.CustomResource {
      * the ID of the Mobile Network which the Mobile Network Site belongs to. Changing this forces a new Mobile Network Site to be created.
      * 
      */
-    @Export(name="mobileNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="mobileNetworkId", type=String.class, parameters={})
     private Output<String> mobileNetworkId;
 
     /**
@@ -117,7 +117,7 @@ public class NetworkSite extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Mobile Network Site. Changing this forces a new Mobile Network Site to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class NetworkSite extends com.pulumi.resources.CustomResource {
      * An array of Id of Network Functions deployed on the site.
      * 
      */
-    @Export(name="networkFunctionIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="networkFunctionIds", type=List.class, parameters={String.class})
     private Output<List<String>> networkFunctionIds;
 
     /**
@@ -145,7 +145,7 @@ public class NetworkSite extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network Site.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

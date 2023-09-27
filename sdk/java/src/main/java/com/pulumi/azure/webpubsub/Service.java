@@ -88,7 +88,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether to enable AAD auth? Defaults to `true`.
      * 
      */
-    @Export(name="aadAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="aadAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> aadAuthEnabled;
 
     /**
@@ -102,7 +102,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`.
      * 
      */
-    @Export(name="capacity", refs={Integer.class}, tree="[0]")
+    @Export(name="capacity", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> capacity;
 
     /**
@@ -116,7 +116,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The publicly accessible IP of the Web PubSub service.
      * 
      */
-    @Export(name="externalIp", refs={String.class}, tree="[0]")
+    @Export(name="externalIp", type=String.class, parameters={})
     private Output<String> externalIp;
 
     /**
@@ -130,7 +130,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The FQDN of the Web PubSub service.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -144,7 +144,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ServiceIdentity.class, parameters={})
     private Output</* @Nullable */ ServiceIdentity> identity;
 
     /**
@@ -158,7 +158,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `live_trace` block as defined below.
      * 
      */
-    @Export(name="liveTrace", refs={ServiceLiveTrace.class}, tree="[0]")
+    @Export(name="liveTrace", type=ServiceLiveTrace.class, parameters={})
     private Output</* @Nullable */ ServiceLiveTrace> liveTrace;
 
     /**
@@ -172,7 +172,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether to enable local auth? Defaults to `true`.
      * 
      */
-    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -186,7 +186,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -200,7 +200,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Web PubSub service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -214,7 +214,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The primary access key for the Web PubSub service.
      * 
      */
-    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryAccessKey", type=String.class, parameters={})
     private Output<String> primaryAccessKey;
 
     /**
@@ -228,7 +228,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The primary connection string for the Web PubSub service.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -242,7 +242,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether to enable public network access? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -256,7 +256,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The publicly accessible port of the Web PubSub service which is designed for browser/client use.
      * 
      */
-    @Export(name="publicPort", refs={Integer.class}, tree="[0]")
+    @Export(name="publicPort", type=Integer.class, parameters={})
     private Output<Integer> publicPort;
 
     /**
@@ -270,7 +270,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -284,7 +284,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The secondary access key for the Web PubSub service.
      * 
      */
-    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryAccessKey", type=String.class, parameters={})
     private Output<String> secondaryAccessKey;
 
     /**
@@ -298,7 +298,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The secondary connection string for the Web PubSub service.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -312,7 +312,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The publicly accessible port of the Web PubSub service which is designed for customer server side use.
      * 
      */
-    @Export(name="serverPort", refs={Integer.class}, tree="[0]")
+    @Export(name="serverPort", type=Integer.class, parameters={})
     private Output<Integer> serverPort;
 
     /**
@@ -326,7 +326,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -340,7 +340,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -354,7 +354,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
      */
-    @Export(name="tlsClientCertEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="tlsClientCertEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> tlsClientCertEnabled;
 
     /**
@@ -364,7 +364,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> tlsClientCertEnabled() {
         return Codegen.optional(this.tlsClientCertEnabled);
     }
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     public Output<String> version() {

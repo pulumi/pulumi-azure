@@ -89,7 +89,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -103,7 +103,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * The name of the security rule.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -117,7 +117,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -133,7 +133,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
-    @Export(name="securityRules", refs={List.class,NetworkSecurityGroupSecurityRule.class}, tree="[0,1]")
+    @Export(name="securityRules", type=List.class, parameters={NetworkSecurityGroupSecurityRule.class})
     private Output<List<NetworkSecurityGroupSecurityRule>> securityRules;
 
     /**
@@ -149,7 +149,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

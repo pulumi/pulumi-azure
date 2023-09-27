@@ -104,7 +104,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionKey", refs={FileSystemEncryptionKey.class}, tree="[0]")
+    @Export(name="encryptionKey", type=FileSystemEncryptionKey.class, parameters={})
     private Output</* @Nullable */ FileSystemEncryptionKey> encryptionKey;
 
     /**
@@ -120,7 +120,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hsmSetting", refs={FileSystemHsmSetting.class}, tree="[0]")
+    @Export(name="hsmSetting", type=FileSystemHsmSetting.class, parameters={})
     private Output</* @Nullable */ FileSystemHsmSetting> hsmSetting;
 
     /**
@@ -134,7 +134,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="identity", refs={FileSystemIdentity.class}, tree="[0]")
+    @Export(name="identity", type=FileSystemIdentity.class, parameters={})
     private Output</* @Nullable */ FileSystemIdentity> identity;
 
     /**
@@ -148,7 +148,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -162,7 +162,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A `maintenance_window` block as defined below.
      * 
      */
-    @Export(name="maintenanceWindow", refs={FileSystemMaintenanceWindow.class}, tree="[0]")
+    @Export(name="maintenanceWindow", type=FileSystemMaintenanceWindow.class, parameters={})
     private Output<FileSystemMaintenanceWindow> maintenanceWindow;
 
     /**
@@ -176,7 +176,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -190,7 +190,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -204,7 +204,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -218,7 +218,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageCapacityInTb", refs={Integer.class}, tree="[0]")
+    @Export(name="storageCapacityInTb", type=Integer.class, parameters={})
     private Output<Integer> storageCapacityInTb;
 
     /**
@@ -232,7 +232,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network&#39;s address space. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -246,7 +246,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Azure Managed Lustre File System.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -260,7 +260,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output<List<String>> zones;
 
     /**

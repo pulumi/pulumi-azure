@@ -82,7 +82,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      * 
      */
-    @Export(name="addressPrefix", refs={String.class}, tree="[0]")
+    @Export(name="addressPrefix", type=String.class, parameters={})
     private Output<String> addressPrefix;
 
     /**
@@ -96,7 +96,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The name of the route. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -110,7 +110,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      * 
      */
-    @Export(name="nextHopInIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="nextHopInIpAddress", type=String.class, parameters={})
     private Output</* @Nullable */ String> nextHopInIpAddress;
 
     /**
@@ -124,7 +124,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
      * 
      */
-    @Export(name="nextHopType", refs={String.class}, tree="[0]")
+    @Export(name="nextHopType", type=String.class, parameters={})
     private Output<String> nextHopType;
 
     /**
@@ -138,7 +138,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the route. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -152,7 +152,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The name of the route table within which create the route. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="routeTableName", refs={String.class}, tree="[0]")
+    @Export(name="routeTableName", type=String.class, parameters={})
     private Output<String> routeTableName;
 
     /**

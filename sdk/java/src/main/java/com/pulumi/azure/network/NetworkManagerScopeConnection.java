@@ -93,7 +93,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * The Connection state of the Network Manager Scope Connection.
      * 
      */
-    @Export(name="connectionState", refs={String.class}, tree="[0]")
+    @Export(name="connectionState", type=String.class, parameters={})
     private Output<String> connectionState;
 
     /**
@@ -107,7 +107,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * A description of the Network Manager Scope Connection.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -121,7 +121,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * Specifies the name which should be used for this Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * Specifies the ID of the Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
      * 
      */
-    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
+    @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**
@@ -149,7 +149,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * Specifies the Resource ID of the target scope which the Network Manager is connected to. It should be either Subscription ID or Management Group ID.
      * 
      */
-    @Export(name="targetScopeId", refs={String.class}, tree="[0]")
+    @Export(name="targetScopeId", type=String.class, parameters={})
     private Output<String> targetScopeId;
 
     /**
@@ -163,7 +163,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * Specifies the Tenant ID of the Resource which the Network Manager is connected to.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

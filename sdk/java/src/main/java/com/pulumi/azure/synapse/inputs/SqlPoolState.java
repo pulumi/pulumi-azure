@@ -19,14 +19,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     public static final SqlPoolState Empty = new SqlPoolState();
 
     /**
-     * The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="collation")
     private @Nullable Output<String> collation;
 
     /**
-     * @return The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * @return The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<String>> collation() {
@@ -34,14 +34,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+     * @return Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -64,14 +64,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is geo-backup policy enabled? Defaults to `true`.
+     * Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     @Import(name="geoBackupPolicyEnabled")
     private @Nullable Output<Boolean> geoBackupPolicyEnabled;
 
     /**
-     * @return Is geo-backup policy enabled? Defaults to `true`.
+     * @return Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> geoBackupPolicyEnabled() {
@@ -79,14 +79,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+     * The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+     * @return The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     * A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="restore")
     private @Nullable Output<SqlPoolRestoreArgs> restore;
 
     /**
-     * @return A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     * @return A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<SqlPoolRestoreArgs>> restore() {
@@ -136,6 +136,21 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> skuName() {
         return Optional.ofNullable(this.skuName);
+    }
+
+    /**
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+     * 
+     */
+    @Import(name="storageAccountType")
+    private @Nullable Output<String> storageAccountType;
+
+    /**
+     * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+     * 
+     */
+    public Optional<Output<String>> storageAccountType() {
+        return Optional.ofNullable(this.storageAccountType);
     }
 
     /**
@@ -179,6 +194,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         this.recoveryDatabaseId = $.recoveryDatabaseId;
         this.restore = $.restore;
         this.skuName = $.skuName;
+        this.storageAccountType = $.storageAccountType;
         this.synapseWorkspaceId = $.synapseWorkspaceId;
         this.tags = $.tags;
     }
@@ -202,7 +218,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collation The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+         * @param collation The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -213,7 +229,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collation The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+         * @param collation The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -223,7 +239,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+         * @param createMode Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -234,7 +250,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
+         * @param createMode Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -265,7 +281,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Defaults to `true`.
+         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -276,7 +292,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Defaults to `true`.
+         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -286,7 +302,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+         * @param name The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -297,7 +313,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
+         * @param name The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -328,7 +344,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+         * @param restore A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -339,7 +355,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+         * @param restore A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -367,6 +383,27 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder skuName(String skuName) {
             return skuName(Output.of(skuName));
+        }
+
+        /**
+         * @param storageAccountType The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountType(@Nullable Output<String> storageAccountType) {
+            $.storageAccountType = storageAccountType;
+            return this;
+        }
+
+        /**
+         * @param storageAccountType The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountType(String storageAccountType) {
+            return storageAccountType(Output.of(storageAccountType));
         }
 
         /**

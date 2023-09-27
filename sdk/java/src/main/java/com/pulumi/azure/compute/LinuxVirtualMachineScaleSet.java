@@ -147,7 +147,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * An `additional_capabilities` block as defined below.
      * 
      */
-    @Export(name="additionalCapabilities", refs={LinuxVirtualMachineScaleSetAdditionalCapabilities.class}, tree="[0]")
+    @Export(name="additionalCapabilities", type=LinuxVirtualMachineScaleSetAdditionalCapabilities.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
 
     /**
@@ -165,7 +165,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
-    @Export(name="adminPassword", refs={String.class}, tree="[0]")
+    @Export(name="adminPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> adminPassword;
 
     /**
@@ -185,7 +185,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
-    @Export(name="adminSshKeys", refs={List.class,LinuxVirtualMachineScaleSetAdminSshKey.class}, tree="[0,1]")
+    @Export(name="adminSshKeys", type=List.class, parameters={LinuxVirtualMachineScaleSetAdminSshKey.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetAdminSshKey>> adminSshKeys;
 
     /**
@@ -201,7 +201,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="adminUsername", refs={String.class}, tree="[0]")
+    @Export(name="adminUsername", type=String.class, parameters={})
     private Output<String> adminUsername;
 
     /**
@@ -217,7 +217,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      * 
      */
-    @Export(name="automaticInstanceRepair", refs={LinuxVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
+    @Export(name="automaticInstanceRepair", type=LinuxVirtualMachineScaleSetAutomaticInstanceRepair.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
@@ -233,7 +233,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
-    @Export(name="automaticOsUpgradePolicy", refs={LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy.class}, tree="[0]")
+    @Export(name="automaticOsUpgradePolicy", type=LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy> automaticOsUpgradePolicy;
 
     /**
@@ -247,7 +247,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * A `boot_diagnostics` block as defined below.
      * 
      */
-    @Export(name="bootDiagnostics", refs={LinuxVirtualMachineScaleSetBootDiagnostics.class}, tree="[0]")
+    @Export(name="bootDiagnostics", type=LinuxVirtualMachineScaleSetBootDiagnostics.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
@@ -265,7 +265,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
      * 
      */
-    @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
@@ -283,7 +283,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="computerNamePrefix", refs={String.class}, tree="[0]")
+    @Export(name="computerNamePrefix", type=String.class, parameters={})
     private Output<String> computerNamePrefix;
 
     /**
@@ -299,7 +299,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
-    @Export(name="customData", refs={String.class}, tree="[0]")
+    @Export(name="customData", type=String.class, parameters={})
     private Output</* @Nullable */ String> customData;
 
     /**
@@ -315,7 +315,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * One or more `data_disk` blocks as defined below.
      * 
      */
-    @Export(name="dataDisks", refs={List.class,LinuxVirtualMachineScaleSetDataDisk.class}, tree="[0,1]")
+    @Export(name="dataDisks", type=List.class, parameters={LinuxVirtualMachineScaleSetDataDisk.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetDataDisk>> dataDisks;
 
     /**
@@ -333,7 +333,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
-    @Export(name="disablePasswordAuthentication", refs={Boolean.class}, tree="[0]")
+    @Export(name="disablePasswordAuthentication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disablePasswordAuthentication;
 
     /**
@@ -351,7 +351,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      * 
      */
-    @Export(name="doNotRunExtensionsOnOverprovisionedMachines", refs={Boolean.class}, tree="[0]")
+    @Export(name="doNotRunExtensionsOnOverprovisionedMachines", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> doNotRunExtensionsOnOverprovisionedMachines;
 
     /**
@@ -365,7 +365,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine Scale Set should exist. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      * 
      */
-    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    @Export(name="edgeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -379,7 +379,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      * 
      */
-    @Export(name="encryptionAtHostEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="encryptionAtHostEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> encryptionAtHostEnabled;
 
     /**
@@ -395,7 +395,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
-    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
+    @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -413,7 +413,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
-    @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="extensionOperationsEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
@@ -429,7 +429,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * One or more `extension` blocks as defined below
      * 
      */
-    @Export(name="extensions", refs={List.class,LinuxVirtualMachineScaleSetExtension.class}, tree="[0,1]")
+    @Export(name="extensions", type=List.class, parameters={LinuxVirtualMachineScaleSetExtension.class})
     private Output<List<LinuxVirtualMachineScaleSetExtension>> extensions;
 
     /**
@@ -443,7 +443,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
      * 
      */
-    @Export(name="extensionsTimeBudget", refs={String.class}, tree="[0]")
+    @Export(name="extensionsTimeBudget", type=String.class, parameters={})
     private Output</* @Nullable */ String> extensionsTimeBudget;
 
     /**
@@ -457,7 +457,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * One or more `gallery_application` blocks as defined below.
      * 
      */
-    @Export(name="galleryApplication", refs={List.class,LinuxVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
+    @Export(name="galleryApplication", type=List.class, parameters={LinuxVirtualMachineScaleSetGalleryApplication.class})
     private Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplication;
 
     /**
@@ -473,7 +473,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * 
      */
     @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
-    @Export(name="galleryApplications", refs={List.class,LinuxVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
+    @Export(name="galleryApplications", type=List.class, parameters={LinuxVirtualMachineScaleSetGalleryApplication.class})
     private Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
     public Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications() {
@@ -483,7 +483,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
      * 
      */
-    @Export(name="healthProbeId", refs={String.class}, tree="[0]")
+    @Export(name="healthProbeId", type=String.class, parameters={})
     private Output</* @Nullable */ String> healthProbeId;
 
     /**
@@ -497,7 +497,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hostGroupId", refs={String.class}, tree="[0]")
+    @Export(name="hostGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostGroupId;
 
     /**
@@ -511,7 +511,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={LinuxVirtualMachineScaleSetIdentity.class}, tree="[0]")
+    @Export(name="identity", type=LinuxVirtualMachineScaleSetIdentity.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetIdentity> identity;
 
     /**
@@ -527,7 +527,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      */
-    @Export(name="instances", refs={Integer.class}, tree="[0]")
+    @Export(name="instances", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> instances;
 
     /**
@@ -543,7 +543,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -559,7 +559,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
-    @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
+    @Export(name="maxBidPrice", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
@@ -575,7 +575,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -589,7 +589,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * One or more `network_interface` blocks as defined below.
      * 
      */
-    @Export(name="networkInterfaces", refs={List.class,LinuxVirtualMachineScaleSetNetworkInterface.class}, tree="[0,1]")
+    @Export(name="networkInterfaces", type=List.class, parameters={LinuxVirtualMachineScaleSetNetworkInterface.class})
     private Output<List<LinuxVirtualMachineScaleSetNetworkInterface>> networkInterfaces;
 
     /**
@@ -603,7 +603,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * An `os_disk` block as defined below.
      * 
      */
-    @Export(name="osDisk", refs={LinuxVirtualMachineScaleSetOsDisk.class}, tree="[0]")
+    @Export(name="osDisk", type=LinuxVirtualMachineScaleSetOsDisk.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetOsDisk> osDisk;
 
     /**
@@ -617,7 +617,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You&#39;re not billed for these over-provisioned VM&#39;s and they don&#39;t count towards the Subscription Quota. Defaults to `true`.
      * 
      */
-    @Export(name="overprovision", refs={Boolean.class}, tree="[0]")
+    @Export(name="overprovision", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> overprovision;
 
     /**
@@ -633,7 +633,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
      * 
      */
-    @Export(name="plan", refs={LinuxVirtualMachineScaleSetPlan.class}, tree="[0]")
+    @Export(name="plan", type=LinuxVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetPlan> plan;
 
     /**
@@ -649,7 +649,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
+    @Export(name="platformFaultDomainCount", type=Integer.class, parameters={})
     private Output<Integer> platformFaultDomainCount;
 
     /**
@@ -665,7 +665,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
      * 
      */
-    @Export(name="priority", refs={String.class}, tree="[0]")
+    @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -681,7 +681,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      * 
      */
-    @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
+    @Export(name="provisionVmAgent", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> provisionVmAgent;
 
     /**
@@ -695,7 +695,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -709,7 +709,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -723,7 +723,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="rollingUpgradePolicy", refs={LinuxVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
+    @Export(name="rollingUpgradePolicy", type=LinuxVirtualMachineScaleSetRollingUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
@@ -737,7 +737,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * A `scale_in` block as defined below.
      * 
      */
-    @Export(name="scaleIn", refs={LinuxVirtualMachineScaleSetScaleIn.class}, tree="[0]")
+    @Export(name="scaleIn", type=LinuxVirtualMachineScaleSetScaleIn.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetScaleIn> scaleIn;
 
     /**
@@ -753,7 +753,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * 
      */
     @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-    @Export(name="scaleInPolicy", refs={String.class}, tree="[0]")
+    @Export(name="scaleInPolicy", type=String.class, parameters={})
     private Output<String> scaleInPolicy;
 
     public Output<String> scaleInPolicy() {
@@ -763,7 +763,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * One or more `secret` blocks as defined below.
      * 
      */
-    @Export(name="secrets", refs={List.class,LinuxVirtualMachineScaleSetSecret.class}, tree="[0,1]")
+    @Export(name="secrets", type=List.class, parameters={LinuxVirtualMachineScaleSetSecret.class})
     private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetSecret>> secrets;
 
     /**
@@ -777,7 +777,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="secureBootEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="secureBootEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> secureBootEnabled;
 
     /**
@@ -791,7 +791,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      * 
      */
-    @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
+    @Export(name="singlePlacementGroup", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> singlePlacementGroup;
 
     /**
@@ -805,7 +805,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -821,7 +821,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
-    @Export(name="sourceImageId", refs={String.class}, tree="[0]")
+    @Export(name="sourceImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
@@ -839,7 +839,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
-    @Export(name="sourceImageReference", refs={LinuxVirtualMachineScaleSetSourceImageReference.class}, tree="[0]")
+    @Export(name="sourceImageReference", type=LinuxVirtualMachineScaleSetSourceImageReference.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetSourceImageReference> sourceImageReference;
 
     /**
@@ -855,7 +855,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * A `spot_restore` block as defined below.
      * 
      */
-    @Export(name="spotRestore", refs={LinuxVirtualMachineScaleSetSpotRestore.class}, tree="[0]")
+    @Export(name="spotRestore", type=LinuxVirtualMachineScaleSetSpotRestore.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetSpotRestore> spotRestore;
 
     /**
@@ -869,7 +869,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -889,7 +889,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * 
      */
     @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-    @Export(name="terminateNotification", refs={LinuxVirtualMachineScaleSetTerminateNotification.class}, tree="[0]")
+    @Export(name="terminateNotification", type=LinuxVirtualMachineScaleSetTerminateNotification.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetTerminateNotification> terminateNotification;
 
     /**
@@ -905,7 +905,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * A `termination_notification` block as defined below.
      * 
      */
-    @Export(name="terminationNotification", refs={LinuxVirtualMachineScaleSetTerminationNotification.class}, tree="[0]")
+    @Export(name="terminationNotification", type=LinuxVirtualMachineScaleSetTerminationNotification.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetTerminationNotification> terminationNotification;
 
     /**
@@ -919,7 +919,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The Unique ID for this Linux Virtual Machine Scale Set.
      * 
      */
-    @Export(name="uniqueId", refs={String.class}, tree="[0]")
+    @Export(name="uniqueId", type=String.class, parameters={})
     private Output<String> uniqueId;
 
     /**
@@ -929,7 +929,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     public Output<String> uniqueId() {
         return this.uniqueId;
     }
-    @Export(name="upgradeMode", refs={String.class}, tree="[0]")
+    @Export(name="upgradeMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> upgradeMode;
 
     public Output<Optional<String>> upgradeMode() {
@@ -939,7 +939,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      * 
      */
-    @Export(name="userData", refs={String.class}, tree="[0]")
+    @Export(name="userData", type=String.class, parameters={})
     private Output</* @Nullable */ String> userData;
 
     /**
@@ -953,7 +953,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vtpmEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="vtpmEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> vtpmEnabled;
 
     /**
@@ -969,7 +969,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
      * 
      */
-    @Export(name="zoneBalance", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneBalance", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneBalance;
 
     /**
@@ -985,7 +985,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

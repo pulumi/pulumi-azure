@@ -172,8 +172,16 @@ type ManagedDisk struct {
 	//
 	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled pulumi.BoolPtrOutput `pulumi:"onDemandBurstingEnabled"`
+	// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+	//
+	// > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+	OptimizedFrequentAttachEnabled pulumi.BoolPtrOutput `pulumi:"optimizedFrequentAttachEnabled"`
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+	PerformancePlusEnabled pulumi.BoolPtrOutput `pulumi:"performancePlusEnabled"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
 	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -307,8 +315,16 @@ type managedDiskState struct {
 	//
 	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
+	// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+	//
+	// > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+	OptimizedFrequentAttachEnabled *bool `pulumi:"optimizedFrequentAttachEnabled"`
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
+	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+	PerformancePlusEnabled *bool `pulumi:"performancePlusEnabled"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
 	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -404,8 +420,16 @@ type ManagedDiskState struct {
 	//
 	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
+	// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+	//
+	// > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+	OptimizedFrequentAttachEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
+	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+	PerformancePlusEnabled pulumi.BoolPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
 	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -505,8 +529,16 @@ type managedDiskArgs struct {
 	//
 	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
+	// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+	//
+	// > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+	OptimizedFrequentAttachEnabled *bool `pulumi:"optimizedFrequentAttachEnabled"`
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
+	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+	PerformancePlusEnabled *bool `pulumi:"performancePlusEnabled"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
 	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -603,8 +635,16 @@ type ManagedDiskArgs struct {
 	//
 	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
+	// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+	//
+	// > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+	OptimizedFrequentAttachEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
+	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+	PerformancePlusEnabled pulumi.BoolPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
 	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -867,9 +907,23 @@ func (o ManagedDiskOutput) OnDemandBurstingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.OnDemandBurstingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+//
+// > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+func (o ManagedDiskOutput) OptimizedFrequentAttachEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.OptimizedFrequentAttachEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 func (o ManagedDiskOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+//
+// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+func (o ManagedDiskOutput) PerformancePlusEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.PerformancePlusEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether it is allowed to access the disk via public network. Defaults to `true`.

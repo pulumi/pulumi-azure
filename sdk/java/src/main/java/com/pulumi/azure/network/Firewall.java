@@ -107,7 +107,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      * 
      */
-    @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="dnsServers", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> dnsServers;
 
     /**
@@ -121,7 +121,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * The ID of the Firewall Policy applied to this Firewall.
      * 
      */
-    @Export(name="firewallPolicyId", refs={String.class}, tree="[0]")
+    @Export(name="firewallPolicyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> firewallPolicyId;
 
     /**
@@ -135,7 +135,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * An `ip_configuration` block as documented below.
      * 
      */
-    @Export(name="ipConfigurations", refs={List.class,FirewallIpConfiguration.class}, tree="[0,1]")
+    @Export(name="ipConfigurations", type=List.class, parameters={FirewallIpConfiguration.class})
     private Output</* @Nullable */ List<FirewallIpConfiguration>> ipConfigurations;
 
     /**
@@ -149,7 +149,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -163,7 +163,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managementIpConfiguration", refs={FirewallManagementIpConfiguration.class}, tree="[0]")
+    @Export(name="managementIpConfiguration", type=FirewallManagementIpConfiguration.class, parameters={})
     private Output</* @Nullable */ FirewallManagementIpConfiguration> managementIpConfiguration;
 
     /**
@@ -177,7 +177,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
      * 
      */
-    @Export(name="privateIpRanges", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="privateIpRanges", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> privateIpRanges;
 
     /**
@@ -205,7 +205,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -219,7 +219,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -233,7 +233,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      * 
      */
-    @Export(name="skuTier", refs={String.class}, tree="[0]")
+    @Export(name="skuTier", type=String.class, parameters={})
     private Output<String> skuTier;
 
     /**
@@ -247,7 +247,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -261,7 +261,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      * 
      */
-    @Export(name="threatIntelMode", refs={String.class}, tree="[0]")
+    @Export(name="threatIntelMode", type=String.class, parameters={})
     private Output<String> threatIntelMode;
 
     /**
@@ -275,7 +275,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * A `virtual_hub` block as documented below.
      * 
      */
-    @Export(name="virtualHub", refs={FirewallVirtualHub.class}, tree="[0]")
+    @Export(name="virtualHub", type=FirewallVirtualHub.class, parameters={})
     private Output</* @Nullable */ FirewallVirtualHub> virtualHub;
 
     /**
@@ -291,7 +291,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

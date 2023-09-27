@@ -114,7 +114,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      * 
      */
-    @Export(name="automationAccountId", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountId", type=String.class, parameters={})
     private Output<String> automationAccountId;
 
     /**
@@ -128,7 +128,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      * 
      */
-    @Export(name="duration", refs={String.class}, tree="[0]")
+    @Export(name="duration", type=String.class, parameters={})
     private Output</* @Nullable */ String> duration;
 
     /**
@@ -142,7 +142,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * The Error code when failed.
      * 
      */
-    @Export(name="errorCode", refs={String.class}, tree="[0]")
+    @Export(name="errorCode", type=String.class, parameters={})
     private Output<String> errorCode;
 
     /**
@@ -160,7 +160,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * 
      */
     @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
-    @Export(name="errorMeesage", refs={String.class}, tree="[0]")
+    @Export(name="errorMeesage", type=String.class, parameters={})
     private Output<String> errorMeesage;
 
     /**
@@ -170,7 +170,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
     public Output<String> errorMeesage() {
         return this.errorMeesage;
     }
-    @Export(name="errorMessage", refs={String.class}, tree="[0]")
+    @Export(name="errorMessage", type=String.class, parameters={})
     private Output<String> errorMessage;
 
     public Output<String> errorMessage() {
@@ -180,7 +180,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * A `linux` block as defined below.
      * 
      */
-    @Export(name="linuxes", refs={List.class,SoftwareUpdateConfigurationLinux.class}, tree="[0,1]")
+    @Export(name="linuxes", type=List.class, parameters={SoftwareUpdateConfigurationLinux.class})
     private Output</* @Nullable */ List<SoftwareUpdateConfigurationLinux>> linuxes;
 
     /**
@@ -194,7 +194,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -208,7 +208,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * Specifies a list of names of non-Azure machines for the software update configuration.
      * 
      */
-    @Export(name="nonAzureComputerNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="nonAzureComputerNames", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> nonAzureComputerNames;
 
     /**
@@ -224,7 +224,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * 
      */
     @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
-    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
+    @Export(name="operatingSystem", type=String.class, parameters={})
     private Output<String> operatingSystem;
 
     public Output<String> operatingSystem() {
@@ -234,7 +234,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * A `post_task` blocks as defined below.
      * 
      */
-    @Export(name="postTasks", refs={List.class,SoftwareUpdateConfigurationPostTask.class}, tree="[0,1]")
+    @Export(name="postTasks", type=List.class, parameters={SoftwareUpdateConfigurationPostTask.class})
     private Output</* @Nullable */ List<SoftwareUpdateConfigurationPostTask>> postTasks;
 
     /**
@@ -248,7 +248,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * A `pre_task` blocks as defined below.
      * 
      */
-    @Export(name="preTasks", refs={List.class,SoftwareUpdateConfigurationPreTask.class}, tree="[0,1]")
+    @Export(name="preTasks", type=List.class, parameters={SoftwareUpdateConfigurationPreTask.class})
     private Output</* @Nullable */ List<SoftwareUpdateConfigurationPreTask>> preTasks;
 
     /**
@@ -262,7 +262,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * A `schedule` blocks as defined below.
      * 
      */
-    @Export(name="schedules", refs={List.class,SoftwareUpdateConfigurationSchedule.class}, tree="[0,1]")
+    @Export(name="schedules", type=List.class, parameters={SoftwareUpdateConfigurationSchedule.class})
     private Output<List<SoftwareUpdateConfigurationSchedule>> schedules;
 
     /**
@@ -276,7 +276,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * A `target` blocks as defined below.
      * 
      */
-    @Export(name="target", refs={SoftwareUpdateConfigurationTarget.class}, tree="[0]")
+    @Export(name="target", type=SoftwareUpdateConfigurationTarget.class, parameters={})
     private Output</* @Nullable */ SoftwareUpdateConfigurationTarget> target;
 
     /**
@@ -290,7 +290,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * Specifies a list of Azure Resource IDs of azure virtual machines.
      * 
      */
-    @Export(name="virtualMachineIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="virtualMachineIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> virtualMachineIds;
 
     /**
@@ -306,7 +306,7 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * &gt; **NOTE:** One of `linux` or `windows` must be specified.
      * 
      */
-    @Export(name="windows", refs={SoftwareUpdateConfigurationWindows.class}, tree="[0]")
+    @Export(name="windows", type=SoftwareUpdateConfigurationWindows.class, parameters={})
     private Output</* @Nullable */ SoftwareUpdateConfigurationWindows> windows;
 
     /**

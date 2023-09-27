@@ -5,6 +5,7 @@ package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.azure.waf.outputs.PolicyCustomRuleMatchCondition;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,6 +20,16 @@ public final class PolicyCustomRule {
      * 
      */
     private String action;
+    /**
+     * @return Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean enabled;
+    /**
+     * @return Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * 
+     */
+    private @Nullable String groupRateLimitBy;
     /**
      * @return One or more `match_conditions` blocks as defined below.
      * 
@@ -35,7 +46,17 @@ public final class PolicyCustomRule {
      */
     private Integer priority;
     /**
-     * @return Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+     * @return Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+     * 
+     */
+    private @Nullable String rateLimitDuration;
+    /**
+     * @return Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+     * 
+     */
+    private @Nullable Integer rateLimitThreshold;
+    /**
+     * @return Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
      * 
      */
     private String ruleType;
@@ -47,6 +68,20 @@ public final class PolicyCustomRule {
      */
     public String action() {
         return this.action;
+    }
+    /**
+     * @return Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
+    }
+    /**
+     * @return Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+     * 
+     */
+    public Optional<String> groupRateLimitBy() {
+        return Optional.ofNullable(this.groupRateLimitBy);
     }
     /**
      * @return One or more `match_conditions` blocks as defined below.
@@ -70,7 +105,21 @@ public final class PolicyCustomRule {
         return this.priority;
     }
     /**
-     * @return Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+     * @return Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+     * 
+     */
+    public Optional<String> rateLimitDuration() {
+        return Optional.ofNullable(this.rateLimitDuration);
+    }
+    /**
+     * @return Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+     * 
+     */
+    public Optional<Integer> rateLimitThreshold() {
+        return Optional.ofNullable(this.rateLimitThreshold);
+    }
+    /**
+     * @return Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
      * 
      */
     public String ruleType() {
@@ -87,23 +136,41 @@ public final class PolicyCustomRule {
     @CustomType.Builder
     public static final class Builder {
         private String action;
+        private @Nullable Boolean enabled;
+        private @Nullable String groupRateLimitBy;
         private List<PolicyCustomRuleMatchCondition> matchConditions;
         private @Nullable String name;
         private Integer priority;
+        private @Nullable String rateLimitDuration;
+        private @Nullable Integer rateLimitThreshold;
         private String ruleType;
         public Builder() {}
         public Builder(PolicyCustomRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.enabled = defaults.enabled;
+    	      this.groupRateLimitBy = defaults.groupRateLimitBy;
     	      this.matchConditions = defaults.matchConditions;
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
+    	      this.rateLimitDuration = defaults.rateLimitDuration;
+    	      this.rateLimitThreshold = defaults.rateLimitThreshold;
     	      this.ruleType = defaults.ruleType;
         }
 
         @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder groupRateLimitBy(@Nullable String groupRateLimitBy) {
+            this.groupRateLimitBy = groupRateLimitBy;
             return this;
         }
         @CustomType.Setter
@@ -125,6 +192,16 @@ public final class PolicyCustomRule {
             return this;
         }
         @CustomType.Setter
+        public Builder rateLimitDuration(@Nullable String rateLimitDuration) {
+            this.rateLimitDuration = rateLimitDuration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rateLimitThreshold(@Nullable Integer rateLimitThreshold) {
+            this.rateLimitThreshold = rateLimitThreshold;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ruleType(String ruleType) {
             this.ruleType = Objects.requireNonNull(ruleType);
             return this;
@@ -132,9 +209,13 @@ public final class PolicyCustomRule {
         public PolicyCustomRule build() {
             final var o = new PolicyCustomRule();
             o.action = action;
+            o.enabled = enabled;
+            o.groupRateLimitBy = groupRateLimitBy;
             o.matchConditions = matchConditions;
             o.name = name;
             o.priority = priority;
+            o.rateLimitDuration = rateLimitDuration;
+            o.rateLimitThreshold = rateLimitThreshold;
             o.ruleType = ruleType;
             return o;
         }

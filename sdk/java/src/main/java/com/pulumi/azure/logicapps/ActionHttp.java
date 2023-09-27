@@ -80,7 +80,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
      * 
      */
-    @Export(name="body", refs={String.class}, tree="[0]")
+    @Export(name="body", type=String.class, parameters={})
     private Output</* @Nullable */ String> body;
 
     /**
@@ -94,7 +94,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      * 
      */
-    @Export(name="headers", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="headers", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> headers;
 
     /**
@@ -108,7 +108,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="logicAppId", refs={String.class}, tree="[0]")
+    @Export(name="logicAppId", type=String.class, parameters={})
     private Output<String> logicAppId;
 
     /**
@@ -122,7 +122,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
      * 
      */
-    @Export(name="method", refs={String.class}, tree="[0]")
+    @Export(name="method", type=String.class, parameters={})
     private Output<String> method;
 
     /**
@@ -138,7 +138,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      * 
      */
-    @Export(name="queries", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="queries", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> queries;
 
     /**
@@ -168,7 +168,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
      * 
      */
-    @Export(name="runAfters", refs={List.class,ActionHttpRunAfter.class}, tree="[0,1]")
+    @Export(name="runAfters", type=List.class, parameters={ActionHttpRunAfter.class})
     private Output</* @Nullable */ List<ActionHttpRunAfter>> runAfters;
 
     /**
@@ -182,7 +182,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * Specifies the URI which will be called when this HTTP Action is triggered.
      * 
      */
-    @Export(name="uri", refs={String.class}, tree="[0]")
+    @Export(name="uri", type=String.class, parameters={})
     private Output<String> uri;
 
     /**

@@ -168,6 +168,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        /// </summary>
+        [Output("keyVaultUserAssignedIdentityId")]
+        public Output<string?> KeyVaultUserAssignedIdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -369,6 +375,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        /// </summary>
+        [Input("keyVaultUserAssignedIdentityId")]
+        public Input<string>? KeyVaultUserAssignedIdentityId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -554,6 +566,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
+
+        /// <summary>
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        /// </summary>
+        [Input("keyVaultUserAssignedIdentityId")]
+        public Input<string>? KeyVaultUserAssignedIdentityId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

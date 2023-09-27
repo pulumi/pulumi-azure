@@ -81,7 +81,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -95,7 +95,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * A `module_link` block as defined below.
      * 
      */
-    @Export(name="moduleLink", refs={ModuleModuleLink.class}, tree="[0]")
+    @Export(name="moduleLink", type=ModuleModuleLink.class, parameters={})
     private Output<ModuleModuleLink> moduleLink;
 
     /**
@@ -109,7 +109,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

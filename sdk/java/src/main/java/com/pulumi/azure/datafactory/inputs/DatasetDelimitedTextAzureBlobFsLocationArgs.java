@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,18 +17,63 @@ public final class DatasetDelimitedTextAzureBlobFsLocationArgs extends com.pulum
     public static final DatasetDelimitedTextAzureBlobFsLocationArgs Empty = new DatasetDelimitedTextAzureBlobFsLocationArgs();
 
     /**
+     * Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    @Import(name="dynamicFileSystemEnabled")
+    private @Nullable Output<Boolean> dynamicFileSystemEnabled;
+
+    /**
+     * @return Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dynamicFileSystemEnabled() {
+        return Optional.ofNullable(this.dynamicFileSystemEnabled);
+    }
+
+    /**
+     * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    @Import(name="dynamicFilenameEnabled")
+    private @Nullable Output<Boolean> dynamicFilenameEnabled;
+
+    /**
+     * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dynamicFilenameEnabled() {
+        return Optional.ofNullable(this.dynamicFilenameEnabled);
+    }
+
+    /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    @Import(name="dynamicPathEnabled")
+    private @Nullable Output<Boolean> dynamicPathEnabled;
+
+    /**
+     * @return Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dynamicPathEnabled() {
+        return Optional.ofNullable(this.dynamicPathEnabled);
+    }
+
+    /**
      * The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
      * 
      */
-    @Import(name="fileSystem", required=true)
-    private Output<String> fileSystem;
+    @Import(name="fileSystem")
+    private @Nullable Output<String> fileSystem;
 
     /**
      * @return The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
      * 
      */
-    public Output<String> fileSystem() {
-        return this.fileSystem;
+    public Optional<Output<String>> fileSystem() {
+        return Optional.ofNullable(this.fileSystem);
     }
 
     /**
@@ -63,6 +109,9 @@ public final class DatasetDelimitedTextAzureBlobFsLocationArgs extends com.pulum
     private DatasetDelimitedTextAzureBlobFsLocationArgs() {}
 
     private DatasetDelimitedTextAzureBlobFsLocationArgs(DatasetDelimitedTextAzureBlobFsLocationArgs $) {
+        this.dynamicFileSystemEnabled = $.dynamicFileSystemEnabled;
+        this.dynamicFilenameEnabled = $.dynamicFilenameEnabled;
+        this.dynamicPathEnabled = $.dynamicPathEnabled;
         this.fileSystem = $.fileSystem;
         this.filename = $.filename;
         this.path = $.path;
@@ -87,12 +136,75 @@ public final class DatasetDelimitedTextAzureBlobFsLocationArgs extends com.pulum
         }
 
         /**
+         * @param dynamicFileSystemEnabled Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFileSystemEnabled(@Nullable Output<Boolean> dynamicFileSystemEnabled) {
+            $.dynamicFileSystemEnabled = dynamicFileSystemEnabled;
+            return this;
+        }
+
+        /**
+         * @param dynamicFileSystemEnabled Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFileSystemEnabled(Boolean dynamicFileSystemEnabled) {
+            return dynamicFileSystemEnabled(Output.of(dynamicFileSystemEnabled));
+        }
+
+        /**
+         * @param dynamicFilenameEnabled Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFilenameEnabled(@Nullable Output<Boolean> dynamicFilenameEnabled) {
+            $.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            return this;
+        }
+
+        /**
+         * @param dynamicFilenameEnabled Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicFilenameEnabled(Boolean dynamicFilenameEnabled) {
+            return dynamicFilenameEnabled(Output.of(dynamicFilenameEnabled));
+        }
+
+        /**
+         * @param dynamicPathEnabled Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicPathEnabled(@Nullable Output<Boolean> dynamicPathEnabled) {
+            $.dynamicPathEnabled = dynamicPathEnabled;
+            return this;
+        }
+
+        /**
+         * @param dynamicPathEnabled Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicPathEnabled(Boolean dynamicPathEnabled) {
+            return dynamicPathEnabled(Output.of(dynamicPathEnabled));
+        }
+
+        /**
          * @param fileSystem The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
          * 
          * @return builder
          * 
          */
-        public Builder fileSystem(Output<String> fileSystem) {
+        public Builder fileSystem(@Nullable Output<String> fileSystem) {
             $.fileSystem = fileSystem;
             return this;
         }
@@ -150,7 +262,6 @@ public final class DatasetDelimitedTextAzureBlobFsLocationArgs extends com.pulum
         }
 
         public DatasetDelimitedTextAzureBlobFsLocationArgs build() {
-            $.fileSystem = Objects.requireNonNull($.fileSystem, "expected parameter 'fileSystem' to be non-null");
             return $;
         }
     }

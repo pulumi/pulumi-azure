@@ -37,7 +37,9 @@ class ManagedDiskArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  security_type: Optional[pulumi.Input[str]] = None,
@@ -87,7 +89,13 @@ class ManagedDiskArgs:
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
+        :param pulumi.Input[bool] optimized_frequent_attach_enabled: Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+               
+               > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -153,8 +161,12 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "network_access_policy", network_access_policy)
         if on_demand_bursting_enabled is not None:
             pulumi.set(__self__, "on_demand_bursting_enabled", on_demand_bursting_enabled)
+        if optimized_frequent_attach_enabled is not None:
+            pulumi.set(__self__, "optimized_frequent_attach_enabled", optimized_frequent_attach_enabled)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if performance_plus_enabled is not None:
+            pulumi.set(__self__, "performance_plus_enabled", performance_plus_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if secure_vm_disk_encryption_set_id is not None:
@@ -444,6 +456,20 @@ class ManagedDiskArgs:
         pulumi.set(self, "on_demand_bursting_enabled", value)
 
     @property
+    @pulumi.getter(name="optimizedFrequentAttachEnabled")
+    def optimized_frequent_attach_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+
+        > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        """
+        return pulumi.get(self, "optimized_frequent_attach_enabled")
+
+    @optimized_frequent_attach_enabled.setter
+    def optimized_frequent_attach_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optimized_frequent_attach_enabled", value)
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -454,6 +480,20 @@ class ManagedDiskArgs:
     @os_type.setter
     def os_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="performancePlusEnabled")
+    def performance_plus_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+        """
+        return pulumi.get(self, "performance_plus_enabled")
+
+    @performance_plus_enabled.setter
+    def performance_plus_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "performance_plus_enabled", value)
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
@@ -622,7 +662,9 @@ class _ManagedDiskState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -670,7 +712,13 @@ class _ManagedDiskState:
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
+        :param pulumi.Input[bool] optimized_frequent_attach_enabled: Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+               
+               > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -739,8 +787,12 @@ class _ManagedDiskState:
             pulumi.set(__self__, "network_access_policy", network_access_policy)
         if on_demand_bursting_enabled is not None:
             pulumi.set(__self__, "on_demand_bursting_enabled", on_demand_bursting_enabled)
+        if optimized_frequent_attach_enabled is not None:
+            pulumi.set(__self__, "optimized_frequent_attach_enabled", optimized_frequent_attach_enabled)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if performance_plus_enabled is not None:
+            pulumi.set(__self__, "performance_plus_enabled", performance_plus_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -1008,6 +1060,20 @@ class _ManagedDiskState:
         pulumi.set(self, "on_demand_bursting_enabled", value)
 
     @property
+    @pulumi.getter(name="optimizedFrequentAttachEnabled")
+    def optimized_frequent_attach_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+
+        > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        """
+        return pulumi.get(self, "optimized_frequent_attach_enabled")
+
+    @optimized_frequent_attach_enabled.setter
+    def optimized_frequent_attach_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optimized_frequent_attach_enabled", value)
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1018,6 +1084,20 @@ class _ManagedDiskState:
     @os_type.setter
     def os_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="performancePlusEnabled")
+    def performance_plus_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+        """
+        return pulumi.get(self, "performance_plus_enabled")
+
+    @performance_plus_enabled.setter
+    def performance_plus_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "performance_plus_enabled", value)
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
@@ -1214,7 +1294,9 @@ class ManagedDisk(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1320,7 +1402,13 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
+        :param pulumi.Input[bool] optimized_frequent_attach_enabled: Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+               
+               > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -1448,7 +1536,9 @@ class ManagedDisk(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
+                 optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1492,7 +1582,9 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_access_policy"] = network_access_policy
             __props__.__dict__["on_demand_bursting_enabled"] = on_demand_bursting_enabled
+            __props__.__dict__["optimized_frequent_attach_enabled"] = optimized_frequent_attach_enabled
             __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["performance_plus_enabled"] = performance_plus_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1539,7 +1631,9 @@ class ManagedDisk(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_access_policy: Optional[pulumi.Input[str]] = None,
             on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
+            optimized_frequent_attach_enabled: Optional[pulumi.Input[bool]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
+            performance_plus_enabled: Optional[pulumi.Input[bool]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1592,7 +1686,13 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
                
                > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
+        :param pulumi.Input[bool] optimized_frequent_attach_enabled: Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+               
+               > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -1646,7 +1746,9 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_access_policy"] = network_access_policy
         __props__.__dict__["on_demand_bursting_enabled"] = on_demand_bursting_enabled
+        __props__.__dict__["optimized_frequent_attach_enabled"] = optimized_frequent_attach_enabled
         __props__.__dict__["os_type"] = os_type
+        __props__.__dict__["performance_plus_enabled"] = performance_plus_enabled
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secure_vm_disk_encryption_set_id"] = secure_vm_disk_encryption_set_id
@@ -1826,12 +1928,32 @@ class ManagedDisk(pulumi.CustomResource):
         return pulumi.get(self, "on_demand_bursting_enabled")
 
     @property
+    @pulumi.getter(name="optimizedFrequentAttachEnabled")
+    def optimized_frequent_attach_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+
+        > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        """
+        return pulumi.get(self, "optimized_frequent_attach_enabled")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="performancePlusEnabled")
+    def performance_plus_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+        """
+        return pulumi.get(self, "performance_plus_enabled")
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")

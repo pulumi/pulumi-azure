@@ -100,7 +100,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      * 
      */
-    @Export(name="automaticallyRotateKeyToLatestEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="automaticallyRotateKeyToLatestEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automaticallyRotateKeyToLatestEnabled;
 
     /**
@@ -116,7 +116,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      * 
      */
-    @Export(name="cacheSizeInGb", refs={Integer.class}, tree="[0]")
+    @Export(name="cacheSizeInGb", type=Integer.class, parameters={})
     private Output<Integer> cacheSizeInGb;
 
     /**
@@ -132,7 +132,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A `default_access_policy` block as defined below.
      * 
      */
-    @Export(name="defaultAccessPolicy", refs={CacheDefaultAccessPolicy.class}, tree="[0]")
+    @Export(name="defaultAccessPolicy", type=CacheDefaultAccessPolicy.class, parameters={})
     private Output<CacheDefaultAccessPolicy> defaultAccessPolicy;
 
     /**
@@ -146,7 +146,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A `directory_active_directory` block as defined below.
      * 
      */
-    @Export(name="directoryActiveDirectory", refs={CacheDirectoryActiveDirectory.class}, tree="[0]")
+    @Export(name="directoryActiveDirectory", type=CacheDirectoryActiveDirectory.class, parameters={})
     private Output</* @Nullable */ CacheDirectoryActiveDirectory> directoryActiveDirectory;
 
     /**
@@ -160,7 +160,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A `directory_flat_file` block as defined below.
      * 
      */
-    @Export(name="directoryFlatFile", refs={CacheDirectoryFlatFile.class}, tree="[0]")
+    @Export(name="directoryFlatFile", type=CacheDirectoryFlatFile.class, parameters={})
     private Output</* @Nullable */ CacheDirectoryFlatFile> directoryFlatFile;
 
     /**
@@ -176,7 +176,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
      * 
      */
-    @Export(name="directoryLdap", refs={CacheDirectoryLdap.class}, tree="[0]")
+    @Export(name="directoryLdap", type=CacheDirectoryLdap.class, parameters={})
     private Output</* @Nullable */ CacheDirectoryLdap> directoryLdap;
 
     /**
@@ -192,7 +192,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A `dns` block as defined below.
      * 
      */
-    @Export(name="dns", refs={CacheDns.class}, tree="[0]")
+    @Export(name="dns", type=CacheDns.class, parameters={})
     private Output</* @Nullable */ CacheDns> dns;
 
     /**
@@ -206,7 +206,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="identity", refs={CacheIdentity.class}, tree="[0]")
+    @Export(name="identity", type=CacheIdentity.class, parameters={})
     private Output</* @Nullable */ CacheIdentity> identity;
 
     /**
@@ -220,7 +220,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -234,7 +234,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -248,7 +248,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A list of IP Addresses where the HPC Cache can be mounted.
      * 
      */
-    @Export(name="mountAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="mountAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> mountAddresses;
 
     /**
@@ -262,7 +262,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      * 
      */
-    @Export(name="mtu", refs={Integer.class}, tree="[0]")
+    @Export(name="mtu", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> mtu;
 
     /**
@@ -276,7 +276,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -290,7 +290,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
      * 
      */
-    @Export(name="ntpServer", refs={String.class}, tree="[0]")
+    @Export(name="ntpServer", type=String.class, parameters={})
     private Output</* @Nullable */ String> ntpServer;
 
     /**
@@ -304,7 +304,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -320,7 +320,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -336,7 +336,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -350,7 +350,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the HPC Cache.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -33,12 +33,12 @@ public final class DatasetParquetAzureBlobStorageLocation {
      */
     private @Nullable Boolean dynamicPathEnabled;
     /**
-     * @return The filename of the file on the web server.
+     * @return The filename of the file on the Azure Blob Storage Account.
      * 
      */
     private @Nullable String filename;
     /**
-     * @return The folder path to the file on the web server.
+     * @return The folder path to the file on the Azure Blob Storage Account.
      * 
      */
     private @Nullable String path;
@@ -73,14 +73,14 @@ public final class DatasetParquetAzureBlobStorageLocation {
         return Optional.ofNullable(this.dynamicPathEnabled);
     }
     /**
-     * @return The filename of the file on the web server.
+     * @return The filename of the file on the Azure Blob Storage Account.
      * 
      */
     public Optional<String> filename() {
         return Optional.ofNullable(this.filename);
     }
     /**
-     * @return The folder path to the file on the web server.
+     * @return The folder path to the file on the Azure Blob Storage Account.
      * 
      */
     public Optional<String> path() {

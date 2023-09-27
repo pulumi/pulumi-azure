@@ -71,7 +71,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -85,7 +85,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * The name of the Resource Guard. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -113,7 +113,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Resource Guard.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -127,7 +127,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * A list of the critical operations which are not protected by this Resource Guard.
      * 
      */
-    @Export(name="vaultCriticalOperationExclusionLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="vaultCriticalOperationExclusionLists", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> vaultCriticalOperationExclusionLists;
 
     /**

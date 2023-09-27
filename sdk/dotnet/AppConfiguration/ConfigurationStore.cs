@@ -156,6 +156,14 @@ namespace Pulumi.Azure.AppConfiguration
     ///             KeyVaultKeyIdentifier = exampleKey.Id,
     ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
     ///         },
+    ///         Replicas = new[]
+    ///         {
+    ///             new Azure.AppConfiguration.Inputs.ConfigurationStoreReplicaArgs
+    ///             {
+    ///                 Name = "replica1",
+    ///                 Location = "West US",
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "environment", "development" },
@@ -190,7 +198,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<Outputs.ConfigurationStoreEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the App Configuration.
+        /// The URL of the App Configuration Replica.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -248,6 +256,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Output("purgeProtectionEnabled")]
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `replica` blocks as defined below.
+        /// </summary>
+        [Output("replicas")]
+        public Output<ImmutableArray<Outputs.ConfigurationStoreReplica>> Replicas { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -381,6 +395,18 @@ namespace Pulumi.Azure.AppConfiguration
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
 
+        [Input("replicas")]
+        private InputList<Inputs.ConfigurationStoreReplicaArgs>? _replicas;
+
+        /// <summary>
+        /// One or more `replica` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ConfigurationStoreReplicaArgs> Replicas
+        {
+            get => _replicas ?? (_replicas = new InputList<Inputs.ConfigurationStoreReplicaArgs>());
+            set => _replicas = value;
+        }
+
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         /// </summary>
@@ -428,7 +454,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<Inputs.ConfigurationStoreEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// The URL of the App Configuration.
+        /// The URL of the App Configuration Replica.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
@@ -498,6 +524,18 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
+
+        [Input("replicas")]
+        private InputList<Inputs.ConfigurationStoreReplicaGetArgs>? _replicas;
+
+        /// <summary>
+        /// One or more `replica` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ConfigurationStoreReplicaGetArgs> Replicas
+        {
+            get => _replicas ?? (_replicas = new InputList<Inputs.ConfigurationStoreReplicaGetArgs>());
+            set => _replicas = value;
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.

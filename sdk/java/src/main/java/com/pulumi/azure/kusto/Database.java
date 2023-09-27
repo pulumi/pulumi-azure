@@ -85,7 +85,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", refs={String.class}, tree="[0]")
+    @Export(name="clusterName", type=String.class, parameters={})
     private Output<String> clusterName;
 
     /**
@@ -99,7 +99,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      * 
      */
-    @Export(name="hotCachePeriod", refs={String.class}, tree="[0]")
+    @Export(name="hotCachePeriod", type=String.class, parameters={})
     private Output</* @Nullable */ String> hotCachePeriod;
 
     /**
@@ -113,7 +113,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -127,7 +127,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the Kusto Database to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -155,7 +155,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The size of the database in bytes.
      * 
      */
-    @Export(name="size", refs={Double.class}, tree="[0]")
+    @Export(name="size", type=Double.class, parameters={})
     private Output<Double> size;
 
     /**
@@ -169,7 +169,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      * 
      */
-    @Export(name="softDeletePeriod", refs={String.class}, tree="[0]")
+    @Export(name="softDeletePeriod", type=String.class, parameters={})
     private Output</* @Nullable */ String> softDeletePeriod;
 
     /**

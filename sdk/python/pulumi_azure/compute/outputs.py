@@ -7381,6 +7381,8 @@ class SharedImageVersionTargetRegion(dict):
             suggest = "regional_replica_count"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
+        elif key == "excludeFromLatestEnabled":
+            suggest = "exclude_from_latest_enabled"
         elif key == "storageAccountType":
             suggest = "storage_account_type"
 
@@ -7399,17 +7401,21 @@ class SharedImageVersionTargetRegion(dict):
                  name: str,
                  regional_replica_count: int,
                  disk_encryption_set_id: Optional[str] = None,
+                 exclude_from_latest_enabled: Optional[bool] = None,
                  storage_account_type: Optional[str] = None):
         """
         :param str name: The Azure Region in which this Image Version should exist.
         :param int regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
+        :param bool exclude_from_latest_enabled: Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
         :param str storage_account_type: The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regional_replica_count", regional_replica_count)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if exclude_from_latest_enabled is not None:
+            pulumi.set(__self__, "exclude_from_latest_enabled", exclude_from_latest_enabled)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
 
@@ -7436,6 +7442,14 @@ class SharedImageVersionTargetRegion(dict):
         The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="excludeFromLatestEnabled")
+    def exclude_from_latest_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_from_latest_enabled")
 
     @property
     @pulumi.getter(name="storageAccountType")

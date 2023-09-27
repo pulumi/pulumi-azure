@@ -83,12 +83,20 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
     /**
      * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * The `name` field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
      * @return Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
      * 
      */
     public Output<String> name() {
@@ -98,7 +106,7 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGuardId", refs={String.class}, tree="[0]")
+    @Export(name="resourceGuardId", type=String.class, parameters={})
     private Output<String> resourceGuardId;
 
     /**
@@ -112,7 +120,7 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      * ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vaultId", refs={String.class}, tree="[0]")
+    @Export(name="vaultId", type=String.class, parameters={})
     private Output<String> vaultId;
 
     /**

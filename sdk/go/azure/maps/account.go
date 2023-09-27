@@ -37,8 +37,9 @@ import (
 //				return err
 //			}
 //			_, err = maps.NewAccount(ctx, "exampleAccount", &maps.AccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("S1"),
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				SkuName:                    pulumi.String("S1"),
+//				LocalAuthenticationEnabled: pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Test"),
 //				},
@@ -64,6 +65,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary key used to authenticate and authorize access to the Maps REST APIs.
@@ -121,6 +124,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The primary key used to authenticate and authorize access to the Maps REST APIs.
@@ -138,6 +143,8 @@ type accountState struct {
 }
 
 type AccountState struct {
+	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The primary key used to authenticate and authorize access to the Maps REST APIs.
@@ -159,6 +166,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
@@ -171,6 +180,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
@@ -290,6 +301,11 @@ func (o AccountOutput) ToOutput(ctx context.Context) pulumix.Output[*Account] {
 	return pulumix.Output[*Account]{
 		OutputState: o.OutputState,
 	}
+}
+
+// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Azure Maps Account. Changing this forces a new resource to be created.

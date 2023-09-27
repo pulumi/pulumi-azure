@@ -128,7 +128,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="functionAppId", refs={String.class}, tree="[0]")
+    @Export(name="functionAppId", type=String.class, parameters={})
     private Output<String> functionAppId;
 
     /**
@@ -142,7 +142,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The hostname of the endpoint.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -156,7 +156,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The name of the Relay Namespace.
      * 
      */
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
+    @Export(name="namespaceName", type=String.class, parameters={})
     private Output<String> namespaceName;
 
     /**
@@ -170,7 +170,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The port to use for the endpoint
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output<Integer> port;
 
     /**
@@ -184,7 +184,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="relayId", refs={String.class}, tree="[0]")
+    @Export(name="relayId", type=String.class, parameters={})
     private Output<String> relayId;
 
     /**
@@ -198,7 +198,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The name of the Relay in use.
      * 
      */
-    @Export(name="relayName", refs={String.class}, tree="[0]")
+    @Export(name="relayName", type=String.class, parameters={})
     private Output<String> relayName;
 
     /**
@@ -212,7 +212,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
      * 
      */
-    @Export(name="sendKeyName", refs={String.class}, tree="[0]")
+    @Export(name="sendKeyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> sendKeyName;
 
     /**
@@ -226,7 +226,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The Primary Access Key for the `send_key_name`
      * 
      */
-    @Export(name="sendKeyValue", refs={String.class}, tree="[0]")
+    @Export(name="sendKeyValue", type=String.class, parameters={})
     private Output<String> sendKeyValue;
 
     /**
@@ -240,7 +240,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The Service Bus Namespace.
      * 
      */
-    @Export(name="serviceBusNamespace", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusNamespace", type=String.class, parameters={})
     private Output<String> serviceBusNamespace;
 
     /**
@@ -254,7 +254,7 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
      * The suffix for the endpoint.
      * 
      */
-    @Export(name="serviceBusSuffix", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusSuffix", type=String.class, parameters={})
     private Output<String> serviceBusSuffix;
 
     /**

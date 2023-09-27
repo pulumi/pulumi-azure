@@ -7,6 +7,7 @@ import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreEncryptionArgs
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStorePrimaryReadKeyArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStorePrimaryWriteKeyArgs;
+import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreReplicaArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreSecondaryReadKeyArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreSecondaryWriteKeyArgs;
 import com.pulumi.core.Output;
@@ -41,14 +42,14 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The URL of the App Configuration.
+     * The URL of the App Configuration Replica.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The URL of the App Configuration.
+     * @return The URL of the App Configuration Replica.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -188,6 +189,21 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
+     * One or more `replica` blocks as defined below.
+     * 
+     */
+    @Import(name="replicas")
+    private @Nullable Output<List<ConfigurationStoreReplicaArgs>> replicas;
+
+    /**
+     * @return One or more `replica` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<ConfigurationStoreReplicaArgs>>> replicas() {
+        return Optional.ofNullable(this.replicas);
+    }
+
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      * 
      */
@@ -294,6 +310,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         this.primaryWriteKeys = $.primaryWriteKeys;
         this.publicNetworkAccess = $.publicNetworkAccess;
         this.purgeProtectionEnabled = $.purgeProtectionEnabled;
+        this.replicas = $.replicas;
         this.resourceGroupName = $.resourceGroupName;
         this.secondaryReadKeys = $.secondaryReadKeys;
         this.secondaryWriteKeys = $.secondaryWriteKeys;
@@ -342,7 +359,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param endpoint The URL of the App Configuration.
+         * @param endpoint The URL of the App Configuration Replica.
          * 
          * @return builder
          * 
@@ -353,7 +370,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param endpoint The URL of the App Configuration.
+         * @param endpoint The URL of the App Configuration Replica.
          * 
          * @return builder
          * 
@@ -560,6 +577,37 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
          */
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             return purgeProtectionEnabled(Output.of(purgeProtectionEnabled));
+        }
+
+        /**
+         * @param replicas One or more `replica` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicas(@Nullable Output<List<ConfigurationStoreReplicaArgs>> replicas) {
+            $.replicas = replicas;
+            return this;
+        }
+
+        /**
+         * @param replicas One or more `replica` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicas(List<ConfigurationStoreReplicaArgs> replicas) {
+            return replicas(Output.of(replicas));
+        }
+
+        /**
+         * @param replicas One or more `replica` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicas(ConfigurationStoreReplicaArgs... replicas) {
+            return replicas(List.of(replicas));
         }
 
         /**

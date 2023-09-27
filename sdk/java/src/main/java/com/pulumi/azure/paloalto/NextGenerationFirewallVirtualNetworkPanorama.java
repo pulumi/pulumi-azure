@@ -153,7 +153,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * One or more `destination_nat` blocks as defined below.
      * 
      */
-    @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualNetworkPanoramaDestinationNat.class}, tree="[0,1]")
+    @Export(name="destinationNats", type=List.class, parameters={NextGenerationFirewallVirtualNetworkPanoramaDestinationNat.class})
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualNetworkPanoramaDestinationNat>> destinationNats;
 
     /**
@@ -167,7 +167,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * A `dns_settings` block as defined below.
      * 
      */
-    @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualNetworkPanoramaDnsSettings.class}, tree="[0]")
+    @Export(name="dnsSettings", type=NextGenerationFirewallVirtualNetworkPanoramaDnsSettings.class, parameters={})
     private Output</* @Nullable */ NextGenerationFirewallVirtualNetworkPanoramaDnsSettings> dnsSettings;
 
     /**
@@ -181,7 +181,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -195,7 +195,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * A `network_profile` block as defined below.
      * 
      */
-    @Export(name="networkProfile", refs={NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile.class}, tree="[0]")
+    @Export(name="networkProfile", type=NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile.class, parameters={})
     private Output<NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile> networkProfile;
 
     /**
@@ -223,7 +223,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
      * 
      */
-    @Export(name="panoramaBase64Config", refs={String.class}, tree="[0]")
+    @Export(name="panoramaBase64Config", type=String.class, parameters={})
     private Output<String> panoramaBase64Config;
 
     /**
@@ -237,7 +237,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * A `panorama` block as defined below.
      * 
      */
-    @Export(name="panoramas", refs={List.class,NextGenerationFirewallVirtualNetworkPanoramaPanorama.class}, tree="[0,1]")
+    @Export(name="panoramas", type=List.class, parameters={NextGenerationFirewallVirtualNetworkPanoramaPanorama.class})
     private Output<List<NextGenerationFirewallVirtualNetworkPanoramaPanorama>> panoramas;
 
     /**
@@ -251,7 +251,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -265,7 +265,7 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

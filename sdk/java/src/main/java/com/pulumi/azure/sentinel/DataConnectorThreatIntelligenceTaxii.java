@@ -86,7 +86,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The API root URI of the TAXII server.
      * 
      */
-    @Export(name="apiRootUrl", refs={String.class}, tree="[0]")
+    @Export(name="apiRootUrl", type=String.class, parameters={})
     private Output<String> apiRootUrl;
 
     /**
@@ -100,7 +100,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The collection ID of the TAXII server.
      * 
      */
-    @Export(name="collectionId", refs={String.class}, tree="[0]")
+    @Export(name="collectionId", type=String.class, parameters={})
     private Output<String> collectionId;
 
     /**
@@ -114,7 +114,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -128,7 +128,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -142,7 +142,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      * 
      */
-    @Export(name="lookbackDate", refs={String.class}, tree="[0]")
+    @Export(name="lookbackDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> lookbackDate;
 
     /**
@@ -156,7 +156,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The password for the TAXII server.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -184,7 +184,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
      * 
      */
-    @Export(name="pollingFrequency", refs={String.class}, tree="[0]")
+    @Export(name="pollingFrequency", type=String.class, parameters={})
     private Output</* @Nullable */ String> pollingFrequency;
 
     /**
@@ -200,7 +200,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**
@@ -216,7 +216,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The user name for the TAXII server.
      * 
      */
-    @Export(name="userName", refs={String.class}, tree="[0]")
+    @Export(name="userName", type=String.class, parameters={})
     private Output</* @Nullable */ String> userName;
 
     /**

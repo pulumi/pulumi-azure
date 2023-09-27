@@ -106,7 +106,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
-    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
@@ -121,7 +121,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", refs={WindowsFunctionAppAuthSettings.class}, tree="[0]")
+    @Export(name="authSettings", type=WindowsFunctionAppAuthSettings.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppAuthSettings> authSettings;
 
     /**
@@ -135,7 +135,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `auth_settings_v2` block as defined below.
      * 
      */
-    @Export(name="authSettingsV2", refs={WindowsFunctionAppAuthSettingsV2.class}, tree="[0]")
+    @Export(name="authSettingsV2", type=WindowsFunctionAppAuthSettingsV2.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppAuthSettingsV2> authSettingsV2;
 
     /**
@@ -149,7 +149,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", refs={WindowsFunctionAppBackup.class}, tree="[0]")
+    @Export(name="backup", type=WindowsFunctionAppBackup.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppBackup> backup;
 
     /**
@@ -163,7 +163,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
-    @Export(name="builtinLoggingEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="builtinLoggingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> builtinLoggingEnabled;
 
     /**
@@ -177,7 +177,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Should the function app use Client Certificates.
      * 
      */
-    @Export(name="clientCertificateEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientCertificateEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientCertificateEnabled;
 
     /**
@@ -191,7 +191,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Paths to exclude when using client certificates, separated by ;
      * 
      */
-    @Export(name="clientCertificateExclusionPaths", refs={String.class}, tree="[0]")
+    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateExclusionPaths;
 
     /**
@@ -205,7 +205,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
-    @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
+    @Export(name="clientCertificateMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
@@ -219,7 +219,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * One or more `connection_string` blocks as defined below.
      * 
      */
-    @Export(name="connectionStrings", refs={List.class,WindowsFunctionAppConnectionString.class}, tree="[0,1]")
+    @Export(name="connectionStrings", type=List.class, parameters={WindowsFunctionAppConnectionString.class})
     private Output</* @Nullable */ List<WindowsFunctionAppConnectionString>> connectionStrings;
 
     /**
@@ -233,7 +233,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Should Content Share Settings be disabled. Defaults to `false`.
      * 
      */
-    @Export(name="contentShareForceDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="contentShareForceDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> contentShareForceDisabled;
 
     /**
@@ -247,7 +247,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
+    @Export(name="customDomainVerificationId", type=String.class, parameters={})
     private Output<String> customDomainVerificationId;
 
     /**
@@ -261,7 +261,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      * 
      */
-    @Export(name="dailyMemoryTimeQuota", refs={Integer.class}, tree="[0]")
+    @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
@@ -275,7 +275,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The default hostname of the Windows Function App.
      * 
      */
-    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
+    @Export(name="defaultHostname", type=String.class, parameters={})
     private Output<String> defaultHostname;
 
     /**
@@ -289,7 +289,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Is the Function App enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -303,7 +303,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The runtime version associated with the Function App. Defaults to `~4`.
      * 
      */
-    @Export(name="functionsExtensionVersion", refs={String.class}, tree="[0]")
+    @Export(name="functionsExtensionVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> functionsExtensionVersion;
 
     /**
@@ -317,7 +317,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Environment used by Function App.
      * 
      */
-    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="hostingEnvironmentId", type=String.class, parameters={})
     private Output<String> hostingEnvironmentId;
 
     /**
@@ -331,7 +331,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="httpsOnly", type=Boolean.class, parameters={})
     private Output<Boolean> httpsOnly;
 
     /**
@@ -345,7 +345,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={WindowsFunctionAppIdentity.class}, tree="[0]")
+    @Export(name="identity", type=WindowsFunctionAppIdentity.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppIdentity> identity;
 
     /**
@@ -359,7 +359,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -373,7 +373,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The Kind value for this Windows Function App.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output<String> kind;
 
     /**
@@ -387,7 +387,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -401,7 +401,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -415,7 +415,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A list of outbound IP addresses. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
-    @Export(name="outboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> outboundIpAddressLists;
 
     /**
@@ -429,7 +429,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      * 
      */
-    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="outboundIpAddresses", type=String.class, parameters={})
     private Output<String> outboundIpAddresses;
 
     /**
@@ -443,7 +443,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
-    @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="possibleOutboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
@@ -457,7 +457,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -471,7 +471,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * Should public network access be enabled for the Function App. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -485,7 +485,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -499,7 +499,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this Function App.
      * 
      */
-    @Export(name="servicePlanId", refs={String.class}, tree="[0]")
+    @Export(name="servicePlanId", type=String.class, parameters={})
     private Output<String> servicePlanId;
 
     /**
@@ -513,7 +513,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `site_config` block as defined below.
      * 
      */
-    @Export(name="siteConfig", refs={WindowsFunctionAppSiteConfig.class}, tree="[0]")
+    @Export(name="siteConfig", type=WindowsFunctionAppSiteConfig.class, parameters={})
     private Output<WindowsFunctionAppSiteConfig> siteConfig;
 
     /**
@@ -527,7 +527,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below.
      * 
      */
-    @Export(name="siteCredentials", refs={List.class,WindowsFunctionAppSiteCredential.class}, tree="[0,1]")
+    @Export(name="siteCredentials", type=List.class, parameters={WindowsFunctionAppSiteCredential.class})
     private Output<List<WindowsFunctionAppSiteCredential>> siteCredentials;
 
     /**
@@ -541,7 +541,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A `sticky_settings` block as defined below.
      * 
      */
-    @Export(name="stickySettings", refs={WindowsFunctionAppStickySettings.class}, tree="[0]")
+    @Export(name="stickySettings", type=WindowsFunctionAppStickySettings.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppStickySettings> stickySettings;
 
     /**
@@ -555,7 +555,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -569,7 +569,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * The backend storage account name which will be used by this Function App.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountName;
 
     /**
@@ -583,7 +583,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,WindowsFunctionAppStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={WindowsFunctionAppStorageAccount.class})
     private Output</* @Nullable */ List<WindowsFunctionAppStorageAccount>> storageAccounts;
 
     /**
@@ -601,7 +601,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
-    @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
+    @Export(name="storageKeyVaultSecretId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageKeyVaultSecretId;
 
     /**
@@ -621,7 +621,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
-    @Export(name="storageUsesManagedIdentity", refs={Boolean.class}, tree="[0]")
+    @Export(name="storageUsesManagedIdentity", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> storageUsesManagedIdentity;
 
     /**
@@ -637,7 +637,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Windows Function App.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -647,7 +647,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
@@ -659,7 +659,7 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
-    @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
+    @Export(name="zipDeployFile", type=String.class, parameters={})
     private Output<String> zipDeployFile;
 
     /**

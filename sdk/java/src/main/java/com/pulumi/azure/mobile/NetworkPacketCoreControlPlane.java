@@ -120,7 +120,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * The IPv4 address for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="controlPlaneAccessIpv4Address", refs={String.class}, tree="[0]")
+    @Export(name="controlPlaneAccessIpv4Address", type=String.class, parameters={})
     private Output</* @Nullable */ String> controlPlaneAccessIpv4Address;
 
     /**
@@ -134,7 +134,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="controlPlaneAccessIpv4Gateway", refs={String.class}, tree="[0]")
+    @Export(name="controlPlaneAccessIpv4Gateway", type=String.class, parameters={})
     private Output</* @Nullable */ String> controlPlaneAccessIpv4Gateway;
 
     /**
@@ -148,7 +148,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="controlPlaneAccessIpv4Subnet", refs={String.class}, tree="[0]")
+    @Export(name="controlPlaneAccessIpv4Subnet", type=String.class, parameters={})
     private Output</* @Nullable */ String> controlPlaneAccessIpv4Subnet;
 
     /**
@@ -162,7 +162,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="controlPlaneAccessName", refs={String.class}, tree="[0]")
+    @Export(name="controlPlaneAccessName", type=String.class, parameters={})
     private Output</* @Nullable */ String> controlPlaneAccessName;
 
     /**
@@ -176,7 +176,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * The core network technology generation. Possible values are `EPG` and `5GC`.
      * 
      */
-    @Export(name="coreNetworkTechnology", refs={String.class}, tree="[0]")
+    @Export(name="coreNetworkTechnology", type=String.class, parameters={})
     private Output</* @Nullable */ String> coreNetworkTechnology;
 
     /**
@@ -190,7 +190,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={NetworkPacketCoreControlPlaneIdentity.class}, tree="[0]")
+    @Export(name="identity", type=NetworkPacketCoreControlPlaneIdentity.class, parameters={})
     private Output</* @Nullable */ NetworkPacketCoreControlPlaneIdentity> identity;
 
     /**
@@ -204,7 +204,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
      * 
      */
-    @Export(name="interoperabilitySettingsJson", refs={String.class}, tree="[0]")
+    @Export(name="interoperabilitySettingsJson", type=String.class, parameters={})
     private Output</* @Nullable */ String> interoperabilitySettingsJson;
 
     /**
@@ -218,7 +218,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
-    @Export(name="localDiagnosticsAccess", refs={NetworkPacketCoreControlPlaneLocalDiagnosticsAccess.class}, tree="[0]")
+    @Export(name="localDiagnosticsAccess", type=NetworkPacketCoreControlPlaneLocalDiagnosticsAccess.class, parameters={})
     private Output<NetworkPacketCoreControlPlaneLocalDiagnosticsAccess> localDiagnosticsAccess;
 
     /**
@@ -232,7 +232,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -246,7 +246,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -260,7 +260,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * A `platform` block as defined below.
      * 
      */
-    @Export(name="platform", refs={NetworkPacketCoreControlPlanePlatform.class}, tree="[0]")
+    @Export(name="platform", type=NetworkPacketCoreControlPlanePlatform.class, parameters={})
     private Output</* @Nullable */ NetworkPacketCoreControlPlanePlatform> platform;
 
     /**
@@ -274,7 +274,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -288,7 +288,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
      * 
      */
-    @Export(name="siteIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="siteIds", type=List.class, parameters={String.class})
     private Output<List<String>> siteIds;
 
     /**
@@ -302,7 +302,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -316,7 +316,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Specifies the version of the packet core software that is deployed.
      * 
      */
-    @Export(name="softwareVersion", refs={String.class}, tree="[0]")
+    @Export(name="softwareVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> softwareVersion;
 
     /**
@@ -330,7 +330,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -344,7 +344,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation.
      * 
      */
-    @Export(name="userEquipmentMtuInBytes", refs={Integer.class}, tree="[0]")
+    @Export(name="userEquipmentMtuInBytes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> userEquipmentMtuInBytes;
 
     /**

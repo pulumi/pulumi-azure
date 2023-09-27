@@ -225,10 +225,26 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> OnDemandBurstingEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        /// </summary>
+        [Output("optimizedFrequentAttachEnabled")]
+        public Output<bool?> OptimizedFrequentAttachEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+        /// </summary>
+        [Output("performancePlusEnabled")]
+        public Output<bool?> PerformancePlusEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether it is allowed to access the disk via public network. Defaults to `true`.
@@ -494,10 +510,26 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        /// </summary>
+        [Input("optimizedFrequentAttachEnabled")]
+        public Input<bool>? OptimizedFrequentAttachEnabled { get; set; }
+
+        /// <summary>
         /// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+        /// </summary>
+        [Input("performancePlusEnabled")]
+        public Input<bool>? PerformancePlusEnabled { get; set; }
 
         /// <summary>
         /// Whether it is allowed to access the disk via public network. Defaults to `true`.
@@ -731,10 +763,26 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        /// </summary>
+        [Input("optimizedFrequentAttachEnabled")]
+        public Input<bool>? OptimizedFrequentAttachEnabled { get; set; }
+
+        /// <summary>
         /// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+        /// </summary>
+        [Input("performancePlusEnabled")]
+        public Input<bool>? PerformancePlusEnabled { get; set; }
 
         /// <summary>
         /// Whether it is allowed to access the disk via public network. Defaults to `true`.

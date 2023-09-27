@@ -47,6 +47,21 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     * 
+     */
+    @Import(name="deploymentEnvironment")
+    private @Nullable Output<String> deploymentEnvironment;
+
+    /**
+     * @return The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     * 
+     */
+    public Optional<Output<String>> deploymentEnvironment() {
+        return Optional.ofNullable(this.deploymentEnvironment);
+    }
+
+    /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      * 
      */
@@ -96,6 +111,7 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
     private ChannelTeamsState(ChannelTeamsState $) {
         this.botName = $.botName;
         this.callingWebHook = $.callingWebHook;
+        this.deploymentEnvironment = $.deploymentEnvironment;
         this.enableCalling = $.enableCalling;
         this.location = $.location;
         this.resourceGroupName = $.resourceGroupName;
@@ -159,6 +175,27 @@ public final class ChannelTeamsState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder callingWebHook(String callingWebHook) {
             return callingWebHook(Output.of(callingWebHook));
+        }
+
+        /**
+         * @param deploymentEnvironment The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentEnvironment(@Nullable Output<String> deploymentEnvironment) {
+            $.deploymentEnvironment = deploymentEnvironment;
+            return this;
+        }
+
+        /**
+         * @param deploymentEnvironment The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentEnvironment(String deploymentEnvironment) {
+            return deploymentEnvironment(Output.of(deploymentEnvironment));
         }
 
         /**

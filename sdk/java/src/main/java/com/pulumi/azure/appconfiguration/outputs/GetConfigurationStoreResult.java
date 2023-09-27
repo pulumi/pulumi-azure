@@ -7,6 +7,7 @@ import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreEncryption
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreIdentity;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStorePrimaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStorePrimaryWriteKey;
+import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreReplica;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreSecondaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreSecondaryWriteKey;
 import com.pulumi.core.annotations.CustomType;
@@ -25,7 +26,7 @@ public final class GetConfigurationStoreResult {
      */
     private List<GetConfigurationStoreEncryption> encryptions;
     /**
-     * @return The Endpoint used to access this App Configuration.
+     * @return The URL of the App Configuration Replica.
      * 
      */
     private String endpoint;
@@ -41,10 +42,14 @@ public final class GetConfigurationStoreResult {
      */
     private Boolean localAuthEnabled;
     /**
-     * @return The Azure Region where the App Configuration exists.
+     * @return The supported Azure location where the App Configuration Replica exists.
      * 
      */
     private String location;
+    /**
+     * @return The name of the App Configuration Replica.
+     * 
+     */
     private String name;
     /**
      * @return A `primary_read_key` block as defined below containing the primary read access key.
@@ -67,6 +72,11 @@ public final class GetConfigurationStoreResult {
      * 
      */
     private Boolean purgeProtectionEnabled;
+    /**
+     * @return One or more `replica` blocks as defined below.
+     * 
+     */
+    private List<GetConfigurationStoreReplica> replicas;
     private String resourceGroupName;
     /**
      * @return A `secondary_read_key` block as defined below containing the secondary read access key.
@@ -103,7 +113,7 @@ public final class GetConfigurationStoreResult {
         return this.encryptions;
     }
     /**
-     * @return The Endpoint used to access this App Configuration.
+     * @return The URL of the App Configuration Replica.
      * 
      */
     public String endpoint() {
@@ -127,12 +137,16 @@ public final class GetConfigurationStoreResult {
         return this.localAuthEnabled;
     }
     /**
-     * @return The Azure Region where the App Configuration exists.
+     * @return The supported Azure location where the App Configuration Replica exists.
      * 
      */
     public String location() {
         return this.location;
     }
+    /**
+     * @return The name of the App Configuration Replica.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -166,6 +180,13 @@ public final class GetConfigurationStoreResult {
      */
     public Boolean purgeProtectionEnabled() {
         return this.purgeProtectionEnabled;
+    }
+    /**
+     * @return One or more `replica` blocks as defined below.
+     * 
+     */
+    public List<GetConfigurationStoreReplica> replicas() {
+        return this.replicas;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
@@ -227,6 +248,7 @@ public final class GetConfigurationStoreResult {
         private String publicNetworkAccess;
         private Boolean publicNetworkAccessEnabled;
         private Boolean purgeProtectionEnabled;
+        private List<GetConfigurationStoreReplica> replicas;
         private String resourceGroupName;
         private List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys;
         private List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
@@ -248,6 +270,7 @@ public final class GetConfigurationStoreResult {
     	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.purgeProtectionEnabled = defaults.purgeProtectionEnabled;
+    	      this.replicas = defaults.replicas;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryReadKeys = defaults.secondaryReadKeys;
     	      this.secondaryWriteKeys = defaults.secondaryWriteKeys;
@@ -329,6 +352,14 @@ public final class GetConfigurationStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder replicas(List<GetConfigurationStoreReplica> replicas) {
+            this.replicas = Objects.requireNonNull(replicas);
+            return this;
+        }
+        public Builder replicas(GetConfigurationStoreReplica... replicas) {
+            return replicas(List.of(replicas));
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -378,6 +409,7 @@ public final class GetConfigurationStoreResult {
             o.publicNetworkAccess = publicNetworkAccess;
             o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             o.purgeProtectionEnabled = purgeProtectionEnabled;
+            o.replicas = replicas;
             o.resourceGroupName = resourceGroupName;
             o.secondaryReadKeys = secondaryReadKeys;
             o.secondaryWriteKeys = secondaryWriteKeys;

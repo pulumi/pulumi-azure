@@ -63,16 +63,17 @@ type LookupConfigurationStoreArgs struct {
 type LookupConfigurationStoreResult struct {
 	// An `encryption` block as defined below.
 	Encryptions []GetConfigurationStoreEncryption `pulumi:"encryptions"`
-	// The Endpoint used to access this App Configuration.
+	// The URL of the App Configuration Replica.
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string                          `pulumi:"id"`
 	Identities []GetConfigurationStoreIdentity `pulumi:"identities"`
 	// Whether local authentication methods is enabled.
 	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
-	// The Azure Region where the App Configuration exists.
+	// The supported Azure location where the App Configuration Replica exists.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	// The name of the App Configuration Replica.
+	Name string `pulumi:"name"`
 	// A `primaryReadKey` block as defined below containing the primary read access key.
 	PrimaryReadKeys []GetConfigurationStorePrimaryReadKey `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
@@ -81,8 +82,10 @@ type LookupConfigurationStoreResult struct {
 	PublicNetworkAccess        string `pulumi:"publicNetworkAccess"`
 	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
 	// Whether Purge Protection is enabled.
-	PurgeProtectionEnabled bool   `pulumi:"purgeProtectionEnabled"`
-	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	PurgeProtectionEnabled bool `pulumi:"purgeProtectionEnabled"`
+	// One or more `replica` blocks as defined below.
+	Replicas          []GetConfigurationStoreReplica `pulumi:"replicas"`
+	ResourceGroupName string                         `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys []GetConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
@@ -146,7 +149,7 @@ func (o LookupConfigurationStoreResultOutput) Encryptions() GetConfigurationStor
 	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreEncryption { return v.Encryptions }).(GetConfigurationStoreEncryptionArrayOutput)
 }
 
-// The Endpoint used to access this App Configuration.
+// The URL of the App Configuration Replica.
 func (o LookupConfigurationStoreResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -165,11 +168,12 @@ func (o LookupConfigurationStoreResultOutput) LocalAuthEnabled() pulumi.BoolOutp
 	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.LocalAuthEnabled }).(pulumi.BoolOutput)
 }
 
-// The Azure Region where the App Configuration exists.
+// The supported Azure location where the App Configuration Replica exists.
 func (o LookupConfigurationStoreResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The name of the App Configuration Replica.
 func (o LookupConfigurationStoreResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -198,6 +202,11 @@ func (o LookupConfigurationStoreResultOutput) PublicNetworkAccessEnabled() pulum
 // Whether Purge Protection is enabled.
 func (o LookupConfigurationStoreResultOutput) PurgeProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.PurgeProtectionEnabled }).(pulumi.BoolOutput)
+}
+
+// One or more `replica` blocks as defined below.
+func (o LookupConfigurationStoreResultOutput) Replicas() GetConfigurationStoreReplicaArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreReplica { return v.Replicas }).(GetConfigurationStoreReplicaArrayOutput)
 }
 
 func (o LookupConfigurationStoreResultOutput) ResourceGroupName() pulumi.StringOutput {

@@ -109,7 +109,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      * 
      */
-    @Export(name="bypasses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="bypasses", type=List.class, parameters={String.class})
     private Output<List<String>> bypasses;
 
     /**
@@ -125,7 +125,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      * 
      */
-    @Export(name="defaultAction", refs={String.class}, tree="[0]")
+    @Export(name="defaultAction", type=String.class, parameters={})
     private Output<String> defaultAction;
 
     /**
@@ -145,7 +145,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
      * 
      */
-    @Export(name="ipRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="ipRules", type=List.class, parameters={String.class})
     private Output<List<String>> ipRules;
 
     /**
@@ -165,7 +165,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * One or More `private_link_access` block as defined below.
      * 
      */
-    @Export(name="privateLinkAccessRules", refs={List.class,AccountNetworkRulesPrivateLinkAccessRule.class}, tree="[0,1]")
+    @Export(name="privateLinkAccessRules", type=List.class, parameters={AccountNetworkRulesPrivateLinkAccessRule.class})
     private Output</* @Nullable */ List<AccountNetworkRulesPrivateLinkAccessRule>> privateLinkAccessRules;
 
     /**
@@ -179,7 +179,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the storage account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -195,7 +195,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
      * 
      */
-    @Export(name="virtualNetworkSubnetIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="virtualNetworkSubnetIds", type=List.class, parameters={String.class})
     private Output<List<String>> virtualNetworkSubnetIds;
 
     /**

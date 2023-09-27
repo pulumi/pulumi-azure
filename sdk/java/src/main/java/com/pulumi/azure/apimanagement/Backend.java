@@ -85,7 +85,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -99,7 +99,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * A `credentials` block as documented below.
      * 
      */
-    @Export(name="credentials", refs={BackendCredentials.class}, tree="[0]")
+    @Export(name="credentials", type=BackendCredentials.class, parameters={})
     private Output</* @Nullable */ BackendCredentials> credentials;
 
     /**
@@ -113,7 +113,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The description of the backend.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -127,7 +127,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The name of the API Management backend. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The protocol used by the backend host. Possible values are `http` or `soap`.
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**
@@ -155,7 +155,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * A `proxy` block as documented below.
      * 
      */
-    @Export(name="proxy", refs={BackendProxy.class}, tree="[0]")
+    @Export(name="proxy", type=BackendProxy.class, parameters={})
     private Output</* @Nullable */ BackendProxy> proxy;
 
     /**
@@ -169,7 +169,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -183,7 +183,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
      * 
      */
-    @Export(name="resourceId", refs={String.class}, tree="[0]")
+    @Export(name="resourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> resourceId;
 
     /**
@@ -197,7 +197,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * A `service_fabric_cluster` block as documented below.
      * 
      */
-    @Export(name="serviceFabricCluster", refs={BackendServiceFabricCluster.class}, tree="[0]")
+    @Export(name="serviceFabricCluster", type=BackendServiceFabricCluster.class, parameters={})
     private Output</* @Nullable */ BackendServiceFabricCluster> serviceFabricCluster;
 
     /**
@@ -211,7 +211,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The title of the backend.
      * 
      */
-    @Export(name="title", refs={String.class}, tree="[0]")
+    @Export(name="title", type=String.class, parameters={})
     private Output</* @Nullable */ String> title;
 
     /**
@@ -225,7 +225,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * A `tls` block as documented below.
      * 
      */
-    @Export(name="tls", refs={BackendTls.class}, tree="[0]")
+    @Export(name="tls", type=BackendTls.class, parameters={})
     private Output</* @Nullable */ BackendTls> tls;
 
     /**
@@ -239,7 +239,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * The URL of the backend host.
      * 
      */
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**

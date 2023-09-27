@@ -87,6 +87,8 @@ type DatasetParquet struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
+	// A `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation DatasetParquetAzureBlobFsLocationPtrOutput `pulumi:"azureBlobFsLocation"`
 	// A `azureBlobStorageLocation` block as defined below.
 	//
 	// The following supported arguments are specific to Parquet Dataset:
@@ -155,6 +157,8 @@ type datasetParquetState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
+	// A `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation *DatasetParquetAzureBlobFsLocation `pulumi:"azureBlobFsLocation"`
 	// A `azureBlobStorageLocation` block as defined below.
 	//
 	// The following supported arguments are specific to Parquet Dataset:
@@ -188,6 +192,8 @@ type DatasetParquetState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
+	// A `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation DatasetParquetAzureBlobFsLocationPtrInput
 	// A `azureBlobStorageLocation` block as defined below.
 	//
 	// The following supported arguments are specific to Parquet Dataset:
@@ -225,6 +231,8 @@ type datasetParquetArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
+	// A `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation *DatasetParquetAzureBlobFsLocation `pulumi:"azureBlobFsLocation"`
 	// A `azureBlobStorageLocation` block as defined below.
 	//
 	// The following supported arguments are specific to Parquet Dataset:
@@ -259,6 +267,8 @@ type DatasetParquetArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
+	// A `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation DatasetParquetAzureBlobFsLocationPtrInput
 	// A `azureBlobStorageLocation` block as defined below.
 	//
 	// The following supported arguments are specific to Parquet Dataset:
@@ -406,6 +416,11 @@ func (o DatasetParquetOutput) AdditionalProperties() pulumi.StringMapOutput {
 // List of tags that can be used for describing the Data Factory Dataset.
 func (o DatasetParquetOutput) Annotations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DatasetParquet) pulumi.StringArrayOutput { return v.Annotations }).(pulumi.StringArrayOutput)
+}
+
+// A `azureBlobFsLocation` block as defined below.
+func (o DatasetParquetOutput) AzureBlobFsLocation() DatasetParquetAzureBlobFsLocationPtrOutput {
+	return o.ApplyT(func(v *DatasetParquet) DatasetParquetAzureBlobFsLocationPtrOutput { return v.AzureBlobFsLocation }).(DatasetParquetAzureBlobFsLocationPtrOutput)
 }
 
 // A `azureBlobStorageLocation` block as defined below.

@@ -99,7 +99,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The number of records for a batch operation. Must be between `1` and `100`.
      * 
      */
-    @Export(name="batchSize", refs={Integer.class}, tree="[0]")
+    @Export(name="batchSize", type=Integer.class, parameters={})
     private Output<Integer> batchSize;
 
     /**
@@ -113,7 +113,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * A list of the column names to be removed from output event entities.
      * 
      */
-    @Export(name="columnsToRemoves", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="columnsToRemoves", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> columnsToRemoves;
 
     /**
@@ -127,7 +127,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the output column that contains the partition key.
      * 
      */
-    @Export(name="partitionKey", refs={String.class}, tree="[0]")
+    @Export(name="partitionKey", type=String.class, parameters={})
     private Output<String> partitionKey;
 
     /**
@@ -155,7 +155,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -169,7 +169,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the output column that contains the row key.
      * 
      */
-    @Export(name="rowKey", refs={String.class}, tree="[0]")
+    @Export(name="rowKey", type=String.class, parameters={})
     private Output<String> rowKey;
 
     /**
@@ -183,7 +183,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The Access Key which should be used to connect to this Storage Account.
      * 
      */
-    @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountKey", type=String.class, parameters={})
     private Output<String> storageAccountKey;
 
     /**
@@ -197,7 +197,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the Storage Account.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
@@ -211,7 +211,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
+    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -225,7 +225,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * The name of the table where the stream should be output to.
      * 
      */
-    @Export(name="table", refs={String.class}, tree="[0]")
+    @Export(name="table", type=String.class, parameters={})
     private Output<String> table;
 
     /**

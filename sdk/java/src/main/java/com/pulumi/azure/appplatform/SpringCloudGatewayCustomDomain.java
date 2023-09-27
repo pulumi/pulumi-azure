@@ -84,7 +84,7 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      * The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -98,7 +98,7 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      * The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
      * 
      */
-    @Export(name="springCloudGatewayId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudGatewayId", type=String.class, parameters={})
     private Output<String> springCloudGatewayId;
 
     /**
@@ -112,7 +112,7 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Gateway Custom Domain.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output</* @Nullable */ String> thumbprint;
 
     /**

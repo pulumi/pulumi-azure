@@ -147,7 +147,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * A map of additional properties to associate with the Data Factory Linked Service SQL Server.
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -161,7 +161,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * List of tags that can be used for describing the Data Factory Linked Service SQL Server.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -175,7 +175,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
      * 
      */
-    @Export(name="connectionString", refs={String.class}, tree="[0]")
+    @Export(name="connectionString", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -189,7 +189,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -203,7 +203,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * The description for the Data Factory Linked Service SQL Server.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -217,7 +217,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
      * 
      */
-    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
+    @Export(name="integrationRuntimeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -231,7 +231,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
      * 
      */
-    @Export(name="keyVaultConnectionString", refs={LinkedServiceSqlServerKeyVaultConnectionString.class}, tree="[0]")
+    @Export(name="keyVaultConnectionString", type=LinkedServiceSqlServerKeyVaultConnectionString.class, parameters={})
     private Output</* @Nullable */ LinkedServiceSqlServerKeyVaultConnectionString> keyVaultConnectionString;
 
     /**
@@ -245,7 +245,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
-    @Export(name="keyVaultPassword", refs={LinkedServiceSqlServerKeyVaultPassword.class}, tree="[0]")
+    @Export(name="keyVaultPassword", type=LinkedServiceSqlServerKeyVaultPassword.class, parameters={})
     private Output</* @Nullable */ LinkedServiceSqlServerKeyVaultPassword> keyVaultPassword;
 
     /**
@@ -259,7 +259,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -273,7 +273,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -287,7 +287,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * The on-premises Windows authentication user name.
      * 
      */
-    @Export(name="userName", refs={String.class}, tree="[0]")
+    @Export(name="userName", type=String.class, parameters={})
     private Output</* @Nullable */ String> userName;
 
     /**

@@ -97,7 +97,7 @@ public class ProductTag extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -111,7 +111,7 @@ public class ProductTag extends com.pulumi.resources.CustomResource {
      * The name of the API Management product. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementProductId", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementProductId", type=String.class, parameters={})
     private Output<String> apiManagementProductId;
 
     /**
@@ -125,7 +125,7 @@ public class ProductTag extends com.pulumi.resources.CustomResource {
      * The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class ProductTag extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

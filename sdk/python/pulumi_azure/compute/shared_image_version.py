@@ -21,6 +21,7 @@ class SharedImageVersionArgs:
                  resource_group_name: pulumi.Input[str],
                  target_regions: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]],
                  blob_uri: Optional[pulumi.Input[str]] = None,
+                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class SharedImageVersionArgs:
                > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        :param pulumi.Input[bool] deletion_of_replicated_locations_enabled: Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -65,6 +67,8 @@ class SharedImageVersionArgs:
         pulumi.set(__self__, "target_regions", target_regions)
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
+        if deletion_of_replicated_locations_enabled is not None:
+            pulumi.set(__self__, "deletion_of_replicated_locations_enabled", deletion_of_replicated_locations_enabled)
         if end_of_life_date is not None:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
@@ -147,6 +151,18 @@ class SharedImageVersionArgs:
     @blob_uri.setter
     def blob_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "blob_uri", value)
+
+    @property
+    @pulumi.getter(name="deletionOfReplicatedLocationsEnabled")
+    def deletion_of_replicated_locations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "deletion_of_replicated_locations_enabled")
+
+    @deletion_of_replicated_locations_enabled.setter
+    def deletion_of_replicated_locations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_of_replicated_locations_enabled", value)
 
     @property
     @pulumi.getter(name="endOfLifeDate")
@@ -269,6 +285,7 @@ class SharedImageVersionArgs:
 class _SharedImageVersionState:
     def __init__(__self__, *,
                  blob_uri: Optional[pulumi.Input[str]] = None,
+                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -289,6 +306,7 @@ class _SharedImageVersionState:
                > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        :param pulumi.Input[bool] deletion_of_replicated_locations_enabled: Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -313,6 +331,8 @@ class _SharedImageVersionState:
         """
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
+        if deletion_of_replicated_locations_enabled is not None:
+            pulumi.set(__self__, "deletion_of_replicated_locations_enabled", deletion_of_replicated_locations_enabled)
         if end_of_life_date is not None:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
@@ -355,6 +375,18 @@ class _SharedImageVersionState:
     @blob_uri.setter
     def blob_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "blob_uri", value)
+
+    @property
+    @pulumi.getter(name="deletionOfReplicatedLocationsEnabled")
+    def deletion_of_replicated_locations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "deletion_of_replicated_locations_enabled")
+
+    @deletion_of_replicated_locations_enabled.setter
+    def deletion_of_replicated_locations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_of_replicated_locations_enabled", value)
 
     @property
     @pulumi.getter(name="endOfLifeDate")
@@ -527,6 +559,7 @@ class SharedImageVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blob_uri: Optional[pulumi.Input[str]] = None,
+                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -583,6 +616,7 @@ class SharedImageVersion(pulumi.CustomResource):
                > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        :param pulumi.Input[bool] deletion_of_replicated_locations_enabled: Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -662,6 +696,7 @@ class SharedImageVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blob_uri: Optional[pulumi.Input[str]] = None,
+                 deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -685,6 +720,7 @@ class SharedImageVersion(pulumi.CustomResource):
             __props__ = SharedImageVersionArgs.__new__(SharedImageVersionArgs)
 
             __props__.__dict__["blob_uri"] = blob_uri
+            __props__.__dict__["deletion_of_replicated_locations_enabled"] = deletion_of_replicated_locations_enabled
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["exclude_from_latest"] = exclude_from_latest
             if gallery_name is None and not opts.urn:
@@ -717,6 +753,7 @@ class SharedImageVersion(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             blob_uri: Optional[pulumi.Input[str]] = None,
+            deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
             end_of_life_date: Optional[pulumi.Input[str]] = None,
             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
             gallery_name: Optional[pulumi.Input[str]] = None,
@@ -742,6 +779,7 @@ class SharedImageVersion(pulumi.CustomResource):
                > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        :param pulumi.Input[bool] deletion_of_replicated_locations_enabled: Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
@@ -769,6 +807,7 @@ class SharedImageVersion(pulumi.CustomResource):
         __props__ = _SharedImageVersionState.__new__(_SharedImageVersionState)
 
         __props__.__dict__["blob_uri"] = blob_uri
+        __props__.__dict__["deletion_of_replicated_locations_enabled"] = deletion_of_replicated_locations_enabled
         __props__.__dict__["end_of_life_date"] = end_of_life_date
         __props__.__dict__["exclude_from_latest"] = exclude_from_latest
         __props__.__dict__["gallery_name"] = gallery_name
@@ -795,6 +834,14 @@ class SharedImageVersion(pulumi.CustomResource):
         > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "blob_uri")
+
+    @property
+    @pulumi.getter(name="deletionOfReplicatedLocationsEnabled")
+    def deletion_of_replicated_locations_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "deletion_of_replicated_locations_enabled")
 
     @property
     @pulumi.getter(name="endOfLifeDate")

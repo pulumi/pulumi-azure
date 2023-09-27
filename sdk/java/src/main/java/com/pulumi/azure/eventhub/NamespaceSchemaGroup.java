@@ -75,7 +75,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of this schema group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -89,7 +89,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceId", refs={String.class}, tree="[0]")
+    @Export(name="namespaceId", type=String.class, parameters={})
     private Output<String> namespaceId;
 
     /**
@@ -103,7 +103,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="schemaCompatibility", refs={String.class}, tree="[0]")
+    @Export(name="schemaCompatibility", type=String.class, parameters={})
     private Output<String> schemaCompatibility;
 
     /**
@@ -117,7 +117,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="schemaType", refs={String.class}, tree="[0]")
+    @Export(name="schemaType", type=String.class, parameters={})
     private Output<String> schemaType;
 
     /**

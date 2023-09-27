@@ -108,7 +108,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you&#39;re routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
      * 
      */
-    @Export(name="allowedUserIpCidrs", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="allowedUserIpCidrs", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> allowedUserIpCidrs;
 
     /**
@@ -124,7 +124,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Zero or more `cluster_setting` blocks as defined below.
      * 
      */
-    @Export(name="clusterSettings", refs={List.class,EnvironmentClusterSetting.class}, tree="[0,1]")
+    @Export(name="clusterSettings", type=List.class, parameters={EnvironmentClusterSetting.class})
     private Output<List<EnvironmentClusterSetting>> clusterSettings;
 
     /**
@@ -138,7 +138,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      * 
      */
-    @Export(name="frontEndScaleFactor", refs={Integer.class}, tree="[0]")
+    @Export(name="frontEndScaleFactor", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> frontEndScaleFactor;
 
     /**
@@ -152,7 +152,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * IP address of internal load balancer of the App Service Environment.
      * 
      */
-    @Export(name="internalIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="internalIpAddress", type=String.class, parameters={})
     private Output<String> internalIpAddress;
 
     /**
@@ -166,7 +166,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `&#34;Web, Publishing&#34;`. Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="internalLoadBalancingMode", refs={String.class}, tree="[0]")
+    @Export(name="internalLoadBalancingMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> internalLoadBalancingMode;
 
     /**
@@ -180,7 +180,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The location where the App Service Environment exists.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -194,7 +194,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -208,7 +208,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * List of outbound IP addresses of the App Service Environment.
      * 
      */
-    @Export(name="outboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> outboundIpAddresses;
 
     /**
@@ -222,7 +222,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
      * 
      */
-    @Export(name="pricingTier", refs={String.class}, tree="[0]")
+    @Export(name="pricingTier", type=String.class, parameters={})
     private Output</* @Nullable */ String> pricingTier;
 
     /**
@@ -236,7 +236,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -250,7 +250,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * IP address of service endpoint of the App Service Environment.
      * 
      */
-    @Export(name="serviceIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="serviceIpAddress", type=String.class, parameters={})
     private Output<String> serviceIpAddress;
 
     /**
@@ -266,7 +266,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -282,7 +282,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -128,7 +128,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> Encryptions;
         /// <summary>
-        /// The Endpoint used to access this App Configuration.
+        /// The URL of the App Configuration Replica.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
@@ -141,9 +141,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly bool LocalAuthEnabled;
         /// <summary>
-        /// The Azure Region where the App Configuration exists.
+        /// The supported Azure location where the App Configuration Replica exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The name of the App Configuration Replica.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// A `primary_read_key` block as defined below containing the primary read access key.
@@ -162,6 +165,10 @@ namespace Pulumi.Azure.AppConfiguration
         /// Whether Purge Protection is enabled.
         /// </summary>
         public readonly bool PurgeProtectionEnabled;
+        /// <summary>
+        /// One or more `replica` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetConfigurationStoreReplicaResult> Replicas;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `secondary_read_key` block as defined below containing the secondary read access key.
@@ -210,6 +217,8 @@ namespace Pulumi.Azure.AppConfiguration
 
             bool purgeProtectionEnabled,
 
+            ImmutableArray<Outputs.GetConfigurationStoreReplicaResult> replicas,
+
             string resourceGroupName,
 
             ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeyResult> secondaryReadKeys,
@@ -234,6 +243,7 @@ namespace Pulumi.Azure.AppConfiguration
             PublicNetworkAccess = publicNetworkAccess;
             PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             PurgeProtectionEnabled = purgeProtectionEnabled;
+            Replicas = replicas;
             ResourceGroupName = resourceGroupName;
             SecondaryReadKeys = secondaryReadKeys;
             SecondaryWriteKeys = secondaryWriteKeys;

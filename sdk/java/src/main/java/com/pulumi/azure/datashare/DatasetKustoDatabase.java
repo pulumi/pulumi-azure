@@ -117,7 +117,7 @@ public class DatasetKustoDatabase extends com.pulumi.resources.CustomResource {
      * The name of the Data Share Dataset.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -131,7 +131,7 @@ public class DatasetKustoDatabase extends com.pulumi.resources.CustomResource {
      * The location of the Kusto Cluster.
      * 
      */
-    @Export(name="kustoClusterLocation", refs={String.class}, tree="[0]")
+    @Export(name="kustoClusterLocation", type=String.class, parameters={})
     private Output<String> kustoClusterLocation;
 
     /**
@@ -145,7 +145,7 @@ public class DatasetKustoDatabase extends com.pulumi.resources.CustomResource {
      * The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
      * 
      */
-    @Export(name="kustoDatabaseId", refs={String.class}, tree="[0]")
+    @Export(name="kustoDatabaseId", type=String.class, parameters={})
     private Output<String> kustoDatabaseId;
 
     /**
@@ -159,7 +159,7 @@ public class DatasetKustoDatabase extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -173,7 +173,7 @@ public class DatasetKustoDatabase extends com.pulumi.resources.CustomResource {
      * The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
      * 
      */
-    @Export(name="shareId", refs={String.class}, tree="[0]")
+    @Export(name="shareId", type=String.class, parameters={})
     private Output<String> shareId;
 
     /**

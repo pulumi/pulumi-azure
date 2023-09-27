@@ -156,10 +156,13 @@ import (
 type CustomerManagedKey struct {
 	pulumi.CustomResourceState
 
+	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	FederatedIdentityClientId pulumi.StringPtrOutput `pulumi:"federatedIdentityClientId"`
 	// The name of Key Vault Key.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// The ID of the Key Vault.
-	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+	KeyName    pulumi.StringOutput    `pulumi:"keyName"`
+	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	KeyVaultUri pulumi.StringOutput `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -177,9 +180,6 @@ func NewCustomerManagedKey(ctx *pulumi.Context,
 
 	if args.KeyName == nil {
 		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
-	if args.KeyVaultId == nil {
-		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
 	if args.StorageAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountId'")
@@ -207,10 +207,13 @@ func GetCustomerManagedKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerManagedKey resources.
 type customerManagedKeyState struct {
+	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	FederatedIdentityClientId *string `pulumi:"federatedIdentityClientId"`
 	// The name of Key Vault Key.
-	KeyName *string `pulumi:"keyName"`
-	// The ID of the Key Vault.
+	KeyName    *string `pulumi:"keyName"`
 	KeyVaultId *string `pulumi:"keyVaultId"`
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -220,10 +223,13 @@ type customerManagedKeyState struct {
 }
 
 type CustomerManagedKeyState struct {
+	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	FederatedIdentityClientId pulumi.StringPtrInput
 	// The name of Key Vault Key.
-	KeyName pulumi.StringPtrInput
-	// The ID of the Key Vault.
+	KeyName    pulumi.StringPtrInput
 	KeyVaultId pulumi.StringPtrInput
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	KeyVaultUri pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -237,10 +243,13 @@ func (CustomerManagedKeyState) ElementType() reflect.Type {
 }
 
 type customerManagedKeyArgs struct {
+	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	FederatedIdentityClientId *string `pulumi:"federatedIdentityClientId"`
 	// The name of Key Vault Key.
-	KeyName string `pulumi:"keyName"`
-	// The ID of the Key Vault.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyName    string  `pulumi:"keyName"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -251,10 +260,13 @@ type customerManagedKeyArgs struct {
 
 // The set of arguments for constructing a CustomerManagedKey resource.
 type CustomerManagedKeyArgs struct {
+	// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+	FederatedIdentityClientId pulumi.StringPtrInput
 	// The name of Key Vault Key.
-	KeyName pulumi.StringInput
-	// The ID of the Key Vault.
-	KeyVaultId pulumi.StringInput
+	KeyName    pulumi.StringInput
+	KeyVaultId pulumi.StringPtrInput
+	// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+	KeyVaultUri pulumi.StringPtrInput
 	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -374,14 +386,23 @@ func (o CustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
+// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+func (o CustomerManagedKeyOutput) FederatedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.FederatedIdentityClientId }).(pulumi.StringPtrOutput)
+}
+
 // The name of Key Vault Key.
 func (o CustomerManagedKeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault.
-func (o CustomerManagedKeyOutput) KeyVaultId() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
+func (o CustomerManagedKeyOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+func (o CustomerManagedKeyOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerManagedKey) pulumi.StringOutput { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
 // The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.

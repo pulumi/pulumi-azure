@@ -22,13 +22,16 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, endpoint=None, id=None, inbound_ip_rules=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, primary_access_key=None, public_network_access_enabled=None, resource_group_name=None, secondary_access_key=None, tags=None):
+    def __init__(__self__, endpoint=None, id=None, identities=None, inbound_ip_rules=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, primary_access_key=None, public_network_access_enabled=None, resource_group_name=None, secondary_access_key=None, tags=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
             raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
         pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
@@ -78,6 +81,14 @@ class GetDomainResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetDomainIdentityResult']:
+        """
+        An `identity` block as documented below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -170,6 +181,7 @@ class AwaitableGetDomainResult(GetDomainResult):
         return GetDomainResult(
             endpoint=self.endpoint,
             id=self.id,
+            identities=self.identities,
             inbound_ip_rules=self.inbound_ip_rules,
             input_mapping_default_values=self.input_mapping_default_values,
             input_mapping_fields=self.input_mapping_fields,
@@ -213,6 +225,7 @@ def get_domain(name: Optional[str] = None,
     return AwaitableGetDomainResult(
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
         input_mapping_default_values=pulumi.get(__ret__, 'input_mapping_default_values'),
         input_mapping_fields=pulumi.get(__ret__, 'input_mapping_fields'),

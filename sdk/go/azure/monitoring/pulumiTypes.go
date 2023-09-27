@@ -20514,11 +20514,15 @@ type DiagnosticSettingEnabledLog struct {
 	Category *string `pulumi:"category"`
 	// The name of a Diagnostic Log Category Group for this Resource.
 	//
-	// > **NOTE:** Not all resources have category groups available.****
+	// > **NOTE:** Not all resources have category groups available.
+	//
+	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup *string `pulumi:"categoryGroup"`
 	// A `retentionPolicy` block as defined below.
 	//
-	// Deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+	// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+	//
+	// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -20540,11 +20544,15 @@ type DiagnosticSettingEnabledLogArgs struct {
 	Category pulumi.StringPtrInput `pulumi:"category"`
 	// The name of a Diagnostic Log Category Group for this Resource.
 	//
-	// > **NOTE:** Not all resources have category groups available.****
+	// > **NOTE:** Not all resources have category groups available.
+	//
+	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
 	// A `retentionPolicy` block as defined below.
 	//
-	// Deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+	// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+	//
+	// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingEnabledLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -20626,14 +20634,18 @@ func (o DiagnosticSettingEnabledLogOutput) Category() pulumi.StringPtrOutput {
 
 // The name of a Diagnostic Log Category Group for this Resource.
 //
-// > **NOTE:** Not all resources have category groups available.****
+// > **NOTE:** Not all resources have category groups available.
+//
+// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 func (o DiagnosticSettingEnabledLogOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
 // A `retentionPolicy` block as defined below.
 //
-// Deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+//
+// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 func (o DiagnosticSettingEnabledLogOutput) RetentionPolicy() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *DiagnosticSettingEnabledLogRetentionPolicy {
 		return v.RetentionPolicy
@@ -20862,10 +20874,16 @@ type DiagnosticSettingLog struct {
 	// The name of a Diagnostic Log Category Group for this Resource.
 	//
 	// > **NOTE:** Not all resources have category groups available.
+	//
+	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup *string `pulumi:"categoryGroup"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// A `retentionPolicy` block as defined below.
+	//
+	// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+	//
+	// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -20888,10 +20906,16 @@ type DiagnosticSettingLogArgs struct {
 	// The name of a Diagnostic Log Category Group for this Resource.
 	//
 	// > **NOTE:** Not all resources have category groups available.
+	//
+	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `retentionPolicy` block as defined below.
+	//
+	// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+	//
+	// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -20974,6 +20998,8 @@ func (o DiagnosticSettingLogOutput) Category() pulumi.StringPtrOutput {
 // The name of a Diagnostic Log Category Group for this Resource.
 //
 // > **NOTE:** Not all resources have category groups available.
+//
+// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 func (o DiagnosticSettingLogOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
@@ -20984,6 +21010,10 @@ func (o DiagnosticSettingLogOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // A `retentionPolicy` block as defined below.
+//
+// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+//
+// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 func (o DiagnosticSettingLogOutput) RetentionPolicy() DiagnosticSettingLogRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) *DiagnosticSettingLogRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingLogRetentionPolicyPtrOutput)
 }
@@ -21210,6 +21240,10 @@ type DiagnosticSettingMetric struct {
 	// Is this Diagnostic Metric enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// A `retentionPolicy` block as defined below.
+	//
+	// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+	//
+	// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -21232,6 +21266,10 @@ type DiagnosticSettingMetricArgs struct {
 	// Is this Diagnostic Metric enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `retentionPolicy` block as defined below.
+	//
+	// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+	//
+	// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -21317,6 +21355,10 @@ func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // A `retentionPolicy` block as defined below.
+//
+// !> **NOTE:** `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+//
+// Deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
 func (o DiagnosticSettingMetricOutput) RetentionPolicy() DiagnosticSettingMetricRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
 }
@@ -24583,6 +24625,8 @@ type ScheduledQueryRulesAlertV2Criteria struct {
 	// A `failingPeriods` block as defined below.
 	FailingPeriods *ScheduledQueryRulesAlertV2CriteriaFailingPeriods `pulumi:"failingPeriods"`
 	// Specifies the column containing the metric measure number.
+	//
+	// > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
 	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
 	// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
@@ -24613,6 +24657,8 @@ type ScheduledQueryRulesAlertV2CriteriaArgs struct {
 	// A `failingPeriods` block as defined below.
 	FailingPeriods ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput `pulumi:"failingPeriods"`
 	// Specifies the column containing the metric measure number.
+	//
+	// > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
 	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
 	// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -24710,6 +24756,8 @@ func (o ScheduledQueryRulesAlertV2CriteriaOutput) FailingPeriods() ScheduledQuer
 }
 
 // Specifies the column containing the metric measure number.
+//
+// > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
 func (o ScheduledQueryRulesAlertV2CriteriaOutput) MetricMeasureColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
 }

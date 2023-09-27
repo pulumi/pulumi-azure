@@ -12,6 +12,8 @@ from .. import _utilities
 __all__ = [
     'MonitorPlan',
     'MonitorUser',
+    'TagRuleLogTagFilter',
+    'TagRuleMetricTagFilter',
 ]
 
 @pulumi.output_type
@@ -161,5 +163,85 @@ class MonitorUser(dict):
         Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class TagRuleLogTagFilter(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 value: str):
+        """
+        :param str action: Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+        :param str name: Specifies the name (also known as the key) of the tag.
+        :param str value: Specifies the value of the tag.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name (also known as the key) of the tag.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Specifies the value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TagRuleMetricTagFilter(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 value: str):
+        """
+        :param str action: Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+        :param str name: Specifies the name (also known as the key) of the tag.
+        :param str value: Specifies the value of the tag.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name (also known as the key) of the tag.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Specifies the value of the tag.
+        """
+        return pulumi.get(self, "value")
 
 

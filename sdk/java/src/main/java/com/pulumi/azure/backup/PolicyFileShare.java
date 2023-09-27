@@ -118,7 +118,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      * 
      */
-    @Export(name="backup", refs={PolicyFileShareBackup.class}, tree="[0]")
+    @Export(name="backup", type=PolicyFileShareBackup.class, parameters={})
     private Output<PolicyFileShareBackup> backup;
 
     /**
@@ -132,7 +132,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -146,7 +146,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
@@ -160,7 +160,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -174,7 +174,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Configures the policy daily retention as documented in the `retention_daily` block below.
      * 
      */
-    @Export(name="retentionDaily", refs={PolicyFileShareRetentionDaily.class}, tree="[0]")
+    @Export(name="retentionDaily", type=PolicyFileShareRetentionDaily.class, parameters={})
     private Output<PolicyFileShareRetentionDaily> retentionDaily;
 
     /**
@@ -188,7 +188,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Configures the policy monthly retention as documented in the `retention_monthly` block below.
      * 
      */
-    @Export(name="retentionMonthly", refs={PolicyFileShareRetentionMonthly.class}, tree="[0]")
+    @Export(name="retentionMonthly", type=PolicyFileShareRetentionMonthly.class, parameters={})
     private Output</* @Nullable */ PolicyFileShareRetentionMonthly> retentionMonthly;
 
     /**
@@ -202,7 +202,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Configures the policy weekly retention as documented in the `retention_weekly` block below.
      * 
      */
-    @Export(name="retentionWeekly", refs={PolicyFileShareRetentionWeekly.class}, tree="[0]")
+    @Export(name="retentionWeekly", type=PolicyFileShareRetentionWeekly.class, parameters={})
     private Output</* @Nullable */ PolicyFileShareRetentionWeekly> retentionWeekly;
 
     /**
@@ -216,7 +216,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * Configures the policy yearly retention as documented in the `retention_yearly` block below.
      * 
      */
-    @Export(name="retentionYearly", refs={PolicyFileShareRetentionYearly.class}, tree="[0]")
+    @Export(name="retentionYearly", type=PolicyFileShareRetentionYearly.class, parameters={})
     private Output</* @Nullable */ PolicyFileShareRetentionYearly> retentionYearly;
 
     /**
@@ -232,7 +232,7 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
      * 
      */
-    @Export(name="timezone", refs={String.class}, tree="[0]")
+    @Export(name="timezone", type=String.class, parameters={})
     private Output</* @Nullable */ String> timezone;
 
     /**

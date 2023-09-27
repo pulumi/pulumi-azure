@@ -117,7 +117,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      * 
      */
-    @Export(name="analyticalStorageTtl", refs={Integer.class}, tree="[0]")
+    @Export(name="analyticalStorageTtl", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> analyticalStorageTtl;
 
     /**
@@ -129,7 +129,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> analyticalStorageTtl() {
         return Codegen.optional(this.analyticalStorageTtl);
     }
-    @Export(name="autoscaleSettings", refs={CassandraTableAutoscaleSettings.class}, tree="[0]")
+    @Export(name="autoscaleSettings", type=CassandraTableAutoscaleSettings.class, parameters={})
     private Output</* @Nullable */ CassandraTableAutoscaleSettings> autoscaleSettings;
 
     public Output<Optional<CassandraTableAutoscaleSettings>> autoscaleSettings() {
@@ -139,7 +139,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cassandraKeyspaceId", refs={String.class}, tree="[0]")
+    @Export(name="cassandraKeyspaceId", type=String.class, parameters={})
     private Output<String> cassandraKeyspaceId;
 
     /**
@@ -153,7 +153,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      * 
      */
-    @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
+    @Export(name="defaultTtl", type=Integer.class, parameters={})
     private Output<Integer> defaultTtl;
 
     /**
@@ -167,7 +167,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -181,7 +181,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * A `schema` block as defined below.
      * 
      */
-    @Export(name="schema", refs={CassandraTableSchema.class}, tree="[0]")
+    @Export(name="schema", type=CassandraTableSchema.class, parameters={})
     private Output<CassandraTableSchema> schema;
 
     /**
@@ -191,7 +191,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
     public Output<CassandraTableSchema> schema() {
         return this.schema;
     }
-    @Export(name="throughput", refs={Integer.class}, tree="[0]")
+    @Export(name="throughput", type=Integer.class, parameters={})
     private Output<Integer> throughput;
 
     public Output<Integer> throughput() {

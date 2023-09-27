@@ -41,6 +41,8 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
      * 
      * &gt; **NOTE:** Not all resources have category groups available.
      * 
+     * &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
+     * 
      */
     @Import(name="categoryGroup")
     private @Nullable Output<String> categoryGroup;
@@ -49,6 +51,8 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
      * @return The name of a Diagnostic Log Category Group for this Resource.
      * 
      * &gt; **NOTE:** Not all resources have category groups available.
+     * 
+     * &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
      * 
      */
     public Optional<Output<String>> categoryGroup() {
@@ -73,14 +77,26 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
     /**
      * A `retention_policy` block as defined below.
      * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+     * 
+     * @deprecated
+     * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * 
      */
+    @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
     @Import(name="retentionPolicy")
     private @Nullable Output<DiagnosticSettingLogRetentionPolicyArgs> retentionPolicy;
 
     /**
      * @return A `retention_policy` block as defined below.
      * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+     * 
+     * @deprecated
+     * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+     * 
      */
+    @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
     public Optional<Output<DiagnosticSettingLogRetentionPolicyArgs>> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
@@ -142,6 +158,8 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
          * 
          * &gt; **NOTE:** Not all resources have category groups available.
          * 
+         * &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -154,6 +172,8 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
          * @param categoryGroup The name of a Diagnostic Log Category Group for this Resource.
          * 
          * &gt; **NOTE:** Not all resources have category groups available.
+         * 
+         * &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
          * 
          * @return builder
          * 
@@ -186,9 +206,15 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
         /**
          * @param retentionPolicy A `retention_policy` block as defined below.
          * 
+         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * 
          */
+        @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
         public Builder retentionPolicy(@Nullable Output<DiagnosticSettingLogRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
@@ -197,9 +223,15 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
         /**
          * @param retentionPolicy A `retention_policy` block as defined below.
          * 
+         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * 
          */
+        @Deprecated /* `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention */
         public Builder retentionPolicy(DiagnosticSettingLogRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }

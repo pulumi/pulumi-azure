@@ -100,7 +100,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * A `contact` block as defined below.
      * 
      */
-    @Export(name="contact", refs={OrderContact.class}, tree="[0]")
+    @Export(name="contact", type=OrderContact.class, parameters={})
     private Output<OrderContact> contact;
 
     /**
@@ -114,7 +114,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    @Export(name="deviceName", refs={String.class}, tree="[0]")
+    @Export(name="deviceName", type=String.class, parameters={})
     private Output<String> deviceName;
 
     /**
@@ -128,7 +128,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * The contact person name. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -156,7 +156,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
      * 
      */
-    @Export(name="returnTrackings", refs={List.class,OrderReturnTracking.class}, tree="[0,1]")
+    @Export(name="returnTrackings", type=List.class, parameters={OrderReturnTracking.class})
     private Output<List<OrderReturnTracking>> returnTrackings;
 
     /**
@@ -170,7 +170,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * Serial number of the device being tracked.
      * 
      */
-    @Export(name="serialNumber", refs={String.class}, tree="[0]")
+    @Export(name="serialNumber", type=String.class, parameters={})
     private Output<String> serialNumber;
 
     /**
@@ -184,7 +184,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * A `shipment_address` block as defined below.
      * 
      */
-    @Export(name="shipmentAddress", refs={OrderShipmentAddress.class}, tree="[0]")
+    @Export(name="shipmentAddress", type=OrderShipmentAddress.class, parameters={})
     private Output<OrderShipmentAddress> shipmentAddress;
 
     /**
@@ -198,7 +198,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * List of status changes in the order. A `shipment_history` block as defined below.
      * 
      */
-    @Export(name="shipmentHistories", refs={List.class,OrderShipmentHistory.class}, tree="[0,1]")
+    @Export(name="shipmentHistories", type=List.class, parameters={OrderShipmentHistory.class})
     private Output<List<OrderShipmentHistory>> shipmentHistories;
 
     /**
@@ -212,7 +212,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
      * 
      */
-    @Export(name="shipmentTrackings", refs={List.class,OrderShipmentTracking.class}, tree="[0,1]")
+    @Export(name="shipmentTrackings", type=List.class, parameters={OrderShipmentTracking.class})
     private Output<List<OrderShipmentTracking>> shipmentTrackings;
 
     /**
@@ -226,7 +226,7 @@ public class Order extends com.pulumi.resources.CustomResource {
      * The current status of the order. A `status` block as defined below.
      * 
      */
-    @Export(name="statuses", refs={List.class,OrderStatus.class}, tree="[0,1]")
+    @Export(name="statuses", type=List.class, parameters={OrderStatus.class})
     private Output<List<OrderStatus>> statuses;
 
     /**

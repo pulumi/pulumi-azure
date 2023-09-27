@@ -86,7 +86,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * The account number with the third-party Certificate Issuer.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountId;
 
     /**
@@ -100,7 +100,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * One or more `admin` blocks as defined below.
      * 
      */
-    @Export(name="admins", refs={List.class,CertificateIssuerAdmin.class}, tree="[0,1]")
+    @Export(name="admins", type=List.class, parameters={CertificateIssuerAdmin.class})
     private Output</* @Nullable */ List<CertificateIssuerAdmin>> admins;
 
     /**
@@ -114,7 +114,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
@@ -128,7 +128,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * The ID of the organization as provided to the issuer.
      * 
      */
-    @Export(name="orgId", refs={String.class}, tree="[0]")
+    @Export(name="orgId", type=String.class, parameters={})
     private Output</* @Nullable */ String> orgId;
 
     /**
@@ -156,7 +156,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -170,7 +170,7 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      * 
      */
-    @Export(name="providerName", refs={String.class}, tree="[0]")
+    @Export(name="providerName", type=String.class, parameters={})
     private Output<String> providerName;
 
     /**

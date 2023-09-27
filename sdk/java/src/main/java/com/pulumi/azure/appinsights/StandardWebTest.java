@@ -89,7 +89,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
      * 
      */
-    @Export(name="applicationInsightsId", refs={String.class}, tree="[0]")
+    @Export(name="applicationInsightsId", type=String.class, parameters={})
     private Output<String> applicationInsightsId;
 
     /**
@@ -103,7 +103,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * Purpose/user defined descriptive test for this WebTest.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -117,7 +117,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * Should the WebTest be enabled?
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -131,7 +131,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      * 
      */
-    @Export(name="frequency", refs={Integer.class}, tree="[0]")
+    @Export(name="frequency", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> frequency;
 
     /**
@@ -147,7 +147,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      * 
      */
-    @Export(name="geoLocations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="geoLocations", type=List.class, parameters={String.class})
     private Output<List<String>> geoLocations;
 
     /**
@@ -163,7 +163,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -177,7 +177,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * A `request` block as defined below.
      * 
      */
-    @Export(name="request", refs={StandardWebTestRequest.class}, tree="[0]")
+    @Export(name="request", type=StandardWebTestRequest.class, parameters={})
     private Output<StandardWebTestRequest> request;
 
     /**
@@ -205,7 +205,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -219,7 +219,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * Should the retry on WebTest failure be enabled?
      * 
      */
-    @Export(name="retryEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="retryEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> retryEnabled;
 
     /**
@@ -233,7 +233,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      * 
      */
-    @Export(name="syntheticMonitorId", refs={String.class}, tree="[0]")
+    @Export(name="syntheticMonitorId", type=String.class, parameters={})
     private Output<String> syntheticMonitorId;
 
     /**
@@ -247,7 +247,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Application Insights Standard WebTest.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -261,7 +261,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      * 
      */
-    @Export(name="timeout", refs={Integer.class}, tree="[0]")
+    @Export(name="timeout", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> timeout;
 
     /**
@@ -275,7 +275,7 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * A `validation_rules` block as defined below.
      * 
      */
-    @Export(name="validationRules", refs={StandardWebTestValidationRules.class}, tree="[0]")
+    @Export(name="validationRules", type=StandardWebTestValidationRules.class, parameters={})
     private Output<StandardWebTestValidationRules> validationRules;
 
     /**

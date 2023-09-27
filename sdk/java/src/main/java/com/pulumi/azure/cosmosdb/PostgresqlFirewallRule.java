@@ -80,7 +80,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
+    @Export(name="clusterId", type=String.class, parameters={})
     private Output<String> clusterId;
 
     /**
@@ -94,7 +94,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
      * 
      */
-    @Export(name="endIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="endIpAddress", type=String.class, parameters={})
     private Output<String> endIpAddress;
 
     /**
@@ -108,7 +108,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
      * 
      */
-    @Export(name="startIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="startIpAddress", type=String.class, parameters={})
     private Output<String> startIpAddress;
 
     /**

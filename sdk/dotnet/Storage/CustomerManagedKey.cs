@@ -143,16 +143,25 @@ namespace Pulumi.Azure.Storage
     public partial class CustomerManagedKey : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        /// </summary>
+        [Output("federatedIdentityClientId")]
+        public Output<string?> FederatedIdentityClientId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of Key Vault Key.
         /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Key Vault.
-        /// </summary>
         [Output("keyVaultId")]
-        public Output<string> KeyVaultId { get; private set; } = null!;
+        public Output<string?> KeyVaultId { get; private set; } = null!;
+
+        /// <summary>
+        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        /// </summary>
+        [Output("keyVaultUri")]
+        public Output<string> KeyVaultUri { get; private set; } = null!;
 
         /// <summary>
         /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
@@ -219,16 +228,25 @@ namespace Pulumi.Azure.Storage
     public sealed class CustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        /// </summary>
+        [Input("federatedIdentityClientId")]
+        public Input<string>? FederatedIdentityClientId { get; set; }
+
+        /// <summary>
         /// The name of Key Vault Key.
         /// </summary>
         [Input("keyName", required: true)]
         public Input<string> KeyName { get; set; } = null!;
 
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
         /// <summary>
-        /// The ID of the Key Vault.
+        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
         /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
+        [Input("keyVaultUri")]
+        public Input<string>? KeyVaultUri { get; set; }
 
         /// <summary>
         /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
@@ -257,16 +275,25 @@ namespace Pulumi.Azure.Storage
     public sealed class CustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        /// </summary>
+        [Input("federatedIdentityClientId")]
+        public Input<string>? FederatedIdentityClientId { get; set; }
+
+        /// <summary>
         /// The name of Key Vault Key.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
-        /// <summary>
-        /// The ID of the Key Vault.
-        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        /// </summary>
+        [Input("keyVaultUri")]
+        public Input<string>? KeyVaultUri { get; set; }
 
         /// <summary>
         /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.

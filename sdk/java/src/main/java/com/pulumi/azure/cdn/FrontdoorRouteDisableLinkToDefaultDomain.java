@@ -71,7 +71,7 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
      * 
      */
     @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
-    @Export(name="cdnFrontdoorCustomDomainIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="cdnFrontdoorCustomDomainIds", type=List.class, parameters={String.class})
     private Output<List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
@@ -89,7 +89,7 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
      * 
      */
     @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
-    @Export(name="cdnFrontdoorRouteId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorRouteId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorRouteId;
 
     /**

@@ -78,7 +78,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * A mapping of MetaData which should be assigned to this Storage Queue.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -92,7 +92,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -106,7 +106,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The Resource Manager ID of this Storage Queue.
      * 
      */
-    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
+    @Export(name="resourceManagerId", type=String.class, parameters={})
     private Output<String> resourceManagerId;
 
     /**
@@ -120,7 +120,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**

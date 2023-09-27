@@ -78,6 +78,7 @@ namespace Pulumi.Azure.Iot
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
+    ///         LocalAuthenticationEnabled = false,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "S1",
@@ -262,6 +263,12 @@ namespace Pulumi.Azure.Iot
         public Output<Outputs.IoTHubIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthenticationEnabled")]
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -434,6 +441,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IoTHubIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -612,6 +625,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IoTHubIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

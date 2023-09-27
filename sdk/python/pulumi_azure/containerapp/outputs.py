@@ -19,6 +19,8 @@ __all__ = [
     'AppRegistry',
     'AppSecret',
     'AppTemplate',
+    'AppTemplateAzureQueueScaleRule',
+    'AppTemplateAzureQueueScaleRuleAuthentication',
     'AppTemplateContainer',
     'AppTemplateContainerEnv',
     'AppTemplateContainerLivenessProbe',
@@ -28,6 +30,12 @@ __all__ = [
     'AppTemplateContainerStartupProbe',
     'AppTemplateContainerStartupProbeHeader',
     'AppTemplateContainerVolumeMount',
+    'AppTemplateCustomScaleRule',
+    'AppTemplateCustomScaleRuleAuthentication',
+    'AppTemplateHttpScaleRule',
+    'AppTemplateHttpScaleRuleAuthentication',
+    'AppTemplateTcpScaleRule',
+    'AppTemplateTcpScaleRuleAuthentication',
     'AppTemplateVolume',
     'EnvironmentDaprComponentMetadata',
     'EnvironmentDaprComponentSecret',
@@ -39,6 +47,8 @@ __all__ = [
     'GetAppRegistryResult',
     'GetAppSecretResult',
     'GetAppTemplateResult',
+    'GetAppTemplateAzureQueueScaleRuleResult',
+    'GetAppTemplateAzureQueueScaleRuleAuthenticationResult',
     'GetAppTemplateContainerResult',
     'GetAppTemplateContainerEnvResult',
     'GetAppTemplateContainerLivenessProbeResult',
@@ -48,6 +58,12 @@ __all__ = [
     'GetAppTemplateContainerStartupProbeResult',
     'GetAppTemplateContainerStartupProbeHeaderResult',
     'GetAppTemplateContainerVolumeMountResult',
+    'GetAppTemplateCustomScaleRuleResult',
+    'GetAppTemplateCustomScaleRuleAuthenticationResult',
+    'GetAppTemplateHttpScaleRuleResult',
+    'GetAppTemplateHttpScaleRuleAuthenticationResult',
+    'GetAppTemplateTcpScaleRuleResult',
+    'GetAppTemplateTcpScaleRuleAuthenticationResult',
     'GetAppTemplateVolumeResult',
 ]
 
@@ -549,12 +565,20 @@ class AppTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxReplicas":
+        if key == "azureQueueScaleRules":
+            suggest = "azure_queue_scale_rules"
+        elif key == "customScaleRules":
+            suggest = "custom_scale_rules"
+        elif key == "httpScaleRules":
+            suggest = "http_scale_rules"
+        elif key == "maxReplicas":
             suggest = "max_replicas"
         elif key == "minReplicas":
             suggest = "min_replicas"
         elif key == "revisionSuffix":
             suggest = "revision_suffix"
+        elif key == "tcpScaleRules":
+            suggest = "tcp_scale_rules"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppTemplate. Access the value via the '{suggest}' property getter instead.")
@@ -569,24 +593,40 @@ class AppTemplate(dict):
 
     def __init__(__self__, *,
                  containers: Sequence['outputs.AppTemplateContainer'],
+                 azure_queue_scale_rules: Optional[Sequence['outputs.AppTemplateAzureQueueScaleRule']] = None,
+                 custom_scale_rules: Optional[Sequence['outputs.AppTemplateCustomScaleRule']] = None,
+                 http_scale_rules: Optional[Sequence['outputs.AppTemplateHttpScaleRule']] = None,
                  max_replicas: Optional[int] = None,
                  min_replicas: Optional[int] = None,
                  revision_suffix: Optional[str] = None,
+                 tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
                  volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None):
         """
         :param Sequence['AppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
+        :param Sequence['AppTemplateAzureQueueScaleRuleArgs'] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateCustomScaleRuleArgs'] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateHttpScaleRuleArgs'] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
+        :param Sequence['AppTemplateTcpScaleRuleArgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "containers", containers)
+        if azure_queue_scale_rules is not None:
+            pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
+        if custom_scale_rules is not None:
+            pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
+        if http_scale_rules is not None:
+            pulumi.set(__self__, "http_scale_rules", http_scale_rules)
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
             pulumi.set(__self__, "min_replicas", min_replicas)
         if revision_suffix is not None:
             pulumi.set(__self__, "revision_suffix", revision_suffix)
+        if tcp_scale_rules is not None:
+            pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -597,6 +637,30 @@ class AppTemplate(dict):
         One or more `container` blocks as detailed below.
         """
         return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="azureQueueScaleRules")
+    def azure_queue_scale_rules(self) -> Optional[Sequence['outputs.AppTemplateAzureQueueScaleRule']]:
+        """
+        One or more `azure_queue_scale_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "azure_queue_scale_rules")
+
+    @property
+    @pulumi.getter(name="customScaleRules")
+    def custom_scale_rules(self) -> Optional[Sequence['outputs.AppTemplateCustomScaleRule']]:
+        """
+        One or more `custom_scale_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_scale_rules")
+
+    @property
+    @pulumi.getter(name="httpScaleRules")
+    def http_scale_rules(self) -> Optional[Sequence['outputs.AppTemplateHttpScaleRule']]:
+        """
+        One or more `http_scale_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "http_scale_rules")
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -623,12 +687,138 @@ class AppTemplate(dict):
         return pulumi.get(self, "revision_suffix")
 
     @property
+    @pulumi.getter(name="tcpScaleRules")
+    def tcp_scale_rules(self) -> Optional[Sequence['outputs.AppTemplateTcpScaleRule']]:
+        """
+        One or more `tcp_scale_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "tcp_scale_rules")
+
+    @property
     @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.AppTemplateVolume']]:
         """
         A `volume` block as detailed below.
         """
         return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class AppTemplateAzureQueueScaleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueLength":
+            suggest = "queue_length"
+        elif key == "queueName":
+            suggest = "queue_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateAzureQueueScaleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateAzureQueueScaleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateAzureQueueScaleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentications: Sequence['outputs.AppTemplateAzureQueueScaleRuleAuthentication'],
+                 name: str,
+                 queue_length: int,
+                 queue_name: str):
+        """
+        :param Sequence['AppTemplateAzureQueueScaleRuleAuthenticationArgs'] authentications: One or more `authentication` blocks as defined below.
+        :param str name: The name of the Scaling Rule
+        :param int queue_length: The value of the length of the queue to trigger scaling actions.
+        :param str queue_name: The name of the Azure Queue
+        """
+        pulumi.set(__self__, "authentications", authentications)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "queue_length", queue_length)
+        pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Sequence['outputs.AppTemplateAzureQueueScaleRuleAuthentication']:
+        """
+        One or more `authentication` blocks as defined below.
+        """
+        return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Scaling Rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queueLength")
+    def queue_length(self) -> int:
+        """
+        The value of the length of the queue to trigger scaling actions.
+        """
+        return pulumi.get(self, "queue_length")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> str:
+        """
+        The name of the Azure Queue
+        """
+        return pulumi.get(self, "queue_name")
+
+
+@pulumi.output_type
+class AppTemplateAzureQueueScaleRuleAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+        elif key == "triggerParameter":
+            suggest = "trigger_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateAzureQueueScaleRuleAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateAzureQueueScaleRuleAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateAzureQueueScaleRuleAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
+        :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the Container App Secret to use for this Scale Rule Authentication.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        """
+        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        return pulumi.get(self, "trigger_parameter")
 
 
 @pulumi.output_type
@@ -1411,6 +1601,337 @@ class AppTemplateContainerVolumeMount(dict):
 
 
 @pulumi.output_type
+class AppTemplateCustomScaleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRuleType":
+            suggest = "custom_rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateCustomScaleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateCustomScaleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateCustomScaleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_rule_type: str,
+                 metadata: Mapping[str, str],
+                 name: str,
+                 authentications: Optional[Sequence['outputs.AppTemplateCustomScaleRuleAuthentication']] = None):
+        """
+        :param str custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        :param Mapping[str, str] metadata: A map of string key-value pairs to configure the Custom Scale Rule.
+        :param str name: The name of the Scaling Rule
+        :param Sequence['AppTemplateCustomScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
+        """
+        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "name", name)
+        if authentications is not None:
+            pulumi.set(__self__, "authentications", authentications)
+
+    @property
+    @pulumi.getter(name="customRuleType")
+    def custom_rule_type(self) -> str:
+        """
+        The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        """
+        return pulumi.get(self, "custom_rule_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Mapping[str, str]:
+        """
+        A map of string key-value pairs to configure the Custom Scale Rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Scaling Rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Optional[Sequence['outputs.AppTemplateCustomScaleRuleAuthentication']]:
+        """
+        Zero or more `authentication` blocks as defined below.
+        """
+        return pulumi.get(self, "authentications")
+
+
+@pulumi.output_type
+class AppTemplateCustomScaleRuleAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+        elif key == "triggerParameter":
+            suggest = "trigger_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateCustomScaleRuleAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateCustomScaleRuleAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateCustomScaleRuleAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
+        :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the Container App Secret to use for this Scale Rule Authentication.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        """
+        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class AppTemplateHttpScaleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentRequests":
+            suggest = "concurrent_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateHttpScaleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateHttpScaleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateHttpScaleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrent_requests: str,
+                 name: str,
+                 authentications: Optional[Sequence['outputs.AppTemplateHttpScaleRuleAuthentication']] = None):
+        """
+        :param str concurrent_requests: The number of concurrent requests to trigger scaling.
+        :param str name: The name of the Scaling Rule
+        :param Sequence['AppTemplateHttpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
+        """
+        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        pulumi.set(__self__, "name", name)
+        if authentications is not None:
+            pulumi.set(__self__, "authentications", authentications)
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> str:
+        """
+        The number of concurrent requests to trigger scaling.
+        """
+        return pulumi.get(self, "concurrent_requests")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Scaling Rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Optional[Sequence['outputs.AppTemplateHttpScaleRuleAuthentication']]:
+        """
+        Zero or more `authentication` blocks as defined below.
+        """
+        return pulumi.get(self, "authentications")
+
+
+@pulumi.output_type
+class AppTemplateHttpScaleRuleAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+        elif key == "triggerParameter":
+            suggest = "trigger_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateHttpScaleRuleAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateHttpScaleRuleAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateHttpScaleRuleAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: Optional[str] = None):
+        """
+        :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
+        :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        if trigger_parameter is not None:
+            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the Container App Secret to use for this Scale Rule Authentication.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> Optional[str]:
+        """
+        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class AppTemplateTcpScaleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentRequests":
+            suggest = "concurrent_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateTcpScaleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateTcpScaleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateTcpScaleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrent_requests: str,
+                 name: str,
+                 authentications: Optional[Sequence['outputs.AppTemplateTcpScaleRuleAuthentication']] = None):
+        """
+        :param str concurrent_requests: The number of concurrent requests to trigger scaling.
+        :param str name: The name of the Scaling Rule
+        :param Sequence['AppTemplateTcpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
+        """
+        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        pulumi.set(__self__, "name", name)
+        if authentications is not None:
+            pulumi.set(__self__, "authentications", authentications)
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> str:
+        """
+        The number of concurrent requests to trigger scaling.
+        """
+        return pulumi.get(self, "concurrent_requests")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Scaling Rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Optional[Sequence['outputs.AppTemplateTcpScaleRuleAuthentication']]:
+        """
+        Zero or more `authentication` blocks as defined below.
+        """
+        return pulumi.get(self, "authentications")
+
+
+@pulumi.output_type
+class AppTemplateTcpScaleRuleAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+        elif key == "triggerParameter":
+            suggest = "trigger_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateTcpScaleRuleAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateTcpScaleRuleAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateTcpScaleRuleAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: Optional[str] = None):
+        """
+        :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
+        :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        if trigger_parameter is not None:
+            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the Container App Secret to use for this Scale Rule Authentication.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> Optional[str]:
+        """
+        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
 class AppTemplateVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1900,11 +2421,15 @@ class GetAppSecretResult(dict):
 @pulumi.output_type
 class GetAppTemplateResult(dict):
     def __init__(__self__, *,
+                 azure_queue_scale_rules: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult'],
                  containers: Sequence['outputs.GetAppTemplateContainerResult'],
+                 http_scale_rules: Sequence['outputs.GetAppTemplateHttpScaleRuleResult'],
                  max_replicas: int,
                  min_replicas: int,
                  revision_suffix: str,
-                 volumes: Optional[Sequence['outputs.GetAppTemplateVolumeResult']] = None):
+                 tcp_scale_rules: Sequence['outputs.GetAppTemplateTcpScaleRuleResult'],
+                 volumes: Sequence['outputs.GetAppTemplateVolumeResult'],
+                 custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None):
         """
         :param Sequence['GetAppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
         :param int max_replicas: The maximum number of replicas for this container.
@@ -1912,12 +2437,21 @@ class GetAppTemplateResult(dict):
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
+        pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
         pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "http_scale_rules", http_scale_rules)
         pulumi.set(__self__, "max_replicas", max_replicas)
         pulumi.set(__self__, "min_replicas", min_replicas)
         pulumi.set(__self__, "revision_suffix", revision_suffix)
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+        pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
+        pulumi.set(__self__, "volumes", volumes)
+        if custom_scale_rules is not None:
+            pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
+
+    @property
+    @pulumi.getter(name="azureQueueScaleRules")
+    def azure_queue_scale_rules(self) -> Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult']:
+        return pulumi.get(self, "azure_queue_scale_rules")
 
     @property
     @pulumi.getter
@@ -1926,6 +2460,11 @@ class GetAppTemplateResult(dict):
         One or more `container` blocks as detailed below.
         """
         return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="httpScaleRules")
+    def http_scale_rules(self) -> Sequence['outputs.GetAppTemplateHttpScaleRuleResult']:
+        return pulumi.get(self, "http_scale_rules")
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -1952,12 +2491,86 @@ class GetAppTemplateResult(dict):
         return pulumi.get(self, "revision_suffix")
 
     @property
+    @pulumi.getter(name="tcpScaleRules")
+    def tcp_scale_rules(self) -> Sequence['outputs.GetAppTemplateTcpScaleRuleResult']:
+        return pulumi.get(self, "tcp_scale_rules")
+
+    @property
     @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.GetAppTemplateVolumeResult']]:
+    def volumes(self) -> Sequence['outputs.GetAppTemplateVolumeResult']:
         """
         A `volume` block as detailed below.
         """
         return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter(name="customScaleRules")
+    def custom_scale_rules(self) -> Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']]:
+        return pulumi.get(self, "custom_scale_rules")
+
+
+@pulumi.output_type
+class GetAppTemplateAzureQueueScaleRuleResult(dict):
+    def __init__(__self__, *,
+                 authentications: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleAuthenticationResult'],
+                 name: str,
+                 queue_length: int,
+                 queue_name: str):
+        """
+        :param str name: The name of the Container App.
+        """
+        pulumi.set(__self__, "authentications", authentications)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "queue_length", queue_length)
+        pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Sequence['outputs.GetAppTemplateAzureQueueScaleRuleAuthenticationResult']:
+        return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queueLength")
+    def queue_length(self) -> int:
+        return pulumi.get(self, "queue_length")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> str:
+        return pulumi.get(self, "queue_name")
+
+
+@pulumi.output_type
+class GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        return pulumi.get(self, "trigger_parameter")
 
 
 @pulumi.output_type
@@ -2585,21 +3198,197 @@ class GetAppTemplateContainerVolumeMountResult(dict):
 
 
 @pulumi.output_type
+class GetAppTemplateCustomScaleRuleResult(dict):
+    def __init__(__self__, *,
+                 authentications: Sequence['outputs.GetAppTemplateCustomScaleRuleAuthenticationResult'],
+                 custom_rule_type: str,
+                 metadata: Mapping[str, str],
+                 name: str):
+        """
+        :param str name: The name of the Container App.
+        """
+        pulumi.set(__self__, "authentications", authentications)
+        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Sequence['outputs.GetAppTemplateCustomScaleRuleAuthenticationResult']:
+        return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter(name="customRuleType")
+    def custom_rule_type(self) -> str:
+        return pulumi.get(self, "custom_rule_type")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Mapping[str, str]:
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class GetAppTemplateHttpScaleRuleResult(dict):
+    def __init__(__self__, *,
+                 authentications: Sequence['outputs.GetAppTemplateHttpScaleRuleAuthenticationResult'],
+                 concurrent_requests: str,
+                 name: str):
+        """
+        :param str name: The name of the Container App.
+        """
+        pulumi.set(__self__, "authentications", authentications)
+        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Sequence['outputs.GetAppTemplateHttpScaleRuleAuthenticationResult']:
+        return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> str:
+        return pulumi.get(self, "concurrent_requests")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class GetAppTemplateTcpScaleRuleResult(dict):
+    def __init__(__self__, *,
+                 authentications: Sequence['outputs.GetAppTemplateTcpScaleRuleAuthenticationResult'],
+                 concurrent_requests: str,
+                 name: str):
+        """
+        :param str name: The name of the Container App.
+        """
+        pulumi.set(__self__, "authentications", authentications)
+        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def authentications(self) -> Sequence['outputs.GetAppTemplateTcpScaleRuleAuthenticationResult']:
+        return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter(name="concurrentRequests")
+    def concurrent_requests(self) -> str:
+        return pulumi.get(self, "concurrent_requests")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str,
+                 trigger_parameter: str):
+        """
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> str:
+        return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
 class GetAppTemplateVolumeResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 storage_name: Optional[str] = None,
-                 storage_type: Optional[str] = None):
+                 storage_name: str,
+                 storage_type: str):
         """
         :param str name: The name of the Container App.
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
-        if storage_name is not None:
-            pulumi.set(__self__, "storage_name", storage_name)
-        if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+        pulumi.set(__self__, "storage_name", storage_name)
+        pulumi.set(__self__, "storage_type", storage_type)
 
     @property
     @pulumi.getter
@@ -2611,7 +3400,7 @@ class GetAppTemplateVolumeResult(dict):
 
     @property
     @pulumi.getter(name="storageName")
-    def storage_name(self) -> Optional[str]:
+    def storage_name(self) -> str:
         """
         The name of the `AzureFile` storage.
         """
@@ -2619,7 +3408,7 @@ class GetAppTemplateVolumeResult(dict):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[str]:
+    def storage_type(self) -> str:
         """
         The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """

@@ -92,7 +92,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * The Backend IP Configurations associated with this Backend Address Pool.
      * 
      */
-    @Export(name="backendIpConfigurations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="backendIpConfigurations", type=List.class, parameters={String.class})
     private Output<List<String>> backendIpConfigurations;
 
     /**
@@ -106,7 +106,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
      * 
      */
-    @Export(name="inboundNatRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="inboundNatRules", type=List.class, parameters={String.class})
     private Output<List<String>> inboundNatRules;
 
     /**
@@ -120,7 +120,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * The Load Balancing Rules associated with this Backend Address Pool.
      * 
      */
-    @Export(name="loadBalancingRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="loadBalancingRules", type=List.class, parameters={String.class})
     private Output<List<String>> loadBalancingRules;
 
     /**
@@ -134,7 +134,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
+    @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
@@ -148,7 +148,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
      * 
      */
-    @Export(name="outboundRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundRules", type=List.class, parameters={String.class})
     private Output<List<String>> outboundRules;
 
     /**
@@ -176,7 +176,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * One or more `tunnel_interface` blocks as defined below.
      * 
      */
-    @Export(name="tunnelInterfaces", refs={List.class,BackendAddressPoolTunnelInterface.class}, tree="[0,1]")
+    @Export(name="tunnelInterfaces", type=List.class, parameters={BackendAddressPoolTunnelInterface.class})
     private Output</* @Nullable */ List<BackendAddressPoolTunnelInterface>> tunnelInterfaces;
 
     /**
@@ -190,7 +190,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      * 
      */
-    @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkId;
 
     /**

@@ -103,7 +103,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labId", refs={String.class}, tree="[0]")
+    @Export(name="labId", type=String.class, parameters={})
     private Output<String> labId;
 
     /**
@@ -117,7 +117,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The notes for the Schedule.
      * 
      */
-    @Export(name="notes", refs={String.class}, tree="[0]")
+    @Export(name="notes", type=String.class, parameters={})
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -145,7 +145,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * A `recurrence` block as defined below.
      * 
      */
-    @Export(name="recurrence", refs={ScheduleRecurrence.class}, tree="[0]")
+    @Export(name="recurrence", type=ScheduleRecurrence.class, parameters={})
     private Output</* @Nullable */ ScheduleRecurrence> recurrence;
 
     /**
@@ -159,7 +159,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * When Lab User Virtual Machines will be started in RFC-3339 format.
      * 
      */
-    @Export(name="startTime", refs={String.class}, tree="[0]")
+    @Export(name="startTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> startTime;
 
     /**
@@ -173,7 +173,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * When Lab User Virtual Machines will be stopped in RFC-3339 format.
      * 
      */
-    @Export(name="stopTime", refs={String.class}, tree="[0]")
+    @Export(name="stopTime", type=String.class, parameters={})
     private Output<String> stopTime;
 
     /**
@@ -187,7 +187,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The IANA Time Zone ID for the Schedule.
      * 
      */
-    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    @Export(name="timeZone", type=String.class, parameters={})
     private Output<String> timeZone;
 
     /**

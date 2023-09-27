@@ -17,6 +17,7 @@ __all__ = [
     'ConfigurationStoreIdentityArgs',
     'ConfigurationStorePrimaryReadKeyArgs',
     'ConfigurationStorePrimaryWriteKeyArgs',
+    'ConfigurationStoreReplicaArgs',
     'ConfigurationStoreSecondaryReadKeyArgs',
     'ConfigurationStoreSecondaryWriteKeyArgs',
 ]
@@ -372,6 +373,75 @@ class ConfigurationStorePrimaryWriteKeyArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class ConfigurationStoreReplicaArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        :param pulumi.Input[str] name: Specifies the name of the replica. Changing this forces a new replica to be created.
+        :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
+        :param pulumi.Input[str] id: The ID of the Access Key.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the replica. Changing this forces a new replica to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the App Configuration Replica.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Access Key.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

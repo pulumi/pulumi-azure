@@ -127,7 +127,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="administratorLogin", refs={String.class}, tree="[0]")
+    @Export(name="administratorLogin", type=String.class, parameters={})
     private Output<String> administratorLogin;
 
     /**
@@ -141,7 +141,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
      * 
      */
-    @Export(name="administratorPassword", refs={String.class}, tree="[0]")
+    @Export(name="administratorPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> administratorPassword;
 
     /**
@@ -155,7 +155,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      * 
      */
-    @Export(name="backupRetentionDays", refs={Integer.class}, tree="[0]")
+    @Export(name="backupRetentionDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> backupRetentionDays;
 
     /**
@@ -173,7 +173,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
      * 
      */
-    @Export(name="createMode", refs={String.class}, tree="[0]")
+    @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
@@ -193,7 +193,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `identity` is required when `customer_managed_key` is specified.
      * 
      */
-    @Export(name="customerManagedKey", refs={FlexibleServerCustomerManagedKey.class}, tree="[0]")
+    @Export(name="customerManagedKey", type=FlexibleServerCustomerManagedKey.class, parameters={})
     private Output</* @Nullable */ FlexibleServerCustomerManagedKey> customerManagedKey;
 
     /**
@@ -209,7 +209,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="delegatedSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="delegatedSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> delegatedSubnetId;
 
     /**
@@ -223,7 +223,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The fully qualified domain name of the MySQL Flexible Server.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -237,7 +237,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="geoRedundantBackupEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="geoRedundantBackupEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> geoRedundantBackupEnabled;
 
     /**
@@ -251,7 +251,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A `high_availability` block as defined below.
      * 
      */
-    @Export(name="highAvailability", refs={FlexibleServerHighAvailability.class}, tree="[0]")
+    @Export(name="highAvailability", type=FlexibleServerHighAvailability.class, parameters={})
     private Output</* @Nullable */ FlexibleServerHighAvailability> highAvailability;
 
     /**
@@ -265,7 +265,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={FlexibleServerIdentity.class}, tree="[0]")
+    @Export(name="identity", type=FlexibleServerIdentity.class, parameters={})
     private Output</* @Nullable */ FlexibleServerIdentity> identity;
 
     /**
@@ -279,7 +279,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -293,7 +293,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A `maintenance_window` block as defined below.
      * 
      */
-    @Export(name="maintenanceWindow", refs={FlexibleServerMaintenanceWindow.class}, tree="[0]")
+    @Export(name="maintenanceWindow", type=FlexibleServerMaintenanceWindow.class, parameters={})
     private Output</* @Nullable */ FlexibleServerMaintenanceWindow> maintenanceWindow;
 
     /**
@@ -307,7 +307,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -321,7 +321,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="pointInTimeRestoreTimeInUtc", refs={String.class}, tree="[0]")
+    @Export(name="pointInTimeRestoreTimeInUtc", type=String.class, parameters={})
     private Output</* @Nullable */ String> pointInTimeRestoreTimeInUtc;
 
     /**
@@ -337,7 +337,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
      * 
      */
-    @Export(name="privateDnsZoneId", refs={String.class}, tree="[0]")
+    @Export(name="privateDnsZoneId", type=String.class, parameters={})
     private Output</* @Nullable */ String> privateDnsZoneId;
 
     /**
@@ -353,7 +353,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * Is the public network access enabled?
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -367,7 +367,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The maximum number of replicas that a primary MySQL Flexible Server can have.
      * 
      */
-    @Export(name="replicaCapacity", refs={Integer.class}, tree="[0]")
+    @Export(name="replicaCapacity", type=Integer.class, parameters={})
     private Output<Integer> replicaCapacity;
 
     /**
@@ -383,7 +383,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
      * 
      */
-    @Export(name="replicationRole", refs={String.class}, tree="[0]")
+    @Export(name="replicationRole", type=String.class, parameters={})
     private Output<String> replicationRole;
 
     /**
@@ -399,7 +399,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -415,7 +415,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -431,7 +431,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="sourceServerId", refs={String.class}, tree="[0]")
+    @Export(name="sourceServerId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceServerId;
 
     /**
@@ -445,7 +445,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A `storage` block as defined below.
      * 
      */
-    @Export(name="storage", refs={FlexibleServerStorage.class}, tree="[0]")
+    @Export(name="storage", type=FlexibleServerStorage.class, parameters={})
     private Output<FlexibleServerStorage> storage;
 
     /**
@@ -459,7 +459,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the MySQL Flexible Server.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -473,7 +473,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
@@ -483,7 +483,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     public Output<String> version() {
         return this.version;
     }
-    @Export(name="zone", refs={String.class}, tree="[0]")
+    @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
     public Output<Optional<String>> zone() {

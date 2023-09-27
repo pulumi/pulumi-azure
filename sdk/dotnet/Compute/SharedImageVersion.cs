@@ -78,6 +78,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> BlobUri { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("deletionOfReplicatedLocationsEnabled")]
+        public Output<bool?> DeletionOfReplicatedLocationsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
         /// </summary>
         [Output("endOfLifeDate")]
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? BlobUri { get; set; }
 
         /// <summary>
+        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("deletionOfReplicatedLocationsEnabled")]
+        public Input<bool>? DeletionOfReplicatedLocationsEnabled { get; set; }
+
+        /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
         /// </summary>
         [Input("endOfLifeDate")]
@@ -334,6 +346,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
+
+        /// <summary>
+        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("deletionOfReplicatedLocationsEnabled")]
+        public Input<bool>? DeletionOfReplicatedLocationsEnabled { get; set; }
 
         /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.

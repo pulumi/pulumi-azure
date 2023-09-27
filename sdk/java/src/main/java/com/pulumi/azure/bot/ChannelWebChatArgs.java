@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.bot;
 
+import com.pulumi.azure.bot.inputs.ChannelWebChatSiteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -64,16 +65,43 @@ public final class ChannelWebChatArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * A list of Web Chat Site names.
      * 
+     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
      */
-    @Import(name="siteNames", required=true)
-    private Output<List<String>> siteNames;
+    @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
+    @Import(name="siteNames")
+    private @Nullable Output<List<String>> siteNames;
 
     /**
      * @return A list of Web Chat Site names.
      * 
+     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
      */
-    public Output<List<String>> siteNames() {
-        return this.siteNames;
+    @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
+    public Optional<Output<List<String>>> siteNames() {
+        return Optional.ofNullable(this.siteNames);
+    }
+
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * 
+     */
+    @Import(name="sites")
+    private @Nullable Output<List<ChannelWebChatSiteArgs>> sites;
+
+    /**
+     * @return A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * 
+     */
+    public Optional<Output<List<ChannelWebChatSiteArgs>>> sites() {
+        return Optional.ofNullable(this.sites);
     }
 
     private ChannelWebChatArgs() {}
@@ -83,6 +111,7 @@ public final class ChannelWebChatArgs extends com.pulumi.resources.ResourceArgs 
         this.location = $.location;
         this.resourceGroupName = $.resourceGroupName;
         this.siteNames = $.siteNames;
+        this.sites = $.sites;
     }
 
     public static Builder builder() {
@@ -169,10 +198,16 @@ public final class ChannelWebChatArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param siteNames A list of Web Chat Site names.
          * 
+         * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+         * 
          */
-        public Builder siteNames(Output<List<String>> siteNames) {
+        @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
+        public Builder siteNames(@Nullable Output<List<String>> siteNames) {
             $.siteNames = siteNames;
             return this;
         }
@@ -180,9 +215,15 @@ public final class ChannelWebChatArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param siteNames A list of Web Chat Site names.
          * 
+         * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
         public Builder siteNames(List<String> siteNames) {
             return siteNames(Output.of(siteNames));
         }
@@ -190,17 +231,53 @@ public final class ChannelWebChatArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param siteNames A list of Web Chat Site names.
          * 
+         * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
+        public Builder siteNames(String... siteNames) {
+            return siteNames(List.of(siteNames));
+        }
+
+        /**
+         * @param sites A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+         * 
          * @return builder
          * 
          */
-        public Builder siteNames(String... siteNames) {
-            return siteNames(List.of(siteNames));
+        public Builder sites(@Nullable Output<List<ChannelWebChatSiteArgs>> sites) {
+            $.sites = sites;
+            return this;
+        }
+
+        /**
+         * @param sites A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sites(List<ChannelWebChatSiteArgs> sites) {
+            return sites(Output.of(sites));
+        }
+
+        /**
+         * @param sites A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sites(ChannelWebChatSiteArgs... sites) {
+            return sites(List.of(sites));
         }
 
         public ChannelWebChatArgs build() {
             $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.siteNames = Objects.requireNonNull($.siteNames, "expected parameter 'siteNames' to be non-null");
             return $;
         }
     }

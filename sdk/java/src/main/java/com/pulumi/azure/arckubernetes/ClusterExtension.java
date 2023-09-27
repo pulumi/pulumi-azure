@@ -84,7 +84,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
+    @Export(name="clusterId", type=String.class, parameters={})
     private Output<String> clusterId;
 
     /**
@@ -98,7 +98,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      * 
      */
-    @Export(name="configurationProtectedSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="configurationProtectedSettings", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> configurationProtectedSettings;
 
     /**
@@ -112,7 +112,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Configuration settings, as name-value pairs for configuring this extension.
      * 
      */
-    @Export(name="configurationSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="configurationSettings", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> configurationSettings;
 
     /**
@@ -126,7 +126,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * The current version of the extension.
      * 
      */
-    @Export(name="currentVersion", refs={String.class}, tree="[0]")
+    @Export(name="currentVersion", type=String.class, parameters={})
     private Output<String> currentVersion;
 
     /**
@@ -140,7 +140,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="extensionType", refs={String.class}, tree="[0]")
+    @Export(name="extensionType", type=String.class, parameters={})
     private Output<String> extensionType;
 
     /**
@@ -154,7 +154,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="identity", refs={ClusterExtensionIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ClusterExtensionIdentity.class, parameters={})
     private Output<ClusterExtensionIdentity> identity;
 
     /**
@@ -168,7 +168,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="releaseNamespace", refs={String.class}, tree="[0]")
+    @Export(name="releaseNamespace", type=String.class, parameters={})
     private Output<String> releaseNamespace;
 
     /**
@@ -196,7 +196,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="releaseTrain", refs={String.class}, tree="[0]")
+    @Export(name="releaseTrain", type=String.class, parameters={})
     private Output<String> releaseTrain;
 
     /**
@@ -210,7 +210,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="targetNamespace", refs={String.class}, tree="[0]")
+    @Export(name="targetNamespace", type=String.class, parameters={})
     private Output<String> targetNamespace;
 
     /**
@@ -224,7 +224,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output</* @Nullable */ String> version;
 
     /**

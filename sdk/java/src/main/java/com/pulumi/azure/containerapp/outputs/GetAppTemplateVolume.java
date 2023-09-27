@@ -6,8 +6,6 @@ package com.pulumi.azure.containerapp.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAppTemplateVolume {
@@ -20,12 +18,12 @@ public final class GetAppTemplateVolume {
      * @return The name of the `AzureFile` storage.
      * 
      */
-    private @Nullable String storageName;
+    private String storageName;
     /**
      * @return The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
      * 
      */
-    private @Nullable String storageType;
+    private String storageType;
 
     private GetAppTemplateVolume() {}
     /**
@@ -39,15 +37,15 @@ public final class GetAppTemplateVolume {
      * @return The name of the `AzureFile` storage.
      * 
      */
-    public Optional<String> storageName() {
-        return Optional.ofNullable(this.storageName);
+    public String storageName() {
+        return this.storageName;
     }
     /**
      * @return The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
      * 
      */
-    public Optional<String> storageType() {
-        return Optional.ofNullable(this.storageType);
+    public String storageType() {
+        return this.storageType;
     }
 
     public static Builder builder() {
@@ -60,8 +58,8 @@ public final class GetAppTemplateVolume {
     @CustomType.Builder
     public static final class Builder {
         private String name;
-        private @Nullable String storageName;
-        private @Nullable String storageType;
+        private String storageName;
+        private String storageType;
         public Builder() {}
         public Builder(GetAppTemplateVolume defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,13 +74,13 @@ public final class GetAppTemplateVolume {
             return this;
         }
         @CustomType.Setter
-        public Builder storageName(@Nullable String storageName) {
-            this.storageName = storageName;
+        public Builder storageName(String storageName) {
+            this.storageName = Objects.requireNonNull(storageName);
             return this;
         }
         @CustomType.Setter
-        public Builder storageType(@Nullable String storageType) {
-            this.storageType = storageType;
+        public Builder storageType(String storageType) {
+            this.storageType = Objects.requireNonNull(storageType);
             return this;
         }
         public GetAppTemplateVolume build() {

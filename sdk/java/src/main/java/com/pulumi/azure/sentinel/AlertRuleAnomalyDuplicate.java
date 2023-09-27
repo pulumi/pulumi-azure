@@ -106,7 +106,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The version of the Anomaly Security ML Analytics Settings.
      * 
      */
-    @Export(name="anomalySettingsVersion", refs={Integer.class}, tree="[0]")
+    @Export(name="anomalySettingsVersion", type=Integer.class, parameters={})
     private Output<Integer> anomalySettingsVersion;
 
     /**
@@ -120,7 +120,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The anomaly version of the Anomaly Alert Rule.
      * 
      */
-    @Export(name="anomalyVersion", refs={String.class}, tree="[0]")
+    @Export(name="anomalyVersion", type=String.class, parameters={})
     private Output<String> anomalyVersion;
 
     /**
@@ -134,7 +134,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
      * 
      */
-    @Export(name="builtInRuleId", refs={String.class}, tree="[0]")
+    @Export(name="builtInRuleId", type=String.class, parameters={})
     private Output<String> builtInRuleId;
 
     /**
@@ -148,7 +148,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The description of the multi select observation.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output<String> description;
 
     /**
@@ -162,7 +162,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -176,7 +176,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * Should the Duplicated Anomaly Alert Rule be enabled?
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -190,7 +190,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The frequency the Anomaly Alert Rule will be run, such as &#34;P1D&#34;.
      * 
      */
-    @Export(name="frequency", refs={String.class}, tree="[0]")
+    @Export(name="frequency", type=String.class, parameters={})
     private Output<String> frequency;
 
     /**
@@ -204,7 +204,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * Whether the current settings of the Anomaly Alert Rule equals default settings.
      * 
      */
-    @Export(name="isDefaultSettings", refs={Boolean.class}, tree="[0]")
+    @Export(name="isDefaultSettings", type=Boolean.class, parameters={})
     private Output<Boolean> isDefaultSettings;
 
     /**
@@ -218,7 +218,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -232,7 +232,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
@@ -246,7 +246,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * A list of `multi_select_observation` blocks as defined below.
      * 
      */
-    @Export(name="multiSelectObservations", refs={List.class,AlertRuleAnomalyDuplicateMultiSelectObservation.class}, tree="[0,1]")
+    @Export(name="multiSelectObservations", type=List.class, parameters={AlertRuleAnomalyDuplicateMultiSelectObservation.class})
     private Output<List<AlertRuleAnomalyDuplicateMultiSelectObservation>> multiSelectObservations;
 
     /**
@@ -260,7 +260,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The name of the multi select observation.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -274,7 +274,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * A list of `prioritized_exclude_observation` blocks as defined below.
      * 
      */
-    @Export(name="prioritizedExcludeObservations", refs={List.class,AlertRuleAnomalyDuplicatePrioritizedExcludeObservation.class}, tree="[0,1]")
+    @Export(name="prioritizedExcludeObservations", type=List.class, parameters={AlertRuleAnomalyDuplicatePrioritizedExcludeObservation.class})
     private Output<List<AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>> prioritizedExcludeObservations;
 
     /**
@@ -288,7 +288,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * A `required_data_connector` block as defined below.
      * 
      */
-    @Export(name="requiredDataConnectors", refs={List.class,AlertRuleAnomalyDuplicateRequiredDataConnector.class}, tree="[0,1]")
+    @Export(name="requiredDataConnectors", type=List.class, parameters={AlertRuleAnomalyDuplicateRequiredDataConnector.class})
     private Output<List<AlertRuleAnomalyDuplicateRequiredDataConnector>> requiredDataConnectors;
 
     /**
@@ -302,7 +302,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * The ID of the anomaly settings definition Id.
      * 
      */
-    @Export(name="settingsDefinitionId", refs={String.class}, tree="[0]")
+    @Export(name="settingsDefinitionId", type=String.class, parameters={})
     private Output<String> settingsDefinitionId;
 
     /**
@@ -316,7 +316,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * A list of `single_select_observation` blocks as defined below.
      * 
      */
-    @Export(name="singleSelectObservations", refs={List.class,AlertRuleAnomalyDuplicateSingleSelectObservation.class}, tree="[0,1]")
+    @Export(name="singleSelectObservations", type=List.class, parameters={AlertRuleAnomalyDuplicateSingleSelectObservation.class})
     private Output<List<AlertRuleAnomalyDuplicateSingleSelectObservation>> singleSelectObservations;
 
     /**
@@ -330,7 +330,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * A list of categories of attacks by which to classify the rule.
      * 
      */
-    @Export(name="tactics", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="tactics", type=List.class, parameters={String.class})
     private Output<List<String>> tactics;
 
     /**
@@ -344,7 +344,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * A list of techniques of attacks by which to classify the rule.
      * 
      */
-    @Export(name="techniques", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="techniques", type=List.class, parameters={String.class})
     private Output<List<String>> techniques;
 
     /**
@@ -360,7 +360,7 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
-    @Export(name="thresholdObservations", refs={List.class,AlertRuleAnomalyDuplicateThresholdObservation.class}, tree="[0,1]")
+    @Export(name="thresholdObservations", type=List.class, parameters={AlertRuleAnomalyDuplicateThresholdObservation.class})
     private Output<List<AlertRuleAnomalyDuplicateThresholdObservation>> thresholdObservations;
 
     /**

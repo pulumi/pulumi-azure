@@ -43,6 +43,21 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="deletionOfReplicatedLocationsEnabled")
+    private @Nullable Output<Boolean> deletionOfReplicatedLocationsEnabled;
+
+    /**
+     * @return Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> deletionOfReplicatedLocationsEnabled() {
+        return Optional.ofNullable(this.deletionOfReplicatedLocationsEnabled);
+    }
+
+    /**
      * The end of life date in RFC3339 format of the Image Version.
      * 
      */
@@ -257,6 +272,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
 
     private SharedImageVersionArgs(SharedImageVersionArgs $) {
         this.blobUri = $.blobUri;
+        this.deletionOfReplicatedLocationsEnabled = $.deletionOfReplicatedLocationsEnabled;
         this.endOfLifeDate = $.endOfLifeDate;
         this.excludeFromLatest = $.excludeFromLatest;
         this.galleryName = $.galleryName;
@@ -317,6 +333,27 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
          */
         public Builder blobUri(String blobUri) {
             return blobUri(Output.of(blobUri));
+        }
+
+        /**
+         * @param deletionOfReplicatedLocationsEnabled Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionOfReplicatedLocationsEnabled(@Nullable Output<Boolean> deletionOfReplicatedLocationsEnabled) {
+            $.deletionOfReplicatedLocationsEnabled = deletionOfReplicatedLocationsEnabled;
+            return this;
+        }
+
+        /**
+         * @param deletionOfReplicatedLocationsEnabled Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionOfReplicatedLocationsEnabled(Boolean deletionOfReplicatedLocationsEnabled) {
+            return deletionOfReplicatedLocationsEnabled(Output.of(deletionOfReplicatedLocationsEnabled));
         }
 
         /**

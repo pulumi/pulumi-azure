@@ -84,7 +84,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
      * 
      */
-    @Export(name="disableBgpRoutePropagation", refs={Boolean.class}, tree="[0]")
+    @Export(name="disableBgpRoutePropagation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disableBgpRoutePropagation;
 
     /**
@@ -98,7 +98,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -112,7 +112,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * The name of the route.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
-    @Export(name="routes", refs={List.class,RouteTableRoute.class}, tree="[0,1]")
+    @Export(name="routes", type=List.class, parameters={RouteTableRoute.class})
     private Output<List<RouteTableRoute>> routes;
 
     /**
@@ -158,7 +158,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * The collection of Subnets associated with this route table.
      * 
      */
-    @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="subnets", type=List.class, parameters={String.class})
     private Output<List<String>> subnets;
 
     /**
@@ -172,7 +172,7 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

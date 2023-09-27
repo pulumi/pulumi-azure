@@ -94,7 +94,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
-    @Export(name="clientProtocol", refs={String.class}, tree="[0]")
+    @Export(name="clientProtocol", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientProtocol;
 
     /**
@@ -108,7 +108,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
+    @Export(name="clusterId", type=String.class, parameters={})
     private Output<String> clusterId;
 
     /**
@@ -122,7 +122,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
-    @Export(name="clusteringPolicy", refs={String.class}, tree="[0]")
+    @Export(name="clusteringPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> clusteringPolicy;
 
     /**
@@ -136,7 +136,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
-    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
+    @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -150,7 +150,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
      * 
      */
-    @Export(name="linkedDatabaseGroupNickname", refs={String.class}, tree="[0]")
+    @Export(name="linkedDatabaseGroupNickname", type=String.class, parameters={})
     private Output</* @Nullable */ String> linkedDatabaseGroupNickname;
 
     /**
@@ -166,7 +166,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      * 
      */
-    @Export(name="linkedDatabaseIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="linkedDatabaseIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> linkedDatabaseIds;
 
     /**
@@ -184,7 +184,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      * 
      */
-    @Export(name="modules", refs={List.class,EnterpriseDatabaseModule.class}, tree="[0,1]")
+    @Export(name="modules", type=List.class, parameters={EnterpriseDatabaseModule.class})
     private Output</* @Nullable */ List<EnterpriseDatabaseModule>> modules;
 
     /**
@@ -200,7 +200,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -214,7 +214,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -228,7 +228,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * The Primary Access Key for the Redis Enterprise Database Instance.
      * 
      */
-    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryAccessKey", type=String.class, parameters={})
     private Output<String> primaryAccessKey;
 
     /**
@@ -246,7 +246,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -260,7 +260,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * The Secondary Access Key for the Redis Enterprise Database Instance.
      * 
      */
-    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryAccessKey", type=String.class, parameters={})
     private Output<String> secondaryAccessKey;
 
     /**

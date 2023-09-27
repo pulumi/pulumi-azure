@@ -55,7 +55,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	//
-	// > **NOTE** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+	// > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
 	MuteActionsAfterAlertDuration pulumi.StringPtrOutput `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -154,7 +154,7 @@ type scheduledQueryRulesAlertV2State struct {
 	Location *string `pulumi:"location"`
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	//
-	// > **NOTE** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+	// > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
 	MuteActionsAfterAlertDuration *string `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -209,7 +209,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	Location pulumi.StringPtrInput
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	//
-	// > **NOTE** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+	// > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
 	MuteActionsAfterAlertDuration pulumi.StringPtrInput
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	Location *string `pulumi:"location"`
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	//
-	// > **NOTE** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+	// > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
 	MuteActionsAfterAlertDuration *string `pulumi:"muteActionsAfterAlertDuration"`
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -312,7 +312,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	Location pulumi.StringPtrInput
 	// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 	//
-	// > **NOTE** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+	// > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
 	MuteActionsAfterAlertDuration pulumi.StringPtrInput
 	// Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -510,7 +510,7 @@ func (o ScheduledQueryRulesAlertV2Output) Location() pulumi.StringOutput {
 
 // Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
 //
-// > **NOTE** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+// > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
 func (o ScheduledQueryRulesAlertV2Output) MuteActionsAfterAlertDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.MuteActionsAfterAlertDuration }).(pulumi.StringPtrOutput)
 }

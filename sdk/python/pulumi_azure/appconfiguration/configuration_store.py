@@ -24,6 +24,7 @@ class ConfigurationStoreArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -43,6 +44,7 @@ class ConfigurationStoreArgs:
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[str] sku: The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
@@ -64,6 +66,8 @@ class ConfigurationStoreArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if soft_delete_retention_days is not None:
@@ -175,6 +179,18 @@ class ConfigurationStoreArgs:
 
     @property
     @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]:
+        """
+        One or more `replica` blocks as defined below.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]):
+        pulumi.set(self, "replicas", value)
+
+    @property
+    @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
@@ -225,6 +241,7 @@ class _ConfigurationStoreState:
                  primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]] = None,
                  secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]] = None,
@@ -234,7 +251,7 @@ class _ConfigurationStoreState:
         """
         Input properties used for looking up and filtering ConfigurationStore resources.
         :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
-        :param pulumi.Input[str] endpoint: The URL of the App Configuration.
+        :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
                
                > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
@@ -249,6 +266,7 @@ class _ConfigurationStoreState:
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
@@ -278,6 +296,8 @@ class _ConfigurationStoreState:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_read_keys is not None:
@@ -307,7 +327,7 @@ class _ConfigurationStoreState:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the App Configuration.
+        The URL of the App Configuration Replica.
         """
         return pulumi.get(self, "endpoint")
 
@@ -418,6 +438,18 @@ class _ConfigurationStoreState:
         pulumi.set(self, "purge_protection_enabled", value)
 
     @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]:
+        """
+        One or more `replica` blocks as defined below.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]]):
+        pulumi.set(self, "replicas", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -504,6 +536,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreReplicaArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
@@ -602,6 +635,10 @@ class ConfigurationStore(pulumi.CustomResource):
                 key_vault_key_identifier=example_key.id,
                 identity_client_id=example_user_assigned_identity.client_id,
             ),
+            replicas=[azure.appconfiguration.ConfigurationStoreReplicaArgs(
+                name="replica1",
+                location="West US",
+            )],
             tags={
                 "environment": "development",
             },
@@ -634,6 +671,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreReplicaArgs']]]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
@@ -740,6 +778,10 @@ class ConfigurationStore(pulumi.CustomResource):
                 key_vault_key_identifier=example_key.id,
                 identity_client_id=example_user_assigned_identity.client_id,
             ),
+            replicas=[azure.appconfiguration.ConfigurationStoreReplicaArgs(
+                name="replica1",
+                location="West US",
+            )],
             tags={
                 "environment": "development",
             },
@@ -779,6 +821,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreReplicaArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
@@ -799,6 +842,7 @@ class ConfigurationStore(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
+            __props__.__dict__["replicas"] = replicas
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -830,6 +874,7 @@ class ConfigurationStore(pulumi.CustomResource):
             primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryWriteKeyArgs']]]]] = None,
             public_network_access: Optional[pulumi.Input[str]] = None,
             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreReplicaArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryReadKeyArgs']]]]] = None,
             secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryWriteKeyArgs']]]]] = None,
@@ -844,7 +889,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationStoreEncryptionArgs']] encryption: An `encryption` block as defined below.
-        :param pulumi.Input[str] endpoint: The URL of the App Configuration.
+        :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']] identity: An `identity` block as defined below.
                
                > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
@@ -859,6 +904,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreReplicaArgs']]]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryReadKeyArgs']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryWriteKeyArgs']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
@@ -882,6 +928,7 @@ class ConfigurationStore(pulumi.CustomResource):
         __props__.__dict__["primary_write_keys"] = primary_write_keys
         __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
+        __props__.__dict__["replicas"] = replicas
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_read_keys"] = secondary_read_keys
         __props__.__dict__["secondary_write_keys"] = secondary_write_keys
@@ -902,7 +949,7 @@ class ConfigurationStore(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
-        The URL of the App Configuration.
+        The URL of the App Configuration Replica.
         """
         return pulumi.get(self, "endpoint")
 
@@ -975,6 +1022,14 @@ class ConfigurationStore(pulumi.CustomResource):
         !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         """
         return pulumi.get(self, "purge_protection_enabled")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationStoreReplica']]]:
+        """
+        One or more `replica` blocks as defined below.
+        """
+        return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -35,6 +35,12 @@ class PolicyCustomRule(dict):
             suggest = "match_conditions"
         elif key == "ruleType":
             suggest = "rule_type"
+        elif key == "groupRateLimitBy":
+            suggest = "group_rate_limit_by"
+        elif key == "rateLimitDuration":
+            suggest = "rate_limit_duration"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PolicyCustomRule. Access the value via the '{suggest}' property getter instead.")
@@ -52,20 +58,36 @@ class PolicyCustomRule(dict):
                  match_conditions: Sequence['outputs.PolicyCustomRuleMatchCondition'],
                  priority: int,
                  rule_type: str,
-                 name: Optional[str] = None):
+                 enabled: Optional[bool] = None,
+                 group_rate_limit_by: Optional[str] = None,
+                 name: Optional[str] = None,
+                 rate_limit_duration: Optional[str] = None,
+                 rate_limit_threshold: Optional[int] = None):
         """
         :param str action: Type of action. Possible values are `Allow`, `Block` and `Log`.
         :param Sequence['PolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_conditions` blocks as defined below.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-        :param str rule_type: Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+        :param str rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
+        :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        :param str group_rate_limit_by: Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param str rate_limit_duration: Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        :param int rate_limit_threshold: Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match_conditions", match_conditions)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_type", rule_type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if group_rate_limit_by is not None:
+            pulumi.set(__self__, "group_rate_limit_by", group_rate_limit_by)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rate_limit_duration is not None:
+            pulumi.set(__self__, "rate_limit_duration", rate_limit_duration)
+        if rate_limit_threshold is not None:
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
 
     @property
     @pulumi.getter
@@ -95,9 +117,25 @@ class PolicyCustomRule(dict):
     @pulumi.getter(name="ruleType")
     def rule_type(self) -> str:
         """
-        Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+        Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         """
         return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="groupRateLimitBy")
+    def group_rate_limit_by(self) -> Optional[str]:
+        """
+        Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        """
+        return pulumi.get(self, "group_rate_limit_by")
 
     @property
     @pulumi.getter
@@ -106,6 +144,22 @@ class PolicyCustomRule(dict):
         Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateLimitDuration")
+    def rate_limit_duration(self) -> Optional[str]:
+        """
+        Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        """
+        return pulumi.get(self, "rate_limit_duration")
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> Optional[int]:
+        """
+        Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+        """
+        return pulumi.get(self, "rate_limit_threshold")
 
 
 @pulumi.output_type
@@ -644,6 +698,8 @@ class PolicyPolicySettings(dict):
             suggest = "max_request_body_size_in_kb"
         elif key == "requestBodyCheck":
             suggest = "request_body_check"
+        elif key == "requestBodyInspectLimitInKb":
+            suggest = "request_body_inspect_limit_in_kb"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PolicyPolicySettings. Access the value via the '{suggest}' property getter instead.")
@@ -662,7 +718,8 @@ class PolicyPolicySettings(dict):
                  log_scrubbing: Optional['outputs.PolicyPolicySettingsLogScrubbing'] = None,
                  max_request_body_size_in_kb: Optional[int] = None,
                  mode: Optional[str] = None,
-                 request_body_check: Optional[bool] = None):
+                 request_body_check: Optional[bool] = None,
+                 request_body_inspect_limit_in_kb: Optional[int] = None):
         """
         :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param int file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
@@ -670,6 +727,7 @@ class PolicyPolicySettings(dict):
         :param int max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param str mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
+        :param int request_body_inspect_limit_in_kb: Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -683,6 +741,8 @@ class PolicyPolicySettings(dict):
             pulumi.set(__self__, "mode", mode)
         if request_body_check is not None:
             pulumi.set(__self__, "request_body_check", request_body_check)
+        if request_body_inspect_limit_in_kb is not None:
+            pulumi.set(__self__, "request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
 
     @property
     @pulumi.getter
@@ -731,6 +791,14 @@ class PolicyPolicySettings(dict):
         Is Request Body Inspection enabled? Defaults to `true`.
         """
         return pulumi.get(self, "request_body_check")
+
+    @property
+    @pulumi.getter(name="requestBodyInspectLimitInKb")
+    def request_body_inspect_limit_in_kb(self) -> Optional[int]:
+        """
+        Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+        """
+        return pulumi.get(self, "request_body_inspect_limit_in_kb")
 
 
 @pulumi.output_type

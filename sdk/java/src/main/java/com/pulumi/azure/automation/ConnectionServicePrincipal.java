@@ -84,7 +84,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * The (Client) ID of the Service Principal.
      * 
      */
-    @Export(name="applicationId", refs={String.class}, tree="[0]")
+    @Export(name="applicationId", type=String.class, parameters={})
     private Output<String> applicationId;
 
     /**
@@ -98,7 +98,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -112,7 +112,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * The thumbprint of the Service Principal Certificate.
      * 
      */
-    @Export(name="certificateThumbprint", refs={String.class}, tree="[0]")
+    @Export(name="certificateThumbprint", type=String.class, parameters={})
     private Output<String> certificateThumbprint;
 
     /**
@@ -126,7 +126,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * A description for this Connection.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -140,7 +140,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * Specifies the name of the Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -168,7 +168,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * The subscription GUID.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
@@ -182,7 +182,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * The ID of the Tenant the Service Principal is assigned in.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

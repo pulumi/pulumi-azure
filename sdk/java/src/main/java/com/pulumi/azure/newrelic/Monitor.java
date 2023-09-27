@@ -83,7 +83,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="accountCreationSource", refs={String.class}, tree="[0]")
+    @Export(name="accountCreationSource", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountCreationSource;
 
     /**
@@ -97,7 +97,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
+    @Export(name="accountId", type=String.class, parameters={})
     private Output<String> accountId;
 
     /**
@@ -111,7 +111,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="ingestionKey", refs={String.class}, tree="[0]")
+    @Export(name="ingestionKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> ingestionKey;
 
     /**
@@ -125,7 +125,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -139,7 +139,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="orgCreationSource", refs={String.class}, tree="[0]")
+    @Export(name="orgCreationSource", type=String.class, parameters={})
     private Output</* @Nullable */ String> orgCreationSource;
 
     /**
@@ -167,7 +167,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="organizationId", refs={String.class}, tree="[0]")
+    @Export(name="organizationId", type=String.class, parameters={})
     private Output<String> organizationId;
 
     /**
@@ -181,7 +181,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="plan", refs={MonitorPlan.class}, tree="[0]")
+    @Export(name="plan", type=MonitorPlan.class, parameters={})
     private Output<MonitorPlan> plan;
 
     /**
@@ -195,7 +195,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -209,7 +209,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="user", refs={MonitorUser.class}, tree="[0]")
+    @Export(name="user", type=MonitorUser.class, parameters={})
     private Output<MonitorUser> user;
 
     /**
@@ -223,7 +223,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
      */
-    @Export(name="userId", refs={String.class}, tree="[0]")
+    @Export(name="userId", type=String.class, parameters={})
     private Output</* @Nullable */ String> userId;
 
     /**

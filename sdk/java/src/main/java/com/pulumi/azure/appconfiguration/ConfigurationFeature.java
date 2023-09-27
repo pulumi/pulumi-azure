@@ -13,7 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -103,7 +103,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="configurationStoreId", refs={String.class}, tree="[0]")
+    @Export(name="configurationStoreId", type=String.class, parameters={})
     private Output<String> configurationStoreId;
 
     /**
@@ -117,7 +117,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * The description of the App Configuration Feature.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -131,7 +131,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * The status of the App Configuration Feature. By default, this is set to false.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -141,7 +141,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    @Export(name="etag", refs={String.class}, tree="[0]")
+    @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
     public Output<String> etag() {
@@ -151,7 +151,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="key", refs={String.class}, tree="[0]")
+    @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
@@ -165,7 +165,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="label", refs={String.class}, tree="[0]")
+    @Export(name="label", type=String.class, parameters={})
     private Output</* @Nullable */ String> label;
 
     /**
@@ -179,7 +179,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * Should this App Configuration Feature be Locked to prevent changes?
      * 
      */
-    @Export(name="locked", refs={Boolean.class}, tree="[0]")
+    @Export(name="locked", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> locked;
 
     /**
@@ -193,7 +193,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -204,24 +204,24 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * A number representing the value of the percentage required to enable this feature.
      * 
      */
-    @Export(name="percentageFilterValue", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> percentageFilterValue;
+    @Export(name="percentageFilterValue", type=Double.class, parameters={})
+    private Output</* @Nullable */ Double> percentageFilterValue;
 
     /**
-     * @return A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * @return A number representing the value of the percentage required to enable this feature.
      * 
      */
-    public Output<Optional<Integer>> percentageFilterValue() {
+    public Output<Optional<Double>> percentageFilterValue() {
         return Codegen.optional(this.percentageFilterValue);
     }
     /**
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -235,7 +235,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * A `targeting_filter` block as defined below.
      * 
      */
-    @Export(name="targetingFilters", refs={List.class,ConfigurationFeatureTargetingFilter.class}, tree="[0,1]")
+    @Export(name="targetingFilters", type=List.class, parameters={ConfigurationFeatureTargetingFilter.class})
     private Output</* @Nullable */ List<ConfigurationFeatureTargetingFilter>> targetingFilters;
 
     /**
@@ -249,7 +249,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * A `timewindow_filter` block as defined below.
      * 
      */
-    @Export(name="timewindowFilters", refs={List.class,ConfigurationFeatureTimewindowFilter.class}, tree="[0,1]")
+    @Export(name="timewindowFilters", type=List.class, parameters={ConfigurationFeatureTimewindowFilter.class})
     private Output</* @Nullable */ List<ConfigurationFeatureTimewindowFilter>> timewindowFilters;
 
     /**

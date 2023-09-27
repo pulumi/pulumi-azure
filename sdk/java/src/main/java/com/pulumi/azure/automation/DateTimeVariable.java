@@ -79,7 +79,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -93,7 +93,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * The description of the Automation Variable.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -107,7 +107,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      * 
      */
-    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
+    @Export(name="encrypted", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> encrypted;
 
     /**
@@ -121,7 +121,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * The name of the Automation Variable. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -149,7 +149,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
      * 
      */
-    @Export(name="value", refs={String.class}, tree="[0]")
+    @Export(name="value", type=String.class, parameters={})
     private Output</* @Nullable */ String> value;
 
     /**

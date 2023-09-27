@@ -8,7 +8,7 @@ import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureTimewindowFi
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -134,17 +134,17 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * A number representing the value of the percentage required to enable this feature.
      * 
      */
     @Import(name="percentageFilterValue")
-    private @Nullable Output<Integer> percentageFilterValue;
+    private @Nullable Output<Double> percentageFilterValue;
 
     /**
-     * @return A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * @return A number representing the value of the percentage required to enable this feature.
      * 
      */
-    public Optional<Output<Integer>> percentageFilterValue() {
+    public Optional<Output<Double>> percentageFilterValue() {
         return Optional.ofNullable(this.percentageFilterValue);
     }
 
@@ -385,23 +385,23 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param percentageFilterValue A list of one or more numbers representing the value of the percentage required to enable this feature.
+         * @param percentageFilterValue A number representing the value of the percentage required to enable this feature.
          * 
          * @return builder
          * 
          */
-        public Builder percentageFilterValue(@Nullable Output<Integer> percentageFilterValue) {
+        public Builder percentageFilterValue(@Nullable Output<Double> percentageFilterValue) {
             $.percentageFilterValue = percentageFilterValue;
             return this;
         }
 
         /**
-         * @param percentageFilterValue A list of one or more numbers representing the value of the percentage required to enable this feature.
+         * @param percentageFilterValue A number representing the value of the percentage required to enable this feature.
          * 
          * @return builder
          * 
          */
-        public Builder percentageFilterValue(Integer percentageFilterValue) {
+        public Builder percentageFilterValue(Double percentageFilterValue) {
             return percentageFilterValue(Output.of(percentageFilterValue));
         }
 

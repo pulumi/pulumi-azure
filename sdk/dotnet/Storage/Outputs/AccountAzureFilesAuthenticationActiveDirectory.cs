@@ -22,21 +22,21 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// Specifies the security identifier (SID).
+        /// Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
         /// </summary>
-        public readonly string DomainSid;
+        public readonly string? DomainSid;
         /// <summary>
-        /// Specifies the Active Directory forest.
+        /// Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
         /// </summary>
-        public readonly string ForestName;
+        public readonly string? ForestName;
         /// <summary>
-        /// Specifies the NetBIOS domain name.
+        /// Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
         /// </summary>
-        public readonly string NetbiosDomainName;
+        public readonly string? NetbiosDomainName;
         /// <summary>
-        /// Specifies the security identifier (SID) for Azure Storage.
+        /// Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
         /// </summary>
-        public readonly string StorageSid;
+        public readonly string? StorageSid;
 
         [OutputConstructor]
         private AccountAzureFilesAuthenticationActiveDirectory(
@@ -44,13 +44,13 @@ namespace Pulumi.Azure.Storage.Outputs
 
             string domainName,
 
-            string domainSid,
+            string? domainSid,
 
-            string forestName,
+            string? forestName,
 
-            string netbiosDomainName,
+            string? netbiosDomainName,
 
-            string storageSid)
+            string? storageSid)
         {
             DomainGuid = domainGuid;
             DomainName = domainName;

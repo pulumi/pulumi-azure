@@ -134,7 +134,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Information about the author of the workbook template.
      * 
      */
-    @Export(name="author", refs={String.class}, tree="[0]")
+    @Export(name="author", type=String.class, parameters={})
     private Output</* @Nullable */ String> author;
 
     /**
@@ -148,7 +148,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * A `galleries` block as defined below.
      * 
      */
-    @Export(name="galleries", refs={List.class,WorkbookTemplateGallery.class}, tree="[0,1]")
+    @Export(name="galleries", type=List.class, parameters={WorkbookTemplateGallery.class})
     private Output<List<WorkbookTemplateGallery>> galleries;
 
     /**
@@ -162,7 +162,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      * 
      */
-    @Export(name="localized", refs={String.class}, tree="[0]")
+    @Export(name="localized", type=String.class, parameters={})
     private Output</* @Nullable */ String> localized;
 
     /**
@@ -176,7 +176,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -190,7 +190,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -218,7 +218,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -232,7 +232,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Application Insights Workbook Template.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -246,7 +246,7 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * Valid JSON object containing workbook template payload.
      * 
      */
-    @Export(name="templateData", refs={String.class}, tree="[0]")
+    @Export(name="templateData", type=String.class, parameters={})
     private Output<String> templateData;
 
     /**

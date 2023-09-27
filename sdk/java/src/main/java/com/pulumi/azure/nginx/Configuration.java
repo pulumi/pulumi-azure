@@ -35,7 +35,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * One or more `config_file` blocks as defined below.
      * 
      */
-    @Export(name="configFiles", refs={List.class,ConfigurationConfigFile.class}, tree="[0,1]")
+    @Export(name="configFiles", type=List.class, parameters={ConfigurationConfigFile.class})
     private Output</* @Nullable */ List<ConfigurationConfigFile>> configFiles;
 
     /**
@@ -49,7 +49,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
      * 
      */
-    @Export(name="nginxDeploymentId", refs={String.class}, tree="[0]")
+    @Export(name="nginxDeploymentId", type=String.class, parameters={})
     private Output<String> nginxDeploymentId;
 
     /**
@@ -63,7 +63,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Specify the package data for this configuration.
      * 
      */
-    @Export(name="packageData", refs={String.class}, tree="[0]")
+    @Export(name="packageData", type=String.class, parameters={})
     private Output</* @Nullable */ String> packageData;
 
     /**
@@ -77,7 +77,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
-    @Export(name="protectedFiles", refs={List.class,ConfigurationProtectedFile.class}, tree="[0,1]")
+    @Export(name="protectedFiles", type=List.class, parameters={ConfigurationProtectedFile.class})
     private Output</* @Nullable */ List<ConfigurationProtectedFile>> protectedFiles;
 
     /**
@@ -91,7 +91,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Specify the root file path of this Nginx Configuration.
      * 
      */
-    @Export(name="rootFile", refs={String.class}, tree="[0]")
+    @Export(name="rootFile", type=String.class, parameters={})
     private Output<String> rootFile;
 
     /**

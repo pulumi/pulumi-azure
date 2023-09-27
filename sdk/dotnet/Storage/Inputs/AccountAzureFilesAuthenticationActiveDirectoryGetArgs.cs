@@ -25,28 +25,28 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the security identifier (SID).
+        /// Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
         /// </summary>
-        [Input("domainSid", required: true)]
-        public Input<string> DomainSid { get; set; } = null!;
+        [Input("domainSid")]
+        public Input<string>? DomainSid { get; set; }
 
         /// <summary>
-        /// Specifies the Active Directory forest.
+        /// Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
         /// </summary>
-        [Input("forestName", required: true)]
-        public Input<string> ForestName { get; set; } = null!;
+        [Input("forestName")]
+        public Input<string>? ForestName { get; set; }
 
         /// <summary>
-        /// Specifies the NetBIOS domain name.
+        /// Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
         /// </summary>
-        [Input("netbiosDomainName", required: true)]
-        public Input<string> NetbiosDomainName { get; set; } = null!;
+        [Input("netbiosDomainName")]
+        public Input<string>? NetbiosDomainName { get; set; }
 
         /// <summary>
-        /// Specifies the security identifier (SID) for Azure Storage.
+        /// Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
         /// </summary>
-        [Input("storageSid", required: true)]
-        public Input<string> StorageSid { get; set; } = null!;
+        [Input("storageSid")]
+        public Input<string>? StorageSid { get; set; }
 
         public AccountAzureFilesAuthenticationActiveDirectoryGetArgs()
         {

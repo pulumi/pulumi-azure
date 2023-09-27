@@ -37,13 +37,13 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<bool>? DynamicPathEnabled { get; set; }
 
         /// <summary>
-        /// The filename of the file on the web server.
+        /// The filename of the file on the Azure Blob Storage Account.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// The folder path to the file on the web server.
+        /// The folder path to the file on the Azure Blob Storage Account.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

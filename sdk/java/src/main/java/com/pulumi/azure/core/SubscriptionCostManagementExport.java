@@ -103,7 +103,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * Is the cost management export active? Default is `true`.
      * 
      */
-    @Export(name="active", refs={Boolean.class}, tree="[0]")
+    @Export(name="active", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -117,7 +117,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * A `export_data_options` block as defined below.
      * 
      */
-    @Export(name="exportDataOptions", refs={SubscriptionCostManagementExportExportDataOptions.class}, tree="[0]")
+    @Export(name="exportDataOptions", type=SubscriptionCostManagementExportExportDataOptions.class, parameters={})
     private Output<SubscriptionCostManagementExportExportDataOptions> exportDataOptions;
 
     /**
@@ -131,7 +131,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * A `export_data_storage_location` block as defined below.
      * 
      */
-    @Export(name="exportDataStorageLocation", refs={SubscriptionCostManagementExportExportDataStorageLocation.class}, tree="[0]")
+    @Export(name="exportDataStorageLocation", type=SubscriptionCostManagementExportExportDataStorageLocation.class, parameters={})
     private Output<SubscriptionCostManagementExportExportDataStorageLocation> exportDataStorageLocation;
 
     /**
@@ -145,7 +145,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -159,7 +159,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * The date the export will stop capturing information.
      * 
      */
-    @Export(name="recurrencePeriodEndDate", refs={String.class}, tree="[0]")
+    @Export(name="recurrencePeriodEndDate", type=String.class, parameters={})
     private Output<String> recurrencePeriodEndDate;
 
     /**
@@ -173,7 +173,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * The date the export will start capturing information.
      * 
      */
-    @Export(name="recurrencePeriodStartDate", refs={String.class}, tree="[0]")
+    @Export(name="recurrencePeriodStartDate", type=String.class, parameters={})
     private Output<String> recurrencePeriodStartDate;
 
     /**
@@ -187,7 +187,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      * 
      */
-    @Export(name="recurrenceType", refs={String.class}, tree="[0]")
+    @Export(name="recurrenceType", type=String.class, parameters={})
     private Output<String> recurrenceType;
 
     /**
@@ -201,7 +201,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**

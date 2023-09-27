@@ -91,7 +91,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The creation date of the SQL Elastic Pool.
      * 
      */
-    @Export(name="creationDate", refs={String.class}, tree="[0]")
+    @Export(name="creationDate", type=String.class, parameters={})
     private Output<String> creationDate;
 
     /**
@@ -105,7 +105,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
      * 
      */
-    @Export(name="dbDtuMax", refs={Integer.class}, tree="[0]")
+    @Export(name="dbDtuMax", type=Integer.class, parameters={})
     private Output<Integer> dbDtuMax;
 
     /**
@@ -119,7 +119,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
      * 
      */
-    @Export(name="dbDtuMin", refs={Integer.class}, tree="[0]")
+    @Export(name="dbDtuMin", type=Integer.class, parameters={})
     private Output<Integer> dbDtuMin;
 
     /**
@@ -133,7 +133,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
      * 
      */
-    @Export(name="dtu", refs={Integer.class}, tree="[0]")
+    @Export(name="dtu", type=Integer.class, parameters={})
     private Output<Integer> dtu;
 
     /**
@@ -147,7 +147,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="edition", refs={String.class}, tree="[0]")
+    @Export(name="edition", type=String.class, parameters={})
     private Output<String> edition;
 
     /**
@@ -161,7 +161,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -175,7 +175,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -189,7 +189,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
      * 
      */
-    @Export(name="poolSize", refs={Integer.class}, tree="[0]")
+    @Export(name="poolSize", type=Integer.class, parameters={})
     private Output<Integer> poolSize;
 
     /**
@@ -203,7 +203,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -217,7 +217,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -231,7 +231,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

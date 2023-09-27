@@ -85,7 +85,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -99,7 +99,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="groupName", refs={String.class}, tree="[0]")
+    @Export(name="groupName", type=String.class, parameters={})
     private Output<String> groupName;
 
     /**
@@ -113,7 +113,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="productId", refs={String.class}, tree="[0]")
+    @Export(name="productId", type=String.class, parameters={})
     private Output<String> productId;
 
     /**
@@ -127,7 +127,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

@@ -88,7 +88,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
      * 
      */
-    @Export(name="contentTypesToCompresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="contentTypesToCompresses", type=List.class, parameters={String.class})
     private Output<List<String>> contentTypesToCompresses;
 
     /**
@@ -102,7 +102,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
      * 
      */
-    @Export(name="deliveryRules", refs={List.class,EndpointDeliveryRule.class}, tree="[0,1]")
+    @Export(name="deliveryRules", type=List.class, parameters={EndpointDeliveryRule.class})
     private Output</* @Nullable */ List<EndpointDeliveryRule>> deliveryRules;
 
     /**
@@ -116,7 +116,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The Fully Qualified Domain Name of the CDN Endpoint.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -130,7 +130,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
      * 
      */
-    @Export(name="geoFilters", refs={List.class,EndpointGeoFilter.class}, tree="[0,1]")
+    @Export(name="geoFilters", type=List.class, parameters={EndpointGeoFilter.class})
     private Output</* @Nullable */ List<EndpointGeoFilter>> geoFilters;
 
     /**
@@ -144,7 +144,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
      * 
      */
-    @Export(name="globalDeliveryRule", refs={EndpointGlobalDeliveryRule.class}, tree="[0]")
+    @Export(name="globalDeliveryRule", type=EndpointGlobalDeliveryRule.class, parameters={})
     private Output</* @Nullable */ EndpointGlobalDeliveryRule> globalDeliveryRule;
 
     /**
@@ -158,7 +158,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Indicates whether compression is to be enabled.
      * 
      */
-    @Export(name="isCompressionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="isCompressionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isCompressionEnabled;
 
     /**
@@ -172,7 +172,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Defaults to `true`.
      * 
      */
-    @Export(name="isHttpAllowed", refs={Boolean.class}, tree="[0]")
+    @Export(name="isHttpAllowed", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isHttpAllowed;
 
     /**
@@ -186,7 +186,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Defaults to `true`.
      * 
      */
-    @Export(name="isHttpsAllowed", refs={Boolean.class}, tree="[0]")
+    @Export(name="isHttpsAllowed", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isHttpsAllowed;
 
     /**
@@ -200,7 +200,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -214,7 +214,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -228,7 +228,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
      * 
      */
-    @Export(name="optimizationType", refs={String.class}, tree="[0]")
+    @Export(name="optimizationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> optimizationType;
 
     /**
@@ -242,7 +242,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The host header CDN provider will send along with content requests to origins.
      * 
      */
-    @Export(name="originHostHeader", refs={String.class}, tree="[0]")
+    @Export(name="originHostHeader", type=String.class, parameters={})
     private Output</* @Nullable */ String> originHostHeader;
 
     /**
@@ -256,7 +256,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The path used at for origin requests.
      * 
      */
-    @Export(name="originPath", refs={String.class}, tree="[0]")
+    @Export(name="originPath", type=String.class, parameters={})
     private Output<String> originPath;
 
     /**
@@ -270,7 +270,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="origins", refs={List.class,EndpointOrigin.class}, tree="[0,1]")
+    @Export(name="origins", type=List.class, parameters={EndpointOrigin.class})
     private Output<List<EndpointOrigin>> origins;
 
     /**
@@ -286,7 +286,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
-    @Export(name="probePath", refs={String.class}, tree="[0]")
+    @Export(name="probePath", type=String.class, parameters={})
     private Output<String> probePath;
 
     /**
@@ -302,7 +302,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="profileName", refs={String.class}, tree="[0]")
+    @Export(name="profileName", type=String.class, parameters={})
     private Output<String> profileName;
 
     /**
@@ -316,7 +316,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      * 
      */
-    @Export(name="querystringCachingBehaviour", refs={String.class}, tree="[0]")
+    @Export(name="querystringCachingBehaviour", type=String.class, parameters={})
     private Output</* @Nullable */ String> querystringCachingBehaviour;
 
     /**
@@ -330,7 +330,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -344,7 +344,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -96,7 +96,7 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
      * Should the Accelerator plugin be enabled?
      * 
      */
-    @Export(name="applicationAcceleratorEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="applicationAcceleratorEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> applicationAcceleratorEnabled;
 
     /**
@@ -110,7 +110,7 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
      * Should the Application Live View be enabled?
      * 
      */
-    @Export(name="applicationLiveViewEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="applicationLiveViewEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> applicationLiveViewEnabled;
 
     /**
@@ -124,7 +124,7 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
      * Is public network access enabled?
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -152,7 +152,7 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      * 
      */
-    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudServiceId", type=String.class, parameters={})
     private Output<String> springCloudServiceId;
 
     /**
@@ -166,7 +166,7 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
      * A `sso` block as defined below.
      * 
      */
-    @Export(name="sso", refs={SpringCloudDevToolPortalSso.class}, tree="[0]")
+    @Export(name="sso", type=SpringCloudDevToolPortalSso.class, parameters={})
     private Output</* @Nullable */ SpringCloudDevToolPortalSso> sso;
 
     /**

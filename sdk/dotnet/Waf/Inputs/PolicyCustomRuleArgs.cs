@@ -18,6 +18,18 @@ namespace Pulumi.Azure.Waf.Inputs
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        /// </summary>
+        [Input("groupRateLimitBy")]
+        public Input<string>? GroupRateLimitBy { get; set; }
+
         [Input("matchConditions", required: true)]
         private InputList<Inputs.PolicyCustomRuleMatchConditionArgs>? _matchConditions;
 
@@ -43,7 +55,19 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+        /// Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        /// </summary>
+        [Input("rateLimitDuration")]
+        public Input<string>? RateLimitDuration { get; set; }
+
+        /// <summary>
+        /// Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+        /// </summary>
+        [Input("rateLimitThreshold")]
+        public Input<int>? RateLimitThreshold { get; set; }
+
+        /// <summary>
+        /// Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

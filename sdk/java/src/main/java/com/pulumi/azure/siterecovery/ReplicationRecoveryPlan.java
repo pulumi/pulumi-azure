@@ -289,7 +289,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * An `azure_to_azure_settings` block defined as block.
      * 
      */
-    @Export(name="azureToAzureSettings", refs={ReplicationRecoveryPlanAzureToAzureSettings.class}, tree="[0]")
+    @Export(name="azureToAzureSettings", type=ReplicationRecoveryPlanAzureToAzureSettings.class, parameters={})
     private Output</* @Nullable */ ReplicationRecoveryPlanAzureToAzureSettings> azureToAzureSettings;
 
     /**
@@ -305,7 +305,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Export(name="bootRecoveryGroups", refs={List.class,ReplicationRecoveryPlanBootRecoveryGroup.class}, tree="[0,1]")
+    @Export(name="bootRecoveryGroups", type=List.class, parameters={ReplicationRecoveryPlanBootRecoveryGroup.class})
     private Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups;
 
     /**
@@ -323,7 +323,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Export(name="failoverRecoveryGroup", refs={ReplicationRecoveryPlanFailoverRecoveryGroup.class}, tree="[0]")
+    @Export(name="failoverRecoveryGroup", type=ReplicationRecoveryPlanFailoverRecoveryGroup.class, parameters={})
     private Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup;
 
     /**
@@ -339,7 +339,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -359,7 +359,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * 
      */
     @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-    @Export(name="recoveryGroups", refs={List.class,ReplicationRecoveryPlanRecoveryGroup.class}, tree="[0,1]")
+    @Export(name="recoveryGroups", type=List.class, parameters={ReplicationRecoveryPlanRecoveryGroup.class})
     private Output<List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups;
 
     /**
@@ -375,7 +375,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultId", type=String.class, parameters={})
     private Output<String> recoveryVaultId;
 
     /**
@@ -391,7 +391,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Export(name="shutdownRecoveryGroup", refs={ReplicationRecoveryPlanShutdownRecoveryGroup.class}, tree="[0]")
+    @Export(name="shutdownRecoveryGroup", type=ReplicationRecoveryPlanShutdownRecoveryGroup.class, parameters={})
     private Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup;
 
     /**
@@ -407,7 +407,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
      * 
      */
-    @Export(name="sourceRecoveryFabricId", refs={String.class}, tree="[0]")
+    @Export(name="sourceRecoveryFabricId", type=String.class, parameters={})
     private Output<String> sourceRecoveryFabricId;
 
     /**
@@ -421,7 +421,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
      * 
      */
-    @Export(name="targetRecoveryFabricId", refs={String.class}, tree="[0]")
+    @Export(name="targetRecoveryFabricId", type=String.class, parameters={})
     private Output<String> targetRecoveryFabricId;
 
     /**

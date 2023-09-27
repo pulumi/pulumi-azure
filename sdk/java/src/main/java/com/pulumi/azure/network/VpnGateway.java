@@ -98,7 +98,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
      * 
      */
-    @Export(name="bgpRouteTranslationForNatEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="bgpRouteTranslationForNatEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> bgpRouteTranslationForNatEnabled;
 
     /**
@@ -112,7 +112,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * A `bgp_settings` block as defined below.
      * 
      */
-    @Export(name="bgpSettings", refs={VpnGatewayBgpSettings.class}, tree="[0]")
+    @Export(name="bgpSettings", type=VpnGatewayBgpSettings.class, parameters={})
     private Output<VpnGatewayBgpSettings> bgpSettings;
 
     /**
@@ -126,7 +126,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -140,7 +140,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -168,7 +168,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="routingPreference", refs={String.class}, tree="[0]")
+    @Export(name="routingPreference", type=String.class, parameters={})
     private Output<String> routingPreference;
 
     /**
@@ -182,7 +182,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The Scale Unit for this VPN Gateway. Defaults to `1`.
      * 
      */
-    @Export(name="scaleUnit", refs={Integer.class}, tree="[0]")
+    @Export(name="scaleUnit", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> scaleUnit;
 
     /**
@@ -196,7 +196,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the VPN Gateway.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -210,7 +210,7 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**

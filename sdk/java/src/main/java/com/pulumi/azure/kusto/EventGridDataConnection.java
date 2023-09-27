@@ -153,7 +153,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      * 
      */
-    @Export(name="blobStorageEventType", refs={String.class}, tree="[0]")
+    @Export(name="blobStorageEventType", type=String.class, parameters={})
     private Output</* @Nullable */ String> blobStorageEventType;
 
     /**
@@ -167,7 +167,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", refs={String.class}, tree="[0]")
+    @Export(name="clusterName", type=String.class, parameters={})
     private Output<String> clusterName;
 
     /**
@@ -181,7 +181,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      * 
      */
-    @Export(name="dataFormat", refs={String.class}, tree="[0]")
+    @Export(name="dataFormat", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataFormat;
 
     /**
@@ -195,7 +195,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", refs={String.class}, tree="[0]")
+    @Export(name="databaseName", type=String.class, parameters={})
     private Output<String> databaseName;
 
     /**
@@ -209,7 +209,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseRoutingType", refs={String.class}, tree="[0]")
+    @Export(name="databaseRoutingType", type=String.class, parameters={})
     private Output</* @Nullable */ String> databaseRoutingType;
 
     /**
@@ -223,7 +223,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * The resource ID of the event grid that is subscribed to the storage account events.
      * 
      */
-    @Export(name="eventgridResourceId", refs={String.class}, tree="[0]")
+    @Export(name="eventgridResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventgridResourceId;
 
     /**
@@ -237,7 +237,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubConsumerGroupName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubConsumerGroupName", type=String.class, parameters={})
     private Output<String> eventhubConsumerGroupName;
 
     /**
@@ -251,7 +251,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubId", refs={String.class}, tree="[0]")
+    @Export(name="eventhubId", type=String.class, parameters={})
     private Output<String> eventhubId;
 
     /**
@@ -265,7 +265,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -279,7 +279,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
-    @Export(name="managedIdentityResourceId", refs={String.class}, tree="[0]")
+    @Export(name="managedIdentityResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedIdentityResourceId;
 
     /**
@@ -293,7 +293,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      * 
      */
-    @Export(name="mappingRuleName", refs={String.class}, tree="[0]")
+    @Export(name="mappingRuleName", type=String.class, parameters={})
     private Output</* @Nullable */ String> mappingRuleName;
 
     /**
@@ -307,7 +307,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -321,7 +321,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -335,7 +335,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * is the first record of every file ignored? Defaults to `false`.
      * 
      */
-    @Export(name="skipFirstRecord", refs={Boolean.class}, tree="[0]")
+    @Export(name="skipFirstRecord", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> skipFirstRecord;
 
     /**
@@ -349,7 +349,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -363,7 +363,7 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      * 
      */
-    @Export(name="tableName", refs={String.class}, tree="[0]")
+    @Export(name="tableName", type=String.class, parameters={})
     private Output</* @Nullable */ String> tableName;
 
     /**

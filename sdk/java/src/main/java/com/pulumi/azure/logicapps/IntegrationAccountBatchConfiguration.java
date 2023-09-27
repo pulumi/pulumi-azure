@@ -84,7 +84,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="batchGroupName", refs={String.class}, tree="[0]")
+    @Export(name="batchGroupName", type=String.class, parameters={})
     private Output<String> batchGroupName;
 
     /**
@@ -98,7 +98,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="integrationAccountName", type=String.class, parameters={})
     private Output<String> integrationAccountName;
 
     /**
@@ -112,7 +112,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -126,7 +126,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
      * 
      */
-    @Export(name="releaseCriteria", refs={IntegrationAccountBatchConfigurationReleaseCriteria.class}, tree="[0]")
+    @Export(name="releaseCriteria", type=IntegrationAccountBatchConfigurationReleaseCriteria.class, parameters={})
     private Output<IntegrationAccountBatchConfigurationReleaseCriteria> releaseCriteria;
 
     /**
@@ -154,7 +154,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

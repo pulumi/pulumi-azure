@@ -94,7 +94,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs of App Settings.
      * 
      */
-    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
@@ -108,7 +108,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", refs={LinuxWebAppAuthSettings.class}, tree="[0]")
+    @Export(name="authSettings", type=LinuxWebAppAuthSettings.class, parameters={})
     private Output</* @Nullable */ LinuxWebAppAuthSettings> authSettings;
 
     /**
@@ -122,7 +122,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * An `auth_settings_v2` block as defined below.
      * 
      */
-    @Export(name="authSettingsV2", refs={LinuxWebAppAuthSettingsV2.class}, tree="[0]")
+    @Export(name="authSettingsV2", type=LinuxWebAppAuthSettingsV2.class, parameters={})
     private Output</* @Nullable */ LinuxWebAppAuthSettingsV2> authSettingsV2;
 
     /**
@@ -136,7 +136,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", refs={LinuxWebAppBackup.class}, tree="[0]")
+    @Export(name="backup", type=LinuxWebAppBackup.class, parameters={})
     private Output</* @Nullable */ LinuxWebAppBackup> backup;
 
     /**
@@ -150,7 +150,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * Should Client Affinity be enabled?
      * 
      */
-    @Export(name="clientAffinityEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientAffinityEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientAffinityEnabled;
 
     /**
@@ -164,7 +164,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * Should Client Certificates be enabled?
      * 
      */
-    @Export(name="clientCertificateEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientCertificateEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientCertificateEnabled;
 
     /**
@@ -178,7 +178,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * Paths to exclude when using client certificates, separated by ;
      * 
      */
-    @Export(name="clientCertificateExclusionPaths", refs={String.class}, tree="[0]")
+    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateExclusionPaths;
 
     /**
@@ -192,7 +192,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
      * 
      */
-    @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
+    @Export(name="clientCertificateMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
@@ -206,7 +206,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * One or more `connection_string` blocks as defined below.
      * 
      */
-    @Export(name="connectionStrings", refs={List.class,LinuxWebAppConnectionString.class}, tree="[0,1]")
+    @Export(name="connectionStrings", type=List.class, parameters={LinuxWebAppConnectionString.class})
     private Output</* @Nullable */ List<LinuxWebAppConnectionString>> connectionStrings;
 
     /**
@@ -220,7 +220,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
+    @Export(name="customDomainVerificationId", type=String.class, parameters={})
     private Output<String> customDomainVerificationId;
 
     /**
@@ -234,7 +234,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The default hostname of the Linux Web App.
      * 
      */
-    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
+    @Export(name="defaultHostname", type=String.class, parameters={})
     private Output<String> defaultHostname;
 
     /**
@@ -248,7 +248,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * Should the Linux Web App be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -262,7 +262,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Environment used by App Service.
      * 
      */
-    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="hostingEnvironmentId", type=String.class, parameters={})
     private Output<String> hostingEnvironmentId;
 
     /**
@@ -276,7 +276,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * Should the Linux Web App require HTTPS connections.
      * 
      */
-    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="httpsOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -290,7 +290,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={LinuxWebAppIdentity.class}, tree="[0]")
+    @Export(name="identity", type=LinuxWebAppIdentity.class, parameters={})
     private Output</* @Nullable */ LinuxWebAppIdentity> identity;
 
     /**
@@ -304,7 +304,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -318,7 +318,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The Kind value for this Linux Web App.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output<String> kind;
 
     /**
@@ -332,7 +332,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -346,7 +346,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `logs` block as defined below.
      * 
      */
-    @Export(name="logs", refs={LinuxWebAppLogs.class}, tree="[0]")
+    @Export(name="logs", type=LinuxWebAppLogs.class, parameters={})
     private Output</* @Nullable */ LinuxWebAppLogs> logs;
 
     /**
@@ -360,7 +360,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The Site Credentials Username used for publishing.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -374,7 +374,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
-    @Export(name="outboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> outboundIpAddressLists;
 
     /**
@@ -388,7 +388,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
-    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="outboundIpAddresses", type=String.class, parameters={})
     private Output<String> outboundIpAddresses;
 
     /**
@@ -402,7 +402,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `possible_outbound_ip_address_list` block as defined below.
      * 
      */
-    @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="possibleOutboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
@@ -416,7 +416,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -430,7 +430,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * Should public network access be enabled for the Web App. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -444,7 +444,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -458,7 +458,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * The ID of the Service Plan that this Linux App Service will be created in.
      * 
      */
-    @Export(name="servicePlanId", refs={String.class}, tree="[0]")
+    @Export(name="servicePlanId", type=String.class, parameters={})
     private Output<String> servicePlanId;
 
     /**
@@ -472,7 +472,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `site_config` block as defined below.
      * 
      */
-    @Export(name="siteConfig", refs={LinuxWebAppSiteConfig.class}, tree="[0]")
+    @Export(name="siteConfig", type=LinuxWebAppSiteConfig.class, parameters={})
     private Output<LinuxWebAppSiteConfig> siteConfig;
 
     /**
@@ -486,7 +486,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below.
      * 
      */
-    @Export(name="siteCredentials", refs={List.class,LinuxWebAppSiteCredential.class}, tree="[0,1]")
+    @Export(name="siteCredentials", type=List.class, parameters={LinuxWebAppSiteCredential.class})
     private Output<List<LinuxWebAppSiteCredential>> siteCredentials;
 
     /**
@@ -500,7 +500,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A `sticky_settings` block as defined below.
      * 
      */
-    @Export(name="stickySettings", refs={LinuxWebAppStickySettings.class}, tree="[0]")
+    @Export(name="stickySettings", type=LinuxWebAppStickySettings.class, parameters={})
     private Output</* @Nullable */ LinuxWebAppStickySettings> stickySettings;
 
     /**
@@ -514,7 +514,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,LinuxWebAppStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={LinuxWebAppStorageAccount.class})
     private Output</* @Nullable */ List<LinuxWebAppStorageAccount>> storageAccounts;
 
     /**
@@ -528,7 +528,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Linux Web App.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -538,7 +538,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
@@ -550,7 +550,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
-    @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
+    @Export(name="zipDeployFile", type=String.class, parameters={})
     private Output<String> zipDeployFile;
 
     /**

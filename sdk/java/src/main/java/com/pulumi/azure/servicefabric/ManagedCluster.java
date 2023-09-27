@@ -95,7 +95,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
      * 
      */
-    @Export(name="authentication", refs={ManagedClusterAuthentication.class}, tree="[0]")
+    @Export(name="authentication", type=ManagedClusterAuthentication.class, parameters={})
     private Output</* @Nullable */ ManagedClusterAuthentication> authentication;
 
     /**
@@ -109,7 +109,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * If true, backup service is enabled.
      * 
      */
-    @Export(name="backupServiceEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="backupServiceEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> backupServiceEnabled;
 
     /**
@@ -123,7 +123,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Port to use when connecting to the cluster.
      * 
      */
-    @Export(name="clientConnectionPort", refs={Integer.class}, tree="[0]")
+    @Export(name="clientConnectionPort", type=Integer.class, parameters={})
     private Output<Integer> clientConnectionPort;
 
     /**
@@ -137,7 +137,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * One or more `custom_fabric_setting` blocks as defined below.
      * 
      */
-    @Export(name="customFabricSettings", refs={List.class,ManagedClusterCustomFabricSetting.class}, tree="[0,1]")
+    @Export(name="customFabricSettings", type=List.class, parameters={ManagedClusterCustomFabricSetting.class})
     private Output</* @Nullable */ List<ManagedClusterCustomFabricSetting>> customFabricSettings;
 
     /**
@@ -151,7 +151,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Hostname for the cluster. If unset the cluster&#39;s name will be used..
      * 
      */
-    @Export(name="dnsName", refs={String.class}, tree="[0]")
+    @Export(name="dnsName", type=String.class, parameters={})
     private Output<String> dnsName;
 
     /**
@@ -165,7 +165,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * If true, DNS service is enabled.
      * 
      */
-    @Export(name="dnsServiceEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="dnsServiceEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dnsServiceEnabled;
 
     /**
@@ -179,7 +179,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
      * 
      */
-    @Export(name="httpGatewayPort", refs={Integer.class}, tree="[0]")
+    @Export(name="httpGatewayPort", type=Integer.class, parameters={})
     private Output<Integer> httpGatewayPort;
 
     /**
@@ -193,7 +193,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * One or more `lb_rule` blocks as defined below.
      * 
      */
-    @Export(name="lbRules", refs={List.class,ManagedClusterLbRule.class}, tree="[0,1]")
+    @Export(name="lbRules", type=List.class, parameters={ManagedClusterLbRule.class})
     private Output<List<ManagedClusterLbRule>> lbRules;
 
     /**
@@ -207,7 +207,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -221,7 +221,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -235,7 +235,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * One or more `node_type` blocks as defined below.
      * 
      */
-    @Export(name="nodeTypes", refs={List.class,ManagedClusterNodeType.class}, tree="[0,1]")
+    @Export(name="nodeTypes", type=List.class, parameters={ManagedClusterNodeType.class})
     private Output</* @Nullable */ List<ManagedClusterNodeType>> nodeTypes;
 
     /**
@@ -249,7 +249,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Administrator password for the VMs that will be created as part of this cluster.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -263,7 +263,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -277,7 +277,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -291,7 +291,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Resource Group.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -305,7 +305,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
      * 
      */
-    @Export(name="upgradeWave", refs={String.class}, tree="[0]")
+    @Export(name="upgradeWave", type=String.class, parameters={})
     private Output</* @Nullable */ String> upgradeWave;
 
     /**
@@ -319,7 +319,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * Administrator password for the VMs that will be created as part of this cluster.
      * 
      */
-    @Export(name="username", refs={String.class}, tree="[0]")
+    @Export(name="username", type=String.class, parameters={})
     private Output</* @Nullable */ String> username;
 
     /**

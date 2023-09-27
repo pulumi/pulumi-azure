@@ -81,7 +81,7 @@ public class NetworkDataNetwork extends com.pulumi.resources.CustomResource {
      * A description of this Mobile Network Data Network.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -95,7 +95,7 @@ public class NetworkDataNetwork extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Mobile Network Data Network should exist. Changing this forces a new Mobile Network Data Network to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -109,7 +109,7 @@ public class NetworkDataNetwork extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Mobile Network. Changing this forces a new Mobile Network Data Network to be created.
      * 
      */
-    @Export(name="mobileNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="mobileNetworkId", type=String.class, parameters={})
     private Output<String> mobileNetworkId;
 
     /**
@@ -123,7 +123,7 @@ public class NetworkDataNetwork extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class NetworkDataNetwork extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network Data Network.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

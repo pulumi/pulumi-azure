@@ -125,7 +125,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
      * 
      */
-    @Export(name="defaultAction", refs={String.class}, tree="[0]")
+    @Export(name="defaultAction", type=String.class, parameters={})
     private Output<String> defaultAction;
 
     /**
@@ -139,7 +139,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * A `private_endpoint` block as defined below.
      * 
      */
-    @Export(name="privateEndpoints", refs={List.class,ServiceNetworkAclPrivateEndpoint.class}, tree="[0,1]")
+    @Export(name="privateEndpoints", type=List.class, parameters={ServiceNetworkAclPrivateEndpoint.class})
     private Output</* @Nullable */ List<ServiceNetworkAclPrivateEndpoint>> privateEndpoints;
 
     /**
@@ -153,7 +153,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * A `public_network` block as defined below.
      * 
      */
-    @Export(name="publicNetwork", refs={ServiceNetworkAclPublicNetwork.class}, tree="[0]")
+    @Export(name="publicNetwork", type=ServiceNetworkAclPublicNetwork.class, parameters={})
     private Output<ServiceNetworkAclPublicNetwork> publicNetwork;
 
     /**
@@ -167,7 +167,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * The ID of the SignalR service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="signalrServiceId", refs={String.class}, tree="[0]")
+    @Export(name="signalrServiceId", type=String.class, parameters={})
     private Output<String> signalrServiceId;
 
     /**

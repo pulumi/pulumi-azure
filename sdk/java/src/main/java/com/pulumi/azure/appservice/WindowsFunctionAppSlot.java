@@ -112,7 +112,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
-    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
@@ -126,7 +126,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * an `auth_settings` block as detailed below.
      * 
      */
-    @Export(name="authSettings", refs={WindowsFunctionAppSlotAuthSettings.class}, tree="[0]")
+    @Export(name="authSettings", type=WindowsFunctionAppSlotAuthSettings.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppSlotAuthSettings> authSettings;
 
     /**
@@ -140,7 +140,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * an `auth_settings_v2` block as detailed below.
      * 
      */
-    @Export(name="authSettingsV2", refs={WindowsFunctionAppSlotAuthSettingsV2.class}, tree="[0]")
+    @Export(name="authSettingsV2", type=WindowsFunctionAppSlotAuthSettingsV2.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppSlotAuthSettingsV2> authSettingsV2;
 
     /**
@@ -154,7 +154,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * a `backup` block as detailed below.
      * 
      */
-    @Export(name="backup", refs={WindowsFunctionAppSlotBackup.class}, tree="[0]")
+    @Export(name="backup", type=WindowsFunctionAppSlotBackup.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppSlotBackup> backup;
 
     /**
@@ -168,7 +168,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
-    @Export(name="builtinLoggingEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="builtinLoggingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> builtinLoggingEnabled;
 
     /**
@@ -182,7 +182,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Should the Function App Slot use Client Certificates.
      * 
      */
-    @Export(name="clientCertificateEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientCertificateEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientCertificateEnabled;
 
     /**
@@ -196,7 +196,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Paths to exclude when using client certificates, separated by ;
      * 
      */
-    @Export(name="clientCertificateExclusionPaths", refs={String.class}, tree="[0]")
+    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateExclusionPaths;
 
     /**
@@ -210,7 +210,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
-    @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
+    @Export(name="clientCertificateMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
@@ -224,7 +224,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * a `connection_string` block as detailed below.
      * 
      */
-    @Export(name="connectionStrings", refs={List.class,WindowsFunctionAppSlotConnectionString.class}, tree="[0,1]")
+    @Export(name="connectionStrings", type=List.class, parameters={WindowsFunctionAppSlotConnectionString.class})
     private Output</* @Nullable */ List<WindowsFunctionAppSlotConnectionString>> connectionStrings;
 
     /**
@@ -238,7 +238,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Force disable the content share settings.
      * 
      */
-    @Export(name="contentShareForceDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="contentShareForceDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> contentShareForceDisabled;
 
     /**
@@ -252,7 +252,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
+    @Export(name="customDomainVerificationId", type=String.class, parameters={})
     private Output<String> customDomainVerificationId;
 
     /**
@@ -266,7 +266,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      * 
      */
-    @Export(name="dailyMemoryTimeQuota", refs={Integer.class}, tree="[0]")
+    @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
@@ -280,7 +280,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The default hostname of the Windows Function App Slot.
      * 
      */
-    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
+    @Export(name="defaultHostname", type=String.class, parameters={})
     private Output<String> defaultHostname;
 
     /**
@@ -294,7 +294,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Is the Windows Function App Slot enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -308,7 +308,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="functionAppId", refs={String.class}, tree="[0]")
+    @Export(name="functionAppId", type=String.class, parameters={})
     private Output<String> functionAppId;
 
     /**
@@ -322,7 +322,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The runtime version associated with the Function App Slot. Defaults to `~4`.
      * 
      */
-    @Export(name="functionsExtensionVersion", refs={String.class}, tree="[0]")
+    @Export(name="functionsExtensionVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> functionsExtensionVersion;
 
     /**
@@ -336,7 +336,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The ID of the App Service Environment used by Function App Slot.
      * 
      */
-    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="hostingEnvironmentId", type=String.class, parameters={})
     private Output<String> hostingEnvironmentId;
 
     /**
@@ -350,7 +350,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Can the Function App Slot only be accessed via HTTPS?
      * 
      */
-    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="httpsOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -364,7 +364,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * an `identity` block as detailed below.
      * 
      */
-    @Export(name="identity", refs={WindowsFunctionAppSlotIdentity.class}, tree="[0]")
+    @Export(name="identity", type=WindowsFunctionAppSlotIdentity.class, parameters={})
     private Output</* @Nullable */ WindowsFunctionAppSlotIdentity> identity;
 
     /**
@@ -378,7 +378,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -392,7 +392,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The Kind value for this Windows Function App Slot.
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output<String> kind;
 
     /**
@@ -406,7 +406,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -420,7 +420,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A list of outbound IP addresses. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
-    @Export(name="outboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> outboundIpAddressLists;
 
     /**
@@ -434,7 +434,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      * 
      */
-    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="outboundIpAddresses", type=String.class, parameters={})
     private Output<String> outboundIpAddresses;
 
     /**
@@ -448,7 +448,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
-    @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="possibleOutboundIpAddressLists", type=List.class, parameters={String.class})
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
@@ -462,7 +462,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -476,7 +476,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * Should public network access be enabled for the Function App. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -490,7 +490,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
      * 
      */
-    @Export(name="servicePlanId", refs={String.class}, tree="[0]")
+    @Export(name="servicePlanId", type=String.class, parameters={})
     private Output</* @Nullable */ String> servicePlanId;
 
     /**
@@ -504,7 +504,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * a `site_config` block as detailed below.
      * 
      */
-    @Export(name="siteConfig", refs={WindowsFunctionAppSlotSiteConfig.class}, tree="[0]")
+    @Export(name="siteConfig", type=WindowsFunctionAppSlotSiteConfig.class, parameters={})
     private Output<WindowsFunctionAppSlotSiteConfig> siteConfig;
 
     /**
@@ -518,7 +518,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A `site_credential` block as defined below.
      * 
      */
-    @Export(name="siteCredentials", refs={List.class,WindowsFunctionAppSlotSiteCredential.class}, tree="[0,1]")
+    @Export(name="siteCredentials", type=List.class, parameters={WindowsFunctionAppSlotSiteCredential.class})
     private Output<List<WindowsFunctionAppSlotSiteCredential>> siteCredentials;
 
     /**
@@ -532,7 +532,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The access key which will be used to access the storage account for the Function App Slot.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -546,7 +546,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * The backend storage account name which will be used by this Function App Slot.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountName;
 
     /**
@@ -560,7 +560,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,WindowsFunctionAppSlotStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={WindowsFunctionAppSlotStorageAccount.class})
     private Output</* @Nullable */ List<WindowsFunctionAppSlotStorageAccount>> storageAccounts;
 
     /**
@@ -578,7 +578,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
-    @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
+    @Export(name="storageKeyVaultSecretId", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageKeyVaultSecretId;
 
     /**
@@ -598,7 +598,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
-    @Export(name="storageUsesManagedIdentity", refs={Boolean.class}, tree="[0]")
+    @Export(name="storageUsesManagedIdentity", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> storageUsesManagedIdentity;
 
     /**
@@ -614,7 +614,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -624,7 +624,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     public Output<Optional<String>> virtualNetworkSubnetId() {

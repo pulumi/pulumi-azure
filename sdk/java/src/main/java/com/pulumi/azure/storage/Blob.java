@@ -91,7 +91,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      * 
      */
-    @Export(name="accessTier", refs={String.class}, tree="[0]")
+    @Export(name="accessTier", type=String.class, parameters={})
     private Output<String> accessTier;
 
     /**
@@ -105,7 +105,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      * 
      */
-    @Export(name="cacheControl", refs={String.class}, tree="[0]")
+    @Export(name="cacheControl", type=String.class, parameters={})
     private Output</* @Nullable */ String> cacheControl;
 
     /**
@@ -119,7 +119,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="contentMd5", refs={String.class}, tree="[0]")
+    @Export(name="contentMd5", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentMd5;
 
     /**
@@ -133,7 +133,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
      * 
      */
-    @Export(name="contentType", refs={String.class}, tree="[0]")
+    @Export(name="contentType", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentType;
 
     /**
@@ -147,7 +147,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * A map of custom blob metadata.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> metadata;
 
     /**
@@ -161,7 +161,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      * 
      */
-    @Export(name="parallelism", refs={Integer.class}, tree="[0]")
+    @Export(name="parallelism", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> parallelism;
 
     /**
@@ -195,7 +195,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `size` is required if `source_uri` is not set.
      * 
      */
-    @Export(name="size", refs={Integer.class}, tree="[0]")
+    @Export(name="size", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> size;
 
     /**
@@ -211,7 +211,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="source", refs={AssetOrArchive.class}, tree="[0]")
+    @Export(name="source", type=AssetOrArchive.class, parameters={})
     private Output</* @Nullable */ AssetOrArchive> source;
 
     /**
@@ -225,7 +225,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceContent", refs={String.class}, tree="[0]")
+    @Export(name="sourceContent", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceContent;
 
     /**
@@ -239,7 +239,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
      * 
      */
-    @Export(name="sourceUri", refs={String.class}, tree="[0]")
+    @Export(name="sourceUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceUri;
 
     /**
@@ -254,7 +254,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
@@ -269,7 +269,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageContainerName", refs={String.class}, tree="[0]")
+    @Export(name="storageContainerName", type=String.class, parameters={})
     private Output<String> storageContainerName;
 
     /**
@@ -283,7 +283,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
@@ -297,7 +297,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * The URL of the blob
      * 
      */
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**

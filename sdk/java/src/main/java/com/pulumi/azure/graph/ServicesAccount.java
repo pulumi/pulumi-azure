@@ -77,7 +77,7 @@ public class ServicesAccount extends com.pulumi.resources.CustomResource {
      * Customer owned application ID. Changing this forces a new Account to be created.
      * 
      */
-    @Export(name="applicationId", refs={String.class}, tree="[0]")
+    @Export(name="applicationId", type=String.class, parameters={})
     private Output<String> applicationId;
 
     /**
@@ -91,7 +91,7 @@ public class ServicesAccount extends com.pulumi.resources.CustomResource {
      * Billing Plan Id.
      * 
      */
-    @Export(name="billingPlanId", refs={String.class}, tree="[0]")
+    @Export(name="billingPlanId", type=String.class, parameters={})
     private Output<String> billingPlanId;
 
     /**
@@ -105,7 +105,7 @@ public class ServicesAccount extends com.pulumi.resources.CustomResource {
      * Specifies the name of this Account. Changing this forces a new Account to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class ServicesAccount extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -133,7 +133,7 @@ public class ServicesAccount extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Account.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
