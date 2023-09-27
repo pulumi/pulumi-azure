@@ -119,6 +119,12 @@ export class Environment extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+     */
+    public readonly zoneRedundancyEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -146,6 +152,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["staticIpAddress"] = state ? state.staticIpAddress : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -159,6 +166,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["dockerBridgeCidr"] = undefined /*out*/;
             resourceInputs["platformReservedCidr"] = undefined /*out*/;
@@ -232,6 +240,12 @@ export interface EnvironmentState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+     */
+    zoneRedundancyEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -274,4 +288,10 @@ export interface EnvironmentArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+     */
+    zoneRedundancyEnabled?: pulumi.Input<boolean>;
 }

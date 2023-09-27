@@ -129,13 +129,18 @@ export class CustomerManagedKey extends pulumi.CustomResource {
     }
 
     /**
+     * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     */
+    public readonly federatedIdentityClientId!: pulumi.Output<string | undefined>;
+    /**
      * The name of Key Vault Key.
      */
     public readonly keyName!: pulumi.Output<string>;
+    public readonly keyVaultId!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Key Vault.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    public readonly keyVaultUri!: pulumi.Output<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
@@ -162,8 +167,10 @@ export class CustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerManagedKeyState | undefined;
+            resourceInputs["federatedIdentityClientId"] = state ? state.federatedIdentityClientId : undefined;
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["keyVaultUri"] = state ? state.keyVaultUri : undefined;
             resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
@@ -172,14 +179,13 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.keyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVaultId'");
-            }
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
+            resourceInputs["federatedIdentityClientId"] = args ? args.federatedIdentityClientId : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["keyVaultUri"] = args ? args.keyVaultUri : undefined;
             resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
@@ -194,13 +200,18 @@ export class CustomerManagedKey extends pulumi.CustomResource {
  */
 export interface CustomerManagedKeyState {
     /**
+     * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     */
+    federatedIdentityClientId?: pulumi.Input<string>;
+    /**
      * The name of Key Vault Key.
      */
     keyName?: pulumi.Input<string>;
-    /**
-     * The ID of the Key Vault.
-     */
     keyVaultId?: pulumi.Input<string>;
+    /**
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
+     */
+    keyVaultUri?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
@@ -220,13 +231,18 @@ export interface CustomerManagedKeyState {
  */
 export interface CustomerManagedKeyArgs {
     /**
+     * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     */
+    federatedIdentityClientId?: pulumi.Input<string>;
+    /**
      * The name of Key Vault Key.
      */
     keyName: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `keyVaultId`, or `keyVaultUri` must be specified.
      */
-    keyVaultId: pulumi.Input<string>;
+    keyVaultUri?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */

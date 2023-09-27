@@ -83,6 +83,10 @@ export class DatasetParquet extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
+     * A `azureBlobFsLocation` block as defined below.
+     */
+    public readonly azureBlobFsLocation!: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobFsLocation | undefined>;
+    /**
      * A `azureBlobStorageLocation` block as defined below.
      *
      * The following supported arguments are specific to Parquet Dataset:
@@ -144,6 +148,7 @@ export class DatasetParquet extends pulumi.CustomResource {
             const state = argsOrState as DatasetParquetState | undefined;
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["azureBlobFsLocation"] = state ? state.azureBlobFsLocation : undefined;
             resourceInputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
             resourceInputs["compressionCodec"] = state ? state.compressionCodec : undefined;
             resourceInputs["compressionLevel"] = state ? state.compressionLevel : undefined;
@@ -165,6 +170,7 @@ export class DatasetParquet extends pulumi.CustomResource {
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["azureBlobFsLocation"] = args ? args.azureBlobFsLocation : undefined;
             resourceInputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
             resourceInputs["compressionCodec"] = args ? args.compressionCodec : undefined;
             resourceInputs["compressionLevel"] = args ? args.compressionLevel : undefined;
@@ -196,6 +202,10 @@ export interface DatasetParquetState {
      * List of tags that can be used for describing the Data Factory Dataset.
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `azureBlobFsLocation` block as defined below.
+     */
+    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetParquetAzureBlobFsLocation>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      *
@@ -258,6 +268,10 @@ export interface DatasetParquetArgs {
      * List of tags that can be used for describing the Data Factory Dataset.
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `azureBlobFsLocation` block as defined below.
+     */
+    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetParquetAzureBlobFsLocation>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      *

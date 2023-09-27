@@ -182,9 +182,21 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly onDemandBurstingEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     *
+     * > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     */
+    public readonly optimizedFrequentAttachEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     */
+    public readonly performancePlusEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether it is allowed to access the disk via public network. Defaults to `true`.
      *
@@ -284,7 +296,9 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
             resourceInputs["onDemandBurstingEnabled"] = state ? state.onDemandBurstingEnabled : undefined;
+            resourceInputs["optimizedFrequentAttachEnabled"] = state ? state.optimizedFrequentAttachEnabled : undefined;
             resourceInputs["osType"] = state ? state.osType : undefined;
+            resourceInputs["performancePlusEnabled"] = state ? state.performancePlusEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secureVmDiskEncryptionSetId"] = state ? state.secureVmDiskEncryptionSetId : undefined;
@@ -328,7 +342,9 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             resourceInputs["onDemandBurstingEnabled"] = args ? args.onDemandBurstingEnabled : undefined;
+            resourceInputs["optimizedFrequentAttachEnabled"] = args ? args.optimizedFrequentAttachEnabled : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["performancePlusEnabled"] = args ? args.performancePlusEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["secureVmDiskEncryptionSetId"] = args ? args.secureVmDiskEncryptionSetId : undefined;
@@ -440,9 +456,21 @@ export interface ManagedDiskState {
      */
     onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
+     * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     *
+     * > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     */
+    optimizedFrequentAttachEnabled?: pulumi.Input<boolean>;
+    /**
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     */
+    performancePlusEnabled?: pulumi.Input<boolean>;
     /**
      * Whether it is allowed to access the disk via public network. Defaults to `true`.
      *
@@ -603,9 +631,21 @@ export interface ManagedDiskArgs {
      */
     onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
+     * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     *
+     * > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     */
+    optimizedFrequentAttachEnabled?: pulumi.Input<boolean>;
+    /**
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     */
+    performancePlusEnabled?: pulumi.Input<boolean>;
     /**
      * Whether it is allowed to access the disk via public network. Defaults to `true`.
      *

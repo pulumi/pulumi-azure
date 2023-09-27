@@ -78,6 +78,18 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly appliedDnsServers!: pulumi.Output<string[]>;
     /**
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     *
+     * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     */
+    public readonly auxiliaryMode!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     *
+     * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     */
+    public readonly auxiliarySku!: pulumi.Output<string | undefined>;
+    /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      *
      * > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -158,6 +170,8 @@ export class NetworkInterface extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceState | undefined;
             resourceInputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
+            resourceInputs["auxiliaryMode"] = state ? state.auxiliaryMode : undefined;
+            resourceInputs["auxiliarySku"] = state ? state.auxiliarySku : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
@@ -181,6 +195,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["auxiliaryMode"] = args ? args.auxiliaryMode : undefined;
+            resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
@@ -211,6 +227,18 @@ export interface NetworkInterfaceState {
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      */
     appliedDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     *
+     * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     */
+    auxiliaryMode?: pulumi.Input<string>;
+    /**
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     *
+     * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     */
+    auxiliarySku?: pulumi.Input<string>;
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      *
@@ -283,6 +311,18 @@ export interface NetworkInterfaceState {
  * The set of arguments for constructing a NetworkInterface resource.
  */
 export interface NetworkInterfaceArgs {
+    /**
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     *
+     * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     */
+    auxiliaryMode?: pulumi.Input<string>;
+    /**
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     *
+     * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     */
+    auxiliarySku?: pulumi.Input<string>;
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      *

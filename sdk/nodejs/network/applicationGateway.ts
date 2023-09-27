@@ -47,8 +47,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     sku: {
- *         name: "Standard_Small",
- *         tier: "Standard",
+ *         name: "Standard_v2",
+ *         tier: "Standard_v2",
  *         capacity: 2,
  *     },
  *     gatewayIpConfigurations: [{
@@ -82,6 +82,7 @@ import * as utilities from "../utilities";
  *     }],
  *     requestRoutingRules: [{
  *         name: requestRoutingRuleName,
+ *         priority: 9,
  *         ruleType: "Basic",
  *         httpListenerName: listenerName,
  *         backendAddressPoolName: backendAddressPoolName,

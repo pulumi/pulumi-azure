@@ -98,6 +98,9 @@ export interface GetPublicIPArgs {
  * A collection of values returned by getPublicIP.
  */
 export interface GetPublicIPResult {
+    /**
+     * The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     */
     readonly allocationMethod: string;
     /**
      * The DDoS protection mode of the public IP.
@@ -135,9 +138,15 @@ export interface GetPublicIPResult {
      * The IP version being used, for example `IPv4` or `IPv6`.
      */
     readonly ipVersion: string;
+    /**
+     * The region that this public ip exists.
+     */
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
+    /**
+     * The fully qualified domain name that resolves to this public IP address.
+     */
     readonly reverseFqdn: string;
     /**
      * The SKU of the Public IP.

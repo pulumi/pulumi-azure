@@ -58,6 +58,10 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
+     * An `identity` block as documented below.
+     */
+    readonly identities: outputs.eventgrid.GetDomainIdentity[];
+    /**
      * One or more `inboundIpRule` blocks as defined below.
      */
     readonly inboundIpRules: outputs.eventgrid.GetDomainInboundIpRule[];

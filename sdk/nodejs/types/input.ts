@@ -2133,6 +2133,25 @@ export namespace appconfiguration {
         secret?: pulumi.Input<string>;
     }
 
+    export interface ConfigurationStoreReplica {
+        /**
+         * The URL of the App Configuration Replica.
+         */
+        endpoint?: pulumi.Input<string>;
+        /**
+         * The ID of the Access Key.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * Specifies the name of the replica. Changing this forces a new replica to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface ConfigurationStoreSecondaryReadKey {
         /**
          * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -2999,6 +3018,44 @@ export namespace appplatform {
 }
 
 export namespace appservice {
+    export interface AppConnectionAuthentication {
+        /**
+         * Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+         */
+        secret?: pulumi.Input<string>;
+        /**
+         * Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+         */
+        subscriptionId?: pulumi.Input<string>;
+        /**
+         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AppConnectionSecretStore {
+        /**
+         * The key vault id to store secret.
+         */
+        keyVaultId: pulumi.Input<string>;
+    }
+
     export interface AppServiceAuthSettings {
         /**
          * A `activeDirectory` block as defined below.
@@ -14777,6 +14834,17 @@ export namespace appservice {
     }
 }
 
+export namespace arc {
+    export interface ResourceBridgeApplianceIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace arckubernetes {
     export interface ClusterExtensionIdentity {
         /**
@@ -16678,6 +16746,10 @@ export namespace bot {
          */
         enabled?: pulumi.Input<boolean>;
         /**
+         * Is the endpoint parameters enabled for this site?
+         */
+        endpointParametersEnabled?: pulumi.Input<boolean>;
+        /**
          * Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
          */
         enhancedAuthenticationEnabled?: pulumi.Input<boolean>;
@@ -16698,9 +16770,17 @@ export namespace bot {
          */
         name: pulumi.Input<string>;
         /**
+         * Is the storage site enabled for detailed logging? Defaults to `true`.
+         */
+        storageEnabled?: pulumi.Input<boolean>;
+        /**
          * This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
          */
         trustedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is the user upload enabled for this site? Defaults to `true`.
+         */
+        userUploadEnabled?: pulumi.Input<boolean>;
         /**
          * Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
          */
@@ -16731,6 +16811,25 @@ export namespace bot {
          * The secret which is used to access the Line Channel.
          */
         secret: pulumi.Input<string>;
+    }
+
+    export interface ChannelWebChatSite {
+        /**
+         * Is the endpoint parameters enabled for this site?
+         */
+        endpointParametersEnabled?: pulumi.Input<boolean>;
+        /**
+         * The name of the site.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Is the storage site enabled for detailed logging? Defaults to `true`.
+         */
+        storageEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the user upload enabled for this site? Defaults to `true`.
+         */
+        userUploadEnabled?: pulumi.Input<boolean>;
     }
 }
 
@@ -20400,6 +20499,10 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
+         * Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+         */
+        excludeFromLatestEnabled?: pulumi.Input<boolean>;
+        /**
          * The Azure Region in which this Image Version should exist.
          */
         name: pulumi.Input<string>;
@@ -22064,9 +22167,21 @@ export namespace containerapp {
 
     export interface AppTemplate {
         /**
+         * One or more `azureQueueScaleRule` blocks as defined below.
+         */
+        azureQueueScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateAzureQueueScaleRule>[]>;
+        /**
          * One or more `container` blocks as detailed below.
          */
         containers: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainer>[]>;
+        /**
+         * One or more `customScaleRule` blocks as defined below.
+         */
+        customScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateCustomScaleRule>[]>;
+        /**
+         * One or more `httpScaleRule` blocks as defined below.
+         */
+        httpScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateHttpScaleRule>[]>;
         /**
          * The maximum number of replicas for this container.
          */
@@ -22080,9 +22195,43 @@ export namespace containerapp {
          */
         revisionSuffix?: pulumi.Input<string>;
         /**
+         * One or more `tcpScaleRule` blocks as defined below.
+         */
+        tcpScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateTcpScaleRule>[]>;
+        /**
          * A `volume` block as detailed below.
          */
         volumes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateVolume>[]>;
+    }
+
+    export interface AppTemplateAzureQueueScaleRule {
+        /**
+         * One or more `authentication` blocks as defined below.
+         */
+        authentications: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateAzureQueueScaleRuleAuthentication>[]>;
+        /**
+         * The name of the Scaling Rule
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the length of the queue to trigger scaling actions.
+         */
+        queueLength: pulumi.Input<number>;
+        /**
+         * The name of the Azure Queue
+         */
+        queueName: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateAzureQueueScaleRuleAuthentication {
+        /**
+         * The name of the Container App Secret to use for this Scale Rule Authentication.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+         */
+        triggerParameter: pulumi.Input<string>;
     }
 
     export interface AppTemplateContainer {
@@ -22322,6 +22471,88 @@ export namespace containerapp {
          * The path in the container at which to mount this volume.
          */
         path: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateCustomScaleRule {
+        /**
+         * Zero or more `authentication` blocks as defined below.
+         */
+        authentications?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateCustomScaleRuleAuthentication>[]>;
+        /**
+         * The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+         */
+        customRuleType: pulumi.Input<string>;
+        /**
+         * A map of string key-value pairs to configure the Custom Scale Rule.
+         */
+        metadata: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The name of the Scaling Rule
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateCustomScaleRuleAuthentication {
+        /**
+         * The name of the Container App Secret to use for this Scale Rule Authentication.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+         */
+        triggerParameter: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateHttpScaleRule {
+        /**
+         * Zero or more `authentication` blocks as defined below.
+         */
+        authentications?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateHttpScaleRuleAuthentication>[]>;
+        /**
+         * The number of concurrent requests to trigger scaling.
+         */
+        concurrentRequests: pulumi.Input<string>;
+        /**
+         * The name of the Scaling Rule
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateHttpScaleRuleAuthentication {
+        /**
+         * The name of the Container App Secret to use for this Scale Rule Authentication.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+         */
+        triggerParameter?: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateTcpScaleRule {
+        /**
+         * Zero or more `authentication` blocks as defined below.
+         */
+        authentications?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateTcpScaleRuleAuthentication>[]>;
+        /**
+         * The number of concurrent requests to trigger scaling.
+         */
+        concurrentRequests: pulumi.Input<string>;
+        /**
+         * The name of the Scaling Rule
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateTcpScaleRuleAuthentication {
+        /**
+         * The name of the Container App Secret to use for this Scale Rule Authentication.
+         */
+        secretName: pulumi.Input<string>;
+        /**
+         * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
+         */
+        triggerParameter?: pulumi.Input<string>;
     }
 
     export interface AppTemplateVolume {
@@ -26717,6 +26948,21 @@ export namespace datafactory {
         type?: pulumi.Input<string>;
     }
 
+    export interface DatasetAzureSqlTableSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of the column.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface DatasetBinaryAzureBlobStorageLocation {
         /**
          * The container on the Azure Blob Storage Account hosting the file.
@@ -26814,9 +27060,21 @@ export namespace datafactory {
 
     export interface DatasetDelimitedTextAzureBlobFsLocation {
         /**
+         * Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFileSystemEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
          * The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
          */
-        fileSystem: pulumi.Input<string>;
+        fileSystem?: pulumi.Input<string>;
         /**
          * The filename of the file.
          */
@@ -26987,6 +27245,33 @@ export namespace datafactory {
         type?: pulumi.Input<string>;
     }
 
+    export interface DatasetParquetAzureBlobFsLocation {
+        /**
+         * Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFileSystemEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicFilenameEnabled?: pulumi.Input<boolean>;
+        /**
+         * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+         */
+        dynamicPathEnabled?: pulumi.Input<boolean>;
+        /**
+         * The container on the Azure Data Lake Storage Account hosting the file.
+         */
+        fileSystem?: pulumi.Input<string>;
+        /**
+         * The filename of the file on the Azure Data Lake Storage Account.
+         */
+        filename?: pulumi.Input<string>;
+        /**
+         * The folder path to the file on the Azure Data Lake Storage Account.
+         */
+        path?: pulumi.Input<string>;
+    }
+
     export interface DatasetParquetAzureBlobStorageLocation {
         /**
          * The container on the Azure Blob Storage Account hosting the file.
@@ -27005,11 +27290,11 @@ export namespace datafactory {
          */
         dynamicPathEnabled?: pulumi.Input<boolean>;
         /**
-         * The filename of the file on the web server.
+         * The filename of the file on the Azure Blob Storage Account.
          */
         filename?: pulumi.Input<string>;
         /**
-         * The folder path to the file on the web server.
+         * The folder path to the file on the Azure Blob Storage Account.
          */
         path?: pulumi.Input<string>;
     }
@@ -27115,13 +27400,17 @@ export namespace datafactory {
          */
         gitUrl: pulumi.Input<string>;
         /**
+         * Is automated publishing enabled? Defaults to `false`.
+         *
+         * > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+         */
+        publishingEnabled?: pulumi.Input<boolean>;
+        /**
          * Specifies the name of the git repository.
          */
         repositoryName: pulumi.Input<string>;
         /**
          * Specifies the root folder within the repository. Set to `/` for the top level.
-         *
-         * > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
          */
         rootFolder: pulumi.Input<string>;
     }
@@ -27177,6 +27466,10 @@ export namespace datafactory {
          * Specifies the name of the VSTS project.
          */
         projectName: pulumi.Input<string>;
+        /**
+         * Is automated publishing enabled? Defaults to `false`.
+         */
+        publishingEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the name of the git repository.
          */
@@ -40780,13 +41073,17 @@ export namespace monitoring {
         /**
          * The name of a Diagnostic Log Category Group for this Resource.
          *
-         * > **NOTE:** Not all resources have category groups available.****
+         * > **NOTE:** Not all resources have category groups available.
+         *
+         * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
          */
         categoryGroup?: pulumi.Input<string>;
         /**
          * A `retentionPolicy` block as defined below.
          *
-         * @deprecated `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         *
+         * @deprecated `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLogRetentionPolicy>;
     }
@@ -40794,6 +41091,7 @@ export namespace monitoring {
     export interface DiagnosticSettingEnabledLogRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
+         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -40815,6 +41113,8 @@ export namespace monitoring {
          * The name of a Diagnostic Log Category Group for this Resource.
          *
          * > **NOTE:** Not all resources have category groups available.
+         *
+         * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
          */
         categoryGroup?: pulumi.Input<string>;
         /**
@@ -40823,6 +41123,10 @@ export namespace monitoring {
         enabled?: pulumi.Input<boolean>;
         /**
          * A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         *
+         * @deprecated `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingLogRetentionPolicy>;
     }
@@ -40830,6 +41134,7 @@ export namespace monitoring {
     export interface DiagnosticSettingLogRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
+         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -40853,6 +41158,10 @@ export namespace monitoring {
         enabled?: pulumi.Input<boolean>;
         /**
          * A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         *
+         * @deprecated `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingMetricRetentionPolicy>;
     }
@@ -40860,6 +41169,7 @@ export namespace monitoring {
     export interface DiagnosticSettingMetricRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
+         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -41173,6 +41483,8 @@ export namespace monitoring {
         failingPeriods?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriods>;
         /**
          * Specifies the column containing the metric measure number.
+         *
+         * > **Note** `metricMeasureColumn` is required if `timeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metricMeasureColumn` can not be specified if `timeAggregationMethod` is `Count`.
          */
         metricMeasureColumn?: pulumi.Input<string>;
         /**
@@ -42955,6 +43267,8 @@ export namespace network {
         name: pulumi.Input<string>;
         /**
          * The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+         *
+         * !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
          */
         tier: pulumi.Input<string>;
     }
@@ -43040,6 +43354,10 @@ export namespace network {
          * Should client certificate issuer DN be verified? Defaults to `false`.
          */
         verifyClientCertIssuerDn?: pulumi.Input<boolean>;
+        /**
+         * Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         */
+        verifyClientCertificateRevocation?: pulumi.Input<string>;
     }
 
     export interface ApplicationGatewaySslProfileSslPolicy {
@@ -44666,6 +44984,21 @@ export namespace network {
         nextHopType: pulumi.Input<string>;
     }
 
+    export interface RoutingIntentRoutingPolicy {
+        /**
+         * A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+         */
+        destinations: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The unique name for the routing policy.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The resource ID of the next hop on which this routing policy is applicable to.
+         */
+        nextHop: pulumi.Input<string>;
+    }
+
     export interface SubnetDelegation {
         /**
          * A name for this delegation.
@@ -45665,6 +45998,36 @@ export namespace newrelic {
          * Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
          */
         phoneNumber: pulumi.Input<string>;
+    }
+
+    export interface TagRuleLogTagFilter {
+        /**
+         * Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Specifies the name (also known as the key) of the tag.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the value of the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface TagRuleMetricTagFilter {
+        /**
+         * Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Specifies the name (also known as the key) of the tag.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the value of the tag.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -46913,6 +47276,8 @@ export namespace redis {
     export interface CacheRedisConfiguration {
         /**
          * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+         *
+         * > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
          */
         aofBackupEnabled?: pulumi.Input<boolean>;
         /**
@@ -49312,8 +49677,6 @@ export namespace storage {
     export interface AccountAzureFilesAuthentication {
         /**
          * A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
-         *
-         * > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
          */
         activeDirectory?: pulumi.Input<inputs.storage.AccountAzureFilesAuthenticationActiveDirectory>;
         /**
@@ -49332,30 +49695,34 @@ export namespace storage {
          */
         domainName: pulumi.Input<string>;
         /**
-         * Specifies the security identifier (SID).
+         * Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
          */
-        domainSid: pulumi.Input<string>;
+        domainSid?: pulumi.Input<string>;
         /**
-         * Specifies the Active Directory forest.
+         * Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
          */
-        forestName: pulumi.Input<string>;
+        forestName?: pulumi.Input<string>;
         /**
-         * Specifies the NetBIOS domain name.
+         * Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
          */
-        netbiosDomainName: pulumi.Input<string>;
+        netbiosDomainName?: pulumi.Input<string>;
         /**
-         * Specifies the security identifier (SID) for Azure Storage.
+         * Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
          */
-        storageSid: pulumi.Input<string>;
+        storageSid?: pulumi.Input<string>;
     }
 
     export interface AccountBlobProperties {
         /**
          * Is the blob service properties for change feed events enabled? Default to `false`.
+         *
+         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         changeFeedEnabled?: pulumi.Input<boolean>;
         /**
          * The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+         *
+         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         changeFeedRetentionInDays?: pulumi.Input<number>;
         /**
@@ -49376,14 +49743,20 @@ export namespace storage {
         deleteRetentionPolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesDeleteRetentionPolicy>;
         /**
          * Is the last access time based tracking enabled? Default to `false`.
+         *
+         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         lastAccessTimeEnabled?: pulumi.Input<boolean>;
         /**
          * A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
+         *
+         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         restorePolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesRestorePolicy>;
         /**
          * Is versioning enabled? Default to `false`.
+         *
+         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         versioningEnabled?: pulumi.Input<boolean>;
     }
@@ -51023,6 +51396,14 @@ export namespace waf {
          */
         action: pulumi.Input<string>;
         /**
+         * Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+         */
+        groupRateLimitBy?: pulumi.Input<string>;
+        /**
          * One or more `matchConditions` blocks as defined below.
          */
         matchConditions: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRuleMatchCondition>[]>;
@@ -51035,7 +51416,15 @@ export namespace waf {
          */
         priority: pulumi.Input<number>;
         /**
-         * Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+         * Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+         */
+        rateLimitDuration?: pulumi.Input<string>;
+        /**
+         * Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+         */
+        rateLimitThreshold?: pulumi.Input<number>;
+        /**
+         * Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
          */
         ruleType: pulumi.Input<string>;
     }
@@ -51200,6 +51589,10 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: pulumi.Input<boolean>;
+        /**
+         * Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+         */
+        requestBodyInspectLimitInKb?: pulumi.Input<number>;
     }
 
     export interface PolicyPolicySettingsLogScrubbing {

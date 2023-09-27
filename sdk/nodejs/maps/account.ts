@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.maps.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "S1",
+ *     localAuthenticationEnabled: true,
  *     tags: {
  *         environment: "Test",
  *     },
@@ -60,6 +61,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     */
+    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -101,6 +106,7 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
+            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -116,6 +122,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -135,6 +142,10 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */
@@ -169,6 +180,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      */

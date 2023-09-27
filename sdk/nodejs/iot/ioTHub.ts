@@ -56,6 +56,7 @@ import * as utilities from "../utilities";
  * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     localAuthenticationEnabled: false,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
@@ -211,6 +212,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.iot.IoTHubIdentity | undefined>;
     /**
+     * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     */
+    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -282,6 +287,7 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["fileUpload"] = state ? state.fileUpload : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -309,6 +315,7 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
             resourceInputs["fileUpload"] = args ? args.fileUpload : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -395,6 +402,10 @@ export interface IoTHubState {
      */
     identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
     /**
+     * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -478,6 +489,10 @@ export interface IoTHubArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
+    /**
+     * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */

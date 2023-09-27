@@ -10,6 +10,11 @@ export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
 export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
 
+export { ResourceBridgeApplianceArgs, ResourceBridgeApplianceState } from "./resourceBridgeAppliance";
+export type ResourceBridgeAppliance = import("./resourceBridgeAppliance").ResourceBridgeAppliance;
+export const ResourceBridgeAppliance: typeof import("./resourceBridgeAppliance").ResourceBridgeAppliance = null as any;
+utilities.lazyLoad(exports, ["ResourceBridgeAppliance"], () => require("./resourceBridgeAppliance"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:arc/privateLinkScope:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
+            case "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance":
+                return new ResourceBridgeAppliance(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "arc/privateLinkScope", _module)
+pulumi.runtime.registerResourceModule("azure", "arc/resourceBridgeAppliance", _module)

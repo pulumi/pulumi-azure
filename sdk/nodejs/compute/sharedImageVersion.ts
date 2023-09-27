@@ -83,6 +83,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
      */
     public readonly blobUri!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly deletionOfReplicatedLocationsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The end of life date in RFC3339 format of the Image Version.
      */
     public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
@@ -157,6 +161,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SharedImageVersionState | undefined;
             resourceInputs["blobUri"] = state ? state.blobUri : undefined;
+            resourceInputs["deletionOfReplicatedLocationsEnabled"] = state ? state.deletionOfReplicatedLocationsEnabled : undefined;
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
             resourceInputs["galleryName"] = state ? state.galleryName : undefined;
@@ -185,6 +190,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetRegions'");
             }
             resourceInputs["blobUri"] = args ? args.blobUri : undefined;
+            resourceInputs["deletionOfReplicatedLocationsEnabled"] = args ? args.deletionOfReplicatedLocationsEnabled : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
@@ -216,6 +222,10 @@ export interface SharedImageVersionState {
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     blobUri?: pulumi.Input<string>;
+    /**
+     * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    deletionOfReplicatedLocationsEnabled?: pulumi.Input<boolean>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */
@@ -290,6 +300,10 @@ export interface SharedImageVersionArgs {
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
     blobUri?: pulumi.Input<string>;
+    /**
+     * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    deletionOfReplicatedLocationsEnabled?: pulumi.Input<boolean>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */

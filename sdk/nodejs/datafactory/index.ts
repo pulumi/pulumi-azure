@@ -20,6 +20,11 @@ export type DatasetAzureBlob = import("./datasetAzureBlob").DatasetAzureBlob;
 export const DatasetAzureBlob: typeof import("./datasetAzureBlob").DatasetAzureBlob = null as any;
 utilities.lazyLoad(exports, ["DatasetAzureBlob"], () => require("./datasetAzureBlob"));
 
+export { DatasetAzureSqlTableArgs, DatasetAzureSqlTableState } from "./datasetAzureSqlTable";
+export type DatasetAzureSqlTable = import("./datasetAzureSqlTable").DatasetAzureSqlTable;
+export const DatasetAzureSqlTable: typeof import("./datasetAzureSqlTable").DatasetAzureSqlTable = null as any;
+utilities.lazyLoad(exports, ["DatasetAzureSqlTable"], () => require("./datasetAzureSqlTable"));
+
 export { DatasetBinaryArgs, DatasetBinaryState } from "./datasetBinary";
 export type DatasetBinary = import("./datasetBinary").DatasetBinary;
 export const DatasetBinary: typeof import("./datasetBinary").DatasetBinary = null as any;
@@ -256,6 +261,8 @@ const _module = {
                 return new DataFlow(name, <any>undefined, { urn })
             case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
                 return new DatasetAzureBlob(name, <any>undefined, { urn })
+            case "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable":
+                return new DatasetAzureSqlTable(name, <any>undefined, { urn })
             case "azure:datafactory/datasetBinary:DatasetBinary":
                 return new DatasetBinary(name, <any>undefined, { urn })
             case "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi":
@@ -352,6 +359,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "datafactory/customDataset", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/dataFlow", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureBlob", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureSqlTable", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetBinary", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetCosmosDBApi", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetDelimitedText", _module)

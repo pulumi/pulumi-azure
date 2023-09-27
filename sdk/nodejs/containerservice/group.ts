@@ -145,6 +145,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     */
+    public readonly keyVaultUserAssignedIdentityId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -213,6 +217,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["keyVaultUserAssignedIdentityId"] = state ? state.keyVaultUserAssignedIdentityId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfileId"] = state ? state.networkProfileId : undefined;
@@ -245,6 +250,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["initContainers"] = args ? args.initContainers : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["keyVaultUserAssignedIdentityId"] = args ? args.keyVaultUserAssignedIdentityId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfileId"] = args ? args.networkProfileId : undefined;
@@ -325,6 +331,10 @@ export interface GroupState {
      * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
      */
     keyVaultKeyId?: pulumi.Input<string>;
+    /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     */
+    keyVaultUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -423,6 +433,10 @@ export interface GroupArgs {
      * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
      */
     keyVaultKeyId?: pulumi.Input<string>;
+    /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     */
+    keyVaultUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
