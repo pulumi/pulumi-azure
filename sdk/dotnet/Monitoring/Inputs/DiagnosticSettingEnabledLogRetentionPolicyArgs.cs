@@ -15,6 +15,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The number of days for which this Retention Policy should apply.
         /// 
+        /// 
         /// &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
         /// </summary>
         [Input("days")]

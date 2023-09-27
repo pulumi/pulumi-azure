@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,63 +46,63 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
     }
 
     /**
-     * Specifies the security identifier (SID).
+     * Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
      * 
      */
-    @Import(name="domainSid", required=true)
-    private Output<String> domainSid;
+    @Import(name="domainSid")
+    private @Nullable Output<String> domainSid;
 
     /**
-     * @return Specifies the security identifier (SID).
+     * @return Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
      * 
      */
-    public Output<String> domainSid() {
-        return this.domainSid;
+    public Optional<Output<String>> domainSid() {
+        return Optional.ofNullable(this.domainSid);
     }
 
     /**
-     * Specifies the Active Directory forest.
+     * Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
      * 
      */
-    @Import(name="forestName", required=true)
-    private Output<String> forestName;
+    @Import(name="forestName")
+    private @Nullable Output<String> forestName;
 
     /**
-     * @return Specifies the Active Directory forest.
+     * @return Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
      * 
      */
-    public Output<String> forestName() {
-        return this.forestName;
+    public Optional<Output<String>> forestName() {
+        return Optional.ofNullable(this.forestName);
     }
 
     /**
-     * Specifies the NetBIOS domain name.
+     * Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
      * 
      */
-    @Import(name="netbiosDomainName", required=true)
-    private Output<String> netbiosDomainName;
+    @Import(name="netbiosDomainName")
+    private @Nullable Output<String> netbiosDomainName;
 
     /**
-     * @return Specifies the NetBIOS domain name.
+     * @return Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
      * 
      */
-    public Output<String> netbiosDomainName() {
-        return this.netbiosDomainName;
+    public Optional<Output<String>> netbiosDomainName() {
+        return Optional.ofNullable(this.netbiosDomainName);
     }
 
     /**
-     * Specifies the security identifier (SID) for Azure Storage.
+     * Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
      * 
      */
-    @Import(name="storageSid", required=true)
-    private Output<String> storageSid;
+    @Import(name="storageSid")
+    private @Nullable Output<String> storageSid;
 
     /**
-     * @return Specifies the security identifier (SID) for Azure Storage.
+     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
      * 
      */
-    public Output<String> storageSid() {
-        return this.storageSid;
+    public Optional<Output<String>> storageSid() {
+        return Optional.ofNullable(this.storageSid);
     }
 
     private AccountAzureFilesAuthenticationActiveDirectoryArgs() {}
@@ -175,18 +177,18 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param domainSid Specifies the security identifier (SID).
+         * @param domainSid Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
          */
-        public Builder domainSid(Output<String> domainSid) {
+        public Builder domainSid(@Nullable Output<String> domainSid) {
             $.domainSid = domainSid;
             return this;
         }
 
         /**
-         * @param domainSid Specifies the security identifier (SID).
+         * @param domainSid Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
@@ -196,18 +198,18 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param forestName Specifies the Active Directory forest.
+         * @param forestName Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
          */
-        public Builder forestName(Output<String> forestName) {
+        public Builder forestName(@Nullable Output<String> forestName) {
             $.forestName = forestName;
             return this;
         }
 
         /**
-         * @param forestName Specifies the Active Directory forest.
+         * @param forestName Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
@@ -217,18 +219,18 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param netbiosDomainName Specifies the NetBIOS domain name.
+         * @param netbiosDomainName Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
          */
-        public Builder netbiosDomainName(Output<String> netbiosDomainName) {
+        public Builder netbiosDomainName(@Nullable Output<String> netbiosDomainName) {
             $.netbiosDomainName = netbiosDomainName;
             return this;
         }
 
         /**
-         * @param netbiosDomainName Specifies the NetBIOS domain name.
+         * @param netbiosDomainName Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
@@ -238,18 +240,18 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param storageSid Specifies the security identifier (SID) for Azure Storage.
+         * @param storageSid Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
          */
-        public Builder storageSid(Output<String> storageSid) {
+        public Builder storageSid(@Nullable Output<String> storageSid) {
             $.storageSid = storageSid;
             return this;
         }
 
         /**
-         * @param storageSid Specifies the security identifier (SID) for Azure Storage.
+         * @param storageSid Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
          * 
          * @return builder
          * 
@@ -261,10 +263,6 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         public AccountAzureFilesAuthenticationActiveDirectoryArgs build() {
             $.domainGuid = Objects.requireNonNull($.domainGuid, "expected parameter 'domainGuid' to be non-null");
             $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.domainSid = Objects.requireNonNull($.domainSid, "expected parameter 'domainSid' to be non-null");
-            $.forestName = Objects.requireNonNull($.forestName, "expected parameter 'forestName' to be non-null");
-            $.netbiosDomainName = Objects.requireNonNull($.netbiosDomainName, "expected parameter 'netbiosDomainName' to be non-null");
-            $.storageSid = Objects.requireNonNull($.storageSid, "expected parameter 'storageSid' to be non-null");
             return $;
         }
     }

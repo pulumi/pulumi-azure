@@ -85,6 +85,8 @@ type SharedImageVersion struct {
 	//
 	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri pulumi.StringPtrOutput `pulumi:"blobUri"`
+	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+	DeletionOfReplicatedLocationsEnabled pulumi.BoolPtrOutput `pulumi:"deletionOfReplicatedLocationsEnabled"`
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -169,6 +171,8 @@ type sharedImageVersionState struct {
 	//
 	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri *string `pulumi:"blobUri"`
+	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+	DeletionOfReplicatedLocationsEnabled *bool `pulumi:"deletionOfReplicatedLocationsEnabled"`
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -212,6 +216,8 @@ type SharedImageVersionState struct {
 	//
 	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri pulumi.StringPtrInput
+	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+	DeletionOfReplicatedLocationsEnabled pulumi.BoolPtrInput
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate pulumi.StringPtrInput
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -259,6 +265,8 @@ type sharedImageVersionArgs struct {
 	//
 	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri *string `pulumi:"blobUri"`
+	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+	DeletionOfReplicatedLocationsEnabled *bool `pulumi:"deletionOfReplicatedLocationsEnabled"`
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -303,6 +311,8 @@ type SharedImageVersionArgs struct {
 	//
 	// > **NOTE:** `blobUri` and `storageAccountId` must be specified together
 	BlobUri pulumi.StringPtrInput
+	// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+	DeletionOfReplicatedLocationsEnabled pulumi.BoolPtrInput
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate pulumi.StringPtrInput
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -457,6 +467,11 @@ func (o SharedImageVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*
 // > **NOTE:** `blobUri` and `storageAccountId` must be specified together
 func (o SharedImageVersionOutput) BlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.BlobUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+func (o SharedImageVersionOutput) DeletionOfReplicatedLocationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersion) pulumi.BoolPtrOutput { return v.DeletionOfReplicatedLocationsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The end of life date in RFC3339 format of the Image Version.

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.datafactory;
 
+import com.pulumi.azure.datafactory.inputs.DatasetParquetAzureBlobFsLocationArgs;
 import com.pulumi.azure.datafactory.inputs.DatasetParquetAzureBlobStorageLocationArgs;
 import com.pulumi.azure.datafactory.inputs.DatasetParquetHttpServerLocationArgs;
 import com.pulumi.azure.datafactory.inputs.DatasetParquetSchemaColumnArgs;
@@ -52,6 +53,21 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<List<String>>> annotations() {
         return Optional.ofNullable(this.annotations);
+    }
+
+    /**
+     * A `azure_blob_fs_location` block as defined below.
+     * 
+     */
+    @Import(name="azureBlobFsLocation")
+    private @Nullable Output<DatasetParquetAzureBlobFsLocationArgs> azureBlobFsLocation;
+
+    /**
+     * @return A `azure_blob_fs_location` block as defined below.
+     * 
+     */
+    public Optional<Output<DatasetParquetAzureBlobFsLocationArgs>> azureBlobFsLocation() {
+        return Optional.ofNullable(this.azureBlobFsLocation);
     }
 
     /**
@@ -228,6 +244,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     private DatasetParquetArgs(DatasetParquetArgs $) {
         this.additionalProperties = $.additionalProperties;
         this.annotations = $.annotations;
+        this.azureBlobFsLocation = $.azureBlobFsLocation;
         this.azureBlobStorageLocation = $.azureBlobStorageLocation;
         this.compressionCodec = $.compressionCodec;
         this.compressionLevel = $.compressionLevel;
@@ -313,6 +330,27 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder annotations(String... annotations) {
             return annotations(List.of(annotations));
+        }
+
+        /**
+         * @param azureBlobFsLocation A `azure_blob_fs_location` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureBlobFsLocation(@Nullable Output<DatasetParquetAzureBlobFsLocationArgs> azureBlobFsLocation) {
+            $.azureBlobFsLocation = azureBlobFsLocation;
+            return this;
+        }
+
+        /**
+         * @param azureBlobFsLocation A `azure_blob_fs_location` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureBlobFsLocation(DatasetParquetAzureBlobFsLocationArgs azureBlobFsLocation) {
+            return azureBlobFsLocation(Output.of(azureBlobFsLocation));
         }
 
         /**

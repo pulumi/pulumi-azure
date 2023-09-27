@@ -440,6 +440,11 @@ export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
 utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
 
+export { RoutingIntentArgs, RoutingIntentState } from "./routingIntent";
+export type RoutingIntent = import("./routingIntent").RoutingIntent;
+export const RoutingIntent: typeof import("./routingIntent").RoutingIntent = null as any;
+utilities.lazyLoad(exports, ["RoutingIntent"], () => require("./routingIntent"));
+
 export { SecurityPartnerProviderArgs, SecurityPartnerProviderState } from "./securityPartnerProvider";
 export type SecurityPartnerProvider = import("./securityPartnerProvider").SecurityPartnerProvider;
 export const SecurityPartnerProvider: typeof import("./securityPartnerProvider").SecurityPartnerProvider = null as any;
@@ -699,6 +704,8 @@ const _module = {
                 return new RouteServerBgpConnection(name, <any>undefined, { urn })
             case "azure:network/routeTable:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
+            case "azure:network/routingIntent:RoutingIntent":
+                return new RoutingIntent(name, <any>undefined, { urn })
             case "azure:network/securityPartnerProvider:SecurityPartnerProvider":
                 return new SecurityPartnerProvider(name, <any>undefined, { urn })
             case "azure:network/subnet:Subnet":
@@ -817,6 +824,7 @@ pulumi.runtime.registerResourceModule("azure", "network/routeMap", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeServer", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeServerBgpConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeTable", _module)
+pulumi.runtime.registerResourceModule("azure", "network/routingIntent", _module)
 pulumi.runtime.registerResourceModule("azure", "network/securityPartnerProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnet", _module)
 pulumi.runtime.registerResourceModule("azure", "network/subnetNatGatewayAssociation", _module)

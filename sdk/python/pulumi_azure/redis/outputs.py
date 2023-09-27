@@ -216,6 +216,8 @@ class CacheRedisConfiguration(dict):
                  rdb_storage_connection_string: Optional[str] = None):
         """
         :param bool aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+               
+               > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
         :param str aof_storage_connection_string0: First Storage Account connection string for AOF persistence.
         :param str aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
@@ -280,6 +282,8 @@ class CacheRedisConfiguration(dict):
     def aof_backup_enabled(self) -> Optional[bool]:
         """
         Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+
+        > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
         """
         return pulumi.get(self, "aof_backup_enabled")
 

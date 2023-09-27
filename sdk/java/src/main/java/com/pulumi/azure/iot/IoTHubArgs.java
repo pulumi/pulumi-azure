@@ -153,6 +153,21 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     * 
+     */
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      * 
      */
@@ -298,6 +313,7 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         this.fallbackRoute = $.fallbackRoute;
         this.fileUpload = $.fileUpload;
         this.identity = $.identity;
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.minTlsVersion = $.minTlsVersion;
         this.name = $.name;
@@ -517,6 +533,27 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(IoTHubIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param localAuthenticationEnabled If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationEnabled If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
         }
 
         /**

@@ -108,6 +108,21 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.requestBodyCheck);
     }
 
+    /**
+     * Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+     * 
+     */
+    @Import(name="requestBodyInspectLimitInKb")
+    private @Nullable Output<Integer> requestBodyInspectLimitInKb;
+
+    /**
+     * @return Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+     * 
+     */
+    public Optional<Output<Integer>> requestBodyInspectLimitInKb() {
+        return Optional.ofNullable(this.requestBodyInspectLimitInKb);
+    }
+
     private PolicyPolicySettingsArgs() {}
 
     private PolicyPolicySettingsArgs(PolicyPolicySettingsArgs $) {
@@ -117,6 +132,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         this.maxRequestBodySizeInKb = $.maxRequestBodySizeInKb;
         this.mode = $.mode;
         this.requestBodyCheck = $.requestBodyCheck;
+        this.requestBodyInspectLimitInKb = $.requestBodyInspectLimitInKb;
     }
 
     public static Builder builder() {
@@ -261,6 +277,27 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder requestBodyCheck(Boolean requestBodyCheck) {
             return requestBodyCheck(Output.of(requestBodyCheck));
+        }
+
+        /**
+         * @param requestBodyInspectLimitInKb Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestBodyInspectLimitInKb(@Nullable Output<Integer> requestBodyInspectLimitInKb) {
+            $.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
+            return this;
+        }
+
+        /**
+         * @param requestBodyInspectLimitInKb Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestBodyInspectLimitInKb(Integer requestBodyInspectLimitInKb) {
+            return requestBodyInspectLimitInKb(Output.of(requestBodyInspectLimitInKb));
         }
 
         public PolicyPolicySettingsArgs build() {

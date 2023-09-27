@@ -99,16 +99,12 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
-     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
-     * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
      * @return Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-     * 
-     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      * 
      */
     public Output<String> licenseType() {

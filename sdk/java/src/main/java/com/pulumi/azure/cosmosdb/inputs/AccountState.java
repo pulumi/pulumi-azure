@@ -484,6 +484,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Primary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Import(name="primaryMongodbConnectionString")
+    private @Nullable Output<String> primaryMongodbConnectionString;
+
+    /**
+     * @return Primary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Optional<Output<String>> primaryMongodbConnectionString() {
+        return Optional.ofNullable(this.primaryMongodbConnectionString);
+    }
+
+    /**
      * The Primary read-only Key for the CosmosDB Account.
      * 
      */
@@ -498,16 +513,47 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.primaryReadonlyKey);
     }
 
+    /**
+     * Primary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Import(name="primaryReadonlyMongodbConnectionString")
+    private @Nullable Output<String> primaryReadonlyMongodbConnectionString;
+
+    /**
+     * @return Primary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Optional<Output<String>> primaryReadonlyMongodbConnectionString() {
+        return Optional.ofNullable(this.primaryReadonlyMongodbConnectionString);
+    }
+
+    /**
+     * Primary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Import(name="primaryReadonlySqlConnectionString")
     private @Nullable Output<String> primaryReadonlySqlConnectionString;
 
+    /**
+     * @return Primary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Optional<Output<String>> primaryReadonlySqlConnectionString() {
         return Optional.ofNullable(this.primaryReadonlySqlConnectionString);
     }
 
+    /**
+     * Primary SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Import(name="primarySqlConnectionString")
     private @Nullable Output<String> primarySqlConnectionString;
 
+    /**
+     * @return Primary SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Optional<Output<String>> primarySqlConnectionString() {
         return Optional.ofNullable(this.primarySqlConnectionString);
     }
@@ -592,6 +638,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Secondary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Import(name="secondaryMongodbConnectionString")
+    private @Nullable Output<String> secondaryMongodbConnectionString;
+
+    /**
+     * @return Secondary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Optional<Output<String>> secondaryMongodbConnectionString() {
+        return Optional.ofNullable(this.secondaryMongodbConnectionString);
+    }
+
+    /**
      * The Secondary read-only key for the CosmosDB Account.
      * 
      */
@@ -606,16 +667,47 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.secondaryReadonlyKey);
     }
 
+    /**
+     * Secondary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Import(name="secondaryReadonlyMongodbConnectionString")
+    private @Nullable Output<String> secondaryReadonlyMongodbConnectionString;
+
+    /**
+     * @return Secondary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Optional<Output<String>> secondaryReadonlyMongodbConnectionString() {
+        return Optional.ofNullable(this.secondaryReadonlyMongodbConnectionString);
+    }
+
+    /**
+     * Secondary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Import(name="secondaryReadonlySqlConnectionString")
     private @Nullable Output<String> secondaryReadonlySqlConnectionString;
 
+    /**
+     * @return Secondary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Optional<Output<String>> secondaryReadonlySqlConnectionString() {
         return Optional.ofNullable(this.secondaryReadonlySqlConnectionString);
     }
 
+    /**
+     * Secondary SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Import(name="secondarySqlConnectionString")
     private @Nullable Output<String> secondarySqlConnectionString;
 
+    /**
+     * @return Secondary SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Optional<Output<String>> secondarySqlConnectionString() {
         return Optional.ofNullable(this.secondarySqlConnectionString);
     }
@@ -697,7 +789,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.networkAclBypassIds = $.networkAclBypassIds;
         this.offerType = $.offerType;
         this.primaryKey = $.primaryKey;
+        this.primaryMongodbConnectionString = $.primaryMongodbConnectionString;
         this.primaryReadonlyKey = $.primaryReadonlyKey;
+        this.primaryReadonlyMongodbConnectionString = $.primaryReadonlyMongodbConnectionString;
         this.primaryReadonlySqlConnectionString = $.primaryReadonlySqlConnectionString;
         this.primarySqlConnectionString = $.primarySqlConnectionString;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
@@ -705,7 +799,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.resourceGroupName = $.resourceGroupName;
         this.restore = $.restore;
         this.secondaryKey = $.secondaryKey;
+        this.secondaryMongodbConnectionString = $.secondaryMongodbConnectionString;
         this.secondaryReadonlyKey = $.secondaryReadonlyKey;
+        this.secondaryReadonlyMongodbConnectionString = $.secondaryReadonlyMongodbConnectionString;
         this.secondaryReadonlySqlConnectionString = $.secondaryReadonlySqlConnectionString;
         this.secondarySqlConnectionString = $.secondarySqlConnectionString;
         this.tags = $.tags;
@@ -1401,6 +1497,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param primaryMongodbConnectionString Primary Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryMongodbConnectionString(@Nullable Output<String> primaryMongodbConnectionString) {
+            $.primaryMongodbConnectionString = primaryMongodbConnectionString;
+            return this;
+        }
+
+        /**
+         * @param primaryMongodbConnectionString Primary Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryMongodbConnectionString(String primaryMongodbConnectionString) {
+            return primaryMongodbConnectionString(Output.of(primaryMongodbConnectionString));
+        }
+
+        /**
          * @param primaryReadonlyKey The Primary read-only Key for the CosmosDB Account.
          * 
          * @return builder
@@ -1421,20 +1538,65 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return primaryReadonlyKey(Output.of(primaryReadonlyKey));
         }
 
+        /**
+         * @param primaryReadonlyMongodbConnectionString Primary readonly Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryReadonlyMongodbConnectionString(@Nullable Output<String> primaryReadonlyMongodbConnectionString) {
+            $.primaryReadonlyMongodbConnectionString = primaryReadonlyMongodbConnectionString;
+            return this;
+        }
+
+        /**
+         * @param primaryReadonlyMongodbConnectionString Primary readonly Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryReadonlyMongodbConnectionString(String primaryReadonlyMongodbConnectionString) {
+            return primaryReadonlyMongodbConnectionString(Output.of(primaryReadonlyMongodbConnectionString));
+        }
+
+        /**
+         * @param primaryReadonlySqlConnectionString Primary readonly SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryReadonlySqlConnectionString(@Nullable Output<String> primaryReadonlySqlConnectionString) {
             $.primaryReadonlySqlConnectionString = primaryReadonlySqlConnectionString;
             return this;
         }
 
+        /**
+         * @param primaryReadonlySqlConnectionString Primary readonly SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryReadonlySqlConnectionString(String primaryReadonlySqlConnectionString) {
             return primaryReadonlySqlConnectionString(Output.of(primaryReadonlySqlConnectionString));
         }
 
+        /**
+         * @param primarySqlConnectionString Primary SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primarySqlConnectionString(@Nullable Output<String> primarySqlConnectionString) {
             $.primarySqlConnectionString = primarySqlConnectionString;
             return this;
         }
 
+        /**
+         * @param primarySqlConnectionString Primary SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primarySqlConnectionString(String primarySqlConnectionString) {
             return primarySqlConnectionString(Output.of(primarySqlConnectionString));
         }
@@ -1559,6 +1721,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param secondaryMongodbConnectionString Secondary Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryMongodbConnectionString(@Nullable Output<String> secondaryMongodbConnectionString) {
+            $.secondaryMongodbConnectionString = secondaryMongodbConnectionString;
+            return this;
+        }
+
+        /**
+         * @param secondaryMongodbConnectionString Secondary Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryMongodbConnectionString(String secondaryMongodbConnectionString) {
+            return secondaryMongodbConnectionString(Output.of(secondaryMongodbConnectionString));
+        }
+
+        /**
          * @param secondaryReadonlyKey The Secondary read-only key for the CosmosDB Account.
          * 
          * @return builder
@@ -1579,20 +1762,65 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return secondaryReadonlyKey(Output.of(secondaryReadonlyKey));
         }
 
+        /**
+         * @param secondaryReadonlyMongodbConnectionString Secondary readonly Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryReadonlyMongodbConnectionString(@Nullable Output<String> secondaryReadonlyMongodbConnectionString) {
+            $.secondaryReadonlyMongodbConnectionString = secondaryReadonlyMongodbConnectionString;
+            return this;
+        }
+
+        /**
+         * @param secondaryReadonlyMongodbConnectionString Secondary readonly Mongodb connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryReadonlyMongodbConnectionString(String secondaryReadonlyMongodbConnectionString) {
+            return secondaryReadonlyMongodbConnectionString(Output.of(secondaryReadonlyMongodbConnectionString));
+        }
+
+        /**
+         * @param secondaryReadonlySqlConnectionString Secondary readonly SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryReadonlySqlConnectionString(@Nullable Output<String> secondaryReadonlySqlConnectionString) {
             $.secondaryReadonlySqlConnectionString = secondaryReadonlySqlConnectionString;
             return this;
         }
 
+        /**
+         * @param secondaryReadonlySqlConnectionString Secondary readonly SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryReadonlySqlConnectionString(String secondaryReadonlySqlConnectionString) {
             return secondaryReadonlySqlConnectionString(Output.of(secondaryReadonlySqlConnectionString));
         }
 
+        /**
+         * @param secondarySqlConnectionString Secondary SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondarySqlConnectionString(@Nullable Output<String> secondarySqlConnectionString) {
             $.secondarySqlConnectionString = secondarySqlConnectionString;
             return this;
         }
 
+        /**
+         * @param secondarySqlConnectionString Secondary SQL connection string for the CosmosDB Account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondarySqlConnectionString(String secondarySqlConnectionString) {
             return secondarySqlConnectionString(Output.of(secondarySqlConnectionString));
         }

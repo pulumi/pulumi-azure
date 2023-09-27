@@ -4,8 +4,11 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FactoryVstsConfiguration {
@@ -24,6 +27,11 @@ public final class FactoryVstsConfiguration {
      * 
      */
     private String projectName;
+    /**
+     * @return Is automated publishing enabled? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean publishingEnabled;
     /**
      * @return Specifies the name of the git repository.
      * 
@@ -63,6 +71,13 @@ public final class FactoryVstsConfiguration {
         return this.projectName;
     }
     /**
+     * @return Is automated publishing enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> publishingEnabled() {
+        return Optional.ofNullable(this.publishingEnabled);
+    }
+    /**
      * @return Specifies the name of the git repository.
      * 
      */
@@ -96,6 +111,7 @@ public final class FactoryVstsConfiguration {
         private String accountName;
         private String branchName;
         private String projectName;
+        private @Nullable Boolean publishingEnabled;
         private String repositoryName;
         private String rootFolder;
         private String tenantId;
@@ -105,6 +121,7 @@ public final class FactoryVstsConfiguration {
     	      this.accountName = defaults.accountName;
     	      this.branchName = defaults.branchName;
     	      this.projectName = defaults.projectName;
+    	      this.publishingEnabled = defaults.publishingEnabled;
     	      this.repositoryName = defaults.repositoryName;
     	      this.rootFolder = defaults.rootFolder;
     	      this.tenantId = defaults.tenantId;
@@ -123,6 +140,11 @@ public final class FactoryVstsConfiguration {
         @CustomType.Setter
         public Builder projectName(String projectName) {
             this.projectName = Objects.requireNonNull(projectName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder publishingEnabled(@Nullable Boolean publishingEnabled) {
+            this.publishingEnabled = publishingEnabled;
             return this;
         }
         @CustomType.Setter
@@ -145,6 +167,7 @@ public final class FactoryVstsConfiguration {
             o.accountName = accountName;
             o.branchName = branchName;
             o.projectName = projectName;
+            o.publishingEnabled = publishingEnabled;
             o.repositoryName = repositoryName;
             o.rootFolder = rootFolder;
             o.tenantId = tenantId;

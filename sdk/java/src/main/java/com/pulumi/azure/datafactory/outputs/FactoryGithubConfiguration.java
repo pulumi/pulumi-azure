@@ -4,8 +4,11 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FactoryGithubConfiguration {
@@ -25,14 +28,19 @@ public final class FactoryGithubConfiguration {
      */
     private String gitUrl;
     /**
+     * @return Is automated publishing enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+     * 
+     */
+    private @Nullable Boolean publishingEnabled;
+    /**
      * @return Specifies the name of the git repository.
      * 
      */
     private String repositoryName;
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
-     * 
-     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
      */
     private String rootFolder;
@@ -60,6 +68,15 @@ public final class FactoryGithubConfiguration {
         return this.gitUrl;
     }
     /**
+     * @return Is automated publishing enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+     * 
+     */
+    public Optional<Boolean> publishingEnabled() {
+        return Optional.ofNullable(this.publishingEnabled);
+    }
+    /**
      * @return Specifies the name of the git repository.
      * 
      */
@@ -68,8 +85,6 @@ public final class FactoryGithubConfiguration {
     }
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
-     * 
-     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
      */
     public String rootFolder() {
@@ -88,6 +103,7 @@ public final class FactoryGithubConfiguration {
         private String accountName;
         private String branchName;
         private String gitUrl;
+        private @Nullable Boolean publishingEnabled;
         private String repositoryName;
         private String rootFolder;
         public Builder() {}
@@ -96,6 +112,7 @@ public final class FactoryGithubConfiguration {
     	      this.accountName = defaults.accountName;
     	      this.branchName = defaults.branchName;
     	      this.gitUrl = defaults.gitUrl;
+    	      this.publishingEnabled = defaults.publishingEnabled;
     	      this.repositoryName = defaults.repositoryName;
     	      this.rootFolder = defaults.rootFolder;
         }
@@ -116,6 +133,11 @@ public final class FactoryGithubConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder publishingEnabled(@Nullable Boolean publishingEnabled) {
+            this.publishingEnabled = publishingEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
@@ -130,6 +152,7 @@ public final class FactoryGithubConfiguration {
             o.accountName = accountName;
             o.branchName = branchName;
             o.gitUrl = gitUrl;
+            o.publishingEnabled = publishingEnabled;
             o.repositoryName = repositoryName;
             o.rootFolder = rootFolder;
             return o;

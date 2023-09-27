@@ -545,6 +545,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryKey;
     }
     /**
+     * Primary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Export(name="primaryMongodbConnectionString", refs={String.class}, tree="[0]")
+    private Output<String> primaryMongodbConnectionString;
+
+    /**
+     * @return Primary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Output<String> primaryMongodbConnectionString() {
+        return this.primaryMongodbConnectionString;
+    }
+    /**
      * The Primary read-only Key for the CosmosDB Account.
      * 
      */
@@ -558,15 +572,45 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> primaryReadonlyKey() {
         return this.primaryReadonlyKey;
     }
+    /**
+     * Primary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Export(name="primaryReadonlyMongodbConnectionString", refs={String.class}, tree="[0]")
+    private Output<String> primaryReadonlyMongodbConnectionString;
+
+    /**
+     * @return Primary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Output<String> primaryReadonlyMongodbConnectionString() {
+        return this.primaryReadonlyMongodbConnectionString;
+    }
+    /**
+     * Primary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Export(name="primaryReadonlySqlConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryReadonlySqlConnectionString;
 
+    /**
+     * @return Primary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Output<String> primaryReadonlySqlConnectionString() {
         return this.primaryReadonlySqlConnectionString;
     }
+    /**
+     * Primary SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Export(name="primarySqlConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primarySqlConnectionString;
 
+    /**
+     * @return Primary SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Output<String> primarySqlConnectionString() {
         return this.primarySqlConnectionString;
     }
@@ -645,6 +689,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryKey;
     }
     /**
+     * Secondary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Export(name="secondaryMongodbConnectionString", refs={String.class}, tree="[0]")
+    private Output<String> secondaryMongodbConnectionString;
+
+    /**
+     * @return Secondary Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Output<String> secondaryMongodbConnectionString() {
+        return this.secondaryMongodbConnectionString;
+    }
+    /**
      * The Secondary read-only key for the CosmosDB Account.
      * 
      */
@@ -658,15 +716,45 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> secondaryReadonlyKey() {
         return this.secondaryReadonlyKey;
     }
+    /**
+     * Secondary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    @Export(name="secondaryReadonlyMongodbConnectionString", refs={String.class}, tree="[0]")
+    private Output<String> secondaryReadonlyMongodbConnectionString;
+
+    /**
+     * @return Secondary readonly Mongodb connection string for the CosmosDB Account.
+     * 
+     */
+    public Output<String> secondaryReadonlyMongodbConnectionString() {
+        return this.secondaryReadonlyMongodbConnectionString;
+    }
+    /**
+     * Secondary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Export(name="secondaryReadonlySqlConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryReadonlySqlConnectionString;
 
+    /**
+     * @return Secondary readonly SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Output<String> secondaryReadonlySqlConnectionString() {
         return this.secondaryReadonlySqlConnectionString;
     }
+    /**
+     * Secondary SQL connection string for the CosmosDB Account.
+     * 
+     */
     @Export(name="secondarySqlConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondarySqlConnectionString;
 
+    /**
+     * @return Secondary SQL connection string for the CosmosDB Account.
+     * 
+     */
     public Output<String> secondarySqlConnectionString() {
         return this.secondarySqlConnectionString;
     }
@@ -748,11 +836,15 @@ public class Account extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "connectionStrings",
                 "primaryKey",
+                "primaryMongodbConnectionString",
                 "primaryReadonlyKey",
+                "primaryReadonlyMongodbConnectionString",
                 "primaryReadonlySqlConnectionString",
                 "primarySqlConnectionString",
                 "secondaryKey",
+                "secondaryMongodbConnectionString",
                 "secondaryReadonlyKey",
+                "secondaryReadonlyMongodbConnectionString",
                 "secondaryReadonlySqlConnectionString",
                 "secondarySqlConnectionString"
             ))

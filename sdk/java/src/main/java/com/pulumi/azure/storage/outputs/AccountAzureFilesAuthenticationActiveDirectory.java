@@ -6,6 +6,8 @@ package com.pulumi.azure.storage.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AccountAzureFilesAuthenticationActiveDirectory {
@@ -20,25 +22,25 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
      */
     private String domainName;
     /**
-     * @return Specifies the security identifier (SID).
+     * @return Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
      * 
      */
-    private String domainSid;
+    private @Nullable String domainSid;
     /**
-     * @return Specifies the Active Directory forest.
+     * @return Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
      * 
      */
-    private String forestName;
+    private @Nullable String forestName;
     /**
-     * @return Specifies the NetBIOS domain name.
+     * @return Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
      * 
      */
-    private String netbiosDomainName;
+    private @Nullable String netbiosDomainName;
     /**
-     * @return Specifies the security identifier (SID) for Azure Storage.
+     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
      * 
      */
-    private String storageSid;
+    private @Nullable String storageSid;
 
     private AccountAzureFilesAuthenticationActiveDirectory() {}
     /**
@@ -56,32 +58,32 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
         return this.domainName;
     }
     /**
-     * @return Specifies the security identifier (SID).
+     * @return Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
      * 
      */
-    public String domainSid() {
-        return this.domainSid;
+    public Optional<String> domainSid() {
+        return Optional.ofNullable(this.domainSid);
     }
     /**
-     * @return Specifies the Active Directory forest.
+     * @return Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
      * 
      */
-    public String forestName() {
-        return this.forestName;
+    public Optional<String> forestName() {
+        return Optional.ofNullable(this.forestName);
     }
     /**
-     * @return Specifies the NetBIOS domain name.
+     * @return Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
      * 
      */
-    public String netbiosDomainName() {
-        return this.netbiosDomainName;
+    public Optional<String> netbiosDomainName() {
+        return Optional.ofNullable(this.netbiosDomainName);
     }
     /**
-     * @return Specifies the security identifier (SID) for Azure Storage.
+     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
      * 
      */
-    public String storageSid() {
-        return this.storageSid;
+    public Optional<String> storageSid() {
+        return Optional.ofNullable(this.storageSid);
     }
 
     public static Builder builder() {
@@ -95,10 +97,10 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
     public static final class Builder {
         private String domainGuid;
         private String domainName;
-        private String domainSid;
-        private String forestName;
-        private String netbiosDomainName;
-        private String storageSid;
+        private @Nullable String domainSid;
+        private @Nullable String forestName;
+        private @Nullable String netbiosDomainName;
+        private @Nullable String storageSid;
         public Builder() {}
         public Builder(AccountAzureFilesAuthenticationActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
@@ -121,23 +123,23 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
             return this;
         }
         @CustomType.Setter
-        public Builder domainSid(String domainSid) {
-            this.domainSid = Objects.requireNonNull(domainSid);
+        public Builder domainSid(@Nullable String domainSid) {
+            this.domainSid = domainSid;
             return this;
         }
         @CustomType.Setter
-        public Builder forestName(String forestName) {
-            this.forestName = Objects.requireNonNull(forestName);
+        public Builder forestName(@Nullable String forestName) {
+            this.forestName = forestName;
             return this;
         }
         @CustomType.Setter
-        public Builder netbiosDomainName(String netbiosDomainName) {
-            this.netbiosDomainName = Objects.requireNonNull(netbiosDomainName);
+        public Builder netbiosDomainName(@Nullable String netbiosDomainName) {
+            this.netbiosDomainName = netbiosDomainName;
             return this;
         }
         @CustomType.Setter
-        public Builder storageSid(String storageSid) {
-            this.storageSid = Objects.requireNonNull(storageSid);
+        public Builder storageSid(@Nullable String storageSid) {
+            this.storageSid = storageSid;
             return this;
         }
         public AccountAzureFilesAuthenticationActiveDirectory build() {

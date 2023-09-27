@@ -119,6 +119,7 @@ import javax.annotation.Nullable;
  *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
+ *             .localAuthenticationEnabled(false)
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name(&#34;S1&#34;)
  *                 .capacity(&#34;1&#34;)
@@ -387,6 +388,20 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<IoTHubIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
     }
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

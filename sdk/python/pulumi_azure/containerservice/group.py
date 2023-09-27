@@ -29,6 +29,7 @@ class GroupArgs:
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
@@ -60,6 +61,7 @@ class GroupArgs:
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_user_assigned_identity_id: The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
@@ -91,6 +93,8 @@ class GroupArgs:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "key_vault_user_assigned_identity_id", key_vault_user_assigned_identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -276,6 +280,18 @@ class GroupArgs:
         pulumi.set(self, "key_vault_key_id", value)
 
     @property
+    @pulumi.getter(name="keyVaultUserAssignedIdentityId")
+    def key_vault_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        """
+        return pulumi.get(self, "key_vault_user_assigned_identity_id")
+
+    @key_vault_user_assigned_identity_id.setter
+    def key_vault_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_user_assigned_identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -388,6 +404,7 @@ class _GroupState:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
@@ -419,6 +436,7 @@ class _GroupState:
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_user_assigned_identity_id: The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -457,6 +475,8 @@ class _GroupState:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "key_vault_user_assigned_identity_id", key_vault_user_assigned_identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -644,6 +664,18 @@ class _GroupState:
         pulumi.set(self, "key_vault_key_id", value)
 
     @property
+    @pulumi.getter(name="keyVaultUserAssignedIdentityId")
+    def key_vault_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        """
+        return pulumi.get(self, "key_vault_user_assigned_identity_id")
+
+    @key_vault_user_assigned_identity_id.setter
+    def key_vault_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_user_assigned_identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -782,6 +814,7 @@ class Group(pulumi.CustomResource):
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
@@ -863,6 +896,7 @@ class Group(pulumi.CustomResource):
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_user_assigned_identity_id: The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -958,6 +992,7 @@ class Group(pulumi.CustomResource):
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
@@ -990,6 +1025,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["init_containers"] = init_containers
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+            __props__.__dict__["key_vault_user_assigned_identity_id"] = key_vault_user_assigned_identity_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if network_profile_id is not None and not opts.urn:
@@ -1032,6 +1068,7 @@ class Group(pulumi.CustomResource):
             ip_address: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+            key_vault_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile_id: Optional[pulumi.Input[str]] = None,
@@ -1068,6 +1105,7 @@ class Group(pulumi.CustomResource):
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_user_assigned_identity_id: The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -1097,6 +1135,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["key_vault_user_assigned_identity_id"] = key_vault_user_assigned_identity_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile_id"] = network_profile_id
@@ -1218,6 +1257,14 @@ class Group(pulumi.CustomResource):
         The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultUserAssignedIdentityId")
+    def key_vault_user_assigned_identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        """
+        return pulumi.get(self, "key_vault_user_assigned_identity_id")
 
     @property
     @pulumi.getter

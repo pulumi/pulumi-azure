@@ -17,6 +17,7 @@ class ChannelTeamsArgs:
                  bot_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  calling_web_hook: Optional[pulumi.Input[str]] = None,
+                 deployment_environment: Optional[pulumi.Input[str]] = None,
                  enable_calling: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None):
         """
@@ -24,6 +25,7 @@ class ChannelTeamsArgs:
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         :param pulumi.Input[str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
+        :param pulumi.Input[str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         :param pulumi.Input[bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -31,6 +33,8 @@ class ChannelTeamsArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if calling_web_hook is not None:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+        if deployment_environment is not None:
+            pulumi.set(__self__, "deployment_environment", deployment_environment)
         if enable_calling is not None:
             pulumi.set(__self__, "enable_calling", enable_calling)
         if location is not None:
@@ -73,6 +77,18 @@ class ChannelTeamsArgs:
         pulumi.set(self, "calling_web_hook", value)
 
     @property
+    @pulumi.getter(name="deploymentEnvironment")
+    def deployment_environment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+        """
+        return pulumi.get(self, "deployment_environment")
+
+    @deployment_environment.setter
+    def deployment_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_environment", value)
+
+    @property
     @pulumi.getter(name="enableCalling")
     def enable_calling(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -102,6 +118,7 @@ class _ChannelTeamsState:
     def __init__(__self__, *,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  calling_web_hook: Optional[pulumi.Input[str]] = None,
+                 deployment_environment: Optional[pulumi.Input[str]] = None,
                  enable_calling: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
@@ -109,6 +126,7 @@ class _ChannelTeamsState:
         Input properties used for looking up and filtering ChannelTeams resources.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
+        :param pulumi.Input[str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         :param pulumi.Input[bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -117,6 +135,8 @@ class _ChannelTeamsState:
             pulumi.set(__self__, "bot_name", bot_name)
         if calling_web_hook is not None:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+        if deployment_environment is not None:
+            pulumi.set(__self__, "deployment_environment", deployment_environment)
         if enable_calling is not None:
             pulumi.set(__self__, "enable_calling", enable_calling)
         if location is not None:
@@ -147,6 +167,18 @@ class _ChannelTeamsState:
     @calling_web_hook.setter
     def calling_web_hook(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "calling_web_hook", value)
+
+    @property
+    @pulumi.getter(name="deploymentEnvironment")
+    def deployment_environment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+        """
+        return pulumi.get(self, "deployment_environment")
+
+    @deployment_environment.setter
+    def deployment_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_environment", value)
 
     @property
     @pulumi.getter(name="enableCalling")
@@ -192,6 +224,7 @@ class ChannelTeams(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  calling_web_hook: Optional[pulumi.Input[str]] = None,
+                 deployment_environment: Optional[pulumi.Input[str]] = None,
                  enable_calling: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -232,6 +265,7 @@ class ChannelTeams(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
+        :param pulumi.Input[str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         :param pulumi.Input[bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -291,6 +325,7 @@ class ChannelTeams(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  calling_web_hook: Optional[pulumi.Input[str]] = None,
+                 deployment_environment: Optional[pulumi.Input[str]] = None,
                  enable_calling: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -307,6 +342,7 @@ class ChannelTeams(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bot_name'")
             __props__.__dict__["bot_name"] = bot_name
             __props__.__dict__["calling_web_hook"] = calling_web_hook
+            __props__.__dict__["deployment_environment"] = deployment_environment
             __props__.__dict__["enable_calling"] = enable_calling
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -324,6 +360,7 @@ class ChannelTeams(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bot_name: Optional[pulumi.Input[str]] = None,
             calling_web_hook: Optional[pulumi.Input[str]] = None,
+            deployment_environment: Optional[pulumi.Input[str]] = None,
             enable_calling: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ChannelTeams':
@@ -336,6 +373,7 @@ class ChannelTeams(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
+        :param pulumi.Input[str] deployment_environment: The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         :param pulumi.Input[bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -346,6 +384,7 @@ class ChannelTeams(pulumi.CustomResource):
 
         __props__.__dict__["bot_name"] = bot_name
         __props__.__dict__["calling_web_hook"] = calling_web_hook
+        __props__.__dict__["deployment_environment"] = deployment_environment
         __props__.__dict__["enable_calling"] = enable_calling
         __props__.__dict__["location"] = location
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -366,6 +405,14 @@ class ChannelTeams(pulumi.CustomResource):
         Specifies the webhook for Microsoft Teams channel calls.
         """
         return pulumi.get(self, "calling_web_hook")
+
+    @property
+    @pulumi.getter(name="deploymentEnvironment")
+    def deployment_environment(self) -> pulumi.Output[Optional[str]]:
+        """
+        The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+        """
+        return pulumi.get(self, "deployment_environment")
 
     @property
     @pulumi.getter(name="enableCalling")

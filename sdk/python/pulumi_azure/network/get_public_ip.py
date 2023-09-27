@@ -77,6 +77,9 @@ class GetPublicIPResult:
     @property
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> str:
+        """
+        The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+        """
         return pulumi.get(self, "allocation_method")
 
     @property
@@ -154,6 +157,9 @@ class GetPublicIPResult:
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        The region that this public ip exists.
+        """
         return pulumi.get(self, "location")
 
     @property
@@ -169,6 +175,9 @@ class GetPublicIPResult:
     @property
     @pulumi.getter(name="reverseFqdn")
     def reverse_fqdn(self) -> str:
+        """
+        The fully qualified domain name that resolves to this public IP address.
+        """
         return pulumi.get(self, "reverse_fqdn")
 
     @property

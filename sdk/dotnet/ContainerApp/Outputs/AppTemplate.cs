@@ -14,9 +14,21 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplate
     {
         /// <summary>
+        /// One or more `azure_queue_scale_rule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppTemplateAzureQueueScaleRule> AzureQueueScaleRules;
+        /// <summary>
         /// One or more `container` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainer> Containers;
+        /// <summary>
+        /// One or more `custom_scale_rule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppTemplateCustomScaleRule> CustomScaleRules;
+        /// <summary>
+        /// One or more `http_scale_rule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppTemplateHttpScaleRule> HttpScaleRules;
         /// <summary>
         /// The maximum number of replicas for this container.
         /// </summary>
@@ -30,13 +42,23 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? RevisionSuffix;
         /// <summary>
+        /// One or more `tcp_scale_rule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppTemplateTcpScaleRule> TcpScaleRules;
+        /// <summary>
         /// A `volume` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateVolume> Volumes;
 
         [OutputConstructor]
         private AppTemplate(
+            ImmutableArray<Outputs.AppTemplateAzureQueueScaleRule> azureQueueScaleRules,
+
             ImmutableArray<Outputs.AppTemplateContainer> containers,
+
+            ImmutableArray<Outputs.AppTemplateCustomScaleRule> customScaleRules,
+
+            ImmutableArray<Outputs.AppTemplateHttpScaleRule> httpScaleRules,
 
             int? maxReplicas,
 
@@ -44,12 +66,18 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string? revisionSuffix,
 
+            ImmutableArray<Outputs.AppTemplateTcpScaleRule> tcpScaleRules,
+
             ImmutableArray<Outputs.AppTemplateVolume> volumes)
         {
+            AzureQueueScaleRules = azureQueueScaleRules;
             Containers = containers;
+            CustomScaleRules = customScaleRules;
+            HttpScaleRules = httpScaleRules;
             MaxReplicas = maxReplicas;
             MinReplicas = minReplicas;
             RevisionSuffix = revisionSuffix;
+            TcpScaleRules = tcpScaleRules;
             Volumes = volumes;
         }
     }

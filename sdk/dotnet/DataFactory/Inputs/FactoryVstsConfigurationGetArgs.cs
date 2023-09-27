@@ -31,6 +31,12 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
+        /// Is automated publishing enabled? Defaults to `false`.
+        /// </summary>
+        [Input("publishingEnabled")]
+        public Input<bool>? PublishingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the name of the git repository.
         /// </summary>
         [Input("repositoryName", required: true)]

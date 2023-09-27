@@ -411,6 +411,24 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.onDemandBurstingEnabled);
     }
     /**
+     * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     * 
+     * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     * 
+     */
+    @Export(name="optimizedFrequentAttachEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> optimizedFrequentAttachEnabled;
+
+    /**
+     * @return Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     * 
+     * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     * 
+     */
+    public Output<Optional<Boolean>> optimizedFrequentAttachEnabled() {
+        return Codegen.optional(this.optimizedFrequentAttachEnabled);
+    }
+    /**
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
@@ -423,6 +441,24 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> osType() {
         return Codegen.optional(this.osType);
+    }
+    /**
+     * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     * 
+     */
+    @Export(name="performancePlusEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> performancePlusEnabled;
+
+    /**
+     * @return Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     * 
+     */
+    public Output<Optional<Boolean>> performancePlusEnabled() {
+        return Codegen.optional(this.performancePlusEnabled);
     }
     /**
      * Whether it is allowed to access the disk via public network. Defaults to `true`.

@@ -3237,6 +3237,145 @@ func (o DatasetAzureBlobSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datase
 	}).(DatasetAzureBlobSchemaColumnOutput)
 }
 
+type DatasetAzureSqlTableSchemaColumn struct {
+	// The description of the column.
+	Description *string `pulumi:"description"`
+	// The name of the column.
+	Name string `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type *string `pulumi:"type"`
+}
+
+// DatasetAzureSqlTableSchemaColumnInput is an input type that accepts DatasetAzureSqlTableSchemaColumnArgs and DatasetAzureSqlTableSchemaColumnOutput values.
+// You can construct a concrete instance of `DatasetAzureSqlTableSchemaColumnInput` via:
+//
+//	DatasetAzureSqlTableSchemaColumnArgs{...}
+type DatasetAzureSqlTableSchemaColumnInput interface {
+	pulumi.Input
+
+	ToDatasetAzureSqlTableSchemaColumnOutput() DatasetAzureSqlTableSchemaColumnOutput
+	ToDatasetAzureSqlTableSchemaColumnOutputWithContext(context.Context) DatasetAzureSqlTableSchemaColumnOutput
+}
+
+type DatasetAzureSqlTableSchemaColumnArgs struct {
+	// The description of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DatasetAzureSqlTableSchemaColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetAzureSqlTableSchemaColumn)(nil)).Elem()
+}
+
+func (i DatasetAzureSqlTableSchemaColumnArgs) ToDatasetAzureSqlTableSchemaColumnOutput() DatasetAzureSqlTableSchemaColumnOutput {
+	return i.ToDatasetAzureSqlTableSchemaColumnOutputWithContext(context.Background())
+}
+
+func (i DatasetAzureSqlTableSchemaColumnArgs) ToDatasetAzureSqlTableSchemaColumnOutputWithContext(ctx context.Context) DatasetAzureSqlTableSchemaColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureSqlTableSchemaColumnOutput)
+}
+
+func (i DatasetAzureSqlTableSchemaColumnArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetAzureSqlTableSchemaColumn] {
+	return pulumix.Output[DatasetAzureSqlTableSchemaColumn]{
+		OutputState: i.ToDatasetAzureSqlTableSchemaColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DatasetAzureSqlTableSchemaColumnArrayInput is an input type that accepts DatasetAzureSqlTableSchemaColumnArray and DatasetAzureSqlTableSchemaColumnArrayOutput values.
+// You can construct a concrete instance of `DatasetAzureSqlTableSchemaColumnArrayInput` via:
+//
+//	DatasetAzureSqlTableSchemaColumnArray{ DatasetAzureSqlTableSchemaColumnArgs{...} }
+type DatasetAzureSqlTableSchemaColumnArrayInput interface {
+	pulumi.Input
+
+	ToDatasetAzureSqlTableSchemaColumnArrayOutput() DatasetAzureSqlTableSchemaColumnArrayOutput
+	ToDatasetAzureSqlTableSchemaColumnArrayOutputWithContext(context.Context) DatasetAzureSqlTableSchemaColumnArrayOutput
+}
+
+type DatasetAzureSqlTableSchemaColumnArray []DatasetAzureSqlTableSchemaColumnInput
+
+func (DatasetAzureSqlTableSchemaColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetAzureSqlTableSchemaColumn)(nil)).Elem()
+}
+
+func (i DatasetAzureSqlTableSchemaColumnArray) ToDatasetAzureSqlTableSchemaColumnArrayOutput() DatasetAzureSqlTableSchemaColumnArrayOutput {
+	return i.ToDatasetAzureSqlTableSchemaColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetAzureSqlTableSchemaColumnArray) ToDatasetAzureSqlTableSchemaColumnArrayOutputWithContext(ctx context.Context) DatasetAzureSqlTableSchemaColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureSqlTableSchemaColumnArrayOutput)
+}
+
+func (i DatasetAzureSqlTableSchemaColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetAzureSqlTableSchemaColumn] {
+	return pulumix.Output[[]DatasetAzureSqlTableSchemaColumn]{
+		OutputState: i.ToDatasetAzureSqlTableSchemaColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DatasetAzureSqlTableSchemaColumnOutput struct{ *pulumi.OutputState }
+
+func (DatasetAzureSqlTableSchemaColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetAzureSqlTableSchemaColumn)(nil)).Elem()
+}
+
+func (o DatasetAzureSqlTableSchemaColumnOutput) ToDatasetAzureSqlTableSchemaColumnOutput() DatasetAzureSqlTableSchemaColumnOutput {
+	return o
+}
+
+func (o DatasetAzureSqlTableSchemaColumnOutput) ToDatasetAzureSqlTableSchemaColumnOutputWithContext(ctx context.Context) DatasetAzureSqlTableSchemaColumnOutput {
+	return o
+}
+
+func (o DatasetAzureSqlTableSchemaColumnOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetAzureSqlTableSchemaColumn] {
+	return pulumix.Output[DatasetAzureSqlTableSchemaColumn]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The description of the column.
+func (o DatasetAzureSqlTableSchemaColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetAzureSqlTableSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the column.
+func (o DatasetAzureSqlTableSchemaColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetAzureSqlTableSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+func (o DatasetAzureSqlTableSchemaColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetAzureSqlTableSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DatasetAzureSqlTableSchemaColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetAzureSqlTableSchemaColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetAzureSqlTableSchemaColumn)(nil)).Elem()
+}
+
+func (o DatasetAzureSqlTableSchemaColumnArrayOutput) ToDatasetAzureSqlTableSchemaColumnArrayOutput() DatasetAzureSqlTableSchemaColumnArrayOutput {
+	return o
+}
+
+func (o DatasetAzureSqlTableSchemaColumnArrayOutput) ToDatasetAzureSqlTableSchemaColumnArrayOutputWithContext(ctx context.Context) DatasetAzureSqlTableSchemaColumnArrayOutput {
+	return o
+}
+
+func (o DatasetAzureSqlTableSchemaColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetAzureSqlTableSchemaColumn] {
+	return pulumix.Output[[]DatasetAzureSqlTableSchemaColumn]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DatasetAzureSqlTableSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetAzureSqlTableSchemaColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetAzureSqlTableSchemaColumn {
+		return vs[0].([]DatasetAzureSqlTableSchemaColumn)[vs[1].(int)]
+	}).(DatasetAzureSqlTableSchemaColumnOutput)
+}
+
 type DatasetBinaryAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
@@ -4268,8 +4407,14 @@ func (o DatasetCosmosDBApiSchemaColumnArrayOutput) Index(i pulumi.IntInput) Data
 }
 
 type DatasetDelimitedTextAzureBlobFsLocation struct {
+	// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFileSystemEnabled *bool `pulumi:"dynamicFileSystemEnabled"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
-	FileSystem string `pulumi:"fileSystem"`
+	FileSystem *string `pulumi:"fileSystem"`
 	// The filename of the file.
 	Filename *string `pulumi:"filename"`
 	// The folder path to the file.
@@ -4288,8 +4433,14 @@ type DatasetDelimitedTextAzureBlobFsLocationInput interface {
 }
 
 type DatasetDelimitedTextAzureBlobFsLocationArgs struct {
+	// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFileSystemEnabled pulumi.BoolPtrInput `pulumi:"dynamicFileSystemEnabled"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
 	// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
-	FileSystem pulumi.StringInput `pulumi:"fileSystem"`
+	FileSystem pulumi.StringPtrInput `pulumi:"fileSystem"`
 	// The filename of the file.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 	// The folder path to the file.
@@ -4391,9 +4542,24 @@ func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToOutput(ctx context.Cont
 	}
 }
 
+// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) DynamicFileSystemEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *bool { return v.DynamicFileSystemEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
-func (o DatasetDelimitedTextAzureBlobFsLocationOutput) FileSystem() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) string { return v.FileSystem }).(pulumi.StringOutput)
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) FileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *string { return v.FileSystem }).(pulumi.StringPtrOutput)
 }
 
 // The filename of the file.
@@ -4436,13 +4602,43 @@ func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Elem() DatasetDelimite
 	}).(DatasetDelimitedTextAzureBlobFsLocationOutput)
 }
 
+// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) DynamicFileSystemEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFileSystemEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
 func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) FileSystem() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.FileSystem
+		return v.FileSystem
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6008,6 +6204,262 @@ func (o DatasetMysqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetMys
 	}).(DatasetMysqlSchemaColumnOutput)
 }
 
+type DatasetParquetAzureBlobFsLocation struct {
+	// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFileSystemEnabled *bool `pulumi:"dynamicFileSystemEnabled"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
+	// The container on the Azure Data Lake Storage Account hosting the file.
+	FileSystem *string `pulumi:"fileSystem"`
+	// The filename of the file on the Azure Data Lake Storage Account.
+	Filename *string `pulumi:"filename"`
+	// The folder path to the file on the Azure Data Lake Storage Account.
+	Path *string `pulumi:"path"`
+}
+
+// DatasetParquetAzureBlobFsLocationInput is an input type that accepts DatasetParquetAzureBlobFsLocationArgs and DatasetParquetAzureBlobFsLocationOutput values.
+// You can construct a concrete instance of `DatasetParquetAzureBlobFsLocationInput` via:
+//
+//	DatasetParquetAzureBlobFsLocationArgs{...}
+type DatasetParquetAzureBlobFsLocationInput interface {
+	pulumi.Input
+
+	ToDatasetParquetAzureBlobFsLocationOutput() DatasetParquetAzureBlobFsLocationOutput
+	ToDatasetParquetAzureBlobFsLocationOutputWithContext(context.Context) DatasetParquetAzureBlobFsLocationOutput
+}
+
+type DatasetParquetAzureBlobFsLocationArgs struct {
+	// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFileSystemEnabled pulumi.BoolPtrInput `pulumi:"dynamicFileSystemEnabled"`
+	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
+	// The container on the Azure Data Lake Storage Account hosting the file.
+	FileSystem pulumi.StringPtrInput `pulumi:"fileSystem"`
+	// The filename of the file on the Azure Data Lake Storage Account.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+	// The folder path to the file on the Azure Data Lake Storage Account.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (DatasetParquetAzureBlobFsLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (i DatasetParquetAzureBlobFsLocationArgs) ToDatasetParquetAzureBlobFsLocationOutput() DatasetParquetAzureBlobFsLocationOutput {
+	return i.ToDatasetParquetAzureBlobFsLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetAzureBlobFsLocationArgs) ToDatasetParquetAzureBlobFsLocationOutputWithContext(ctx context.Context) DatasetParquetAzureBlobFsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetAzureBlobFsLocationOutput)
+}
+
+func (i DatasetParquetAzureBlobFsLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetParquetAzureBlobFsLocation] {
+	return pulumix.Output[DatasetParquetAzureBlobFsLocation]{
+		OutputState: i.ToDatasetParquetAzureBlobFsLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DatasetParquetAzureBlobFsLocationArgs) ToDatasetParquetAzureBlobFsLocationPtrOutput() DatasetParquetAzureBlobFsLocationPtrOutput {
+	return i.ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetParquetAzureBlobFsLocationArgs) ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobFsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetAzureBlobFsLocationOutput).ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetParquetAzureBlobFsLocationPtrInput is an input type that accepts DatasetParquetAzureBlobFsLocationArgs, DatasetParquetAzureBlobFsLocationPtr and DatasetParquetAzureBlobFsLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetParquetAzureBlobFsLocationPtrInput` via:
+//
+//	        DatasetParquetAzureBlobFsLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetParquetAzureBlobFsLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetParquetAzureBlobFsLocationPtrOutput() DatasetParquetAzureBlobFsLocationPtrOutput
+	ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(context.Context) DatasetParquetAzureBlobFsLocationPtrOutput
+}
+
+type datasetParquetAzureBlobFsLocationPtrType DatasetParquetAzureBlobFsLocationArgs
+
+func DatasetParquetAzureBlobFsLocationPtr(v *DatasetParquetAzureBlobFsLocationArgs) DatasetParquetAzureBlobFsLocationPtrInput {
+	return (*datasetParquetAzureBlobFsLocationPtrType)(v)
+}
+
+func (*datasetParquetAzureBlobFsLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParquetAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (i *datasetParquetAzureBlobFsLocationPtrType) ToDatasetParquetAzureBlobFsLocationPtrOutput() DatasetParquetAzureBlobFsLocationPtrOutput {
+	return i.ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetParquetAzureBlobFsLocationPtrType) ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobFsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetAzureBlobFsLocationPtrOutput)
+}
+
+func (i *datasetParquetAzureBlobFsLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetParquetAzureBlobFsLocation] {
+	return pulumix.Output[*DatasetParquetAzureBlobFsLocation]{
+		OutputState: i.ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DatasetParquetAzureBlobFsLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetAzureBlobFsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParquetAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (o DatasetParquetAzureBlobFsLocationOutput) ToDatasetParquetAzureBlobFsLocationOutput() DatasetParquetAzureBlobFsLocationOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobFsLocationOutput) ToDatasetParquetAzureBlobFsLocationOutputWithContext(ctx context.Context) DatasetParquetAzureBlobFsLocationOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobFsLocationOutput) ToDatasetParquetAzureBlobFsLocationPtrOutput() DatasetParquetAzureBlobFsLocationPtrOutput {
+	return o.ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetParquetAzureBlobFsLocationOutput) ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobFsLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetParquetAzureBlobFsLocation) *DatasetParquetAzureBlobFsLocation {
+		return &v
+	}).(DatasetParquetAzureBlobFsLocationPtrOutput)
+}
+
+func (o DatasetParquetAzureBlobFsLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetParquetAzureBlobFsLocation] {
+	return pulumix.Output[DatasetParquetAzureBlobFsLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobFsLocationOutput) DynamicFileSystemEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobFsLocation) *bool { return v.DynamicFileSystemEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobFsLocationOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobFsLocation) *bool { return v.DynamicFilenameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobFsLocationOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobFsLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The container on the Azure Data Lake Storage Account hosting the file.
+func (o DatasetParquetAzureBlobFsLocationOutput) FileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobFsLocation) *string { return v.FileSystem }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the file on the Azure Data Lake Storage Account.
+func (o DatasetParquetAzureBlobFsLocationOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobFsLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the Azure Data Lake Storage Account.
+func (o DatasetParquetAzureBlobFsLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetParquetAzureBlobFsLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type DatasetParquetAzureBlobFsLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetParquetAzureBlobFsLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParquetAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) ToDatasetParquetAzureBlobFsLocationPtrOutput() DatasetParquetAzureBlobFsLocationPtrOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) ToDatasetParquetAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetParquetAzureBlobFsLocationPtrOutput {
+	return o
+}
+
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetParquetAzureBlobFsLocation] {
+	return pulumix.Output[*DatasetParquetAzureBlobFsLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) Elem() DatasetParquetAzureBlobFsLocationOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) DatasetParquetAzureBlobFsLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetParquetAzureBlobFsLocation
+		return ret
+	}).(DatasetParquetAzureBlobFsLocationOutput)
+}
+
+// Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) DynamicFileSystemEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFileSystemEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) DynamicFilenameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicFilenameEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) DynamicPathEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPathEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The container on the Azure Data Lake Storage Account hosting the file.
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) FileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystem
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the file on the Azure Data Lake Storage Account.
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file on the Azure Data Lake Storage Account.
+func (o DatasetParquetAzureBlobFsLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetParquetAzureBlobFsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatasetParquetAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
@@ -6017,9 +6469,9 @@ type DatasetParquetAzureBlobStorageLocation struct {
 	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
-	// The filename of the file on the web server.
+	// The filename of the file on the Azure Blob Storage Account.
 	Filename *string `pulumi:"filename"`
-	// The folder path to the file on the web server.
+	// The folder path to the file on the Azure Blob Storage Account.
 	Path *string `pulumi:"path"`
 }
 
@@ -6043,9 +6495,9 @@ type DatasetParquetAzureBlobStorageLocationArgs struct {
 	DynamicFilenameEnabled pulumi.BoolPtrInput `pulumi:"dynamicFilenameEnabled"`
 	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
 	DynamicPathEnabled pulumi.BoolPtrInput `pulumi:"dynamicPathEnabled"`
-	// The filename of the file on the web server.
+	// The filename of the file on the Azure Blob Storage Account.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
-	// The folder path to the file on the web server.
+	// The folder path to the file on the Azure Blob Storage Account.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -6164,12 +6616,12 @@ func (o DatasetParquetAzureBlobStorageLocationOutput) DynamicPathEnabled() pulum
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *bool { return v.DynamicPathEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The filename of the file on the web server.
+// The filename of the file on the Azure Blob Storage Account.
 func (o DatasetParquetAzureBlobStorageLocationOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file on the web server.
+// The folder path to the file on the Azure Blob Storage Account.
 func (o DatasetParquetAzureBlobStorageLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetParquetAzureBlobStorageLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -6244,7 +6696,7 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) DynamicPathEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The filename of the file on the web server.
+// The filename of the file on the Azure Blob Storage Account.
 func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *string {
 		if v == nil {
@@ -6254,7 +6706,7 @@ func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Filename() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file on the web server.
+// The folder path to the file on the Azure Blob Storage Account.
 func (o DatasetParquetAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetParquetAzureBlobStorageLocation) *string {
 		if v == nil {
@@ -7073,11 +7525,13 @@ type FactoryGithubConfiguration struct {
 	BranchName string `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 	GitUrl string `pulumi:"gitUrl"`
+	// Is automated publishing enabled? Defaults to `false`.
+	//
+	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+	PublishingEnabled *bool `pulumi:"publishingEnabled"`
 	// Specifies the name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
-	//
-	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 	RootFolder string `pulumi:"rootFolder"`
 }
 
@@ -7099,11 +7553,13 @@ type FactoryGithubConfigurationArgs struct {
 	BranchName pulumi.StringInput `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
+	// Is automated publishing enabled? Defaults to `false`.
+	//
+	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+	PublishingEnabled pulumi.BoolPtrInput `pulumi:"publishingEnabled"`
 	// Specifies the name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
-	//
-	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
 }
 
@@ -7217,14 +7673,19 @@ func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }
 
+// Is automated publishing enabled? Defaults to `false`.
+//
+// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+func (o FactoryGithubConfigurationOutput) PublishingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FactoryGithubConfiguration) *bool { return v.PublishingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the name of the git repository.
 func (o FactoryGithubConfigurationOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
 }
 
 // Specifies the root folder within the repository. Set to `/` for the top level.
-//
-// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 func (o FactoryGithubConfigurationOutput) RootFolder() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
 }
@@ -7289,6 +7750,18 @@ func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Is automated publishing enabled? Defaults to `false`.
+//
+// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+func (o FactoryGithubConfigurationPtrOutput) PublishingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FactoryGithubConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the name of the git repository.
 func (o FactoryGithubConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
@@ -7300,8 +7773,6 @@ func (o FactoryGithubConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOu
 }
 
 // Specifies the root folder within the repository. Set to `/` for the top level.
-//
-// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
 		if v == nil {
@@ -7689,6 +8160,8 @@ type FactoryVstsConfiguration struct {
 	BranchName string `pulumi:"branchName"`
 	// Specifies the name of the VSTS project.
 	ProjectName string `pulumi:"projectName"`
+	// Is automated publishing enabled? Defaults to `false`.
+	PublishingEnabled *bool `pulumi:"publishingEnabled"`
 	// Specifies the name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
@@ -7715,6 +8188,8 @@ type FactoryVstsConfigurationArgs struct {
 	BranchName pulumi.StringInput `pulumi:"branchName"`
 	// Specifies the name of the VSTS project.
 	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Is automated publishing enabled? Defaults to `false`.
+	PublishingEnabled pulumi.BoolPtrInput `pulumi:"publishingEnabled"`
 	// Specifies the name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
@@ -7833,6 +8308,11 @@ func (o FactoryVstsConfigurationOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
+// Is automated publishing enabled? Defaults to `false`.
+func (o FactoryVstsConfigurationOutput) PublishingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FactoryVstsConfiguration) *bool { return v.PublishingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the name of the git repository.
 func (o FactoryVstsConfigurationOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
@@ -7906,6 +8386,16 @@ func (o FactoryVstsConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput 
 		}
 		return &v.ProjectName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is automated publishing enabled? Defaults to `false`.
+func (o FactoryVstsConfigurationPtrOutput) PublishingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishingEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the git repository.
@@ -18516,6 +19006,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationLinkedServicePtrInput)(nil)).Elem(), DataFlowTransformationLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobSchemaColumnInput)(nil)).Elem(), DatasetAzureBlobSchemaColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobSchemaColumnArrayInput)(nil)).Elem(), DatasetAzureBlobSchemaColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureSqlTableSchemaColumnInput)(nil)).Elem(), DatasetAzureSqlTableSchemaColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureSqlTableSchemaColumnArrayInput)(nil)).Elem(), DatasetAzureSqlTableSchemaColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryAzureBlobStorageLocationInput)(nil)).Elem(), DatasetBinaryAzureBlobStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryAzureBlobStorageLocationPtrInput)(nil)).Elem(), DatasetBinaryAzureBlobStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryCompressionInput)(nil)).Elem(), DatasetBinaryCompressionArgs{})
@@ -18544,6 +19036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonSchemaColumnArrayInput)(nil)).Elem(), DatasetJsonSchemaColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlSchemaColumnInput)(nil)).Elem(), DatasetMysqlSchemaColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlSchemaColumnArrayInput)(nil)).Elem(), DatasetMysqlSchemaColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetAzureBlobFsLocationInput)(nil)).Elem(), DatasetParquetAzureBlobFsLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetAzureBlobFsLocationPtrInput)(nil)).Elem(), DatasetParquetAzureBlobFsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetAzureBlobStorageLocationInput)(nil)).Elem(), DatasetParquetAzureBlobStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetAzureBlobStorageLocationPtrInput)(nil)).Elem(), DatasetParquetAzureBlobStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetHttpServerLocationInput)(nil)).Elem(), DatasetParquetHttpServerLocationArgs{})
@@ -18716,6 +19210,8 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowTransformationLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetAzureSqlTableSchemaColumnOutput{})
+	pulumi.RegisterOutputType(DatasetAzureSqlTableSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryAzureBlobStorageLocationOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryAzureBlobStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryCompressionOutput{})
@@ -18744,6 +19240,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetJsonSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetParquetAzureBlobFsLocationOutput{})
+	pulumi.RegisterOutputType(DatasetParquetAzureBlobFsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetParquetAzureBlobStorageLocationOutput{})
 	pulumi.RegisterOutputType(DatasetParquetAzureBlobStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetParquetHttpServerLocationOutput{})

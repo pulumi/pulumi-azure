@@ -18,6 +18,7 @@ __all__ = [
     'ConfigurationStoreIdentity',
     'ConfigurationStorePrimaryReadKey',
     'ConfigurationStorePrimaryWriteKey',
+    'ConfigurationStoreReplica',
     'ConfigurationStoreSecondaryReadKey',
     'ConfigurationStoreSecondaryWriteKey',
     'GetConfigurationKeysItemResult',
@@ -25,6 +26,7 @@ __all__ = [
     'GetConfigurationStoreIdentityResult',
     'GetConfigurationStorePrimaryReadKeyResult',
     'GetConfigurationStorePrimaryWriteKeyResult',
+    'GetConfigurationStoreReplicaResult',
     'GetConfigurationStoreSecondaryReadKeyResult',
     'GetConfigurationStoreSecondaryWriteKeyResult',
 ]
@@ -415,6 +417,59 @@ class ConfigurationStorePrimaryWriteKey(dict):
 
 
 @pulumi.output_type
+class ConfigurationStoreReplica(dict):
+    def __init__(__self__, *,
+                 location: str,
+                 name: str,
+                 endpoint: Optional[str] = None,
+                 id: Optional[str] = None):
+        """
+        :param str location: Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        :param str name: Specifies the name of the replica. Changing this forces a new replica to be created.
+        :param str endpoint: The URL of the App Configuration Replica.
+        :param str id: The ID of the Access Key.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the replica. Changing this forces a new replica to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The URL of the App Configuration Replica.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Access Key.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ConfigurationStoreSecondaryReadKey(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -770,6 +825,57 @@ class GetConfigurationStorePrimaryWriteKeyResult(dict):
         The Secret of the Access Key.
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetConfigurationStoreReplicaResult(dict):
+    def __init__(__self__, *,
+                 endpoint: str,
+                 id: str,
+                 location: str,
+                 name: str):
+        """
+        :param str endpoint: The URL of the App Configuration Replica.
+        :param str id: The ID of the Access Key.
+        :param str location: The supported Azure location where the App Configuration Replica exists.
+        :param str name: The Name of this App Configuration.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The URL of the App Configuration Replica.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Access Key.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The supported Azure location where the App Configuration Replica exists.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of this App Configuration.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

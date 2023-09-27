@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+        /// &gt; **Note** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Output("muteActionsAfterAlertDuration")]
         public Output<string?> MuteActionsAfterAlertDuration { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+        /// &gt; **Note** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("muteActionsAfterAlertDuration")]
         public Input<string>? MuteActionsAfterAlertDuration { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **NOTE** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+        /// &gt; **Note** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("muteActionsAfterAlertDuration")]
         public Input<string>? MuteActionsAfterAlertDuration { get; set; }

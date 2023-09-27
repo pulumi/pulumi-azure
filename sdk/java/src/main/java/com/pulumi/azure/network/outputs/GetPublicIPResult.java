@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPublicIPResult {
+    /**
+     * @return The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     * 
+     */
     private String allocationMethod;
     /**
      * @return The DDoS protection mode of the public IP.
@@ -58,9 +62,17 @@ public final class GetPublicIPResult {
      * 
      */
     private String ipVersion;
+    /**
+     * @return The region that this public ip exists.
+     * 
+     */
     private String location;
     private String name;
     private String resourceGroupName;
+    /**
+     * @return The fully qualified domain name that resolves to this public IP address.
+     * 
+     */
     private String reverseFqdn;
     /**
      * @return The SKU of the Public IP.
@@ -79,6 +91,10 @@ public final class GetPublicIPResult {
     private List<String> zones;
 
     private GetPublicIPResult() {}
+    /**
+     * @return The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     * 
+     */
     public String allocationMethod() {
         return this.allocationMethod;
     }
@@ -145,6 +161,10 @@ public final class GetPublicIPResult {
     public String ipVersion() {
         return this.ipVersion;
     }
+    /**
+     * @return The region that this public ip exists.
+     * 
+     */
     public String location() {
         return this.location;
     }
@@ -154,6 +174,10 @@ public final class GetPublicIPResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The fully qualified domain name that resolves to this public IP address.
+     * 
+     */
     public String reverseFqdn() {
         return this.reverseFqdn;
     }

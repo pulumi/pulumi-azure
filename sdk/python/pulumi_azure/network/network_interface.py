@@ -18,6 +18,8 @@ class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[str],
+                 auxiliary_mode: Optional[pulumi.Input[str]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -30,6 +32,12 @@ class NetworkInterfaceArgs:
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -47,6 +55,10 @@ class NetworkInterfaceArgs:
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if edge_zone is not None:
@@ -87,6 +99,34 @@ class NetworkInterfaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+
+        > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @auxiliary_mode.setter
+    def auxiliary_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auxiliary_mode", value)
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+
+        > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_sku")
+
+    @auxiliary_sku.setter
+    def auxiliary_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auxiliary_sku", value)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -195,6 +235,8 @@ class NetworkInterfaceArgs:
 class _NetworkInterfaceState:
     def __init__(__self__, *,
                  applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auxiliary_mode: Optional[pulumi.Input[str]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -213,6 +255,12 @@ class _NetworkInterfaceState:
         """
         Input properties used for looking up and filtering NetworkInterface resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
+        :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -237,6 +285,10 @@ class _NetworkInterfaceState:
         """
         if applied_dns_servers is not None:
             pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if edge_zone is not None:
@@ -279,6 +331,34 @@ class _NetworkInterfaceState:
     @applied_dns_servers.setter
     def applied_dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "applied_dns_servers", value)
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+
+        > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @auxiliary_mode.setter
+    def auxiliary_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auxiliary_mode", value)
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+
+        > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_sku")
+
+    @auxiliary_sku.setter
+    def auxiliary_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auxiliary_sku", value)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -472,6 +552,8 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_mode: Optional[pulumi.Input[str]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -521,6 +603,12 @@ class NetworkInterface(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -595,6 +683,8 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_mode: Optional[pulumi.Input[str]] = None,
+                 auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -614,6 +704,8 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+            __props__.__dict__["auxiliary_mode"] = auxiliary_mode
+            __props__.__dict__["auxiliary_sku"] = auxiliary_sku
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
@@ -645,6 +737,8 @@ class NetworkInterface(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            auxiliary_mode: Optional[pulumi.Input[str]] = None,
+            auxiliary_sku: Optional[pulumi.Input[str]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
             enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -668,6 +762,12 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applied_dns_servers: If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
+        :param pulumi.Input[str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param pulumi.Input[str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
                
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
@@ -695,6 +795,8 @@ class NetworkInterface(pulumi.CustomResource):
         __props__ = _NetworkInterfaceState.__new__(_NetworkInterfaceState)
 
         __props__.__dict__["applied_dns_servers"] = applied_dns_servers
+        __props__.__dict__["auxiliary_mode"] = auxiliary_mode
+        __props__.__dict__["auxiliary_sku"] = auxiliary_sku
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
@@ -719,6 +821,26 @@ class NetworkInterface(pulumi.CustomResource):
         If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         """
         return pulumi.get(self, "applied_dns_servers")
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+
+        > **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+
+        > **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @property
     @pulumi.getter(name="dnsServers")

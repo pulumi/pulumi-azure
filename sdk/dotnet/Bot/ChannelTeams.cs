@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Bot
         public Output<string> CallingWebHook { get; private set; } = null!;
 
         /// <summary>
+        /// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+        /// </summary>
+        [Output("deploymentEnvironment")]
+        public Output<string?> DeploymentEnvironment { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         /// </summary>
         [Output("enableCalling")]
@@ -149,6 +155,12 @@ namespace Pulumi.Azure.Bot
         public Input<string>? CallingWebHook { get; set; }
 
         /// <summary>
+        /// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+        /// </summary>
+        [Input("deploymentEnvironment")]
+        public Input<string>? DeploymentEnvironment { get; set; }
+
+        /// <summary>
         /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         /// </summary>
         [Input("enableCalling")]
@@ -185,6 +197,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("callingWebHook")]
         public Input<string>? CallingWebHook { get; set; }
+
+        /// <summary>
+        /// The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+        /// </summary>
+        [Input("deploymentEnvironment")]
+        public Input<string>? DeploymentEnvironment { get; set; }
 
         /// <summary>
         /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.

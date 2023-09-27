@@ -10,6 +10,7 @@ import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreEncryption;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreIdentity;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStorePrimaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStorePrimaryWriteKey;
+import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreReplica;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreSecondaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationStoreSecondaryWriteKey;
 import com.pulumi.core.Output;
@@ -83,6 +84,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appconfiguration.ConfigurationStoreArgs;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreEncryptionArgs;
+ * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreReplicaArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -183,6 +185,10 @@ import javax.annotation.Nullable;
  *                 .keyVaultKeyIdentifier(exampleKey.id())
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
+ *             .replicas(ConfigurationStoreReplicaArgs.builder()
+ *                 .name(&#34;replica1&#34;)
+ *                 .location(&#34;West US&#34;)
+ *                 .build())
  *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -220,14 +226,14 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryption);
     }
     /**
-     * The URL of the App Configuration.
+     * The URL of the App Configuration Replica.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The URL of the App Configuration.
+     * @return The URL of the App Configuration Replica.
      * 
      */
     public Output<String> endpoint() {
@@ -356,6 +362,20 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {
         return Codegen.optional(this.purgeProtectionEnabled);
+    }
+    /**
+     * One or more `replica` blocks as defined below.
+     * 
+     */
+    @Export(name="replicas", refs={List.class,ConfigurationStoreReplica.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ConfigurationStoreReplica>> replicas;
+
+    /**
+     * @return One or more `replica` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<ConfigurationStoreReplica>>> replicas() {
+        return Codegen.optional(this.replicas);
     }
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.

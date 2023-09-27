@@ -80,8 +80,6 @@ export class ElasticPool extends pulumi.CustomResource {
 
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-     *
-     * > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
@@ -194,8 +192,6 @@ export class ElasticPool extends pulumi.CustomResource {
 export interface ElasticPoolState {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-     *
-     * > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -252,8 +248,6 @@ export interface ElasticPoolState {
 export interface ElasticPoolArgs {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-     *
-     * > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      */
     licenseType?: pulumi.Input<string>;
     /**

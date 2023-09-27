@@ -569,7 +569,9 @@ class _AccountState:
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
+                 primary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_readonly_key: Optional[pulumi.Input[str]] = None,
+                 primary_readonly_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_sql_connection_string: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -577,7 +579,9 @@ class _AccountState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_readonly_key: Optional[pulumi.Input[str]] = None,
+                 secondary_readonly_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_sql_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -624,7 +628,11 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_mongodb_connection_string: Primary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_mongodb_connection_string: Primary readonly Mongodb connection string for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_sql_connection_string: Primary readonly SQL connection string for the CosmosDB Account.
+        :param pulumi.Input[str] primary_sql_connection_string: Primary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -632,7 +640,11 @@ class _AccountState:
                
                > **NOTE:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_mongodb_connection_string: Secondary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_mongodb_connection_string: Secondary readonly Mongodb connection string for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_sql_connection_string: Secondary readonly SQL connection string for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_sql_connection_string: Secondary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
@@ -695,8 +707,12 @@ class _AccountState:
             pulumi.set(__self__, "offer_type", offer_type)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
+        if primary_mongodb_connection_string is not None:
+            pulumi.set(__self__, "primary_mongodb_connection_string", primary_mongodb_connection_string)
         if primary_readonly_key is not None:
             pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
+        if primary_readonly_mongodb_connection_string is not None:
+            pulumi.set(__self__, "primary_readonly_mongodb_connection_string", primary_readonly_mongodb_connection_string)
         if primary_readonly_sql_connection_string is not None:
             pulumi.set(__self__, "primary_readonly_sql_connection_string", primary_readonly_sql_connection_string)
         if primary_sql_connection_string is not None:
@@ -711,8 +727,12 @@ class _AccountState:
             pulumi.set(__self__, "restore", restore)
         if secondary_key is not None:
             pulumi.set(__self__, "secondary_key", secondary_key)
+        if secondary_mongodb_connection_string is not None:
+            pulumi.set(__self__, "secondary_mongodb_connection_string", secondary_mongodb_connection_string)
         if secondary_readonly_key is not None:
             pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
+        if secondary_readonly_mongodb_connection_string is not None:
+            pulumi.set(__self__, "secondary_readonly_mongodb_connection_string", secondary_readonly_mongodb_connection_string)
         if secondary_readonly_sql_connection_string is not None:
             pulumi.set(__self__, "secondary_readonly_sql_connection_string", secondary_readonly_sql_connection_string)
         if secondary_sql_connection_string is not None:
@@ -1083,6 +1103,18 @@ class _AccountState:
         pulumi.set(self, "primary_key", value)
 
     @property
+    @pulumi.getter(name="primaryMongodbConnectionString")
+    def primary_mongodb_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_mongodb_connection_string")
+
+    @primary_mongodb_connection_string.setter
+    def primary_mongodb_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_mongodb_connection_string", value)
+
+    @property
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1095,8 +1127,23 @@ class _AccountState:
         pulumi.set(self, "primary_readonly_key", value)
 
     @property
+    @pulumi.getter(name="primaryReadonlyMongodbConnectionString")
+    def primary_readonly_mongodb_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary readonly Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_readonly_mongodb_connection_string")
+
+    @primary_readonly_mongodb_connection_string.setter
+    def primary_readonly_mongodb_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_readonly_mongodb_connection_string", value)
+
+    @property
     @pulumi.getter(name="primaryReadonlySqlConnectionString")
     def primary_readonly_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary readonly SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "primary_readonly_sql_connection_string")
 
     @primary_readonly_sql_connection_string.setter
@@ -1106,6 +1153,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="primarySqlConnectionString")
     def primary_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "primary_sql_connection_string")
 
     @primary_sql_connection_string.setter
@@ -1175,6 +1225,18 @@ class _AccountState:
         pulumi.set(self, "secondary_key", value)
 
     @property
+    @pulumi.getter(name="secondaryMongodbConnectionString")
+    def secondary_mongodb_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_mongodb_connection_string")
+
+    @secondary_mongodb_connection_string.setter
+    def secondary_mongodb_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_mongodb_connection_string", value)
+
+    @property
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1187,8 +1249,23 @@ class _AccountState:
         pulumi.set(self, "secondary_readonly_key", value)
 
     @property
+    @pulumi.getter(name="secondaryReadonlyMongodbConnectionString")
+    def secondary_readonly_mongodb_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary readonly Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_readonly_mongodb_connection_string")
+
+    @secondary_readonly_mongodb_connection_string.setter
+    def secondary_readonly_mongodb_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_readonly_mongodb_connection_string", value)
+
+    @property
     @pulumi.getter(name="secondaryReadonlySqlConnectionString")
     def secondary_readonly_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary readonly SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "secondary_readonly_sql_connection_string")
 
     @secondary_readonly_sql_connection_string.setter
@@ -1198,6 +1275,9 @@ class _AccountState:
     @property
     @pulumi.getter(name="secondarySqlConnectionString")
     def secondary_sql_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "secondary_sql_connection_string")
 
     @secondary_sql_connection_string.setter
@@ -1545,16 +1625,20 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_key"] = None
+            __props__.__dict__["primary_mongodb_connection_string"] = None
             __props__.__dict__["primary_readonly_key"] = None
+            __props__.__dict__["primary_readonly_mongodb_connection_string"] = None
             __props__.__dict__["primary_readonly_sql_connection_string"] = None
             __props__.__dict__["primary_sql_connection_string"] = None
             __props__.__dict__["read_endpoints"] = None
             __props__.__dict__["secondary_key"] = None
+            __props__.__dict__["secondary_mongodb_connection_string"] = None
             __props__.__dict__["secondary_readonly_key"] = None
+            __props__.__dict__["secondary_readonly_mongodb_connection_string"] = None
             __props__.__dict__["secondary_readonly_sql_connection_string"] = None
             __props__.__dict__["secondary_sql_connection_string"] = None
             __props__.__dict__["write_endpoints"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionStrings", "primaryKey", "primaryReadonlyKey", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryReadonlyKey", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionStrings", "primaryKey", "primaryMongodbConnectionString", "primaryReadonlyKey", "primaryReadonlyMongodbConnectionString", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryMongodbConnectionString", "secondaryReadonlyKey", "secondaryReadonlyMongodbConnectionString", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
@@ -1595,7 +1679,9 @@ class Account(pulumi.CustomResource):
             network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             offer_type: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
+            primary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
             primary_readonly_key: Optional[pulumi.Input[str]] = None,
+            primary_readonly_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
             primary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
             primary_sql_connection_string: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1603,7 +1689,9 @@ class Account(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
+            secondary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_readonly_key: Optional[pulumi.Input[str]] = None,
+            secondary_readonly_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_readonly_sql_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_sql_connection_string: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1655,7 +1743,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_mongodb_connection_string: Primary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_mongodb_connection_string: Primary readonly Mongodb connection string for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_sql_connection_string: Primary readonly SQL connection string for the CosmosDB Account.
+        :param pulumi.Input[str] primary_sql_connection_string: Primary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -1663,7 +1755,11 @@ class Account(pulumi.CustomResource):
                
                > **NOTE:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_mongodb_connection_string: Secondary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_mongodb_connection_string: Secondary readonly Mongodb connection string for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_sql_connection_string: Secondary readonly SQL connection string for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_sql_connection_string: Secondary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
@@ -1701,7 +1797,9 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
         __props__.__dict__["offer_type"] = offer_type
         __props__.__dict__["primary_key"] = primary_key
+        __props__.__dict__["primary_mongodb_connection_string"] = primary_mongodb_connection_string
         __props__.__dict__["primary_readonly_key"] = primary_readonly_key
+        __props__.__dict__["primary_readonly_mongodb_connection_string"] = primary_readonly_mongodb_connection_string
         __props__.__dict__["primary_readonly_sql_connection_string"] = primary_readonly_sql_connection_string
         __props__.__dict__["primary_sql_connection_string"] = primary_sql_connection_string
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1709,7 +1807,9 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restore"] = restore
         __props__.__dict__["secondary_key"] = secondary_key
+        __props__.__dict__["secondary_mongodb_connection_string"] = secondary_mongodb_connection_string
         __props__.__dict__["secondary_readonly_key"] = secondary_readonly_key
+        __props__.__dict__["secondary_readonly_mongodb_connection_string"] = secondary_readonly_mongodb_connection_string
         __props__.__dict__["secondary_readonly_sql_connection_string"] = secondary_readonly_sql_connection_string
         __props__.__dict__["secondary_sql_connection_string"] = secondary_sql_connection_string
         __props__.__dict__["tags"] = tags
@@ -1960,6 +2060,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "primary_key")
 
     @property
+    @pulumi.getter(name="primaryMongodbConnectionString")
+    def primary_mongodb_connection_string(self) -> pulumi.Output[str]:
+        """
+        Primary Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_mongodb_connection_string")
+
+    @property
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> pulumi.Output[str]:
         """
@@ -1968,13 +2076,27 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "primary_readonly_key")
 
     @property
+    @pulumi.getter(name="primaryReadonlyMongodbConnectionString")
+    def primary_readonly_mongodb_connection_string(self) -> pulumi.Output[str]:
+        """
+        Primary readonly Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_readonly_mongodb_connection_string")
+
+    @property
     @pulumi.getter(name="primaryReadonlySqlConnectionString")
     def primary_readonly_sql_connection_string(self) -> pulumi.Output[str]:
+        """
+        Primary readonly SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "primary_readonly_sql_connection_string")
 
     @property
     @pulumi.getter(name="primarySqlConnectionString")
     def primary_sql_connection_string(self) -> pulumi.Output[str]:
+        """
+        Primary SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "primary_sql_connection_string")
 
     @property
@@ -2020,6 +2142,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "secondary_key")
 
     @property
+    @pulumi.getter(name="secondaryMongodbConnectionString")
+    def secondary_mongodb_connection_string(self) -> pulumi.Output[str]:
+        """
+        Secondary Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_mongodb_connection_string")
+
+    @property
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> pulumi.Output[str]:
         """
@@ -2028,13 +2158,27 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "secondary_readonly_key")
 
     @property
+    @pulumi.getter(name="secondaryReadonlyMongodbConnectionString")
+    def secondary_readonly_mongodb_connection_string(self) -> pulumi.Output[str]:
+        """
+        Secondary readonly Mongodb connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_readonly_mongodb_connection_string")
+
+    @property
     @pulumi.getter(name="secondaryReadonlySqlConnectionString")
     def secondary_readonly_sql_connection_string(self) -> pulumi.Output[str]:
+        """
+        Secondary readonly SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "secondary_readonly_sql_connection_string")
 
     @property
     @pulumi.getter(name="secondarySqlConnectionString")
     def secondary_sql_connection_string(self) -> pulumi.Output[str]:
+        """
+        Secondary SQL connection string for the CosmosDB Account.
+        """
         return pulumi.get(self, "secondary_sql_connection_string")
 
     @property

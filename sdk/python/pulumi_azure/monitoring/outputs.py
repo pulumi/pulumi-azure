@@ -6805,8 +6805,12 @@ class DiagnosticSettingEnabledLog(dict):
                > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
         :param str category_group: The name of a Diagnostic Log Category Group for this Resource.
                
-               > **NOTE:** Not all resources have category groups available.****
+               > **NOTE:** Not all resources have category groups available.
+               
+               > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         :param 'DiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -6831,7 +6835,9 @@ class DiagnosticSettingEnabledLog(dict):
         """
         The name of a Diagnostic Log Category Group for this Resource.
 
-        > **NOTE:** Not all resources have category groups available.****
+        > **NOTE:** Not all resources have category groups available.
+
+        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         """
         return pulumi.get(self, "category_group")
 
@@ -6840,9 +6846,11 @@ class DiagnosticSettingEnabledLog(dict):
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy']:
         """
         A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        warnings.warn("""`retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+        warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
 
         return pulumi.get(self, "retention_policy")
 
@@ -6855,6 +6863,7 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
         """
         :param bool enabled: Is this Retention Policy enabled?
         :param int days: The number of days for which this Retention Policy should apply.
+               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -6875,6 +6884,7 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
     def days(self) -> Optional[int]:
         """
         The number of days for which this Retention Policy should apply.
+
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -6914,8 +6924,12 @@ class DiagnosticSettingLog(dict):
         :param str category_group: The name of a Diagnostic Log Category Group for this Resource.
                
                > **NOTE:** Not all resources have category groups available.
+               
+               > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         :param 'DiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -6943,6 +6957,8 @@ class DiagnosticSettingLog(dict):
         The name of a Diagnostic Log Category Group for this Resource.
 
         > **NOTE:** Not all resources have category groups available.
+
+        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         """
         return pulumi.get(self, "category_group")
 
@@ -6959,7 +6975,12 @@ class DiagnosticSettingLog(dict):
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingLogRetentionPolicy']:
         """
         A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
+        warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+
         return pulumi.get(self, "retention_policy")
 
 
@@ -6971,6 +6992,7 @@ class DiagnosticSettingLogRetentionPolicy(dict):
         """
         :param bool enabled: Is this Retention Policy enabled?
         :param int days: The number of days for which this Retention Policy should apply.
+               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -6991,6 +7013,7 @@ class DiagnosticSettingLogRetentionPolicy(dict):
     def days(self) -> Optional[int]:
         """
         The number of days for which this Retention Policy should apply.
+
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -7026,6 +7049,8 @@ class DiagnosticSettingMetric(dict):
                > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         :param bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         :param 'DiagnosticSettingMetricRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         pulumi.set(__self__, "category", category)
         if enabled is not None:
@@ -7056,7 +7081,12 @@ class DiagnosticSettingMetric(dict):
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingMetricRetentionPolicy']:
         """
         A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
+        warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+        pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+
         return pulumi.get(self, "retention_policy")
 
 
@@ -7068,6 +7098,7 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
         """
         :param bool enabled: Is this Retention Policy enabled?
         :param int days: The number of days for which this Retention Policy should apply.
+               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -7088,6 +7119,7 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
     def days(self) -> Optional[int]:
         """
         The number of days for which this Retention Policy should apply.
+
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -8165,6 +8197,8 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
         :param Sequence['ScheduledQueryRulesAlertV2CriteriaDimensionArgs'] dimensions: A `dimension` block as defined below.
         :param 'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs' failing_periods: A `failing_periods` block as defined below.
         :param str metric_measure_column: Specifies the column containing the metric measure number.
+               
+               > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
         :param str resource_id_column: Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
         pulumi.set(__self__, "operator", operator)
@@ -8233,6 +8267,8 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
     def metric_measure_column(self) -> Optional[str]:
         """
         Specifies the column containing the metric measure number.
+
+        > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
         """
         return pulumi.get(self, "metric_measure_column")
 

@@ -193,7 +193,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly sourceServerId!: pulumi.Output<string | undefined>;
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      */
     public readonly storageMb!: pulumi.Output<number>;
     /**
@@ -391,7 +391,7 @@ export interface FlexibleServerState {
      */
     sourceServerId?: pulumi.Input<string>;
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      */
     storageMb?: pulumi.Input<number>;
     /**
@@ -504,7 +504,7 @@ export interface FlexibleServerArgs {
      */
     sourceServerId?: pulumi.Input<string>;
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216` and `33553408`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      */
     storageMb?: pulumi.Input<number>;
     /**

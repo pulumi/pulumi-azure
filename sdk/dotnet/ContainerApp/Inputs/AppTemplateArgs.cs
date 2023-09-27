@@ -12,6 +12,18 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
     public sealed class AppTemplateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("azureQueueScaleRules")]
+        private InputList<Inputs.AppTemplateAzureQueueScaleRuleArgs>? _azureQueueScaleRules;
+
+        /// <summary>
+        /// One or more `azure_queue_scale_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AppTemplateAzureQueueScaleRuleArgs> AzureQueueScaleRules
+        {
+            get => _azureQueueScaleRules ?? (_azureQueueScaleRules = new InputList<Inputs.AppTemplateAzureQueueScaleRuleArgs>());
+            set => _azureQueueScaleRules = value;
+        }
+
         [Input("containers", required: true)]
         private InputList<Inputs.AppTemplateContainerArgs>? _containers;
 
@@ -22,6 +34,30 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         {
             get => _containers ?? (_containers = new InputList<Inputs.AppTemplateContainerArgs>());
             set => _containers = value;
+        }
+
+        [Input("customScaleRules")]
+        private InputList<Inputs.AppTemplateCustomScaleRuleArgs>? _customScaleRules;
+
+        /// <summary>
+        /// One or more `custom_scale_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AppTemplateCustomScaleRuleArgs> CustomScaleRules
+        {
+            get => _customScaleRules ?? (_customScaleRules = new InputList<Inputs.AppTemplateCustomScaleRuleArgs>());
+            set => _customScaleRules = value;
+        }
+
+        [Input("httpScaleRules")]
+        private InputList<Inputs.AppTemplateHttpScaleRuleArgs>? _httpScaleRules;
+
+        /// <summary>
+        /// One or more `http_scale_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AppTemplateHttpScaleRuleArgs> HttpScaleRules
+        {
+            get => _httpScaleRules ?? (_httpScaleRules = new InputList<Inputs.AppTemplateHttpScaleRuleArgs>());
+            set => _httpScaleRules = value;
         }
 
         /// <summary>
@@ -41,6 +77,18 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// </summary>
         [Input("revisionSuffix")]
         public Input<string>? RevisionSuffix { get; set; }
+
+        [Input("tcpScaleRules")]
+        private InputList<Inputs.AppTemplateTcpScaleRuleArgs>? _tcpScaleRules;
+
+        /// <summary>
+        /// One or more `tcp_scale_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AppTemplateTcpScaleRuleArgs> TcpScaleRules
+        {
+            get => _tcpScaleRules ?? (_tcpScaleRules = new InputList<Inputs.AppTemplateTcpScaleRuleArgs>());
+            set => _tcpScaleRules = value;
+        }
 
         [Input("volumes")]
         private InputList<Inputs.AppTemplateVolumeArgs>? _volumes;

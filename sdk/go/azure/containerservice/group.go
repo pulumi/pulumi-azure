@@ -123,6 +123,8 @@ type Group struct {
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
+	// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+	KeyVaultUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"keyVaultUserAssignedIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -218,6 +220,8 @@ type groupState struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+	KeyVaultUserAssignedIdentityId *string `pulumi:"keyVaultUserAssignedIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -275,6 +279,8 @@ type GroupState struct {
 	IpAddressType pulumi.StringPtrInput
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
+	// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+	KeyVaultUserAssignedIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -332,6 +338,8 @@ type groupArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+	KeyVaultUserAssignedIdentityId *string `pulumi:"keyVaultUserAssignedIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -386,6 +394,8 @@ type GroupArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 	KeyVaultKeyId pulumi.StringPtrInput
+	// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+	KeyVaultUserAssignedIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -590,6 +600,11 @@ func (o GroupOutput) IpAddressType() pulumi.StringPtrOutput {
 // The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
 func (o GroupOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+func (o GroupOutput) KeyVaultUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.KeyVaultUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

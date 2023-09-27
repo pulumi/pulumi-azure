@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.datafactory.DatasetParquetArgs;
 import com.pulumi.azure.datafactory.inputs.DatasetParquetState;
+import com.pulumi.azure.datafactory.outputs.DatasetParquetAzureBlobFsLocation;
 import com.pulumi.azure.datafactory.outputs.DatasetParquetAzureBlobStorageLocation;
 import com.pulumi.azure.datafactory.outputs.DatasetParquetHttpServerLocation;
 import com.pulumi.azure.datafactory.outputs.DatasetParquetSchemaColumn;
@@ -122,6 +123,20 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> annotations() {
         return Codegen.optional(this.annotations);
+    }
+    /**
+     * A `azure_blob_fs_location` block as defined below.
+     * 
+     */
+    @Export(name="azureBlobFsLocation", refs={DatasetParquetAzureBlobFsLocation.class}, tree="[0]")
+    private Output</* @Nullable */ DatasetParquetAzureBlobFsLocation> azureBlobFsLocation;
+
+    /**
+     * @return A `azure_blob_fs_location` block as defined below.
+     * 
+     */
+    public Output<Optional<DatasetParquetAzureBlobFsLocation>> azureBlobFsLocation() {
+        return Codegen.optional(this.azureBlobFsLocation);
     }
     /**
      * A `azure_blob_storage_location` block as defined below.

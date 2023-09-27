@@ -5,8 +5,11 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -56,6 +59,21 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
      */
     public Output<String> projectName() {
         return this.projectName;
+    }
+
+    /**
+     * Is automated publishing enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="publishingEnabled")
+    private @Nullable Output<Boolean> publishingEnabled;
+
+    /**
+     * @return Is automated publishing enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> publishingEnabled() {
+        return Optional.ofNullable(this.publishingEnabled);
     }
 
     /**
@@ -109,6 +127,7 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
         this.accountName = $.accountName;
         this.branchName = $.branchName;
         this.projectName = $.projectName;
+        this.publishingEnabled = $.publishingEnabled;
         this.repositoryName = $.repositoryName;
         this.rootFolder = $.rootFolder;
         this.tenantId = $.tenantId;
@@ -193,6 +212,27 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        /**
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishingEnabled(@Nullable Output<Boolean> publishingEnabled) {
+            $.publishingEnabled = publishingEnabled;
+            return this;
+        }
+
+        /**
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishingEnabled(Boolean publishingEnabled) {
+            return publishingEnabled(Output.of(publishingEnabled));
         }
 
         /**

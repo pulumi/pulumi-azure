@@ -10,6 +10,11 @@ export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
+export { TagRuleArgs, TagRuleState } from "./tagRule";
+export type TagRule = import("./tagRule").TagRule;
+export const TagRule: typeof import("./tagRule").TagRule = null as any;
+utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:newrelic/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "azure:newrelic/tagRule:TagRule":
+                return new TagRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "newrelic/monitor", _module)
+pulumi.runtime.registerResourceModule("azure", "newrelic/tagRule", _module)

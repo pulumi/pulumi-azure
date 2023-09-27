@@ -42,9 +42,12 @@ namespace Pulumi.Azure.Bot
     ///         BotName = exampleChannelsRegistration.Name,
     ///         Location = exampleChannelsRegistration.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SiteNames = new[]
+    ///         Sites = new[]
     ///         {
-    ///             "TestSite",
+    ///             new Azure.Bot.Inputs.ChannelWebChatSiteArgs
+    ///             {
+    ///                 Name = "TestSite",
+    ///             },
     ///         },
     ///     });
     /// 
@@ -82,9 +85,17 @@ namespace Pulumi.Azure.Bot
 
         /// <summary>
         /// A list of Web Chat Site names.
+        /// 
+        /// &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         /// </summary>
         [Output("siteNames")]
         public Output<ImmutableArray<string>> SiteNames { get; private set; } = null!;
+
+        /// <summary>
+        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// </summary>
+        [Output("sites")]
+        public Output<ImmutableArray<Outputs.ChannelWebChatSite>> Sites { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,16 +161,31 @@ namespace Pulumi.Azure.Bot
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("siteNames", required: true)]
+        [Input("siteNames")]
         private InputList<string>? _siteNames;
 
         /// <summary>
         /// A list of Web Chat Site names.
+        /// 
+        /// &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         /// </summary>
+        [Obsolete(@"`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.")]
         public InputList<string> SiteNames
         {
             get => _siteNames ?? (_siteNames = new InputList<string>());
             set => _siteNames = value;
+        }
+
+        [Input("sites")]
+        private InputList<Inputs.ChannelWebChatSiteArgs>? _sites;
+
+        /// <summary>
+        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// </summary>
+        public InputList<Inputs.ChannelWebChatSiteArgs> Sites
+        {
+            get => _sites ?? (_sites = new InputList<Inputs.ChannelWebChatSiteArgs>());
+            set => _sites = value;
         }
 
         public ChannelWebChatArgs()
@@ -193,11 +219,26 @@ namespace Pulumi.Azure.Bot
 
         /// <summary>
         /// A list of Web Chat Site names.
+        /// 
+        /// &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         /// </summary>
+        [Obsolete(@"`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.")]
         public InputList<string> SiteNames
         {
             get => _siteNames ?? (_siteNames = new InputList<string>());
             set => _siteNames = value;
+        }
+
+        [Input("sites")]
+        private InputList<Inputs.ChannelWebChatSiteGetArgs>? _sites;
+
+        /// <summary>
+        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// </summary>
+        public InputList<Inputs.ChannelWebChatSiteGetArgs> Sites
+        {
+            get => _sites ?? (_sites = new InputList<Inputs.ChannelWebChatSiteGetArgs>());
+            set => _sites = value;
         }
 
         public ChannelWebChatState()

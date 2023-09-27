@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +51,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .skuName(&#34;S1&#34;)
+ *             .localAuthenticationEnabled(true)
  *             .tags(Map.of(&#34;environment&#34;, &#34;Test&#34;))
  *             .build());
  * 
@@ -68,6 +70,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:maps/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
+    /**
+     * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
+    }
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      * 

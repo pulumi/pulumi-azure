@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -29,6 +30,21 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
      */
     public Optional<Output<String>> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
+    }
+
+    /**
+     * Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+     * 
+     */
+    @Import(name="excludeFromLatestEnabled")
+    private @Nullable Output<Boolean> excludeFromLatestEnabled;
+
+    /**
+     * @return Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> excludeFromLatestEnabled() {
+        return Optional.ofNullable(this.excludeFromLatestEnabled);
     }
 
     /**
@@ -80,6 +96,7 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
 
     private SharedImageVersionTargetRegionArgs(SharedImageVersionTargetRegionArgs $) {
         this.diskEncryptionSetId = $.diskEncryptionSetId;
+        this.excludeFromLatestEnabled = $.excludeFromLatestEnabled;
         this.name = $.name;
         this.regionalReplicaCount = $.regionalReplicaCount;
         this.storageAccountType = $.storageAccountType;
@@ -122,6 +139,27 @@ public final class SharedImageVersionTargetRegionArgs extends com.pulumi.resourc
          */
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
             return diskEncryptionSetId(Output.of(diskEncryptionSetId));
+        }
+
+        /**
+         * @param excludeFromLatestEnabled Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFromLatestEnabled(@Nullable Output<Boolean> excludeFromLatestEnabled) {
+            $.excludeFromLatestEnabled = excludeFromLatestEnabled;
+            return this;
+        }
+
+        /**
+         * @param excludeFromLatestEnabled Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFromLatestEnabled(Boolean excludeFromLatestEnabled) {
+            return excludeFromLatestEnabled(Output.of(excludeFromLatestEnabled));
         }
 
         /**

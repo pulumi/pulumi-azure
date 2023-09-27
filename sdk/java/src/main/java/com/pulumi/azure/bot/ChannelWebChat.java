@@ -6,6 +6,7 @@ package com.pulumi.azure.bot;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.bot.ChannelWebChatArgs;
 import com.pulumi.azure.bot.inputs.ChannelWebChatState;
+import com.pulumi.azure.bot.outputs.ChannelWebChatSite;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -31,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.bot.ChannelsRegistrationArgs;
  * import com.pulumi.azure.bot.ChannelWebChat;
  * import com.pulumi.azure.bot.ChannelWebChatArgs;
+ * import com.pulumi.azure.bot.inputs.ChannelWebChatSiteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,7 +63,9 @@ import javax.annotation.Nullable;
  *             .botName(exampleChannelsRegistration.name())
  *             .location(exampleChannelsRegistration.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .siteNames(&#34;TestSite&#34;)
+ *             .sites(ChannelWebChatSiteArgs.builder()
+ *                 .name(&#34;TestSite&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -124,16 +128,38 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
     /**
      * A list of Web Chat Site names.
      * 
+     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
     @Export(name="siteNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> siteNames;
 
     /**
      * @return A list of Web Chat Site names.
      * 
+     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     * 
      */
     public Output<List<String>> siteNames() {
         return this.siteNames;
+    }
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * 
+     */
+    @Export(name="sites", refs={List.class,ChannelWebChatSite.class}, tree="[0,1]")
+    private Output<List<ChannelWebChatSite>> sites;
+
+    /**
+     * @return A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * 
+     */
+    public Output<List<ChannelWebChatSite>> sites() {
+        return this.sites;
     }
 
     /**

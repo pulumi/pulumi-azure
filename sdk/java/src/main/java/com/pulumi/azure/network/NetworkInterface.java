@@ -106,6 +106,42 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
         return this.appliedDnsServers;
     }
     /**
+     * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     * 
+     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    @Export(name="auxiliaryMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> auxiliaryMode;
+
+    /**
+     * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+     * 
+     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    public Output<Optional<String>> auxiliaryMode() {
+        return Codegen.optional(this.auxiliaryMode);
+    }
+    /**
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * 
+     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    @Export(name="auxiliarySku", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> auxiliarySku;
+
+    /**
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * 
+     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     */
+    public Output<Optional<String>> auxiliarySku() {
+        return Codegen.optional(this.auxiliarySku);
+    }
+    /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      * 
      * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.

@@ -11552,6 +11552,154 @@ func (o TopicInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetDomainIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this EventGrid Domain.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this EventGrid Domain.
+	Type string `pulumi:"type"`
+}
+
+// GetDomainIdentityInput is an input type that accepts GetDomainIdentityArgs and GetDomainIdentityOutput values.
+// You can construct a concrete instance of `GetDomainIdentityInput` via:
+//
+//	GetDomainIdentityArgs{...}
+type GetDomainIdentityInput interface {
+	pulumi.Input
+
+	ToGetDomainIdentityOutput() GetDomainIdentityOutput
+	ToGetDomainIdentityOutputWithContext(context.Context) GetDomainIdentityOutput
+}
+
+type GetDomainIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this EventGrid Domain.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this EventGrid Domain.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDomainIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainIdentity)(nil)).Elem()
+}
+
+func (i GetDomainIdentityArgs) ToGetDomainIdentityOutput() GetDomainIdentityOutput {
+	return i.ToGetDomainIdentityOutputWithContext(context.Background())
+}
+
+func (i GetDomainIdentityArgs) ToGetDomainIdentityOutputWithContext(ctx context.Context) GetDomainIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainIdentityOutput)
+}
+
+func (i GetDomainIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainIdentity] {
+	return pulumix.Output[GetDomainIdentity]{
+		OutputState: i.ToGetDomainIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDomainIdentityArrayInput is an input type that accepts GetDomainIdentityArray and GetDomainIdentityArrayOutput values.
+// You can construct a concrete instance of `GetDomainIdentityArrayInput` via:
+//
+//	GetDomainIdentityArray{ GetDomainIdentityArgs{...} }
+type GetDomainIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainIdentityArrayOutput() GetDomainIdentityArrayOutput
+	ToGetDomainIdentityArrayOutputWithContext(context.Context) GetDomainIdentityArrayOutput
+}
+
+type GetDomainIdentityArray []GetDomainIdentityInput
+
+func (GetDomainIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainIdentity)(nil)).Elem()
+}
+
+func (i GetDomainIdentityArray) ToGetDomainIdentityArrayOutput() GetDomainIdentityArrayOutput {
+	return i.ToGetDomainIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainIdentityArray) ToGetDomainIdentityArrayOutputWithContext(ctx context.Context) GetDomainIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainIdentityArrayOutput)
+}
+
+func (i GetDomainIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainIdentity] {
+	return pulumix.Output[[]GetDomainIdentity]{
+		OutputState: i.ToGetDomainIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDomainIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetDomainIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainIdentity)(nil)).Elem()
+}
+
+func (o GetDomainIdentityOutput) ToGetDomainIdentityOutput() GetDomainIdentityOutput {
+	return o
+}
+
+func (o GetDomainIdentityOutput) ToGetDomainIdentityOutputWithContext(ctx context.Context) GetDomainIdentityOutput {
+	return o
+}
+
+func (o GetDomainIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainIdentity] {
+	return pulumix.Output[GetDomainIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this EventGrid Domain.
+func (o GetDomainIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDomainIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity.
+func (o GetDomainIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity.
+func (o GetDomainIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this EventGrid Domain.
+func (o GetDomainIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDomainIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainIdentity)(nil)).Elem()
+}
+
+func (o GetDomainIdentityArrayOutput) ToGetDomainIdentityArrayOutput() GetDomainIdentityArrayOutput {
+	return o
+}
+
+func (o GetDomainIdentityArrayOutput) ToGetDomainIdentityArrayOutputWithContext(ctx context.Context) GetDomainIdentityArrayOutput {
+	return o
+}
+
+func (o GetDomainIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainIdentity] {
+	return pulumix.Output[[]GetDomainIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDomainIdentityArrayOutput) Index(i pulumi.IntInput) GetDomainIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainIdentity {
+		return vs[0].([]GetDomainIdentity)[vs[1].(int)]
+	}).(GetDomainIdentityOutput)
+}
+
 type GetDomainInboundIpRule struct {
 	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action string `pulumi:"action"`
@@ -12270,6 +12418,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicInputMappingDefaultValuesPtrInput)(nil)).Elem(), TopicInputMappingDefaultValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicInputMappingFieldsInput)(nil)).Elem(), TopicInputMappingFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicInputMappingFieldsPtrInput)(nil)).Elem(), TopicInputMappingFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainIdentityInput)(nil)).Elem(), GetDomainIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainIdentityArrayInput)(nil)).Elem(), GetDomainIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInboundIpRuleInput)(nil)).Elem(), GetDomainInboundIpRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInboundIpRuleArrayInput)(nil)).Elem(), GetDomainInboundIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainInputMappingDefaultValueInput)(nil)).Elem(), GetDomainInputMappingDefaultValueArgs{})
@@ -12412,6 +12562,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingFieldsOutput{})
 	pulumi.RegisterOutputType(TopicInputMappingFieldsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainIdentityOutput{})
+	pulumi.RegisterOutputType(GetDomainIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainInboundIpRuleOutput{})
 	pulumi.RegisterOutputType(GetDomainInboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainInputMappingDefaultValueOutput{})

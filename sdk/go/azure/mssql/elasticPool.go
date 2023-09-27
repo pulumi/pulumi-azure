@@ -85,8 +85,6 @@ type ElasticPool struct {
 	pulumi.CustomResourceState
 
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-	//
-	// > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -157,8 +155,6 @@ func GetElasticPool(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ElasticPool resources.
 type elasticPoolState struct {
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-	//
-	// > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -188,8 +184,6 @@ type elasticPoolState struct {
 
 type ElasticPoolState struct {
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-	//
-	// > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -223,8 +217,6 @@ func (ElasticPoolState) ElementType() reflect.Type {
 
 type elasticPoolArgs struct {
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-	//
-	// > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -255,8 +247,6 @@ type elasticPoolArgs struct {
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-	//
-	// > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -396,8 +386,6 @@ func (o ElasticPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*Elastic
 }
 
 // Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-//
-// > **Note:** `licenseType` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
 func (o ElasticPoolOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
 }

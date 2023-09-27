@@ -108,7 +108,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * A number representing the value of the percentage required to enable this feature.
      */
     public readonly percentageFilterValue!: pulumi.Output<number | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface ConfigurationFeatureState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * A number representing the value of the percentage required to enable this feature.
      */
     percentageFilterValue?: pulumi.Input<number>;
     /**
@@ -257,7 +257,7 @@ export interface ConfigurationFeatureArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * A number representing the value of the percentage required to enable this feature.
      */
     percentageFilterValue?: pulumi.Input<number>;
     /**

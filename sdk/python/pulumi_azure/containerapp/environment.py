@@ -21,7 +21,8 @@ class EnvironmentArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -36,6 +37,9 @@ class EnvironmentArgs:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dapr_application_insights_connection_string is not None:
@@ -52,6 +56,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundancy_enabled is not None:
+            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -153,6 +159,20 @@ class EnvironmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
+
+    @zone_redundancy_enabled.setter
+    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundancy_enabled", value)
+
 
 @pulumi.input_type
 class _EnvironmentState:
@@ -169,7 +189,8 @@ class _EnvironmentState:
                  platform_reserved_dns_ip_address: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_ip_address: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
@@ -189,6 +210,9 @@ class _EnvironmentState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         if dapr_application_insights_connection_string is not None:
             pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
@@ -216,6 +240,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "static_ip_address", static_ip_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundancy_enabled is not None:
+            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="daprApplicationInsightsConnectionString")
@@ -377,6 +403,20 @@ class _EnvironmentState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
+
+    @zone_redundancy_enabled.setter
+    def zone_redundancy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundancy_enabled", value)
+
 
 class Environment(pulumi.CustomResource):
     @overload
@@ -391,6 +431,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Container App Environment.
@@ -435,6 +476,9 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         ...
     @overload
@@ -494,6 +538,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,6 +558,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["docker_bridge_cidr"] = None
             __props__.__dict__["platform_reserved_cidr"] = None
@@ -542,7 +588,8 @@ class Environment(pulumi.CustomResource):
             platform_reserved_dns_ip_address: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             static_ip_address: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Environment':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -567,6 +614,9 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -585,6 +635,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["static_ip_address"] = static_ip_address
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -694,4 +745,14 @@ class Environment(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zoneRedundancyEnabled")
+    def zone_redundancy_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        """
+        return pulumi.get(self, "zone_redundancy_enabled")
 

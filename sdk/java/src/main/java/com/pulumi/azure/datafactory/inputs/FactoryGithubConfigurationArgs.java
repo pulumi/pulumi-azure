@@ -5,8 +5,11 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,6 +62,25 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
+     * Is automated publishing enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+     * 
+     */
+    @Import(name="publishingEnabled")
+    private @Nullable Output<Boolean> publishingEnabled;
+
+    /**
+     * @return Is automated publishing enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+     * 
+     */
+    public Optional<Output<Boolean>> publishingEnabled() {
+        return Optional.ofNullable(this.publishingEnabled);
+    }
+
+    /**
      * Specifies the name of the git repository.
      * 
      */
@@ -76,16 +98,12 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
     /**
      * Specifies the root folder within the repository. Set to `/` for the top level.
      * 
-     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
-     * 
      */
     @Import(name="rootFolder", required=true)
     private Output<String> rootFolder;
 
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
-     * 
-     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
      */
     public Output<String> rootFolder() {
@@ -98,6 +116,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         this.accountName = $.accountName;
         this.branchName = $.branchName;
         this.gitUrl = $.gitUrl;
+        this.publishingEnabled = $.publishingEnabled;
         this.repositoryName = $.repositoryName;
         this.rootFolder = $.rootFolder;
     }
@@ -184,6 +203,31 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishingEnabled(@Nullable Output<Boolean> publishingEnabled) {
+            $.publishingEnabled = publishingEnabled;
+            return this;
+        }
+
+        /**
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publishingEnabled(Boolean publishingEnabled) {
+            return publishingEnabled(Output.of(publishingEnabled));
+        }
+
+        /**
          * @param repositoryName Specifies the name of the git repository.
          * 
          * @return builder
@@ -207,8 +251,6 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         /**
          * @param rootFolder Specifies the root folder within the repository. Set to `/` for the top level.
          * 
-         * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
-         * 
          * @return builder
          * 
          */
@@ -219,8 +261,6 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
 
         /**
          * @param rootFolder Specifies the root folder within the repository. Set to `/` for the top level.
-         * 
-         * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
          * 
          * @return builder
          * 

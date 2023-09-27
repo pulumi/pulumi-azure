@@ -16,8 +16,6 @@ var _ = internal.GetEnvOrDefault
 
 type AccountAzureFilesAuthentication struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
-	//
-	// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 	ActiveDirectory *AccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectory"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType string `pulumi:"directoryType"`
@@ -36,8 +34,6 @@ type AccountAzureFilesAuthenticationInput interface {
 
 type AccountAzureFilesAuthenticationArgs struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
-	//
-	// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 	ActiveDirectory AccountAzureFilesAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
@@ -139,8 +135,6 @@ func (o AccountAzureFilesAuthenticationOutput) ToOutput(ctx context.Context) pul
 }
 
 // A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
-//
-// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 func (o AccountAzureFilesAuthenticationOutput) ActiveDirectory() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v AccountAzureFilesAuthentication) *AccountAzureFilesAuthenticationActiveDirectory {
 		return v.ActiveDirectory
@@ -183,8 +177,6 @@ func (o AccountAzureFilesAuthenticationPtrOutput) Elem() AccountAzureFilesAuthen
 }
 
 // A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
-//
-// > **Note:** If `directoryType` is set to `AADKERB`, `activeDirectory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
 func (o AccountAzureFilesAuthenticationPtrOutput) ActiveDirectory() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *AccountAzureFilesAuthenticationActiveDirectory {
 		if v == nil {
@@ -209,14 +201,14 @@ type AccountAzureFilesAuthenticationActiveDirectory struct {
 	DomainGuid string `pulumi:"domainGuid"`
 	// Specifies the primary domain that the AD DNS server is authoritative for.
 	DomainName string `pulumi:"domainName"`
-	// Specifies the security identifier (SID).
-	DomainSid string `pulumi:"domainSid"`
-	// Specifies the Active Directory forest.
-	ForestName string `pulumi:"forestName"`
-	// Specifies the NetBIOS domain name.
-	NetbiosDomainName string `pulumi:"netbiosDomainName"`
-	// Specifies the security identifier (SID) for Azure Storage.
-	StorageSid string `pulumi:"storageSid"`
+	// Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
+	DomainSid *string `pulumi:"domainSid"`
+	// Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
+	ForestName *string `pulumi:"forestName"`
+	// Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
+	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
+	// Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
+	StorageSid *string `pulumi:"storageSid"`
 }
 
 // AccountAzureFilesAuthenticationActiveDirectoryInput is an input type that accepts AccountAzureFilesAuthenticationActiveDirectoryArgs and AccountAzureFilesAuthenticationActiveDirectoryOutput values.
@@ -235,14 +227,14 @@ type AccountAzureFilesAuthenticationActiveDirectoryArgs struct {
 	DomainGuid pulumi.StringInput `pulumi:"domainGuid"`
 	// Specifies the primary domain that the AD DNS server is authoritative for.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Specifies the security identifier (SID).
-	DomainSid pulumi.StringInput `pulumi:"domainSid"`
-	// Specifies the Active Directory forest.
-	ForestName pulumi.StringInput `pulumi:"forestName"`
-	// Specifies the NetBIOS domain name.
-	NetbiosDomainName pulumi.StringInput `pulumi:"netbiosDomainName"`
-	// Specifies the security identifier (SID) for Azure Storage.
-	StorageSid pulumi.StringInput `pulumi:"storageSid"`
+	// Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
+	DomainSid pulumi.StringPtrInput `pulumi:"domainSid"`
+	// Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
+	ForestName pulumi.StringPtrInput `pulumi:"forestName"`
+	// Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
+	NetbiosDomainName pulumi.StringPtrInput `pulumi:"netbiosDomainName"`
+	// Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
+	StorageSid pulumi.StringPtrInput `pulumi:"storageSid"`
 }
 
 func (AccountAzureFilesAuthenticationActiveDirectoryArgs) ElementType() reflect.Type {
@@ -350,24 +342,24 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) DomainName() pulum
 	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Specifies the security identifier (SID).
-func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) DomainSid() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainSid }).(pulumi.StringOutput)
+// Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) DomainSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) *string { return v.DomainSid }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Active Directory forest.
-func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ForestName() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.ForestName }).(pulumi.StringOutput)
+// Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ForestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) *string { return v.ForestName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the NetBIOS domain name.
-func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) NetbiosDomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.NetbiosDomainName }).(pulumi.StringOutput)
+// Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) NetbiosDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the security identifier (SID) for Azure Storage.
-func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) StorageSid() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.StorageSid }).(pulumi.StringOutput)
+// Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) StorageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) *string { return v.StorageSid }).(pulumi.StringPtrOutput)
 }
 
 type AccountAzureFilesAuthenticationActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
@@ -420,50 +412,54 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) DomainName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the security identifier (SID).
+// Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) DomainSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DomainSid
+		return v.DomainSid
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Active Directory forest.
+// Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ForestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ForestName
+		return v.ForestName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the NetBIOS domain name.
+// Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) NetbiosDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.NetbiosDomainName
+		return v.NetbiosDomainName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the security identifier (SID) for Azure Storage.
+// Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) StorageSid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageSid
+		return v.StorageSid
 	}).(pulumi.StringPtrOutput)
 }
 
 type AccountBlobProperties struct {
 	// Is the blob service properties for change feed events enabled? Default to `false`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedEnabled *bool `pulumi:"changeFeedEnabled"`
 	// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedRetentionInDays *int `pulumi:"changeFeedRetentionInDays"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
@@ -474,10 +470,16 @@ type AccountBlobProperties struct {
 	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	LastAccessTimeEnabled *bool `pulumi:"lastAccessTimeEnabled"`
 	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	RestorePolicy *AccountBlobPropertiesRestorePolicy `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	VersioningEnabled *bool `pulumi:"versioningEnabled"`
 }
 
@@ -494,8 +496,12 @@ type AccountBlobPropertiesInput interface {
 
 type AccountBlobPropertiesArgs struct {
 	// Is the blob service properties for change feed events enabled? Default to `false`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedEnabled pulumi.BoolPtrInput `pulumi:"changeFeedEnabled"`
 	// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedRetentionInDays pulumi.IntPtrInput `pulumi:"changeFeedRetentionInDays"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
@@ -506,10 +512,16 @@ type AccountBlobPropertiesArgs struct {
 	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	LastAccessTimeEnabled pulumi.BoolPtrInput `pulumi:"lastAccessTimeEnabled"`
 	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	RestorePolicy AccountBlobPropertiesRestorePolicyPtrInput `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
+	//
+	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	VersioningEnabled pulumi.BoolPtrInput `pulumi:"versioningEnabled"`
 }
 
@@ -609,11 +621,15 @@ func (o AccountBlobPropertiesOutput) ToOutput(ctx context.Context) pulumix.Outpu
 }
 
 // Is the blob service properties for change feed events enabled? Default to `false`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.ChangeFeedEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) ChangeFeedRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *int { return v.ChangeFeedRetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -643,16 +659,22 @@ func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobProperti
 }
 
 // Is the last access time based tracking enabled? Default to `false`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.LastAccessTimeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesRestorePolicy { return v.RestorePolicy }).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
 
 // Is versioning enabled? Default to `false`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) VersioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.VersioningEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -688,6 +710,8 @@ func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 }
 
 // Is the blob service properties for change feed events enabled? Default to `false`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *bool {
 		if v == nil {
@@ -698,6 +722,8 @@ func (o AccountBlobPropertiesPtrOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput
 }
 
 // The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) ChangeFeedRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *int {
 		if v == nil {
@@ -748,6 +774,8 @@ func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPrope
 }
 
 // Is the last access time based tracking enabled? Default to `false`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *bool {
 		if v == nil {
@@ -758,6 +786,8 @@ func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOu
 }
 
 // A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesRestorePolicy {
 		if v == nil {
@@ -768,6 +798,8 @@ func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRes
 }
 
 // Is versioning enabled? Default to `false`.
+//
+// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) VersioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *bool {
 		if v == nil {

@@ -92,6 +92,7 @@ from .route_map import *
 from .route_server import *
 from .route_server_bgp_connection import *
 from .route_table import *
+from .routing_intent import *
 from .security_partner_provider import *
 from .subnet import *
 from .subnet_nat_gateway_association import *

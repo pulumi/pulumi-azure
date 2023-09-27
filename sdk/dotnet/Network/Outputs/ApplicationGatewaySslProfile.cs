@@ -33,6 +33,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// Should client certificate issuer DN be verified? Defaults to `false`.
         /// </summary>
         public readonly bool? VerifyClientCertIssuerDn;
+        /// <summary>
+        /// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+        /// </summary>
+        public readonly string? VerifyClientCertificateRevocation;
 
         [OutputConstructor]
         private ApplicationGatewaySslProfile(
@@ -44,13 +48,16 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> trustedClientCertificateNames,
 
-            bool? verifyClientCertIssuerDn)
+            bool? verifyClientCertIssuerDn,
+
+            string? verifyClientCertificateRevocation)
         {
             Id = id;
             Name = name;
             SslPolicy = sslPolicy;
             TrustedClientCertificateNames = trustedClientCertificateNames;
             VerifyClientCertIssuerDn = verifyClientCertIssuerDn;
+            VerifyClientCertificateRevocation = verifyClientCertificateRevocation;
         }
     }
 }

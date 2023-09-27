@@ -15,21 +15,29 @@ __all__ = ['CustomerManagedKeyArgs', 'CustomerManagedKey']
 class CustomerManagedKeyArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 key_vault_id: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
+                 federated_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if federated_identity_client_id is not None:
+            pulumi.set(__self__, "federated_identity_client_id", federated_identity_client_id)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
         if user_assigned_identity_id is not None:
@@ -48,18 +56,6 @@ class CustomerManagedKeyArgs:
         pulumi.set(self, "key_name", value)
 
     @property
-    @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Key Vault.
-        """
-        return pulumi.get(self, "key_vault_id")
-
-    @key_vault_id.setter
-    def key_vault_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_vault_id", value)
-
-    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Input[str]:
         """
@@ -70,6 +66,39 @@ class CustomerManagedKeyArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="federatedIdentityClientId")
+    def federated_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "federated_identity_client_id")
+
+    @federated_identity_client_id.setter
+    def federated_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "federated_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
 
     @property
     @pulumi.getter(name="keyVersion")
@@ -99,29 +128,48 @@ class CustomerManagedKeyArgs:
 @pulumi.input_type
 class _CustomerManagedKeyState:
     def __init__(__self__, *,
+                 federated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
+        :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
+        if federated_identity_client_id is not None:
+            pulumi.set(__self__, "federated_identity_client_id", federated_identity_client_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if user_assigned_identity_id is not None:
             pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="federatedIdentityClientId")
+    def federated_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "federated_identity_client_id")
+
+    @federated_identity_client_id.setter
+    def federated_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "federated_identity_client_id", value)
 
     @property
     @pulumi.getter(name="keyName")
@@ -138,14 +186,23 @@ class _CustomerManagedKeyState:
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault.
-        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
     def key_vault_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
 
     @property
     @pulumi.getter(name="keyVersion")
@@ -189,8 +246,10 @@ class CustomerManagedKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 federated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
@@ -286,8 +345,9 @@ class CustomerManagedKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
@@ -402,8 +462,10 @@ class CustomerManagedKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 federated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
@@ -416,12 +478,12 @@ class CustomerManagedKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomerManagedKeyArgs.__new__(CustomerManagedKeyArgs)
 
+            __props__.__dict__["federated_identity_client_id"] = federated_identity_client_id
             if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
-            if key_vault_id is None and not opts.urn:
-                raise TypeError("Missing required property 'key_vault_id'")
             __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["key_vault_uri"] = key_vault_uri
             __props__.__dict__["key_version"] = key_version
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
@@ -437,8 +499,10 @@ class CustomerManagedKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            federated_identity_client_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
+            key_vault_uri: Optional[pulumi.Input[str]] = None,
             key_version: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             user_assigned_identity_id: Optional[pulumi.Input[str]] = None) -> 'CustomerManagedKey':
@@ -449,8 +513,9 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[str] key_vault_uri: URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
         :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
@@ -459,12 +524,22 @@ class CustomerManagedKey(pulumi.CustomResource):
 
         __props__ = _CustomerManagedKeyState.__new__(_CustomerManagedKeyState)
 
+        __props__.__dict__["federated_identity_client_id"] = federated_identity_client_id
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["key_vault_uri"] = key_vault_uri
         __props__.__dict__["key_version"] = key_version
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return CustomerManagedKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="federatedIdentityClientId")
+    def federated_identity_client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+        """
+        return pulumi.get(self, "federated_identity_client_id")
 
     @property
     @pulumi.getter(name="keyName")
@@ -476,11 +551,16 @@ class CustomerManagedKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the Key Vault.
-        """
+    def key_vault_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Output[str]:
+        """
+        URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+        """
+        return pulumi.get(self, "key_vault_uri")
 
     @property
     @pulumi.getter(name="keyVersion")

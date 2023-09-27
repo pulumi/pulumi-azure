@@ -16,6 +16,21 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
     public static final CustomerManagedKeyState Empty = new CustomerManagedKeyState();
 
     /**
+     * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     * 
+     */
+    @Import(name="federatedIdentityClientId")
+    private @Nullable Output<String> federatedIdentityClientId;
+
+    /**
+     * @return The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+     * 
+     */
+    public Optional<Output<String>> federatedIdentityClientId() {
+        return Optional.ofNullable(this.federatedIdentityClientId);
+    }
+
+    /**
      * The name of Key Vault Key.
      * 
      */
@@ -30,19 +45,26 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.keyName);
     }
 
-    /**
-     * The ID of the Key Vault.
-     * 
-     */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
-    /**
-     * @return The ID of the Key Vault.
-     * 
-     */
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
+    }
+
+    /**
+     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+     * 
+     */
+    @Import(name="keyVaultUri")
+    private @Nullable Output<String> keyVaultUri;
+
+    /**
+     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+     * 
+     */
+    public Optional<Output<String>> keyVaultUri() {
+        return Optional.ofNullable(this.keyVaultUri);
     }
 
     /**
@@ -93,8 +115,10 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
     private CustomerManagedKeyState() {}
 
     private CustomerManagedKeyState(CustomerManagedKeyState $) {
+        this.federatedIdentityClientId = $.federatedIdentityClientId;
         this.keyName = $.keyName;
         this.keyVaultId = $.keyVaultId;
+        this.keyVaultUri = $.keyVaultUri;
         this.keyVersion = $.keyVersion;
         this.storageAccountId = $.storageAccountId;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
@@ -119,6 +143,27 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param federatedIdentityClientId The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedIdentityClientId(@Nullable Output<String> federatedIdentityClientId) {
+            $.federatedIdentityClientId = federatedIdentityClientId;
+            return this;
+        }
+
+        /**
+         * @param federatedIdentityClientId The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedIdentityClientId(String federatedIdentityClientId) {
+            return federatedIdentityClientId(Output.of(federatedIdentityClientId));
+        }
+
+        /**
          * @param keyName The name of Key Vault Key.
          * 
          * @return builder
@@ -139,25 +184,34 @@ public final class CustomerManagedKeyState extends com.pulumi.resources.Resource
             return keyName(Output.of(keyName));
         }
 
-        /**
-         * @param keyVaultId The ID of the Key Vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
         }
 
+        public Builder keyVaultId(String keyVaultId) {
+            return keyVaultId(Output.of(keyVaultId));
+        }
+
         /**
-         * @param keyVaultId The ID of the Key Vault.
+         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder keyVaultId(String keyVaultId) {
-            return keyVaultId(Output.of(keyVaultId));
+        public Builder keyVaultUri(@Nullable Output<String> keyVaultUri) {
+            $.keyVaultUri = keyVaultUri;
+            return this;
+        }
+
+        /**
+         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultUri(String keyVaultUri) {
+            return keyVaultUri(Output.of(keyVaultUri));
         }
 
         /**

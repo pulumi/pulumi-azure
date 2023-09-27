@@ -138,6 +138,14 @@ namespace Pulumi.Azure.ContainerApp
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// </summary>
+        [Output("zoneRedundancyEnabled")]
+        public Output<bool?> ZoneRedundancyEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Environment resource with the given unique name, arguments, and options.
@@ -256,6 +264,14 @@ namespace Pulumi.Azure.ContainerApp
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
+
         public EnvironmentArgs()
         {
         }
@@ -361,6 +377,14 @@ namespace Pulumi.Azure.ContainerApp
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
 
         public EnvironmentState()
         {

@@ -268,6 +268,24 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * 
+     */
+    @Export(name="zoneRedundancyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> zoneRedundancyEnabled;
+
+    /**
+     * @return Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * 
+     */
+    public Output<Optional<Boolean>> zoneRedundancyEnabled() {
+        return Codegen.optional(this.zoneRedundancyEnabled);
+    }
 
     /**
      *

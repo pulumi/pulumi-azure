@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,10 +13,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DatasetDelimitedTextAzureBlobFsLocation {
     /**
+     * @return Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean dynamicFileSystemEnabled;
+    /**
+     * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean dynamicFilenameEnabled;
+    /**
+     * @return Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean dynamicPathEnabled;
+    /**
      * @return The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
      * 
      */
-    private String fileSystem;
+    private @Nullable String fileSystem;
     /**
      * @return The filename of the file.
      * 
@@ -29,11 +45,32 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
 
     private DatasetDelimitedTextAzureBlobFsLocation() {}
     /**
+     * @return Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> dynamicFileSystemEnabled() {
+        return Optional.ofNullable(this.dynamicFileSystemEnabled);
+    }
+    /**
+     * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> dynamicFilenameEnabled() {
+        return Optional.ofNullable(this.dynamicFilenameEnabled);
+    }
+    /**
+     * @return Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> dynamicPathEnabled() {
+        return Optional.ofNullable(this.dynamicPathEnabled);
+    }
+    /**
      * @return The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
      * 
      */
-    public String fileSystem() {
-        return this.fileSystem;
+    public Optional<String> fileSystem() {
+        return Optional.ofNullable(this.fileSystem);
     }
     /**
      * @return The filename of the file.
@@ -59,20 +96,41 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String fileSystem;
+        private @Nullable Boolean dynamicFileSystemEnabled;
+        private @Nullable Boolean dynamicFilenameEnabled;
+        private @Nullable Boolean dynamicPathEnabled;
+        private @Nullable String fileSystem;
         private @Nullable String filename;
         private @Nullable String path;
         public Builder() {}
         public Builder(DatasetDelimitedTextAzureBlobFsLocation defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dynamicFileSystemEnabled = defaults.dynamicFileSystemEnabled;
+    	      this.dynamicFilenameEnabled = defaults.dynamicFilenameEnabled;
+    	      this.dynamicPathEnabled = defaults.dynamicPathEnabled;
     	      this.fileSystem = defaults.fileSystem;
     	      this.filename = defaults.filename;
     	      this.path = defaults.path;
         }
 
         @CustomType.Setter
-        public Builder fileSystem(String fileSystem) {
-            this.fileSystem = Objects.requireNonNull(fileSystem);
+        public Builder dynamicFileSystemEnabled(@Nullable Boolean dynamicFileSystemEnabled) {
+            this.dynamicFileSystemEnabled = dynamicFileSystemEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
+            this.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
+            this.dynamicPathEnabled = dynamicPathEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder fileSystem(@Nullable String fileSystem) {
+            this.fileSystem = fileSystem;
             return this;
         }
         @CustomType.Setter
@@ -87,6 +145,9 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
         }
         public DatasetDelimitedTextAzureBlobFsLocation build() {
             final var o = new DatasetDelimitedTextAzureBlobFsLocation();
+            o.dynamicFileSystemEnabled = dynamicFileSystemEnabled;
+            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            o.dynamicPathEnabled = dynamicPathEnabled;
             o.fileSystem = fileSystem;
             o.filename = filename;
             o.path = path;

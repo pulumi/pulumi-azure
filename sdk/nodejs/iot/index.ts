@@ -20,6 +20,11 @@ export type DpsSharedAccessPolicy = import("./dpsSharedAccessPolicy").DpsSharedA
 export const DpsSharedAccessPolicy: typeof import("./dpsSharedAccessPolicy").DpsSharedAccessPolicy = null as any;
 utilities.lazyLoad(exports, ["DpsSharedAccessPolicy"], () => require("./dpsSharedAccessPolicy"));
 
+export { EndpointCosmosdbAccountArgs, EndpointCosmosdbAccountState } from "./endpointCosmosdbAccount";
+export type EndpointCosmosdbAccount = import("./endpointCosmosdbAccount").EndpointCosmosdbAccount;
+export const EndpointCosmosdbAccount: typeof import("./endpointCosmosdbAccount").EndpointCosmosdbAccount = null as any;
+utilities.lazyLoad(exports, ["EndpointCosmosdbAccount"], () => require("./endpointCosmosdbAccount"));
+
 export { EndpointEventhubArgs, EndpointEventhubState } from "./endpointEventhub";
 export type EndpointEventhub = import("./endpointEventhub").EndpointEventhub;
 export const EndpointEventhub: typeof import("./endpointEventhub").EndpointEventhub = null as any;
@@ -162,6 +167,8 @@ const _module = {
                 return new ConsumerGroup(name, <any>undefined, { urn })
             case "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy":
                 return new DpsSharedAccessPolicy(name, <any>undefined, { urn })
+            case "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount":
+                return new EndpointCosmosdbAccount(name, <any>undefined, { urn })
             case "azure:iot/endpointEventhub:EndpointEventhub":
                 return new EndpointEventhub(name, <any>undefined, { urn })
             case "azure:iot/endpointServicebusQueue:EndpointServicebusQueue":
@@ -214,6 +221,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "iot/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/consumerGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/dpsSharedAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/endpointCosmosdbAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointEventhub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointServicebusQueue", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/endpointServicebusTopic", _module)

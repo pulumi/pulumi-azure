@@ -10,6 +10,11 @@ export type ActiveSlot = import("./activeSlot").ActiveSlot;
 export const ActiveSlot: typeof import("./activeSlot").ActiveSlot = null as any;
 utilities.lazyLoad(exports, ["ActiveSlot"], () => require("./activeSlot"));
 
+export { AppConnectionArgs, AppConnectionState } from "./appConnection";
+export type AppConnection = import("./appConnection").AppConnection;
+export const AppConnection: typeof import("./appConnection").AppConnection = null as any;
+utilities.lazyLoad(exports, ["AppConnection"], () => require("./appConnection"));
+
 export { AppServiceArgs, AppServiceState } from "./appService";
 export type AppService = import("./appService").AppService;
 export const AppService: typeof import("./appService").AppService = null as any;
@@ -282,6 +287,8 @@ const _module = {
         switch (type) {
             case "azure:appservice/activeSlot:ActiveSlot":
                 return new ActiveSlot(name, <any>undefined, { urn })
+            case "azure:appservice/appConnection:AppConnection":
+                return new AppConnection(name, <any>undefined, { urn })
             case "azure:appservice/appService:AppService":
                 return new AppService(name, <any>undefined, { urn })
             case "azure:appservice/certificate:Certificate":
@@ -364,6 +371,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "appservice/activeSlot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/appConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/appService", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateBinding", _module)

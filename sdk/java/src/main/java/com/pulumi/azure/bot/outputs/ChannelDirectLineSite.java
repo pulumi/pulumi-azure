@@ -19,6 +19,11 @@ public final class ChannelDirectLineSite {
      */
     private @Nullable Boolean enabled;
     /**
+     * @return Is the endpoint parameters enabled for this site?
+     * 
+     */
+    private @Nullable Boolean endpointParametersEnabled;
+    /**
      * @return Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
      * 
      */
@@ -44,10 +49,20 @@ public final class ChannelDirectLineSite {
      */
     private String name;
     /**
+     * @return Is the storage site enabled for detailed logging? Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean storageEnabled;
+    /**
      * @return This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
     private @Nullable List<String> trustedOrigins;
+    /**
+     * @return Is the user upload enabled for this site? Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean userUploadEnabled;
     /**
      * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
      * 
@@ -66,6 +81,13 @@ public final class ChannelDirectLineSite {
      */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+    /**
+     * @return Is the endpoint parameters enabled for this site?
+     * 
+     */
+    public Optional<Boolean> endpointParametersEnabled() {
+        return Optional.ofNullable(this.endpointParametersEnabled);
     }
     /**
      * @return Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
@@ -103,11 +125,25 @@ public final class ChannelDirectLineSite {
         return this.name;
     }
     /**
+     * @return Is the storage site enabled for detailed logging? Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> storageEnabled() {
+        return Optional.ofNullable(this.storageEnabled);
+    }
+    /**
      * @return This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
     public List<String> trustedOrigins() {
         return this.trustedOrigins == null ? List.of() : this.trustedOrigins;
+    }
+    /**
+     * @return Is the user upload enabled for this site? Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> userUploadEnabled() {
+        return Optional.ofNullable(this.userUploadEnabled);
     }
     /**
      * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
@@ -134,24 +170,30 @@ public final class ChannelDirectLineSite {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
+        private @Nullable Boolean endpointParametersEnabled;
         private @Nullable Boolean enhancedAuthenticationEnabled;
         private @Nullable String id;
         private @Nullable String key;
         private @Nullable String key2;
         private String name;
+        private @Nullable Boolean storageEnabled;
         private @Nullable List<String> trustedOrigins;
+        private @Nullable Boolean userUploadEnabled;
         private @Nullable Boolean v1Allowed;
         private @Nullable Boolean v3Allowed;
         public Builder() {}
         public Builder(ChannelDirectLineSite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.endpointParametersEnabled = defaults.endpointParametersEnabled;
     	      this.enhancedAuthenticationEnabled = defaults.enhancedAuthenticationEnabled;
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.key2 = defaults.key2;
     	      this.name = defaults.name;
+    	      this.storageEnabled = defaults.storageEnabled;
     	      this.trustedOrigins = defaults.trustedOrigins;
+    	      this.userUploadEnabled = defaults.userUploadEnabled;
     	      this.v1Allowed = defaults.v1Allowed;
     	      this.v3Allowed = defaults.v3Allowed;
         }
@@ -159,6 +201,11 @@ public final class ChannelDirectLineSite {
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointParametersEnabled(@Nullable Boolean endpointParametersEnabled) {
+            this.endpointParametersEnabled = endpointParametersEnabled;
             return this;
         }
         @CustomType.Setter
@@ -187,12 +234,22 @@ public final class ChannelDirectLineSite {
             return this;
         }
         @CustomType.Setter
+        public Builder storageEnabled(@Nullable Boolean storageEnabled) {
+            this.storageEnabled = storageEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trustedOrigins(@Nullable List<String> trustedOrigins) {
             this.trustedOrigins = trustedOrigins;
             return this;
         }
         public Builder trustedOrigins(String... trustedOrigins) {
             return trustedOrigins(List.of(trustedOrigins));
+        }
+        @CustomType.Setter
+        public Builder userUploadEnabled(@Nullable Boolean userUploadEnabled) {
+            this.userUploadEnabled = userUploadEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder v1Allowed(@Nullable Boolean v1Allowed) {
@@ -207,12 +264,15 @@ public final class ChannelDirectLineSite {
         public ChannelDirectLineSite build() {
             final var o = new ChannelDirectLineSite();
             o.enabled = enabled;
+            o.endpointParametersEnabled = endpointParametersEnabled;
             o.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
             o.id = id;
             o.key = key;
             o.key2 = key2;
             o.name = name;
+            o.storageEnabled = storageEnabled;
             o.trustedOrigins = trustedOrigins;
+            o.userUploadEnabled = userUploadEnabled;
             o.v1Allowed = v1Allowed;
             o.v3Allowed = v3Allowed;
             return o;

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.Bot.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Is the endpoint parameters enabled for this site?
+        /// </summary>
+        [Input("endpointParametersEnabled")]
+        public Input<bool>? EndpointParametersEnabled { get; set; }
+
+        /// <summary>
         /// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
         /// </summary>
         [Input("enhancedAuthenticationEnabled")]
@@ -68,6 +74,12 @@ namespace Pulumi.Azure.Bot.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is the storage site enabled for detailed logging? Defaults to `true`.
+        /// </summary>
+        [Input("storageEnabled")]
+        public Input<bool>? StorageEnabled { get; set; }
+
         [Input("trustedOrigins")]
         private InputList<string>? _trustedOrigins;
 
@@ -79,6 +91,12 @@ namespace Pulumi.Azure.Bot.Inputs
             get => _trustedOrigins ?? (_trustedOrigins = new InputList<string>());
             set => _trustedOrigins = value;
         }
+
+        /// <summary>
+        /// Is the user upload enabled for this site? Defaults to `true`.
+        /// </summary>
+        [Input("userUploadEnabled")]
+        public Input<bool>? UserUploadEnabled { get; set; }
 
         /// <summary>
         /// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.

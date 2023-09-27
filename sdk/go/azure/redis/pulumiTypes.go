@@ -379,6 +379,8 @@ func (o CachePatchScheduleArrayOutput) Index(i pulumi.IntInput) CachePatchSchedu
 
 type CacheRedisConfiguration struct {
 	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+	//
+	// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 	AofBackupEnabled *bool `pulumi:"aofBackupEnabled"`
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
@@ -457,6 +459,8 @@ type CacheRedisConfigurationInput interface {
 
 type CacheRedisConfigurationArgs struct {
 	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+	//
+	// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 	AofBackupEnabled pulumi.BoolPtrInput `pulumi:"aofBackupEnabled"`
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
@@ -618,6 +622,8 @@ func (o CacheRedisConfigurationOutput) ToOutput(ctx context.Context) pulumix.Out
 }
 
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+//
+// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 func (o CacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AofBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -760,6 +766,8 @@ func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
 }
 
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+//
+// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 func (o CacheRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {

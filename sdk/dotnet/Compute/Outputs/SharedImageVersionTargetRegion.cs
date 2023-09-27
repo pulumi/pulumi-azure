@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
+        /// Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+        /// </summary>
+        public readonly bool? ExcludeFromLatestEnabled;
+        /// <summary>
         /// The Azure Region in which this Image Version should exist.
         /// </summary>
         public readonly string Name;
@@ -34,6 +38,8 @@ namespace Pulumi.Azure.Compute.Outputs
         private SharedImageVersionTargetRegion(
             string? diskEncryptionSetId,
 
+            bool? excludeFromLatestEnabled,
+
             string name,
 
             int regionalReplicaCount,
@@ -41,6 +47,7 @@ namespace Pulumi.Azure.Compute.Outputs
             string? storageAccountType)
         {
             DiskEncryptionSetId = diskEncryptionSetId;
+            ExcludeFromLatestEnabled = excludeFromLatestEnabled;
             Name = name;
             RegionalReplicaCount = regionalReplicaCount;
             StorageAccountType = storageAccountType;

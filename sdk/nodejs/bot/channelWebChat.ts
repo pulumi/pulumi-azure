@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -25,7 +27,9 @@ import * as utilities from "../utilities";
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     siteNames: ["TestSite"],
+ *     sites: [{
+ *         name: "TestSite",
+ *     }],
  * });
  * ```
  *
@@ -79,8 +83,16 @@ export class ChannelWebChat extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A list of Web Chat Site names.
+     *
+     * > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     *
+     * @deprecated `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      */
     public readonly siteNames!: pulumi.Output<string[]>;
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     */
+    public readonly sites!: pulumi.Output<outputs.bot.ChannelWebChatSite[]>;
 
     /**
      * Create a ChannelWebChat resource with the given unique name, arguments, and options.
@@ -99,6 +111,7 @@ export class ChannelWebChat extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["siteNames"] = state ? state.siteNames : undefined;
+            resourceInputs["sites"] = state ? state.sites : undefined;
         } else {
             const args = argsOrState as ChannelWebChatArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -107,13 +120,11 @@ export class ChannelWebChat extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteNames === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'siteNames'");
-            }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteNames"] = args ? args.siteNames : undefined;
+            resourceInputs["sites"] = args ? args.sites : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChannelWebChat.__pulumiType, name, resourceInputs, opts);
@@ -138,8 +149,16 @@ export interface ChannelWebChatState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A list of Web Chat Site names.
+     *
+     * > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     *
+     * @deprecated `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      */
     siteNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     */
+    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[]>;
 }
 
 /**
@@ -160,6 +179,14 @@ export interface ChannelWebChatArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A list of Web Chat Site names.
+     *
+     * > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
+     *
+     * @deprecated `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
      */
-    siteNames: pulumi.Input<pulumi.Input<string>[]>;
+    siteNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     */
+    sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[]>;
 }

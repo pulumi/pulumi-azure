@@ -5,11 +5,13 @@ package com.pulumi.azure.appconfiguration;
 
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreEncryptionArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
+import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreReplicaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -138,6 +140,21 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * One or more `replica` blocks as defined below.
+     * 
+     */
+    @Import(name="replicas")
+    private @Nullable Output<List<ConfigurationStoreReplicaArgs>> replicas;
+
+    /**
+     * @return One or more `replica` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<ConfigurationStoreReplicaArgs>>> replicas() {
+        return Optional.ofNullable(this.replicas);
+    }
+
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      * 
      */
@@ -211,6 +228,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         this.name = $.name;
         this.publicNetworkAccess = $.publicNetworkAccess;
         this.purgeProtectionEnabled = $.purgeProtectionEnabled;
+        this.replicas = $.replicas;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.softDeleteRetentionDays = $.softDeleteRetentionDays;
@@ -392,6 +410,37 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
          */
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             return purgeProtectionEnabled(Output.of(purgeProtectionEnabled));
+        }
+
+        /**
+         * @param replicas One or more `replica` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicas(@Nullable Output<List<ConfigurationStoreReplicaArgs>> replicas) {
+            $.replicas = replicas;
+            return this;
+        }
+
+        /**
+         * @param replicas One or more `replica` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicas(List<ConfigurationStoreReplicaArgs> replicas) {
+            return replicas(Output.of(replicas));
+        }
+
+        /**
+         * @param replicas One or more `replica` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicas(ConfigurationStoreReplicaArgs... replicas) {
+            return replicas(List.of(replicas));
         }
 
         /**

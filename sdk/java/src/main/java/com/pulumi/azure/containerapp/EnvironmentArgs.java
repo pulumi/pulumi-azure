@@ -145,6 +145,25 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * 
+     */
+    @Import(name="zoneRedundancyEnabled")
+    private @Nullable Output<Boolean> zoneRedundancyEnabled;
+
+    /**
+     * @return Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * 
+     */
+    public Optional<Output<Boolean>> zoneRedundancyEnabled() {
+        return Optional.ofNullable(this.zoneRedundancyEnabled);
+    }
+
     private EnvironmentArgs() {}
 
     private EnvironmentArgs(EnvironmentArgs $) {
@@ -156,6 +175,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
+        this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
 
     public static Builder builder() {
@@ -350,6 +370,31 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param zoneRedundancyEnabled Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneRedundancyEnabled(@Nullable Output<Boolean> zoneRedundancyEnabled) {
+            $.zoneRedundancyEnabled = zoneRedundancyEnabled;
+            return this;
+        }
+
+        /**
+         * @param zoneRedundancyEnabled Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneRedundancyEnabled(Boolean zoneRedundancyEnabled) {
+            return zoneRedundancyEnabled(Output.of(zoneRedundancyEnabled));
         }
 
         public EnvironmentArgs build() {

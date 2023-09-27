@@ -106,6 +106,10 @@ import * as utilities from "../utilities";
  *         keyVaultKeyIdentifier: exampleKey.id,
  *         identityClientId: exampleUserAssignedIdentity.clientId,
  *     },
+ *     replicas: [{
+ *         name: "replica1",
+ *         location: "West US",
+ *     }],
  *     tags: {
  *         environment: "development",
  *     },
@@ -158,7 +162,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
     /**
-     * The URL of the App Configuration.
+     * The URL of the App Configuration Replica.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
@@ -199,6 +203,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * One or more `replica` blocks as defined below.
+     */
+    public readonly replicas!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreReplica[] | undefined>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
@@ -249,6 +257,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["primaryWriteKeys"] = state ? state.primaryWriteKeys : undefined;
             resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
             resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryReadKeys"] = state ? state.secondaryReadKeys : undefined;
             resourceInputs["secondaryWriteKeys"] = state ? state.secondaryWriteKeys : undefined;
@@ -267,6 +276,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
@@ -291,7 +301,7 @@ export interface ConfigurationStoreState {
      */
     encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
-     * The URL of the App Configuration.
+     * The URL of the App Configuration Replica.
      */
     endpoint?: pulumi.Input<string>;
     /**
@@ -332,6 +342,10 @@ export interface ConfigurationStoreState {
      * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * One or more `replica` blocks as defined below.
+     */
+    replicas?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreReplica>[]>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
@@ -398,6 +412,10 @@ export interface ConfigurationStoreArgs {
      * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * One or more `replica` blocks as defined below.
+     */
+    replicas?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreReplica>[]>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */

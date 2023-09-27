@@ -17,13 +17,21 @@ var _ = internal.GetEnvOrDefault
 type PolicyCustomRule struct {
 	// Type of action. Possible values are `Allow`, `Block` and `Log`.
 	Action string `pulumi:"action"`
+	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+	GroupRateLimitBy *string `pulumi:"groupRateLimitBy"`
 	// One or more `matchConditions` blocks as defined below.
 	MatchConditions []PolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
 	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+	// Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+	RateLimitDuration *string `pulumi:"rateLimitDuration"`
+	// Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
+	// Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -41,13 +49,21 @@ type PolicyCustomRuleInput interface {
 type PolicyCustomRuleArgs struct {
 	// Type of action. Possible values are `Allow`, `Block` and `Log`.
 	Action pulumi.StringInput `pulumi:"action"`
+	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+	GroupRateLimitBy pulumi.StringPtrInput `pulumi:"groupRateLimitBy"`
 	// One or more `matchConditions` blocks as defined below.
 	MatchConditions PolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
 	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+	// Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+	RateLimitDuration pulumi.StringPtrInput `pulumi:"rateLimitDuration"`
+	// Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+	RateLimitThreshold pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
+	// Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -125,6 +141,16 @@ func (o PolicyCustomRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+func (o PolicyCustomRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+func (o PolicyCustomRuleOutput) GroupRateLimitBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyCustomRule) *string { return v.GroupRateLimitBy }).(pulumi.StringPtrOutput)
+}
+
 // One or more `matchConditions` blocks as defined below.
 func (o PolicyCustomRuleOutput) MatchConditions() PolicyCustomRuleMatchConditionArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRule) []PolicyCustomRuleMatchCondition { return v.MatchConditions }).(PolicyCustomRuleMatchConditionArrayOutput)
@@ -140,7 +166,17 @@ func (o PolicyCustomRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyCustomRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Describes the type of rule. Possible values are `MatchRule` and `Invalid`.
+// Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+func (o PolicyCustomRuleOutput) RateLimitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyCustomRule) *string { return v.RateLimitDuration }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+func (o PolicyCustomRuleOutput) RateLimitThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyCustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
 func (o PolicyCustomRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -1555,6 +1591,8 @@ type PolicyPolicySettings struct {
 	Mode *string `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
+	// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+	RequestBodyInspectLimitInKb *int `pulumi:"requestBodyInspectLimitInKb"`
 }
 
 // PolicyPolicySettingsInput is an input type that accepts PolicyPolicySettingsArgs and PolicyPolicySettingsOutput values.
@@ -1581,6 +1619,8 @@ type PolicyPolicySettingsArgs struct {
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+	RequestBodyInspectLimitInKb pulumi.IntPtrInput `pulumi:"requestBodyInspectLimitInKb"`
 }
 
 func (PolicyPolicySettingsArgs) ElementType() reflect.Type {
@@ -1708,6 +1748,11 @@ func (o PolicyPolicySettingsOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+func (o PolicyPolicySettingsOutput) RequestBodyInspectLimitInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.RequestBodyInspectLimitInKb }).(pulumi.IntPtrOutput)
+}
+
 type PolicyPolicySettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicySettingsPtrOutput) ElementType() reflect.Type {
@@ -1796,6 +1841,16 @@ func (o PolicyPolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 		}
 		return v.RequestBodyCheck
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+func (o PolicyPolicySettingsPtrOutput) RequestBodyInspectLimitInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyInspectLimitInKb
+	}).(pulumi.IntPtrOutput)
 }
 
 type PolicyPolicySettingsLogScrubbing struct {

@@ -232,6 +232,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * 
+     */
+    @Import(name="keyVaultUserAssignedIdentityId")
+    private @Nullable Output<String> keyVaultUserAssignedIdentityId;
+
+    /**
+     * @return The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * 
+     */
+    public Optional<Output<String>> keyVaultUserAssignedIdentityId() {
+        return Optional.ofNullable(this.keyVaultUserAssignedIdentityId);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -405,6 +420,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.ipAddress = $.ipAddress;
         this.ipAddressType = $.ipAddressType;
         this.keyVaultKeyId = $.keyVaultKeyId;
+        this.keyVaultUserAssignedIdentityId = $.keyVaultUserAssignedIdentityId;
         this.location = $.location;
         this.name = $.name;
         this.networkProfileId = $.networkProfileId;
@@ -760,6 +776,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
+        }
+
+        /**
+         * @param keyVaultUserAssignedIdentityId The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultUserAssignedIdentityId(@Nullable Output<String> keyVaultUserAssignedIdentityId) {
+            $.keyVaultUserAssignedIdentityId = keyVaultUserAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultUserAssignedIdentityId The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultUserAssignedIdentityId(String keyVaultUserAssignedIdentityId) {
+            return keyVaultUserAssignedIdentityId(Output.of(keyVaultUserAssignedIdentityId));
         }
 
         /**

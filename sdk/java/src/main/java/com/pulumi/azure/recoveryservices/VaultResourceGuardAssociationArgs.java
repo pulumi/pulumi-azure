@@ -18,14 +18,26 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
     /**
      * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * The `name` field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * The `name` field will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -89,9 +101,15 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
         /**
          * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * The `name` field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -100,9 +118,15 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
         /**
          * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * The `name` field will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -110,6 +110,20 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
         return this.callingWebHook;
     }
     /**
+     * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     * 
+     */
+    @Export(name="deploymentEnvironment", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> deploymentEnvironment;
+
+    /**
+     * @return The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     * 
+     */
+    public Output<Optional<String>> deploymentEnvironment() {
+        return Codegen.optional(this.deploymentEnvironment);
+    }
+    /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      * 
      */

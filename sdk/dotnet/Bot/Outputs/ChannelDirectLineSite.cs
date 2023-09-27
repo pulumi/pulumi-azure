@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Bot.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Is the endpoint parameters enabled for this site?
+        /// </summary>
+        public readonly bool? EndpointParametersEnabled;
+        /// <summary>
         /// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
         /// </summary>
         public readonly bool? EnhancedAuthenticationEnabled;
@@ -38,9 +42,17 @@ namespace Pulumi.Azure.Bot.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Is the storage site enabled for detailed logging? Defaults to `true`.
+        /// </summary>
+        public readonly bool? StorageEnabled;
+        /// <summary>
         /// This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         /// </summary>
         public readonly ImmutableArray<string> TrustedOrigins;
+        /// <summary>
+        /// Is the user upload enabled for this site? Defaults to `true`.
+        /// </summary>
+        public readonly bool? UserUploadEnabled;
         /// <summary>
         /// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         /// </summary>
@@ -54,6 +66,8 @@ namespace Pulumi.Azure.Bot.Outputs
         private ChannelDirectLineSite(
             bool? enabled,
 
+            bool? endpointParametersEnabled,
+
             bool? enhancedAuthenticationEnabled,
 
             string? id,
@@ -64,19 +78,26 @@ namespace Pulumi.Azure.Bot.Outputs
 
             string name,
 
+            bool? storageEnabled,
+
             ImmutableArray<string> trustedOrigins,
+
+            bool? userUploadEnabled,
 
             bool? v1Allowed,
 
             bool? v3Allowed)
         {
             Enabled = enabled;
+            EndpointParametersEnabled = endpointParametersEnabled;
             EnhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
             Id = id;
             Key = key;
             Key2 = key2;
             Name = name;
+            StorageEnabled = storageEnabled;
             TrustedOrigins = trustedOrigins;
+            UserUploadEnabled = userUploadEnabled;
             V1Allowed = v1Allowed;
             V3Allowed = v3Allowed;
         }

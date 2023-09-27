@@ -65,6 +65,8 @@ type LookupDomainResult struct {
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as documented below.
+	Identities []GetDomainIdentity `pulumi:"identities"`
 	// One or more `inboundIpRule` blocks as defined below.
 	InboundIpRules []GetDomainInboundIpRule `pulumi:"inboundIpRules"`
 	// A `inputMappingDefaultValues` block as defined below.
@@ -141,6 +143,11 @@ func (o LookupDomainResultOutput) Endpoint() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as documented below.
+func (o LookupDomainResultOutput) Identities() GetDomainIdentityArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainIdentity { return v.Identities }).(GetDomainIdentityArrayOutput)
 }
 
 // One or more `inboundIpRule` blocks as defined below.

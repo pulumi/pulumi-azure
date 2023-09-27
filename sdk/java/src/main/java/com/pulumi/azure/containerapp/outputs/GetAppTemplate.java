@@ -3,7 +3,11 @@
 
 package com.pulumi.azure.containerapp.outputs;
 
+import com.pulumi.azure.containerapp.outputs.GetAppTemplateAzureQueueScaleRule;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateContainer;
+import com.pulumi.azure.containerapp.outputs.GetAppTemplateCustomScaleRule;
+import com.pulumi.azure.containerapp.outputs.GetAppTemplateHttpScaleRule;
+import com.pulumi.azure.containerapp.outputs.GetAppTemplateTcpScaleRule;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateVolume;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
@@ -14,11 +18,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAppTemplate {
+    private List<GetAppTemplateAzureQueueScaleRule> azureQueueScaleRules;
     /**
      * @return One or more `container` blocks as detailed below.
      * 
      */
     private List<GetAppTemplateContainer> containers;
+    private @Nullable List<GetAppTemplateCustomScaleRule> customScaleRules;
+    private List<GetAppTemplateHttpScaleRule> httpScaleRules;
     /**
      * @return The maximum number of replicas for this container.
      * 
@@ -34,19 +41,29 @@ public final class GetAppTemplate {
      * 
      */
     private String revisionSuffix;
+    private List<GetAppTemplateTcpScaleRule> tcpScaleRules;
     /**
      * @return A `volume` block as detailed below.
      * 
      */
-    private @Nullable List<GetAppTemplateVolume> volumes;
+    private List<GetAppTemplateVolume> volumes;
 
     private GetAppTemplate() {}
+    public List<GetAppTemplateAzureQueueScaleRule> azureQueueScaleRules() {
+        return this.azureQueueScaleRules;
+    }
     /**
      * @return One or more `container` blocks as detailed below.
      * 
      */
     public List<GetAppTemplateContainer> containers() {
         return this.containers;
+    }
+    public List<GetAppTemplateCustomScaleRule> customScaleRules() {
+        return this.customScaleRules == null ? List.of() : this.customScaleRules;
+    }
+    public List<GetAppTemplateHttpScaleRule> httpScaleRules() {
+        return this.httpScaleRules;
     }
     /**
      * @return The maximum number of replicas for this container.
@@ -69,12 +86,15 @@ public final class GetAppTemplate {
     public String revisionSuffix() {
         return this.revisionSuffix;
     }
+    public List<GetAppTemplateTcpScaleRule> tcpScaleRules() {
+        return this.tcpScaleRules;
+    }
     /**
      * @return A `volume` block as detailed below.
      * 
      */
     public List<GetAppTemplateVolume> volumes() {
-        return this.volumes == null ? List.of() : this.volumes;
+        return this.volumes;
     }
 
     public static Builder builder() {
@@ -86,21 +106,37 @@ public final class GetAppTemplate {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetAppTemplateAzureQueueScaleRule> azureQueueScaleRules;
         private List<GetAppTemplateContainer> containers;
+        private @Nullable List<GetAppTemplateCustomScaleRule> customScaleRules;
+        private List<GetAppTemplateHttpScaleRule> httpScaleRules;
         private Integer maxReplicas;
         private Integer minReplicas;
         private String revisionSuffix;
-        private @Nullable List<GetAppTemplateVolume> volumes;
+        private List<GetAppTemplateTcpScaleRule> tcpScaleRules;
+        private List<GetAppTemplateVolume> volumes;
         public Builder() {}
         public Builder(GetAppTemplate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.azureQueueScaleRules = defaults.azureQueueScaleRules;
     	      this.containers = defaults.containers;
+    	      this.customScaleRules = defaults.customScaleRules;
+    	      this.httpScaleRules = defaults.httpScaleRules;
     	      this.maxReplicas = defaults.maxReplicas;
     	      this.minReplicas = defaults.minReplicas;
     	      this.revisionSuffix = defaults.revisionSuffix;
+    	      this.tcpScaleRules = defaults.tcpScaleRules;
     	      this.volumes = defaults.volumes;
         }
 
+        @CustomType.Setter
+        public Builder azureQueueScaleRules(List<GetAppTemplateAzureQueueScaleRule> azureQueueScaleRules) {
+            this.azureQueueScaleRules = Objects.requireNonNull(azureQueueScaleRules);
+            return this;
+        }
+        public Builder azureQueueScaleRules(GetAppTemplateAzureQueueScaleRule... azureQueueScaleRules) {
+            return azureQueueScaleRules(List.of(azureQueueScaleRules));
+        }
         @CustomType.Setter
         public Builder containers(List<GetAppTemplateContainer> containers) {
             this.containers = Objects.requireNonNull(containers);
@@ -108,6 +144,22 @@ public final class GetAppTemplate {
         }
         public Builder containers(GetAppTemplateContainer... containers) {
             return containers(List.of(containers));
+        }
+        @CustomType.Setter
+        public Builder customScaleRules(@Nullable List<GetAppTemplateCustomScaleRule> customScaleRules) {
+            this.customScaleRules = customScaleRules;
+            return this;
+        }
+        public Builder customScaleRules(GetAppTemplateCustomScaleRule... customScaleRules) {
+            return customScaleRules(List.of(customScaleRules));
+        }
+        @CustomType.Setter
+        public Builder httpScaleRules(List<GetAppTemplateHttpScaleRule> httpScaleRules) {
+            this.httpScaleRules = Objects.requireNonNull(httpScaleRules);
+            return this;
+        }
+        public Builder httpScaleRules(GetAppTemplateHttpScaleRule... httpScaleRules) {
+            return httpScaleRules(List.of(httpScaleRules));
         }
         @CustomType.Setter
         public Builder maxReplicas(Integer maxReplicas) {
@@ -125,8 +177,16 @@ public final class GetAppTemplate {
             return this;
         }
         @CustomType.Setter
-        public Builder volumes(@Nullable List<GetAppTemplateVolume> volumes) {
-            this.volumes = volumes;
+        public Builder tcpScaleRules(List<GetAppTemplateTcpScaleRule> tcpScaleRules) {
+            this.tcpScaleRules = Objects.requireNonNull(tcpScaleRules);
+            return this;
+        }
+        public Builder tcpScaleRules(GetAppTemplateTcpScaleRule... tcpScaleRules) {
+            return tcpScaleRules(List.of(tcpScaleRules));
+        }
+        @CustomType.Setter
+        public Builder volumes(List<GetAppTemplateVolume> volumes) {
+            this.volumes = Objects.requireNonNull(volumes);
             return this;
         }
         public Builder volumes(GetAppTemplateVolume... volumes) {
@@ -134,10 +194,14 @@ public final class GetAppTemplate {
         }
         public GetAppTemplate build() {
             final var o = new GetAppTemplate();
+            o.azureQueueScaleRules = azureQueueScaleRules;
             o.containers = containers;
+            o.customScaleRules = customScaleRules;
+            o.httpScaleRules = httpScaleRules;
             o.maxReplicas = maxReplicas;
             o.minReplicas = minReplicas;
             o.revisionSuffix = revisionSuffix;
+            o.tcpScaleRules = tcpScaleRules;
             o.volumes = volumes;
             return o;
         }

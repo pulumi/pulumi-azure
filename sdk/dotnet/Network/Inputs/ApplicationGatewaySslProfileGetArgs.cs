@@ -48,6 +48,12 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("verifyClientCertIssuerDn")]
         public Input<bool>? VerifyClientCertIssuerDn { get; set; }
 
+        /// <summary>
+        /// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+        /// </summary>
+        [Input("verifyClientCertificateRevocation")]
+        public Input<string>? VerifyClientCertificateRevocation { get; set; }
+
         public ApplicationGatewaySslProfileGetArgs()
         {
         }

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConsumerGroup{}
 	case "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy":
 		r = &DpsSharedAccessPolicy{}
+	case "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount":
+		r = &EndpointCosmosdbAccount{}
 	case "azure:iot/endpointEventhub:EndpointEventhub":
 		r = &EndpointEventhub{}
 	case "azure:iot/endpointServicebusQueue:EndpointServicebusQueue":
@@ -97,6 +99,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iot/dpsSharedAccessPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iot/endpointCosmosdbAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

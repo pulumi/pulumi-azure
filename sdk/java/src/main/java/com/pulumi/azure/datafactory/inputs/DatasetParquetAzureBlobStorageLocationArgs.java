@@ -77,14 +77,14 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
     }
 
     /**
-     * The filename of the file on the web server.
+     * The filename of the file on the Azure Blob Storage Account.
      * 
      */
     @Import(name="filename")
     private @Nullable Output<String> filename;
 
     /**
-     * @return The filename of the file on the web server.
+     * @return The filename of the file on the Azure Blob Storage Account.
      * 
      */
     public Optional<Output<String>> filename() {
@@ -92,14 +92,14 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
     }
 
     /**
-     * The folder path to the file on the web server.
+     * The folder path to the file on the Azure Blob Storage Account.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The folder path to the file on the web server.
+     * @return The folder path to the file on the Azure Blob Storage Account.
      * 
      */
     public Optional<Output<String>> path() {
@@ -220,7 +220,7 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
         }
 
         /**
-         * @param filename The filename of the file on the web server.
+         * @param filename The filename of the file on the Azure Blob Storage Account.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
         }
 
         /**
-         * @param filename The filename of the file on the web server.
+         * @param filename The filename of the file on the Azure Blob Storage Account.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
         }
 
         /**
-         * @param path The folder path to the file on the web server.
+         * @param path The folder path to the file on the Azure Blob Storage Account.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class DatasetParquetAzureBlobStorageLocationArgs extends com.pulumi
         }
 
         /**
-         * @param path The folder path to the file on the web server.
+         * @param path The folder path to the file on the Azure Blob Storage Account.
          * 
          * @return builder
          * 

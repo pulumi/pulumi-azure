@@ -24,7 +24,7 @@ class ConfigurationFeatureArgs:
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[int]] = None,
+                 percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
                  timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
@@ -37,7 +37,7 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
+        :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
@@ -161,14 +161,14 @@ class ConfigurationFeatureArgs:
 
     @property
     @pulumi.getter(name="percentageFilterValue")
-    def percentage_filter_value(self) -> Optional[pulumi.Input[int]]:
+    def percentage_filter_value(self) -> Optional[pulumi.Input[float]]:
         """
-        A list of one or more numbers representing the value of the percentage required to enable this feature.
+        A number representing the value of the percentage required to enable this feature.
         """
         return pulumi.get(self, "percentage_filter_value")
 
     @percentage_filter_value.setter
-    def percentage_filter_value(self, value: Optional[pulumi.Input[int]]):
+    def percentage_filter_value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "percentage_filter_value", value)
 
     @property
@@ -219,7 +219,7 @@ class _ConfigurationFeatureState:
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[int]] = None,
+                 percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
                  timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
@@ -232,7 +232,7 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
+        :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
@@ -357,14 +357,14 @@ class _ConfigurationFeatureState:
 
     @property
     @pulumi.getter(name="percentageFilterValue")
-    def percentage_filter_value(self) -> Optional[pulumi.Input[int]]:
+    def percentage_filter_value(self) -> Optional[pulumi.Input[float]]:
         """
-        A list of one or more numbers representing the value of the percentage required to enable this feature.
+        A number representing the value of the percentage required to enable this feature.
         """
         return pulumi.get(self, "percentage_filter_value")
 
     @percentage_filter_value.setter
-    def percentage_filter_value(self, value: Optional[pulumi.Input[int]]):
+    def percentage_filter_value(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "percentage_filter_value", value)
 
     @property
@@ -417,7 +417,7 @@ class ConfigurationFeature(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[int]] = None,
+                 percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]]] = None,
                  timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]]] = None,
@@ -472,7 +472,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
+        :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
@@ -547,7 +547,7 @@ class ConfigurationFeature(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 percentage_filter_value: Optional[pulumi.Input[int]] = None,
+                 percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]]] = None,
                  timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]]] = None,
@@ -592,7 +592,7 @@ class ConfigurationFeature(pulumi.CustomResource):
             label: Optional[pulumi.Input[str]] = None,
             locked: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            percentage_filter_value: Optional[pulumi.Input[int]] = None,
+            percentage_filter_value: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]]] = None,
             timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]]] = None) -> 'ConfigurationFeature':
@@ -610,7 +610,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] percentage_filter_value: A list of one or more numbers representing the value of the percentage required to enable this feature.
+        :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
@@ -696,9 +696,9 @@ class ConfigurationFeature(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="percentageFilterValue")
-    def percentage_filter_value(self) -> pulumi.Output[Optional[int]]:
+    def percentage_filter_value(self) -> pulumi.Output[Optional[float]]:
         """
-        A list of one or more numbers representing the value of the percentage required to enable this feature.
+        A number representing the value of the percentage required to enable this feature.
         """
         return pulumi.get(self, "percentage_filter_value")
 

@@ -101,8 +101,8 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				Sku: &network.ApplicationGatewaySkuArgs{
-//					Name:     pulumi.String("Standard_Small"),
-//					Tier:     pulumi.String("Standard"),
+//					Name:     pulumi.String("Standard_v2"),
+//					Tier:     pulumi.String("Standard_v2"),
 //					Capacity: pulumi.Int(2),
 //				},
 //				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
@@ -149,6 +149,7 @@ import (
 //				RequestRoutingRules: network.ApplicationGatewayRequestRoutingRuleArray{
 //					&network.ApplicationGatewayRequestRoutingRuleArgs{
 //						Name:                    pulumi.String(requestRoutingRuleName),
+//						Priority:                pulumi.Int(9),
 //						RuleType:                pulumi.String("Basic"),
 //						HttpListenerName:        pulumi.String(listenerName),
 //						BackendAddressPoolName:  pulumi.String(backendAddressPoolName),

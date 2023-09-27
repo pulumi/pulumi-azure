@@ -118,10 +118,10 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of one or more numbers representing the value of the percentage required to enable this feature.
+        /// A number representing the value of the percentage required to enable this feature.
         /// </summary>
         [Output("percentageFilterValue")]
-        public Output<int?> PercentageFilterValue { get; private set; } = null!;
+        public Output<double?> PercentageFilterValue { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -233,10 +233,10 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A list of one or more numbers representing the value of the percentage required to enable this feature.
+        /// A number representing the value of the percentage required to enable this feature.
         /// </summary>
         [Input("percentageFilterValue")]
-        public Input<int>? PercentageFilterValue { get; set; }
+        public Input<double>? PercentageFilterValue { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -328,10 +328,10 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A list of one or more numbers representing the value of the percentage required to enable this feature.
+        /// A number representing the value of the percentage required to enable this feature.
         /// </summary>
         [Input("percentageFilterValue")]
-        public Input<int>? PercentageFilterValue { get; set; }
+        public Input<double>? PercentageFilterValue { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

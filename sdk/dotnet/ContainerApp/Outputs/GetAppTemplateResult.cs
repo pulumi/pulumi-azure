@@ -13,10 +13,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     [OutputType]
     public sealed class GetAppTemplateResult
     {
+        public readonly ImmutableArray<Outputs.GetAppTemplateAzureQueueScaleRuleResult> AzureQueueScaleRules;
         /// <summary>
         /// One or more `container` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerResult> Containers;
+        public readonly ImmutableArray<Outputs.GetAppTemplateCustomScaleRuleResult> CustomScaleRules;
+        public readonly ImmutableArray<Outputs.GetAppTemplateHttpScaleRuleResult> HttpScaleRules;
         /// <summary>
         /// The maximum number of replicas for this container.
         /// </summary>
@@ -29,6 +32,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// The suffix string to which this `traffic_weight` applies.
         /// </summary>
         public readonly string RevisionSuffix;
+        public readonly ImmutableArray<Outputs.GetAppTemplateTcpScaleRuleResult> TcpScaleRules;
         /// <summary>
         /// A `volume` block as detailed below.
         /// </summary>
@@ -36,7 +40,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
         [OutputConstructor]
         private GetAppTemplateResult(
+            ImmutableArray<Outputs.GetAppTemplateAzureQueueScaleRuleResult> azureQueueScaleRules,
+
             ImmutableArray<Outputs.GetAppTemplateContainerResult> containers,
+
+            ImmutableArray<Outputs.GetAppTemplateCustomScaleRuleResult> customScaleRules,
+
+            ImmutableArray<Outputs.GetAppTemplateHttpScaleRuleResult> httpScaleRules,
 
             int maxReplicas,
 
@@ -44,12 +54,18 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string revisionSuffix,
 
+            ImmutableArray<Outputs.GetAppTemplateTcpScaleRuleResult> tcpScaleRules,
+
             ImmutableArray<Outputs.GetAppTemplateVolumeResult> volumes)
         {
+            AzureQueueScaleRules = azureQueueScaleRules;
             Containers = containers;
+            CustomScaleRules = customScaleRules;
+            HttpScaleRules = httpScaleRules;
             MaxReplicas = maxReplicas;
             MinReplicas = minReplicas;
             RevisionSuffix = revisionSuffix;
+            TcpScaleRules = tcpScaleRules;
             Volumes = volumes;
         }
     }

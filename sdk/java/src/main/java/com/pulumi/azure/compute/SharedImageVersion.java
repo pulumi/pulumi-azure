@@ -109,6 +109,20 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blobUri);
     }
     /**
+     * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="deletionOfReplicatedLocationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> deletionOfReplicatedLocationsEnabled;
+
+    /**
+     * @return Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> deletionOfReplicatedLocationsEnabled() {
+        return Codegen.optional(this.deletionOfReplicatedLocationsEnabled);
+    }
+    /**
      * The end of life date in RFC3339 format of the Image Version.
      * 
      */

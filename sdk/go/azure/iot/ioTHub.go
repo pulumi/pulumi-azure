@@ -91,8 +91,9 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				LocalAuthenticationEnabled: pulumi.Bool(false),
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
@@ -210,6 +211,8 @@ type IoTHub struct {
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrOutput `pulumi:"identity"`
+	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -300,6 +303,8 @@ type ioTHubState struct {
 	Hostname *string `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity *IoTHubIdentity `pulumi:"identity"`
+	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -355,6 +360,8 @@ type IoTHubState struct {
 	Hostname pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrInput
+	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -402,6 +409,8 @@ type ioTHubArgs struct {
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
 	// An `identity` block as defined below.
 	Identity *IoTHubIdentity `pulumi:"identity"`
+	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -442,6 +451,8 @@ type IoTHubArgs struct {
 	FileUpload IoTHubFileUploadPtrInput
 	// An `identity` block as defined below.
 	Identity IoTHubIdentityPtrInput
+	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -643,6 +654,11 @@ func (o IoTHubOutput) Hostname() pulumi.StringOutput {
 // An `identity` block as defined below.
 func (o IoTHubOutput) Identity() IoTHubIdentityPtrOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubIdentityPtrOutput { return v.Identity }).(IoTHubIdentityPtrOutput)
+}
+
+// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+func (o IoTHubOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IoTHub) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

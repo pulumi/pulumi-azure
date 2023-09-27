@@ -1176,8 +1176,8 @@ class ApplicationGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku=azure.network.ApplicationGatewaySkuArgs(
-                name="Standard_Small",
-                tier="Standard",
+                name="Standard_v2",
+                tier="Standard_v2",
                 capacity=2,
             ),
             gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
@@ -1211,6 +1211,7 @@ class ApplicationGateway(pulumi.CustomResource):
             )],
             request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
                 name=request_routing_rule_name,
+                priority=9,
                 rule_type="Basic",
                 http_listener_name=listener_name,
                 backend_address_pool_name=backend_address_pool_name,
@@ -1307,8 +1308,8 @@ class ApplicationGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku=azure.network.ApplicationGatewaySkuArgs(
-                name="Standard_Small",
-                tier="Standard",
+                name="Standard_v2",
+                tier="Standard_v2",
                 capacity=2,
             ),
             gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
@@ -1342,6 +1343,7 @@ class ApplicationGateway(pulumi.CustomResource):
             )],
             request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
                 name=request_routing_rule_name,
+                priority=9,
                 rule_type="Basic",
                 http_listener_name=listener_name,
                 backend_address_pool_name=backend_address_pool_name,

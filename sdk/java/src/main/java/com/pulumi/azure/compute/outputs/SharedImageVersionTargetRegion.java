@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -17,6 +18,11 @@ public final class SharedImageVersionTargetRegion {
      * 
      */
     private @Nullable String diskEncryptionSetId;
+    /**
+     * @return Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean excludeFromLatestEnabled;
     /**
      * @return The Azure Region in which this Image Version should exist.
      * 
@@ -40,6 +46,13 @@ public final class SharedImageVersionTargetRegion {
      */
     public Optional<String> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
+    }
+    /**
+     * @return Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> excludeFromLatestEnabled() {
+        return Optional.ofNullable(this.excludeFromLatestEnabled);
     }
     /**
      * @return The Azure Region in which this Image Version should exist.
@@ -73,6 +86,7 @@ public final class SharedImageVersionTargetRegion {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String diskEncryptionSetId;
+        private @Nullable Boolean excludeFromLatestEnabled;
         private String name;
         private Integer regionalReplicaCount;
         private @Nullable String storageAccountType;
@@ -80,6 +94,7 @@ public final class SharedImageVersionTargetRegion {
         public Builder(SharedImageVersionTargetRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
+    	      this.excludeFromLatestEnabled = defaults.excludeFromLatestEnabled;
     	      this.name = defaults.name;
     	      this.regionalReplicaCount = defaults.regionalReplicaCount;
     	      this.storageAccountType = defaults.storageAccountType;
@@ -88,6 +103,11 @@ public final class SharedImageVersionTargetRegion {
         @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder excludeFromLatestEnabled(@Nullable Boolean excludeFromLatestEnabled) {
+            this.excludeFromLatestEnabled = excludeFromLatestEnabled;
             return this;
         }
         @CustomType.Setter
@@ -108,6 +128,7 @@ public final class SharedImageVersionTargetRegion {
         public SharedImageVersionTargetRegion build() {
             final var o = new SharedImageVersionTargetRegion();
             o.diskEncryptionSetId = diskEncryptionSetId;
+            o.excludeFromLatestEnabled = excludeFromLatestEnabled;
             o.name = name;
             o.regionalReplicaCount = regionalReplicaCount;
             o.storageAccountType = storageAccountType;

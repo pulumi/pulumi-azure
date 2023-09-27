@@ -102,6 +102,10 @@ type Environment struct {
 	StaticIpAddress pulumi.StringOutput `pulumi:"staticIpAddress"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+	ZoneRedundancyEnabled pulumi.BoolPtrOutput `pulumi:"zoneRedundancyEnabled"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -174,6 +178,10 @@ type environmentState struct {
 	StaticIpAddress *string `pulumi:"staticIpAddress"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 type EnvironmentState struct {
@@ -207,6 +215,10 @@ type EnvironmentState struct {
 	StaticIpAddress pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -234,6 +246,10 @@ type environmentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -258,6 +274,10 @@ type EnvironmentArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -438,6 +458,13 @@ func (o EnvironmentOutput) StaticIpAddress() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+//
+// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
+func (o EnvironmentOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.BoolPtrOutput { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type EnvironmentArrayOutput struct{ *pulumi.OutputState }

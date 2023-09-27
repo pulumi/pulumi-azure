@@ -24,16 +24,12 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
-     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
-     * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
      * @return Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-     * 
-     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -247,8 +243,6 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param licenseType Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
          * 
-         * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
-         * 
          * @return builder
          * 
          */
@@ -259,8 +253,6 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param licenseType Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-         * 
-         * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
          * 
          * @return builder
          * 

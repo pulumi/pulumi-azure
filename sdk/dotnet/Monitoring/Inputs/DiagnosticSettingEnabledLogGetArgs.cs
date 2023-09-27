@@ -23,13 +23,17 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The name of a Diagnostic Log Category Group for this Resource.
         /// 
-        /// &gt; **NOTE:** Not all resources have category groups available.****
+        /// &gt; **NOTE:** Not all resources have category groups available.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
         /// </summary>
         [Input("categoryGroup")]
         public Input<string>? CategoryGroup { get; set; }
 
         /// <summary>
         /// A `retention_policy` block as defined below.
+        /// 
+        /// !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DiagnosticSettingEnabledLogRetentionPolicyGetArgs>? RetentionPolicy { get; set; }

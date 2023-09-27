@@ -814,6 +814,9 @@
                     "primary_write_key": {
                         "maxItemsOne": false
                     },
+                    "replica": {
+                        "maxItemsOne": false
+                    },
                     "secondary_read_key": {
                         "maxItemsOne": false
                     },
@@ -1784,6 +1787,15 @@
                 "current": "azure:arc/privateLinkScope:PrivateLinkScope",
                 "majorVersion": 5
             },
+            "azurerm_arc_resource_bridge_appliance": {
+                "current": "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_attestation_provider": {
                 "current": "azure:attestation/provider:Provider",
                 "majorVersion": 5,
@@ -2716,6 +2728,9 @@
                 "current": "azure:bot/channelWebChat:ChannelWebChat",
                 "majorVersion": 5,
                 "fields": {
+                    "site": {
+                        "maxItemsOne": false
+                    },
                     "site_names": {
                         "maxItemsOne": false
                     }
@@ -3835,6 +3850,16 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "azure_queue_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "container": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -3879,6 +3904,36 @@
                                                 }
                                             },
                                             "volume_mounts": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "custom_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "http_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "tcp_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
                                                 "maxItemsOne": false
                                             }
                                         }
@@ -4842,6 +4897,18 @@
                     }
                 }
             },
+            "azurerm_data_factory_dataset_azure_sql_table": {
+                "current": "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable",
+                "majorVersion": 5,
+                "fields": {
+                    "annotations": {
+                        "maxItemsOne": false
+                    },
+                    "schema_column": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_data_factory_dataset_binary": {
                 "current": "azure:datafactory/datasetBinary:DatasetBinary",
                 "majorVersion": 5,
@@ -4944,6 +5011,9 @@
                 "fields": {
                     "annotations": {
                         "maxItemsOne": false
+                    },
+                    "azure_blob_fs_location": {
+                        "maxItemsOne": true
                     },
                     "azure_blob_storage_location": {
                         "maxItemsOne": true
@@ -7685,6 +7755,18 @@
                 "current": "azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot",
                 "majorVersion": 5
             },
+            "azurerm_function_app_connection": {
+                "current": "azure:appservice/appConnection:AppConnection",
+                "majorVersion": 5,
+                "fields": {
+                    "authentication": {
+                        "maxItemsOne": true
+                    },
+                    "secret_store": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_function_app_function": {
                 "current": "azure:appservice/functionAppFunction:FunctionAppFunction",
                 "majorVersion": 5,
@@ -9052,6 +9134,10 @@
             },
             "azurerm_iothub_dps_shared_access_policy": {
                 "current": "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy",
+                "majorVersion": 5
+            },
+            "azurerm_iothub_endpoint_cosmosdb_account": {
+                "current": "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount",
                 "majorVersion": 5
             },
             "azurerm_iothub_endpoint_eventhub": {
@@ -15444,6 +15530,18 @@
                     }
                 }
             },
+            "azurerm_new_relic_tag_rule": {
+                "current": "azure:newrelic/tagRule:TagRule",
+                "majorVersion": 5,
+                "fields": {
+                    "log_tag_filter": {
+                        "maxItemsOne": false
+                    },
+                    "metric_tag_filter": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_nginx_certificate": {
                 "current": "azure:nginx/certificate:Certificate",
                 "majorVersion": 5
@@ -20094,6 +20192,22 @@
                     }
                 }
             },
+            "azurerm_virtual_hub_routing_intent": {
+                "current": "azure:network/routingIntent:RoutingIntent",
+                "majorVersion": 5,
+                "fields": {
+                    "routing_policy": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "destinations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_virtual_hub_security_partner_provider": {
                 "current": "azure:network/securityPartnerProvider:SecurityPartnerProvider",
                 "majorVersion": 5
@@ -22749,6 +22863,9 @@
                     "primary_write_key": {
                         "maxItemsOne": false
                     },
+                    "replica": {
+                        "maxItemsOne": false
+                    },
                     "secondary_read_key": {
                         "maxItemsOne": false
                     },
@@ -23632,6 +23749,16 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "azure_queue_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "container": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -23676,6 +23803,36 @@
                                                 }
                                             },
                                             "volume_mounts": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "custom_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "http_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "tcp_scale_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "authentication": {
                                                 "maxItemsOne": false
                                             }
                                         }
@@ -24085,6 +24242,16 @@
                 "current": "azure:eventgrid/getDomain:getDomain",
                 "majorVersion": 5,
                 "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "inbound_ip_rule": {
                         "maxItemsOne": false
                     },
@@ -29031,6 +29198,7 @@
             "azure:appplatform/springCloudService:SpringCloudService": "azurerm_spring_cloud_service",
             "azure:appplatform/springCloudStorage:SpringCloudStorage": "azurerm_spring_cloud_storage",
             "azure:appservice/activeSlot:ActiveSlot": "azurerm_app_service_active_slot",
+            "azure:appservice/appConnection:AppConnection": "azurerm_function_app_connection",
             "azure:appservice/appService:AppService": "azurerm_app_service",
             "azure:appservice/certificate:Certificate": "azurerm_app_service_certificate",
             "azure:appservice/certificateBinding:CertificateBinding": "azurerm_app_service_certificate_binding",
@@ -29070,6 +29238,7 @@
             "azure:appservice/windowsWebApp:WindowsWebApp": "azurerm_windows_web_app",
             "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot": "azurerm_windows_web_app_slot",
             "azure:arc/privateLinkScope:PrivateLinkScope": "azurerm_arc_private_link_scope",
+            "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance": "azurerm_arc_resource_bridge_appliance",
             "azure:arckubernetes/cluster:Cluster": "azurerm_arc_kubernetes_cluster",
             "azure:arckubernetes/clusterExtension:ClusterExtension": "azurerm_arc_kubernetes_cluster_extension",
             "azure:arckubernetes/fluxConfiguration:FluxConfiguration": "azurerm_arc_kubernetes_flux_configuration",
@@ -29290,6 +29459,7 @@
             "azure:datafactory/customDataset:CustomDataset": "azurerm_data_factory_custom_dataset",
             "azure:datafactory/dataFlow:DataFlow": "azurerm_data_factory_data_flow",
             "azure:datafactory/datasetAzureBlob:DatasetAzureBlob": "azurerm_data_factory_dataset_azure_blob",
+            "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable": "azurerm_data_factory_dataset_azure_sql_table",
             "azure:datafactory/datasetBinary:DatasetBinary": "azurerm_data_factory_dataset_binary",
             "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi": "azurerm_data_factory_dataset_cosmosdb_sqlapi",
             "azure:datafactory/datasetDelimitedText:DatasetDelimitedText": "azurerm_data_factory_dataset_delimited_text",
@@ -29436,6 +29606,7 @@
             "azure:iot/certificate:Certificate": "azurerm_iothub_certificate",
             "azure:iot/consumerGroup:ConsumerGroup": "azurerm_iothub_consumer_group",
             "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy": "azurerm_iothub_dps_shared_access_policy",
+            "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount": "azurerm_iothub_endpoint_cosmosdb_account",
             "azure:iot/endpointEventhub:EndpointEventhub": "azurerm_iothub_endpoint_eventhub",
             "azure:iot/endpointServicebusQueue:EndpointServicebusQueue": "azurerm_iothub_endpoint_servicebus_queue",
             "azure:iot/endpointServicebusTopic:EndpointServicebusTopic": "azurerm_iothub_endpoint_servicebus_topic",
@@ -29714,6 +29885,7 @@
             "azure:network/routeServer:RouteServer": "azurerm_route_server",
             "azure:network/routeServerBgpConnection:RouteServerBgpConnection": "azurerm_route_server_bgp_connection",
             "azure:network/routeTable:RouteTable": "azurerm_route_table",
+            "azure:network/routingIntent:RoutingIntent": "azurerm_virtual_hub_routing_intent",
             "azure:network/securityPartnerProvider:SecurityPartnerProvider": "azurerm_virtual_hub_security_partner_provider",
             "azure:network/subnet:Subnet": "azurerm_subnet",
             "azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation": "azurerm_subnet_nat_gateway_association",
@@ -29744,6 +29916,7 @@
             "azure:network/vpnSite:VpnSite": "azurerm_vpn_site",
             "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector": "azurerm_network_function_azure_traffic_collector",
             "azure:newrelic/monitor:Monitor": "azurerm_new_relic_monitor",
+            "azure:newrelic/tagRule:TagRule": "azurerm_new_relic_tag_rule",
             "azure:nginx/certificate:Certificate": "azurerm_nginx_certificate",
             "azure:nginx/configuration:Configuration": "azurerm_nginx_configuration",
             "azure:nginx/deployment:Deployment": "azurerm_nginx_deployment",
@@ -31257,6 +31430,7 @@
                 "primaryWriteKeys": "primary_write_key",
                 "publicNetworkAccess": "public_network_access",
                 "purgeProtectionEnabled": "purge_protection_enabled",
+                "replicas": "replica",
                 "resourceGroupName": "resource_group_name",
                 "secondaryReadKeys": "secondary_read_key",
                 "secondaryWriteKeys": "secondary_write_key",
@@ -31283,6 +31457,7 @@
                 "publicNetworkAccess": "public_network_access",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "purgeProtectionEnabled": "purge_protection_enabled",
+                "replicas": "replica",
                 "resourceGroupName": "resource_group_name",
                 "secondaryReadKeys": "secondary_read_key",
                 "secondaryWriteKeys": "secondary_write_key",
@@ -31747,6 +31922,14 @@
                 "springCloudServiceId": "spring_cloud_service_id",
                 "storageAccountKey": "storage_account_key",
                 "storageAccountName": "storage_account_name"
+            },
+            "azure:appservice/AppConnectionAuthentication:AppConnectionAuthentication": {
+                "clientId": "client_id",
+                "principalId": "principal_id",
+                "subscriptionId": "subscription_id"
+            },
+            "azure:appservice/AppConnectionSecretStore:AppConnectionSecretStore": {
+                "keyVaultId": "key_vault_id"
             },
             "azure:appservice/AppServiceAuthSettings:AppServiceAuthSettings": {
                 "activeDirectory": "active_directory",
@@ -34402,6 +34585,13 @@
                 "appServiceSlotName": "app_service_slot_name",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:appservice/appConnection:AppConnection": {
+                "clientType": "client_type",
+                "functionAppId": "function_app_id",
+                "secretStore": "secret_store",
+                "targetResourceId": "target_resource_id",
+                "vnetSolution": "vnet_solution"
+            },
             "azure:appservice/appService:AppService": {
                 "appServicePlanId": "app_service_plan_id",
                 "appSettings": "app_settings",
@@ -36416,8 +36606,17 @@
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
                 "zipDeployFile": "zip_deploy_file"
             },
+            "azure:arc/ResourceBridgeApplianceIdentity:ResourceBridgeApplianceIdentity": {
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
             "azure:arc/privateLinkScope:PrivateLinkScope": {
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance": {
+                "infrastructureProvider": "infrastructure_provider",
+                "publicKeyBase64": "public_key_base64",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:arckubernetes/ClusterExtensionIdentity:ClusterExtensionIdentity": {
@@ -37609,8 +37808,11 @@
                 "timeCreated": "time_created"
             },
             "azure:bot/ChannelDirectLineSite:ChannelDirectLineSite": {
+                "endpointParametersEnabled": "endpoint_parameters_enabled",
                 "enhancedAuthenticationEnabled": "enhanced_authentication_enabled",
+                "storageEnabled": "storage_enabled",
                 "trustedOrigins": "trusted_origins",
+                "userUploadEnabled": "user_upload_enabled",
                 "v1Allowed": "v1_allowed",
                 "v3Allowed": "v3_allowed"
             },
@@ -37619,6 +37821,11 @@
             },
             "azure:bot/ChannelLineLineChannel:ChannelLineLineChannel": {
                 "accessToken": "access_token"
+            },
+            "azure:bot/ChannelWebChatSite:ChannelWebChatSite": {
+                "endpointParametersEnabled": "endpoint_parameters_enabled",
+                "storageEnabled": "storage_enabled",
+                "userUploadEnabled": "user_upload_enabled"
             },
             "azure:bot/channelAlexa:ChannelAlexa": {
                 "botName": "bot_name",
@@ -37676,13 +37883,15 @@
             "azure:bot/channelTeams:ChannelTeams": {
                 "botName": "bot_name",
                 "callingWebHook": "calling_web_hook",
+                "deploymentEnvironment": "deployment_environment",
                 "enableCalling": "enable_calling",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:bot/channelWebChat:ChannelWebChat": {
                 "botName": "bot_name",
                 "resourceGroupName": "resource_group_name",
-                "siteNames": "site_names"
+                "siteNames": "site_names",
+                "sites": "site"
             },
             "azure:bot/channelsRegistration:ChannelsRegistration": {
                 "cmkKeyVaultUrl": "cmk_key_vault_url",
@@ -38721,6 +38930,7 @@
             },
             "azure:compute/SharedImageVersionTargetRegion:SharedImageVersionTargetRegion": {
                 "diskEncryptionSetId": "disk_encryption_set_id",
+                "excludeFromLatestEnabled": "exclude_from_latest_enabled",
                 "regionalReplicaCount": "regional_replica_count",
                 "storageAccountType": "storage_account_type"
             },
@@ -39428,7 +39638,9 @@
                 "maxShares": "max_shares",
                 "networkAccessPolicy": "network_access_policy",
                 "onDemandBurstingEnabled": "on_demand_bursting_enabled",
+                "optimizedFrequentAttachEnabled": "optimized_frequent_attach_enabled",
                 "osType": "os_type",
+                "performancePlusEnabled": "performance_plus_enabled",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "resourceGroupName": "resource_group_name",
                 "secureVmDiskEncryptionSetId": "secure_vm_disk_encryption_set_id",
@@ -39540,6 +39752,7 @@
             },
             "azure:compute/sharedImageVersion:SharedImageVersion": {
                 "blobUri": "blob_uri",
+                "deletionOfReplicatedLocationsEnabled": "deletion_of_replicated_locations_enabled",
                 "endOfLifeDate": "end_of_life_date",
                 "excludeFromLatest": "exclude_from_latest",
                 "galleryName": "gallery_name",
@@ -39919,11 +40132,24 @@
                 "passwordSecretName": "password_secret_name"
             },
             "azure:containerapp/AppTemplate:AppTemplate": {
+                "azureQueueScaleRules": "azure_queue_scale_rule",
                 "containers": "container",
+                "customScaleRules": "custom_scale_rule",
+                "httpScaleRules": "http_scale_rule",
                 "maxReplicas": "max_replicas",
                 "minReplicas": "min_replicas",
                 "revisionSuffix": "revision_suffix",
+                "tcpScaleRules": "tcp_scale_rule",
                 "volumes": "volume"
+            },
+            "azure:containerapp/AppTemplateAzureQueueScaleRule:AppTemplateAzureQueueScaleRule": {
+                "authentications": "authentication",
+                "queueLength": "queue_length",
+                "queueName": "queue_name"
+            },
+            "azure:containerapp/AppTemplateAzureQueueScaleRuleAuthentication:AppTemplateAzureQueueScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
             },
             "azure:containerapp/AppTemplateContainer:AppTemplateContainer": {
                 "commands": "command",
@@ -39956,6 +40182,30 @@
                 "intervalSeconds": "interval_seconds",
                 "terminationGracePeriodSeconds": "termination_grace_period_seconds"
             },
+            "azure:containerapp/AppTemplateCustomScaleRule:AppTemplateCustomScaleRule": {
+                "authentications": "authentication",
+                "customRuleType": "custom_rule_type"
+            },
+            "azure:containerapp/AppTemplateCustomScaleRuleAuthentication:AppTemplateCustomScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
+            },
+            "azure:containerapp/AppTemplateHttpScaleRule:AppTemplateHttpScaleRule": {
+                "authentications": "authentication",
+                "concurrentRequests": "concurrent_requests"
+            },
+            "azure:containerapp/AppTemplateHttpScaleRuleAuthentication:AppTemplateHttpScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
+            },
+            "azure:containerapp/AppTemplateTcpScaleRule:AppTemplateTcpScaleRule": {
+                "authentications": "authentication",
+                "concurrentRequests": "concurrent_requests"
+            },
+            "azure:containerapp/AppTemplateTcpScaleRuleAuthentication:AppTemplateTcpScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
+            },
             "azure:containerapp/AppTemplateVolume:AppTemplateVolume": {
                 "storageName": "storage_name",
                 "storageType": "storage_type"
@@ -39984,7 +40234,8 @@
                 "platformReservedCidr": "platform_reserved_cidr",
                 "platformReservedDnsIpAddress": "platform_reserved_dns_ip_address",
                 "resourceGroupName": "resource_group_name",
-                "staticIpAddress": "static_ip_address"
+                "staticIpAddress": "static_ip_address",
+                "zoneRedundancyEnabled": "zone_redundancy_enabled"
             },
             "azure:containerapp/environmentCertificate:EnvironmentCertificate": {
                 "certificateBlobBase64": "certificate_blob_base64",
@@ -40053,11 +40304,24 @@
                 "passwordSecretName": "password_secret_name"
             },
             "azure:containerapp/getAppTemplate:getAppTemplate": {
+                "azureQueueScaleRules": "azure_queue_scale_rule",
                 "containers": "container",
+                "customScaleRules": "custom_scale_rule",
+                "httpScaleRules": "http_scale_rule",
                 "maxReplicas": "max_replicas",
                 "minReplicas": "min_replicas",
                 "revisionSuffix": "revision_suffix",
+                "tcpScaleRules": "tcp_scale_rule",
                 "volumes": "volume"
+            },
+            "azure:containerapp/getAppTemplateAzureQueueScaleRule:getAppTemplateAzureQueueScaleRule": {
+                "authentications": "authentication",
+                "queueLength": "queue_length",
+                "queueName": "queue_name"
+            },
+            "azure:containerapp/getAppTemplateAzureQueueScaleRuleAuthentication:getAppTemplateAzureQueueScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
             },
             "azure:containerapp/getAppTemplateContainer:getAppTemplateContainer": {
                 "commands": "command",
@@ -40089,6 +40353,30 @@
                 "headers": "header",
                 "intervalSeconds": "interval_seconds",
                 "terminationGracePeriodSeconds": "termination_grace_period_seconds"
+            },
+            "azure:containerapp/getAppTemplateCustomScaleRule:getAppTemplateCustomScaleRule": {
+                "authentications": "authentication",
+                "customRuleType": "custom_rule_type"
+            },
+            "azure:containerapp/getAppTemplateCustomScaleRuleAuthentication:getAppTemplateCustomScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
+            },
+            "azure:containerapp/getAppTemplateHttpScaleRule:getAppTemplateHttpScaleRule": {
+                "authentications": "authentication",
+                "concurrentRequests": "concurrent_requests"
+            },
+            "azure:containerapp/getAppTemplateHttpScaleRuleAuthentication:getAppTemplateHttpScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
+            },
+            "azure:containerapp/getAppTemplateTcpScaleRule:getAppTemplateTcpScaleRule": {
+                "authentications": "authentication",
+                "concurrentRequests": "concurrent_requests"
+            },
+            "azure:containerapp/getAppTemplateTcpScaleRuleAuthentication:getAppTemplateTcpScaleRuleAuthentication": {
+                "secretName": "secret_name",
+                "triggerParameter": "trigger_parameter"
             },
             "azure:containerapp/getAppTemplateVolume:getAppTemplateVolume": {
                 "storageName": "storage_name",
@@ -40949,6 +41237,7 @@
                 "ipAddress": "ip_address",
                 "ipAddressType": "ip_address_type",
                 "keyVaultKeyId": "key_vault_key_id",
+                "keyVaultUserAssignedIdentityId": "key_vault_user_assigned_identity_id",
                 "networkProfileId": "network_profile_id",
                 "osType": "os_type",
                 "resourceGroupName": "resource_group_name",
@@ -41626,14 +41915,18 @@
                 "networkAclBypassIds": "network_acl_bypass_ids",
                 "offerType": "offer_type",
                 "primaryKey": "primary_key",
+                "primaryMongodbConnectionString": "primary_mongodb_connection_string",
                 "primaryReadonlyKey": "primary_readonly_key",
+                "primaryReadonlyMongodbConnectionString": "primary_readonly_mongodb_connection_string",
                 "primaryReadonlySqlConnectionString": "primary_readonly_sql_connection_string",
                 "primarySqlConnectionString": "primary_sql_connection_string",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "readEndpoints": "read_endpoints",
                 "resourceGroupName": "resource_group_name",
                 "secondaryKey": "secondary_key",
+                "secondaryMongodbConnectionString": "secondary_mongodb_connection_string",
                 "secondaryReadonlyKey": "secondary_readonly_key",
+                "secondaryReadonlyMongodbConnectionString": "secondary_readonly_mongodb_connection_string",
                 "secondaryReadonlySqlConnectionString": "secondary_readonly_sql_connection_string",
                 "secondarySqlConnectionString": "secondary_sql_connection_string",
                 "virtualNetworkRules": "virtual_network_rule",
@@ -42181,6 +42474,9 @@
                 "dynamicPathEnabled": "dynamic_path_enabled"
             },
             "azure:datafactory/DatasetDelimitedTextAzureBlobFsLocation:DatasetDelimitedTextAzureBlobFsLocation": {
+                "dynamicFileSystemEnabled": "dynamic_file_system_enabled",
+                "dynamicFilenameEnabled": "dynamic_filename_enabled",
+                "dynamicPathEnabled": "dynamic_path_enabled",
                 "fileSystem": "file_system"
             },
             "azure:datafactory/DatasetDelimitedTextAzureBlobStorageLocation:DatasetDelimitedTextAzureBlobStorageLocation": {
@@ -42203,6 +42499,12 @@
                 "dynamicPathEnabled": "dynamic_path_enabled",
                 "relativeUrl": "relative_url"
             },
+            "azure:datafactory/DatasetParquetAzureBlobFsLocation:DatasetParquetAzureBlobFsLocation": {
+                "dynamicFileSystemEnabled": "dynamic_file_system_enabled",
+                "dynamicFilenameEnabled": "dynamic_filename_enabled",
+                "dynamicPathEnabled": "dynamic_path_enabled",
+                "fileSystem": "file_system"
+            },
             "azure:datafactory/DatasetParquetAzureBlobStorageLocation:DatasetParquetAzureBlobStorageLocation": {
                 "dynamicContainerEnabled": "dynamic_container_enabled",
                 "dynamicFilenameEnabled": "dynamic_filename_enabled",
@@ -42217,6 +42519,7 @@
                 "accountName": "account_name",
                 "branchName": "branch_name",
                 "gitUrl": "git_url",
+                "publishingEnabled": "publishing_enabled",
                 "repositoryName": "repository_name",
                 "rootFolder": "root_folder"
             },
@@ -42229,6 +42532,7 @@
                 "accountName": "account_name",
                 "branchName": "branch_name",
                 "projectName": "project_name",
+                "publishingEnabled": "publishing_enabled",
                 "repositoryName": "repository_name",
                 "rootFolder": "root_folder",
                 "tenantId": "tenant_id"
@@ -42415,6 +42719,12 @@
                 "linkedServiceName": "linked_service_name",
                 "schemaColumns": "schema_column"
             },
+            "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable": {
+                "additionalProperties": "additional_properties",
+                "dataFactoryId": "data_factory_id",
+                "linkedServiceId": "linked_service_id",
+                "schemaColumns": "schema_column"
+            },
             "azure:datafactory/datasetBinary:DatasetBinary": {
                 "additionalProperties": "additional_properties",
                 "azureBlobStorageLocation": "azure_blob_storage_location",
@@ -42473,6 +42783,7 @@
             },
             "azure:datafactory/datasetParquet:DatasetParquet": {
                 "additionalProperties": "additional_properties",
+                "azureBlobFsLocation": "azure_blob_fs_location",
                 "azureBlobStorageLocation": "azure_blob_storage_location",
                 "compressionCodec": "compression_codec",
                 "compressionLevel": "compression_level",
@@ -43661,6 +43972,7 @@
                 "webhookEndpoint": "webhook_endpoint"
             },
             "azure:eventgrid/getDomain:getDomain": {
+                "identities": "identity",
                 "inboundIpRules": "inbound_ip_rule",
                 "inputMappingDefaultValues": "input_mapping_default_values",
                 "inputMappingFields": "input_mapping_fields",
@@ -43669,6 +43981,11 @@
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "resourceGroupName": "resource_group_name",
                 "secondaryAccessKey": "secondary_access_key"
+            },
+            "azure:eventgrid/getDomainIdentity:getDomainIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:eventgrid/getDomainInboundIpRule:getDomainInboundIpRule": {
                 "ipMask": "ip_mask"
@@ -45481,6 +45798,19 @@
                 "secondaryKey": "secondary_key",
                 "serviceConfig": "service_config"
             },
+            "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount": {
+                "authenticationType": "authentication_type",
+                "containerName": "container_name",
+                "databaseName": "database_name",
+                "endpointUri": "endpoint_uri",
+                "identityId": "identity_id",
+                "iothubId": "iothub_id",
+                "partitionKeyName": "partition_key_name",
+                "partitionKeyTemplate": "partition_key_template",
+                "primaryKey": "primary_key",
+                "resourceGroupName": "resource_group_name",
+                "secondaryKey": "secondary_key"
+            },
             "azure:iot/endpointEventhub:EndpointEventhub": {
                 "authenticationType": "authentication_type",
                 "connectionString": "connection_string",
@@ -45587,6 +45917,7 @@
                 "eventHubRetentionInDays": "event_hub_retention_in_days",
                 "fallbackRoute": "fallback_route",
                 "fileUpload": "file_upload",
+                "localAuthenticationEnabled": "local_authentication_enabled",
                 "minTlsVersion": "min_tls_version",
                 "networkRuleSets": "network_rule_set",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
@@ -47213,6 +47544,7 @@
                 "lockLevel": "lock_level"
             },
             "azure:maps/account:Account": {
+                "localAuthenticationEnabled": "local_authentication_enabled",
                 "primaryAccessKey": "primary_access_key",
                 "resourceGroupName": "resource_group_name",
                 "secondaryAccessKey": "secondary_access_key",
@@ -49935,7 +50267,8 @@
             "azure:network/ApplicationGatewaySslProfile:ApplicationGatewaySslProfile": {
                 "sslPolicy": "ssl_policy",
                 "trustedClientCertificateNames": "trusted_client_certificate_names",
-                "verifyClientCertIssuerDn": "verify_client_cert_issuer_dn"
+                "verifyClientCertIssuerDn": "verify_client_cert_issuer_dn",
+                "verifyClientCertificateRevocation": "verify_client_certificate_revocation"
             },
             "azure:network/ApplicationGatewaySslProfileSslPolicy:ApplicationGatewaySslProfileSslPolicy": {
                 "cipherSuites": "cipher_suites",
@@ -50303,6 +50636,9 @@
                 "addressPrefix": "address_prefix",
                 "nextHopInIpAddress": "next_hop_in_ip_address",
                 "nextHopType": "next_hop_type"
+            },
+            "azure:network/RoutingIntentRoutingPolicy:RoutingIntentRoutingPolicy": {
+                "nextHop": "next_hop"
             },
             "azure:network/SubnetDelegation:SubnetDelegation": {
                 "serviceDelegation": "service_delegation"
@@ -51087,6 +51423,8 @@
             },
             "azure:network/networkInterface:NetworkInterface": {
                 "appliedDnsServers": "applied_dns_servers",
+                "auxiliaryMode": "auxiliary_mode",
+                "auxiliarySku": "auxiliary_sku",
                 "dnsServers": "dns_servers",
                 "edgeZone": "edge_zone",
                 "enableAcceleratedNetworking": "enable_accelerated_networking",
@@ -51284,6 +51622,10 @@
                 "disableBgpRoutePropagation": "disable_bgp_route_propagation",
                 "resourceGroupName": "resource_group_name",
                 "routes": "route"
+            },
+            "azure:network/routingIntent:RoutingIntent": {
+                "routingPolicies": "routing_policy",
+                "virtualHubId": "virtual_hub_id"
             },
             "azure:network/securityPartnerProvider:SecurityPartnerProvider": {
                 "resourceGroupName": "resource_group_name",
@@ -51526,6 +51868,15 @@
                 "organizationId": "organization_id",
                 "resourceGroupName": "resource_group_name",
                 "userId": "user_id"
+            },
+            "azure:newrelic/tagRule:TagRule": {
+                "activityLogEnabled": "activity_log_enabled",
+                "azureActiveDirectoryLogEnabled": "azure_active_directory_log_enabled",
+                "logTagFilters": "log_tag_filter",
+                "metricEnabled": "metric_enabled",
+                "metricTagFilters": "metric_tag_filter",
+                "monitorId": "monitor_id",
+                "subscriptionLogEnabled": "subscription_log_enabled"
             },
             "azure:nginx/ConfigurationConfigFile:ConfigurationConfigFile": {
                 "virtualPath": "virtual_path"
@@ -54394,8 +54745,10 @@
                 "storageAccountName": "storage_account_name"
             },
             "azure:storage/customerManagedKey:CustomerManagedKey": {
+                "federatedIdentityClientId": "federated_identity_client_id",
                 "keyName": "key_name",
                 "keyVaultId": "key_vault_id",
+                "keyVaultUri": "key_vault_uri",
                 "keyVersion": "key_version",
                 "storageAccountId": "storage_account_id",
                 "userAssignedIdentityId": "user_assigned_identity_id"
@@ -55057,6 +55410,7 @@
                 "geoBackupPolicyEnabled": "geo_backup_policy_enabled",
                 "recoveryDatabaseId": "recovery_database_id",
                 "skuName": "sku_name",
+                "storageAccountType": "storage_account_type",
                 "synapseWorkspaceId": "synapse_workspace_id"
             },
             "azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy": {
@@ -55217,7 +55571,10 @@
                 "voiceServicesCommunicationsGatewayId": "voice_services_communications_gateway_id"
             },
             "azure:waf/PolicyCustomRule:PolicyCustomRule": {
+                "groupRateLimitBy": "group_rate_limit_by",
                 "matchConditions": "match_conditions",
+                "rateLimitDuration": "rate_limit_duration",
+                "rateLimitThreshold": "rate_limit_threshold",
                 "ruleType": "rule_type"
             },
             "azure:waf/PolicyCustomRuleMatchCondition:PolicyCustomRuleMatchCondition": {
@@ -55256,7 +55613,8 @@
                 "fileUploadLimitInMb": "file_upload_limit_in_mb",
                 "logScrubbing": "log_scrubbing",
                 "maxRequestBodySizeInKb": "max_request_body_size_in_kb",
-                "requestBodyCheck": "request_body_check"
+                "requestBodyCheck": "request_body_check",
+                "requestBodyInspectLimitInKb": "request_body_inspect_limit_in_kb"
             },
             "azure:waf/PolicyPolicySettingsLogScrubbing:PolicyPolicySettingsLogScrubbing": {
                 "rules": "rule"

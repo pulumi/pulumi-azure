@@ -16,6 +16,8 @@ public final class CacheRedisConfiguration {
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
+     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * 
      */
     private @Nullable Boolean aofBackupEnabled;
     /**
@@ -168,6 +170,8 @@ public final class CacheRedisConfiguration {
     private CacheRedisConfiguration() {}
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
      * 
      */
     public Optional<Boolean> aofBackupEnabled() {

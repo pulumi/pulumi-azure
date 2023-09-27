@@ -13,7 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -204,17 +204,17 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * A number representing the value of the percentage required to enable this feature.
      * 
      */
-    @Export(name="percentageFilterValue", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> percentageFilterValue;
+    @Export(name="percentageFilterValue", refs={Double.class}, tree="[0]")
+    private Output</* @Nullable */ Double> percentageFilterValue;
 
     /**
-     * @return A list of one or more numbers representing the value of the percentage required to enable this feature.
+     * @return A number representing the value of the percentage required to enable this feature.
      * 
      */
-    public Output<Optional<Integer>> percentageFilterValue() {
+    public Output<Optional<Double>> percentageFilterValue() {
         return Codegen.optional(this.percentageFilterValue);
     }
     /**

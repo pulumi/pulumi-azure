@@ -22,7 +22,7 @@ class GetConfigurationStoreResult:
     """
     A collection of values returned by getConfigurationStore.
     """
-    def __init__(__self__, encryptions=None, endpoint=None, id=None, identities=None, local_auth_enabled=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, public_network_access_enabled=None, purge_protection_enabled=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, soft_delete_retention_days=None, tags=None):
+    def __init__(__self__, encryptions=None, endpoint=None, id=None, identities=None, local_auth_enabled=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, public_network_access_enabled=None, purge_protection_enabled=None, replicas=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, soft_delete_retention_days=None, tags=None):
         if encryptions and not isinstance(encryptions, list):
             raise TypeError("Expected argument 'encryptions' to be a list")
         pulumi.set(__self__, "encryptions", encryptions)
@@ -59,6 +59,9 @@ class GetConfigurationStoreResult:
         if purge_protection_enabled and not isinstance(purge_protection_enabled, bool):
             raise TypeError("Expected argument 'purge_protection_enabled' to be a bool")
         pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if replicas and not isinstance(replicas, list):
+            raise TypeError("Expected argument 'replicas' to be a list")
+        pulumi.set(__self__, "replicas", replicas)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -90,7 +93,7 @@ class GetConfigurationStoreResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The Endpoint used to access this App Configuration.
+        The URL of the App Configuration Replica.
         """
         return pulumi.get(self, "endpoint")
 
@@ -119,13 +122,16 @@ class GetConfigurationStoreResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The Azure Region where the App Configuration exists.
+        The supported Azure location where the App Configuration Replica exists.
         """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the App Configuration Replica.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -164,6 +170,14 @@ class GetConfigurationStoreResult:
         Whether Purge Protection is enabled.
         """
         return pulumi.get(self, "purge_protection_enabled")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Sequence['outputs.GetConfigurationStoreReplicaResult']:
+        """
+        One or more `replica` blocks as defined below.
+        """
+        return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -229,6 +243,7 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
             public_network_access=self.public_network_access,
             public_network_access_enabled=self.public_network_access_enabled,
             purge_protection_enabled=self.purge_protection_enabled,
+            replicas=self.replicas,
             resource_group_name=self.resource_group_name,
             secondary_read_keys=self.secondary_read_keys,
             secondary_write_keys=self.secondary_write_keys,
@@ -277,6 +292,7 @@ def get_configuration_store(name: Optional[str] = None,
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         purge_protection_enabled=pulumi.get(__ret__, 'purge_protection_enabled'),
+        replicas=pulumi.get(__ret__, 'replicas'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_read_keys=pulumi.get(__ret__, 'secondary_read_keys'),
         secondary_write_keys=pulumi.get(__ret__, 'secondary_write_keys'),

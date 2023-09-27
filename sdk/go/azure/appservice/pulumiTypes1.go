@@ -14,6 +14,301 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetLinuxWebAppSiteConfigCor struct {
+	// A list of origins that should be allowed to make cross-origin calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Whether CORS requests with credentials are allowed.
+	SupportCredentials bool `pulumi:"supportCredentials"`
+}
+
+// GetLinuxWebAppSiteConfigCorInput is an input type that accepts GetLinuxWebAppSiteConfigCorArgs and GetLinuxWebAppSiteConfigCorOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigCorInput` via:
+//
+//	GetLinuxWebAppSiteConfigCorArgs{...}
+type GetLinuxWebAppSiteConfigCorInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigCorOutput() GetLinuxWebAppSiteConfigCorOutput
+	ToGetLinuxWebAppSiteConfigCorOutputWithContext(context.Context) GetLinuxWebAppSiteConfigCorOutput
+}
+
+type GetLinuxWebAppSiteConfigCorArgs struct {
+	// A list of origins that should be allowed to make cross-origin calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Whether CORS requests with credentials are allowed.
+	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
+}
+
+func (GetLinuxWebAppSiteConfigCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigCor)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigCorArgs) ToGetLinuxWebAppSiteConfigCorOutput() GetLinuxWebAppSiteConfigCorOutput {
+	return i.ToGetLinuxWebAppSiteConfigCorOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigCorArgs) ToGetLinuxWebAppSiteConfigCorOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigCorOutput)
+}
+
+func (i GetLinuxWebAppSiteConfigCorArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigCor] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigCor]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigCorOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetLinuxWebAppSiteConfigCorArrayInput is an input type that accepts GetLinuxWebAppSiteConfigCorArray and GetLinuxWebAppSiteConfigCorArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigCorArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigCorArray{ GetLinuxWebAppSiteConfigCorArgs{...} }
+type GetLinuxWebAppSiteConfigCorArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigCorArrayOutput() GetLinuxWebAppSiteConfigCorArrayOutput
+	ToGetLinuxWebAppSiteConfigCorArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigCorArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigCorArray []GetLinuxWebAppSiteConfigCorInput
+
+func (GetLinuxWebAppSiteConfigCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigCor)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigCorArray) ToGetLinuxWebAppSiteConfigCorArrayOutput() GetLinuxWebAppSiteConfigCorArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigCorArray) ToGetLinuxWebAppSiteConfigCorArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigCorArrayOutput)
+}
+
+func (i GetLinuxWebAppSiteConfigCorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigCor] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigCor]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigCorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetLinuxWebAppSiteConfigCorOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigCor)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigCorOutput) ToGetLinuxWebAppSiteConfigCorOutput() GetLinuxWebAppSiteConfigCorOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigCorOutput) ToGetLinuxWebAppSiteConfigCorOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigCorOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigCorOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigCor] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigCor]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A list of origins that should be allowed to make cross-origin calls.
+func (o GetLinuxWebAppSiteConfigCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Whether CORS requests with credentials are allowed.
+func (o GetLinuxWebAppSiteConfigCorOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigCor) bool { return v.SupportCredentials }).(pulumi.BoolOutput)
+}
+
+type GetLinuxWebAppSiteConfigCorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigCor)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigCorArrayOutput) ToGetLinuxWebAppSiteConfigCorArrayOutput() GetLinuxWebAppSiteConfigCorArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigCorArrayOutput) ToGetLinuxWebAppSiteConfigCorArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigCorArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigCorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigCor] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigCor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetLinuxWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigCorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigCor {
+		return vs[0].([]GetLinuxWebAppSiteConfigCor)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigCorOutput)
+}
+
+type GetLinuxWebAppSiteConfigIpRestriction struct {
+	// A `action` block as defined above.
+	Action    string                                        `pulumi:"action"`
+	Headers   []GetLinuxWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	IpAddress string                                        `pulumi:"ipAddress"`
+	// The name of this Linux Web App.
+	Name       string `pulumi:"name"`
+	Priority   int    `pulumi:"priority"`
+	ServiceTag string `pulumi:"serviceTag"`
+	// The subnet id which the Linux Web App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetLinuxWebAppSiteConfigIpRestrictionInput is an input type that accepts GetLinuxWebAppSiteConfigIpRestrictionArgs and GetLinuxWebAppSiteConfigIpRestrictionOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigIpRestrictionInput` via:
+//
+//	GetLinuxWebAppSiteConfigIpRestrictionArgs{...}
+type GetLinuxWebAppSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigIpRestrictionOutput() GetLinuxWebAppSiteConfigIpRestrictionOutput
+	ToGetLinuxWebAppSiteConfigIpRestrictionOutputWithContext(context.Context) GetLinuxWebAppSiteConfigIpRestrictionOutput
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionArgs struct {
+	// A `action` block as defined above.
+	Action    pulumi.StringInput                                    `pulumi:"action"`
+	Headers   GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	IpAddress pulumi.StringInput                                    `pulumi:"ipAddress"`
+	// The name of this Linux Web App.
+	Name       pulumi.StringInput `pulumi:"name"`
+	Priority   pulumi.IntInput    `pulumi:"priority"`
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
+	// The subnet id which the Linux Web App is vNet Integrated with.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetLinuxWebAppSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionArgs) ToGetLinuxWebAppSiteConfigIpRestrictionOutput() GetLinuxWebAppSiteConfigIpRestrictionOutput {
+	return i.ToGetLinuxWebAppSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionArgs) ToGetLinuxWebAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigIpRestrictionOutput)
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigIpRestriction]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigIpRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetLinuxWebAppSiteConfigIpRestrictionArrayInput is an input type that accepts GetLinuxWebAppSiteConfigIpRestrictionArray and GetLinuxWebAppSiteConfigIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigIpRestrictionArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigIpRestrictionArray{ GetLinuxWebAppSiteConfigIpRestrictionArgs{...} }
+type GetLinuxWebAppSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutput() GetLinuxWebAppSiteConfigIpRestrictionArrayOutput
+	ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigIpRestrictionArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionArray []GetLinuxWebAppSiteConfigIpRestrictionInput
+
+func (GetLinuxWebAppSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionArray) ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutput() GetLinuxWebAppSiteConfigIpRestrictionArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionArray) ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigIpRestrictionArrayOutput)
+}
+
+func (i GetLinuxWebAppSiteConfigIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestriction]{
+		OutputState: i.ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) ToGetLinuxWebAppSiteConfigIpRestrictionOutput() GetLinuxWebAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) ToGetLinuxWebAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinuxWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[GetLinuxWebAppSiteConfigIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A `action` block as defined above.
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Headers() GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) []GetLinuxWebAppSiteConfigIpRestrictionHeader {
+		return v.Headers
+	}).(GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
+}
+
+// The subnet id which the Linux Web App is vNet Integrated with.
+func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutput() GetLinuxWebAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) ToGetLinuxWebAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestriction] {
+	return pulumix.Output[[]GetLinuxWebAppSiteConfigIpRestriction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigIpRestriction {
+		return vs[0].([]GetLinuxWebAppSiteConfigIpRestriction)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigIpRestrictionOutput)
+}
+
 type GetLinuxWebAppSiteConfigIpRestrictionHeader struct {
 	XAzureFdids     []string `pulumi:"xAzureFdids"`
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
@@ -13860,6 +14155,10 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigCorInput)(nil)).Elem(), GetLinuxWebAppSiteConfigCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigCorArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigCorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionHeaderInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigIpRestrictionHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigScmIpRestrictionInput)(nil)).Elem(), GetLinuxWebAppSiteConfigScmIpRestrictionArgs{})
@@ -14030,6 +14329,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigCorOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigCorArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigScmIpRestrictionOutput{})

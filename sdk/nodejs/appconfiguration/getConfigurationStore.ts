@@ -54,7 +54,7 @@ export interface GetConfigurationStoreResult {
      */
     readonly encryptions: outputs.appconfiguration.GetConfigurationStoreEncryption[];
     /**
-     * The Endpoint used to access this App Configuration.
+     * The URL of the App Configuration Replica.
      */
     readonly endpoint: string;
     /**
@@ -67,9 +67,12 @@ export interface GetConfigurationStoreResult {
      */
     readonly localAuthEnabled: boolean;
     /**
-     * The Azure Region where the App Configuration exists.
+     * The supported Azure location where the App Configuration Replica exists.
      */
     readonly location: string;
+    /**
+     * The name of the App Configuration Replica.
+     */
     readonly name: string;
     /**
      * A `primaryReadKey` block as defined below containing the primary read access key.
@@ -88,6 +91,10 @@ export interface GetConfigurationStoreResult {
      * Whether Purge Protection is enabled.
      */
     readonly purgeProtectionEnabled: boolean;
+    /**
+     * One or more `replica` blocks as defined below.
+     */
+    readonly replicas: outputs.appconfiguration.GetConfigurationStoreReplica[];
     readonly resourceGroupName: string;
     /**
      * A `secondaryReadKey` block as defined below containing the secondary read access key.

@@ -20,12 +20,16 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
+     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * 
      */
     @Import(name="aofBackupEnabled")
     private @Nullable Output<Boolean> aofBackupEnabled;
 
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
      * 
      */
     public Optional<Output<Boolean>> aofBackupEnabled() {
@@ -429,6 +433,8 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
+         * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+         * 
          * @return builder
          * 
          */
@@ -439,6 +445,8 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
          * 
          * @return builder
          * 

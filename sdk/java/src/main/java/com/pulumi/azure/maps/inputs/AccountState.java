@@ -5,6 +5,7 @@ package com.pulumi.azure.maps.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
+
+    /**
+     * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     * 
+     */
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
+    }
 
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
@@ -124,6 +140,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private AccountState() {}
 
     private AccountState(AccountState $) {
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.name = $.name;
         this.primaryAccessKey = $.primaryAccessKey;
         this.resourceGroupName = $.resourceGroupName;
@@ -149,6 +166,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(AccountState defaults) {
             $ = new AccountState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param localAuthenticationEnabled Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationEnabled Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
         }
 
         /**

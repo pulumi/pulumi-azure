@@ -31,6 +31,7 @@ namespace Pulumi.Azure.Maps
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "S1",
+    ///         LocalAuthenticationEnabled = true,
     ///         Tags = 
     ///         {
     ///             { "environment", "Test" },
@@ -51,6 +52,12 @@ namespace Pulumi.Azure.Maps
     [AzureResourceType("azure:maps/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthenticationEnabled")]
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
         /// </summary>
@@ -145,6 +152,12 @@ namespace Pulumi.Azure.Maps
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -182,6 +195,12 @@ namespace Pulumi.Azure.Maps
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
+
         /// <summary>
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
         /// </summary>

@@ -75,6 +75,10 @@ export class ChannelTeams extends pulumi.CustomResource {
      */
     public readonly callingWebHook!: pulumi.Output<string>;
     /**
+     * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     */
+    public readonly deploymentEnvironment!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */
     public readonly enableCalling!: pulumi.Output<boolean | undefined>;
@@ -102,6 +106,7 @@ export class ChannelTeams extends pulumi.CustomResource {
             const state = argsOrState as ChannelTeamsState | undefined;
             resourceInputs["botName"] = state ? state.botName : undefined;
             resourceInputs["callingWebHook"] = state ? state.callingWebHook : undefined;
+            resourceInputs["deploymentEnvironment"] = state ? state.deploymentEnvironment : undefined;
             resourceInputs["enableCalling"] = state ? state.enableCalling : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -115,6 +120,7 @@ export class ChannelTeams extends pulumi.CustomResource {
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
             resourceInputs["callingWebHook"] = args ? args.callingWebHook : undefined;
+            resourceInputs["deploymentEnvironment"] = args ? args.deploymentEnvironment : undefined;
             resourceInputs["enableCalling"] = args ? args.enableCalling : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -136,6 +142,10 @@ export interface ChannelTeamsState {
      * Specifies the webhook for Microsoft Teams channel calls.
      */
     callingWebHook?: pulumi.Input<string>;
+    /**
+     * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     */
+    deploymentEnvironment?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */
@@ -162,6 +172,10 @@ export interface ChannelTeamsArgs {
      * Specifies the webhook for Microsoft Teams channel calls.
      */
     callingWebHook?: pulumi.Input<string>;
+    /**
+     * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
+     */
+    deploymentEnvironment?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */

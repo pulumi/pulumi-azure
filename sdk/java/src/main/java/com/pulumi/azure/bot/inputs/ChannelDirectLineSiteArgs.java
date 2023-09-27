@@ -33,6 +33,21 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Is the endpoint parameters enabled for this site?
+     * 
+     */
+    @Import(name="endpointParametersEnabled")
+    private @Nullable Output<Boolean> endpointParametersEnabled;
+
+    /**
+     * @return Is the endpoint parameters enabled for this site?
+     * 
+     */
+    public Optional<Output<Boolean>> endpointParametersEnabled() {
+        return Optional.ofNullable(this.endpointParametersEnabled);
+    }
+
+    /**
      * Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
      * 
      */
@@ -108,6 +123,21 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Is the storage site enabled for detailed logging? Defaults to `true`.
+     * 
+     */
+    @Import(name="storageEnabled")
+    private @Nullable Output<Boolean> storageEnabled;
+
+    /**
+     * @return Is the storage site enabled for detailed logging? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> storageEnabled() {
+        return Optional.ofNullable(this.storageEnabled);
+    }
+
+    /**
      * This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
@@ -120,6 +150,21 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<List<String>>> trustedOrigins() {
         return Optional.ofNullable(this.trustedOrigins);
+    }
+
+    /**
+     * Is the user upload enabled for this site? Defaults to `true`.
+     * 
+     */
+    @Import(name="userUploadEnabled")
+    private @Nullable Output<Boolean> userUploadEnabled;
+
+    /**
+     * @return Is the user upload enabled for this site? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> userUploadEnabled() {
+        return Optional.ofNullable(this.userUploadEnabled);
     }
 
     /**
@@ -156,12 +201,15 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
 
     private ChannelDirectLineSiteArgs(ChannelDirectLineSiteArgs $) {
         this.enabled = $.enabled;
+        this.endpointParametersEnabled = $.endpointParametersEnabled;
         this.enhancedAuthenticationEnabled = $.enhancedAuthenticationEnabled;
         this.id = $.id;
         this.key = $.key;
         this.key2 = $.key2;
         this.name = $.name;
+        this.storageEnabled = $.storageEnabled;
         this.trustedOrigins = $.trustedOrigins;
+        this.userUploadEnabled = $.userUploadEnabled;
         this.v1Allowed = $.v1Allowed;
         this.v3Allowed = $.v3Allowed;
     }
@@ -203,6 +251,27 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param endpointParametersEnabled Is the endpoint parameters enabled for this site?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointParametersEnabled(@Nullable Output<Boolean> endpointParametersEnabled) {
+            $.endpointParametersEnabled = endpointParametersEnabled;
+            return this;
+        }
+
+        /**
+         * @param endpointParametersEnabled Is the endpoint parameters enabled for this site?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointParametersEnabled(Boolean endpointParametersEnabled) {
+            return endpointParametersEnabled(Output.of(endpointParametersEnabled));
         }
 
         /**
@@ -311,6 +380,27 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param storageEnabled Is the storage site enabled for detailed logging? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageEnabled(@Nullable Output<Boolean> storageEnabled) {
+            $.storageEnabled = storageEnabled;
+            return this;
+        }
+
+        /**
+         * @param storageEnabled Is the storage site enabled for detailed logging? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageEnabled(Boolean storageEnabled) {
+            return storageEnabled(Output.of(storageEnabled));
+        }
+
+        /**
          * @param trustedOrigins This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
          * 
          * @return builder
@@ -339,6 +429,27 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
          */
         public Builder trustedOrigins(String... trustedOrigins) {
             return trustedOrigins(List.of(trustedOrigins));
+        }
+
+        /**
+         * @param userUploadEnabled Is the user upload enabled for this site? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userUploadEnabled(@Nullable Output<Boolean> userUploadEnabled) {
+            $.userUploadEnabled = userUploadEnabled;
+            return this;
+        }
+
+        /**
+         * @param userUploadEnabled Is the user upload enabled for this site? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userUploadEnabled(Boolean userUploadEnabled) {
+            return userUploadEnabled(Output.of(userUploadEnabled));
         }
 
         /**

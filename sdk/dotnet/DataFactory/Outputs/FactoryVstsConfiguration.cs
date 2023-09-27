@@ -26,6 +26,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string ProjectName;
         /// <summary>
+        /// Is automated publishing enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? PublishingEnabled;
+        /// <summary>
         /// Specifies the name of the git repository.
         /// </summary>
         public readonly string RepositoryName;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string projectName,
 
+            bool? publishingEnabled,
+
             string repositoryName,
 
             string rootFolder,
@@ -55,6 +61,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
             AccountName = accountName;
             BranchName = branchName;
             ProjectName = projectName;
+            PublishingEnabled = publishingEnabled;
             RepositoryName = repositoryName;
             RootFolder = rootFolder;
             TenantId = tenantId;

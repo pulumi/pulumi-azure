@@ -307,6 +307,9 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class GetPublicIPResult
     {
+        /// <summary>
+        /// The allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+        /// </summary>
         public readonly string AllocationMethod;
         /// <summary>
         /// The DDoS protection mode of the public IP.
@@ -344,9 +347,15 @@ namespace Pulumi.Azure.Network
         /// The IP version being used, for example `IPv4` or `IPv6`.
         /// </summary>
         public readonly string IpVersion;
+        /// <summary>
+        /// The region that this public ip exists.
+        /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The fully qualified domain name that resolves to this public IP address.
+        /// </summary>
         public readonly string ReverseFqdn;
         /// <summary>
         /// The SKU of the Public IP.

@@ -169,10 +169,16 @@ type Account struct {
 	OfferType pulumi.StringOutput `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+	// Primary Mongodb connection string for the CosmosDB Account.
+	PrimaryMongodbConnectionString pulumi.StringOutput `pulumi:"primaryMongodbConnectionString"`
 	// The Primary read-only Key for the CosmosDB Account.
-	PrimaryReadonlyKey                 pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
+	PrimaryReadonlyKey pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
+	// Primary readonly Mongodb connection string for the CosmosDB Account.
+	PrimaryReadonlyMongodbConnectionString pulumi.StringOutput `pulumi:"primaryReadonlyMongodbConnectionString"`
+	// Primary readonly SQL connection string for the CosmosDB Account.
 	PrimaryReadonlySqlConnectionString pulumi.StringOutput `pulumi:"primaryReadonlySqlConnectionString"`
-	PrimarySqlConnectionString         pulumi.StringOutput `pulumi:"primarySqlConnectionString"`
+	// Primary SQL connection string for the CosmosDB Account.
+	PrimarySqlConnectionString pulumi.StringOutput `pulumi:"primarySqlConnectionString"`
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
@@ -185,10 +191,16 @@ type Account struct {
 	Restore AccountRestorePtrOutput `pulumi:"restore"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+	// Secondary Mongodb connection string for the CosmosDB Account.
+	SecondaryMongodbConnectionString pulumi.StringOutput `pulumi:"secondaryMongodbConnectionString"`
 	// The Secondary read-only key for the CosmosDB Account.
-	SecondaryReadonlyKey                 pulumi.StringOutput `pulumi:"secondaryReadonlyKey"`
+	SecondaryReadonlyKey pulumi.StringOutput `pulumi:"secondaryReadonlyKey"`
+	// Secondary readonly Mongodb connection string for the CosmosDB Account.
+	SecondaryReadonlyMongodbConnectionString pulumi.StringOutput `pulumi:"secondaryReadonlyMongodbConnectionString"`
+	// Secondary readonly SQL connection string for the CosmosDB Account.
 	SecondaryReadonlySqlConnectionString pulumi.StringOutput `pulumi:"secondaryReadonlySqlConnectionString"`
-	SecondarySqlConnectionString         pulumi.StringOutput `pulumi:"secondarySqlConnectionString"`
+	// Secondary SQL connection string for the CosmosDB Account.
+	SecondarySqlConnectionString pulumi.StringOutput `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -219,11 +231,15 @@ func NewAccount(ctx *pulumi.Context,
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"connectionStrings",
 		"primaryKey",
+		"primaryMongodbConnectionString",
 		"primaryReadonlyKey",
+		"primaryReadonlyMongodbConnectionString",
 		"primaryReadonlySqlConnectionString",
 		"primarySqlConnectionString",
 		"secondaryKey",
+		"secondaryMongodbConnectionString",
 		"secondaryReadonlyKey",
+		"secondaryReadonlyMongodbConnectionString",
 		"secondaryReadonlySqlConnectionString",
 		"secondarySqlConnectionString",
 	})
@@ -319,10 +335,16 @@ type accountState struct {
 	OfferType *string `pulumi:"offerType"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey *string `pulumi:"primaryKey"`
+	// Primary Mongodb connection string for the CosmosDB Account.
+	PrimaryMongodbConnectionString *string `pulumi:"primaryMongodbConnectionString"`
 	// The Primary read-only Key for the CosmosDB Account.
-	PrimaryReadonlyKey                 *string `pulumi:"primaryReadonlyKey"`
+	PrimaryReadonlyKey *string `pulumi:"primaryReadonlyKey"`
+	// Primary readonly Mongodb connection string for the CosmosDB Account.
+	PrimaryReadonlyMongodbConnectionString *string `pulumi:"primaryReadonlyMongodbConnectionString"`
+	// Primary readonly SQL connection string for the CosmosDB Account.
 	PrimaryReadonlySqlConnectionString *string `pulumi:"primaryReadonlySqlConnectionString"`
-	PrimarySqlConnectionString         *string `pulumi:"primarySqlConnectionString"`
+	// Primary SQL connection string for the CosmosDB Account.
+	PrimarySqlConnectionString *string `pulumi:"primarySqlConnectionString"`
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
@@ -335,10 +357,16 @@ type accountState struct {
 	Restore *AccountRestore `pulumi:"restore"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+	// Secondary Mongodb connection string for the CosmosDB Account.
+	SecondaryMongodbConnectionString *string `pulumi:"secondaryMongodbConnectionString"`
 	// The Secondary read-only key for the CosmosDB Account.
-	SecondaryReadonlyKey                 *string `pulumi:"secondaryReadonlyKey"`
+	SecondaryReadonlyKey *string `pulumi:"secondaryReadonlyKey"`
+	// Secondary readonly Mongodb connection string for the CosmosDB Account.
+	SecondaryReadonlyMongodbConnectionString *string `pulumi:"secondaryReadonlyMongodbConnectionString"`
+	// Secondary readonly SQL connection string for the CosmosDB Account.
 	SecondaryReadonlySqlConnectionString *string `pulumi:"secondaryReadonlySqlConnectionString"`
-	SecondarySqlConnectionString         *string `pulumi:"secondarySqlConnectionString"`
+	// Secondary SQL connection string for the CosmosDB Account.
+	SecondarySqlConnectionString *string `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -416,10 +444,16 @@ type AccountState struct {
 	OfferType pulumi.StringPtrInput
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringPtrInput
+	// Primary Mongodb connection string for the CosmosDB Account.
+	PrimaryMongodbConnectionString pulumi.StringPtrInput
 	// The Primary read-only Key for the CosmosDB Account.
-	PrimaryReadonlyKey                 pulumi.StringPtrInput
+	PrimaryReadonlyKey pulumi.StringPtrInput
+	// Primary readonly Mongodb connection string for the CosmosDB Account.
+	PrimaryReadonlyMongodbConnectionString pulumi.StringPtrInput
+	// Primary readonly SQL connection string for the CosmosDB Account.
 	PrimaryReadonlySqlConnectionString pulumi.StringPtrInput
-	PrimarySqlConnectionString         pulumi.StringPtrInput
+	// Primary SQL connection string for the CosmosDB Account.
+	PrimarySqlConnectionString pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A list of read endpoints available for this CosmosDB account.
@@ -432,10 +466,16 @@ type AccountState struct {
 	Restore AccountRestorePtrInput
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringPtrInput
+	// Secondary Mongodb connection string for the CosmosDB Account.
+	SecondaryMongodbConnectionString pulumi.StringPtrInput
 	// The Secondary read-only key for the CosmosDB Account.
-	SecondaryReadonlyKey                 pulumi.StringPtrInput
+	SecondaryReadonlyKey pulumi.StringPtrInput
+	// Secondary readonly Mongodb connection string for the CosmosDB Account.
+	SecondaryReadonlyMongodbConnectionString pulumi.StringPtrInput
+	// Secondary readonly SQL connection string for the CosmosDB Account.
 	SecondaryReadonlySqlConnectionString pulumi.StringPtrInput
-	SecondarySqlConnectionString         pulumi.StringPtrInput
+	// Secondary SQL connection string for the CosmosDB Account.
+	SecondarySqlConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -869,15 +909,27 @@ func (o AccountOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
+// Primary Mongodb connection string for the CosmosDB Account.
+func (o AccountOutput) PrimaryMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryMongodbConnectionString }).(pulumi.StringOutput)
+}
+
 // The Primary read-only Key for the CosmosDB Account.
 func (o AccountOutput) PrimaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryReadonlyKey }).(pulumi.StringOutput)
 }
 
+// Primary readonly Mongodb connection string for the CosmosDB Account.
+func (o AccountOutput) PrimaryReadonlyMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryReadonlyMongodbConnectionString }).(pulumi.StringOutput)
+}
+
+// Primary readonly SQL connection string for the CosmosDB Account.
 func (o AccountOutput) PrimaryReadonlySqlConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryReadonlySqlConnectionString }).(pulumi.StringOutput)
 }
 
+// Primary SQL connection string for the CosmosDB Account.
 func (o AccountOutput) PrimarySqlConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimarySqlConnectionString }).(pulumi.StringOutput)
 }
@@ -909,15 +961,27 @@ func (o AccountOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
+// Secondary Mongodb connection string for the CosmosDB Account.
+func (o AccountOutput) SecondaryMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryMongodbConnectionString }).(pulumi.StringOutput)
+}
+
 // The Secondary read-only key for the CosmosDB Account.
 func (o AccountOutput) SecondaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryReadonlyKey }).(pulumi.StringOutput)
 }
 
+// Secondary readonly Mongodb connection string for the CosmosDB Account.
+func (o AccountOutput) SecondaryReadonlyMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryReadonlyMongodbConnectionString }).(pulumi.StringOutput)
+}
+
+// Secondary readonly SQL connection string for the CosmosDB Account.
 func (o AccountOutput) SecondaryReadonlySqlConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryReadonlySqlConnectionString }).(pulumi.StringOutput)
 }
 
+// Secondary SQL connection string for the CosmosDB Account.
 func (o AccountOutput) SecondarySqlConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondarySqlConnectionString }).(pulumi.StringOutput)
 }

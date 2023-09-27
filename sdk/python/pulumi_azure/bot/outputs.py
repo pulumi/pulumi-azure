@@ -13,6 +13,7 @@ __all__ = [
     'ChannelDirectLineSite',
     'ChannelFacebookPage',
     'ChannelLineLineChannel',
+    'ChannelWebChatSite',
 ]
 
 @pulumi.output_type
@@ -20,10 +21,16 @@ class ChannelDirectLineSite(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enhancedAuthenticationEnabled":
+        if key == "endpointParametersEnabled":
+            suggest = "endpoint_parameters_enabled"
+        elif key == "enhancedAuthenticationEnabled":
             suggest = "enhanced_authentication_enabled"
+        elif key == "storageEnabled":
+            suggest = "storage_enabled"
         elif key == "trustedOrigins":
             suggest = "trusted_origins"
+        elif key == "userUploadEnabled":
+            suggest = "user_upload_enabled"
         elif key == "v1Allowed":
             suggest = "v1_allowed"
         elif key == "v3Allowed":
@@ -43,27 +50,35 @@ class ChannelDirectLineSite(dict):
     def __init__(__self__, *,
                  name: str,
                  enabled: Optional[bool] = None,
+                 endpoint_parameters_enabled: Optional[bool] = None,
                  enhanced_authentication_enabled: Optional[bool] = None,
                  id: Optional[str] = None,
                  key: Optional[str] = None,
                  key2: Optional[str] = None,
+                 storage_enabled: Optional[bool] = None,
                  trusted_origins: Optional[Sequence[str]] = None,
+                 user_upload_enabled: Optional[bool] = None,
                  v1_allowed: Optional[bool] = None,
                  v3_allowed: Optional[bool] = None):
         """
         :param str name: The name of the site
         :param bool enabled: Enables/Disables this site. Enabled by default Defaults to `true`.
+        :param bool endpoint_parameters_enabled: Is the endpoint parameters enabled for this site?
         :param bool enhanced_authentication_enabled: Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
         :param str id: Id for the site
         :param str key: Primary key for accessing this site
         :param str key2: Secondary key for accessing this site
+        :param bool storage_enabled: Is the storage site enabled for detailed logging? Defaults to `true`.
         :param Sequence[str] trusted_origins: This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        :param bool user_upload_enabled: Is the user upload enabled for this site? Defaults to `true`.
         :param bool v1_allowed: Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         :param bool v3_allowed: Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if endpoint_parameters_enabled is not None:
+            pulumi.set(__self__, "endpoint_parameters_enabled", endpoint_parameters_enabled)
         if enhanced_authentication_enabled is not None:
             pulumi.set(__self__, "enhanced_authentication_enabled", enhanced_authentication_enabled)
         if id is not None:
@@ -72,8 +87,12 @@ class ChannelDirectLineSite(dict):
             pulumi.set(__self__, "key", key)
         if key2 is not None:
             pulumi.set(__self__, "key2", key2)
+        if storage_enabled is not None:
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
         if trusted_origins is not None:
             pulumi.set(__self__, "trusted_origins", trusted_origins)
+        if user_upload_enabled is not None:
+            pulumi.set(__self__, "user_upload_enabled", user_upload_enabled)
         if v1_allowed is not None:
             pulumi.set(__self__, "v1_allowed", v1_allowed)
         if v3_allowed is not None:
@@ -94,6 +113,14 @@ class ChannelDirectLineSite(dict):
         Enables/Disables this site. Enabled by default Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="endpointParametersEnabled")
+    def endpoint_parameters_enabled(self) -> Optional[bool]:
+        """
+        Is the endpoint parameters enabled for this site?
+        """
+        return pulumi.get(self, "endpoint_parameters_enabled")
 
     @property
     @pulumi.getter(name="enhancedAuthenticationEnabled")
@@ -128,12 +155,28 @@ class ChannelDirectLineSite(dict):
         return pulumi.get(self, "key2")
 
     @property
+    @pulumi.getter(name="storageEnabled")
+    def storage_enabled(self) -> Optional[bool]:
+        """
+        Is the storage site enabled for detailed logging? Defaults to `true`.
+        """
+        return pulumi.get(self, "storage_enabled")
+
+    @property
     @pulumi.getter(name="trustedOrigins")
     def trusted_origins(self) -> Optional[Sequence[str]]:
         """
         This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         """
         return pulumi.get(self, "trusted_origins")
+
+    @property
+    @pulumi.getter(name="userUploadEnabled")
+    def user_upload_enabled(self) -> Optional[bool]:
+        """
+        Is the user upload enabled for this site? Defaults to `true`.
+        """
+        return pulumi.get(self, "user_upload_enabled")
 
     @property
     @pulumi.getter(name="v1Allowed")
@@ -242,5 +285,80 @@ class ChannelLineLineChannel(dict):
         The secret which is used to access the Line Channel.
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class ChannelWebChatSite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointParametersEnabled":
+            suggest = "endpoint_parameters_enabled"
+        elif key == "storageEnabled":
+            suggest = "storage_enabled"
+        elif key == "userUploadEnabled":
+            suggest = "user_upload_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelWebChatSite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelWebChatSite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelWebChatSite.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 endpoint_parameters_enabled: Optional[bool] = None,
+                 storage_enabled: Optional[bool] = None,
+                 user_upload_enabled: Optional[bool] = None):
+        """
+        :param str name: The name of the site.
+        :param bool endpoint_parameters_enabled: Is the endpoint parameters enabled for this site?
+        :param bool storage_enabled: Is the storage site enabled for detailed logging? Defaults to `true`.
+        :param bool user_upload_enabled: Is the user upload enabled for this site? Defaults to `true`.
+        """
+        pulumi.set(__self__, "name", name)
+        if endpoint_parameters_enabled is not None:
+            pulumi.set(__self__, "endpoint_parameters_enabled", endpoint_parameters_enabled)
+        if storage_enabled is not None:
+            pulumi.set(__self__, "storage_enabled", storage_enabled)
+        if user_upload_enabled is not None:
+            pulumi.set(__self__, "user_upload_enabled", user_upload_enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the site.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="endpointParametersEnabled")
+    def endpoint_parameters_enabled(self) -> Optional[bool]:
+        """
+        Is the endpoint parameters enabled for this site?
+        """
+        return pulumi.get(self, "endpoint_parameters_enabled")
+
+    @property
+    @pulumi.getter(name="storageEnabled")
+    def storage_enabled(self) -> Optional[bool]:
+        """
+        Is the storage site enabled for detailed logging? Defaults to `true`.
+        """
+        return pulumi.get(self, "storage_enabled")
+
+    @property
+    @pulumi.getter(name="userUploadEnabled")
+    def user_upload_enabled(self) -> Optional[bool]:
+        """
+        Is the user upload enabled for this site? Defaults to `true`.
+        """
+        return pulumi.get(self, "user_upload_enabled")
 
 

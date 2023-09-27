@@ -26,13 +26,17 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string GitUrl;
         /// <summary>
+        /// Is automated publishing enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+        /// </summary>
+        public readonly bool? PublishingEnabled;
+        /// <summary>
         /// Specifies the name of the git repository.
         /// </summary>
         public readonly string RepositoryName;
         /// <summary>
         /// Specifies the root folder within the repository. Set to `/` for the top level.
-        /// 
-        /// &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         /// </summary>
         public readonly string RootFolder;
 
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string gitUrl,
 
+            bool? publishingEnabled,
+
             string repositoryName,
 
             string rootFolder)
@@ -51,6 +57,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
             AccountName = accountName;
             BranchName = branchName;
             GitUrl = gitUrl;
+            PublishingEnabled = publishingEnabled;
             RepositoryName = repositoryName;
             RootFolder = rootFolder;
         }

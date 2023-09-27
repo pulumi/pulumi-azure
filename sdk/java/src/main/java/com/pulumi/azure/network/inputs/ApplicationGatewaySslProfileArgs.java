@@ -93,6 +93,21 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         return Optional.ofNullable(this.verifyClientCertIssuerDn);
     }
 
+    /**
+     * Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * 
+     */
+    @Import(name="verifyClientCertificateRevocation")
+    private @Nullable Output<String> verifyClientCertificateRevocation;
+
+    /**
+     * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+     * 
+     */
+    public Optional<Output<String>> verifyClientCertificateRevocation() {
+        return Optional.ofNullable(this.verifyClientCertificateRevocation);
+    }
+
     private ApplicationGatewaySslProfileArgs() {}
 
     private ApplicationGatewaySslProfileArgs(ApplicationGatewaySslProfileArgs $) {
@@ -101,6 +116,7 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         this.sslPolicy = $.sslPolicy;
         this.trustedClientCertificateNames = $.trustedClientCertificateNames;
         this.verifyClientCertIssuerDn = $.verifyClientCertIssuerDn;
+        this.verifyClientCertificateRevocation = $.verifyClientCertificateRevocation;
     }
 
     public static Builder builder() {
@@ -234,6 +250,27 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
          */
         public Builder verifyClientCertIssuerDn(Boolean verifyClientCertIssuerDn) {
             return verifyClientCertIssuerDn(Output.of(verifyClientCertIssuerDn));
+        }
+
+        /**
+         * @param verifyClientCertificateRevocation Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifyClientCertificateRevocation(@Nullable Output<String> verifyClientCertificateRevocation) {
+            $.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
+            return this;
+        }
+
+        /**
+         * @param verifyClientCertificateRevocation Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifyClientCertificateRevocation(String verifyClientCertificateRevocation) {
+            return verifyClientCertificateRevocation(Output.of(verifyClientCertificateRevocation));
         }
 
         public ApplicationGatewaySslProfileArgs build() {

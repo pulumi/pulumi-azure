@@ -325,6 +325,25 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     * 
+     * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     * 
+     */
+    @Import(name="optimizedFrequentAttachEnabled")
+    private @Nullable Output<Boolean> optimizedFrequentAttachEnabled;
+
+    /**
+     * @return Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+     * 
+     * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     * 
+     */
+    public Optional<Output<Boolean>> optimizedFrequentAttachEnabled() {
+        return Optional.ofNullable(this.optimizedFrequentAttachEnabled);
+    }
+
+    /**
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
@@ -337,6 +356,25 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> osType() {
         return Optional.ofNullable(this.osType);
+    }
+
+    /**
+     * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     * 
+     */
+    @Import(name="performancePlusEnabled")
+    private @Nullable Output<Boolean> performancePlusEnabled;
+
+    /**
+     * @return Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+     * 
+     */
+    public Optional<Output<Boolean>> performancePlusEnabled() {
+        return Optional.ofNullable(this.performancePlusEnabled);
     }
 
     /**
@@ -580,7 +618,9 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.networkAccessPolicy = $.networkAccessPolicy;
         this.onDemandBurstingEnabled = $.onDemandBurstingEnabled;
+        this.optimizedFrequentAttachEnabled = $.optimizedFrequentAttachEnabled;
         this.osType = $.osType;
+        this.performancePlusEnabled = $.performancePlusEnabled;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.secureVmDiskEncryptionSetId = $.secureVmDiskEncryptionSetId;
@@ -1030,6 +1070,31 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param optimizedFrequentAttachEnabled Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+         * 
+         * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optimizedFrequentAttachEnabled(@Nullable Output<Boolean> optimizedFrequentAttachEnabled) {
+            $.optimizedFrequentAttachEnabled = optimizedFrequentAttachEnabled;
+            return this;
+        }
+
+        /**
+         * @param optimizedFrequentAttachEnabled Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+         * 
+         * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optimizedFrequentAttachEnabled(Boolean optimizedFrequentAttachEnabled) {
+            return optimizedFrequentAttachEnabled(Output.of(optimizedFrequentAttachEnabled));
+        }
+
+        /**
          * @param osType Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
          * 
          * @return builder
@@ -1048,6 +1113,31 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder osType(String osType) {
             return osType(Output.of(osType));
+        }
+
+        /**
+         * @param performancePlusEnabled Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performancePlusEnabled(@Nullable Output<Boolean> performancePlusEnabled) {
+            $.performancePlusEnabled = performancePlusEnabled;
+            return this;
+        }
+
+        /**
+         * @param performancePlusEnabled Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder performancePlusEnabled(Boolean performancePlusEnabled) {
+            return performancePlusEnabled(Output.of(performancePlusEnabled));
         }
 
         /**

@@ -8,6 +8,7 @@ import typing
 from .certificate import *
 from .consumer_group import *
 from .dps_shared_access_policy import *
+from .endpoint_cosmosdb_account import *
 from .endpoint_eventhub import *
 from .endpoint_servicebus_queue import *
 from .endpoint_servicebus_topic import *

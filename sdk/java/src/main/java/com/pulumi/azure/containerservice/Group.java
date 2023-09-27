@@ -295,6 +295,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyVaultKeyId);
     }
     /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * 
+     */
+    @Export(name="keyVaultUserAssignedIdentityId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> keyVaultUserAssignedIdentityId;
+
+    /**
+     * @return The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * 
+     */
+    public Output<Optional<String>> keyVaultUserAssignedIdentityId() {
+        return Codegen.optional(this.keyVaultUserAssignedIdentityId);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */

@@ -280,14 +280,32 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// Primary Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        [Output("primaryMongodbConnectionString")]
+        public Output<string> PrimaryMongodbConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// The Primary read-only Key for the CosmosDB Account.
         /// </summary>
         [Output("primaryReadonlyKey")]
         public Output<string> PrimaryReadonlyKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Primary readonly Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        [Output("primaryReadonlyMongodbConnectionString")]
+        public Output<string> PrimaryReadonlyMongodbConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// Primary readonly SQL connection string for the CosmosDB Account.
+        /// </summary>
         [Output("primaryReadonlySqlConnectionString")]
         public Output<string> PrimaryReadonlySqlConnectionString { get; private set; } = null!;
 
+        /// <summary>
+        /// Primary SQL connection string for the CosmosDB Account.
+        /// </summary>
         [Output("primarySqlConnectionString")]
         public Output<string> PrimarySqlConnectionString { get; private set; } = null!;
 
@@ -324,14 +342,32 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// Secondary Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        [Output("secondaryMongodbConnectionString")]
+        public Output<string> SecondaryMongodbConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// The Secondary read-only key for the CosmosDB Account.
         /// </summary>
         [Output("secondaryReadonlyKey")]
         public Output<string> SecondaryReadonlyKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Secondary readonly Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        [Output("secondaryReadonlyMongodbConnectionString")]
+        public Output<string> SecondaryReadonlyMongodbConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// Secondary readonly SQL connection string for the CosmosDB Account.
+        /// </summary>
         [Output("secondaryReadonlySqlConnectionString")]
         public Output<string> SecondaryReadonlySqlConnectionString { get; private set; } = null!;
 
+        /// <summary>
+        /// Secondary SQL connection string for the CosmosDB Account.
+        /// </summary>
         [Output("secondarySqlConnectionString")]
         public Output<string> SecondarySqlConnectionString { get; private set; } = null!;
 
@@ -380,11 +416,15 @@ namespace Pulumi.Azure.CosmosDB
                 {
                     "connectionStrings",
                     "primaryKey",
+                    "primaryMongodbConnectionString",
                     "primaryReadonlyKey",
+                    "primaryReadonlyMongodbConnectionString",
                     "primaryReadonlySqlConnectionString",
                     "primarySqlConnectionString",
                     "secondaryKey",
+                    "secondaryMongodbConnectionString",
                     "secondaryReadonlyKey",
+                    "secondaryReadonlyMongodbConnectionString",
                     "secondaryReadonlySqlConnectionString",
                     "secondarySqlConnectionString",
                 },
@@ -869,6 +909,22 @@ namespace Pulumi.Azure.CosmosDB
             }
         }
 
+        [Input("primaryMongodbConnectionString")]
+        private Input<string>? _primaryMongodbConnectionString;
+
+        /// <summary>
+        /// Primary Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        public Input<string>? PrimaryMongodbConnectionString
+        {
+            get => _primaryMongodbConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryMongodbConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("primaryReadonlyKey")]
         private Input<string>? _primaryReadonlyKey;
 
@@ -885,8 +941,28 @@ namespace Pulumi.Azure.CosmosDB
             }
         }
 
+        [Input("primaryReadonlyMongodbConnectionString")]
+        private Input<string>? _primaryReadonlyMongodbConnectionString;
+
+        /// <summary>
+        /// Primary readonly Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        public Input<string>? PrimaryReadonlyMongodbConnectionString
+        {
+            get => _primaryReadonlyMongodbConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryReadonlyMongodbConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("primaryReadonlySqlConnectionString")]
         private Input<string>? _primaryReadonlySqlConnectionString;
+
+        /// <summary>
+        /// Primary readonly SQL connection string for the CosmosDB Account.
+        /// </summary>
         public Input<string>? PrimaryReadonlySqlConnectionString
         {
             get => _primaryReadonlySqlConnectionString;
@@ -899,6 +975,10 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("primarySqlConnectionString")]
         private Input<string>? _primarySqlConnectionString;
+
+        /// <summary>
+        /// Primary SQL connection string for the CosmosDB Account.
+        /// </summary>
         public Input<string>? PrimarySqlConnectionString
         {
             get => _primarySqlConnectionString;
@@ -957,6 +1037,22 @@ namespace Pulumi.Azure.CosmosDB
             }
         }
 
+        [Input("secondaryMongodbConnectionString")]
+        private Input<string>? _secondaryMongodbConnectionString;
+
+        /// <summary>
+        /// Secondary Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        public Input<string>? SecondaryMongodbConnectionString
+        {
+            get => _secondaryMongodbConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryMongodbConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("secondaryReadonlyKey")]
         private Input<string>? _secondaryReadonlyKey;
 
@@ -973,8 +1069,28 @@ namespace Pulumi.Azure.CosmosDB
             }
         }
 
+        [Input("secondaryReadonlyMongodbConnectionString")]
+        private Input<string>? _secondaryReadonlyMongodbConnectionString;
+
+        /// <summary>
+        /// Secondary readonly Mongodb connection string for the CosmosDB Account.
+        /// </summary>
+        public Input<string>? SecondaryReadonlyMongodbConnectionString
+        {
+            get => _secondaryReadonlyMongodbConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryReadonlyMongodbConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("secondaryReadonlySqlConnectionString")]
         private Input<string>? _secondaryReadonlySqlConnectionString;
+
+        /// <summary>
+        /// Secondary readonly SQL connection string for the CosmosDB Account.
+        /// </summary>
         public Input<string>? SecondaryReadonlySqlConnectionString
         {
             get => _secondaryReadonlySqlConnectionString;
@@ -987,6 +1103,10 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("secondarySqlConnectionString")]
         private Input<string>? _secondarySqlConnectionString;
+
+        /// <summary>
+        /// Secondary SQL connection string for the CosmosDB Account.
+        /// </summary>
         public Input<string>? SecondarySqlConnectionString
         {
             get => _secondarySqlConnectionString;
