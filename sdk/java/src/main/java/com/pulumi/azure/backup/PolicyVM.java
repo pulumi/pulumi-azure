@@ -120,7 +120,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Configures the Policy backup frequency, times &amp; days as documented in the `backup` block below.
      * 
      */
-    @Export(name="backup", type=PolicyVMBackup.class, parameters={})
+    @Export(name="backup", refs={PolicyVMBackup.class}, tree="[0]")
     private Output<PolicyVMBackup> backup;
 
     /**
@@ -134,7 +134,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
      * 
      */
-    @Export(name="instantRestoreResourceGroup", type=PolicyVMInstantRestoreResourceGroup.class, parameters={})
+    @Export(name="instantRestoreResourceGroup", refs={PolicyVMInstantRestoreResourceGroup.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMInstantRestoreResourceGroup> instantRestoreResourceGroup;
 
     /**
@@ -148,7 +148,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
      * 
      */
-    @Export(name="instantRestoreRetentionDays", type=Integer.class, parameters={})
+    @Export(name="instantRestoreRetentionDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> instantRestoreRetentionDays;
 
     /**
@@ -162,7 +162,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -176,7 +176,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="policyType", type=String.class, parameters={})
+    @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyType;
 
     /**
@@ -190,7 +190,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", type=String.class, parameters={})
+    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultName;
 
     /**
@@ -204,7 +204,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -218,7 +218,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
      * 
      */
-    @Export(name="retentionDaily", type=PolicyVMRetentionDaily.class, parameters={})
+    @Export(name="retentionDaily", refs={PolicyVMRetentionDaily.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionDaily> retentionDaily;
 
     /**
@@ -232,7 +232,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Configures the policy monthly retention as documented in the `retention_monthly` block below.
      * 
      */
-    @Export(name="retentionMonthly", type=PolicyVMRetentionMonthly.class, parameters={})
+    @Export(name="retentionMonthly", refs={PolicyVMRetentionMonthly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionMonthly> retentionMonthly;
 
     /**
@@ -246,7 +246,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
      * 
      */
-    @Export(name="retentionWeekly", type=PolicyVMRetentionWeekly.class, parameters={})
+    @Export(name="retentionWeekly", refs={PolicyVMRetentionWeekly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionWeekly> retentionWeekly;
 
     /**
@@ -260,7 +260,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Configures the policy yearly retention as documented in the `retention_yearly` block below.
      * 
      */
-    @Export(name="retentionYearly", type=PolicyVMRetentionYearly.class, parameters={})
+    @Export(name="retentionYearly", refs={PolicyVMRetentionYearly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionYearly> retentionYearly;
 
     /**
@@ -274,7 +274,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**

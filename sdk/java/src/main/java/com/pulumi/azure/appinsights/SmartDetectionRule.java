@@ -81,7 +81,7 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** At least one read or write permission must be defined.
      * 
      */
-    @Export(name="additionalEmailRecipients", type=List.class, parameters={String.class})
+    @Export(name="additionalEmailRecipients", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> additionalEmailRecipients;
 
     /**
@@ -97,7 +97,7 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
      * The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationInsightsId", type=String.class, parameters={})
+    @Export(name="applicationInsightsId", refs={String.class}, tree="[0]")
     private Output<String> applicationInsightsId;
 
     /**
@@ -111,7 +111,7 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
      * Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -125,7 +125,7 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
      * Do emails get sent to subscription owners? Defaults to `true`.
      * 
      */
-    @Export(name="sendEmailsToSubscriptionOwners", type=Boolean.class, parameters={})
+    @Export(name="sendEmailsToSubscriptionOwners", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailsToSubscriptionOwners;
 
     /**

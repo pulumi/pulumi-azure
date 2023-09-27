@@ -128,7 +128,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      * 
      */
-    @Export(name="createOption", type=String.class, parameters={})
+    @Export(name="createOption", refs={String.class}, tree="[0]")
     private Output<String> createOption;
 
     /**
@@ -144,7 +144,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
      * 
      */
-    @Export(name="diskAccessId", type=String.class, parameters={})
+    @Export(name="diskAccessId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> diskAccessId;
 
     /**
@@ -164,7 +164,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
-    @Export(name="diskEncryptionSetId", type=String.class, parameters={})
+    @Export(name="diskEncryptionSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> diskEncryptionSetId;
 
     /**
@@ -182,7 +182,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
      * 
      */
-    @Export(name="diskIopsReadOnly", type=Integer.class, parameters={})
+    @Export(name="diskIopsReadOnly", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskIopsReadOnly;
 
     /**
@@ -196,7 +196,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
      * 
      */
-    @Export(name="diskIopsReadWrite", type=Integer.class, parameters={})
+    @Export(name="diskIopsReadWrite", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskIopsReadWrite;
 
     /**
@@ -210,7 +210,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
      * 
      */
-    @Export(name="diskMbpsReadOnly", type=Integer.class, parameters={})
+    @Export(name="diskMbpsReadOnly", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskMbpsReadOnly;
 
     /**
@@ -224,7 +224,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
      * 
      */
-    @Export(name="diskMbpsReadWrite", type=Integer.class, parameters={})
+    @Export(name="diskMbpsReadWrite", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskMbpsReadWrite;
 
     /**
@@ -234,7 +234,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     public Output<Integer> diskMbpsReadWrite() {
         return this.diskMbpsReadWrite;
     }
-    @Export(name="diskSizeGb", type=Integer.class, parameters={})
+    @Export(name="diskSizeGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskSizeGb;
 
     public Output<Integer> diskSizeGb() {
@@ -244,7 +244,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
      * 
      */
-    @Export(name="edgeZone", type=String.class, parameters={})
+    @Export(name="edgeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -260,7 +260,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionSettings", type=ManagedDiskEncryptionSettings.class, parameters={})
+    @Export(name="encryptionSettings", refs={ManagedDiskEncryptionSettings.class}, tree="[0]")
     private Output</* @Nullable */ ManagedDiskEncryptionSettings> encryptionSettings;
 
     /**
@@ -276,7 +276,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="galleryImageReferenceId", type=String.class, parameters={})
+    @Export(name="galleryImageReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> galleryImageReferenceId;
 
     /**
@@ -290,7 +290,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hyperVGeneration", type=String.class, parameters={})
+    @Export(name="hyperVGeneration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
@@ -304,7 +304,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="imageReferenceId", type=String.class, parameters={})
+    @Export(name="imageReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageReferenceId;
 
     /**
@@ -318,7 +318,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -334,7 +334,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
      * 
      */
-    @Export(name="logicalSectorSize", type=Integer.class, parameters={})
+    @Export(name="logicalSectorSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> logicalSectorSize;
 
     /**
@@ -352,7 +352,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
      * 
      */
-    @Export(name="maxShares", type=Integer.class, parameters={})
+    @Export(name="maxShares", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxShares;
 
     /**
@@ -368,7 +368,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -382,7 +382,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
      * 
      */
-    @Export(name="networkAccessPolicy", type=String.class, parameters={})
+    @Export(name="networkAccessPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkAccessPolicy;
 
     /**
@@ -398,7 +398,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
      * 
      */
-    @Export(name="onDemandBurstingEnabled", type=Boolean.class, parameters={})
+    @Export(name="onDemandBurstingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onDemandBurstingEnabled;
 
     /**
@@ -416,7 +416,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
      * 
      */
-    @Export(name="optimizedFrequentAttachEnabled", type=Boolean.class, parameters={})
+    @Export(name="optimizedFrequentAttachEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> optimizedFrequentAttachEnabled;
 
     /**
@@ -432,7 +432,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      * 
      */
-    @Export(name="osType", type=String.class, parameters={})
+    @Export(name="osType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osType;
 
     /**
@@ -448,7 +448,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
      * 
      */
-    @Export(name="performancePlusEnabled", type=Boolean.class, parameters={})
+    @Export(name="performancePlusEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> performancePlusEnabled;
 
     /**
@@ -466,7 +466,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -482,7 +482,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -498,7 +498,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
-    @Export(name="secureVmDiskEncryptionSetId", type=String.class, parameters={})
+    @Export(name="secureVmDiskEncryptionSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secureVmDiskEncryptionSetId;
 
     /**
@@ -520,7 +520,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
-    @Export(name="securityType", type=String.class, parameters={})
+    @Export(name="securityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityType;
 
     /**
@@ -540,7 +540,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceResourceId", type=String.class, parameters={})
+    @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
@@ -554,7 +554,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceUri", type=String.class, parameters={})
+    @Export(name="sourceUri", refs={String.class}, tree="[0]")
     private Output<String> sourceUri;
 
     /**
@@ -568,7 +568,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -584,7 +584,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
      * 
      */
-    @Export(name="storageAccountType", type=String.class, parameters={})
+    @Export(name="storageAccountType", refs={String.class}, tree="[0]")
     private Output<String> storageAccountType;
 
     /**
@@ -600,7 +600,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -610,7 +610,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output<String> tier;
 
     public Output<String> tier() {
@@ -622,7 +622,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
      * 
      */
-    @Export(name="trustedLaunchEnabled", type=Boolean.class, parameters={})
+    @Export(name="trustedLaunchEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trustedLaunchEnabled;
 
     /**
@@ -638,7 +638,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="uploadSizeBytes", type=Integer.class, parameters={})
+    @Export(name="uploadSizeBytes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uploadSizeBytes;
 
     /**
@@ -654,7 +654,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**

@@ -210,7 +210,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      * The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -224,7 +224,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      * The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
      * 
      */
-    @Export(name="netappVolumeId", type=String.class, parameters={})
+    @Export(name="netappVolumeId", refs={String.class}, tree="[0]")
     private Output<String> netappVolumeId;
 
     /**
@@ -240,7 +240,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
      * 
      */
-    @Export(name="vmwareClusterId", type=String.class, parameters={})
+    @Export(name="vmwareClusterId", refs={String.class}, tree="[0]")
     private Output<String> vmwareClusterId;
 
     /**

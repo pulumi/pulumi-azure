@@ -106,7 +106,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -122,7 +122,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Dataset.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -136,7 +136,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * An `azure_blob_fs_location` block as defined below.
      * 
      */
-    @Export(name="azureBlobFsLocation", type=DatasetDelimitedTextAzureBlobFsLocation.class, parameters={})
+    @Export(name="azureBlobFsLocation", refs={DatasetDelimitedTextAzureBlobFsLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetDelimitedTextAzureBlobFsLocation> azureBlobFsLocation;
 
     /**
@@ -150,7 +150,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * An `azure_blob_storage_location` block as defined below.
      * 
      */
-    @Export(name="azureBlobStorageLocation", type=DatasetDelimitedTextAzureBlobStorageLocation.class, parameters={})
+    @Export(name="azureBlobStorageLocation", refs={DatasetDelimitedTextAzureBlobStorageLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetDelimitedTextAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
@@ -164,7 +164,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The column delimiter. Defaults to `,`.
      * 
      */
-    @Export(name="columnDelimiter", type=String.class, parameters={})
+    @Export(name="columnDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> columnDelimiter;
 
     /**
@@ -178,7 +178,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      * 
      */
-    @Export(name="compressionCodec", type=String.class, parameters={})
+    @Export(name="compressionCodec", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compressionCodec;
 
     /**
@@ -192,7 +192,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      * 
      */
-    @Export(name="compressionLevel", type=String.class, parameters={})
+    @Export(name="compressionLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compressionLevel;
 
     /**
@@ -206,7 +206,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -220,7 +220,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Dataset.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -234,7 +234,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The encoding format for the file.
      * 
      */
-    @Export(name="encoding", type=String.class, parameters={})
+    @Export(name="encoding", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encoding;
 
     /**
@@ -248,7 +248,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The escape character. Defaults to `\`.
      * 
      */
-    @Export(name="escapeCharacter", type=String.class, parameters={})
+    @Export(name="escapeCharacter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> escapeCharacter;
 
     /**
@@ -262,7 +262,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      * 
      */
-    @Export(name="firstRowAsHeader", type=Boolean.class, parameters={})
+    @Export(name="firstRowAsHeader", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> firstRowAsHeader;
 
     /**
@@ -276,7 +276,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      * 
      */
-    @Export(name="folder", type=String.class, parameters={})
+    @Export(name="folder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -292,7 +292,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
      */
-    @Export(name="httpServerLocation", type=DatasetDelimitedTextHttpServerLocation.class, parameters={})
+    @Export(name="httpServerLocation", refs={DatasetDelimitedTextHttpServerLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetDelimitedTextHttpServerLocation> httpServerLocation;
 
     /**
@@ -308,7 +308,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The Data Factory Linked Service name in which to associate the Dataset with.
      * 
      */
-    @Export(name="linkedServiceName", type=String.class, parameters={})
+    @Export(name="linkedServiceName", refs={String.class}, tree="[0]")
     private Output<String> linkedServiceName;
 
     /**
@@ -322,7 +322,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -336,7 +336,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
-    @Export(name="nullValue", type=String.class, parameters={})
+    @Export(name="nullValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullValue;
 
     /**
@@ -350,7 +350,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Dataset.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -364,7 +364,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The quote character. Defaults to `&#34;`.
      * 
      */
-    @Export(name="quoteCharacter", type=String.class, parameters={})
+    @Export(name="quoteCharacter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> quoteCharacter;
 
     /**
@@ -378,7 +378,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      * 
      */
-    @Export(name="rowDelimiter", type=String.class, parameters={})
+    @Export(name="rowDelimiter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rowDelimiter;
 
     /**
@@ -392,7 +392,7 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * A `schema_column` block as defined below.
      * 
      */
-    @Export(name="schemaColumns", type=List.class, parameters={DatasetDelimitedTextSchemaColumn.class})
+    @Export(name="schemaColumns", refs={List.class,DatasetDelimitedTextSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetDelimitedTextSchemaColumn>> schemaColumns;
 
     /**

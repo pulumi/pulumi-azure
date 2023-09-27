@@ -90,7 +90,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The names of the blob containers that the workspace should read.
      * 
      */
-    @Export(name="blobContainerNames", type=List.class, parameters={String.class})
+    @Export(name="blobContainerNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blobContainerNames;
 
     /**
@@ -104,7 +104,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -132,7 +132,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account used by this Log Analytics Storage Insights.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**
@@ -146,7 +146,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The storage access key to be used to connect to the storage account.
      * 
      */
-    @Export(name="storageAccountKey", type=String.class, parameters={})
+    @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
     private Output<String> storageAccountKey;
 
     /**
@@ -160,7 +160,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The names of the Azure tables that the workspace should read.
      * 
      */
-    @Export(name="tableNames", type=List.class, parameters={String.class})
+    @Export(name="tableNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tableNames;
 
     /**
@@ -174,7 +174,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

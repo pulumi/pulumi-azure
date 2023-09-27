@@ -89,7 +89,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * 
      */
     @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="bingSafetyPhishingUrlLookbackDate", type=String.class, parameters={})
+    @Export(name="bingSafetyPhishingUrlLookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bingSafetyPhishingUrlLookbackDate;
 
     /**
@@ -105,7 +105,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -123,7 +123,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
      * 
      */
-    @Export(name="microsoftEmergingThreatFeedLookbackDate", type=String.class, parameters={})
+    @Export(name="microsoftEmergingThreatFeedLookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> microsoftEmergingThreatFeedLookbackDate;
 
     /**
@@ -141,7 +141,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

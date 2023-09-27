@@ -21,43 +21,43 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack")
 public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.resources.CustomResource {
-    @Export(name="destinationNats", type=List.class, parameters={NextGenerationFirewallVirtualHubLocalRulestackDestinationNat.class})
+    @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualHubLocalRulestackDestinationNat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualHubLocalRulestackDestinationNat>> destinationNats;
 
     public Output<Optional<List<NextGenerationFirewallVirtualHubLocalRulestackDestinationNat>>> destinationNats() {
         return Codegen.optional(this.destinationNats);
     }
-    @Export(name="dnsSettings", type=NextGenerationFirewallVirtualHubLocalRulestackDnsSettings.class, parameters={})
+    @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualHubLocalRulestackDnsSettings.class}, tree="[0]")
     private Output</* @Nullable */ NextGenerationFirewallVirtualHubLocalRulestackDnsSettings> dnsSettings;
 
     public Output<Optional<NextGenerationFirewallVirtualHubLocalRulestackDnsSettings>> dnsSettings() {
         return Codegen.optional(this.dnsSettings);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="networkProfile", type=NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile.class, parameters={})
+    @Export(name="networkProfile", refs={NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile.class}, tree="[0]")
     private Output<NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile> networkProfile;
 
     public Output<NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile> networkProfile() {
         return this.networkProfile;
     }
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="rulestackId", type=String.class, parameters={})
+    @Export(name="rulestackId", refs={String.class}, tree="[0]")
     private Output<String> rulestackId;
 
     public Output<String> rulestackId() {
         return this.rulestackId;
     }
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     public Output<Optional<Map<String,String>>> tags() {

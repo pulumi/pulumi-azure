@@ -174,7 +174,7 @@ public class ContentKeyPolicy extends com.pulumi.resources.CustomResource {
      * A description for the Policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -188,7 +188,7 @@ public class ContentKeyPolicy extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Content Key Policy to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
+    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -202,7 +202,7 @@ public class ContentKeyPolicy extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -216,7 +216,7 @@ public class ContentKeyPolicy extends com.pulumi.resources.CustomResource {
      * One or more `policy_option` blocks as defined below.
      * 
      */
-    @Export(name="policyOptions", type=List.class, parameters={ContentKeyPolicyPolicyOption.class})
+    @Export(name="policyOptions", refs={List.class,ContentKeyPolicyPolicyOption.class}, tree="[0,1]")
     private Output<List<ContentKeyPolicyPolicyOption>> policyOptions;
 
     /**
@@ -230,7 +230,7 @@ public class ContentKeyPolicy extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

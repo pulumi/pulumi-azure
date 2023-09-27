@@ -61,7 +61,7 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -75,7 +75,7 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * The ID of the resource or application that manages this Resource Group.
      * 
      */
-    @Export(name="managedBy", type=String.class, parameters={})
+    @Export(name="managedBy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedBy;
 
     /**
@@ -89,7 +89,7 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -103,7 +103,7 @@ public class ResourceGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Resource Group.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

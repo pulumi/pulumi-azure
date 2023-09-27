@@ -81,7 +81,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      * 
      */
-    @Export(name="debugLevel", type=String.class, parameters={})
+    @Export(name="debugLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> debugLevel;
 
     /**
@@ -95,7 +95,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The Azure Region where the Subscription Template Deployment should exist. Changing this forces a new Subscription Template Deployment to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -109,7 +109,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The name which should be used for this Subscription Template Deployment. Changing this forces a new Subscription Template Deployment to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The JSON Content of the Outputs of the ARM Template Deployment.
      * 
      */
-    @Export(name="outputContent", type=String.class, parameters={})
+    @Export(name="outputContent", refs={String.class}, tree="[0]")
     private Output<String> outputContent;
 
     /**
@@ -137,7 +137,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      * 
      */
-    @Export(name="parametersContent", type=String.class, parameters={})
+    @Export(name="parametersContent", refs={String.class}, tree="[0]")
     private Output<String> parametersContent;
 
     /**
@@ -151,7 +151,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * A mapping of tags which should be assigned to the Subscription Template Deployment.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -165,7 +165,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The contents of the ARM Template which should be deployed into this Subscription.
      * 
      */
-    @Export(name="templateContent", type=String.class, parameters={})
+    @Export(name="templateContent", refs={String.class}, tree="[0]")
     private Output<String> templateContent;
 
     /**
@@ -179,7 +179,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
      * 
      */
-    @Export(name="templateSpecVersionId", type=String.class, parameters={})
+    @Export(name="templateSpecVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSpecVersionId;
 
     /**

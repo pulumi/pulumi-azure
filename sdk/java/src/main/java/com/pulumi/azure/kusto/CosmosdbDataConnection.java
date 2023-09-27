@@ -187,7 +187,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="cosmosdbContainerId", type=String.class, parameters={})
+    @Export(name="cosmosdbContainerId", refs={String.class}, tree="[0]")
     private Output<String> cosmosdbContainerId;
 
     /**
@@ -201,7 +201,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="kustoDatabaseId", type=String.class, parameters={})
+    @Export(name="kustoDatabaseId", refs={String.class}, tree="[0]")
     private Output<String> kustoDatabaseId;
 
     /**
@@ -215,7 +215,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -229,7 +229,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="managedIdentityId", type=String.class, parameters={})
+    @Export(name="managedIdentityId", refs={String.class}, tree="[0]")
     private Output<String> managedIdentityId;
 
     /**
@@ -243,7 +243,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="mappingRuleName", type=String.class, parameters={})
+    @Export(name="mappingRuleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mappingRuleName;
 
     /**
@@ -257,7 +257,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -271,7 +271,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="retrievalStartDate", type=String.class, parameters={})
+    @Export(name="retrievalStartDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> retrievalStartDate;
 
     /**
@@ -285,7 +285,7 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**

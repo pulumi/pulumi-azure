@@ -106,7 +106,7 @@ public class SecurityDeviceGroup extends com.pulumi.resources.CustomResource {
      * an `allow_rule` blocks as defined below.
      * 
      */
-    @Export(name="allowRule", type=SecurityDeviceGroupAllowRule.class, parameters={})
+    @Export(name="allowRule", refs={SecurityDeviceGroupAllowRule.class}, tree="[0]")
     private Output</* @Nullable */ SecurityDeviceGroupAllowRule> allowRule;
 
     /**
@@ -120,7 +120,7 @@ public class SecurityDeviceGroup extends com.pulumi.resources.CustomResource {
      * The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", type=String.class, parameters={})
+    @Export(name="iothubId", refs={String.class}, tree="[0]")
     private Output<String> iothubId;
 
     /**
@@ -134,7 +134,7 @@ public class SecurityDeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class SecurityDeviceGroup extends com.pulumi.resources.CustomResource {
      * One or more `range_rule` blocks as defined below.
      * 
      */
-    @Export(name="rangeRules", type=List.class, parameters={SecurityDeviceGroupRangeRule.class})
+    @Export(name="rangeRules", refs={List.class,SecurityDeviceGroupRangeRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityDeviceGroupRangeRule>> rangeRules;
 
     /**

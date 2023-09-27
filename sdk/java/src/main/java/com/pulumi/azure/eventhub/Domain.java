@@ -81,7 +81,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
      * 
      */
-    @Export(name="autoCreateTopicWithFirstSubscription", type=Boolean.class, parameters={})
+    @Export(name="autoCreateTopicWithFirstSubscription", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoCreateTopicWithFirstSubscription;
 
     /**
@@ -95,7 +95,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
      * 
      */
-    @Export(name="autoDeleteTopicWithLastSubscription", type=Boolean.class, parameters={})
+    @Export(name="autoDeleteTopicWithLastSubscription", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoDeleteTopicWithLastSubscription;
 
     /**
@@ -109,7 +109,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The Endpoint associated with the EventGrid Domain.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -123,7 +123,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=DomainIdentity.class, parameters={})
+    @Export(name="identity", refs={DomainIdentity.class}, tree="[0]")
     private Output</* @Nullable */ DomainIdentity> identity;
 
     /**
@@ -137,7 +137,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * One or more `inbound_ip_rule` blocks as defined below.
      * 
      */
-    @Export(name="inboundIpRules", type=List.class, parameters={DomainInboundIpRule.class})
+    @Export(name="inboundIpRules", refs={List.class,DomainInboundIpRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DomainInboundIpRule>> inboundIpRules;
 
     /**
@@ -151,7 +151,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inputMappingDefaultValues", type=DomainInputMappingDefaultValues.class, parameters={})
+    @Export(name="inputMappingDefaultValues", refs={DomainInputMappingDefaultValues.class}, tree="[0]")
     private Output</* @Nullable */ DomainInputMappingDefaultValues> inputMappingDefaultValues;
 
     /**
@@ -165,7 +165,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inputMappingFields", type=DomainInputMappingFields.class, parameters={})
+    @Export(name="inputMappingFields", refs={DomainInputMappingFields.class}, tree="[0]")
     private Output</* @Nullable */ DomainInputMappingFields> inputMappingFields;
 
     /**
@@ -179,7 +179,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inputSchema", type=String.class, parameters={})
+    @Export(name="inputSchema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inputSchema;
 
     /**
@@ -193,7 +193,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
+    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -207,7 +207,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -221,7 +221,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -235,7 +235,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The Primary Shared Access Key associated with the EventGrid Domain.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -249,7 +249,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -263,7 +263,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -277,7 +277,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The Secondary Shared Access Key associated with the EventGrid Domain.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -291,7 +291,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

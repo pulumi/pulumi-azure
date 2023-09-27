@@ -115,7 +115,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
      * 
      */
-    @Export(name="agreementType", type=String.class, parameters={})
+    @Export(name="agreementType", refs={String.class}, tree="[0]")
     private Output<String> agreementType;
 
     /**
@@ -129,7 +129,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The content of the Logic App Integration Account Agreement.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -143,7 +143,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * A `guest_identity` block as documented below.
      * 
      */
-    @Export(name="guestIdentity", type=IntegrationAccountAgreementGuestIdentity.class, parameters={})
+    @Export(name="guestIdentity", refs={IntegrationAccountAgreementGuestIdentity.class}, tree="[0]")
     private Output<IntegrationAccountAgreementGuestIdentity> guestIdentity;
 
     /**
@@ -157,7 +157,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The name of the guest Logic App Integration Account Partner.
      * 
      */
-    @Export(name="guestPartnerName", type=String.class, parameters={})
+    @Export(name="guestPartnerName", refs={String.class}, tree="[0]")
     private Output<String> guestPartnerName;
 
     /**
@@ -171,7 +171,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * A `host_identity` block as documented below.
      * 
      */
-    @Export(name="hostIdentity", type=IntegrationAccountAgreementHostIdentity.class, parameters={})
+    @Export(name="hostIdentity", refs={IntegrationAccountAgreementHostIdentity.class}, tree="[0]")
     private Output<IntegrationAccountAgreementHostIdentity> hostIdentity;
 
     /**
@@ -185,7 +185,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The name of the host Logic App Integration Account Partner.
      * 
      */
-    @Export(name="hostPartnerName", type=String.class, parameters={})
+    @Export(name="hostPartnerName", refs={String.class}, tree="[0]")
     private Output<String> hostPartnerName;
 
     /**
@@ -199,7 +199,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="integrationAccountName", type=String.class, parameters={})
+    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
     private Output<String> integrationAccountName;
 
     /**
@@ -213,7 +213,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The metadata of the Logic App Integration Account Agreement.
      * 
      */
-    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
+    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -227,7 +227,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -241,7 +241,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

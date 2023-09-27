@@ -100,7 +100,7 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * Up to three `access_rule` blocks as defined below.
      * 
      */
-    @Export(name="accessRules", type=List.class, parameters={CacheAccessPolicyAccessRule.class})
+    @Export(name="accessRules", refs={List.class,CacheAccessPolicyAccessRule.class}, tree="[0,1]")
     private Output<List<CacheAccessPolicyAccessRule>> accessRules;
 
     /**
@@ -114,7 +114,7 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
      * 
      */
-    @Export(name="hpcCacheId", type=String.class, parameters={})
+    @Export(name="hpcCacheId", refs={String.class}, tree="[0]")
     private Output<String> hpcCacheId;
 
     /**
@@ -128,7 +128,7 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -92,7 +92,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
      * 
      */
-    @Export(name="destinationResourceId", type=String.class, parameters={})
+    @Export(name="destinationResourceId", refs={String.class}, tree="[0]")
     private Output<String> destinationResourceId;
 
     /**
@@ -106,7 +106,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -120,7 +120,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * The ID of the created Data Export Rule.
      * 
      */
-    @Export(name="exportRuleId", type=String.class, parameters={})
+    @Export(name="exportRuleId", refs={String.class}, tree="[0]")
     private Output<String> exportRuleId;
 
     /**
@@ -134,7 +134,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -162,7 +162,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * A list of table names to export to the destination resource, for example: `[&#34;Heartbeat&#34;, &#34;SecurityEvent&#34;]`.
      * 
      */
-    @Export(name="tableNames", type=List.class, parameters={String.class})
+    @Export(name="tableNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tableNames;
 
     /**
@@ -176,7 +176,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
      * 
      */
-    @Export(name="workspaceResourceId", type=String.class, parameters={})
+    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceResourceId;
 
     /**

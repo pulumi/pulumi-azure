@@ -85,7 +85,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
      * 
      */
-    @Export(name="awsRoleArn", type=String.class, parameters={})
+    @Export(name="awsRoleArn", refs={String.class}, tree="[0]")
     private Output<String> awsRoleArn;
 
     /**
@@ -99,7 +99,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The name of the Log Analytics table that will store the ingested data.
      * 
      */
-    @Export(name="destinationTable", type=String.class, parameters={})
+    @Export(name="destinationTable", refs={String.class}, tree="[0]")
     private Output<String> destinationTable;
 
     /**
@@ -113,7 +113,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -127,7 +127,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
      * 
      */
-    @Export(name="sqsUrls", type=List.class, parameters={String.class})
+    @Export(name="sqsUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> sqsUrls;
 
     /**

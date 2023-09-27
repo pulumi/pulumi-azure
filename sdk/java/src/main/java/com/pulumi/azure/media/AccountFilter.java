@@ -137,7 +137,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
      * 
      */
-    @Export(name="firstQualityBitrate", type=Integer.class, parameters={})
+    @Export(name="firstQualityBitrate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> firstQualityBitrate;
 
     /**
@@ -151,7 +151,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Account Filter to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
+    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -165,7 +165,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -179,7 +179,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * A `presentation_time_range` block as defined below.
      * 
      */
-    @Export(name="presentationTimeRange", type=AccountFilterPresentationTimeRange.class, parameters={})
+    @Export(name="presentationTimeRange", refs={AccountFilterPresentationTimeRange.class}, tree="[0]")
     private Output</* @Nullable */ AccountFilterPresentationTimeRange> presentationTimeRange;
 
     /**
@@ -193,7 +193,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -207,7 +207,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * One or more `track_selection` blocks as defined below.
      * 
      */
-    @Export(name="trackSelections", type=List.class, parameters={AccountFilterTrackSelection.class})
+    @Export(name="trackSelections", refs={List.class,AccountFilterTrackSelection.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountFilterTrackSelection>> trackSelections;
 
     /**

@@ -142,7 +142,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
-    @Export(name="autoUpgradeMinorVersion", type=Boolean.class, parameters={})
+    @Export(name="autoUpgradeMinorVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoUpgradeMinorVersion;
 
     /**
@@ -156,7 +156,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
-    @Export(name="automaticUpgradeEnabled", type=Boolean.class, parameters={})
+    @Export(name="automaticUpgradeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
     /**
@@ -172,7 +172,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
-    @Export(name="failureSuppressionEnabled", type=Boolean.class, parameters={})
+    @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
 
     /**
@@ -188,7 +188,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
-    @Export(name="protectedSettings", type=String.class, parameters={})
+    @Export(name="protectedSettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
@@ -222,7 +222,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
      * 
      */
-    @Export(name="protectedSettingsFromKeyVault", type=ExtensionProtectedSettingsFromKeyVault.class, parameters={})
+    @Export(name="protectedSettingsFromKeyVault", refs={ExtensionProtectedSettingsFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ ExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
 
     /**
@@ -238,7 +238,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies the collection of extension names after which this extension needs to be provisioned.
      * 
      */
-    @Export(name="provisionAfterExtensions", type=List.class, parameters={String.class})
+    @Export(name="provisionAfterExtensions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> provisionAfterExtensions;
 
     /**
@@ -252,7 +252,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publisher", type=String.class, parameters={})
+    @Export(name="publisher", refs={String.class}, tree="[0]")
     private Output<String> publisher;
 
     /**
@@ -268,7 +268,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
-    @Export(name="settings", type=String.class, parameters={})
+    @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
     /**
@@ -284,7 +284,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -322,7 +322,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -360,7 +360,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
-    @Export(name="typeHandlerVersion", type=String.class, parameters={})
+    @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
     private Output<String> typeHandlerVersion;
 
     /**
@@ -374,7 +374,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="virtualMachineId", type=String.class, parameters={})
+    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineId;
 
     /**

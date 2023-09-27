@@ -171,7 +171,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -185,7 +185,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `auto_scale` block that describes the scale settings when using auto scale as defined below.
      * 
      */
-    @Export(name="autoScale", type=PoolAutoScale.class, parameters={})
+    @Export(name="autoScale", refs={PoolAutoScale.class}, tree="[0]")
     private Output</* @Nullable */ PoolAutoScale> autoScale;
 
     /**
@@ -199,7 +199,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
      * 
      */
-    @Export(name="certificates", type=List.class, parameters={PoolCertificate.class})
+    @Export(name="certificates", refs={List.class,PoolCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolCertificate>> certificates;
 
     /**
@@ -213,7 +213,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The container configuration used in the pool&#39;s VMs.
      * 
      */
-    @Export(name="containerConfiguration", type=PoolContainerConfiguration.class, parameters={})
+    @Export(name="containerConfiguration", refs={PoolContainerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PoolContainerConfiguration> containerConfiguration;
 
     /**
@@ -227,7 +227,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `data_disks` block describes the data disk settings as defined below.
      * 
      */
-    @Export(name="dataDisks", type=List.class, parameters={PoolDataDisk.class})
+    @Export(name="dataDisks", refs={List.class,PoolDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolDataDisk>> dataDisks;
 
     /**
@@ -241,7 +241,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      * 
      */
-    @Export(name="diskEncryptions", type=List.class, parameters={PoolDiskEncryption.class})
+    @Export(name="diskEncryptions", refs={List.class,PoolDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolDiskEncryption>> diskEncryptions;
 
     /**
@@ -255,7 +255,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -269,7 +269,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * An `extensions` block as defined below.
      * 
      */
-    @Export(name="extensions", type=List.class, parameters={PoolExtension.class})
+    @Export(name="extensions", refs={List.class,PoolExtension.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolExtension>> extensions;
 
     /**
@@ -283,7 +283,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
      * 
      */
-    @Export(name="fixedScale", type=PoolFixedScale.class, parameters={})
+    @Export(name="fixedScale", refs={PoolFixedScale.class}, tree="[0]")
     private Output</* @Nullable */ PoolFixedScale> fixedScale;
 
     /**
@@ -297,7 +297,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=PoolIdentity.class, parameters={})
+    @Export(name="identity", refs={PoolIdentity.class}, tree="[0]")
     private Output</* @Nullable */ PoolIdentity> identity;
 
     /**
@@ -311,7 +311,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
      * 
      */
-    @Export(name="interNodeCommunication", type=String.class, parameters={})
+    @Export(name="interNodeCommunication", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> interNodeCommunication;
 
     /**
@@ -325,7 +325,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseType;
 
     /**
@@ -339,7 +339,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maxTasksPerNode", type=Integer.class, parameters={})
+    @Export(name="maxTasksPerNode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxTasksPerNode;
 
     /**
@@ -353,7 +353,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A map of custom batch pool metadata.
      * 
      */
-    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
+    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -367,7 +367,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `mount` block defined as below.
      * 
      */
-    @Export(name="mounts", type=List.class, parameters={PoolMount.class})
+    @Export(name="mounts", refs={List.class,PoolMount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolMount>> mounts;
 
     /**
@@ -381,7 +381,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -395,7 +395,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkConfiguration", type=PoolNetworkConfiguration.class, parameters={})
+    @Export(name="networkConfiguration", refs={PoolNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PoolNetworkConfiguration> networkConfiguration;
 
     /**
@@ -409,7 +409,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="nodeAgentSkuId", type=String.class, parameters={})
+    @Export(name="nodeAgentSkuId", refs={String.class}, tree="[0]")
     private Output<String> nodeAgentSkuId;
 
     /**
@@ -423,7 +423,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
      * 
      */
-    @Export(name="nodePlacements", type=List.class, parameters={PoolNodePlacement.class})
+    @Export(name="nodePlacements", refs={List.class,PoolNodePlacement.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolNodePlacement>> nodePlacements;
 
     /**
@@ -437,7 +437,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements&gt; and Linux VMs at &lt;https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements&gt;. The only possible value is `CacheDisk`.
      * 
      */
-    @Export(name="osDiskPlacement", type=String.class, parameters={})
+    @Export(name="osDiskPlacement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osDiskPlacement;
 
     /**
@@ -451,7 +451,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -465,7 +465,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `start_task` block that describes the start task settings for the Batch pool as defined below.
      * 
      */
-    @Export(name="startTask", type=PoolStartTask.class, parameters={})
+    @Export(name="startTask", refs={PoolStartTask.class}, tree="[0]")
     private Output</* @Nullable */ PoolStartTask> startTask;
 
     /**
@@ -479,7 +479,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Whether to stop if there is a pending resize operation on this pool.
      * 
      */
-    @Export(name="stopPendingResizeOperation", type=Boolean.class, parameters={})
+    @Export(name="stopPendingResizeOperation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stopPendingResizeOperation;
 
     /**
@@ -493,7 +493,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageImageReference", type=PoolStorageImageReference.class, parameters={})
+    @Export(name="storageImageReference", refs={PoolStorageImageReference.class}, tree="[0]")
     private Output<PoolStorageImageReference> storageImageReference;
 
     /**
@@ -507,7 +507,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The desired node communication mode for the pool.
      * 
      */
-    @Export(name="targetNodeCommunicationMode", type=String.class, parameters={})
+    @Export(name="targetNodeCommunicationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetNodeCommunicationMode;
 
     /**
@@ -521,7 +521,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      * 
      */
-    @Export(name="taskSchedulingPolicies", type=List.class, parameters={PoolTaskSchedulingPolicy.class})
+    @Export(name="taskSchedulingPolicies", refs={List.class,PoolTaskSchedulingPolicy.class}, tree="[0,1]")
     private Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies;
 
     /**
@@ -535,7 +535,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      * 
      */
-    @Export(name="userAccounts", type=List.class, parameters={PoolUserAccount.class})
+    @Export(name="userAccounts", refs={List.class,PoolUserAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolUserAccount>> userAccounts;
 
     /**
@@ -549,7 +549,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vmSize", type=String.class, parameters={})
+    @Export(name="vmSize", refs={String.class}, tree="[0]")
     private Output<String> vmSize;
 
     /**
@@ -567,7 +567,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
      * 
      */
-    @Export(name="windows", type=List.class, parameters={PoolWindow.class})
+    @Export(name="windows", refs={List.class,PoolWindow.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PoolWindow>> windows;
 
     /**

@@ -90,7 +90,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      * 
      */
-    @Export(name="dataSourceType", type=String.class, parameters={})
+    @Export(name="dataSourceType", refs={String.class}, tree="[0]")
     private Output<String> dataSourceType;
 
     /**
@@ -106,7 +106,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -120,7 +120,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The storage account resource ids to be linked.
      * 
      */
-    @Export(name="storageAccountIds", type=List.class, parameters={String.class})
+    @Export(name="storageAccountIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> storageAccountIds;
 
     /**
@@ -134,7 +134,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Export(name="workspaceResourceId", type=String.class, parameters={})
+    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceResourceId;
 
     /**

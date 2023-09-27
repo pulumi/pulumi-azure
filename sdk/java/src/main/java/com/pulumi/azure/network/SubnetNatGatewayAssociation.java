@@ -91,7 +91,7 @@ public class SubnetNatGatewayAssociation extends com.pulumi.resources.CustomReso
      * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="natGatewayId", type=String.class, parameters={})
+    @Export(name="natGatewayId", refs={String.class}, tree="[0]")
     private Output<String> natGatewayId;
 
     /**
@@ -105,7 +105,7 @@ public class SubnetNatGatewayAssociation extends com.pulumi.resources.CustomReso
      * The ID of the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

@@ -97,7 +97,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * The name of the Kusto Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -111,7 +111,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -125,7 +125,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateLinkResourceId", type=String.class, parameters={})
+    @Export(name="privateLinkResourceId", refs={String.class}, tree="[0]")
     private Output<String> privateLinkResourceId;
 
     /**
@@ -153,7 +153,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateLinkResourceRegion", type=String.class, parameters={})
+    @Export(name="privateLinkResourceRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateLinkResourceRegion;
 
     /**
@@ -167,7 +167,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * The user request message.
      * 
      */
-    @Export(name="requestMessage", type=String.class, parameters={})
+    @Export(name="requestMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestMessage;
 
     /**
@@ -181,7 +181,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

@@ -194,7 +194,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="configurationStoreId", type=String.class, parameters={})
+    @Export(name="configurationStoreId", refs={String.class}, tree="[0]")
     private Output<String> configurationStoreId;
 
     /**
@@ -208,7 +208,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * The content type of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
      */
-    @Export(name="contentType", type=String.class, parameters={})
+    @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
     /**
@@ -222,7 +222,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * (Optional) The ETag of the key.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -236,7 +236,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * The name of the App Configuration Key to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -250,7 +250,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * The label of the App Configuration Key. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> label;
 
     /**
@@ -264,7 +264,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * Should this App Configuration Key be Locked to prevent changes?
      * 
      */
-    @Export(name="locked", type=Boolean.class, parameters={})
+    @Export(name="locked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> locked;
 
     /**
@@ -278,7 +278,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -292,7 +292,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -306,7 +306,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
@@ -322,7 +322,7 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
      * 
      */
-    @Export(name="vaultKeyReference", type=String.class, parameters={})
+    @Export(name="vaultKeyReference", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vaultKeyReference;
 
     /**

@@ -121,7 +121,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
      * 
      */
-    @Export(name="backupPolicyId", type=String.class, parameters={})
+    @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output<String> backupPolicyId;
 
     /**
@@ -135,7 +135,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", type=String.class, parameters={})
+    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultName;
 
     /**
@@ -149,7 +149,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -163,7 +163,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the name of the file share to backup. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceFileShareName", type=String.class, parameters={})
+    @Export(name="sourceFileShareName", refs={String.class}, tree="[0]")
     private Output<String> sourceFileShareName;
 
     /**
@@ -179,7 +179,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `azure.backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `azure.backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `azure.backup.ProtectedFileShare` resource.
      * 
      */
-    @Export(name="sourceStorageAccountId", type=String.class, parameters={})
+    @Export(name="sourceStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> sourceStorageAccountId;
 
     /**

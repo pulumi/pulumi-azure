@@ -102,7 +102,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -116,7 +116,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
      * 
      */
-    @Export(name="networkGroupId", type=String.class, parameters={})
+    @Export(name="networkGroupId", refs={String.class}, tree="[0]")
     private Output<String> networkGroupId;
 
     /**
@@ -130,7 +130,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * The region of the Network Manager Static Member.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -144,7 +144,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
      * 
      */
-    @Export(name="targetVirtualNetworkId", type=String.class, parameters={})
+    @Export(name="targetVirtualNetworkId", refs={String.class}, tree="[0]")
     private Output<String> targetVirtualNetworkId;
 
     /**

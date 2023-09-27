@@ -86,7 +86,7 @@ public class HypervNetworkMapping extends com.pulumi.resources.CustomResource {
      * The name of the HyperV network mapping. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class HypervNetworkMapping extends com.pulumi.resources.CustomResource {
      * The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultId", type=String.class, parameters={})
+    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultId;
 
     /**
@@ -114,7 +114,7 @@ public class HypervNetworkMapping extends com.pulumi.resources.CustomResource {
      * The Name of the primary network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceNetworkName", type=String.class, parameters={})
+    @Export(name="sourceNetworkName", refs={String.class}, tree="[0]")
     private Output<String> sourceNetworkName;
 
     /**
@@ -128,7 +128,7 @@ public class HypervNetworkMapping extends com.pulumi.resources.CustomResource {
      * Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceSystemCenterVirtualMachineManagerName", type=String.class, parameters={})
+    @Export(name="sourceSystemCenterVirtualMachineManagerName", refs={String.class}, tree="[0]")
     private Output<String> sourceSystemCenterVirtualMachineManagerName;
 
     /**
@@ -142,7 +142,7 @@ public class HypervNetworkMapping extends com.pulumi.resources.CustomResource {
      * The id of the recovery network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetNetworkId", type=String.class, parameters={})
+    @Export(name="targetNetworkId", refs={String.class}, tree="[0]")
     private Output<String> targetNetworkId;
 
     /**

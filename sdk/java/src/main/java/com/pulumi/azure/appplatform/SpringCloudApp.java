@@ -86,7 +86,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * A JSON object that contains the addon configurations of the Spring Cloud Service.
      * 
      */
-    @Export(name="addonJson", type=String.class, parameters={})
+    @Export(name="addonJson", refs={String.class}, tree="[0]")
     private Output<String> addonJson;
 
     /**
@@ -100,7 +100,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * A `custom_persistent_disk` block as defined below.
      * 
      */
-    @Export(name="customPersistentDisks", type=List.class, parameters={SpringCloudAppCustomPersistentDisk.class})
+    @Export(name="customPersistentDisks", refs={List.class,SpringCloudAppCustomPersistentDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpringCloudAppCustomPersistentDisk>> customPersistentDisks;
 
     /**
@@ -114,7 +114,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * The Fully Qualified DNS Name of the Spring Application in the service.
      * 
      */
-    @Export(name="fqdn", type=String.class, parameters={})
+    @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
@@ -128,7 +128,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Is only HTTPS allowed? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", type=Boolean.class, parameters={})
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -142,7 +142,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=SpringCloudAppIdentity.class, parameters={})
+    @Export(name="identity", refs={SpringCloudAppIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudAppIdentity> identity;
 
     /**
@@ -156,7 +156,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * An `ingress_settings` block as defined below.
      * 
      */
-    @Export(name="ingressSettings", type=SpringCloudAppIngressSettings.class, parameters={})
+    @Export(name="ingressSettings", refs={SpringCloudAppIngressSettings.class}, tree="[0]")
     private Output<SpringCloudAppIngressSettings> ingressSettings;
 
     /**
@@ -170,7 +170,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      * 
      */
-    @Export(name="isPublic", type=Boolean.class, parameters={})
+    @Export(name="isPublic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isPublic;
 
     /**
@@ -184,7 +184,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * An `persistent_disk` block as defined below.
      * 
      */
-    @Export(name="persistentDisk", type=SpringCloudAppPersistentDisk.class, parameters={})
+    @Export(name="persistentDisk", refs={SpringCloudAppPersistentDisk.class}, tree="[0]")
     private Output<SpringCloudAppPersistentDisk> persistentDisk;
 
     /**
@@ -212,7 +212,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
      * 
      */
-    @Export(name="publicEndpointEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicEndpointEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicEndpointEnabled;
 
     /**
@@ -226,7 +226,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -240,7 +240,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
@@ -254,7 +254,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * Is End to End TLS Enabled? Defaults to `false`.
      * 
      */
-    @Export(name="tlsEnabled", type=Boolean.class, parameters={})
+    @Export(name="tlsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tlsEnabled;
 
     /**
@@ -268,7 +268,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * The public endpoint of the Spring Cloud Application.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

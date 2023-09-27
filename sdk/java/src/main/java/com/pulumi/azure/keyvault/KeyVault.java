@@ -100,7 +100,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
-    @Export(name="accessPolicies", type=List.class, parameters={KeyVaultAccessPolicy.class})
+    @Export(name="accessPolicies", refs={List.class,KeyVaultAccessPolicy.class}, tree="[0,1]")
     private Output<List<KeyVaultAccessPolicy>> accessPolicies;
 
     /**
@@ -118,7 +118,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
      * 
      */
-    @Export(name="contacts", type=List.class, parameters={KeyVaultContact.class})
+    @Export(name="contacts", refs={List.class,KeyVaultContact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KeyVaultContact>> contacts;
 
     /**
@@ -134,7 +134,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      * 
      */
-    @Export(name="enableRbacAuthorization", type=Boolean.class, parameters={})
+    @Export(name="enableRbacAuthorization", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableRbacAuthorization;
 
     /**
@@ -148,7 +148,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      * 
      */
-    @Export(name="enabledForDeployment", type=Boolean.class, parameters={})
+    @Export(name="enabledForDeployment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabledForDeployment;
 
     /**
@@ -162,7 +162,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      * 
      */
-    @Export(name="enabledForDiskEncryption", type=Boolean.class, parameters={})
+    @Export(name="enabledForDiskEncryption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabledForDiskEncryption;
 
     /**
@@ -176,7 +176,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      * 
      */
-    @Export(name="enabledForTemplateDeployment", type=Boolean.class, parameters={})
+    @Export(name="enabledForTemplateDeployment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabledForTemplateDeployment;
 
     /**
@@ -190,7 +190,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -204,7 +204,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -218,7 +218,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * A `network_acls` block as defined below.
      * 
      */
-    @Export(name="networkAcls", type=KeyVaultNetworkAcls.class, parameters={})
+    @Export(name="networkAcls", refs={KeyVaultNetworkAcls.class}, tree="[0]")
     private Output<KeyVaultNetworkAcls> networkAcls;
 
     /**
@@ -232,7 +232,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -248,7 +248,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      * 
      */
-    @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
+    @Export(name="purgeProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
@@ -264,7 +264,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -278,7 +278,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -294,7 +294,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** This field can only be configured one time and cannot be updated.
      * 
      */
-    @Export(name="softDeleteRetentionDays", type=Integer.class, parameters={})
+    @Export(name="softDeleteRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> softDeleteRetentionDays;
 
     /**
@@ -310,7 +310,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -324,7 +324,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
@@ -338,7 +338,7 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * The URI of the Key Vault, used for performing operations on keys and secrets.
      * 
      */
-    @Export(name="vaultUri", type=String.class, parameters={})
+    @Export(name="vaultUri", refs={String.class}, tree="[0]")
     private Output<String> vaultUri;
 
     /**

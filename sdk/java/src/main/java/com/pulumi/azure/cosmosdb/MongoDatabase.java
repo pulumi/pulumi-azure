@@ -73,7 +73,7 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -89,7 +89,7 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
      */
-    @Export(name="autoscaleSettings", type=MongoDatabaseAutoscaleSettings.class, parameters={})
+    @Export(name="autoscaleSettings", refs={MongoDatabaseAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ MongoDatabaseAutoscaleSettings> autoscaleSettings;
 
     /**
@@ -105,7 +105,7 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -135,7 +135,7 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
      * 
      */
-    @Export(name="throughput", type=Integer.class, parameters={})
+    @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
     /**

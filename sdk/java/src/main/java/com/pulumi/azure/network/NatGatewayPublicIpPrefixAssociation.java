@@ -85,7 +85,7 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
      * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="natGatewayId", type=String.class, parameters={})
+    @Export(name="natGatewayId", refs={String.class}, tree="[0]")
     private Output<String> natGatewayId;
 
     /**
@@ -99,7 +99,7 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicIpPrefixId", type=String.class, parameters={})
+    @Export(name="publicIpPrefixId", refs={String.class}, tree="[0]")
     private Output<String> publicIpPrefixId;
 
     /**

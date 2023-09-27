@@ -106,7 +106,7 @@ public class MonitorTagRule extends com.pulumi.resources.CustomResource {
      * The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
      * 
      */
-    @Export(name="datadogMonitorId", type=String.class, parameters={})
+    @Export(name="datadogMonitorId", refs={String.class}, tree="[0]")
     private Output<String> datadogMonitorId;
 
     /**
@@ -120,7 +120,7 @@ public class MonitorTagRule extends com.pulumi.resources.CustomResource {
      * A `log` block as defined below.
      * 
      */
-    @Export(name="logs", type=List.class, parameters={MonitorTagRuleLog.class})
+    @Export(name="logs", refs={List.class,MonitorTagRuleLog.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorTagRuleLog>> logs;
 
     /**
@@ -134,7 +134,7 @@ public class MonitorTagRule extends com.pulumi.resources.CustomResource {
      * A `metric` block as defined below.
      * 
      */
-    @Export(name="metrics", type=List.class, parameters={MonitorTagRuleMetric.class})
+    @Export(name="metrics", refs={List.class,MonitorTagRuleMetric.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MonitorTagRuleMetric>> metrics;
 
     /**
@@ -148,7 +148,7 @@ public class MonitorTagRule extends com.pulumi.resources.CustomResource {
      * The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

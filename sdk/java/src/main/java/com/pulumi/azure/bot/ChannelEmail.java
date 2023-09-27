@@ -86,7 +86,7 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", type=String.class, parameters={})
+    @Export(name="botName", refs={String.class}, tree="[0]")
     private Output<String> botName;
 
     /**
@@ -100,7 +100,7 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * The email address that the Bot will authenticate with.
      * 
      */
-    @Export(name="emailAddress", type=String.class, parameters={})
+    @Export(name="emailAddress", refs={String.class}, tree="[0]")
     private Output<String> emailAddress;
 
     /**
@@ -114,7 +114,7 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * The email password that the Bot will authenticate with.
      * 
      */
-    @Export(name="emailPassword", type=String.class, parameters={})
+    @Export(name="emailPassword", refs={String.class}, tree="[0]")
     private Output<String> emailPassword;
 
     /**
@@ -128,7 +128,7 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -142,7 +142,7 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

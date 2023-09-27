@@ -99,7 +99,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * An `alert_details_override` block as defined below.
      * 
      */
-    @Export(name="alertDetailsOverrides", type=List.class, parameters={AlertRuleScheduledAlertDetailsOverride.class})
+    @Export(name="alertDetailsOverrides", refs={List.class,AlertRuleScheduledAlertDetailsOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledAlertDetailsOverride>> alertDetailsOverrides;
 
     /**
@@ -113,7 +113,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
+    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertRuleTemplateGuid;
 
     /**
@@ -127,7 +127,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateVersion", type=String.class, parameters={})
+    @Export(name="alertRuleTemplateVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertRuleTemplateVersion;
 
     /**
@@ -141,7 +141,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
      * 
      */
-    @Export(name="customDetails", type=Map.class, parameters={String.class, String.class})
+    @Export(name="customDetails", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customDetails;
 
     /**
@@ -155,7 +155,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The description of this Sentinel Scheduled Alert Rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -169,7 +169,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The friendly name of this Sentinel Scheduled Alert Rule.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -183,7 +183,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -197,7 +197,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * A list of `entity_mapping` blocks as defined below.
      * 
      */
-    @Export(name="entityMappings", type=List.class, parameters={AlertRuleScheduledEntityMapping.class})
+    @Export(name="entityMappings", refs={List.class,AlertRuleScheduledEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledEntityMapping>> entityMappings;
 
     /**
@@ -211,7 +211,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * A `event_grouping` block as defined below.
      * 
      */
-    @Export(name="eventGrouping", type=AlertRuleScheduledEventGrouping.class, parameters={})
+    @Export(name="eventGrouping", refs={AlertRuleScheduledEventGrouping.class}, tree="[0]")
     private Output</* @Nullable */ AlertRuleScheduledEventGrouping> eventGrouping;
 
     /**
@@ -225,7 +225,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * A `incident_configuration` block as defined below.
      * 
      */
-    @Export(name="incidentConfiguration", type=AlertRuleScheduledIncidentConfiguration.class, parameters={})
+    @Export(name="incidentConfiguration", refs={AlertRuleScheduledIncidentConfiguration.class}, tree="[0]")
     private Output<AlertRuleScheduledIncidentConfiguration> incidentConfiguration;
 
     /**
@@ -239,7 +239,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -253,7 +253,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -267,7 +267,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The query of this Sentinel Scheduled Alert Rule.
      * 
      */
-    @Export(name="query", type=String.class, parameters={})
+    @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
@@ -281,7 +281,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
      * 
      */
-    @Export(name="queryFrequency", type=String.class, parameters={})
+    @Export(name="queryFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryFrequency;
 
     /**
@@ -297,7 +297,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
-    @Export(name="queryPeriod", type=String.class, parameters={})
+    @Export(name="queryPeriod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryPeriod;
 
     /**
@@ -315,7 +315,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
-    @Export(name="sentinelEntityMappings", type=List.class, parameters={AlertRuleScheduledSentinelEntityMapping.class})
+    @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleScheduledSentinelEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledSentinelEntityMapping>> sentinelEntityMappings;
 
     /**
@@ -331,7 +331,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
      */
-    @Export(name="severity", type=String.class, parameters={})
+    @Export(name="severity", refs={String.class}, tree="[0]")
     private Output<String> severity;
 
     /**
@@ -347,7 +347,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
-    @Export(name="suppressionDuration", type=String.class, parameters={})
+    @Export(name="suppressionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suppressionDuration;
 
     /**
@@ -363,7 +363,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
      * 
      */
-    @Export(name="suppressionEnabled", type=Boolean.class, parameters={})
+    @Export(name="suppressionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suppressionEnabled;
 
     /**
@@ -377,7 +377,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
      * 
      */
-    @Export(name="tactics", type=List.class, parameters={String.class})
+    @Export(name="tactics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tactics;
 
     /**
@@ -391,7 +391,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * A list of techniques of attacks by which to classify the rule.
      * 
      */
-    @Export(name="techniques", type=List.class, parameters={String.class})
+    @Export(name="techniques", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> techniques;
 
     /**
@@ -405,7 +405,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      * 
      */
-    @Export(name="triggerOperator", type=String.class, parameters={})
+    @Export(name="triggerOperator", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> triggerOperator;
 
     /**
@@ -419,7 +419,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
-    @Export(name="triggerThreshold", type=Integer.class, parameters={})
+    @Export(name="triggerThreshold", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> triggerThreshold;
 
     /**

@@ -97,7 +97,7 @@ public class SpringCloudAppRedisAssociation extends com.pulumi.resources.CustomR
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -111,7 +111,7 @@ public class SpringCloudAppRedisAssociation extends com.pulumi.resources.CustomR
      * Specifies the Redis Cache access key.
      * 
      */
-    @Export(name="redisAccessKey", type=String.class, parameters={})
+    @Export(name="redisAccessKey", refs={String.class}, tree="[0]")
     private Output<String> redisAccessKey;
 
     /**
@@ -125,7 +125,7 @@ public class SpringCloudAppRedisAssociation extends com.pulumi.resources.CustomR
      * Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="redisCacheId", type=String.class, parameters={})
+    @Export(name="redisCacheId", refs={String.class}, tree="[0]")
     private Output<String> redisCacheId;
 
     /**
@@ -139,7 +139,7 @@ public class SpringCloudAppRedisAssociation extends com.pulumi.resources.CustomR
      * Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="springCloudAppId", type=String.class, parameters={})
+    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
     private Output<String> springCloudAppId;
 
     /**
@@ -153,7 +153,7 @@ public class SpringCloudAppRedisAssociation extends com.pulumi.resources.CustomR
      * Should SSL be used when connecting to Redis? Defaults to `true`.
      * 
      */
-    @Export(name="sslEnabled", type=Boolean.class, parameters={})
+    @Export(name="sslEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sslEnabled;
 
     /**

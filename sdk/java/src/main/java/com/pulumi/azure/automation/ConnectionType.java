@@ -88,7 +88,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -102,7 +102,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="fields", type=List.class, parameters={ConnectionTypeField.class})
+    @Export(name="fields", refs={List.class,ConnectionTypeField.class}, tree="[0,1]")
     private Output<List<ConnectionTypeField>> fields;
 
     /**
@@ -116,7 +116,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * Whether the connection type is global. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="isGlobal", type=Boolean.class, parameters={})
+    @Export(name="isGlobal", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isGlobal;
 
     /**
@@ -130,7 +130,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -144,7 +144,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

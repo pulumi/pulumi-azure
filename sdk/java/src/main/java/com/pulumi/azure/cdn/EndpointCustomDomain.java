@@ -117,7 +117,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
      * 
      */
-    @Export(name="cdnEndpointId", type=String.class, parameters={})
+    @Export(name="cdnEndpointId", refs={String.class}, tree="[0]")
     private Output<String> cdnEndpointId;
 
     /**
@@ -131,7 +131,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * A `cdn_managed_https` block as defined below.
      * 
      */
-    @Export(name="cdnManagedHttps", type=EndpointCustomDomainCdnManagedHttps.class, parameters={})
+    @Export(name="cdnManagedHttps", refs={EndpointCustomDomainCdnManagedHttps.class}, tree="[0]")
     private Output</* @Nullable */ EndpointCustomDomainCdnManagedHttps> cdnManagedHttps;
 
     /**
@@ -145,7 +145,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      * 
      */
-    @Export(name="hostName", type=String.class, parameters={})
+    @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
@@ -159,7 +159,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
      * 
      */
-    @Export(name="userManagedHttps", type=EndpointCustomDomainUserManagedHttps.class, parameters={})
+    @Export(name="userManagedHttps", refs={EndpointCustomDomainUserManagedHttps.class}, tree="[0]")
     private Output</* @Nullable */ EndpointCustomDomainUserManagedHttps> userManagedHttps;
 
     /**

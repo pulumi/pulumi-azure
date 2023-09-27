@@ -108,7 +108,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * An `blob_storage` block as defined below.
      * 
      */
-    @Export(name="blobStorage", type=FluxConfigurationBlobStorage.class, parameters={})
+    @Export(name="blobStorage", refs={FluxConfigurationBlobStorage.class}, tree="[0]")
     private Output</* @Nullable */ FluxConfigurationBlobStorage> blobStorage;
 
     /**
@@ -122,7 +122,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * A `bucket` block as defined below.
      * 
      */
-    @Export(name="bucket", type=FluxConfigurationBucket.class, parameters={})
+    @Export(name="bucket", refs={FluxConfigurationBucket.class}, tree="[0]")
     private Output</* @Nullable */ FluxConfigurationBucket> bucket;
 
     /**
@@ -136,7 +136,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -150,7 +150,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
      * 
      */
-    @Export(name="continuousReconciliationEnabled", type=Boolean.class, parameters={})
+    @Export(name="continuousReconciliationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> continuousReconciliationEnabled;
 
     /**
@@ -164,7 +164,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * A `git_repository` block as defined below.
      * 
      */
-    @Export(name="gitRepository", type=FluxConfigurationGitRepository.class, parameters={})
+    @Export(name="gitRepository", refs={FluxConfigurationGitRepository.class}, tree="[0]")
     private Output</* @Nullable */ FluxConfigurationGitRepository> gitRepository;
 
     /**
@@ -178,7 +178,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * A `kustomizations` block as defined below.
      * 
      */
-    @Export(name="kustomizations", type=List.class, parameters={FluxConfigurationKustomization.class})
+    @Export(name="kustomizations", refs={List.class,FluxConfigurationKustomization.class}, tree="[0,1]")
     private Output<List<FluxConfigurationKustomization>> kustomizations;
 
     /**
@@ -192,7 +192,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -206,7 +206,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      * 
      */
-    @Export(name="namespace", type=String.class, parameters={})
+    @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
     /**
@@ -220,7 +220,7 @@ public class FluxConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**

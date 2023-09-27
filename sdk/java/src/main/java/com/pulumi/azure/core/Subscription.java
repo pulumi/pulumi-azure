@@ -178,7 +178,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
@@ -192,7 +192,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      * 
      */
-    @Export(name="billingScopeId", type=String.class, parameters={})
+    @Export(name="billingScopeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> billingScopeId;
 
     /**
@@ -210,7 +210,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
      * 
      */
-    @Export(name="subscriptionId", type=String.class, parameters={})
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output<String> subscriptionId;
 
     /**
@@ -228,7 +228,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The Name of the Subscription. This is the Display Name in the portal.
      * 
      */
-    @Export(name="subscriptionName", type=String.class, parameters={})
+    @Export(name="subscriptionName", refs={String.class}, tree="[0]")
     private Output<String> subscriptionName;
 
     /**
@@ -242,7 +242,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Subscription.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -256,7 +256,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The ID of the Tenant to which the subscription belongs.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
@@ -270,7 +270,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      * 
      */
-    @Export(name="workload", type=String.class, parameters={})
+    @Export(name="workload", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workload;
 
     /**

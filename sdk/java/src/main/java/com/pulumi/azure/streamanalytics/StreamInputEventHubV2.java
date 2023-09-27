@@ -115,7 +115,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    @Export(name="authenticationMode", type=String.class, parameters={})
+    @Export(name="authenticationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationMode;
 
     /**
@@ -129,7 +129,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub&#39;s default consumer group.
      * 
      */
-    @Export(name="eventhubConsumerGroupName", type=String.class, parameters={})
+    @Export(name="eventhubConsumerGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventhubConsumerGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The name of the Event Hub.
      * 
      */
-    @Export(name="eventhubName", type=String.class, parameters={})
+    @Export(name="eventhubName", refs={String.class}, tree="[0]")
     private Output<String> eventhubName;
 
     /**
@@ -157,7 +157,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The name of the Stream Input EventHub V2. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The property the input Event Hub has been partitioned by.
      * 
      */
-    @Export(name="partitionKey", type=String.class, parameters={})
+    @Export(name="partitionKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partitionKey;
 
     /**
@@ -185,7 +185,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * A `serialization` block as defined below.
      * 
      */
-    @Export(name="serialization", type=StreamInputEventHubV2Serialization.class, parameters={})
+    @Export(name="serialization", refs={StreamInputEventHubV2Serialization.class}, tree="[0]")
     private Output<StreamInputEventHubV2Serialization> serialization;
 
     /**
@@ -199,7 +199,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    @Export(name="servicebusNamespace", type=String.class, parameters={})
+    @Export(name="servicebusNamespace", refs={String.class}, tree="[0]")
     private Output<String> servicebusNamespace;
 
     /**
@@ -213,7 +213,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The shared access policy key for the specified shared access policy.
      * 
      */
-    @Export(name="sharedAccessPolicyKey", type=String.class, parameters={})
+    @Export(name="sharedAccessPolicyKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyKey;
 
     /**
@@ -227,7 +227,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    @Export(name="sharedAccessPolicyName", type=String.class, parameters={})
+    @Export(name="sharedAccessPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyName;
 
     /**
@@ -241,7 +241,7 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobId", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobId", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobId;
 
     /**

@@ -106,7 +106,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
      * 
      */
-    @Export(name="backupPolicyId", type=String.class, parameters={})
+    @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupPolicyId;
 
     /**
@@ -120,7 +120,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * A list of Disks&#39; Logical Unit Numbers(LUN) to be excluded for VM Protection.
      * 
      */
-    @Export(name="excludeDiskLuns", type=List.class, parameters={Integer.class})
+    @Export(name="excludeDiskLuns", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> excludeDiskLuns;
 
     /**
@@ -134,7 +134,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * A list of Disks&#39; Logical Unit Numbers(LUN) to be included for VM Protection.
      * 
      */
-    @Export(name="includeDiskLuns", type=List.class, parameters={Integer.class})
+    @Export(name="includeDiskLuns", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> includeDiskLuns;
 
     /**
@@ -148,7 +148,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
      * 
      */
-    @Export(name="protectionState", type=String.class, parameters={})
+    @Export(name="protectionState", refs={String.class}, tree="[0]")
     private Output<String> protectionState;
 
     /**
@@ -162,7 +162,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", type=String.class, parameters={})
+    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultName;
 
     /**
@@ -176,7 +176,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -193,7 +193,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * This allows the source vm to be deleted without having to remove the backup.
      * 
      */
-    @Export(name="sourceVmId", type=String.class, parameters={})
+    @Export(name="sourceVmId", refs={String.class}, tree="[0]")
     private Output<String> sourceVmId;
 
     /**

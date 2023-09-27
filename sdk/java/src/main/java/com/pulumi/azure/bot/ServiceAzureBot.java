@@ -101,7 +101,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The Application Insights API Key to associate with this Azure Bot Service.
      * 
      */
-    @Export(name="developerAppInsightsApiKey", type=String.class, parameters={})
+    @Export(name="developerAppInsightsApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> developerAppInsightsApiKey;
 
     /**
@@ -115,7 +115,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The resource ID of the Application Insights instance to associate with this Azure Bot Service.
      * 
      */
-    @Export(name="developerAppInsightsApplicationId", type=String.class, parameters={})
+    @Export(name="developerAppInsightsApplicationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> developerAppInsightsApplicationId;
 
     /**
@@ -129,7 +129,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The Application Insight Key to associate with this Azure Bot Service.
      * 
      */
-    @Export(name="developerAppInsightsKey", type=String.class, parameters={})
+    @Export(name="developerAppInsightsKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> developerAppInsightsKey;
 
     /**
@@ -143,7 +143,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -157,7 +157,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The Azure Bot Service endpoint.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpoint;
 
     /**
@@ -171,7 +171,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * Is local authentication enabled? Defaults to `true`.
      * 
      */
-    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
@@ -185,7 +185,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -199,7 +199,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * A list of LUIS App IDs to associate with this Azure Bot Service.
      * 
      */
-    @Export(name="luisAppIds", type=List.class, parameters={String.class})
+    @Export(name="luisAppIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> luisAppIds;
 
     /**
@@ -213,7 +213,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The LUIS key to associate with this Azure Bot Service.
      * 
      */
-    @Export(name="luisKey", type=String.class, parameters={})
+    @Export(name="luisKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> luisKey;
 
     /**
@@ -227,7 +227,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="microsoftAppId", type=String.class, parameters={})
+    @Export(name="microsoftAppId", refs={String.class}, tree="[0]")
     private Output<String> microsoftAppId;
 
     /**
@@ -241,7 +241,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="microsoftAppMsiId", type=String.class, parameters={})
+    @Export(name="microsoftAppMsiId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> microsoftAppMsiId;
 
     /**
@@ -255,7 +255,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="microsoftAppTenantId", type=String.class, parameters={})
+    @Export(name="microsoftAppTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> microsoftAppTenantId;
 
     /**
@@ -269,7 +269,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="microsoftAppType", type=String.class, parameters={})
+    @Export(name="microsoftAppType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> microsoftAppType;
 
     /**
@@ -283,7 +283,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -297,7 +297,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -311,7 +311,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
@@ -325,7 +325,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
      * 
      */
-    @Export(name="streamingEndpointEnabled", type=Boolean.class, parameters={})
+    @Export(name="streamingEndpointEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> streamingEndpointEnabled;
 
     /**
@@ -339,7 +339,7 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to this Azure Bot Service.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -103,7 +103,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * A `azure_active_directory_authentication` block as defined below.
      * 
      */
-    @Export(name="azureActiveDirectoryAuthentications", type=List.class, parameters={VpnServerConfigurationAzureActiveDirectoryAuthentication.class})
+    @Export(name="azureActiveDirectoryAuthentications", refs={List.class,VpnServerConfigurationAzureActiveDirectoryAuthentication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationAzureActiveDirectoryAuthentication>> azureActiveDirectoryAuthentications;
 
     /**
@@ -117,7 +117,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * One or more `client_revoked_certificate` blocks as defined below.
      * 
      */
-    @Export(name="clientRevokedCertificates", type=List.class, parameters={VpnServerConfigurationClientRevokedCertificate.class})
+    @Export(name="clientRevokedCertificates", refs={List.class,VpnServerConfigurationClientRevokedCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationClientRevokedCertificate>> clientRevokedCertificates;
 
     /**
@@ -131,7 +131,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * One or more `client_root_certificate` blocks as defined below.
      * 
      */
-    @Export(name="clientRootCertificates", type=List.class, parameters={VpnServerConfigurationClientRootCertificate.class})
+    @Export(name="clientRootCertificates", refs={List.class,VpnServerConfigurationClientRootCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationClientRootCertificate>> clientRootCertificates;
 
     /**
@@ -145,7 +145,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * A `ipsec_policy` block as defined below.
      * 
      */
-    @Export(name="ipsecPolicy", type=VpnServerConfigurationIpsecPolicy.class, parameters={})
+    @Export(name="ipsecPolicy", refs={VpnServerConfigurationIpsecPolicy.class}, tree="[0]")
     private Output</* @Nullable */ VpnServerConfigurationIpsecPolicy> ipsecPolicy;
 
     /**
@@ -159,7 +159,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -173,7 +173,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -187,7 +187,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * A `radius` block as defined below.
      * 
      */
-    @Export(name="radius", type=VpnServerConfigurationRadius.class, parameters={})
+    @Export(name="radius", refs={VpnServerConfigurationRadius.class}, tree="[0]")
     private Output</* @Nullable */ VpnServerConfigurationRadius> radius;
 
     /**
@@ -201,7 +201,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -215,7 +215,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -229,7 +229,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      * 
      */
-    @Export(name="vpnAuthenticationTypes", type=List.class, parameters={String.class})
+    @Export(name="vpnAuthenticationTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpnAuthenticationTypes;
 
     /**
@@ -243,7 +243,7 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      * 
      */
-    @Export(name="vpnProtocols", type=List.class, parameters={String.class})
+    @Export(name="vpnProtocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpnProtocols;
 
     /**

@@ -169,7 +169,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The following supported arguments are specific to Azure Blob Storage Linked Service:
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -185,7 +185,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -199,7 +199,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
      * 
      */
-    @Export(name="connectionString", type=String.class, parameters={})
+    @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -215,7 +215,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
      * 
      */
-    @Export(name="connectionStringInsecure", type=String.class, parameters={})
+    @Export(name="connectionStringInsecure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionStringInsecure;
 
     /**
@@ -231,7 +231,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -245,7 +245,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -259,7 +259,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -273,7 +273,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
      * 
      */
-    @Export(name="keyVaultSasToken", type=LinkedServiceAzureBlobStorageKeyVaultSasToken.class, parameters={})
+    @Export(name="keyVaultSasToken", refs={LinkedServiceAzureBlobStorageKeyVaultSasToken.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureBlobStorageKeyVaultSasToken> keyVaultSasToken;
 
     /**
@@ -287,7 +287,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -301,7 +301,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -315,7 +315,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
      * 
      */
-    @Export(name="sasUri", type=String.class, parameters={})
+    @Export(name="sasUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sasUri;
 
     /**
@@ -329,7 +329,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
      * 
      */
-    @Export(name="serviceEndpoint", type=String.class, parameters={})
+    @Export(name="serviceEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceEndpoint;
 
     /**
@@ -343,7 +343,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The service principal id in which to authenticate against the Azure Blob Storage account.
      * 
      */
-    @Export(name="servicePrincipalId", type=String.class, parameters={})
+    @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalId;
 
     /**
@@ -357,7 +357,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The service principal key in which to authenticate against the AAzure Blob Storage account.
      * 
      */
-    @Export(name="servicePrincipalKey", type=String.class, parameters={})
+    @Export(name="servicePrincipalKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalKey;
 
     /**
@@ -371,7 +371,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
-    @Export(name="servicePrincipalLinkedKeyVaultKey", type=LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey.class, parameters={})
+    @Export(name="servicePrincipalLinkedKeyVaultKey", refs={LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey> servicePrincipalLinkedKeyVaultKey;
 
     /**
@@ -385,7 +385,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
      * 
      */
-    @Export(name="storageKind", type=String.class, parameters={})
+    @Export(name="storageKind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageKind;
 
     /**
@@ -399,7 +399,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * The tenant id or name in which to authenticate against the Azure Blob Storage account.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantId;
 
     /**
@@ -413,7 +413,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
      * 
      */
-    @Export(name="useManagedIdentity", type=Boolean.class, parameters={})
+    @Export(name="useManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useManagedIdentity;
 
     /**

@@ -174,7 +174,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * Authenticate to ADB via an access token.
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
@@ -188,7 +188,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * The domain URL of the databricks instance.
      * 
      */
-    @Export(name="adbDomain", type=String.class, parameters={})
+    @Export(name="adbDomain", refs={String.class}, tree="[0]")
     private Output<String> adbDomain;
 
     /**
@@ -202,7 +202,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -216,7 +216,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -230,7 +230,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -244,7 +244,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -258,7 +258,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * The cluster_id of an existing cluster within the linked ADB instance.
      * 
      */
-    @Export(name="existingClusterId", type=String.class, parameters={})
+    @Export(name="existingClusterId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingClusterId;
 
     /**
@@ -272,7 +272,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
      * 
      */
-    @Export(name="instancePool", type=LinkedServiceAzureDatabricksInstancePool.class, parameters={})
+    @Export(name="instancePool", refs={LinkedServiceAzureDatabricksInstancePool.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksInstancePool> instancePool;
 
     /**
@@ -286,7 +286,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -300,7 +300,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
      * 
      */
-    @Export(name="keyVaultPassword", type=LinkedServiceAzureDatabricksKeyVaultPassword.class, parameters={})
+    @Export(name="keyVaultPassword", refs={LinkedServiceAzureDatabricksKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksKeyVaultPassword> keyVaultPassword;
 
     /**
@@ -314,7 +314,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * Authenticate to ADB via managed service identity.
      * 
      */
-    @Export(name="msiWorkSpaceResourceId", type=String.class, parameters={})
+    @Export(name="msiWorkSpaceResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> msiWorkSpaceResourceId;
 
     /**
@@ -328,7 +328,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -342,7 +342,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
      * 
      */
-    @Export(name="newClusterConfig", type=LinkedServiceAzureDatabricksNewClusterConfig.class, parameters={})
+    @Export(name="newClusterConfig", refs={LinkedServiceAzureDatabricksNewClusterConfig.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksNewClusterConfig> newClusterConfig;
 
     /**
@@ -356,7 +356,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**

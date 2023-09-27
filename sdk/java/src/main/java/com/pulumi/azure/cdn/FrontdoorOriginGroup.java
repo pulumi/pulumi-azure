@@ -94,7 +94,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
-    @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorProfileId;
 
     /**
@@ -108,7 +108,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * A `health_probe` block as defined below.
      * 
      */
-    @Export(name="healthProbe", type=FrontdoorOriginGroupHealthProbe.class, parameters={})
+    @Export(name="healthProbe", refs={FrontdoorOriginGroupHealthProbe.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorOriginGroupHealthProbe> healthProbe;
 
     /**
@@ -122,7 +122,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * A `load_balancing` block as defined below.
      * 
      */
-    @Export(name="loadBalancing", type=FrontdoorOriginGroupLoadBalancing.class, parameters={})
+    @Export(name="loadBalancing", refs={FrontdoorOriginGroupLoadBalancing.class}, tree="[0]")
     private Output<FrontdoorOriginGroupLoadBalancing> loadBalancing;
 
     /**
@@ -136,7 +136,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This property is currently not used, but will be in the near future.
      * 
      */
-    @Export(name="restoreTrafficTimeToHealedOrNewEndpointInMinutes", type=Integer.class, parameters={})
+    @Export(name="restoreTrafficTimeToHealedOrNewEndpointInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> restoreTrafficTimeToHealedOrNewEndpointInMinutes;
 
     /**
@@ -168,7 +168,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * Specifies whether session affinity should be enabled on this host. Defaults to `true`.
      * 
      */
-    @Export(name="sessionAffinityEnabled", type=Boolean.class, parameters={})
+    @Export(name="sessionAffinityEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sessionAffinityEnabled;
 
     /**

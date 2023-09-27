@@ -76,7 +76,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * A description for this Shared Image Gallery.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -90,7 +90,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -104,7 +104,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -132,7 +132,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * A `sharing` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sharing", type=SharedImageGallerySharing.class, parameters={})
+    @Export(name="sharing", refs={SharedImageGallerySharing.class}, tree="[0]")
     private Output</* @Nullable */ SharedImageGallerySharing> sharing;
 
     /**
@@ -146,7 +146,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Shared Image Gallery.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -160,7 +160,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * The Unique Name for this Shared Image Gallery.
      * 
      */
-    @Export(name="uniqueName", type=String.class, parameters={})
+    @Export(name="uniqueName", refs={String.class}, tree="[0]")
     private Output<String> uniqueName;
 
     /**

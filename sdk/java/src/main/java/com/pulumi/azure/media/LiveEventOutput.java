@@ -123,7 +123,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="archiveWindowDuration", type=String.class, parameters={})
+    @Export(name="archiveWindowDuration", refs={String.class}, tree="[0]")
     private Output<String> archiveWindowDuration;
 
     /**
@@ -137,7 +137,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The asset that the live output will write to. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="assetName", type=String.class, parameters={})
+    @Export(name="assetName", refs={String.class}, tree="[0]")
     private Output<String> assetName;
 
     /**
@@ -151,7 +151,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The description of the live output. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -165,7 +165,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="hlsFragmentsPerTsSegment", type=Integer.class, parameters={})
+    @Export(name="hlsFragmentsPerTsSegment", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> hlsFragmentsPerTsSegment;
 
     /**
@@ -179,7 +179,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The id of the live event. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="liveEventId", type=String.class, parameters={})
+    @Export(name="liveEventId", refs={String.class}, tree="[0]")
     private Output<String> liveEventId;
 
     /**
@@ -193,7 +193,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="manifestName", type=String.class, parameters={})
+    @Export(name="manifestName", refs={String.class}, tree="[0]")
     private Output<String> manifestName;
 
     /**
@@ -207,7 +207,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -221,7 +221,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      * 
      */
-    @Export(name="outputSnapTimeInSeconds", type=Integer.class, parameters={})
+    @Export(name="outputSnapTimeInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> outputSnapTimeInSeconds;
 
     /**
@@ -231,7 +231,7 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> outputSnapTimeInSeconds() {
         return Codegen.optional(this.outputSnapTimeInSeconds);
     }
-    @Export(name="rewindWindowDuration", type=String.class, parameters={})
+    @Export(name="rewindWindowDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rewindWindowDuration;
 
     public Output<Optional<String>> rewindWindowDuration() {

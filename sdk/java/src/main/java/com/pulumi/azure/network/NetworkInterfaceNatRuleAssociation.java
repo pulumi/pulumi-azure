@@ -129,7 +129,7 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ipConfigurationName", type=String.class, parameters={})
+    @Export(name="ipConfigurationName", refs={String.class}, tree="[0]")
     private Output<String> ipConfigurationName;
 
     /**
@@ -143,7 +143,7 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="natRuleId", type=String.class, parameters={})
+    @Export(name="natRuleId", refs={String.class}, tree="[0]")
     private Output<String> natRuleId;
 
     /**
@@ -157,7 +157,7 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**

@@ -91,7 +91,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
      * 
      */
-    @Export(name="listen", type=Boolean.class, parameters={})
+    @Export(name="listen", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listen;
 
     /**
@@ -107,7 +107,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      * 
      */
-    @Export(name="manage", type=Boolean.class, parameters={})
+    @Export(name="manage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manage;
 
     /**
@@ -123,7 +123,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The name to use for this Authorization Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -151,7 +151,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="notificationHubName", type=String.class, parameters={})
+    @Export(name="notificationHubName", refs={String.class}, tree="[0]")
     private Output<String> notificationHubName;
 
     /**
@@ -165,7 +165,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The Primary Access Key associated with this Authorization Rule.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -179,7 +179,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -193,7 +193,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * The Secondary Access Key associated with this Authorization Rule.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -207,7 +207,7 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      * 
      */
-    @Export(name="send", type=Boolean.class, parameters={})
+    @Export(name="send", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> send;
 
     /**

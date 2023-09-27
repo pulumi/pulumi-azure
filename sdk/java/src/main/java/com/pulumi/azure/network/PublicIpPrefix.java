@@ -74,7 +74,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * The IP address prefix value that was allocated.
      * 
      */
-    @Export(name="ipPrefix", type=String.class, parameters={})
+    @Export(name="ipPrefix", refs={String.class}, tree="[0]")
     private Output<String> ipPrefix;
 
     /**
@@ -88,7 +88,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
      * 
      */
-    @Export(name="ipVersion", type=String.class, parameters={})
+    @Export(name="ipVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipVersion;
 
     /**
@@ -102,7 +102,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -116,7 +116,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      * 
      */
-    @Export(name="prefixLength", type=Integer.class, parameters={})
+    @Export(name="prefixLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> prefixLength;
 
     /**
@@ -148,7 +148,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -164,7 +164,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -180,7 +180,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -196,7 +196,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**

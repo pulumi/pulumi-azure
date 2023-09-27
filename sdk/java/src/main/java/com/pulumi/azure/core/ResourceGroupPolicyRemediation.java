@@ -19,31 +19,31 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation")
 public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomResource {
-    @Export(name="failurePercentage", type=Double.class, parameters={})
+    @Export(name="failurePercentage", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> failurePercentage;
 
     public Output<Optional<Double>> failurePercentage() {
         return Codegen.optional(this.failurePercentage);
     }
-    @Export(name="locationFilters", type=List.class, parameters={String.class})
+    @Export(name="locationFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationFilters;
 
     public Output<Optional<List<String>>> locationFilters() {
         return Codegen.optional(this.locationFilters);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="parallelDeployments", type=Integer.class, parameters={})
+    @Export(name="parallelDeployments", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> parallelDeployments;
 
     public Output<Optional<Integer>> parallelDeployments() {
         return Codegen.optional(this.parallelDeployments);
     }
-    @Export(name="policyAssignmentId", type=String.class, parameters={})
+    @Export(name="policyAssignmentId", refs={String.class}, tree="[0]")
     private Output<String> policyAssignmentId;
 
     public Output<String> policyAssignmentId() {
@@ -55,31 +55,31 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
      * 
      */
     @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    @Export(name="policyDefinitionId", type=String.class, parameters={})
+    @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDefinitionId;
 
     public Output<Optional<String>> policyDefinitionId() {
         return Codegen.optional(this.policyDefinitionId);
     }
-    @Export(name="policyDefinitionReferenceId", type=String.class, parameters={})
+    @Export(name="policyDefinitionReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDefinitionReferenceId;
 
     public Output<Optional<String>> policyDefinitionReferenceId() {
         return Codegen.optional(this.policyDefinitionReferenceId);
     }
-    @Export(name="resourceCount", type=Integer.class, parameters={})
+    @Export(name="resourceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> resourceCount;
 
     public Output<Optional<Integer>> resourceCount() {
         return Codegen.optional(this.resourceCount);
     }
-    @Export(name="resourceDiscoveryMode", type=String.class, parameters={})
+    @Export(name="resourceDiscoveryMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceDiscoveryMode;
 
     public Output<Optional<String>> resourceDiscoveryMode() {
         return Codegen.optional(this.resourceDiscoveryMode);
     }
-    @Export(name="resourceGroupId", type=String.class, parameters={})
+    @Export(name="resourceGroupId", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupId;
 
     public Output<String> resourceGroupId() {

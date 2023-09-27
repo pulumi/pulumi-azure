@@ -74,7 +74,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
@@ -88,7 +88,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -102,7 +102,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The primary key used to authenticate and authorize access to the Maps REST APIs.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -116,7 +116,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -130,7 +130,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The secondary key used to authenticate and authorize access to the Maps REST APIs.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -144,7 +144,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -158,7 +158,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Azure Maps Account.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -172,7 +172,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A unique identifier for the Maps Account.
      * 
      */
-    @Export(name="xMsClientId", type=String.class, parameters={})
+    @Export(name="xMsClientId", refs={String.class}, tree="[0]")
     private Output<String> xMsClientId;
 
     /**

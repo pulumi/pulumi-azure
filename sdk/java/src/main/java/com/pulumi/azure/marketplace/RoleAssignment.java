@@ -17,61 +17,61 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:marketplace/roleAssignment:RoleAssignment")
 public class RoleAssignment extends com.pulumi.resources.CustomResource {
-    @Export(name="condition", type=String.class, parameters={})
+    @Export(name="condition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> condition;
 
     public Output<Optional<String>> condition() {
         return Codegen.optional(this.condition);
     }
-    @Export(name="conditionVersion", type=String.class, parameters={})
+    @Export(name="conditionVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conditionVersion;
 
     public Output<Optional<String>> conditionVersion() {
         return Codegen.optional(this.conditionVersion);
     }
-    @Export(name="delegatedManagedIdentityResourceId", type=String.class, parameters={})
+    @Export(name="delegatedManagedIdentityResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delegatedManagedIdentityResourceId;
 
     public Output<Optional<String>> delegatedManagedIdentityResourceId() {
         return Codegen.optional(this.delegatedManagedIdentityResourceId);
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     public Output<String> principalId() {
         return this.principalId;
     }
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     public Output<String> principalType() {
         return this.principalType;
     }
-    @Export(name="roleDefinitionId", type=String.class, parameters={})
+    @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleDefinitionId;
 
     public Output<Optional<String>> roleDefinitionId() {
         return Codegen.optional(this.roleDefinitionId);
     }
-    @Export(name="roleDefinitionName", type=String.class, parameters={})
+    @Export(name="roleDefinitionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleDefinitionName;
 
     public Output<Optional<String>> roleDefinitionName() {
         return Codegen.optional(this.roleDefinitionName);
     }
-    @Export(name="skipServicePrincipalAadCheck", type=Boolean.class, parameters={})
+    @Export(name="skipServicePrincipalAadCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipServicePrincipalAadCheck;
 
     public Output<Optional<Boolean>> skipServicePrincipalAadCheck() {

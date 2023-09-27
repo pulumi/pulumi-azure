@@ -157,7 +157,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -171,7 +171,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -185,7 +185,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * Quota size in kibibytes.
      * 
      */
-    @Export(name="quotaSizeInKib", type=Integer.class, parameters={})
+    @Export(name="quotaSizeInKib", refs={Integer.class}, tree="[0]")
     private Output<Integer> quotaSizeInKib;
 
     /**
@@ -203,7 +203,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 
      */
-    @Export(name="quotaTarget", type=String.class, parameters={})
+    @Export(name="quotaTarget", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> quotaTarget;
 
     /**
@@ -221,7 +221,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
      * 
      */
-    @Export(name="quotaType", type=String.class, parameters={})
+    @Export(name="quotaType", refs={String.class}, tree="[0]")
     private Output<String> quotaType;
 
     /**
@@ -235,7 +235,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * The NetApp volume ID where the Volume Quota Rule is assigned to.
      * 
      */
-    @Export(name="volumeId", type=String.class, parameters={})
+    @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output<String> volumeId;
 
     /**

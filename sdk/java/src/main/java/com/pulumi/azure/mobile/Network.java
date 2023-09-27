@@ -73,7 +73,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -87,7 +87,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
      * 
      */
-    @Export(name="mobileCountryCode", type=String.class, parameters={})
+    @Export(name="mobileCountryCode", refs={String.class}, tree="[0]")
     private Output<String> mobileCountryCode;
 
     /**
@@ -101,7 +101,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
      * 
      */
-    @Export(name="mobileNetworkCode", type=String.class, parameters={})
+    @Export(name="mobileNetworkCode", refs={String.class}, tree="[0]")
     private Output<String> mobileNetworkCode;
 
     /**
@@ -115,7 +115,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * The mobile network resource identifier.
      * 
      */
-    @Export(name="serviceKey", type=String.class, parameters={})
+    @Export(name="serviceKey", refs={String.class}, tree="[0]")
     private Output<String> serviceKey;
 
     /**
@@ -157,7 +157,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -85,7 +85,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -99,7 +99,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="confirmation", type=String.class, parameters={})
+    @Export(name="confirmation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> confirmation;
 
     /**
@@ -113,7 +113,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The email address associated with this user.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -127,7 +127,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The first name for this user.
      * 
      */
-    @Export(name="firstName", type=String.class, parameters={})
+    @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output<String> firstName;
 
     /**
@@ -141,7 +141,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The last name for this user.
      * 
      */
-    @Export(name="lastName", type=String.class, parameters={})
+    @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output<String> lastName;
 
     /**
@@ -155,7 +155,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * A note about this user.
      * 
      */
-    @Export(name="note", type=String.class, parameters={})
+    @Export(name="note", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> note;
 
     /**
@@ -169,7 +169,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The password associated with this user.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -183,7 +183,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -199,7 +199,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -215,7 +215,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

@@ -33,7 +33,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
      * 
      */
-    @Export(name="agentPublicKeyCertificate", type=String.class, parameters={})
+    @Export(name="agentPublicKeyCertificate", refs={String.class}, tree="[0]")
     private Output<String> agentPublicKeyCertificate;
 
     /**
@@ -47,7 +47,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Version of the agent running on the cluster resource.
      * 
      */
-    @Export(name="agentVersion", type=String.class, parameters={})
+    @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
@@ -61,7 +61,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The distribution running on this Arc Kubernetes Cluster.
      * 
      */
-    @Export(name="distribution", type=String.class, parameters={})
+    @Export(name="distribution", refs={String.class}, tree="[0]")
     private Output<String> distribution;
 
     /**
@@ -75,7 +75,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
      * 
      */
-    @Export(name="identity", type=ClusterIdentity.class, parameters={})
+    @Export(name="identity", refs={ClusterIdentity.class}, tree="[0]")
     private Output<ClusterIdentity> identity;
 
     /**
@@ -89,7 +89,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The infrastructure on which the Arc Kubernetes Cluster is running on.
      * 
      */
-    @Export(name="infrastructure", type=String.class, parameters={})
+    @Export(name="infrastructure", refs={String.class}, tree="[0]")
     private Output<String> infrastructure;
 
     /**
@@ -103,7 +103,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Kubernetes version of the cluster resource.
      * 
      */
-    @Export(name="kubernetesVersion", type=String.class, parameters={})
+    @Export(name="kubernetesVersion", refs={String.class}, tree="[0]")
     private Output<String> kubernetesVersion;
 
     /**
@@ -117,7 +117,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -131,7 +131,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The cluster offering.
      * 
      */
-    @Export(name="offering", type=String.class, parameters={})
+    @Export(name="offering", refs={String.class}, tree="[0]")
     private Output<String> offering;
 
     /**
@@ -159,7 +159,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -173,7 +173,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -187,7 +187,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Number of CPU cores present in the cluster resource.
      * 
      */
-    @Export(name="totalCoreCount", type=Integer.class, parameters={})
+    @Export(name="totalCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> totalCoreCount;
 
     /**
@@ -201,7 +201,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Number of nodes present in the cluster resource.
      * 
      */
-    @Export(name="totalNodeCount", type=Integer.class, parameters={})
+    @Export(name="totalNodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> totalNodeCount;
 
     /**

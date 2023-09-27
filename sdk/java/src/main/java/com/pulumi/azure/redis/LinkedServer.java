@@ -106,7 +106,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      * 
      */
-    @Export(name="linkedRedisCacheId", type=String.class, parameters={})
+    @Export(name="linkedRedisCacheId", refs={String.class}, tree="[0]")
     private Output<String> linkedRedisCacheId;
 
     /**
@@ -120,7 +120,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * The location of the linked Redis cache. Changing this forces a new Redis to be created.
      * 
      */
-    @Export(name="linkedRedisCacheLocation", type=String.class, parameters={})
+    @Export(name="linkedRedisCacheLocation", refs={String.class}, tree="[0]")
     private Output<String> linkedRedisCacheLocation;
 
     /**
@@ -134,7 +134,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * The name of the linked server.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -162,7 +162,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * The role of the linked Redis cache (eg &#34;Secondary&#34;). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      * 
      */
-    @Export(name="serverRole", type=String.class, parameters={})
+    @Export(name="serverRole", refs={String.class}, tree="[0]")
     private Output<String> serverRole;
 
     /**
@@ -176,7 +176,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
      * 
      */
-    @Export(name="targetRedisCacheName", type=String.class, parameters={})
+    @Export(name="targetRedisCacheName", refs={String.class}, tree="[0]")
     private Output<String> targetRedisCacheName;
 
     /**

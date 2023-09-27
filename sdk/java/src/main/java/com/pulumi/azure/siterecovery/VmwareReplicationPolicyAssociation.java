@@ -85,7 +85,7 @@ public class VmwareReplicationPolicyAssociation extends com.pulumi.resources.Cus
      * created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -101,7 +101,7 @@ public class VmwareReplicationPolicyAssociation extends com.pulumi.resources.Cus
      * association to be created.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
@@ -117,7 +117,7 @@ public class VmwareReplicationPolicyAssociation extends com.pulumi.resources.Cus
      * Changing this forces a new association to be created.
      * 
      */
-    @Export(name="recoveryVaultId", type=String.class, parameters={})
+    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultId;
 
     /**

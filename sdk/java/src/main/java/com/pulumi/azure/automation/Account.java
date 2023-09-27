@@ -77,7 +77,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
      * 
      */
-    @Export(name="dscPrimaryAccessKey", type=String.class, parameters={})
+    @Export(name="dscPrimaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> dscPrimaryAccessKey;
 
     /**
@@ -91,7 +91,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
      * 
      */
-    @Export(name="dscSecondaryAccessKey", type=String.class, parameters={})
+    @Export(name="dscSecondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> dscSecondaryAccessKey;
 
     /**
@@ -105,7 +105,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The DSC Server Endpoint associated with this Automation Account.
      * 
      */
-    @Export(name="dscServerEndpoint", type=String.class, parameters={})
+    @Export(name="dscServerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> dscServerEndpoint;
 
     /**
@@ -115,7 +115,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> dscServerEndpoint() {
         return this.dscServerEndpoint;
     }
-    @Export(name="encryptions", type=List.class, parameters={AccountEncryption.class})
+    @Export(name="encryptions", refs={List.class,AccountEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountEncryption>> encryptions;
 
     public Output<Optional<List<AccountEncryption>>> encryptions() {
@@ -125,7 +125,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
      * 
      */
-    @Export(name="hybridServiceUrl", type=String.class, parameters={})
+    @Export(name="hybridServiceUrl", refs={String.class}, tree="[0]")
     private Output<String> hybridServiceUrl;
 
     /**
@@ -139,7 +139,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=AccountIdentity.class, parameters={})
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AccountIdentity> identity;
 
     /**
@@ -153,7 +153,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
@@ -167,7 +167,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -181,7 +181,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="privateEndpointConnections", type=List.class, parameters={AccountPrivateEndpointConnection.class})
+    @Export(name="privateEndpointConnections", refs={List.class,AccountPrivateEndpointConnection.class}, tree="[0,1]")
     private Output<List<AccountPrivateEndpointConnection>> privateEndpointConnections;
 
     public Output<List<AccountPrivateEndpointConnection>> privateEndpointConnections() {
@@ -201,7 +201,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for the automation account. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -215,7 +215,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -229,7 +229,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The SKU of the account. Possible values are `Basic` and `Free`.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -243,7 +243,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

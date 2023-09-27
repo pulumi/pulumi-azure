@@ -81,7 +81,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -95,7 +95,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * App ID for Facebook.
      * 
      */
-    @Export(name="appId", type=String.class, parameters={})
+    @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
     /**
@@ -109,7 +109,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * App Secret for Facebook.
      * 
      */
-    @Export(name="appSecret", type=String.class, parameters={})
+    @Export(name="appSecret", refs={String.class}, tree="[0]")
     private Output<String> appSecret;
 
     /**
@@ -123,7 +123,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

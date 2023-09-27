@@ -95,7 +95,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="acceleratedNetworkSupportEnabled", type=Boolean.class, parameters={})
+    @Export(name="acceleratedNetworkSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> acceleratedNetworkSupportEnabled;
 
     /**
@@ -109,7 +109,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="architecture", type=String.class, parameters={})
+    @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> architecture;
 
     /**
@@ -125,7 +125,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
      * 
      */
-    @Export(name="confidentialVmEnabled", type=Boolean.class, parameters={})
+    @Export(name="confidentialVmEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> confidentialVmEnabled;
 
     /**
@@ -141,7 +141,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="confidentialVmSupported", type=Boolean.class, parameters={})
+    @Export(name="confidentialVmSupported", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> confidentialVmSupported;
 
     /**
@@ -155,7 +155,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * A description of this Shared Image.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -169,7 +169,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      * 
      */
-    @Export(name="diskTypesNotAlloweds", type=List.class, parameters={String.class})
+    @Export(name="diskTypesNotAlloweds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> diskTypesNotAlloweds;
 
     /**
@@ -183,7 +183,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The end of life date in RFC3339 format of the Image.
      * 
      */
-    @Export(name="endOfLifeDate", type=String.class, parameters={})
+    @Export(name="endOfLifeDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endOfLifeDate;
 
     /**
@@ -197,7 +197,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eula", type=String.class, parameters={})
+    @Export(name="eula", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eula;
 
     /**
@@ -211,7 +211,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="galleryName", type=String.class, parameters={})
+    @Export(name="galleryName", refs={String.class}, tree="[0]")
     private Output<String> galleryName;
 
     /**
@@ -225,7 +225,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hyperVGeneration", type=String.class, parameters={})
+    @Export(name="hyperVGeneration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
@@ -239,7 +239,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * An `identifier` block as defined below.
      * 
      */
-    @Export(name="identifier", type=SharedImageIdentifier.class, parameters={})
+    @Export(name="identifier", refs={SharedImageIdentifier.class}, tree="[0]")
     private Output<SharedImageIdentifier> identifier;
 
     /**
@@ -253,7 +253,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -267,7 +267,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Maximum memory in GB recommended for the Image.
      * 
      */
-    @Export(name="maxRecommendedMemoryInGb", type=Integer.class, parameters={})
+    @Export(name="maxRecommendedMemoryInGb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRecommendedMemoryInGb;
 
     /**
@@ -281,7 +281,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Maximum count of vCPUs recommended for the Image.
      * 
      */
-    @Export(name="maxRecommendedVcpuCount", type=Integer.class, parameters={})
+    @Export(name="maxRecommendedVcpuCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRecommendedVcpuCount;
 
     /**
@@ -295,7 +295,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Minimum memory in GB recommended for the Image.
      * 
      */
-    @Export(name="minRecommendedMemoryInGb", type=Integer.class, parameters={})
+    @Export(name="minRecommendedMemoryInGb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minRecommendedMemoryInGb;
 
     /**
@@ -309,7 +309,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Minimum count of vCPUs recommended for the Image.
      * 
      */
-    @Export(name="minRecommendedVcpuCount", type=Integer.class, parameters={})
+    @Export(name="minRecommendedVcpuCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minRecommendedVcpuCount;
 
     /**
@@ -323,7 +323,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -337,7 +337,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osType", type=String.class, parameters={})
+    @Export(name="osType", refs={String.class}, tree="[0]")
     private Output<String> osType;
 
     /**
@@ -351,7 +351,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privacyStatementUri", type=String.class, parameters={})
+    @Export(name="privacyStatementUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacyStatementUri;
 
     /**
@@ -365,7 +365,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * A `purchase_plan` block as defined below.
      * 
      */
-    @Export(name="purchasePlan", type=SharedImagePurchasePlan.class, parameters={})
+    @Export(name="purchasePlan", refs={SharedImagePurchasePlan.class}, tree="[0]")
     private Output</* @Nullable */ SharedImagePurchasePlan> purchasePlan;
 
     /**
@@ -379,7 +379,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The URI containing the Release Notes associated with this Shared Image.
      * 
      */
-    @Export(name="releaseNoteUri", type=String.class, parameters={})
+    @Export(name="releaseNoteUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> releaseNoteUri;
 
     /**
@@ -393,7 +393,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -409,7 +409,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      * 
      */
-    @Export(name="specialized", type=Boolean.class, parameters={})
+    @Export(name="specialized", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> specialized;
 
     /**
@@ -425,7 +425,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Shared Image.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -439,7 +439,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="trustedLaunchEnabled", type=Boolean.class, parameters={})
+    @Export(name="trustedLaunchEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> trustedLaunchEnabled;
 
     /**

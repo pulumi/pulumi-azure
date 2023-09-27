@@ -105,7 +105,7 @@ public class RoutingIntent extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class RoutingIntent extends com.pulumi.resources.CustomResource {
      * One or more `routing_policy` blocks as defined below.
      * 
      */
-    @Export(name="routingPolicies", type=List.class, parameters={RoutingIntentRoutingPolicy.class})
+    @Export(name="routingPolicies", refs={List.class,RoutingIntentRoutingPolicy.class}, tree="[0,1]")
     private Output<List<RoutingIntentRoutingPolicy>> routingPolicies;
 
     /**
@@ -133,7 +133,7 @@ public class RoutingIntent extends com.pulumi.resources.CustomResource {
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", type=String.class, parameters={})
+    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
     private Output<String> virtualHubId;
 
     /**

@@ -90,7 +90,7 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      * Specifies the JSON Blob defining the Body of this Custom Action.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
@@ -104,7 +104,7 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="logicAppId", type=String.class, parameters={})
+    @Export(name="logicAppId", refs={String.class}, tree="[0]")
     private Output<String> logicAppId;
 
     /**
@@ -120,7 +120,7 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

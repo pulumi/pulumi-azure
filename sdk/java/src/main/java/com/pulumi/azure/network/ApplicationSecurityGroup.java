@@ -71,7 +71,7 @@ public class ApplicationSecurityGroup extends com.pulumi.resources.CustomResourc
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -85,7 +85,7 @@ public class ApplicationSecurityGroup extends com.pulumi.resources.CustomResourc
      * Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -99,7 +99,7 @@ public class ApplicationSecurityGroup extends com.pulumi.resources.CustomResourc
      * The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -113,7 +113,7 @@ public class ApplicationSecurityGroup extends com.pulumi.resources.CustomResourc
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

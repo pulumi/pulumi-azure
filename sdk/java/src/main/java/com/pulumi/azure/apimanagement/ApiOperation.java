@@ -86,7 +86,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -100,7 +100,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiName", type=String.class, parameters={})
+    @Export(name="apiName", refs={String.class}, tree="[0]")
     private Output<String> apiName;
 
     /**
@@ -114,7 +114,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * A description for this API Operation, which may include HTML formatting tags.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -128,7 +128,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * The Display Name for this API Management Operation.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -142,7 +142,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
      * 
      */
-    @Export(name="method", type=String.class, parameters={})
+    @Export(name="method", refs={String.class}, tree="[0]")
     private Output<String> method;
 
     /**
@@ -156,7 +156,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * A unique identifier for this API Operation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="operationId", type=String.class, parameters={})
+    @Export(name="operationId", refs={String.class}, tree="[0]")
     private Output<String> operationId;
 
     /**
@@ -170,7 +170,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * A `request` block as defined below.
      * 
      */
-    @Export(name="request", type=ApiOperationRequest.class, parameters={})
+    @Export(name="request", refs={ApiOperationRequest.class}, tree="[0]")
     private Output<ApiOperationRequest> request;
 
     /**
@@ -184,7 +184,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -198,7 +198,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * One or more `response` blocks as defined below.
      * 
      */
-    @Export(name="responses", type=List.class, parameters={ApiOperationResponse.class})
+    @Export(name="responses", refs={List.class,ApiOperationResponse.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApiOperationResponse>> responses;
 
     /**
@@ -212,7 +212,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * One or more `template_parameter` blocks as defined below.
      * 
      */
-    @Export(name="templateParameters", type=List.class, parameters={ApiOperationTemplateParameter.class})
+    @Export(name="templateParameters", refs={List.class,ApiOperationTemplateParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApiOperationTemplateParameter>> templateParameters;
 
     /**
@@ -226,7 +226,7 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      * 
      */
-    @Export(name="urlTemplate", type=String.class, parameters={})
+    @Export(name="urlTemplate", refs={String.class}, tree="[0]")
     private Output<String> urlTemplate;
 
     /**

@@ -112,7 +112,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * The home directory of the Storage Account Local User.
      * 
      */
-    @Export(name="homeDirectory", type=String.class, parameters={})
+    @Export(name="homeDirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> homeDirectory;
 
     /**
@@ -126,7 +126,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -154,7 +154,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * One or more `permission_scope` blocks as defined below.
      * 
      */
-    @Export(name="permissionScopes", type=List.class, parameters={LocalUserPermissionScope.class})
+    @Export(name="permissionScopes", refs={List.class,LocalUserPermissionScope.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LocalUserPermissionScope>> permissionScopes;
 
     /**
@@ -168,7 +168,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * The unique Security Identifier of this Storage Account Local User.
      * 
      */
-    @Export(name="sid", type=String.class, parameters={})
+    @Export(name="sid", refs={String.class}, tree="[0]")
     private Output<String> sid;
 
     /**
@@ -182,7 +182,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * One or more `ssh_authorized_key` blocks as defined below.
      * 
      */
-    @Export(name="sshAuthorizedKeys", type=List.class, parameters={LocalUserSshAuthorizedKey.class})
+    @Export(name="sshAuthorizedKeys", refs={List.class,LocalUserSshAuthorizedKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LocalUserSshAuthorizedKey>> sshAuthorizedKeys;
 
     /**
@@ -196,7 +196,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="sshKeyEnabled", type=Boolean.class, parameters={})
+    @Export(name="sshKeyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sshKeyEnabled;
 
     /**
@@ -210,7 +210,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="sshPasswordEnabled", type=Boolean.class, parameters={})
+    @Export(name="sshPasswordEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sshPasswordEnabled;
 
     /**
@@ -224,7 +224,7 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**

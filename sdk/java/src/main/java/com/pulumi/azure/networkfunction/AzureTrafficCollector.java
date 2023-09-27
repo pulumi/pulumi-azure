@@ -72,7 +72,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * The list of Resource IDs of collector policies.
      * 
      */
-    @Export(name="collectorPolicyIds", type=List.class, parameters={String.class})
+    @Export(name="collectorPolicyIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> collectorPolicyIds;
 
     /**
@@ -86,7 +86,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -100,7 +100,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -128,7 +128,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Network Function Azure Traffic Collector.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -142,7 +142,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * The Resource ID of virtual hub.
      * 
      */
-    @Export(name="virtualHubIds", type=List.class, parameters={String.class})
+    @Export(name="virtualHubIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> virtualHubIds;
 
     /**

@@ -124,7 +124,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * The access key of the Storage Account. Conflicts with `shared_access_signature`.
      * 
      */
-    @Export(name="accountKey", type=String.class, parameters={})
+    @Export(name="accountKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountKey;
 
     /**
@@ -138,7 +138,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -154,7 +154,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** `is_default` can only be set to `true` on update.
      * 
      */
-    @Export(name="isDefault", type=Boolean.class, parameters={})
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDefault;
 
     /**
@@ -170,7 +170,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -184,7 +184,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      * 
      */
-    @Export(name="serviceDataAuthIdentity", type=String.class, parameters={})
+    @Export(name="serviceDataAuthIdentity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceDataAuthIdentity;
 
     /**
@@ -200,7 +200,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
      * 
      */
-    @Export(name="sharedAccessSignature", type=String.class, parameters={})
+    @Export(name="sharedAccessSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessSignature;
 
     /**
@@ -216,7 +216,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="storageContainerId", type=String.class, parameters={})
+    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
     private Output<String> storageContainerId;
 
     /**
@@ -230,7 +230,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -244,7 +244,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

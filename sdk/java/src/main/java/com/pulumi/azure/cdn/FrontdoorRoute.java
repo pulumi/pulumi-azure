@@ -37,7 +37,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
      * 
      */
-    @Export(name="cache", type=FrontdoorRouteCache.class, parameters={})
+    @Export(name="cache", refs={FrontdoorRouteCache.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorRouteCache> cache;
 
     /**
@@ -53,7 +53,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      * 
      */
-    @Export(name="cdnFrontdoorCustomDomainIds", type=List.class, parameters={String.class})
+    @Export(name="cdnFrontdoorCustomDomainIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
@@ -67,7 +67,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      * 
      */
-    @Export(name="cdnFrontdoorEndpointId", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorEndpointId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorEndpointId;
 
     /**
@@ -81,7 +81,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      * 
      */
-    @Export(name="cdnFrontdoorOriginGroupId", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorOriginGroupId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorOriginGroupId;
 
     /**
@@ -95,7 +95,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * One or more Front Door Origin resource IDs that this Front Door Route will link to.
      * 
      */
-    @Export(name="cdnFrontdoorOriginIds", type=List.class, parameters={String.class})
+    @Export(name="cdnFrontdoorOriginIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cdnFrontdoorOriginIds;
 
     /**
@@ -109,7 +109,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      * 
      */
-    @Export(name="cdnFrontdoorOriginPath", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorOriginPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cdnFrontdoorOriginPath;
 
     /**
@@ -123,7 +123,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      * 
      */
-    @Export(name="cdnFrontdoorRuleSetIds", type=List.class, parameters={String.class})
+    @Export(name="cdnFrontdoorRuleSetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cdnFrontdoorRuleSetIds;
 
     /**
@@ -137,7 +137,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -151,7 +151,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
      * 
      */
-    @Export(name="forwardingProtocol", type=String.class, parameters={})
+    @Export(name="forwardingProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forwardingProtocol;
 
     /**
@@ -167,7 +167,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
      * 
      */
-    @Export(name="httpsRedirectEnabled", type=Boolean.class, parameters={})
+    @Export(name="httpsRedirectEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsRedirectEnabled;
 
     /**
@@ -183,7 +183,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      * 
      */
-    @Export(name="linkToDefaultDomain", type=Boolean.class, parameters={})
+    @Export(name="linkToDefaultDomain", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> linkToDefaultDomain;
 
     /**
@@ -197,7 +197,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -211,7 +211,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * The route patterns of the rule.
      * 
      */
-    @Export(name="patternsToMatches", type=List.class, parameters={String.class})
+    @Export(name="patternsToMatches", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> patternsToMatches;
 
     /**
@@ -227,7 +227,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
      * 
      */
-    @Export(name="supportedProtocols", type=List.class, parameters={String.class})
+    @Export(name="supportedProtocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedProtocols;
 
     /**

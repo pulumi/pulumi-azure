@@ -68,7 +68,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
@@ -82,7 +82,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * The default host name of the Static Web App.
      * 
      */
-    @Export(name="defaultHostName", type=String.class, parameters={})
+    @Export(name="defaultHostName", refs={String.class}, tree="[0]")
     private Output<String> defaultHostName;
 
     /**
@@ -96,7 +96,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=StaticSiteIdentity.class, parameters={})
+    @Export(name="identity", refs={StaticSiteIdentity.class}, tree="[0]")
     private Output</* @Nullable */ StaticSiteIdentity> identity;
 
     /**
@@ -110,7 +110,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -124,7 +124,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -152,7 +152,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      * 
      */
-    @Export(name="skuSize", type=String.class, parameters={})
+    @Export(name="skuSize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuSize;
 
     /**
@@ -166,7 +166,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      * 
      */
-    @Export(name="skuTier", type=String.class, parameters={})
+    @Export(name="skuTier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuTier;
 
     /**
@@ -180,7 +180,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

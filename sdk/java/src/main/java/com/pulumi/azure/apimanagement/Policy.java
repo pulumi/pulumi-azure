@@ -90,7 +90,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      * 
      */
-    @Export(name="apiManagementId", type=String.class, parameters={})
+    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
     private Output<String> apiManagementId;
 
     /**
@@ -104,7 +104,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The XML Content for this Policy as a string.
      * 
      */
-    @Export(name="xmlContent", type=String.class, parameters={})
+    @Export(name="xmlContent", refs={String.class}, tree="[0]")
     private Output<String> xmlContent;
 
     /**
@@ -118,7 +118,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A link to a Policy XML Document, which must be publicly available.
      * 
      */
-    @Export(name="xmlLink", type=String.class, parameters={})
+    @Export(name="xmlLink", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xmlLink;
 
     /**

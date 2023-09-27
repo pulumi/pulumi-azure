@@ -200,7 +200,7 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
      * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
      * 
      */
-    @Export(name="autoRotationEnabled", type=Boolean.class, parameters={})
+    @Export(name="autoRotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRotationEnabled;
 
     /**
@@ -218,7 +218,7 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
      * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -236,7 +236,7 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", type=String.class, parameters={})
+    @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**

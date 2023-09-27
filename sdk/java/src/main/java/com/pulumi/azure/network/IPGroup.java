@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/iPGroup:IPGroup")
 public class IPGroup extends com.pulumi.resources.CustomResource {
-    @Export(name="cidrs", type=List.class, parameters={String.class})
+    @Export(name="cidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cidrs;
 
     public Output<Optional<List<String>>> cidrs() {
@@ -82,7 +82,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * A `firewall_ids` block as defined below.
      * 
      */
-    @Export(name="firewallIds", type=List.class, parameters={String.class})
+    @Export(name="firewallIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> firewallIds;
 
     /**
@@ -96,7 +96,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * A `firewall_policy_ids` block as defined below.
      * 
      */
-    @Export(name="firewallPolicyIds", type=List.class, parameters={String.class})
+    @Export(name="firewallPolicyIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> firewallPolicyIds;
 
     /**
@@ -110,7 +110,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -124,7 +124,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the IP group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -152,7 +152,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

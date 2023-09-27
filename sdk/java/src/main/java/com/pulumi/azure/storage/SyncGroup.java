@@ -74,7 +74,7 @@ public class SyncGroup extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -88,7 +88,7 @@ public class SyncGroup extends com.pulumi.resources.CustomResource {
      * The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
      * 
      */
-    @Export(name="storageSyncId", type=String.class, parameters={})
+    @Export(name="storageSyncId", refs={String.class}, tree="[0]")
     private Output<String> storageSyncId;
 
     /**

@@ -263,7 +263,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The administrator login name for the new server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="administratorLogin", type=String.class, parameters={})
+    @Export(name="administratorLogin", refs={String.class}, tree="[0]")
     private Output<String> administratorLogin;
 
     /**
@@ -277,7 +277,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      * 
      */
-    @Export(name="administratorLoginPassword", type=String.class, parameters={})
+    @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
     private Output<String> administratorLoginPassword;
 
     /**
@@ -291,7 +291,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", type=String.class, parameters={})
+    @Export(name="collation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> collation;
 
     /**
@@ -305,7 +305,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */
-    @Export(name="dnsZonePartnerId", type=String.class, parameters={})
+    @Export(name="dnsZonePartnerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsZonePartnerId;
 
     /**
@@ -319,7 +319,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The fully qualified domain name of the Azure Managed SQL Instance
      * 
      */
-    @Export(name="fqdn", type=String.class, parameters={})
+    @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
@@ -333,7 +333,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=ManagedInstanceIdentity.class, parameters={})
+    @Export(name="identity", refs={ManagedInstanceIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ManagedInstanceIdentity> identity;
 
     /**
@@ -347,7 +347,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
@@ -361,7 +361,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -375,7 +375,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      * 
      */
-    @Export(name="minimumTlsVersion", type=String.class, parameters={})
+    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
@@ -389,7 +389,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -403,7 +403,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
      * 
      */
-    @Export(name="proxyOverride", type=String.class, parameters={})
+    @Export(name="proxyOverride", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyOverride;
 
     /**
@@ -417,7 +417,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Is the public data endpoint enabled? Default value is `false`.
      * 
      */
-    @Export(name="publicDataEndpointEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicDataEndpointEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicDataEndpointEnabled;
 
     /**
@@ -431,7 +431,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -445,7 +445,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -459,7 +459,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
      * 
      */
-    @Export(name="storageAccountType", type=String.class, parameters={})
+    @Export(name="storageAccountType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountType;
 
     /**
@@ -473,7 +473,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Maximum storage space for your instance. It should be a multiple of 32GB.
      * 
      */
-    @Export(name="storageSizeInGb", type=Integer.class, parameters={})
+    @Export(name="storageSizeInGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageSizeInGb;
 
     /**
@@ -487,7 +487,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -501,7 +501,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -515,7 +515,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="timezoneId", type=String.class, parameters={})
+    @Export(name="timezoneId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezoneId;
 
     /**
@@ -529,7 +529,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`.
      * 
      */
-    @Export(name="vcores", type=Integer.class, parameters={})
+    @Export(name="vcores", refs={Integer.class}, tree="[0]")
     private Output<Integer> vcores;
 
     /**

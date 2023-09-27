@@ -93,7 +93,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      * 
      */
-    @Export(name="hybridConnectionName", type=String.class, parameters={})
+    @Export(name="hybridConnectionName", refs={String.class}, tree="[0]")
     private Output<String> hybridConnectionName;
 
     /**
@@ -107,7 +107,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * Grants listen access to this Authorization Rule. Defaults to `false`.
      * 
      */
-    @Export(name="listen", type=Boolean.class, parameters={})
+    @Export(name="listen", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listen;
 
     /**
@@ -121,7 +121,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be set to `true` too. Defaults to `false`.
      * 
      */
-    @Export(name="manage", type=Boolean.class, parameters={})
+    @Export(name="manage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manage;
 
     /**
@@ -135,7 +135,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * The name which should be used for this Azure Relay Hybrid Connection Authorization Rule. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -149,7 +149,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * Name of the Azure Relay Namespace for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -163,7 +163,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * The Primary Connection String for the Azure Relay Hybrid Connection Authorization Rule.
      * 
      */
-    @Export(name="primaryConnectionString", type=String.class, parameters={})
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
@@ -177,7 +177,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * The Primary Key for the Azure Relay Hybrid Connection Authorization Rule.
      * 
      */
-    @Export(name="primaryKey", type=String.class, parameters={})
+    @Export(name="primaryKey", refs={String.class}, tree="[0]")
     private Output<String> primaryKey;
 
     /**
@@ -191,7 +191,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * The name of the Resource Group where the Azure Relay Hybrid Connection Authorization Rule should exist. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -205,7 +205,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * The Secondary Connection String for the Azure Relay Hybrid Connection Authorization Rule.
      * 
      */
-    @Export(name="secondaryConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
@@ -219,7 +219,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * The Secondary Key for the Azure Relay Hybrid Connection Authorization Rule.
      * 
      */
-    @Export(name="secondaryKey", type=String.class, parameters={})
+    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryKey;
 
     /**
@@ -233,7 +233,7 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * Grants send access to this Authorization Rule. Defaults to `false`.
      * 
      */
-    @Export(name="send", type=Boolean.class, parameters={})
+    @Export(name="send", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> send;
 
     /**

@@ -88,7 +88,7 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
      * A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
      * 
      */
-    @Export(name="actions", type=List.class, parameters={String.class})
+    @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> actions;
 
     /**
@@ -102,7 +102,7 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
      * The name of the Container Registry. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerRegistryName", type=String.class, parameters={})
+    @Export(name="containerRegistryName", refs={String.class}, tree="[0]")
     private Output<String> containerRegistryName;
 
     /**
@@ -116,7 +116,7 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
      * The description of the Container Registry.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -130,7 +130,7 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -144,7 +144,7 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

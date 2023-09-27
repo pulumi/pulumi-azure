@@ -110,7 +110,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
      */
-    @Export(name="autoUpgradeMinorVersion", type=Boolean.class, parameters={})
+    @Export(name="autoUpgradeMinorVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoUpgradeMinorVersion;
 
     /**
@@ -124,7 +124,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
-    @Export(name="automaticUpgradeEnabled", type=Boolean.class, parameters={})
+    @Export(name="automaticUpgradeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
     /**
@@ -140,7 +140,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
-    @Export(name="failureSuppressionEnabled", type=Boolean.class, parameters={})
+    @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
 
     /**
@@ -156,7 +156,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
      * 
      */
-    @Export(name="forceUpdateTag", type=String.class, parameters={})
+    @Export(name="forceUpdateTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forceUpdateTag;
 
     /**
@@ -170,7 +170,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -186,7 +186,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
-    @Export(name="protectedSettings", type=String.class, parameters={})
+    @Export(name="protectedSettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
@@ -204,7 +204,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
      * 
      */
-    @Export(name="protectedSettingsFromKeyVault", type=VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.class, parameters={})
+    @Export(name="protectedSettingsFromKeyVault", refs={VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
 
     /**
@@ -220,7 +220,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * An ordered list of Extension names which this should be provisioned after.
      * 
      */
-    @Export(name="provisionAfterExtensions", type=List.class, parameters={String.class})
+    @Export(name="provisionAfterExtensions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> provisionAfterExtensions;
 
     /**
@@ -234,7 +234,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publisher", type=String.class, parameters={})
+    @Export(name="publisher", refs={String.class}, tree="[0]")
     private Output<String> publisher;
 
     /**
@@ -250,7 +250,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
-    @Export(name="settings", type=String.class, parameters={})
+    @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
     /**
@@ -266,7 +266,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * Specifies the Type of the Extension. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -304,7 +304,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * ```
      * 
      */
-    @Export(name="typeHandlerVersion", type=String.class, parameters={})
+    @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
     private Output<String> typeHandlerVersion;
 
     /**
@@ -344,7 +344,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      * 
      */
-    @Export(name="virtualMachineScaleSetId", type=String.class, parameters={})
+    @Export(name="virtualMachineScaleSetId", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineScaleSetId;
 
     /**

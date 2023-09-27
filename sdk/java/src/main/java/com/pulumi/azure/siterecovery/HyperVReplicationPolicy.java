@@ -79,7 +79,7 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
      * Specifies the frequency at which to create application consistent recovery points.
      * 
      */
-    @Export(name="applicationConsistentSnapshotFrequencyInHours", type=Integer.class, parameters={})
+    @Export(name="applicationConsistentSnapshotFrequencyInHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> applicationConsistentSnapshotFrequencyInHours;
 
     /**
@@ -93,7 +93,7 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
      * The name of the replication policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
      * The duration in hours for which the recovery points need to be stored.
      * 
      */
-    @Export(name="recoveryPointRetentionInHours", type=Integer.class, parameters={})
+    @Export(name="recoveryPointRetentionInHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> recoveryPointRetentionInHours;
 
     /**
@@ -117,7 +117,7 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
     public Output<Integer> recoveryPointRetentionInHours() {
         return this.recoveryPointRetentionInHours;
     }
-    @Export(name="recoveryVaultId", type=String.class, parameters={})
+    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultId;
 
     public Output<String> recoveryVaultId() {
@@ -127,7 +127,7 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
      * Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
      * 
      */
-    @Export(name="replicationIntervalInSeconds", type=Integer.class, parameters={})
+    @Export(name="replicationIntervalInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicationIntervalInSeconds;
 
     /**

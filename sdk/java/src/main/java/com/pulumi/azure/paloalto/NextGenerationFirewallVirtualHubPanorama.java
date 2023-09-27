@@ -22,55 +22,55 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama")
 public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resources.CustomResource {
-    @Export(name="destinationNats", type=List.class, parameters={NextGenerationFirewallVirtualHubPanoramaDestinationNat.class})
+    @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualHubPanoramaDestinationNat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualHubPanoramaDestinationNat>> destinationNats;
 
     public Output<Optional<List<NextGenerationFirewallVirtualHubPanoramaDestinationNat>>> destinationNats() {
         return Codegen.optional(this.destinationNats);
     }
-    @Export(name="dnsSettings", type=NextGenerationFirewallVirtualHubPanoramaDnsSettings.class, parameters={})
+    @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualHubPanoramaDnsSettings.class}, tree="[0]")
     private Output</* @Nullable */ NextGenerationFirewallVirtualHubPanoramaDnsSettings> dnsSettings;
 
     public Output<Optional<NextGenerationFirewallVirtualHubPanoramaDnsSettings>> dnsSettings() {
         return Codegen.optional(this.dnsSettings);
     }
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     public Output<String> location() {
         return this.location;
     }
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="networkProfile", type=NextGenerationFirewallVirtualHubPanoramaNetworkProfile.class, parameters={})
+    @Export(name="networkProfile", refs={NextGenerationFirewallVirtualHubPanoramaNetworkProfile.class}, tree="[0]")
     private Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfile> networkProfile;
 
     public Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfile> networkProfile() {
         return this.networkProfile;
     }
-    @Export(name="panoramaBase64Config", type=String.class, parameters={})
+    @Export(name="panoramaBase64Config", refs={String.class}, tree="[0]")
     private Output<String> panoramaBase64Config;
 
     public Output<String> panoramaBase64Config() {
         return this.panoramaBase64Config;
     }
-    @Export(name="panoramas", type=List.class, parameters={NextGenerationFirewallVirtualHubPanoramaPanorama.class})
+    @Export(name="panoramas", refs={List.class,NextGenerationFirewallVirtualHubPanoramaPanorama.class}, tree="[0,1]")
     private Output<List<NextGenerationFirewallVirtualHubPanoramaPanorama>> panoramas;
 
     public Output<List<NextGenerationFirewallVirtualHubPanoramaPanorama>> panoramas() {
         return this.panoramas;
     }
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     public Output<Optional<Map<String,String>>> tags() {

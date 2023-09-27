@@ -94,7 +94,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * A description which should be used for this Policy Assignment.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -108,7 +108,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * The Display Name for this Policy Assignment.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -122,7 +122,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * Specifies if this Policy should be enforced or not? Defaults to `true`.
      * 
      */
-    @Export(name="enforce", type=Boolean.class, parameters={})
+    @Export(name="enforce", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforce;
 
     /**
@@ -138,7 +138,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * &gt; **Note:** The `location` field must also be specified when `identity` is specified.
      * 
      */
-    @Export(name="identity", type=SubscriptionPolicyAssignmentIdentity.class, parameters={})
+    @Export(name="identity", refs={SubscriptionPolicyAssignmentIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SubscriptionPolicyAssignmentIdentity> identity;
 
     /**
@@ -154,7 +154,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -168,7 +168,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * A JSON mapping of any Metadata for this Policy.
      * 
      */
-    @Export(name="metadata", type=String.class, parameters={})
+    @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output<String> metadata;
 
     /**
@@ -182,7 +182,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -196,7 +196,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * One or more `non_compliance_message` blocks as defined below.
      * 
      */
-    @Export(name="nonComplianceMessages", type=List.class, parameters={SubscriptionPolicyAssignmentNonComplianceMessage.class})
+    @Export(name="nonComplianceMessages", refs={List.class,SubscriptionPolicyAssignmentNonComplianceMessage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SubscriptionPolicyAssignmentNonComplianceMessage>> nonComplianceMessages;
 
     /**
@@ -210,7 +210,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      * 
      */
-    @Export(name="notScopes", type=List.class, parameters={String.class})
+    @Export(name="notScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notScopes;
 
     /**
@@ -224,7 +224,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
      * 
      */
-    @Export(name="overrides", type=List.class, parameters={SubscriptionPolicyAssignmentOverride.class})
+    @Export(name="overrides", refs={List.class,SubscriptionPolicyAssignmentOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SubscriptionPolicyAssignmentOverride>> overrides;
 
     /**
@@ -238,7 +238,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * A JSON mapping of any Parameters for this Policy.
      * 
      */
-    @Export(name="parameters", type=String.class, parameters={})
+    @Export(name="parameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameters;
 
     /**
@@ -252,7 +252,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="policyDefinitionId", type=String.class, parameters={})
+    @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> policyDefinitionId;
 
     /**
@@ -266,7 +266,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
      * 
      */
-    @Export(name="resourceSelectors", type=List.class, parameters={SubscriptionPolicyAssignmentResourceSelector.class})
+    @Export(name="resourceSelectors", refs={List.class,SubscriptionPolicyAssignmentResourceSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SubscriptionPolicyAssignmentResourceSelector>> resourceSelectors;
 
     /**
@@ -280,7 +280,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
      * 
      */
-    @Export(name="subscriptionId", type=String.class, parameters={})
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output<String> subscriptionId;
 
     /**

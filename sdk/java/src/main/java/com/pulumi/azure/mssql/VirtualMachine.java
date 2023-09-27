@@ -94,7 +94,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `assessment` block as defined below.
      * 
      */
-    @Export(name="assessment", type=VirtualMachineAssessment.class, parameters={})
+    @Export(name="assessment", refs={VirtualMachineAssessment.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAssessment> assessment;
 
     /**
@@ -108,7 +108,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      * 
      */
-    @Export(name="autoBackup", type=VirtualMachineAutoBackup.class, parameters={})
+    @Export(name="autoBackup", refs={VirtualMachineAutoBackup.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAutoBackup> autoBackup;
 
     /**
@@ -122,7 +122,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `auto_patching` block as defined below.
      * 
      */
-    @Export(name="autoPatching", type=VirtualMachineAutoPatching.class, parameters={})
+    @Export(name="autoPatching", refs={VirtualMachineAutoPatching.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAutoPatching> autoPatching;
 
     /**
@@ -136,7 +136,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `key_vault_credential` block as defined below.
      * 
      */
-    @Export(name="keyVaultCredential", type=VirtualMachineKeyVaultCredential.class, parameters={})
+    @Export(name="keyVaultCredential", refs={VirtualMachineKeyVaultCredential.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineKeyVaultCredential> keyVaultCredential;
 
     /**
@@ -150,7 +150,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Should R Services be enabled?
      * 
      */
-    @Export(name="rServicesEnabled", type=Boolean.class, parameters={})
+    @Export(name="rServicesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rServicesEnabled;
 
     /**
@@ -164,7 +164,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The SQL Server port. Defaults to `1433`.
      * 
      */
-    @Export(name="sqlConnectivityPort", type=Integer.class, parameters={})
+    @Export(name="sqlConnectivityPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sqlConnectivityPort;
 
     /**
@@ -178,7 +178,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      * 
      */
-    @Export(name="sqlConnectivityType", type=String.class, parameters={})
+    @Export(name="sqlConnectivityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlConnectivityType;
 
     /**
@@ -192,7 +192,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The SQL Server sysadmin login password.
      * 
      */
-    @Export(name="sqlConnectivityUpdatePassword", type=String.class, parameters={})
+    @Export(name="sqlConnectivityUpdatePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlConnectivityUpdatePassword;
 
     /**
@@ -206,7 +206,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The SQL Server sysadmin login to create.
      * 
      */
-    @Export(name="sqlConnectivityUpdateUsername", type=String.class, parameters={})
+    @Export(name="sqlConnectivityUpdateUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlConnectivityUpdateUsername;
 
     /**
@@ -220,7 +220,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A `sql_instance` block as defined below.
      * 
      */
-    @Export(name="sqlInstance", type=VirtualMachineSqlInstance.class, parameters={})
+    @Export(name="sqlInstance", refs={VirtualMachineSqlInstance.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineSqlInstance> sqlInstance;
 
     /**
@@ -234,7 +234,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sqlLicenseType", type=String.class, parameters={})
+    @Export(name="sqlLicenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlLicenseType;
 
     /**
@@ -248,7 +248,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
      * 
      */
-    @Export(name="sqlVirtualMachineGroupId", type=String.class, parameters={})
+    @Export(name="sqlVirtualMachineGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlVirtualMachineGroupId;
 
     /**
@@ -262,7 +262,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `storage_configuration` block as defined below.
      * 
      */
-    @Export(name="storageConfiguration", type=VirtualMachineStorageConfiguration.class, parameters={})
+    @Export(name="storageConfiguration", refs={VirtualMachineStorageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineStorageConfiguration> storageConfiguration;
 
     /**
@@ -276,7 +276,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -290,7 +290,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualMachineId", type=String.class, parameters={})
+    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineId;
 
     /**
@@ -304,7 +304,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A `wsfc_domain_credential` block as defined below
      * 
      */
-    @Export(name="wsfcDomainCredential", type=VirtualMachineWsfcDomainCredential.class, parameters={})
+    @Export(name="wsfcDomainCredential", refs={VirtualMachineWsfcDomainCredential.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineWsfcDomainCredential> wsfcDomainCredential;
 
     /**

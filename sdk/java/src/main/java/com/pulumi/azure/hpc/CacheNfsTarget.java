@@ -35,7 +35,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cacheName", type=String.class, parameters={})
+    @Export(name="cacheName", refs={String.class}, tree="[0]")
     private Output<String> cacheName;
 
     /**
@@ -49,7 +49,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -63,7 +63,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
      * 
      */
-    @Export(name="namespaceJunctions", type=List.class, parameters={CacheNfsTargetNamespaceJunction.class})
+    @Export(name="namespaceJunctions", refs={List.class,CacheNfsTargetNamespaceJunction.class}, tree="[0,1]")
     private Output<List<CacheNfsTargetNamespaceJunction>> namespaceJunctions;
 
     /**
@@ -77,7 +77,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -91,7 +91,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetHostName", type=String.class, parameters={})
+    @Export(name="targetHostName", refs={String.class}, tree="[0]")
     private Output<String> targetHostName;
 
     /**
@@ -105,7 +105,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      * 
      */
-    @Export(name="usageModel", type=String.class, parameters={})
+    @Export(name="usageModel", refs={String.class}, tree="[0]")
     private Output<String> usageModel;
 
     /**

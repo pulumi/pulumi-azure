@@ -109,7 +109,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * A `condition` block as defined below.
      * 
      */
-    @Export(name="condition", type=AlertProcessingRuleSuppressionCondition.class, parameters={})
+    @Export(name="condition", refs={AlertProcessingRuleSuppressionCondition.class}, tree="[0]")
     private Output</* @Nullable */ AlertProcessingRuleSuppressionCondition> condition;
 
     /**
@@ -123,7 +123,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * Specifies a description for the Alert Processing Rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -137,7 +137,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * Should the Alert Processing Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -151,7 +151,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -179,7 +179,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * A `schedule` block as defined below.
      * 
      */
-    @Export(name="schedule", type=AlertProcessingRuleSuppressionSchedule.class, parameters={})
+    @Export(name="schedule", refs={AlertProcessingRuleSuppressionSchedule.class}, tree="[0]")
     private Output</* @Nullable */ AlertProcessingRuleSuppressionSchedule> schedule;
 
     /**
@@ -193,7 +193,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * A list of resource IDs which will be the target of Alert Processing Rule.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -207,7 +207,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * A mapping of tags which should be assigned to the Alert Processing Rule.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

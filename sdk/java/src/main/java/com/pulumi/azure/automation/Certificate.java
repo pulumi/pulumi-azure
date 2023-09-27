@@ -82,7 +82,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -96,7 +96,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Base64 encoded value of the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="base64", type=String.class, parameters={})
+    @Export(name="base64", refs={String.class}, tree="[0]")
     private Output<String> base64;
 
     /**
@@ -110,7 +110,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The description of this Automation Certificate.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -124,7 +124,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The is exportable flag of the certificate.
      * 
      */
-    @Export(name="exportable", type=Boolean.class, parameters={})
+    @Export(name="exportable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> exportable;
 
     /**
@@ -138,7 +138,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -166,7 +166,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The thumbprint for the certificate.
      * 
      */
-    @Export(name="thumbprint", type=String.class, parameters={})
+    @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output<String> thumbprint;
 
     /**

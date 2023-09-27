@@ -126,7 +126,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
      * 
      */
-    @Export(name="internetSecurityEnabled", type=Boolean.class, parameters={})
+    @Export(name="internetSecurityEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> internetSecurityEnabled;
 
     /**
@@ -140,7 +140,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
      * 
      */
-    @Export(name="remoteVpnSiteId", type=String.class, parameters={})
+    @Export(name="remoteVpnSiteId", refs={String.class}, tree="[0]")
     private Output<String> remoteVpnSiteId;
 
     /**
@@ -168,7 +168,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      * 
      */
-    @Export(name="routing", type=VpnGatewayConnectionRouting.class, parameters={})
+    @Export(name="routing", refs={VpnGatewayConnectionRouting.class}, tree="[0]")
     private Output<VpnGatewayConnectionRouting> routing;
 
     /**
@@ -182,7 +182,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * One or more `traffic_selector_policy` blocks as defined below.
      * 
      */
-    @Export(name="trafficSelectorPolicies", type=List.class, parameters={VpnGatewayConnectionTrafficSelectorPolicy.class})
+    @Export(name="trafficSelectorPolicies", refs={List.class,VpnGatewayConnectionTrafficSelectorPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnGatewayConnectionTrafficSelectorPolicy>> trafficSelectorPolicies;
 
     /**
@@ -196,7 +196,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      * 
      */
-    @Export(name="vpnGatewayId", type=String.class, parameters={})
+    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
     /**
@@ -210,7 +210,7 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * One or more `vpn_link` blocks as defined below.
      * 
      */
-    @Export(name="vpnLinks", type=List.class, parameters={VpnGatewayConnectionVpnLink.class})
+    @Export(name="vpnLinks", refs={List.class,VpnGatewayConnectionVpnLink.class}, tree="[0,1]")
     private Output<List<VpnGatewayConnectionVpnLink>> vpnLinks;
 
     /**

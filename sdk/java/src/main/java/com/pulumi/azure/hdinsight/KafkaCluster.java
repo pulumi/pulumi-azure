@@ -141,7 +141,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterVersion", type=String.class, parameters={})
+    @Export(name="clusterVersion", refs={String.class}, tree="[0]")
     private Output<String> clusterVersion;
 
     /**
@@ -155,7 +155,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `component_version` block as defined below.
      * 
      */
-    @Export(name="componentVersion", type=KafkaClusterComponentVersion.class, parameters={})
+    @Export(name="componentVersion", refs={KafkaClusterComponentVersion.class}, tree="[0]")
     private Output<KafkaClusterComponentVersion> componentVersion;
 
     /**
@@ -169,7 +169,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `compute_isolation` block as defined below.
      * 
      */
-    @Export(name="computeIsolation", type=KafkaClusterComputeIsolation.class, parameters={})
+    @Export(name="computeIsolation", refs={KafkaClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterComputeIsolation> computeIsolation;
 
     /**
@@ -185,7 +185,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
-    @Export(name="diskEncryptions", type=List.class, parameters={KafkaClusterDiskEncryption.class})
+    @Export(name="diskEncryptions", refs={List.class,KafkaClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;
 
     /**
@@ -201,7 +201,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionInTransitEnabled", type=Boolean.class, parameters={})
+    @Export(name="encryptionInTransitEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> encryptionInTransitEnabled;
 
     /**
@@ -215,7 +215,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * An `extension` block as defined below.
      * 
      */
-    @Export(name="extension", type=KafkaClusterExtension.class, parameters={})
+    @Export(name="extension", refs={KafkaClusterExtension.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterExtension> extension;
 
     /**
@@ -229,7 +229,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `gateway` block as defined below.
      * 
      */
-    @Export(name="gateway", type=KafkaClusterGateway.class, parameters={})
+    @Export(name="gateway", refs={KafkaClusterGateway.class}, tree="[0]")
     private Output<KafkaClusterGateway> gateway;
 
     /**
@@ -243,7 +243,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
      * 
      */
-    @Export(name="httpsEndpoint", type=String.class, parameters={})
+    @Export(name="httpsEndpoint", refs={String.class}, tree="[0]")
     private Output<String> httpsEndpoint;
 
     /**
@@ -257,7 +257,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
      * 
      */
-    @Export(name="kafkaRestProxyEndpoint", type=String.class, parameters={})
+    @Export(name="kafkaRestProxyEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kafkaRestProxyEndpoint;
 
     /**
@@ -271,7 +271,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -285,7 +285,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `metastores` block as defined below.
      * 
      */
-    @Export(name="metastores", type=KafkaClusterMetastores.class, parameters={})
+    @Export(name="metastores", refs={KafkaClusterMetastores.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterMetastores> metastores;
 
     /**
@@ -299,7 +299,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `monitor` block as defined below.
      * 
      */
-    @Export(name="monitor", type=KafkaClusterMonitor.class, parameters={})
+    @Export(name="monitor", refs={KafkaClusterMonitor.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterMonitor> monitor;
 
     /**
@@ -313,7 +313,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -327,7 +327,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `network` block as defined below.
      * 
      */
-    @Export(name="network", type=KafkaClusterNetwork.class, parameters={})
+    @Export(name="network", refs={KafkaClusterNetwork.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterNetwork> network;
 
     /**
@@ -341,7 +341,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -355,7 +355,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `rest_proxy` block as defined below.
      * 
      */
-    @Export(name="restProxy", type=KafkaClusterRestProxy.class, parameters={})
+    @Export(name="restProxy", refs={KafkaClusterRestProxy.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterRestProxy> restProxy;
 
     /**
@@ -373,7 +373,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user */
-    @Export(name="roles", type=KafkaClusterRoles.class, parameters={})
+    @Export(name="roles", refs={KafkaClusterRoles.class}, tree="[0]")
     private Output<KafkaClusterRoles> roles;
 
     /**
@@ -387,7 +387,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityProfile", type=KafkaClusterSecurityProfile.class, parameters={})
+    @Export(name="securityProfile", refs={KafkaClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterSecurityProfile> securityProfile;
 
     /**
@@ -401,7 +401,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
      * 
      */
-    @Export(name="sshEndpoint", type=String.class, parameters={})
+    @Export(name="sshEndpoint", refs={String.class}, tree="[0]")
     private Output<String> sshEndpoint;
 
     /**
@@ -415,7 +415,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A `storage_account_gen2` block as defined below.
      * 
      */
-    @Export(name="storageAccountGen2", type=KafkaClusterStorageAccountGen2.class, parameters={})
+    @Export(name="storageAccountGen2", refs={KafkaClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterStorageAccountGen2> storageAccountGen2;
 
     /**
@@ -429,7 +429,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` block as defined below.
      * 
      */
-    @Export(name="storageAccounts", type=List.class, parameters={KafkaClusterStorageAccount.class})
+    @Export(name="storageAccounts", refs={List.class,KafkaClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KafkaClusterStorageAccount>> storageAccounts;
 
     /**
@@ -443,7 +443,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -457,7 +457,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output<String> tier;
 
     /**
@@ -471,7 +471,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tlsMinVersion", type=String.class, parameters={})
+    @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tlsMinVersion;
 
     /**

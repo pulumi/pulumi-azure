@@ -118,7 +118,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * The total amount of cost to track with the budget.
      * 
      */
-    @Export(name="amount", type=Double.class, parameters={})
+    @Export(name="amount", refs={Double.class}, tree="[0]")
     private Output<Double> amount;
 
     /**
@@ -132,7 +132,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * (Optional) The ETag of the Management Group Consumption Budget.
      * 
      */
-    @Export(name="etag", type=String.class, parameters={})
+    @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
@@ -146,7 +146,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * A `filter` block as defined below.
      * 
      */
-    @Export(name="filter", type=BudgetManagementGroupFilter.class, parameters={})
+    @Export(name="filter", refs={BudgetManagementGroupFilter.class}, tree="[0]")
     private Output</* @Nullable */ BudgetManagementGroupFilter> filter;
 
     /**
@@ -160,7 +160,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * The ID of the Management Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managementGroupId", type=String.class, parameters={})
+    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
     private Output<String> managementGroupId;
 
     /**
@@ -174,7 +174,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * One or more `notification` blocks as defined below.
      * 
      */
-    @Export(name="notifications", type=List.class, parameters={BudgetManagementGroupNotification.class})
+    @Export(name="notifications", refs={List.class,BudgetManagementGroupNotification.class}, tree="[0,1]")
     private Output<List<BudgetManagementGroupNotification>> notifications;
 
     /**
@@ -202,7 +202,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="timeGrain", type=String.class, parameters={})
+    @Export(name="timeGrain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timeGrain;
 
     /**
@@ -216,7 +216,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * A `time_period` block as defined below.
      * 
      */
-    @Export(name="timePeriod", type=BudgetManagementGroupTimePeriod.class, parameters={})
+    @Export(name="timePeriod", refs={BudgetManagementGroupTimePeriod.class}, tree="[0]")
     private Output<BudgetManagementGroupTimePeriod> timePeriod;
 
     /**

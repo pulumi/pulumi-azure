@@ -104,7 +104,7 @@ public class MongoRoleDefinition extends com.pulumi.resources.CustomResource {
      * The resource ID of the Mongo DB. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cosmosMongoDatabaseId", type=String.class, parameters={})
+    @Export(name="cosmosMongoDatabaseId", refs={String.class}, tree="[0]")
     private Output<String> cosmosMongoDatabaseId;
 
     /**
@@ -120,7 +120,7 @@ public class MongoRoleDefinition extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
      * 
      */
-    @Export(name="inheritedRoleNames", type=List.class, parameters={String.class})
+    @Export(name="inheritedRoleNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> inheritedRoleNames;
 
     /**
@@ -136,7 +136,7 @@ public class MongoRoleDefinition extends com.pulumi.resources.CustomResource {
      * A `privilege` block as defined below.
      * 
      */
-    @Export(name="privileges", type=List.class, parameters={MongoRoleDefinitionPrivilege.class})
+    @Export(name="privileges", refs={List.class,MongoRoleDefinitionPrivilege.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MongoRoleDefinitionPrivilege>> privileges;
 
     /**
@@ -150,7 +150,7 @@ public class MongoRoleDefinition extends com.pulumi.resources.CustomResource {
      * The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output<String> roleName;
 
     /**

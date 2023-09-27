@@ -77,7 +77,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="arcVirtualMachineId", type=String.class, parameters={})
+    @Export(name="arcVirtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> arcVirtualMachineId;
 
     /**
@@ -91,7 +91,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * Specifies the Hybrid Compute resource&#39;s unique SMBIOS ID. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="arcVirtualMachineUuid", type=String.class, parameters={})
+    @Export(name="arcVirtualMachineUuid", refs={String.class}, tree="[0]")
     private Output<String> arcVirtualMachineUuid;
 
     /**
@@ -105,7 +105,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * Specifies a description for this Storage Mover Agent.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -119,7 +119,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageMoverId", type=String.class, parameters={})
+    @Export(name="storageMoverId", refs={String.class}, tree="[0]")
     private Output<String> storageMoverId;
 
     /**

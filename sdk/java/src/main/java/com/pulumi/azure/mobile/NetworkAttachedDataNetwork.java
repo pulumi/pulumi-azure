@@ -149,7 +149,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * Specifies the DNS servers to signal to UEs to use for this attached data network.
      * 
      */
-    @Export(name="dnsAddresses", type=List.class, parameters={String.class})
+    @Export(name="dnsAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsAddresses;
 
     /**
@@ -163,7 +163,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -177,7 +177,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * Specifies the name of the `azure.mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
      * 
      */
-    @Export(name="mobileNetworkDataNetworkName", type=String.class, parameters={})
+    @Export(name="mobileNetworkDataNetworkName", refs={String.class}, tree="[0]")
     private Output<String> mobileNetworkDataNetworkName;
 
     /**
@@ -191,7 +191,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * Specifies the ID of the `azure.mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
      * 
      */
-    @Export(name="mobileNetworkPacketCoreDataPlaneId", type=String.class, parameters={})
+    @Export(name="mobileNetworkPacketCoreDataPlaneId", refs={String.class}, tree="[0]")
     private Output<String> mobileNetworkPacketCoreDataPlaneId;
 
     /**
@@ -205,7 +205,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * A `network_address_port_translation` block as defined below.
      * 
      */
-    @Export(name="networkAddressPortTranslation", type=NetworkAttachedDataNetworkNetworkAddressPortTranslation.class, parameters={})
+    @Export(name="networkAddressPortTranslation", refs={NetworkAttachedDataNetworkNetworkAddressPortTranslation.class}, tree="[0]")
     private Output</* @Nullable */ NetworkAttachedDataNetworkNetworkAddressPortTranslation> networkAddressPortTranslation;
 
     /**
@@ -219,7 +219,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -229,13 +229,13 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="userEquipmentAddressPoolPrefixes", type=List.class, parameters={String.class})
+    @Export(name="userEquipmentAddressPoolPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userEquipmentAddressPoolPrefixes;
 
     public Output<Optional<List<String>>> userEquipmentAddressPoolPrefixes() {
         return Codegen.optional(this.userEquipmentAddressPoolPrefixes);
     }
-    @Export(name="userEquipmentStaticAddressPoolPrefixes", type=List.class, parameters={String.class})
+    @Export(name="userEquipmentStaticAddressPoolPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userEquipmentStaticAddressPoolPrefixes;
 
     public Output<Optional<List<String>>> userEquipmentStaticAddressPoolPrefixes() {
@@ -245,7 +245,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessIpv4Address", type=String.class, parameters={})
+    @Export(name="userPlaneAccessIpv4Address", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessIpv4Address;
 
     /**
@@ -259,7 +259,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessIpv4Gateway", type=String.class, parameters={})
+    @Export(name="userPlaneAccessIpv4Gateway", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessIpv4Gateway;
 
     /**
@@ -273,7 +273,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessIpv4Subnet", type=String.class, parameters={})
+    @Export(name="userPlaneAccessIpv4Subnet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessIpv4Subnet;
 
     /**
@@ -287,7 +287,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * Specifies the logical name for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessName", type=String.class, parameters={})
+    @Export(name="userPlaneAccessName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessName;
 
     /**

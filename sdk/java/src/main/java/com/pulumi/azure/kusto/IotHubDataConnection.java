@@ -132,7 +132,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -146,7 +146,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="consumerGroup", type=String.class, parameters={})
+    @Export(name="consumerGroup", refs={String.class}, tree="[0]")
     private Output<String> consumerGroup;
 
     /**
@@ -160,7 +160,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dataFormat", type=String.class, parameters={})
+    @Export(name="dataFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataFormat;
 
     /**
@@ -174,7 +174,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -188,7 +188,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseRoutingType", type=String.class, parameters={})
+    @Export(name="databaseRoutingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseRoutingType;
 
     /**
@@ -202,7 +202,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
      * 
      */
-    @Export(name="eventSystemProperties", type=List.class, parameters={String.class})
+    @Export(name="eventSystemProperties", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> eventSystemProperties;
 
     /**
@@ -216,7 +216,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", type=String.class, parameters={})
+    @Export(name="iothubId", refs={String.class}, tree="[0]")
     private Output<String> iothubId;
 
     /**
@@ -230,7 +230,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -244,7 +244,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="mappingRuleName", type=String.class, parameters={})
+    @Export(name="mappingRuleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mappingRuleName;
 
     /**
@@ -258,7 +258,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -272,7 +272,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -286,7 +286,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sharedAccessPolicyName", type=String.class, parameters={})
+    @Export(name="sharedAccessPolicyName", refs={String.class}, tree="[0]")
     private Output<String> sharedAccessPolicyName;
 
     /**
@@ -300,7 +300,7 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableName;
 
     /**

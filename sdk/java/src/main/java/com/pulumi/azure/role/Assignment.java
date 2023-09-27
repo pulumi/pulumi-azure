@@ -237,7 +237,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="condition", type=String.class, parameters={})
+    @Export(name="condition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> condition;
 
     /**
@@ -251,7 +251,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="conditionVersion", type=String.class, parameters={})
+    @Export(name="conditionVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conditionVersion;
 
     /**
@@ -267,7 +267,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** this field is only used in cross tenant scenario.
      * 
      */
-    @Export(name="delegatedManagedIdentityResourceId", type=String.class, parameters={})
+    @Export(name="delegatedManagedIdentityResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delegatedManagedIdentityResourceId;
 
     /**
@@ -283,7 +283,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The description for this Role Assignment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -297,7 +297,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -313,7 +313,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
      * 
      */
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
@@ -329,7 +329,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
      * 
      */
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
@@ -343,7 +343,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
      * 
      */
-    @Export(name="roleDefinitionId", type=String.class, parameters={})
+    @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
@@ -357,7 +357,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
      * 
      */
-    @Export(name="roleDefinitionName", type=String.class, parameters={})
+    @Export(name="roleDefinitionName", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionName;
 
     /**
@@ -371,7 +371,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
@@ -387,7 +387,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
      */
-    @Export(name="skipServicePrincipalAadCheck", type=Boolean.class, parameters={})
+    @Export(name="skipServicePrincipalAadCheck", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipServicePrincipalAadCheck;
 
     /**

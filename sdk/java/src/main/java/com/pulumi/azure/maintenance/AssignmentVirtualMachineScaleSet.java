@@ -226,7 +226,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -240,7 +240,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maintenanceConfigurationId", type=String.class, parameters={})
+    @Export(name="maintenanceConfigurationId", refs={String.class}, tree="[0]")
     private Output<String> maintenanceConfigurationId;
 
     /**
@@ -254,7 +254,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualMachineScaleSetId", type=String.class, parameters={})
+    @Export(name="virtualMachineScaleSetId", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineScaleSetId;
 
     /**

@@ -77,7 +77,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * The comment for Audit purposes.
      * 
      */
-    @Export(name="auditComment", type=String.class, parameters={})
+    @Export(name="auditComment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditComment;
 
     /**
@@ -91,7 +91,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * The description for the Prefix List.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Palo Alto Local Rulestack Prefix List.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * Specifies a list of Prefixes.
      * 
      */
-    @Export(name="prefixLists", type=List.class, parameters={String.class})
+    @Export(name="prefixLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> prefixLists;
 
     /**
@@ -133,7 +133,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created.
      * 
      */
-    @Export(name="rulestackId", type=String.class, parameters={})
+    @Export(name="rulestackId", refs={String.class}, tree="[0]")
     private Output<String> rulestackId;
 
     /**

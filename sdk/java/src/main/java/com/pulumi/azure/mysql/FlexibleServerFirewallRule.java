@@ -170,7 +170,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
-    @Export(name="endIpAddress", type=String.class, parameters={})
+    @Export(name="endIpAddress", refs={String.class}, tree="[0]")
     private Output<String> endIpAddress;
 
     /**
@@ -186,7 +186,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -200,7 +200,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -214,7 +214,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -228,7 +228,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * Specifies the Start IP Address associated with this Firewall Rule.
      * 
      */
-    @Export(name="startIpAddress", type=String.class, parameters={})
+    @Export(name="startIpAddress", refs={String.class}, tree="[0]")
     private Output<String> startIpAddress;
 
     /**

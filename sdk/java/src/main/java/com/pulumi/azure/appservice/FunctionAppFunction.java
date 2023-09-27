@@ -234,7 +234,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The config for this Function in JSON format.
      * 
      */
-    @Export(name="configJson", type=String.class, parameters={})
+    @Export(name="configJson", refs={String.class}, tree="[0]")
     private Output<String> configJson;
 
     /**
@@ -248,7 +248,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The URL of the configuration JSON.
      * 
      */
-    @Export(name="configUrl", type=String.class, parameters={})
+    @Export(name="configUrl", refs={String.class}, tree="[0]")
     private Output<String> configUrl;
 
     /**
@@ -262,7 +262,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * Should this function be enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -276,7 +276,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * A `file` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="files", type=List.class, parameters={FunctionAppFunctionFile.class})
+    @Export(name="files", refs={List.class,FunctionAppFunctionFile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FunctionAppFunctionFile>> files;
 
     /**
@@ -290,7 +290,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="functionAppId", type=String.class, parameters={})
+    @Export(name="functionAppId", refs={String.class}, tree="[0]")
     private Output<String> functionAppId;
 
     /**
@@ -304,7 +304,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The invocation URL.
      * 
      */
-    @Export(name="invocationUrl", type=String.class, parameters={})
+    @Export(name="invocationUrl", refs={String.class}, tree="[0]")
     private Output<String> invocationUrl;
 
     /**
@@ -320,7 +320,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      * 
      */
-    @Export(name="language", type=String.class, parameters={})
+    @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
@@ -336,7 +336,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The name of the function. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -350,7 +350,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The Script root path URL.
      * 
      */
-    @Export(name="scriptRootPathUrl", type=String.class, parameters={})
+    @Export(name="scriptRootPathUrl", refs={String.class}, tree="[0]")
     private Output<String> scriptRootPathUrl;
 
     /**
@@ -364,7 +364,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The script URL.
      * 
      */
-    @Export(name="scriptUrl", type=String.class, parameters={})
+    @Export(name="scriptUrl", refs={String.class}, tree="[0]")
     private Output<String> scriptUrl;
 
     /**
@@ -378,7 +378,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The URL for the Secrets File.
      * 
      */
-    @Export(name="secretsFileUrl", type=String.class, parameters={})
+    @Export(name="secretsFileUrl", refs={String.class}, tree="[0]")
     private Output<String> secretsFileUrl;
 
     /**
@@ -392,7 +392,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The test data for the function.
      * 
      */
-    @Export(name="testData", type=String.class, parameters={})
+    @Export(name="testData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> testData;
 
     /**
@@ -406,7 +406,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The Test data URL.
      * 
      */
-    @Export(name="testDataUrl", type=String.class, parameters={})
+    @Export(name="testDataUrl", refs={String.class}, tree="[0]")
     private Output<String> testDataUrl;
 
     /**
@@ -420,7 +420,7 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * The function URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

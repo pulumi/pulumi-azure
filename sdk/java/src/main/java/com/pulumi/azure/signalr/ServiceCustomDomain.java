@@ -144,7 +144,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -160,7 +160,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -174,7 +174,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="signalrCustomCertificateId", type=String.class, parameters={})
+    @Export(name="signalrCustomCertificateId", refs={String.class}, tree="[0]")
     private Output<String> signalrCustomCertificateId;
 
     /**
@@ -188,7 +188,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="signalrServiceId", type=String.class, parameters={})
+    @Export(name="signalrServiceId", refs={String.class}, tree="[0]")
     private Output<String> signalrServiceId;
 
     /**

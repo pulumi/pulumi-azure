@@ -97,7 +97,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The ID of the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceSlotId", type=String.class, parameters={})
+    @Export(name="appServiceSlotId", refs={String.class}, tree="[0]")
     private Output<String> appServiceSlotId;
 
     /**
@@ -113,7 +113,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      * 
      */
-    @Export(name="hostname", type=String.class, parameters={})
+    @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
@@ -129,7 +129,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sslState", type=String.class, parameters={})
+    @Export(name="sslState", refs={String.class}, tree="[0]")
     private Output<String> sslState;
 
     /**
@@ -145,7 +145,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
      * 
      */
-    @Export(name="thumbprint", type=String.class, parameters={})
+    @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output<String> thumbprint;
 
     /**
@@ -161,7 +161,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      * 
      */
-    @Export(name="virtualIp", type=String.class, parameters={})
+    @Export(name="virtualIp", refs={String.class}, tree="[0]")
     private Output<String> virtualIp;
 
     /**

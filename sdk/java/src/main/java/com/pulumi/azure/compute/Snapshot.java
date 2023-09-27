@@ -87,7 +87,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
      * 
      */
-    @Export(name="createOption", type=String.class, parameters={})
+    @Export(name="createOption", refs={String.class}, tree="[0]")
     private Output<String> createOption;
 
     /**
@@ -103,7 +103,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The size of the Snapshotted Disk in GB.
      * 
      */
-    @Export(name="diskSizeGb", type=Integer.class, parameters={})
+    @Export(name="diskSizeGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskSizeGb;
 
     /**
@@ -119,7 +119,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionSettings", type=SnapshotEncryptionSettings.class, parameters={})
+    @Export(name="encryptionSettings", refs={SnapshotEncryptionSettings.class}, tree="[0]")
     private Output</* @Nullable */ SnapshotEncryptionSettings> encryptionSettings;
 
     /**
@@ -135,7 +135,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies if the Snapshot is incremental.
      * 
      */
-    @Export(name="incrementalEnabled", type=Boolean.class, parameters={})
+    @Export(name="incrementalEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> incrementalEnabled;
 
     /**
@@ -149,7 +149,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -163,7 +163,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -191,7 +191,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceResourceId", type=String.class, parameters={})
+    @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
@@ -205,7 +205,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceUri", type=String.class, parameters={})
+    @Export(name="sourceUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceUri;
 
     /**
@@ -219,7 +219,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -233,7 +233,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -247,7 +247,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Whether Trusted Launch is enabled for the Snapshot.
      * 
      */
-    @Export(name="trustedLaunchEnabled", type=Boolean.class, parameters={})
+    @Export(name="trustedLaunchEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> trustedLaunchEnabled;
 
     /**

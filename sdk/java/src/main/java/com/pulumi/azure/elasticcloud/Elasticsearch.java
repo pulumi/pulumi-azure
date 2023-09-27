@@ -74,7 +74,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The ID of the Deployment within Elastic Cloud.
      * 
      */
-    @Export(name="elasticCloudDeploymentId", type=String.class, parameters={})
+    @Export(name="elasticCloudDeploymentId", refs={String.class}, tree="[0]")
     private Output<String> elasticCloudDeploymentId;
 
     /**
@@ -88,7 +88,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
      * 
      */
-    @Export(name="elasticCloudEmailAddress", type=String.class, parameters={})
+    @Export(name="elasticCloudEmailAddress", refs={String.class}, tree="[0]")
     private Output<String> elasticCloudEmailAddress;
 
     /**
@@ -102,7 +102,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The Default URL used for Single Sign On (SSO) to Elastic Cloud.
      * 
      */
-    @Export(name="elasticCloudSsoDefaultUrl", type=String.class, parameters={})
+    @Export(name="elasticCloudSsoDefaultUrl", refs={String.class}, tree="[0]")
     private Output<String> elasticCloudSsoDefaultUrl;
 
     /**
@@ -116,7 +116,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The ID of the User Account within Elastic Cloud.
      * 
      */
-    @Export(name="elasticCloudUserId", type=String.class, parameters={})
+    @Export(name="elasticCloudUserId", refs={String.class}, tree="[0]")
     private Output<String> elasticCloudUserId;
 
     /**
@@ -130,7 +130,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The URL to the Elasticsearch Service associated with this Elasticsearch.
      * 
      */
-    @Export(name="elasticsearchServiceUrl", type=String.class, parameters={})
+    @Export(name="elasticsearchServiceUrl", refs={String.class}, tree="[0]")
     private Output<String> elasticsearchServiceUrl;
 
     /**
@@ -144,7 +144,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The URL to the Kibana Dashboard associated with this Elasticsearch.
      * 
      */
-    @Export(name="kibanaServiceUrl", type=String.class, parameters={})
+    @Export(name="kibanaServiceUrl", refs={String.class}, tree="[0]")
     private Output<String> kibanaServiceUrl;
 
     /**
@@ -158,7 +158,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
      * 
      */
-    @Export(name="kibanaSsoUri", type=String.class, parameters={})
+    @Export(name="kibanaSsoUri", refs={String.class}, tree="[0]")
     private Output<String> kibanaSsoUri;
 
     /**
@@ -172,7 +172,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -186,7 +186,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * A `logs` block as defined below.
      * 
      */
-    @Export(name="logs", type=ElasticsearchLogs.class, parameters={})
+    @Export(name="logs", refs={ElasticsearchLogs.class}, tree="[0]")
     private Output<ElasticsearchLogs> logs;
 
     /**
@@ -200,7 +200,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
      * 
      */
-    @Export(name="monitoringEnabled", type=Boolean.class, parameters={})
+    @Export(name="monitoringEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringEnabled;
 
     /**
@@ -214,7 +214,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -228,7 +228,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -242,7 +242,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -256,7 +256,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Elasticsearch resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

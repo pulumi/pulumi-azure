@@ -87,7 +87,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -101,7 +101,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The object id of the principal. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
@@ -129,7 +129,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The name of the principal.
      * 
      */
-    @Export(name="principalName", type=String.class, parameters={})
+    @Export(name="principalName", refs={String.class}, tree="[0]")
     private Output<String> principalName;
 
     /**
@@ -143,7 +143,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
@@ -157,7 +157,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -171,7 +171,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -185,7 +185,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The tenant id in which the principal resides. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
@@ -199,7 +199,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * The name of the tenant.
      * 
      */
-    @Export(name="tenantName", type=String.class, parameters={})
+    @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output<String> tenantName;
 
     /**

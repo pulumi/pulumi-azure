@@ -100,7 +100,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
@@ -114,7 +114,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -128,7 +128,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
      * 
      */
-    @Export(name="maintenanceConfigurationName", type=String.class, parameters={})
+    @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maintenanceConfigurationName;
 
     /**
@@ -144,7 +144,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
-    @Export(name="maxSizeBytes", type=Integer.class, parameters={})
+    @Export(name="maxSizeBytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeBytes;
 
     /**
@@ -160,7 +160,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
      * 
      */
-    @Export(name="maxSizeGb", type=Double.class, parameters={})
+    @Export(name="maxSizeGb", refs={Double.class}, tree="[0]")
     private Output<Double> maxSizeGb;
 
     /**
@@ -174,7 +174,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * A `per_database_settings` block as defined below.
      * 
      */
-    @Export(name="perDatabaseSettings", type=ElasticPoolPerDatabaseSettings.class, parameters={})
+    @Export(name="perDatabaseSettings", refs={ElasticPoolPerDatabaseSettings.class}, tree="[0]")
     private Output<ElasticPoolPerDatabaseSettings> perDatabaseSettings;
 
     /**
@@ -202,7 +202,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -216,7 +216,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -230,7 +230,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * A `sku` block as defined below.
      * 
      */
-    @Export(name="sku", type=ElasticPoolSku.class, parameters={})
+    @Export(name="sku", refs={ElasticPoolSku.class}, tree="[0]")
     private Output<ElasticPoolSku> sku;
 
     /**
@@ -244,7 +244,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -258,7 +258,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
      * 
      */
-    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
+    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

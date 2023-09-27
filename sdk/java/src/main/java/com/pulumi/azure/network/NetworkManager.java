@@ -86,7 +86,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * A `cross_tenant_scopes` block as defined below.
      * 
      */
-    @Export(name="crossTenantScopes", type=List.class, parameters={NetworkManagerCrossTenantScope.class})
+    @Export(name="crossTenantScopes", refs={List.class,NetworkManagerCrossTenantScope.class}, tree="[0,1]")
     private Output<List<NetworkManagerCrossTenantScope>> crossTenantScopes;
 
     /**
@@ -100,7 +100,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * A description of the network manager.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -114,7 +114,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -128,7 +128,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -156,7 +156,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * A `scope` block as defined below.
      * 
      */
-    @Export(name="scope", type=NetworkManagerScope.class, parameters={})
+    @Export(name="scope", refs={NetworkManagerScope.class}, tree="[0]")
     private Output<NetworkManagerScope> scope;
 
     /**
@@ -170,7 +170,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
      * 
      */
-    @Export(name="scopeAccesses", type=List.class, parameters={String.class})
+    @Export(name="scopeAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopeAccesses;
 
     /**
@@ -184,7 +184,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Network Managers.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -81,7 +81,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -95,7 +95,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -109,7 +109,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
      * 
      */
-    @Export(name="connectionString", type=String.class, parameters={})
+    @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -123,7 +123,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -137,7 +137,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The description for the Data Factory Linked Service Azure SQL Database.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -151,7 +151,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -165,7 +165,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
      * 
      */
-    @Export(name="keyVaultConnectionString", type=LinkedServiceAzureSqlDatabaseKeyVaultConnectionString.class, parameters={})
+    @Export(name="keyVaultConnectionString", refs={LinkedServiceAzureSqlDatabaseKeyVaultConnectionString.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureSqlDatabaseKeyVaultConnectionString> keyVaultConnectionString;
 
     /**
@@ -179,7 +179,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
-    @Export(name="keyVaultPassword", type=LinkedServiceAzureSqlDatabaseKeyVaultPassword.class, parameters={})
+    @Export(name="keyVaultPassword", refs={LinkedServiceAzureSqlDatabaseKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureSqlDatabaseKeyVaultPassword> keyVaultPassword;
 
     /**
@@ -193,7 +193,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -207,7 +207,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -221,7 +221,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
      * 
      */
-    @Export(name="servicePrincipalId", type=String.class, parameters={})
+    @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalId;
 
     /**
@@ -235,7 +235,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
      * 
      */
-    @Export(name="servicePrincipalKey", type=String.class, parameters={})
+    @Export(name="servicePrincipalKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalKey;
 
     /**
@@ -249,7 +249,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * The tenant id or name in which to authenticate against the Azure SQL Database.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantId;
 
     /**
@@ -263,7 +263,7 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
      * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
      * 
      */
-    @Export(name="useManagedIdentity", type=Boolean.class, parameters={})
+    @Export(name="useManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useManagedIdentity;
 
     /**

@@ -62,7 +62,7 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
      * The Access Token.
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**
@@ -78,7 +78,7 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      * 
      */
-    @Export(name="tokenSecret", type=String.class, parameters={})
+    @Export(name="tokenSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenSecret;
 
     /**
@@ -94,7 +94,7 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

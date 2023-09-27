@@ -123,7 +123,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="curve", type=String.class, parameters={})
+    @Export(name="curve", refs={String.class}, tree="[0]")
     private Output<String> curve;
 
     /**
@@ -137,7 +137,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The RSA public exponent of this Key Vault Key.
      * 
      */
-    @Export(name="e", type=String.class, parameters={})
+    @Export(name="e", refs={String.class}, tree="[0]")
     private Output<String> e;
 
     /**
@@ -151,7 +151,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
-    @Export(name="expirationDate", type=String.class, parameters={})
+    @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expirationDate;
 
     /**
@@ -165,7 +165,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      * 
      */
-    @Export(name="keyOpts", type=List.class, parameters={String.class})
+    @Export(name="keyOpts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> keyOpts;
 
     /**
@@ -179,7 +179,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keySize", type=Integer.class, parameters={})
+    @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
@@ -193,7 +193,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyType", type=String.class, parameters={})
+    @Export(name="keyType", refs={String.class}, tree="[0]")
     private Output<String> keyType;
 
     /**
@@ -207,7 +207,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", type=String.class, parameters={})
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
     /**
@@ -221,7 +221,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The RSA modulus of this Key Vault Key.
      * 
      */
-    @Export(name="n", type=String.class, parameters={})
+    @Export(name="n", refs={String.class}, tree="[0]")
     private Output<String> n;
 
     /**
@@ -235,7 +235,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -249,7 +249,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
-    @Export(name="notBeforeDate", type=String.class, parameters={})
+    @Export(name="notBeforeDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notBeforeDate;
 
     /**
@@ -263,7 +263,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The OpenSSH encoded public key of this Key Vault Key.
      * 
      */
-    @Export(name="publicKeyOpenssh", type=String.class, parameters={})
+    @Export(name="publicKeyOpenssh", refs={String.class}, tree="[0]")
     private Output<String> publicKeyOpenssh;
 
     /**
@@ -277,7 +277,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The PEM encoded public key of this Key Vault Key.
      * 
      */
-    @Export(name="publicKeyPem", type=String.class, parameters={})
+    @Export(name="publicKeyPem", refs={String.class}, tree="[0]")
     private Output<String> publicKeyPem;
 
     /**
@@ -291,7 +291,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -305,7 +305,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
      * 
      */
-    @Export(name="resourceVersionlessId", type=String.class, parameters={})
+    @Export(name="resourceVersionlessId", refs={String.class}, tree="[0]")
     private Output<String> resourceVersionlessId;
 
     /**
@@ -319,7 +319,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * A `rotation_policy` block as defined below.
      * 
      */
-    @Export(name="rotationPolicy", type=KeyRotationPolicy.class, parameters={})
+    @Export(name="rotationPolicy", refs={KeyRotationPolicy.class}, tree="[0]")
     private Output</* @Nullable */ KeyRotationPolicy> rotationPolicy;
 
     /**
@@ -333,7 +333,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -347,7 +347,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The current version of the Key Vault Key.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -361,7 +361,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The Base ID of the Key Vault Key.
      * 
      */
-    @Export(name="versionlessId", type=String.class, parameters={})
+    @Export(name="versionlessId", refs={String.class}, tree="[0]")
     private Output<String> versionlessId;
 
     /**
@@ -375,7 +375,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The EC X component of this Key Vault Key.
      * 
      */
-    @Export(name="x", type=String.class, parameters={})
+    @Export(name="x", refs={String.class}, tree="[0]")
     private Output<String> x;
 
     /**
@@ -389,7 +389,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The EC Y component of this Key Vault Key.
      * 
      */
-    @Export(name="y", type=String.class, parameters={})
+    @Export(name="y", refs={String.class}, tree="[0]")
     private Output<String> y;
 
     /**

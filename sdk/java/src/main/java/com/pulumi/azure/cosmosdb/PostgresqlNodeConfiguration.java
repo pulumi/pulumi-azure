@@ -81,7 +81,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -95,7 +95,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

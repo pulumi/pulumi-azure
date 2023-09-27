@@ -83,7 +83,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * &gt; **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
      * 
      */
-    @Export(name="customerManagedKeyEnabled", type=Boolean.class, parameters={})
+    @Export(name="customerManagedKeyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customerManagedKeyEnabled;
 
     /**
@@ -105,7 +105,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * 
      */
     @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -115,7 +115,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     public Output<String> workspaceId() {
@@ -129,7 +129,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * 
      */
     @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-    @Export(name="workspaceName", type=String.class, parameters={})
+    @Export(name="workspaceName", refs={String.class}, tree="[0]")
     private Output<String> workspaceName;
 
     /**

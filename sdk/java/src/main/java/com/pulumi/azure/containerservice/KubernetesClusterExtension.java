@@ -91,7 +91,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * An `aks_assigned_identity` block as defined below.
      * 
      */
-    @Export(name="aksAssignedIdentities", type=List.class, parameters={KubernetesClusterExtensionAksAssignedIdentity.class})
+    @Export(name="aksAssignedIdentities", refs={List.class,KubernetesClusterExtensionAksAssignedIdentity.class}, tree="[0,1]")
     private Output<List<KubernetesClusterExtensionAksAssignedIdentity>> aksAssignedIdentities;
 
     /**
@@ -105,7 +105,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -119,7 +119,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      * 
      */
-    @Export(name="configurationProtectedSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="configurationProtectedSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> configurationProtectedSettings;
 
     /**
@@ -133,7 +133,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Configuration settings, as name-value pairs for configuring this extension.
      * 
      */
-    @Export(name="configurationSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="configurationSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> configurationSettings;
 
     /**
@@ -147,7 +147,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * The current version of the extension.
      * 
      */
-    @Export(name="currentVersion", type=String.class, parameters={})
+    @Export(name="currentVersion", refs={String.class}, tree="[0]")
     private Output<String> currentVersion;
 
     /**
@@ -161,7 +161,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="extensionType", type=String.class, parameters={})
+    @Export(name="extensionType", refs={String.class}, tree="[0]")
     private Output<String> extensionType;
 
     /**
@@ -175,7 +175,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -189,7 +189,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * A `plan` block as defined below.
      * 
      */
-    @Export(name="plan", type=KubernetesClusterExtensionPlan.class, parameters={})
+    @Export(name="plan", refs={KubernetesClusterExtensionPlan.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterExtensionPlan> plan;
 
     /**
@@ -203,7 +203,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="releaseNamespace", type=String.class, parameters={})
+    @Export(name="releaseNamespace", refs={String.class}, tree="[0]")
     private Output<String> releaseNamespace;
 
     /**
@@ -217,7 +217,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="releaseTrain", type=String.class, parameters={})
+    @Export(name="releaseTrain", refs={String.class}, tree="[0]")
     private Output<String> releaseTrain;
 
     /**
@@ -231,7 +231,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="targetNamespace", type=String.class, parameters={})
+    @Export(name="targetNamespace", refs={String.class}, tree="[0]")
     private Output<String> targetNamespace;
 
     /**
@@ -245,7 +245,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**

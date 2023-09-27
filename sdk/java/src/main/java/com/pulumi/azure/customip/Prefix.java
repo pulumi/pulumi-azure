@@ -35,7 +35,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cidr", type=String.class, parameters={})
+    @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
@@ -51,7 +51,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * !&gt; **Warning** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      * 
      */
-    @Export(name="commissioningEnabled", type=Boolean.class, parameters={})
+    @Export(name="commissioningEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> commissioningEnabled;
 
     /**
@@ -69,7 +69,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * !&gt; **Warning** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      * 
      */
-    @Export(name="internetAdvertisingDisabled", type=Boolean.class, parameters={})
+    @Export(name="internetAdvertisingDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> internetAdvertisingDisabled;
 
     /**
@@ -85,7 +85,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -99,7 +99,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * The name of the Custom IP Prefix. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="parentCustomIpPrefixId", type=String.class, parameters={})
+    @Export(name="parentCustomIpPrefixId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentCustomIpPrefixId;
 
     /**
@@ -127,7 +127,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -141,7 +141,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="roaValidityEndDate", type=String.class, parameters={})
+    @Export(name="roaValidityEndDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roaValidityEndDate;
 
     /**
@@ -155,7 +155,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Custom IP Prefix.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -169,7 +169,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="wanValidationSignedMessage", type=String.class, parameters={})
+    @Export(name="wanValidationSignedMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> wanValidationSignedMessage;
 
     /**
@@ -185,7 +185,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can&#39;t be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**

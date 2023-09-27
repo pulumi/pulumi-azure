@@ -86,7 +86,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
      * 
      */
-    @Export(name="accumulated", type=Boolean.class, parameters={})
+    @Export(name="accumulated", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> accumulated;
 
     /**
@@ -100,7 +100,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
      * 
      */
-    @Export(name="chartType", type=String.class, parameters={})
+    @Export(name="chartType", refs={String.class}, tree="[0]")
     private Output<String> chartType;
 
     /**
@@ -114,7 +114,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * A `dataset` block as defined below.
      * 
      */
-    @Export(name="dataset", type=ResourceGroupCostManagementViewDataset.class, parameters={})
+    @Export(name="dataset", refs={ResourceGroupCostManagementViewDataset.class}, tree="[0]")
     private Output<ResourceGroupCostManagementViewDataset> dataset;
 
     /**
@@ -128,7 +128,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * User visible input name of the Cost Management View.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -142,7 +142,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
      * 
      */
-    @Export(name="kpis", type=List.class, parameters={ResourceGroupCostManagementViewKpi.class})
+    @Export(name="kpis", refs={List.class,ResourceGroupCostManagementViewKpi.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceGroupCostManagementViewKpi>> kpis;
 
     /**
@@ -156,7 +156,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
      * 
      */
-    @Export(name="pivots", type=List.class, parameters={ResourceGroupCostManagementViewPivot.class})
+    @Export(name="pivots", refs={List.class,ResourceGroupCostManagementViewPivot.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceGroupCostManagementViewPivot>> pivots;
 
     /**
@@ -184,7 +184,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * The type of the report. The only possible value is `Usage`.
      * 
      */
-    @Export(name="reportType", type=String.class, parameters={})
+    @Export(name="reportType", refs={String.class}, tree="[0]")
     private Output<String> reportType;
 
     /**
@@ -198,7 +198,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created.
      * 
      */
-    @Export(name="resourceGroupId", type=String.class, parameters={})
+    @Export(name="resourceGroupId", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupId;
 
     /**
@@ -212,7 +212,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
      * 
      */
-    @Export(name="timeframe", type=String.class, parameters={})
+    @Export(name="timeframe", refs={String.class}, tree="[0]")
     private Output<String> timeframe;
 
     /**

@@ -87,7 +87,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
      * 
      */
-    @Export(name="category", type=String.class, parameters={})
+    @Export(name="category", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> category;
 
     /**
@@ -101,7 +101,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON.
      * 
      */
-    @Export(name="dataJson", type=String.class, parameters={})
+    @Export(name="dataJson", refs={String.class}, tree="[0]")
     private Output<String> dataJson;
 
     /**
@@ -115,7 +115,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Specifies the description of the workbook.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -129,7 +129,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Specifies the user-defined name (display name) of the workbook.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -143,7 +143,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Workbook to be created.
      * 
      */
-    @Export(name="identity", type=WorkbookIdentity.class, parameters={})
+    @Export(name="identity", refs={WorkbookIdentity.class}, tree="[0]")
     private Output</* @Nullable */ WorkbookIdentity> identity;
 
     /**
@@ -157,7 +157,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -171,7 +171,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -185,7 +185,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -199,7 +199,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
      * 
      */
-    @Export(name="sourceId", type=String.class, parameters={})
+    @Export(name="sourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceId;
 
     /**
@@ -215,7 +215,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
      * 
      */
-    @Export(name="storageContainerId", type=String.class, parameters={})
+    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageContainerId;
 
     /**
@@ -231,7 +231,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Workbook.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -120,7 +120,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -136,7 +136,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
-    @Export(name="subresourceName", type=String.class, parameters={})
+    @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output<String> subresourceName;
 
     /**
@@ -154,7 +154,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
      * 
      */
-    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
+    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -170,7 +170,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

@@ -111,7 +111,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * Specifies the Azure Region where the Mobile Network Packet Core Data Plane should exist. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -125,7 +125,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * Specifies the ID of the Mobile Network Packet Core Data Plane. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
      * 
      */
-    @Export(name="mobileNetworkPacketCoreControlPlaneId", type=String.class, parameters={})
+    @Export(name="mobileNetworkPacketCoreControlPlaneId", refs={String.class}, tree="[0]")
     private Output<String> mobileNetworkPacketCoreControlPlaneId;
 
     /**
@@ -139,7 +139,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this Mobile Network Packet Core Data Plane. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * A mapping of tags which should be assigned to the Mobile Network Packet Core Data Plane.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -167,7 +167,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * The IPv4 address for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessIpv4Address", type=String.class, parameters={})
+    @Export(name="userPlaneAccessIpv4Address", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessIpv4Address;
 
     /**
@@ -181,7 +181,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * The default IPv4 gateway for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessIpv4Gateway", type=String.class, parameters={})
+    @Export(name="userPlaneAccessIpv4Gateway", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessIpv4Gateway;
 
     /**
@@ -195,7 +195,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * The IPv4 subnet for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessIpv4Subnet", type=String.class, parameters={})
+    @Export(name="userPlaneAccessIpv4Subnet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessIpv4Subnet;
 
     /**
@@ -209,7 +209,7 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * Specifies the logical name for thie user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      * 
      */
-    @Export(name="userPlaneAccessName", type=String.class, parameters={})
+    @Export(name="userPlaneAccessName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userPlaneAccessName;
 
     /**

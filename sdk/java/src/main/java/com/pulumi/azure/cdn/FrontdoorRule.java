@@ -321,7 +321,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * An `actions` block as defined below.
      * 
      */
-    @Export(name="actions", type=FrontdoorRuleActions.class, parameters={})
+    @Export(name="actions", refs={FrontdoorRuleActions.class}, tree="[0]")
     private Output<FrontdoorRuleActions> actions;
 
     /**
@@ -335,7 +335,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      * 
      */
-    @Export(name="behaviorOnMatch", type=String.class, parameters={})
+    @Export(name="behaviorOnMatch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMatch;
 
     /**
@@ -349,7 +349,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
      */
-    @Export(name="cdnFrontdoorRuleSetId", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorRuleSetId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
@@ -363,7 +363,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * The name of the Front Door Rule Set containing this Front Door Rule.
      * 
      */
-    @Export(name="cdnFrontdoorRuleSetName", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorRuleSetName", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorRuleSetName;
 
     /**
@@ -377,7 +377,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * A `conditions` block as defined below.
      * 
      */
-    @Export(name="conditions", type=FrontdoorRuleConditions.class, parameters={})
+    @Export(name="conditions", refs={FrontdoorRuleConditions.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorRuleConditions> conditions;
 
     /**
@@ -391,7 +391,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -407,7 +407,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * -&gt;**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      * 
      */
-    @Export(name="order", type=Integer.class, parameters={})
+    @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
     /**

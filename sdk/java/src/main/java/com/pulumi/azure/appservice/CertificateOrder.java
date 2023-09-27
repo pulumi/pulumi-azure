@@ -76,7 +76,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Reasons why App Service Certificate is not renewable at the current moment.
      * 
      */
-    @Export(name="appServiceCertificateNotRenewableReasons", type=List.class, parameters={String.class})
+    @Export(name="appServiceCertificateNotRenewableReasons", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> appServiceCertificateNotRenewableReasons;
 
     /**
@@ -90,7 +90,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      * 
      */
-    @Export(name="autoRenew", type=Boolean.class, parameters={})
+    @Export(name="autoRenew", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRenew;
 
     /**
@@ -104,7 +104,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * State of the Key Vault secret. A `certificates` block as defined below.
      * 
      */
-    @Export(name="certificates", type=List.class, parameters={CertificateOrderCertificate.class})
+    @Export(name="certificates", refs={List.class,CertificateOrderCertificate.class}, tree="[0,1]")
     private Output<List<CertificateOrderCertificate>> certificates;
 
     /**
@@ -118,7 +118,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Last CSR that was created for this order.
      * 
      */
-    @Export(name="csr", type=String.class, parameters={})
+    @Export(name="csr", refs={String.class}, tree="[0]")
     private Output<String> csr;
 
     /**
@@ -134,7 +134,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
      * 
      */
-    @Export(name="distinguishedName", type=String.class, parameters={})
+    @Export(name="distinguishedName", refs={String.class}, tree="[0]")
     private Output<String> distinguishedName;
 
     /**
@@ -150,7 +150,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Domain verification token.
      * 
      */
-    @Export(name="domainVerificationToken", type=String.class, parameters={})
+    @Export(name="domainVerificationToken", refs={String.class}, tree="[0]")
     private Output<String> domainVerificationToken;
 
     /**
@@ -164,7 +164,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Certificate expiration time.
      * 
      */
-    @Export(name="expirationTime", type=String.class, parameters={})
+    @Export(name="expirationTime", refs={String.class}, tree="[0]")
     private Output<String> expirationTime;
 
     /**
@@ -178,7 +178,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Certificate thumbprint intermediate certificate.
      * 
      */
-    @Export(name="intermediateThumbprint", type=String.class, parameters={})
+    @Export(name="intermediateThumbprint", refs={String.class}, tree="[0]")
     private Output<String> intermediateThumbprint;
 
     /**
@@ -192,7 +192,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Whether the private key is external or not.
      * 
      */
-    @Export(name="isPrivateKeyExternal", type=Boolean.class, parameters={})
+    @Export(name="isPrivateKeyExternal", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isPrivateKeyExternal;
 
     /**
@@ -206,7 +206,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Certificate key size. Defaults to `2048`.
      * 
      */
-    @Export(name="keySize", type=Integer.class, parameters={})
+    @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
@@ -220,7 +220,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -234,7 +234,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -248,7 +248,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Certificate product type, such as `Standard` or `WildCard`.
      * 
      */
-    @Export(name="productType", type=String.class, parameters={})
+    @Export(name="productType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> productType;
 
     /**
@@ -262,7 +262,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -276,7 +276,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Certificate thumbprint for root certificate.
      * 
      */
-    @Export(name="rootThumbprint", type=String.class, parameters={})
+    @Export(name="rootThumbprint", refs={String.class}, tree="[0]")
     private Output<String> rootThumbprint;
 
     /**
@@ -290,7 +290,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Certificate thumbprint for signed certificate.
      * 
      */
-    @Export(name="signedCertificateThumbprint", type=String.class, parameters={})
+    @Export(name="signedCertificateThumbprint", refs={String.class}, tree="[0]")
     private Output<String> signedCertificateThumbprint;
 
     /**
@@ -304,7 +304,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Current order status.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -318,7 +318,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * (Optional) A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -332,7 +332,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * Duration in years (must be between `1` and `3`). Defaults to `1`.
      * 
      */
-    @Export(name="validityInYears", type=Integer.class, parameters={})
+    @Export(name="validityInYears", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> validityInYears;
 
     /**

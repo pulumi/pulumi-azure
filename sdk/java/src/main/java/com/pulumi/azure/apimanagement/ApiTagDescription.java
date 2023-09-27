@@ -104,7 +104,7 @@ public class ApiTagDescription extends com.pulumi.resources.CustomResource {
      * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      * 
      */
-    @Export(name="apiTagId", type=String.class, parameters={})
+    @Export(name="apiTagId", refs={String.class}, tree="[0]")
     private Output<String> apiTagId;
 
     /**
@@ -118,7 +118,7 @@ public class ApiTagDescription extends com.pulumi.resources.CustomResource {
      * The description of the Tag.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -132,7 +132,7 @@ public class ApiTagDescription extends com.pulumi.resources.CustomResource {
      * The description of the external documentation resources describing the tag.
      * 
      */
-    @Export(name="externalDocumentationDescription", type=String.class, parameters={})
+    @Export(name="externalDocumentationDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalDocumentationDescription;
 
     /**
@@ -146,7 +146,7 @@ public class ApiTagDescription extends com.pulumi.resources.CustomResource {
      * The URL of external documentation resources describing the tag.
      * 
      */
-    @Export(name="externalDocumentationUrl", type=String.class, parameters={})
+    @Export(name="externalDocumentationUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalDocumentationUrl;
 
     /**

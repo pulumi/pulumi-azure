@@ -35,7 +35,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      * 
      */
-    @Export(name="debugLevel", type=String.class, parameters={})
+    @Export(name="debugLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> debugLevel;
 
     /**
@@ -51,7 +51,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
-    @Export(name="deploymentMode", type=String.class, parameters={})
+    @Export(name="deploymentMode", refs={String.class}, tree="[0]")
     private Output<String> deploymentMode;
 
     /**
@@ -67,7 +67,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -81,7 +81,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * The JSON Content of the Outputs of the ARM Template Deployment.
      * 
      */
-    @Export(name="outputContent", type=String.class, parameters={})
+    @Export(name="outputContent", refs={String.class}, tree="[0]")
     private Output<String> outputContent;
 
     /**
@@ -97,7 +97,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
      * 
      */
-    @Export(name="parametersContent", type=String.class, parameters={})
+    @Export(name="parametersContent", refs={String.class}, tree="[0]")
     private Output<String> parametersContent;
 
     /**
@@ -113,7 +113,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -127,7 +127,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * A mapping of tags which should be assigned to the Resource Group Template Deployment.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -141,7 +141,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
      * 
      */
-    @Export(name="templateContent", type=String.class, parameters={})
+    @Export(name="templateContent", refs={String.class}, tree="[0]")
     private Output<String> templateContent;
 
     /**
@@ -155,7 +155,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
      * 
      */
-    @Export(name="templateSpecVersionId", type=String.class, parameters={})
+    @Export(name="templateSpecVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSpecVersionId;
 
     /**

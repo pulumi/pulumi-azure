@@ -110,7 +110,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-    @Export(name="externalAddressSpaceMappings", type=List.class, parameters={String.class})
+    @Export(name="externalAddressSpaceMappings", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> externalAddressSpaceMappings;
 
     /**
@@ -126,7 +126,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * One or more `external_mapping` blocks as documented below.
      * 
      */
-    @Export(name="externalMappings", type=List.class, parameters={VnpGatewayNatRuleExternalMapping.class})
+    @Export(name="externalMappings", refs={List.class,VnpGatewayNatRuleExternalMapping.class}, tree="[0,1]")
     private Output<List<VnpGatewayNatRuleExternalMapping>> externalMappings;
 
     /**
@@ -146,7 +146,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-    @Export(name="internalAddressSpaceMappings", type=List.class, parameters={String.class})
+    @Export(name="internalAddressSpaceMappings", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> internalAddressSpaceMappings;
 
     /**
@@ -162,7 +162,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * One or more `internal_mapping` blocks as documented below.
      * 
      */
-    @Export(name="internalMappings", type=List.class, parameters={VnpGatewayNatRuleInternalMapping.class})
+    @Export(name="internalMappings", refs={List.class,VnpGatewayNatRuleInternalMapping.class}, tree="[0,1]")
     private Output<List<VnpGatewayNatRuleInternalMapping>> internalMappings;
 
     /**
@@ -176,7 +176,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      * 
      */
-    @Export(name="ipConfigurationId", type=String.class, parameters={})
+    @Export(name="ipConfigurationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipConfigurationId;
 
     /**
@@ -190,7 +190,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -204,7 +204,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -218,7 +218,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -232,7 +232,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -246,7 +246,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vpnGatewayId", type=String.class, parameters={})
+    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
     /**

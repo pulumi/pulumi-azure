@@ -110,7 +110,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * The ID of the Backup Policy.
      * 
      */
-    @Export(name="backupPolicyId", type=String.class, parameters={})
+    @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output<String> backupPolicyId;
 
     /**
@@ -124,7 +124,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -138,7 +138,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**
@@ -166,7 +166,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
      * 
      */
-    @Export(name="vaultId", type=String.class, parameters={})
+    @Export(name="vaultId", refs={String.class}, tree="[0]")
     private Output<String> vaultId;
 
     /**

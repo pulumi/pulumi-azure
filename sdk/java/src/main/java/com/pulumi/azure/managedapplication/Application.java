@@ -112,7 +112,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The application definition ID to deploy.
      * 
      */
-    @Export(name="applicationDefinitionId", type=String.class, parameters={})
+    @Export(name="applicationDefinitionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applicationDefinitionId;
 
     /**
@@ -126,7 +126,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -140,7 +140,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -154,7 +154,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedResourceGroupName", type=String.class, parameters={})
+    @Export(name="managedResourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> managedResourceGroupName;
 
     /**
@@ -168,7 +168,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name and value pairs that define the managed application outputs.
      * 
      */
-    @Export(name="outputs", type=Map.class, parameters={String.class, String.class})
+    @Export(name="outputs", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> outputs;
 
     /**
@@ -196,7 +196,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      * 
      */
-    @Export(name="parameterValues", type=String.class, parameters={})
+    @Export(name="parameterValues", refs={String.class}, tree="[0]")
     private Output<String> parameterValues;
 
     /**
@@ -216,7 +216,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This property has been deprecated in favour of `parameter_values` */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
     /**
@@ -232,7 +232,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="plan", type=ApplicationPlan.class, parameters={})
+    @Export(name="plan", refs={ApplicationPlan.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationPlan> plan;
 
     /**
@@ -246,7 +246,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -260,7 +260,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

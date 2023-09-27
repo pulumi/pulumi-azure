@@ -82,7 +82,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      * 
      */
-    @Export(name="autoDeleteOnIdle", type=String.class, parameters={})
+    @Export(name="autoDeleteOnIdle", refs={String.class}, tree="[0]")
     private Output<String> autoDeleteOnIdle;
 
     /**
@@ -96,7 +96,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
      * 
      */
-    @Export(name="deadLetteringOnMessageExpiration", type=Boolean.class, parameters={})
+    @Export(name="deadLetteringOnMessageExpiration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deadLetteringOnMessageExpiration;
 
     /**
@@ -110,7 +110,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      * 
      */
-    @Export(name="defaultMessageTtl", type=String.class, parameters={})
+    @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
     private Output<String> defaultMessageTtl;
 
     /**
@@ -124,7 +124,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
      * 
      */
-    @Export(name="duplicateDetectionHistoryTimeWindow", type=String.class, parameters={})
+    @Export(name="duplicateDetectionHistoryTimeWindow", refs={String.class}, tree="[0]")
     private Output<String> duplicateDetectionHistoryTimeWindow;
 
     /**
@@ -138,7 +138,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enableBatchedOperations", type=Boolean.class, parameters={})
+    @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
     /**
@@ -154,7 +154,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
      * 
      */
-    @Export(name="enableExpress", type=Boolean.class, parameters={})
+    @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExpress;
 
     /**
@@ -172,7 +172,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      * 
      */
-    @Export(name="enablePartitioning", type=Boolean.class, parameters={})
+    @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePartitioning;
 
     /**
@@ -188,7 +188,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The name of a Queue or Topic to automatically forward dead lettered messages to.
      * 
      */
-    @Export(name="forwardDeadLetteredMessagesTo", type=String.class, parameters={})
+    @Export(name="forwardDeadLetteredMessagesTo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forwardDeadLetteredMessagesTo;
 
     /**
@@ -202,7 +202,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
      * 
      */
-    @Export(name="forwardTo", type=String.class, parameters={})
+    @Export(name="forwardTo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forwardTo;
 
     /**
@@ -216,7 +216,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
      * 
      */
-    @Export(name="lockDuration", type=String.class, parameters={})
+    @Export(name="lockDuration", refs={String.class}, tree="[0]")
     private Output<String> lockDuration;
 
     /**
@@ -230,7 +230,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      * 
      */
-    @Export(name="maxDeliveryCount", type=Integer.class, parameters={})
+    @Export(name="maxDeliveryCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxDeliveryCount;
 
     /**
@@ -244,7 +244,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
-    @Export(name="maxMessageSizeInKilobytes", type=Integer.class, parameters={})
+    @Export(name="maxMessageSizeInKilobytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxMessageSizeInKilobytes;
 
     /**
@@ -258,7 +258,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      * 
      */
-    @Export(name="maxSizeInMegabytes", type=Integer.class, parameters={})
+    @Export(name="maxSizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeInMegabytes;
 
     /**
@@ -272,7 +272,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -286,7 +286,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceId", type=String.class, parameters={})
+    @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
@@ -296,7 +296,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     public Output<String> namespaceName() {
@@ -306,7 +306,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
-    @Export(name="requiresDuplicateDetection", type=Boolean.class, parameters={})
+    @Export(name="requiresDuplicateDetection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requiresDuplicateDetection;
 
     /**
@@ -320,7 +320,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
-    @Export(name="requiresSession", type=Boolean.class, parameters={})
+    @Export(name="requiresSession", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requiresSession;
 
     /**
@@ -330,7 +330,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> requiresSession() {
         return Codegen.optional(this.requiresSession);
     }
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     public Output<String> resourceGroupName() {
@@ -340,7 +340,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

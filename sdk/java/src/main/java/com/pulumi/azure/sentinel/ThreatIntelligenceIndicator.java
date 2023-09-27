@@ -99,7 +99,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Confidence levels of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="confidence", type=Integer.class, parameters={})
+    @Export(name="confidence", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> confidence;
 
     /**
@@ -113,7 +113,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The creator of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="createdBy", type=String.class, parameters={})
+    @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createdBy;
 
     /**
@@ -127,7 +127,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The date of this Threat Intelligence Indicator created.
      * 
      */
-    @Export(name="createdOn", type=String.class, parameters={})
+    @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
@@ -141,7 +141,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Whether the Threat Intelligence entity is defanged?
      * 
      */
-    @Export(name="defanged", type=Boolean.class, parameters={})
+    @Export(name="defanged", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defanged;
 
     /**
@@ -155,7 +155,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The description of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -169,7 +169,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The display name of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -183,7 +183,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The extension config of the Threat Intelligence Indicator in JSON format.
      * 
      */
-    @Export(name="extension", type=String.class, parameters={})
+    @Export(name="extension", refs={String.class}, tree="[0]")
     private Output<String> extension;
 
     /**
@@ -197,7 +197,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The external ID of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="externalId", type=String.class, parameters={})
+    @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
     /**
@@ -211,7 +211,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * the External last updated time in UTC.
      * 
      */
-    @Export(name="externalLastUpdatedTimeUtc", type=String.class, parameters={})
+    @Export(name="externalLastUpdatedTimeUtc", refs={String.class}, tree="[0]")
     private Output<String> externalLastUpdatedTimeUtc;
 
     /**
@@ -225,7 +225,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * One or more `external_reference` blocks as defined below.
      * 
      */
-    @Export(name="externalReferences", type=List.class, parameters={ThreatIntelligenceIndicatorExternalReference.class})
+    @Export(name="externalReferences", refs={List.class,ThreatIntelligenceIndicatorExternalReference.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThreatIntelligenceIndicatorExternalReference>> externalReferences;
 
     /**
@@ -239,7 +239,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * One or more `granular_marking` blocks as defined below.
      * 
      */
-    @Export(name="granularMarkings", type=List.class, parameters={ThreatIntelligenceIndicatorGranularMarking.class})
+    @Export(name="granularMarkings", refs={List.class,ThreatIntelligenceIndicatorGranularMarking.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThreatIntelligenceIndicatorGranularMarking>> granularMarkings;
 
     /**
@@ -253,7 +253,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The guid of this Sentinel Threat Intelligence Indicator.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -263,7 +263,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
     public Output<String> guid() {
         return this.guid;
     }
-    @Export(name="indicatorTypes", type=List.class, parameters={String.class})
+    @Export(name="indicatorTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> indicatorTypes;
 
     public Output<List<String>> indicatorTypes() {
@@ -273,7 +273,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * One or more `kill_chain_phase` blocks as defined below.
      * 
      */
-    @Export(name="killChainPhases", type=List.class, parameters={ThreatIntelligenceIndicatorKillChainPhase.class})
+    @Export(name="killChainPhases", refs={List.class,ThreatIntelligenceIndicatorKillChainPhase.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThreatIntelligenceIndicatorKillChainPhase>> killChainPhases;
 
     /**
@@ -287,7 +287,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The language of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="language", type=String.class, parameters={})
+    @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
@@ -301,7 +301,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The last updated time of the Threat Intelligence Indicator in UTC.
      * 
      */
-    @Export(name="lastUpdatedTimeUtc", type=String.class, parameters={})
+    @Export(name="lastUpdatedTimeUtc", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTimeUtc;
 
     /**
@@ -315,7 +315,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Specifies a list of Threat Intelligence marking references.
      * 
      */
-    @Export(name="objectMarkingRefs", type=List.class, parameters={String.class})
+    @Export(name="objectMarkingRefs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> objectMarkingRefs;
 
     /**
@@ -329,7 +329,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * A `parsed_pattern` block as defined below.
      * 
      */
-    @Export(name="parsedPatterns", type=List.class, parameters={ThreatIntelligenceIndicatorParsedPattern.class})
+    @Export(name="parsedPatterns", refs={List.class,ThreatIntelligenceIndicatorParsedPattern.class}, tree="[0,1]")
     private Output<List<ThreatIntelligenceIndicatorParsedPattern>> parsedPatterns;
 
     /**
@@ -343,7 +343,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      * 
      */
-    @Export(name="pattern", type=String.class, parameters={})
+    @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
     /**
@@ -357,7 +357,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
      * 
      */
-    @Export(name="patternType", type=String.class, parameters={})
+    @Export(name="patternType", refs={String.class}, tree="[0]")
     private Output<String> patternType;
 
     /**
@@ -371,7 +371,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The version of a Threat Intelligence entity.
      * 
      */
-    @Export(name="patternVersion", type=String.class, parameters={})
+    @Export(name="patternVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> patternVersion;
 
     /**
@@ -385,7 +385,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Whether the Threat Intelligence entity revoked.
      * 
      */
-    @Export(name="revoked", type=Boolean.class, parameters={})
+    @Export(name="revoked", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revoked;
 
     /**
@@ -399,7 +399,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Source of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
@@ -413,7 +413,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Specifies a list of tags of the Threat Intelligence Indicator.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -427,7 +427,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * Specifies a list of threat types of this Threat Intelligence Indicator.
      * 
      */
-    @Export(name="threatTypes", type=List.class, parameters={String.class})
+    @Export(name="threatTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> threatTypes;
 
     /**
@@ -441,7 +441,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The start of validate date in RFC3339.
      * 
      */
-    @Export(name="validateFromUtc", type=String.class, parameters={})
+    @Export(name="validateFromUtc", refs={String.class}, tree="[0]")
     private Output<String> validateFromUtc;
 
     /**
@@ -455,7 +455,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
      * 
      */
-    @Export(name="validateUntilUtc", type=String.class, parameters={})
+    @Export(name="validateUntilUtc", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validateUntilUtc;
 
     /**
@@ -469,7 +469,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

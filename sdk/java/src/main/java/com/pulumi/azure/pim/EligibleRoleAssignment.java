@@ -156,7 +156,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="justification", type=String.class, parameters={})
+    @Export(name="justification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> justification;
 
     /**
@@ -170,7 +170,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
@@ -184,7 +184,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
@@ -198,7 +198,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="roleDefinitionId", type=String.class, parameters={})
+    @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
@@ -212,7 +212,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="schedule", type=EligibleRoleAssignmentSchedule.class, parameters={})
+    @Export(name="schedule", refs={EligibleRoleAssignmentSchedule.class}, tree="[0]")
     private Output</* @Nullable */ EligibleRoleAssignmentSchedule> schedule;
 
     /**
@@ -226,7 +226,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
@@ -240,7 +240,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
-    @Export(name="ticket", type=EligibleRoleAssignmentTicket.class, parameters={})
+    @Export(name="ticket", refs={EligibleRoleAssignmentTicket.class}, tree="[0]")
     private Output</* @Nullable */ EligibleRoleAssignmentTicket> ticket;
 
     /**

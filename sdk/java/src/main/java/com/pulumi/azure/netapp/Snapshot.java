@@ -128,7 +128,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -142,7 +142,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -156,7 +156,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the NetApp Snapshot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="poolName", type=String.class, parameters={})
+    @Export(name="poolName", refs={String.class}, tree="[0]")
     private Output<String> poolName;
 
     /**
@@ -184,7 +184,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -198,7 +198,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="volumeName", type=String.class, parameters={})
+    @Export(name="volumeName", refs={String.class}, tree="[0]")
     private Output<String> volumeName;
 
     /**

@@ -153,7 +153,7 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubNamespaceId", type=String.class, parameters={})
+    @Export(name="eventhubNamespaceId", refs={String.class}, tree="[0]")
     private Output<String> eventhubNamespaceId;
 
     /**
@@ -167,7 +167,7 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="infrastructureEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
 
     /**
@@ -181,7 +181,7 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * The list of keys of Key Vault.
      * 
      */
-    @Export(name="keyVaultKeyIds", type=List.class, parameters={String.class})
+    @Export(name="keyVaultKeyIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> keyVaultKeyIds;
 
     /**

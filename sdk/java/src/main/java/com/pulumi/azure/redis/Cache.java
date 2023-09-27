@@ -91,7 +91,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
-    @Export(name="capacity", type=Integer.class, parameters={})
+    @Export(name="capacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> capacity;
 
     /**
@@ -105,7 +105,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Enable the non-SSL port (6379) - disabled by default.
      * 
      */
-    @Export(name="enableNonSslPort", type=Boolean.class, parameters={})
+    @Export(name="enableNonSslPort", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableNonSslPort;
 
     /**
@@ -119,7 +119,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      * 
      */
-    @Export(name="family", type=String.class, parameters={})
+    @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
@@ -133,7 +133,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The Hostname of the Redis Instance
      * 
      */
-    @Export(name="hostname", type=String.class, parameters={})
+    @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
@@ -147,7 +147,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=CacheIdentity.class, parameters={})
+    @Export(name="identity", refs={CacheIdentity.class}, tree="[0]")
     private Output</* @Nullable */ CacheIdentity> identity;
 
     /**
@@ -161,7 +161,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The location of the resource group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -175,7 +175,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
      */
-    @Export(name="minimumTlsVersion", type=String.class, parameters={})
+    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
@@ -189,7 +189,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -203,7 +203,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A list of `patch_schedule` blocks as defined below.
      * 
      */
-    @Export(name="patchSchedules", type=List.class, parameters={CachePatchSchedule.class})
+    @Export(name="patchSchedules", refs={List.class,CachePatchSchedule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CachePatchSchedule>> patchSchedules;
 
     /**
@@ -217,7 +217,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The non-SSL Port of the Redis Instance
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -231,7 +231,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The Primary Access Key for the Redis Instance
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -245,7 +245,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The primary connection string of the Redis Instance.
      * 
      */
-    @Export(name="primaryConnectionString", type=String.class, parameters={})
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
@@ -259,7 +259,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateStaticIpAddress", type=String.class, parameters={})
+    @Export(name="privateStaticIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateStaticIpAddress;
 
     /**
@@ -273,7 +273,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -287,7 +287,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
-    @Export(name="redisConfiguration", type=CacheRedisConfiguration.class, parameters={})
+    @Export(name="redisConfiguration", refs={CacheRedisConfiguration.class}, tree="[0]")
     private Output<CacheRedisConfiguration> redisConfiguration;
 
     /**
@@ -301,7 +301,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Redis version. Only major version needed. Valid values: `4`, `6`.
      * 
      */
-    @Export(name="redisVersion", type=String.class, parameters={})
+    @Export(name="redisVersion", refs={String.class}, tree="[0]")
     private Output<String> redisVersion;
 
     /**
@@ -317,7 +317,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      * 
      */
-    @Export(name="replicasPerMaster", type=Integer.class, parameters={})
+    @Export(name="replicasPerMaster", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicasPerMaster;
 
     /**
@@ -333,7 +333,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
      * 
      */
-    @Export(name="replicasPerPrimary", type=Integer.class, parameters={})
+    @Export(name="replicasPerPrimary", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicasPerPrimary;
 
     /**
@@ -347,7 +347,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -361,7 +361,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The Secondary Access Key for the Redis Instance
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -375,7 +375,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The secondary connection string of the Redis Instance.
      * 
      */
-    @Export(name="secondaryConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
@@ -389,7 +389,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      * 
      */
-    @Export(name="shardCount", type=Integer.class, parameters={})
+    @Export(name="shardCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> shardCount;
 
     /**
@@ -405,7 +405,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -421,7 +421,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * The SSL Port of the Redis Instance
      * 
      */
-    @Export(name="sslPort", type=Integer.class, parameters={})
+    @Export(name="sslPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> sslPort;
 
     /**
@@ -435,7 +435,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
@@ -449,7 +449,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -463,7 +463,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * A mapping of tenant settings to assign to the resource.
      * 
      */
-    @Export(name="tenantSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tenantSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tenantSettings;
 
     /**
@@ -479,7 +479,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * &gt; **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**

@@ -106,7 +106,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
      * 
      */
-    @Export(name="activityLogEnabled", type=Boolean.class, parameters={})
+    @Export(name="activityLogEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> activityLogEnabled;
 
     /**
@@ -120,7 +120,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
      * 
      */
-    @Export(name="azureActiveDirectoryLogEnabled", type=Boolean.class, parameters={})
+    @Export(name="azureActiveDirectoryLogEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> azureActiveDirectoryLogEnabled;
 
     /**
@@ -134,7 +134,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * A `log_tag_filter` block as defined below.
      * 
      */
-    @Export(name="logTagFilters", type=List.class, parameters={TagRuleLogTagFilter.class})
+    @Export(name="logTagFilters", refs={List.class,TagRuleLogTagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TagRuleLogTagFilter>> logTagFilters;
 
     /**
@@ -148,7 +148,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * Whether metrics should be sent for the Monitor resource. Defaults to `false`.
      * 
      */
-    @Export(name="metricEnabled", type=Boolean.class, parameters={})
+    @Export(name="metricEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> metricEnabled;
 
     /**
@@ -162,7 +162,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * A `metric_tag_filter` block as defined below.
      * 
      */
-    @Export(name="metricTagFilters", type=List.class, parameters={TagRuleMetricTagFilter.class})
+    @Export(name="metricTagFilters", refs={List.class,TagRuleMetricTagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TagRuleMetricTagFilter>> metricTagFilters;
 
     /**
@@ -176,7 +176,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
      * 
      */
-    @Export(name="monitorId", type=String.class, parameters={})
+    @Export(name="monitorId", refs={String.class}, tree="[0]")
     private Output<String> monitorId;
 
     /**
@@ -190,7 +190,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
      * 
      */
-    @Export(name="subscriptionLogEnabled", type=Boolean.class, parameters={})
+    @Export(name="subscriptionLogEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> subscriptionLogEnabled;
 
     /**

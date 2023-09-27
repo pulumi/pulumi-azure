@@ -88,7 +88,7 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", type=String.class, parameters={})
+    @Export(name="botName", refs={String.class}, tree="[0]")
     private Output<String> botName;
 
     /**
@@ -102,7 +102,7 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -116,7 +116,7 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -130,7 +130,7 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
      * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
      * 
      */
-    @Export(name="sites", type=List.class, parameters={ChannelDirectLineSite.class})
+    @Export(name="sites", refs={List.class,ChannelDirectLineSite.class}, tree="[0,1]")
     private Output<List<ChannelDirectLineSite>> sites;
 
     /**

@@ -82,7 +82,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `active_directory` block as defined below.
      * 
      */
-    @Export(name="activeDirectory", type=AccountActiveDirectory.class, parameters={})
+    @Export(name="activeDirectory", refs={AccountActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ AccountActiveDirectory> activeDirectory;
 
     /**
@@ -96,7 +96,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -110,7 +110,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the NetApp Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -138,7 +138,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

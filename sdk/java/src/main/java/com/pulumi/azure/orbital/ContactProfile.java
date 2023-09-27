@@ -122,7 +122,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
      * 
      */
-    @Export(name="autoTracking", type=String.class, parameters={})
+    @Export(name="autoTracking", refs={String.class}, tree="[0]")
     private Output<String> autoTracking;
 
     /**
@@ -136,7 +136,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      * 
      */
-    @Export(name="eventHubUri", type=String.class, parameters={})
+    @Export(name="eventHubUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventHubUri;
 
     /**
@@ -150,7 +150,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="links", type=List.class, parameters={ContactProfileLink.class})
+    @Export(name="links", refs={List.class,ContactProfileLink.class}, tree="[0,1]")
     private Output<List<ContactProfileLink>> links;
 
     /**
@@ -164,7 +164,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * The location where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -178,7 +178,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * Maximum elevation of the antenna during the contact in decimal degrees.
      * 
      */
-    @Export(name="minimumElevationDegrees", type=Double.class, parameters={})
+    @Export(name="minimumElevationDegrees", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> minimumElevationDegrees;
 
     /**
@@ -192,7 +192,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      * 
      */
-    @Export(name="minimumVariableContactDuration", type=String.class, parameters={})
+    @Export(name="minimumVariableContactDuration", refs={String.class}, tree="[0]")
     private Output<String> minimumVariableContactDuration;
 
     /**
@@ -206,7 +206,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * The name of the contact profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -220,7 +220,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkConfigurationSubnetId", type=String.class, parameters={})
+    @Export(name="networkConfigurationSubnetId", refs={String.class}, tree="[0]")
     private Output<String> networkConfigurationSubnetId;
 
     /**
@@ -234,7 +234,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -248,7 +248,7 @@ public class ContactProfile extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

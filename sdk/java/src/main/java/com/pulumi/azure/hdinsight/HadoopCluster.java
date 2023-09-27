@@ -138,7 +138,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterVersion", type=String.class, parameters={})
+    @Export(name="clusterVersion", refs={String.class}, tree="[0]")
     private Output<String> clusterVersion;
 
     /**
@@ -152,7 +152,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `component_version` block as defined below.
      * 
      */
-    @Export(name="componentVersion", type=HadoopClusterComponentVersion.class, parameters={})
+    @Export(name="componentVersion", refs={HadoopClusterComponentVersion.class}, tree="[0]")
     private Output<HadoopClusterComponentVersion> componentVersion;
 
     /**
@@ -166,7 +166,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `compute_isolation` block as defined below.
      * 
      */
-    @Export(name="computeIsolation", type=HadoopClusterComputeIsolation.class, parameters={})
+    @Export(name="computeIsolation", refs={HadoopClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterComputeIsolation> computeIsolation;
 
     /**
@@ -180,7 +180,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * One or more `disk_encryption` block as defined below.
      * 
      */
-    @Export(name="diskEncryptions", type=List.class, parameters={HadoopClusterDiskEncryption.class})
+    @Export(name="diskEncryptions", refs={List.class,HadoopClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HadoopClusterDiskEncryption>> diskEncryptions;
 
     /**
@@ -194,7 +194,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * An `extension` block as defined below.
      * 
      */
-    @Export(name="extension", type=HadoopClusterExtension.class, parameters={})
+    @Export(name="extension", refs={HadoopClusterExtension.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterExtension> extension;
 
     /**
@@ -208,7 +208,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `gateway` block as defined below.
      * 
      */
-    @Export(name="gateway", type=HadoopClusterGateway.class, parameters={})
+    @Export(name="gateway", refs={HadoopClusterGateway.class}, tree="[0]")
     private Output<HadoopClusterGateway> gateway;
 
     /**
@@ -222,7 +222,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
      * 
      */
-    @Export(name="httpsEndpoint", type=String.class, parameters={})
+    @Export(name="httpsEndpoint", refs={String.class}, tree="[0]")
     private Output<String> httpsEndpoint;
 
     /**
@@ -236,7 +236,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -250,7 +250,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `metastores` block as defined below.
      * 
      */
-    @Export(name="metastores", type=HadoopClusterMetastores.class, parameters={})
+    @Export(name="metastores", refs={HadoopClusterMetastores.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterMetastores> metastores;
 
     /**
@@ -264,7 +264,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `monitor` block as defined below.
      * 
      */
-    @Export(name="monitor", type=HadoopClusterMonitor.class, parameters={})
+    @Export(name="monitor", refs={HadoopClusterMonitor.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterMonitor> monitor;
 
     /**
@@ -278,7 +278,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -292,7 +292,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `network` block as defined below.
      * 
      */
-    @Export(name="network", type=HadoopClusterNetwork.class, parameters={})
+    @Export(name="network", refs={HadoopClusterNetwork.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterNetwork> network;
 
     /**
@@ -306,7 +306,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -320,7 +320,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `roles` block as defined below.
      * 
      */
-    @Export(name="roles", type=HadoopClusterRoles.class, parameters={})
+    @Export(name="roles", refs={HadoopClusterRoles.class}, tree="[0]")
     private Output<HadoopClusterRoles> roles;
 
     /**
@@ -334,7 +334,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityProfile", type=HadoopClusterSecurityProfile.class, parameters={})
+    @Export(name="securityProfile", refs={HadoopClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterSecurityProfile> securityProfile;
 
     /**
@@ -348,7 +348,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
      * 
      */
-    @Export(name="sshEndpoint", type=String.class, parameters={})
+    @Export(name="sshEndpoint", refs={String.class}, tree="[0]")
     private Output<String> sshEndpoint;
 
     /**
@@ -362,7 +362,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A `storage_account_gen2` block as defined below.
      * 
      */
-    @Export(name="storageAccountGen2", type=HadoopClusterStorageAccountGen2.class, parameters={})
+    @Export(name="storageAccountGen2", refs={HadoopClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterStorageAccountGen2> storageAccountGen2;
 
     /**
@@ -376,7 +376,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` block as defined below.
      * 
      */
-    @Export(name="storageAccounts", type=List.class, parameters={HadoopClusterStorageAccount.class})
+    @Export(name="storageAccounts", refs={List.class,HadoopClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HadoopClusterStorageAccount>> storageAccounts;
 
     /**
@@ -390,7 +390,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -404,7 +404,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output<String> tier;
 
     /**
@@ -420,7 +420,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
-    @Export(name="tlsMinVersion", type=String.class, parameters={})
+    @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tlsMinVersion;
 
     /**

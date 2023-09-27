@@ -82,7 +82,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
      * 
      */
-    @Export(name="daprApplicationInsightsConnectionString", type=String.class, parameters={})
+    @Export(name="daprApplicationInsightsConnectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> daprApplicationInsightsConnectionString;
 
     /**
@@ -96,7 +96,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The default, publicly resolvable, name of this Container App Environment.
      * 
      */
-    @Export(name="defaultDomain", type=String.class, parameters={})
+    @Export(name="defaultDomain", refs={String.class}, tree="[0]")
     private Output<String> defaultDomain;
 
     /**
@@ -110,7 +110,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
      * 
      */
-    @Export(name="dockerBridgeCidr", type=String.class, parameters={})
+    @Export(name="dockerBridgeCidr", refs={String.class}, tree="[0]")
     private Output<String> dockerBridgeCidr;
 
     /**
@@ -126,7 +126,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
      * 
      */
-    @Export(name="infrastructureSubnetId", type=String.class, parameters={})
+    @Export(name="infrastructureSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> infrastructureSubnetId;
 
     /**
@@ -144,7 +144,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
      * 
      */
-    @Export(name="internalLoadBalancerEnabled", type=Boolean.class, parameters={})
+    @Export(name="internalLoadBalancerEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> internalLoadBalancerEnabled;
 
     /**
@@ -160,7 +160,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -174,7 +174,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
 
     /**
@@ -188,7 +188,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -202,7 +202,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
      * 
      */
-    @Export(name="platformReservedCidr", type=String.class, parameters={})
+    @Export(name="platformReservedCidr", refs={String.class}, tree="[0]")
     private Output<String> platformReservedCidr;
 
     /**
@@ -216,7 +216,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
      * 
      */
-    @Export(name="platformReservedDnsIpAddress", type=String.class, parameters={})
+    @Export(name="platformReservedDnsIpAddress", refs={String.class}, tree="[0]")
     private Output<String> platformReservedDnsIpAddress;
 
     /**
@@ -230,7 +230,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -244,7 +244,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The Static IP address of the Environment.
      * 
      */
-    @Export(name="staticIpAddress", type=String.class, parameters={})
+    @Export(name="staticIpAddress", refs={String.class}, tree="[0]")
     private Output<String> staticIpAddress;
 
     /**
@@ -258,7 +258,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -274,7 +274,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
      * 
      */
-    @Export(name="zoneRedundancyEnabled", type=Boolean.class, parameters={})
+    @Export(name="zoneRedundancyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneRedundancyEnabled;
 
     /**

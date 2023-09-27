@@ -128,7 +128,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
      * 
      */
-    @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorProfileId;
 
     /**
@@ -146,7 +146,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * -&gt;**NOTE:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
      * 
      */
-    @Export(name="dnsZoneId", type=String.class, parameters={})
+    @Export(name="dnsZoneId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsZoneId;
 
     /**
@@ -164,7 +164,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * The date time that the token expires.
      * 
      */
-    @Export(name="expirationDate", type=String.class, parameters={})
+    @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
     /**
@@ -178,7 +178,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
-    @Export(name="hostName", type=String.class, parameters={})
+    @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
@@ -192,7 +192,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -206,7 +206,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * A `tls` block as defined below.
      * 
      */
-    @Export(name="tls", type=FrontdoorCustomDomainTls.class, parameters={})
+    @Export(name="tls", refs={FrontdoorCustomDomainTls.class}, tree="[0]")
     private Output<FrontdoorCustomDomainTls> tls;
 
     /**
@@ -220,7 +220,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * Challenge used for DNS TXT record or file based validation.
      * 
      */
-    @Export(name="validationToken", type=String.class, parameters={})
+    @Export(name="validationToken", refs={String.class}, tree="[0]")
     private Output<String> validationToken;
 
     /**

@@ -100,7 +100,7 @@ public class AlertRuleThreatIntelligence extends com.pulumi.resources.CustomReso
      * The GUID of the alert rule template which is used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
+    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
     private Output<String> alertRuleTemplateGuid;
 
     /**
@@ -114,7 +114,7 @@ public class AlertRuleThreatIntelligence extends com.pulumi.resources.CustomReso
      * Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -128,7 +128,7 @@ public class AlertRuleThreatIntelligence extends com.pulumi.resources.CustomReso
      * The ID of the Log Analytics Workspace this Sentinel Threat Intelligence Alert Rule belongs to. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -142,7 +142,7 @@ public class AlertRuleThreatIntelligence extends com.pulumi.resources.CustomReso
      * The name which should be used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -160,7 +160,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      * 
      */
-    @Export(name="clusterPurpose", type=String.class, parameters={})
+    @Export(name="clusterPurpose", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterPurpose;
 
     /**
@@ -176,7 +176,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -190,7 +190,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="identity", type=InferenceClusterIdentity.class, parameters={})
+    @Export(name="identity", refs={InferenceClusterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ InferenceClusterIdentity> identity;
 
     /**
@@ -204,7 +204,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="kubernetesClusterId", type=String.class, parameters={})
+    @Export(name="kubernetesClusterId", refs={String.class}, tree="[0]")
     private Output<String> kubernetesClusterId;
 
     /**
@@ -218,7 +218,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -232,7 +232,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="machineLearningWorkspaceId", type=String.class, parameters={})
+    @Export(name="machineLearningWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> machineLearningWorkspaceId;
 
     /**
@@ -246,7 +246,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -260,7 +260,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="ssl", type=InferenceClusterSsl.class, parameters={})
+    @Export(name="ssl", refs={InferenceClusterSsl.class}, tree="[0]")
     private Output</* @Nullable */ InferenceClusterSsl> ssl;
 
     /**
@@ -274,7 +274,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

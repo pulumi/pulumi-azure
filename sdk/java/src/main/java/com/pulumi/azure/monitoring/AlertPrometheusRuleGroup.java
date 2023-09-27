@@ -36,7 +36,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Specifies the name of the Managed Kubernetes Cluster.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterName;
 
     /**
@@ -50,7 +50,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * The description of the Alert Management Prometheus Rule Group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -64,7 +64,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
      * 
      */
-    @Export(name="interval", type=String.class, parameters={})
+    @Export(name="interval", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> interval;
 
     /**
@@ -78,7 +78,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -92,7 +92,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -106,7 +106,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -120,7 +120,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
      * 
      */
-    @Export(name="ruleGroupEnabled", type=Boolean.class, parameters={})
+    @Export(name="ruleGroupEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ruleGroupEnabled;
 
     /**
@@ -134,7 +134,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * A `rule` block as defined below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={AlertPrometheusRuleGroupRule.class})
+    @Export(name="rules", refs={List.class,AlertPrometheusRuleGroupRule.class}, tree="[0,1]")
     private Output<List<AlertPrometheusRuleGroupRule>> rules;
 
     /**
@@ -148,7 +148,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * Specifies the resource ID of the Azure Monitor Workspace.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -162,7 +162,7 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * A mapping of tags to assign to the Alert Management Prometheus Rule Group.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

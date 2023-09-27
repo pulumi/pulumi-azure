@@ -77,7 +77,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * The comment for Audit purposes.
      * 
      */
-    @Export(name="auditComment", type=String.class, parameters={})
+    @Export(name="auditComment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditComment;
 
     /**
@@ -91,7 +91,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * The description for the FQDN List.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * Specifies a list of Fully Qualified Domain Names.
      * 
      */
-    @Export(name="fullyQualifiedDomainNames", type=List.class, parameters={String.class})
+    @Export(name="fullyQualifiedDomainNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> fullyQualifiedDomainNames;
 
     /**
@@ -119,7 +119,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Palo Alto Local Rulestack FQDN List.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
      * 
      */
-    @Export(name="rulestackId", type=String.class, parameters={})
+    @Export(name="rulestackId", refs={String.class}, tree="[0]")
     private Output<String> rulestackId;
 
     /**

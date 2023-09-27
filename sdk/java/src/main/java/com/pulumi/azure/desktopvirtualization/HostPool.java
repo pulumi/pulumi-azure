@@ -89,7 +89,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      * 
      */
-    @Export(name="customRdpProperties", type=String.class, parameters={})
+    @Export(name="customRdpProperties", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customRdpProperties;
 
     /**
@@ -103,7 +103,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * A description for the Virtual Desktop Host Pool.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -117,7 +117,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * A friendly name for the Virtual Desktop Host Pool.
      * 
      */
-    @Export(name="friendlyName", type=String.class, parameters={})
+    @Export(name="friendlyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> friendlyName;
 
     /**
@@ -133,7 +133,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * `Persistent` should be used if the host pool type is `Personal`
      * 
      */
-    @Export(name="loadBalancerType", type=String.class, parameters={})
+    @Export(name="loadBalancerType", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerType;
 
     /**
@@ -149,7 +149,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -164,7 +164,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      * 
      */
-    @Export(name="maximumSessionsAllowed", type=Integer.class, parameters={})
+    @Export(name="maximumSessionsAllowed", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maximumSessionsAllowed;
 
     /**
@@ -179,7 +179,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      * 
      */
-    @Export(name="personalDesktopAssignmentType", type=String.class, parameters={})
+    @Export(name="personalDesktopAssignmentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> personalDesktopAssignmentType;
 
     /**
@@ -211,7 +211,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="preferredAppGroupType", type=String.class, parameters={})
+    @Export(name="preferredAppGroupType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preferredAppGroupType;
 
     /**
@@ -225,7 +225,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -239,7 +239,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
      * 
      */
-    @Export(name="scheduledAgentUpdates", type=HostPoolScheduledAgentUpdates.class, parameters={})
+    @Export(name="scheduledAgentUpdates", refs={HostPoolScheduledAgentUpdates.class}, tree="[0]")
     private Output</* @Nullable */ HostPoolScheduledAgentUpdates> scheduledAgentUpdates;
 
     /**
@@ -253,7 +253,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      * 
      */
-    @Export(name="startVmOnConnect", type=Boolean.class, parameters={})
+    @Export(name="startVmOnConnect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startVmOnConnect;
 
     /**
@@ -267,7 +267,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -281,7 +281,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -295,7 +295,7 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      * 
      */
-    @Export(name="validateEnvironment", type=Boolean.class, parameters={})
+    @Export(name="validateEnvironment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validateEnvironment;
 
     /**

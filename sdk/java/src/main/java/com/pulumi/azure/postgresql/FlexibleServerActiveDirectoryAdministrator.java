@@ -99,7 +99,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="objectId", type=String.class, parameters={})
+    @Export(name="objectId", refs={String.class}, tree="[0]")
     private Output<String> objectId;
 
     /**
@@ -113,7 +113,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * The name of Azure Active Directory principal. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalName", type=String.class, parameters={})
+    @Export(name="principalName", refs={String.class}, tree="[0]")
     private Output<String> principalName;
 
     /**
@@ -127,7 +127,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalType", type=String.class, parameters={})
+    @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
@@ -141,7 +141,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * The name of the resource group for the PostgreSQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -155,7 +155,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -169,7 +169,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * The Azure Tenant ID. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

@@ -212,7 +212,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceName", type=String.class, parameters={})
+    @Export(name="appServiceName", refs={String.class}, tree="[0]")
     private Output<String> appServiceName;
 
     /**
@@ -226,7 +226,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServicePlanId", type=String.class, parameters={})
+    @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
     private Output<String> appServicePlanId;
 
     /**
@@ -240,7 +240,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * A key-value pair of App Settings.
      * 
      */
-    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> appSettings;
 
     /**
@@ -254,7 +254,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * A `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", type=SlotAuthSettings.class, parameters={})
+    @Export(name="authSettings", refs={SlotAuthSettings.class}, tree="[0]")
     private Output<SlotAuthSettings> authSettings;
 
     /**
@@ -268,7 +268,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      * 
      */
-    @Export(name="clientAffinityEnabled", type=Boolean.class, parameters={})
+    @Export(name="clientAffinityEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clientAffinityEnabled;
 
     /**
@@ -282,7 +282,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * An `connection_string` block as defined below.
      * 
      */
-    @Export(name="connectionStrings", type=List.class, parameters={SlotConnectionString.class})
+    @Export(name="connectionStrings", refs={List.class,SlotConnectionString.class}, tree="[0,1]")
     private Output<List<SlotConnectionString>> connectionStrings;
 
     /**
@@ -296,7 +296,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
      * 
      */
-    @Export(name="defaultSiteHostname", type=String.class, parameters={})
+    @Export(name="defaultSiteHostname", refs={String.class}, tree="[0]")
     private Output<String> defaultSiteHostname;
 
     /**
@@ -310,7 +310,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * Is the App Service Slot Enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -324,7 +324,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", type=Boolean.class, parameters={})
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -338,7 +338,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=SlotIdentity.class, parameters={})
+    @Export(name="identity", refs={SlotIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SlotIdentity> identity;
 
     /**
@@ -352,7 +352,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
+    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -366,7 +366,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -380,7 +380,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * A `logs` block as defined below.
      * 
      */
-    @Export(name="logs", type=SlotLogs.class, parameters={})
+    @Export(name="logs", refs={SlotLogs.class}, tree="[0]")
     private Output<SlotLogs> logs;
 
     /**
@@ -394,7 +394,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -408,7 +408,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -422,7 +422,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * A `site_config` object as defined below.
      * 
      */
-    @Export(name="siteConfig", type=SlotSiteConfig.class, parameters={})
+    @Export(name="siteConfig", refs={SlotSiteConfig.class}, tree="[0]")
     private Output<SlotSiteConfig> siteConfig;
 
     /**
@@ -436,7 +436,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      * 
      */
-    @Export(name="siteCredentials", type=List.class, parameters={SlotSiteCredential.class})
+    @Export(name="siteCredentials", refs={List.class,SlotSiteCredential.class}, tree="[0,1]")
     private Output<List<SlotSiteCredential>> siteCredentials;
 
     /**
@@ -450,7 +450,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", type=List.class, parameters={SlotStorageAccount.class})
+    @Export(name="storageAccounts", refs={List.class,SlotStorageAccount.class}, tree="[0,1]")
     private Output<List<SlotStorageAccount>> storageAccounts;
 
     /**
@@ -464,7 +464,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

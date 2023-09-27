@@ -128,7 +128,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
      * 
      */
-    @Export(name="agentName", type=String.class, parameters={})
+    @Export(name="agentName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> agentName;
 
     /**
@@ -142,7 +142,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
      * 
      */
-    @Export(name="copyMode", type=String.class, parameters={})
+    @Export(name="copyMode", refs={String.class}, tree="[0]")
     private Output<String> copyMode;
 
     /**
@@ -156,7 +156,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies a description for this Storage Mover Job Definition.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -170,7 +170,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -184,7 +184,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceName", type=String.class, parameters={})
+    @Export(name="sourceName", refs={String.class}, tree="[0]")
     private Output<String> sourceName;
 
     /**
@@ -198,7 +198,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceSubPath", type=String.class, parameters={})
+    @Export(name="sourceSubPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceSubPath;
 
     /**
@@ -212,7 +212,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageMoverProjectId", type=String.class, parameters={})
+    @Export(name="storageMoverProjectId", refs={String.class}, tree="[0]")
     private Output<String> storageMoverProjectId;
 
     /**
@@ -226,7 +226,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetName", type=String.class, parameters={})
+    @Export(name="targetName", refs={String.class}, tree="[0]")
     private Output<String> targetName;
 
     /**
@@ -240,7 +240,7 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetSubPath", type=String.class, parameters={})
+    @Export(name="targetSubPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetSubPath;
 
     /**

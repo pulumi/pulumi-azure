@@ -85,7 +85,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * One or more `authorization` block defined below.
      * 
      */
-    @Export(name="authorizations", type=List.class, parameters={DefinitionAuthorization.class})
+    @Export(name="authorizations", refs={List.class,DefinitionAuthorization.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DefinitionAuthorization>> authorizations;
 
     /**
@@ -99,7 +99,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      * 
      */
-    @Export(name="createUiDefinition", type=String.class, parameters={})
+    @Export(name="createUiDefinition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createUiDefinition;
 
     /**
@@ -113,7 +113,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the managed application definition description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -127,7 +127,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the managed application definition display name.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -141,7 +141,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -155,7 +155,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="lockLevel", type=String.class, parameters={})
+    @Export(name="lockLevel", refs={String.class}, tree="[0]")
     private Output<String> lockLevel;
 
     /**
@@ -169,7 +169,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the inline main template JSON which has resources to be provisioned.
      * 
      */
-    @Export(name="mainTemplate", type=String.class, parameters={})
+    @Export(name="mainTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mainTemplate;
 
     /**
@@ -183,7 +183,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -197,7 +197,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Is the package enabled? Defaults to `true`.
      * 
      */
-    @Export(name="packageEnabled", type=Boolean.class, parameters={})
+    @Export(name="packageEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> packageEnabled;
 
     /**
@@ -211,7 +211,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Specifies the managed application definition package file Uri.
      * 
      */
-    @Export(name="packageFileUri", type=String.class, parameters={})
+    @Export(name="packageFileUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> packageFileUri;
 
     /**
@@ -225,7 +225,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -241,7 +241,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

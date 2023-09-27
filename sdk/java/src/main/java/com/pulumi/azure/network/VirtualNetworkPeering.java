@@ -96,7 +96,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
-    @Export(name="allowForwardedTraffic", type=Boolean.class, parameters={})
+    @Export(name="allowForwardedTraffic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowForwardedTraffic;
 
     /**
@@ -110,7 +110,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      * 
      */
-    @Export(name="allowGatewayTransit", type=Boolean.class, parameters={})
+    @Export(name="allowGatewayTransit", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowGatewayTransit;
 
     /**
@@ -124,7 +124,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      * 
      */
-    @Export(name="allowVirtualNetworkAccess", type=Boolean.class, parameters={})
+    @Export(name="allowVirtualNetworkAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowVirtualNetworkAccess;
 
     /**
@@ -138,7 +138,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="remoteVirtualNetworkId", type=String.class, parameters={})
+    @Export(name="remoteVirtualNetworkId", refs={String.class}, tree="[0]")
     private Output<String> remoteVirtualNetworkId;
 
     /**
@@ -166,7 +166,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -180,7 +180,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
      * 
      */
-    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     /**
@@ -196,7 +196,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
-    @Export(name="useRemoteGateways", type=Boolean.class, parameters={})
+    @Export(name="useRemoteGateways", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useRemoteGateways;
 
     /**
@@ -212,7 +212,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkName", type=String.class, parameters={})
+    @Export(name="virtualNetworkName", refs={String.class}, tree="[0]")
     private Output<String> virtualNetworkName;
 
     /**

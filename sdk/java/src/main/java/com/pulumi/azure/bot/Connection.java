@@ -87,7 +87,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", type=String.class, parameters={})
+    @Export(name="botName", refs={String.class}, tree="[0]")
     private Output<String> botName;
 
     /**
@@ -101,7 +101,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The Client ID that will be used to authenticate with the service provider.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -115,7 +115,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The Client Secret that will be used to authenticate with the service provider.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -129,7 +129,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -143,7 +143,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A map of additional parameters to apply to the connection.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -171,7 +171,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -185,7 +185,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The Scopes at which the connection should be applied.
      * 
      */
-    @Export(name="scopes", type=String.class, parameters={})
+    @Export(name="scopes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scopes;
 
     /**
@@ -199,7 +199,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceProviderName", type=String.class, parameters={})
+    @Export(name="serviceProviderName", refs={String.class}, tree="[0]")
     private Output<String> serviceProviderName;
 
     /**
@@ -219,7 +219,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider. */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

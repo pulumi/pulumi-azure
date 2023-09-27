@@ -91,7 +91,7 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -105,7 +105,7 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * The body of the stored procedure.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
@@ -119,7 +119,7 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerName", type=String.class, parameters={})
+    @Export(name="containerName", refs={String.class}, tree="[0]")
     private Output<String> containerName;
 
     /**
@@ -133,7 +133,7 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB SQL Database to create the stored procedure within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -147,7 +147,7 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -161,7 +161,7 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

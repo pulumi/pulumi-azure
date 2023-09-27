@@ -106,7 +106,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can&#39;t deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      * 
      */
-    @Export(name="deadLetterStorageSecret", type=String.class, parameters={})
+    @Export(name="deadLetterStorageSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deadLetterStorageSecret;
 
     /**
@@ -120,7 +120,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      * 
      */
-    @Export(name="digitalTwinsId", type=String.class, parameters={})
+    @Export(name="digitalTwinsId", refs={String.class}, tree="[0]")
     private Output<String> digitalTwinsId;
 
     /**
@@ -134,7 +134,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
      * 
      */
-    @Export(name="eventhubPrimaryConnectionString", type=String.class, parameters={})
+    @Export(name="eventhubPrimaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> eventhubPrimaryConnectionString;
 
     /**
@@ -148,7 +148,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
      * 
      */
-    @Export(name="eventhubSecondaryConnectionString", type=String.class, parameters={})
+    @Export(name="eventhubSecondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> eventhubSecondaryConnectionString;
 
     /**
@@ -162,7 +162,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

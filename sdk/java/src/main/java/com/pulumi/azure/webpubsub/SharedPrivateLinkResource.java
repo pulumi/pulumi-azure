@@ -100,7 +100,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      * 
      */
-    @Export(name="requestMessage", type=String.class, parameters={})
+    @Export(name="requestMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestMessage;
 
     /**
@@ -128,7 +128,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -144,7 +144,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
      * 
      */
-    @Export(name="subresourceName", type=String.class, parameters={})
+    @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output<String> subresourceName;
 
     /**
@@ -162,7 +162,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -178,7 +178,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubId", type=String.class, parameters={})
+    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
     private Output<String> webPubsubId;
 
     /**

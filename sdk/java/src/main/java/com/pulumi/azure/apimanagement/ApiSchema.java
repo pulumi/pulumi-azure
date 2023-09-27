@@ -76,7 +76,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -90,7 +90,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiName", type=String.class, parameters={})
+    @Export(name="apiName", refs={String.class}, tree="[0]")
     private Output<String> apiName;
 
     /**
@@ -104,7 +104,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
      * 
      */
-    @Export(name="components", type=String.class, parameters={})
+    @Export(name="components", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> components;
 
     /**
@@ -118,7 +118,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * The content type of the API Schema.
      * 
      */
-    @Export(name="contentType", type=String.class, parameters={})
+    @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
     /**
@@ -132,7 +132,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
      * 
      */
-    @Export(name="definitions", type=String.class, parameters={})
+    @Export(name="definitions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> definitions;
 
     /**
@@ -146,7 +146,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -160,7 +160,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * A unique identifier for this API Schema. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="schemaId", type=String.class, parameters={})
+    @Export(name="schemaId", refs={String.class}, tree="[0]")
     private Output<String> schemaId;
 
     /**
@@ -174,7 +174,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * The JSON escaped string defining the document representing the Schema.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**

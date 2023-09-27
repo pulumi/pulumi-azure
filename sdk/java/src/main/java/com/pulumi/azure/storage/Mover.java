@@ -72,7 +72,7 @@ public class Mover extends com.pulumi.resources.CustomResource {
      * A description for the Storage Mover.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -86,7 +86,7 @@ public class Mover extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -100,7 +100,7 @@ public class Mover extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Storage Mover. Changing this forces a new Storage Mover to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class Mover extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -128,7 +128,7 @@ public class Mover extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Storage Mover.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

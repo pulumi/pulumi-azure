@@ -88,7 +88,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * A display name for this API Connection. Changing this forces a new API Connection to be created.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -102,7 +102,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
      * 
      */
-    @Export(name="managedApiId", type=String.class, parameters={})
+    @Export(name="managedApiId", refs={String.class}, tree="[0]")
     private Output<String> managedApiId;
 
     /**
@@ -116,7 +116,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="parameterValues", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameterValues", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameterValues;
 
     public Output<Optional<Map<String,String>>> parameterValues() {
@@ -136,7 +136,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -150,7 +150,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the API Connection.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

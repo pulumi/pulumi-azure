@@ -83,7 +83,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -97,7 +97,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
      * 
      */
-    @Export(name="contentUri", type=String.class, parameters={})
+    @Export(name="contentUri", refs={String.class}, tree="[0]")
     private Output<String> contentUri;
 
     /**
@@ -111,7 +111,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
      * 
      */
-    @Export(name="contentVersion", type=String.class, parameters={})
+    @Export(name="contentVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentVersion;
 
     /**
@@ -125,7 +125,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
      * 
      */
-    @Export(name="hashAlgorithm", type=String.class, parameters={})
+    @Export(name="hashAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hashAlgorithm;
 
     /**
@@ -139,7 +139,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
      * 
      */
-    @Export(name="hashValue", type=String.class, parameters={})
+    @Export(name="hashValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hashValue;
 
     /**
@@ -153,7 +153,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -181,7 +181,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Automation Python3 Package.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

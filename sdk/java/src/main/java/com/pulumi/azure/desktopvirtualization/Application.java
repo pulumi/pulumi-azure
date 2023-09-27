@@ -106,7 +106,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationGroupId", type=String.class, parameters={})
+    @Export(name="applicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> applicationGroupId;
 
     /**
@@ -120,7 +120,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
      * 
      */
-    @Export(name="commandLineArgumentPolicy", type=String.class, parameters={})
+    @Export(name="commandLineArgumentPolicy", refs={String.class}, tree="[0]")
     private Output<String> commandLineArgumentPolicy;
 
     /**
@@ -134,7 +134,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Command Line Arguments for Virtual Desktop Application.
      * 
      */
-    @Export(name="commandLineArguments", type=String.class, parameters={})
+    @Export(name="commandLineArguments", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> commandLineArguments;
 
     /**
@@ -148,7 +148,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Option to set a description for the Virtual Desktop Application.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -162,7 +162,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Option to set a friendly name for the Virtual Desktop Application.
      * 
      */
-    @Export(name="friendlyName", type=String.class, parameters={})
+    @Export(name="friendlyName", refs={String.class}, tree="[0]")
     private Output<String> friendlyName;
 
     /**
@@ -176,7 +176,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The index of the icon you wish to use.
      * 
      */
-    @Export(name="iconIndex", type=Integer.class, parameters={})
+    @Export(name="iconIndex", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> iconIndex;
 
     /**
@@ -190,7 +190,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies the path for an icon which will be used for this Virtual Desktop Application.
      * 
      */
-    @Export(name="iconPath", type=String.class, parameters={})
+    @Export(name="iconPath", refs={String.class}, tree="[0]")
     private Output<String> iconPath;
 
     /**
@@ -204,7 +204,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -218,7 +218,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The file path location of the app on the Virtual Desktop OS.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
@@ -232,7 +232,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      * 
      */
-    @Export(name="showInPortal", type=Boolean.class, parameters={})
+    @Export(name="showInPortal", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> showInPortal;
 
     /**

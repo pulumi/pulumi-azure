@@ -100,7 +100,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -114,7 +114,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * The name of the SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sqlManagedInstanceId", type=String.class, parameters={})
+    @Export(name="sqlManagedInstanceId", refs={String.class}, tree="[0]")
     private Output<String> sqlManagedInstanceId;
 
     /**

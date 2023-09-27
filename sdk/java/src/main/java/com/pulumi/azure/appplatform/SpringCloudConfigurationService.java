@@ -93,7 +93,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
      * 
      */
-    @Export(name="generation", type=String.class, parameters={})
+    @Export(name="generation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> generation;
 
     /**
@@ -107,7 +107,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * One or more `repository` blocks as defined below.
      * 
      */
-    @Export(name="repositories", type=List.class, parameters={SpringCloudConfigurationServiceRepository.class})
+    @Export(name="repositories", refs={List.class,SpringCloudConfigurationServiceRepository.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpringCloudConfigurationServiceRepository>> repositories;
 
     /**
@@ -135,7 +135,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
-    @Export(name="springCloudServiceId", type=String.class, parameters={})
+    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
     private Output<String> springCloudServiceId;
 
     /**

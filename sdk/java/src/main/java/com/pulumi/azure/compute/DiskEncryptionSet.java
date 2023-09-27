@@ -267,7 +267,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:compute/diskEncryptionSet:DiskEncryptionSet")
 public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
-    @Export(name="autoKeyRotationEnabled", type=Boolean.class, parameters={})
+    @Export(name="autoKeyRotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoKeyRotationEnabled;
 
     public Output<Optional<Boolean>> autoKeyRotationEnabled() {
@@ -277,7 +277,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionType", type=String.class, parameters={})
+    @Export(name="encryptionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionType;
 
     /**
@@ -291,7 +291,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * Multi-tenant application client id to access key vault in a different tenant.
      * 
      */
-    @Export(name="federatedClientId", type=String.class, parameters={})
+    @Export(name="federatedClientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> federatedClientId;
 
     /**
@@ -305,7 +305,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=DiskEncryptionSetIdentity.class, parameters={})
+    @Export(name="identity", refs={DiskEncryptionSetIdentity.class}, tree="[0]")
     private Output<DiskEncryptionSetIdentity> identity;
 
     /**
@@ -324,7 +324,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultKeyId;
 
     /**
@@ -343,7 +343,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
      * 
      */
-    @Export(name="keyVaultKeyUrl", type=String.class, parameters={})
+    @Export(name="keyVaultKeyUrl", refs={String.class}, tree="[0]")
     private Output<String> keyVaultKeyUrl;
 
     /**
@@ -357,7 +357,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -371,7 +371,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -385,7 +385,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -399,7 +399,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Disk Encryption Set.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

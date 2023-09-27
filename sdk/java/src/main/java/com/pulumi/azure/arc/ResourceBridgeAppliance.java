@@ -78,7 +78,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
      * 
      */
-    @Export(name="distro", type=String.class, parameters={})
+    @Export(name="distro", refs={String.class}, tree="[0]")
     private Output<String> distro;
 
     /**
@@ -92,7 +92,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="identity", type=ResourceBridgeApplianceIdentity.class, parameters={})
+    @Export(name="identity", refs={ResourceBridgeApplianceIdentity.class}, tree="[0]")
     private Output<ResourceBridgeApplianceIdentity> identity;
 
     /**
@@ -106,7 +106,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="infrastructureProvider", type=String.class, parameters={})
+    @Export(name="infrastructureProvider", refs={String.class}, tree="[0]")
     private Output<String> infrastructureProvider;
 
     /**
@@ -120,7 +120,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -134,7 +134,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicKeyBase64", type=String.class, parameters={})
+    @Export(name="publicKeyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicKeyBase64;
 
     /**
@@ -162,7 +162,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -176,7 +176,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

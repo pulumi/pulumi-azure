@@ -97,7 +97,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * One or more `custom_header` blocks as defined below.
      * 
      */
-    @Export(name="customHeaders", type=List.class, parameters={TrafficManagerExternalEndpointCustomHeader.class})
+    @Export(name="customHeaders", refs={List.class,TrafficManagerExternalEndpointCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrafficManagerExternalEndpointCustomHeader>> customHeaders;
 
     /**
@@ -111,7 +111,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * Is the endpoint enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -125,7 +125,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
-    @Export(name="endpointLocation", type=String.class, parameters={})
+    @Export(name="endpointLocation", refs={String.class}, tree="[0]")
     private Output<String> endpointLocation;
 
     /**
@@ -139,7 +139,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can&#39;t be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      * 
      */
-    @Export(name="geoMappings", type=List.class, parameters={String.class})
+    @Export(name="geoMappings", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> geoMappings;
 
     /**
@@ -153,7 +153,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * The name of the External Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -181,7 +181,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="profileId", type=String.class, parameters={})
+    @Export(name="profileId", refs={String.class}, tree="[0]")
     private Output<String> profileId;
 
     /**
@@ -195,7 +195,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnets", type=List.class, parameters={TrafficManagerExternalEndpointSubnet.class})
+    @Export(name="subnets", refs={List.class,TrafficManagerExternalEndpointSubnet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrafficManagerExternalEndpointSubnet>> subnets;
 
     /**
@@ -209,7 +209,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * The FQDN DNS name of the target.
      * 
      */
-    @Export(name="target", type=String.class, parameters={})
+    @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
     /**
@@ -223,7 +223,7 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
-    @Export(name="weight", type=Integer.class, parameters={})
+    @Export(name="weight", refs={Integer.class}, tree="[0]")
     private Output<Integer> weight;
 
     /**

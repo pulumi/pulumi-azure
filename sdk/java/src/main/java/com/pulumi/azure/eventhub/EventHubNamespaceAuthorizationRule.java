@@ -84,7 +84,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      * 
      */
-    @Export(name="listen", type=Boolean.class, parameters={})
+    @Export(name="listen", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listen;
 
     /**
@@ -98,7 +98,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
-    @Export(name="manage", type=Boolean.class, parameters={})
+    @Export(name="manage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manage;
 
     /**
@@ -112,7 +112,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -140,7 +140,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * The Primary Connection String for the Authorization Rule.
      * 
      */
-    @Export(name="primaryConnectionString", type=String.class, parameters={})
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
@@ -154,7 +154,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * The alias of the Primary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
      * 
      */
-    @Export(name="primaryConnectionStringAlias", type=String.class, parameters={})
+    @Export(name="primaryConnectionStringAlias", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionStringAlias;
 
     /**
@@ -168,7 +168,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * The Primary Key for the Authorization Rule.
      * 
      */
-    @Export(name="primaryKey", type=String.class, parameters={})
+    @Export(name="primaryKey", refs={String.class}, tree="[0]")
     private Output<String> primaryKey;
 
     /**
@@ -184,7 +184,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -200,7 +200,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * The Secondary Connection String for the Authorization Rule.
      * 
      */
-    @Export(name="secondaryConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
@@ -214,7 +214,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
      * 
      */
-    @Export(name="secondaryConnectionStringAlias", type=String.class, parameters={})
+    @Export(name="secondaryConnectionStringAlias", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionStringAlias;
 
     /**
@@ -228,7 +228,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * The Secondary Key for the Authorization Rule.
      * 
      */
-    @Export(name="secondaryKey", type=String.class, parameters={})
+    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryKey;
 
     /**
@@ -242,7 +242,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      * 
      */
-    @Export(name="send", type=Boolean.class, parameters={})
+    @Export(name="send", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> send;
 
     /**

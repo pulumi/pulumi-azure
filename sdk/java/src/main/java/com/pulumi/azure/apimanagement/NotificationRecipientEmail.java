@@ -79,7 +79,7 @@ public class NotificationRecipientEmail extends com.pulumi.resources.CustomResou
      * The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
      * 
      */
-    @Export(name="apiManagementId", type=String.class, parameters={})
+    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
     private Output<String> apiManagementId;
 
     /**
@@ -93,7 +93,7 @@ public class NotificationRecipientEmail extends com.pulumi.resources.CustomResou
      * The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -107,7 +107,7 @@ public class NotificationRecipientEmail extends com.pulumi.resources.CustomResou
      * The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
      * 
      */
-    @Export(name="notificationType", type=String.class, parameters={})
+    @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
     /**

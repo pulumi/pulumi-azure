@@ -98,7 +98,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -114,7 +114,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** The resources referenced in assignable scopes need not exist.
      * 
      */
-    @Export(name="assignableScopes", type=List.class, parameters={String.class})
+    @Export(name="assignableScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> assignableScopes;
 
     /**
@@ -130,7 +130,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -144,7 +144,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * A `permissions` block as defined below.
      * 
      */
-    @Export(name="permissions", type=List.class, parameters={SqlRoleDefinitionPermission.class})
+    @Export(name="permissions", refs={List.class,SqlRoleDefinitionPermission.class}, tree="[0,1]")
     private Output<List<SqlRoleDefinitionPermission>> permissions;
 
     /**
@@ -158,7 +158,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -172,7 +172,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="roleDefinitionId", type=String.class, parameters={})
+    @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
@@ -186,7 +186,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

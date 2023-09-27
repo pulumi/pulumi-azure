@@ -37,7 +37,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * One or more `destination_nat` blocks as defined below.
      * 
      */
-    @Export(name="destinationNats", type=List.class, parameters={NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat.class})
+    @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat>> destinationNats;
 
     /**
@@ -51,7 +51,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * A `dns_settings` block as defined below.
      * 
      */
-    @Export(name="dnsSettings", type=NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings.class, parameters={})
+    @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings.class}, tree="[0]")
     private Output</* @Nullable */ NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings> dnsSettings;
 
     /**
@@ -65,7 +65,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -79,7 +79,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * A `network_profile` block as defined below.
      * 
      */
-    @Export(name="networkProfile", type=NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile.class, parameters={})
+    @Export(name="networkProfile", refs={NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile.class}, tree="[0]")
     private Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> networkProfile;
 
     /**
@@ -93,7 +93,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -107,7 +107,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * The ID of the Local Rulestack which will be used to configure this Firewall Resource.
      * 
      */
-    @Export(name="rulestackId", type=String.class, parameters={})
+    @Export(name="rulestackId", refs={String.class}, tree="[0]")
     private Output<String> rulestackId;
 
     /**
@@ -121,7 +121,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

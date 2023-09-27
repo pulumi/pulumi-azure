@@ -271,7 +271,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedDisks", type=List.class, parameters={ReplicatedVMManagedDisk.class})
+    @Export(name="managedDisks", refs={List.class,ReplicatedVMManagedDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicatedVMManagedDisk>> managedDisks;
 
     /**
@@ -285,7 +285,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      * 
      */
-    @Export(name="multiVmGroupName", type=String.class, parameters={})
+    @Export(name="multiVmGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> multiVmGroupName;
 
     /**
@@ -299,7 +299,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -314,7 +314,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * *
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={ReplicatedVMNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,ReplicatedVMNetworkInterface.class}, tree="[0,1]")
     private Output<List<ReplicatedVMNetworkInterface>> networkInterfaces;
 
     /**
@@ -329,7 +329,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryReplicationPolicyId", type=String.class, parameters={})
+    @Export(name="recoveryReplicationPolicyId", refs={String.class}, tree="[0]")
     private Output<String> recoveryReplicationPolicyId;
 
     /**
@@ -343,7 +343,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", type=String.class, parameters={})
+    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultName;
 
     /**
@@ -357,7 +357,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -371,7 +371,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceRecoveryFabricName", type=String.class, parameters={})
+    @Export(name="sourceRecoveryFabricName", refs={String.class}, tree="[0]")
     private Output<String> sourceRecoveryFabricName;
 
     /**
@@ -385,7 +385,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Name of the protection container to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceRecoveryProtectionContainerName", type=String.class, parameters={})
+    @Export(name="sourceRecoveryProtectionContainerName", refs={String.class}, tree="[0]")
     private Output<String> sourceRecoveryProtectionContainerName;
 
     /**
@@ -399,7 +399,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of the VM to replicate Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceVmId", type=String.class, parameters={})
+    @Export(name="sourceVmId", refs={String.class}, tree="[0]")
     private Output<String> sourceVmId;
 
     /**
@@ -413,7 +413,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of availability set that the new VM should belong to when a failover is done.
      * 
      */
-    @Export(name="targetAvailabilitySetId", type=String.class, parameters={})
+    @Export(name="targetAvailabilitySetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetAvailabilitySetId;
 
     /**
@@ -427,7 +427,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
      * 
      */
-    @Export(name="targetBootDiagnosticStorageAccountId", type=String.class, parameters={})
+    @Export(name="targetBootDiagnosticStorageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetBootDiagnosticStorageAccountId;
 
     /**
@@ -441,7 +441,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of the Capacity reservation group where the new VM should belong to when a failover is done.
      * 
      */
-    @Export(name="targetCapacityReservationGroupId", type=String.class, parameters={})
+    @Export(name="targetCapacityReservationGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetCapacityReservationGroupId;
 
     /**
@@ -455,7 +455,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetEdgeZone", type=String.class, parameters={})
+    @Export(name="targetEdgeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetEdgeZone;
 
     /**
@@ -469,7 +469,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
      * 
      */
-    @Export(name="targetNetworkId", type=String.class, parameters={})
+    @Export(name="targetNetworkId", refs={String.class}, tree="[0]")
     private Output<String> targetNetworkId;
 
     /**
@@ -483,7 +483,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of Proximity Placement Group the new VM should belong to when a failover is done.
      * 
      */
-    @Export(name="targetProximityPlacementGroupId", type=String.class, parameters={})
+    @Export(name="targetProximityPlacementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetProximityPlacementGroupId;
 
     /**
@@ -497,7 +497,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetRecoveryFabricId", type=String.class, parameters={})
+    @Export(name="targetRecoveryFabricId", refs={String.class}, tree="[0]")
     private Output<String> targetRecoveryFabricId;
 
     /**
@@ -511,7 +511,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetRecoveryProtectionContainerId", type=String.class, parameters={})
+    @Export(name="targetRecoveryProtectionContainerId", refs={String.class}, tree="[0]")
     private Output<String> targetRecoveryProtectionContainerId;
 
     /**
@@ -525,7 +525,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceGroupId", type=String.class, parameters={})
+    @Export(name="targetResourceGroupId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceGroupId;
 
     /**
@@ -539,7 +539,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
      * 
      */
-    @Export(name="targetVirtualMachineScaleSetId", type=String.class, parameters={})
+    @Export(name="targetVirtualMachineScaleSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetVirtualMachineScaleSetId;
 
     /**
@@ -553,7 +553,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetZone", type=String.class, parameters={})
+    @Export(name="targetZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetZone;
 
     /**
@@ -567,7 +567,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * Network to use when a test failover is done.
      * 
      */
-    @Export(name="testNetworkId", type=String.class, parameters={})
+    @Export(name="testNetworkId", refs={String.class}, tree="[0]")
     private Output<String> testNetworkId;
 
     /**
@@ -581,7 +581,7 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="unmanagedDisks", type=List.class, parameters={ReplicatedVMUnmanagedDisk.class})
+    @Export(name="unmanagedDisks", refs={List.class,ReplicatedVMUnmanagedDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicatedVMUnmanagedDisk>> unmanagedDisks;
 
     /**

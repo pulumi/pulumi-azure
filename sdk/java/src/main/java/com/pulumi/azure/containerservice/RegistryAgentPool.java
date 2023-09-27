@@ -80,7 +80,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
      * 
      */
-    @Export(name="containerRegistryName", type=String.class, parameters={})
+    @Export(name="containerRegistryName", refs={String.class}, tree="[0]")
     private Output<String> containerRegistryName;
 
     /**
@@ -94,7 +94,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * VMSS instance count. Defaults to `1`.
      * 
      */
-    @Export(name="instanceCount", type=Integer.class, parameters={})
+    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -108,7 +108,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -122,7 +122,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -136,7 +136,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -150,7 +150,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -164,7 +164,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
      * 
      */
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tier;
 
     /**
@@ -178,7 +178,7 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
      * 
      */
-    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     /**

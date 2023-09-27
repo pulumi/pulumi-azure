@@ -87,7 +87,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * Whether auto async the Source Control.
      * 
      */
-    @Export(name="automaticSync", type=Boolean.class, parameters={})
+    @Export(name="automaticSync", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticSync;
 
     /**
@@ -101,7 +101,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      * 
      */
-    @Export(name="automationAccountId", type=String.class, parameters={})
+    @Export(name="automationAccountId", refs={String.class}, tree="[0]")
     private Output<String> automationAccountId;
 
     /**
@@ -115,7 +115,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
      * 
      */
-    @Export(name="branch", type=String.class, parameters={})
+    @Export(name="branch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branch;
 
     /**
@@ -129,7 +129,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * A short description of the Source Control.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -143,7 +143,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * The folder path of the source control. This Path must be relative.
      * 
      */
-    @Export(name="folderPath", type=String.class, parameters={})
+    @Export(name="folderPath", refs={String.class}, tree="[0]")
     private Output<String> folderPath;
 
     /**
@@ -157,7 +157,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * Whether auto publish the Source Control. Defaults to `true`.
      * 
      */
-    @Export(name="publishRunbookEnabled", type=Boolean.class, parameters={})
+    @Export(name="publishRunbookEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publishRunbookEnabled;
 
     /**
@@ -185,7 +185,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * The Repository URL of the source control.
      * 
      */
-    @Export(name="repositoryUrl", type=String.class, parameters={})
+    @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
     private Output<String> repositoryUrl;
 
     /**
@@ -199,7 +199,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * A `security` block as defined below.
      * 
      */
-    @Export(name="security", type=SourceControlSecurity.class, parameters={})
+    @Export(name="security", refs={SourceControlSecurity.class}, tree="[0]")
     private Output<SourceControlSecurity> security;
 
     /**
@@ -213,7 +213,7 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
      * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      * 
      */
-    @Export(name="sourceControlType", type=String.class, parameters={})
+    @Export(name="sourceControlType", refs={String.class}, tree="[0]")
     private Output<String> sourceControlType;
 
     /**

@@ -81,7 +81,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * If `kind` is `TextAnalytics` this specifies the ID of the Search service.
      * 
      */
-    @Export(name="customQuestionAnsweringSearchServiceId", type=String.class, parameters={})
+    @Export(name="customQuestionAnsweringSearchServiceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customQuestionAnsweringSearchServiceId;
 
     /**
@@ -97,7 +97,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
      * 
      */
-    @Export(name="customQuestionAnsweringSearchServiceKey", type=String.class, parameters={})
+    @Export(name="customQuestionAnsweringSearchServiceKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customQuestionAnsweringSearchServiceKey;
 
     /**
@@ -113,7 +113,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customSubdomainName", type=String.class, parameters={})
+    @Export(name="customSubdomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customSubdomainName;
 
     /**
@@ -127,7 +127,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `customer_managed_key` block as documented below.
      * 
      */
-    @Export(name="customerManagedKey", type=AccountCustomerManagedKey.class, parameters={})
+    @Export(name="customerManagedKey", refs={AccountCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
 
     /**
@@ -141,7 +141,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether to enable the dynamic throttling for this Cognitive Service Account.
      * 
      */
-    @Export(name="dynamicThrottlingEnabled", type=Boolean.class, parameters={})
+    @Export(name="dynamicThrottlingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dynamicThrottlingEnabled;
 
     /**
@@ -155,7 +155,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint used to connect to the Cognitive Service Account.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -169,7 +169,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * List of FQDNs allowed for the Cognitive Account.
      * 
      */
-    @Export(name="fqdns", type=List.class, parameters={String.class})
+    @Export(name="fqdns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fqdns;
 
     /**
@@ -183,7 +183,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=AccountIdentity.class, parameters={})
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AccountIdentity> identity;
 
     /**
@@ -201,7 +201,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -219,7 +219,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
+    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -233,7 +233,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -247,7 +247,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="metricsAdvisorAadClientId", type=String.class, parameters={})
+    @Export(name="metricsAdvisorAadClientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricsAdvisorAadClientId;
 
     /**
@@ -261,7 +261,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="metricsAdvisorAadTenantId", type=String.class, parameters={})
+    @Export(name="metricsAdvisorAadTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricsAdvisorAadTenantId;
 
     /**
@@ -275,7 +275,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="metricsAdvisorSuperUserName", type=String.class, parameters={})
+    @Export(name="metricsAdvisorSuperUserName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricsAdvisorSuperUserName;
 
     /**
@@ -291,7 +291,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
      * 
      */
-    @Export(name="metricsAdvisorWebsiteName", type=String.class, parameters={})
+    @Export(name="metricsAdvisorWebsiteName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricsAdvisorWebsiteName;
 
     /**
@@ -307,7 +307,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -321,7 +321,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `network_acls` block as defined below.
      * 
      */
-    @Export(name="networkAcls", type=AccountNetworkAcls.class, parameters={})
+    @Export(name="networkAcls", refs={AccountNetworkAcls.class}, tree="[0]")
     private Output</* @Nullable */ AccountNetworkAcls> networkAcls;
 
     /**
@@ -335,7 +335,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
      * 
      */
-    @Export(name="outboundNetworkAccessRestricted", type=Boolean.class, parameters={})
+    @Export(name="outboundNetworkAccessRestricted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> outboundNetworkAccessRestricted;
 
     /**
@@ -349,7 +349,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A primary access key which can be used to connect to the Cognitive Service Account.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -363,7 +363,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -377,7 +377,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A URL to link a QnAMaker cognitive account to a QnA runtime.
      * 
      */
-    @Export(name="qnaRuntimeEndpoint", type=String.class, parameters={})
+    @Export(name="qnaRuntimeEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qnaRuntimeEndpoint;
 
     /**
@@ -391,7 +391,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -405,7 +405,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The secondary access key which can be used to connect to the Cognitive Service Account.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -421,7 +421,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -437,7 +437,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `storage` block as defined below.
      * 
      */
-    @Export(name="storages", type=List.class, parameters={AccountStorage.class})
+    @Export(name="storages", refs={List.class,AccountStorage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountStorage>> storages;
 
     /**
@@ -451,7 +451,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

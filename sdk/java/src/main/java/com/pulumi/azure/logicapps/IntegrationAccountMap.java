@@ -80,7 +80,7 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * The content of the Logic App Integration Account Map.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -94,7 +94,7 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
      * 
      */
-    @Export(name="integrationAccountName", type=String.class, parameters={})
+    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
     private Output<String> integrationAccountName;
 
     /**
@@ -108,7 +108,7 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      * 
      */
-    @Export(name="mapType", type=String.class, parameters={})
+    @Export(name="mapType", refs={String.class}, tree="[0]")
     private Output<String> mapType;
 
     /**
@@ -122,7 +122,7 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * The metadata of the Logic App Integration Account Map.
      * 
      */
-    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
+    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -136,7 +136,7 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -150,7 +150,7 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

@@ -128,7 +128,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    @Export(name="containerName", type=String.class, parameters={})
+    @Export(name="containerName", refs={String.class}, tree="[0]")
     private Output<String> containerName;
 
     /**
@@ -142,7 +142,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    @Export(name="dataShareId", type=String.class, parameters={})
+    @Export(name="dataShareId", refs={String.class}, tree="[0]")
     private Output<String> dataShareId;
 
     /**
@@ -156,7 +156,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * The name of the Data Share Dataset.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -170,7 +170,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    @Export(name="filePath", type=String.class, parameters={})
+    @Export(name="filePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filePath;
 
     /**
@@ -184,7 +184,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    @Export(name="folderPath", type=String.class, parameters={})
+    @Export(name="folderPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folderPath;
 
     /**
@@ -198,7 +198,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -212,7 +212,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * A `storage_account` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccount", type=DatasetBlobStorageStorageAccount.class, parameters={})
+    @Export(name="storageAccount", refs={DatasetBlobStorageStorageAccount.class}, tree="[0]")
     private Output<DatasetBlobStorageStorageAccount> storageAccount;
 
     /**

@@ -109,7 +109,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * The API Key secret (Sensitive).
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**
@@ -123,7 +123,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationInsightsId", type=String.class, parameters={})
+    @Export(name="applicationInsightsId", refs={String.class}, tree="[0]")
     private Output<String> applicationInsightsId;
 
     /**
@@ -137,7 +137,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="readPermissions", type=List.class, parameters={String.class})
+    @Export(name="readPermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> readPermissions;
 
     /**
@@ -167,7 +167,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** At least one read or write permission must be defined.
      * 
      */
-    @Export(name="writePermissions", type=List.class, parameters={String.class})
+    @Export(name="writePermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> writePermissions;
 
     /**

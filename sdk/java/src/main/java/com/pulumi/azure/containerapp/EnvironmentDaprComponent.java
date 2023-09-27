@@ -91,7 +91,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * The Dapr Component Type. For example `state.azure.blobstorage`.
      * 
      */
-    @Export(name="componentType", type=String.class, parameters={})
+    @Export(name="componentType", refs={String.class}, tree="[0]")
     private Output<String> componentType;
 
     /**
@@ -105,7 +105,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerAppEnvironmentId", type=String.class, parameters={})
+    @Export(name="containerAppEnvironmentId", refs={String.class}, tree="[0]")
     private Output<String> containerAppEnvironmentId;
 
     /**
@@ -119,7 +119,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
      * 
      */
-    @Export(name="ignoreErrors", type=Boolean.class, parameters={})
+    @Export(name="ignoreErrors", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreErrors;
 
     /**
@@ -133,7 +133,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
      * 
      */
-    @Export(name="initTimeout", type=String.class, parameters={})
+    @Export(name="initTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initTimeout;
 
     /**
@@ -147,7 +147,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * One or more `metadata` blocks as detailed below.
      * 
      */
-    @Export(name="metadatas", type=List.class, parameters={EnvironmentDaprComponentMetadata.class})
+    @Export(name="metadatas", refs={List.class,EnvironmentDaprComponentMetadata.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentDaprComponentMetadata>> metadatas;
 
     /**
@@ -161,7 +161,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * The name for this Dapr component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> scopes;
 
     /**
@@ -193,7 +193,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * A `secret` block as detailed below.
      * 
      */
-    @Export(name="secrets", type=List.class, parameters={EnvironmentDaprComponentSecret.class})
+    @Export(name="secrets", refs={List.class,EnvironmentDaprComponentSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentDaprComponentSecret>> secrets;
 
     /**
@@ -207,7 +207,7 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
      * The version of the component.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

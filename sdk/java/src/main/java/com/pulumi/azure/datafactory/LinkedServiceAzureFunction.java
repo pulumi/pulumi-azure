@@ -89,7 +89,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * The following supported arguments are specific to Azure Function Linked Service:
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -105,7 +105,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -119,7 +119,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -133,7 +133,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -147,7 +147,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -161,7 +161,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> key;
 
     /**
@@ -175,7 +175,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
      * 
      */
-    @Export(name="keyVaultKey", type=LinkedServiceAzureFunctionKeyVaultKey.class, parameters={})
+    @Export(name="keyVaultKey", refs={LinkedServiceAzureFunctionKeyVaultKey.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureFunctionKeyVaultKey> keyVaultKey;
 
     /**
@@ -189,7 +189,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -203,7 +203,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -217,7 +217,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * The url of the Azure Function.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

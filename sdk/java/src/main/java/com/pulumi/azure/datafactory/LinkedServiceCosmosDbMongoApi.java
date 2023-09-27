@@ -84,7 +84,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * The following supported arguments are specific to CosmosDB Linked Service:
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -100,7 +100,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -114,7 +114,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * The connection string.
      * 
      */
-    @Export(name="connectionString", type=String.class, parameters={})
+    @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -128,7 +128,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -142,7 +142,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * The name of the database.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> database;
 
     /**
@@ -156,7 +156,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -170,7 +170,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -184,7 +184,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -212,7 +212,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * Whether API server version is 3.2 or higher. Defaults to `false`.
      * 
      */
-    @Export(name="serverVersionIs32OrHigher", type=Boolean.class, parameters={})
+    @Export(name="serverVersionIs32OrHigher", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> serverVersionIs32OrHigher;
 
     /**

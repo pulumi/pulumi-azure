@@ -26,7 +26,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
      * 
      */
-    @Export(name="clientCertificate", type=String.class, parameters={})
+    @Export(name="clientCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificate;
 
     /**
@@ -41,7 +41,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Certificate
      * 
      */
-    @Export(name="clientCertificatePassword", type=String.class, parameters={})
+    @Export(name="clientCertificatePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificatePassword;
 
     /**
@@ -57,7 +57,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Principal using a Client Certificate.
      * 
      */
-    @Export(name="clientCertificatePath", type=String.class, parameters={})
+    @Export(name="clientCertificatePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificatePath;
 
     /**
@@ -72,7 +72,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Client ID which should be used.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientId;
 
     /**
@@ -86,7 +86,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The path to a file containing the Client ID which should be used.
      * 
      */
-    @Export(name="clientIdFilePath", type=String.class, parameters={})
+    @Export(name="clientIdFilePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientIdFilePath;
 
     /**
@@ -100,7 +100,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecret;
 
     /**
@@ -115,7 +115,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * using a Client Secret.
      * 
      */
-    @Export(name="clientSecretFilePath", type=String.class, parameters={})
+    @Export(name="clientSecretFilePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecretFilePath;
 
     /**
@@ -130,7 +130,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
      * 
      */
-    @Export(name="environment", type=String.class, parameters={})
+    @Export(name="environment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> environment;
 
     /**
@@ -144,7 +144,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Hostname which should be used for the Azure Metadata Service.
      * 
      */
-    @Export(name="metadataHost", type=String.class, parameters={})
+    @Export(name="metadataHost", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metadataHost;
 
     /**
@@ -159,7 +159,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * automatically.
      * 
      */
-    @Export(name="msiEndpoint", type=String.class, parameters={})
+    @Export(name="msiEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> msiEndpoint;
 
     /**
@@ -175,7 +175,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Connect.
      * 
      */
-    @Export(name="oidcRequestToken", type=String.class, parameters={})
+    @Export(name="oidcRequestToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcRequestToken;
 
     /**
@@ -191,7 +191,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * using OpenID Connect.
      * 
      */
-    @Export(name="oidcRequestUrl", type=String.class, parameters={})
+    @Export(name="oidcRequestUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcRequestUrl;
 
     /**
@@ -206,7 +206,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
-    @Export(name="oidcToken", type=String.class, parameters={})
+    @Export(name="oidcToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcToken;
 
     /**
@@ -220,7 +220,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
-    @Export(name="oidcTokenFilePath", type=String.class, parameters={})
+    @Export(name="oidcTokenFilePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcTokenFilePath;
 
     /**
@@ -234,7 +234,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      * 
      */
-    @Export(name="partnerId", type=String.class, parameters={})
+    @Export(name="partnerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partnerId;
 
     /**
@@ -248,7 +248,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Subscription ID which should be used.
      * 
      */
-    @Export(name="subscriptionId", type=String.class, parameters={})
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subscriptionId;
 
     /**
@@ -262,7 +262,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Tenant ID which should be used.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantId;
 
     /**

@@ -199,7 +199,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      * 
      */
-    @Export(name="dashboardProperties", type=String.class, parameters={})
+    @Export(name="dashboardProperties", refs={String.class}, tree="[0]")
     private Output<String> dashboardProperties;
 
     /**
@@ -213,7 +213,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -229,7 +229,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -245,7 +245,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -259,7 +259,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

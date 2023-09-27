@@ -84,7 +84,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -98,7 +98,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * The display name of this API Management Named Value.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -112,7 +112,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * The name of the API Management Named Value. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
      * 
      */
-    @Export(name="secret", type=Boolean.class, parameters={})
+    @Export(name="secret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> secret;
 
     /**
@@ -158,7 +158,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * A list of tags to be applied to the API Management Named Value.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -172,7 +172,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * The value of this API Management Named Value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
 
     /**
@@ -186,7 +186,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * A `value_from_key_vault` block as defined below.
      * 
      */
-    @Export(name="valueFromKeyVault", type=NamedValueValueFromKeyVault.class, parameters={})
+    @Export(name="valueFromKeyVault", refs={NamedValueValueFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ NamedValueValueFromKeyVault> valueFromKeyVault;
 
     /**

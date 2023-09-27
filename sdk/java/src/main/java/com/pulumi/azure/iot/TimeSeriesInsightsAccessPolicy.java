@@ -80,7 +80,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * The description of the Azure IoT Time Series Insights Access Policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -94,7 +94,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * The id of the principal in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalObjectId", type=String.class, parameters={})
+    @Export(name="principalObjectId", refs={String.class}, tree="[0]")
     private Output<String> principalObjectId;
 
     /**
@@ -122,7 +122,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
      * 
      */
-    @Export(name="roles", type=List.class, parameters={String.class})
+    @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roles;
 
     /**
@@ -136,7 +136,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="timeSeriesInsightsEnvironmentId", type=String.class, parameters={})
+    @Export(name="timeSeriesInsightsEnvironmentId", refs={String.class}, tree="[0]")
     private Output<String> timeSeriesInsightsEnvironmentId;
 
     /**
