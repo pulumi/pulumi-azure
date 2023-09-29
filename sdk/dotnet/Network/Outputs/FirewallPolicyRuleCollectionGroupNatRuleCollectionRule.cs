@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule
     {
         /// <summary>
+        /// The description which should be used for this rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The destination IP address (including CIDR).
         /// </summary>
         public readonly string? DestinationAddress;
@@ -54,6 +58,8 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(
+            string? description,
+
             string? destinationAddress,
 
             string? destinationPorts,
@@ -72,6 +78,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             int translatedPort)
         {
+            Description = description;
             DestinationAddress = destinationAddress;
             DestinationPorts = destinationPorts;
             Name = name;

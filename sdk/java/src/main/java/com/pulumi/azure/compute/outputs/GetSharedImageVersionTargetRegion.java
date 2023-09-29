@@ -15,6 +15,8 @@ public final class GetSharedImageVersionTargetRegion {
      * 
      * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
+     * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+     * 
      */
     private String name;
     /**
@@ -33,6 +35,8 @@ public final class GetSharedImageVersionTargetRegion {
      * @return The name of the Image Version.
      * 
      * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+     * 
+     * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
      * 
      */
     public String name() {

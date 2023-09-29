@@ -5226,6 +5226,10 @@ class FirewallPolicyIdentity(dict):
         suggest = None
         if key == "identityIds":
             suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIdentity. Access the value via the '{suggest}' property getter instead.")
@@ -5239,22 +5243,21 @@ class FirewallPolicyIdentity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity_ids: Sequence[str],
-                 type: str):
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Sequence[str]:
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
-        """
-        return pulumi.get(self, "identity_ids")
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -5263,6 +5266,24 @@ class FirewallPolicyIdentity(dict):
         Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -5953,6 +5974,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
                  name: str,
                  protocols: Sequence[str],
                  translated_port: int,
+                 description: Optional[str] = None,
                  destination_address: Optional[str] = None,
                  destination_ports: Optional[str] = None,
                  source_addresses: Optional[Sequence[str]] = None,
@@ -5963,6 +5985,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param Sequence[str] protocols: One or more `protocols` blocks as defined below.
         :param int translated_port: Specifies the translated port.
+        :param str description: The description which should be used for this rule.
         :param str destination_address: The destination IP address (including CIDR).
         :param str destination_ports: Specifies a list of destination ports.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
@@ -5975,6 +5998,8 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
         pulumi.set(__self__, "translated_port", translated_port)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if destination_address is not None:
             pulumi.set(__self__, "destination_address", destination_address)
         if destination_ports is not None:
@@ -6011,6 +6036,14 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         Specifies the translated port.
         """
         return pulumi.get(self, "translated_port")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description which should be used for this rule.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationAddress")
@@ -6147,6 +6180,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
                  destination_ports: Sequence[str],
                  name: str,
                  protocols: Sequence[str],
+                 description: Optional[str] = None,
                  destination_addresses: Optional[Sequence[str]] = None,
                  destination_fqdns: Optional[Sequence[str]] = None,
                  destination_ip_groups: Optional[Sequence[str]] = None,
@@ -6156,6 +6190,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
         :param Sequence[str] destination_ports: Specifies a list of destination ports.
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param Sequence[str] protocols: One or more `protocols` blocks as defined below.
+        :param str description: The description which should be used for this rule.
         :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups.
@@ -6165,6 +6200,8 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
         pulumi.set(__self__, "destination_ports", destination_ports)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if destination_fqdns is not None:
@@ -6199,6 +6236,14 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
         One or more `protocols` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description which should be used for this rule.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationAddresses")

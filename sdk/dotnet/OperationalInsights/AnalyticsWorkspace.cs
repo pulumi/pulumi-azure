@@ -70,6 +70,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<double?> DailyQuotaGb { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Data Collection Rule to use for this workspace.
+        /// </summary>
+        [Output("dataCollectionRuleId")]
+        public Output<string?> DataCollectionRuleId { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         /// </summary>
         [Output("internetIngestionEnabled")]
@@ -229,6 +235,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<double>? DailyQuotaGb { get; set; }
 
         /// <summary>
+        /// The ID of the Data Collection Rule to use for this workspace.
+        /// </summary>
+        [Input("dataCollectionRuleId")]
+        public Input<string>? DataCollectionRuleId { get; set; }
+
+        /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         /// </summary>
         [Input("internetIngestionEnabled")]
@@ -331,6 +343,12 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
+
+        /// <summary>
+        /// The ID of the Data Collection Rule to use for this workspace.
+        /// </summary>
+        [Input("dataCollectionRuleId")]
+        public Input<string>? DataCollectionRuleId { get; set; }
 
         /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

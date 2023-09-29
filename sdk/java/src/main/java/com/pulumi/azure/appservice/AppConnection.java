@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages a service connector for function app.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -43,9 +42,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
- * import com.pulumi.azure.appservice.Connection;
- * import com.pulumi.azure.appservice.ConnectionArgs;
- * import com.pulumi.azure.appservice.inputs.ConnectionAuthenticationArgs;
+ * import com.pulumi.azure.appservice.AppConnection;
+ * import com.pulumi.azure.appservice.AppConnectionArgs;
+ * import com.pulumi.azure.appservice.inputs.AppConnectionAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -114,10 +113,10 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(azurerm_storage_account.test().primary_access_key())
  *             .build());
  * 
- *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
+ *         var exampleAppConnection = new AppConnection(&#34;exampleAppConnection&#34;, AppConnectionArgs.builder()        
  *             .functionAppId(azurerm_function_app.example().id())
  *             .targetResourceId(azurerm_cosmosdb_account.test().id())
- *             .authentication(ConnectionAuthenticationArgs.builder()
+ *             .authentication(AppConnectionAuthenticationArgs.builder()
  *                 .type(&#34;systemAssignedIdentity&#34;)
  *                 .build())
  *             .build());

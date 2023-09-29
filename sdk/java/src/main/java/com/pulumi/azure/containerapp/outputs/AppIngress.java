@@ -27,7 +27,7 @@ public final class AppIngress {
      */
     private @Nullable AppIngressCustomDomain customDomain;
     /**
-     * @return Is this an external Ingress.
+     * @return Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
      * 
      */
     private @Nullable Boolean externalEnabled;
@@ -70,7 +70,7 @@ public final class AppIngress {
         return Optional.ofNullable(this.customDomain);
     }
     /**
-     * @return Is this an external Ingress.
+     * @return Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
      * 
      */
     public Optional<Boolean> externalEnabled() {

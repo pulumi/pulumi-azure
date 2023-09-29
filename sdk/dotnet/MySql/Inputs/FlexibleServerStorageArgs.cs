@@ -19,6 +19,12 @@ namespace Pulumi.Azure.MySql.Inputs
         public Input<bool>? AutoGrowEnabled { get; set; }
 
         /// <summary>
+        /// Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+        /// </summary>
+        [Input("ioScalingEnabled")]
+        public Input<bool>? IoScalingEnabled { get; set; }
+
+        /// <summary>
         /// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
         /// </summary>
         [Input("iops")]

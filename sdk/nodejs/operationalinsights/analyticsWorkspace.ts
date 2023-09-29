@@ -73,6 +73,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
     /**
+     * The ID of the Data Collection Rule to use for this workspace.
+     */
+    public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
+    /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
     public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
@@ -151,6 +155,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["allowResourceOnlyPermissions"] = state ? state.allowResourceOnlyPermissions : undefined;
             resourceInputs["cmkForQueryForced"] = state ? state.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
+            resourceInputs["dataCollectionRuleId"] = state ? state.dataCollectionRuleId : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
@@ -172,6 +177,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["allowResourceOnlyPermissions"] = args ? args.allowResourceOnlyPermissions : undefined;
             resourceInputs["cmkForQueryForced"] = args ? args.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
+            resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
@@ -211,6 +217,10 @@ export interface AnalyticsWorkspaceState {
      * > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
      */
     dailyQuotaGb?: pulumi.Input<number>;
+    /**
+     * The ID of the Data Collection Rule to use for this workspace.
+     */
+    dataCollectionRuleId?: pulumi.Input<string>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
@@ -293,6 +303,10 @@ export interface AnalyticsWorkspaceArgs {
      * > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
      */
     dailyQuotaGb?: pulumi.Input<number>;
+    /**
+     * The ID of the Data Collection Rule to use for this workspace.
+     */
+    dataCollectionRuleId?: pulumi.Input<string>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */

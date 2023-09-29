@@ -806,6 +806,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appconfiguration/licationLoadBalancer",
+  "fqn": "pulumi_azure.appconfiguration",
+  "classes": {
+   "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer": "LicationLoadBalancer"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appinsights/analyticsItem",
   "fqn": "pulumi_azure.appinsights",
   "classes": {
@@ -5234,6 +5242,14 @@ _utilities.register(
   "fqn": "pulumi_azure.management",
   "classes": {
    "azure:management/lock:Lock": "Lock"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "management/privateLink",
+  "fqn": "pulumi_azure.management",
+  "classes": {
+   "azure:management/privateLink:PrivateLink": "PrivateLink"
   }
  },
  {

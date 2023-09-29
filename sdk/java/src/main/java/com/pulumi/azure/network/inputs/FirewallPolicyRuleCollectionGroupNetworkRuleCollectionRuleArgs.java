@@ -17,6 +17,21 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
     public static final FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs Empty = new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs();
 
     /**
+     * The description which should be used for this rule.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description which should be used for this rule.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
@@ -139,6 +154,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
     private FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs() {}
 
     private FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs $) {
+        this.description = $.description;
         this.destinationAddresses = $.destinationAddresses;
         this.destinationFqdns = $.destinationFqdns;
         this.destinationIpGroups = $.destinationIpGroups;
@@ -165,6 +181,27 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
 
         public Builder(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs defaults) {
             $ = new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description which should be used for this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description which should be used for this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

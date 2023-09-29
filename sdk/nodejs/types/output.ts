@@ -24917,6 +24917,8 @@ export namespace compute {
          * The name of the Image Version.
          *
          * > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+         *
+         * > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
          */
         name: string;
         /**
@@ -29007,7 +29009,7 @@ export namespace containerapp {
          */
         customDomain?: outputs.containerapp.AppIngressCustomDomain;
         /**
-         * Is this an external Ingress.
+         * Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
          */
         externalEnabled?: boolean;
         /**
@@ -32146,7 +32148,7 @@ export namespace containerservice {
          */
         networkPluginMode?: string;
         /**
-         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
          *
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          */
@@ -52732,6 +52734,10 @@ export namespace mysql {
          */
         autoGrowEnabled?: boolean;
         /**
+         * Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+         */
+        ioScalingEnabled?: boolean;
+        /**
          * The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
          */
         iops: number;
@@ -52772,6 +52778,10 @@ export namespace mysql {
          * Is Storage Auto Grow enabled?
          */
         autoGrowEnabled: boolean;
+        /**
+         * Should IOPS be scaled automatically?
+         */
+        ioScalingEnabled: boolean;
         /**
          * The storage IOPS of the MySQL Flexible Server.
          */
@@ -54752,7 +54762,9 @@ export namespace network {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
          */
-        identityIds: string[];
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
          */
@@ -54952,6 +54964,10 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         /**
+         * The description which should be used for this rule.
+         */
+        description?: string;
+        /**
          * The destination IP address (including CIDR).
          */
         destinationAddress?: string;
@@ -55011,6 +55027,10 @@ export namespace network {
     }
 
     export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+        /**
+         * The description which should be used for this rule.
+         */
+        description?: string;
         /**
          * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          */
@@ -59346,7 +59366,7 @@ export namespace securitycenter {
         /**
          * Key/Value pairs that are required for some extensions.
          *
-         * > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignoreChanges` on the `extension` field if you want to use the default extensions.
+         * > **NOTE:** If an extension is not defined, it will not be enabled.
          *
          * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
          */

@@ -168,6 +168,20 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.endpoint);
     }
     /**
+     * The Icon Url of the Azure Bot Service.
+     * 
+     */
+    @Export(name="iconUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> iconUrl;
+
+    /**
+     * @return The Icon Url of the Azure Bot Service.
+     * 
+     */
+    public Output<Optional<String>> iconUrl() {
+        return Codegen.optional(this.iconUrl);
+    }
+    /**
      * Is local authentication enabled? Defaults to `true`.
      * 
      */

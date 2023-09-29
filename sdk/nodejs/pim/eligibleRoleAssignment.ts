@@ -116,7 +116,8 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The type of principal.
+     * *
      */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
     /**
@@ -193,7 +194,8 @@ export interface EligibleRoleAssignmentState {
      */
     principalId?: pulumi.Input<string>;
     /**
-     * The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The type of principal.
+     * *
      */
     principalType?: pulumi.Input<string>;
     /**

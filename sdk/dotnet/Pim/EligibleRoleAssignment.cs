@@ -133,7 +133,8 @@ namespace Pulumi.Azure.Pim
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The type of principal.
+        /// *
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
@@ -265,7 +266,8 @@ namespace Pulumi.Azure.Pim
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+        /// The type of principal.
+        /// *
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }

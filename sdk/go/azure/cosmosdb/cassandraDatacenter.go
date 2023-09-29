@@ -156,7 +156,9 @@ type CassandraDatacenter struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
 	// Determines the selected sku.
-	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
+	//
+	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
 }
 
 // NewCassandraDatacenter registers a new resource with the given unique name, arguments, and options.
@@ -218,6 +220,8 @@ type cassandraDatacenterState struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku.
+	//
+	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -245,6 +249,8 @@ type CassandraDatacenterState struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku.
+	//
+	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -276,6 +282,8 @@ type cassandraDatacenterArgs struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku.
+	//
+	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -304,6 +312,8 @@ type CassandraDatacenterArgs struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku.
+	//
+	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -474,8 +484,10 @@ func (o CassandraDatacenterOutput) NodeCount() pulumi.IntPtrOutput {
 }
 
 // Determines the selected sku.
-func (o CassandraDatacenterOutput) SkuName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
+//
+// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
+func (o CassandraDatacenterOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
 type CassandraDatacenterArrayOutput struct{ *pulumi.OutputState }

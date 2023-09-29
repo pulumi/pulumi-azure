@@ -7,10 +7,16 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+    /**
+     * @return The description which should be used for this rule.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
@@ -53,6 +59,13 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     private @Nullable List<String> sourceIpGroups;
 
     private FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule() {}
+    /**
+     * @return The description which should be used for this rule.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
@@ -119,6 +132,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable List<String> destinationAddresses;
         private @Nullable List<String> destinationFqdns;
         private @Nullable List<String> destinationIpGroups;
@@ -130,6 +144,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         public Builder() {}
         public Builder(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.destinationAddresses = defaults.destinationAddresses;
     	      this.destinationFqdns = defaults.destinationFqdns;
     	      this.destinationIpGroups = defaults.destinationIpGroups;
@@ -140,6 +155,11 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     	      this.sourceIpGroups = defaults.sourceIpGroups;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
             this.destinationAddresses = destinationAddresses;
@@ -203,6 +223,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         public FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule build() {
             final var o = new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule();
+            o.description = description;
             o.destinationAddresses = destinationAddresses;
             o.destinationFqdns = destinationFqdns;
             o.destinationIpGroups = destinationIpGroups;

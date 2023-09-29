@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyIdentity {
@@ -14,7 +16,9 @@ public final class FirewallPolicyIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
      * 
      */
-    private List<String> identityIds;
+    private @Nullable List<String> identityIds;
+    private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
      * 
@@ -27,7 +31,13 @@ public final class FirewallPolicyIdentity {
      * 
      */
     public List<String> identityIds() {
-        return this.identityIds;
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
+    public Optional<String> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
     }
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
@@ -46,22 +56,36 @@ public final class FirewallPolicyIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> identityIds;
+        private @Nullable List<String> identityIds;
+        private @Nullable String principalId;
+        private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(FirewallPolicyIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
+    	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder identityIds(List<String> identityIds) {
-            this.identityIds = Objects.requireNonNull(identityIds);
+        public Builder identityIds(@Nullable List<String> identityIds) {
+            this.identityIds = identityIds;
             return this;
         }
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
+        }
+        @CustomType.Setter
+        public Builder principalId(@Nullable String principalId) {
+            this.principalId = principalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+            this.tenantId = tenantId;
+            return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -71,6 +95,8 @@ public final class FirewallPolicyIdentity {
         public FirewallPolicyIdentity build() {
             final var o = new FirewallPolicyIdentity();
             o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
             o.type = type;
             return o;
         }

@@ -428,7 +428,7 @@ type AppIngress struct {
 	AllowInsecureConnections *bool `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomain *AppIngressCustomDomain `pulumi:"customDomain"`
-	// Is this an external Ingress.
+	// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 	ExternalEnabled *bool `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
 	Fqdn *string `pulumi:"fqdn"`
@@ -458,7 +458,7 @@ type AppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolPtrInput `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomain AppIngressCustomDomainPtrInput `pulumi:"customDomain"`
-	// Is this an external Ingress.
+	// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 	ExternalEnabled pulumi.BoolPtrInput `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
@@ -577,7 +577,7 @@ func (o AppIngressOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
 	return o.ApplyT(func(v AppIngress) *AppIngressCustomDomain { return v.CustomDomain }).(AppIngressCustomDomainPtrOutput)
 }
 
-// Is this an external Ingress.
+// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 func (o AppIngressOutput) ExternalEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppIngress) *bool { return v.ExternalEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -654,7 +654,7 @@ func (o AppIngressPtrOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
 	}).(AppIngressCustomDomainPtrOutput)
 }
 
-// Is this an external Ingress.
+// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 func (o AppIngressPtrOutput) ExternalEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *bool {
 		if v == nil {

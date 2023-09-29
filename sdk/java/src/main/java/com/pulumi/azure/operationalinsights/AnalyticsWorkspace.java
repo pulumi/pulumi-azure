@@ -119,6 +119,20 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dailyQuotaGb);
     }
     /**
+     * The ID of the Data Collection Rule to use for this workspace.
+     * 
+     */
+    @Export(name="dataCollectionRuleId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dataCollectionRuleId;
+
+    /**
+     * @return The ID of the Data Collection Rule to use for this workspace.
+     * 
+     */
+    public Output<Optional<String>> dataCollectionRuleId() {
+        return Codegen.optional(this.dataCollectionRuleId);
+    }
+    /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      * 
      */

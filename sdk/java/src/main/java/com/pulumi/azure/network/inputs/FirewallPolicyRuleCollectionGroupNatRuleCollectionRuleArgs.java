@@ -18,6 +18,21 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
     public static final FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs Empty = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs();
 
     /**
+     * The description which should be used for this rule.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description which should be used for this rule.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The destination IP address (including CIDR).
      * 
      */
@@ -159,6 +174,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
     private FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs() {}
 
     private FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs $) {
+        this.description = $.description;
         this.destinationAddress = $.destinationAddress;
         this.destinationPorts = $.destinationPorts;
         this.name = $.name;
@@ -186,6 +202,27 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
 
         public Builder(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs defaults) {
             $ = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description which should be used for this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description which should be used for this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

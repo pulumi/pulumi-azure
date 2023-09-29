@@ -806,6 +806,8 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOut
 type FlexibleServerStorage struct {
 	// Should Storage Auto Grow be enabled? Defaults to `true`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
+	// Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+	IoScalingEnabled *bool `pulumi:"ioScalingEnabled"`
 	// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
 	Iops *int `pulumi:"iops"`
 	// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
@@ -826,6 +828,8 @@ type FlexibleServerStorageInput interface {
 type FlexibleServerStorageArgs struct {
 	// Should Storage Auto Grow be enabled? Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrInput `pulumi:"autoGrowEnabled"`
+	// Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+	IoScalingEnabled pulumi.BoolPtrInput `pulumi:"ioScalingEnabled"`
 	// The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
@@ -932,6 +936,11 @@ func (o FlexibleServerStorageOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlexibleServerStorage) *bool { return v.AutoGrowEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+func (o FlexibleServerStorageOutput) IoScalingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlexibleServerStorage) *bool { return v.IoScalingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
 func (o FlexibleServerStorageOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerStorage) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -979,6 +988,16 @@ func (o FlexibleServerStoragePtrOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.AutoGrowEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+func (o FlexibleServerStoragePtrOutput) IoScalingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerStorage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IoScalingEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1748,6 +1767,8 @@ func (o GetFlexibleServerMaintenanceWindowArrayOutput) Index(i pulumi.IntInput) 
 type GetFlexibleServerStorage struct {
 	// Is Storage Auto Grow enabled?
 	AutoGrowEnabled bool `pulumi:"autoGrowEnabled"`
+	// Should IOPS be scaled automatically?
+	IoScalingEnabled bool `pulumi:"ioScalingEnabled"`
 	// The storage IOPS of the MySQL Flexible Server.
 	Iops int `pulumi:"iops"`
 	// The max storage allowed for the MySQL Flexible Server.
@@ -1768,6 +1789,8 @@ type GetFlexibleServerStorageInput interface {
 type GetFlexibleServerStorageArgs struct {
 	// Is Storage Auto Grow enabled?
 	AutoGrowEnabled pulumi.BoolInput `pulumi:"autoGrowEnabled"`
+	// Should IOPS be scaled automatically?
+	IoScalingEnabled pulumi.BoolInput `pulumi:"ioScalingEnabled"`
 	// The storage IOPS of the MySQL Flexible Server.
 	Iops pulumi.IntInput `pulumi:"iops"`
 	// The max storage allowed for the MySQL Flexible Server.
@@ -1846,6 +1869,11 @@ func (o GetFlexibleServerStorageOutput) ToOutput(ctx context.Context) pulumix.Ou
 // Is Storage Auto Grow enabled?
 func (o GetFlexibleServerStorageOutput) AutoGrowEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFlexibleServerStorage) bool { return v.AutoGrowEnabled }).(pulumi.BoolOutput)
+}
+
+// Should IOPS be scaled automatically?
+func (o GetFlexibleServerStorageOutput) IoScalingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFlexibleServerStorage) bool { return v.IoScalingEnabled }).(pulumi.BoolOutput)
 }
 
 // The storage IOPS of the MySQL Flexible Server.

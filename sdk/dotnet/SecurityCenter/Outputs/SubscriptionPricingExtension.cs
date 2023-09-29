@@ -16,7 +16,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
         /// <summary>
         /// Key/Value pairs that are required for some extensions.
         /// 
-        /// &gt; **NOTE:** If an extension is not defined, it will not be enabled. Use `ignore_changes` on the `extension` field if you want to use the default extensions.
+        /// &gt; **NOTE:** If an extension is not defined, it will not be enabled.
         /// 
         /// &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         /// </summary>

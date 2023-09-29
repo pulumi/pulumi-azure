@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly Outputs.AppIngressCustomDomain? CustomDomain;
         /// <summary>
-        /// Is this an external Ingress.
+        /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         /// </summary>
         public readonly bool? ExternalEnabled;
         /// <summary>

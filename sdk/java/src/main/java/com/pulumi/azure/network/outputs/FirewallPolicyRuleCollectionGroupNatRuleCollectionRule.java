@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     /**
+     * @return The description which should be used for this rule.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The destination IP address (including CIDR).
      * 
      */
@@ -62,6 +67,13 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     private Integer translatedPort;
 
     private FirewallPolicyRuleCollectionGroupNatRuleCollectionRule() {}
+    /**
+     * @return The description which should be used for this rule.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return The destination IP address (including CIDR).
      * 
@@ -137,6 +149,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable String destinationAddress;
         private @Nullable String destinationPorts;
         private String name;
@@ -149,6 +162,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         public Builder() {}
         public Builder(FirewallPolicyRuleCollectionGroupNatRuleCollectionRule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.destinationAddress = defaults.destinationAddress;
     	      this.destinationPorts = defaults.destinationPorts;
     	      this.name = defaults.name;
@@ -160,6 +174,11 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     	      this.translatedPort = defaults.translatedPort;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder destinationAddress(@Nullable String destinationAddress) {
             this.destinationAddress = destinationAddress;
@@ -216,6 +235,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         }
         public FirewallPolicyRuleCollectionGroupNatRuleCollectionRule build() {
             final var o = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRule();
+            o.description = description;
             o.destinationAddress = destinationAddress;
             o.destinationPorts = destinationPorts;
             o.name = name;

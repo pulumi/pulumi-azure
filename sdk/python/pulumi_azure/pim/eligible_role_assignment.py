@@ -128,7 +128,8 @@ class _EligibleRoleAssignmentState:
         Input properties used for looking up and filtering EligibleRoleAssignment resources.
         :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input[str] principal_id: The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_type: The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] principal_type: The type of principal.
+               *
         :param pulumi.Input[str] role_definition_id: The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
@@ -177,7 +178,8 @@ class _EligibleRoleAssignmentState:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The type of principal.
+        *
         """
         return pulumi.get(self, "principal_type")
 
@@ -464,7 +466,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input[str] principal_id: The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] principal_type: The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] principal_type: The type of principal.
+               *
         :param pulumi.Input[str] role_definition_id: The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input[pulumi.InputType['EligibleRoleAssignmentScheduleArgs']] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
@@ -503,7 +506,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[str]:
         """
-        The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+        The type of principal.
+        *
         """
         return pulumi.get(self, "principal_type")
 

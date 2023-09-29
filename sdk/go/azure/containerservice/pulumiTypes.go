@@ -14242,7 +14242,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 	NetworkPluginMode *string `pulumi:"networkPluginMode"`
-	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -14314,7 +14314,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
-	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
@@ -14503,7 +14503,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
 }
 
-// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
@@ -14689,7 +14689,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {

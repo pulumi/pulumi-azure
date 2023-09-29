@@ -51,6 +51,8 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
      * 
      * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
+     * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
@@ -59,6 +61,8 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
      * @return The name of the Image Version.
      * 
      * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+     * 
+     * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
      * 
      */
     public Output<String> name() {
@@ -170,6 +174,8 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
          * 
          * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          * 
+         * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -182,6 +188,8 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
          * @param name The name of the Image Version.
          * 
          * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+         * 
+         * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
          * 
          * @return builder
          * 

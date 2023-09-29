@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
  * 
  * ## Example Usage
+ * ### Basic usage
  * ```java
  * package generated_program;
  * 
@@ -45,6 +46,51 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SubscriptionPricing(&#34;example&#34;, SubscriptionPricingArgs.builder()        
  *             .resourceType(&#34;VirtualMachines&#34;)
+ *             .tier(&#34;Standard&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Using Extensions with Defender CSPM
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.securitycenter.SubscriptionPricing;
+ * import com.pulumi.azure.securitycenter.SubscriptionPricingArgs;
+ * import com.pulumi.azure.securitycenter.inputs.SubscriptionPricingExtensionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example1 = new SubscriptionPricing(&#34;example1&#34;, SubscriptionPricingArgs.builder()        
+ *             .extensions(            
+ *                 SubscriptionPricingExtensionArgs.builder()
+ *                     .name(&#34;ContainerRegistriesVulnerabilityAssessments&#34;)
+ *                     .build(),
+ *                 SubscriptionPricingExtensionArgs.builder()
+ *                     .additionalExtensionProperties(Map.of(&#34;ExclusionTags&#34;, &#34;[]&#34;))
+ *                     .name(&#34;AgentlessVmScanning&#34;)
+ *                     .build(),
+ *                 SubscriptionPricingExtensionArgs.builder()
+ *                     .name(&#34;AgentlessDiscoveryForKubernetes&#34;)
+ *                     .build(),
+ *                 SubscriptionPricingExtensionArgs.builder()
+ *                     .name(&#34;SensitiveDataDiscovery&#34;)
+ *                     .build())
+ *             .resourceType(&#34;CloudPosture&#34;)
  *             .tier(&#34;Standard&#34;)
  *             .build());
  * 

@@ -181,14 +181,16 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
         return this.principalId;
     }
     /**
-     * The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The type of principal.
+     * *
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
-     * @return The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The type of principal.
+     * *
      * 
      */
     public Output<String> principalType() {

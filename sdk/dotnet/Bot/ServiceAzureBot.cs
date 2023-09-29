@@ -109,6 +109,12 @@ namespace Pulumi.Azure.Bot
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The Icon Url of the Azure Bot Service.
+        /// </summary>
+        [Output("iconUrl")]
+        public Output<string?> IconUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Is local authentication enabled? Defaults to `true`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
@@ -278,6 +284,12 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
+        /// The Icon Url of the Azure Bot Service.
+        /// </summary>
+        [Input("iconUrl")]
+        public Input<string>? IconUrl { get; set; }
+
+        /// <summary>
         /// Is local authentication enabled? Defaults to `true`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
@@ -424,6 +436,12 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The Icon Url of the Azure Bot Service.
+        /// </summary>
+        [Input("iconUrl")]
+        public Input<string>? IconUrl { get; set; }
 
         /// <summary>
         /// Is local authentication enabled? Defaults to `true`.

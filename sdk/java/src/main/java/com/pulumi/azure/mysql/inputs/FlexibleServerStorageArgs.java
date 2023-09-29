@@ -32,6 +32,21 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+     * 
+     */
+    @Import(name="ioScalingEnabled")
+    private @Nullable Output<Boolean> ioScalingEnabled;
+
+    /**
+     * @return Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ioScalingEnabled() {
+        return Optional.ofNullable(this.ioScalingEnabled);
+    }
+
+    /**
      * The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
      * 
      */
@@ -65,6 +80,7 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
 
     private FlexibleServerStorageArgs(FlexibleServerStorageArgs $) {
         this.autoGrowEnabled = $.autoGrowEnabled;
+        this.ioScalingEnabled = $.ioScalingEnabled;
         this.iops = $.iops;
         this.sizeGb = $.sizeGb;
     }
@@ -106,6 +122,27 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
          */
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
             return autoGrowEnabled(Output.of(autoGrowEnabled));
+        }
+
+        /**
+         * @param ioScalingEnabled Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ioScalingEnabled(@Nullable Output<Boolean> ioScalingEnabled) {
+            $.ioScalingEnabled = ioScalingEnabled;
+            return this;
+        }
+
+        /**
+         * @param ioScalingEnabled Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ioScalingEnabled(Boolean ioScalingEnabled) {
+            return ioScalingEnabled(Output.of(ioScalingEnabled));
         }
 
         /**

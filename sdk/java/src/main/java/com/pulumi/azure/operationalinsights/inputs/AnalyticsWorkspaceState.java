@@ -69,6 +69,21 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The ID of the Data Collection Rule to use for this workspace.
+     * 
+     */
+    @Import(name="dataCollectionRuleId")
+    private @Nullable Output<String> dataCollectionRuleId;
+
+    /**
+     * @return The ID of the Data Collection Rule to use for this workspace.
+     * 
+     */
+    public Optional<Output<String>> dataCollectionRuleId() {
+        return Optional.ofNullable(this.dataCollectionRuleId);
+    }
+
+    /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      * 
      */
@@ -289,6 +304,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         this.allowResourceOnlyPermissions = $.allowResourceOnlyPermissions;
         this.cmkForQueryForced = $.cmkForQueryForced;
         this.dailyQuotaGb = $.dailyQuotaGb;
+        this.dataCollectionRuleId = $.dataCollectionRuleId;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
         this.internetQueryEnabled = $.internetQueryEnabled;
         this.localAuthenticationDisabled = $.localAuthenticationDisabled;
@@ -387,6 +403,27 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
          */
         public Builder dailyQuotaGb(Double dailyQuotaGb) {
             return dailyQuotaGb(Output.of(dailyQuotaGb));
+        }
+
+        /**
+         * @param dataCollectionRuleId The ID of the Data Collection Rule to use for this workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCollectionRuleId(@Nullable Output<String> dataCollectionRuleId) {
+            $.dataCollectionRuleId = dataCollectionRuleId;
+            return this;
+        }
+
+        /**
+         * @param dataCollectionRuleId The ID of the Data Collection Rule to use for this workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCollectionRuleId(String dataCollectionRuleId) {
+            return dataCollectionRuleId(Output.of(dataCollectionRuleId));
         }
 
         /**

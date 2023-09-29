@@ -14,5 +14,6 @@ from .group_policy_remediation import *
 from .group_subscription_association import *
 from .group_template_deployment import *
 from .lock import *
+from .private_link import *
 from ._inputs import *
 from . import outputs

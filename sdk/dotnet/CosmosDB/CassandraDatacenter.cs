@@ -179,9 +179,11 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// Determines the selected sku.
+        /// 
+        /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Output("skuName")]
-        public Output<string?> SkuName { get; private set; } = null!;
+        public Output<string> SkuName { get; private set; } = null!;
 
 
         /// <summary>
@@ -297,6 +299,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// Determines the selected sku.
+        /// 
+        /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -377,6 +381,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// Determines the selected sku.
+        /// 
+        /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

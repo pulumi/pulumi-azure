@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<Inputs.AppIngressCustomDomainGetArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// Is this an external Ingress.
+        /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         /// </summary>
         [Input("externalEnabled")]
         public Input<bool>? ExternalEnabled { get; set; }

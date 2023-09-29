@@ -51,14 +51,14 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is this an external Ingress.
+     * Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
      * 
      */
     @Import(name="externalEnabled")
     private @Nullable Output<Boolean> externalEnabled;
 
     /**
-     * @return Is this an external Ingress.
+     * @return Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> externalEnabled() {
@@ -202,7 +202,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalEnabled Is this an external Ingress.
+         * @param externalEnabled Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalEnabled Is this an external Ingress.
+         * @param externalEnabled Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
          * 
          * @return builder
          * 
