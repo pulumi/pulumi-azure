@@ -1,4 +1,4 @@
-From c2c8e39bc9ccb03b01838777db5e0aacc07a3057 Mon Sep 17 00:00:00 2001
+From ca638f5d65459e03e4e9421b15c537e43fd9d6de Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 8/9] expose-provider
@@ -25,5 +25,5 @@ index 0000000000..cd6b26156c
 +	return provider.AzureProvider()
 +}
 -- 
-2.39.1
+2.39.3 (Apple Git-145)
 

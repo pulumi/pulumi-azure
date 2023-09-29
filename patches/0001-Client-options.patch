@@ -1,4 +1,4 @@
-From 2e82694f1081c7383b3de88b676bacd9dd8e27d0 Mon Sep 17 00:00:00 2001
+From 563f3d50453ec7151ca6d2bc51df3cda8eb7ca95 Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 1/9] Client-options
@@ -50,5 +50,5 @@ index 6eba6eeaed..56ccbd5f87 100644
  
  	if partnerID != "" {
 -- 
-2.39.1
+2.39.3 (Apple Git-145)
 
