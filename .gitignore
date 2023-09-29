@@ -29,3 +29,5 @@ sdk/java/gradle
 sdk/java/gradlew
 sdk/java/gradlew.bat
 .gradle
+
+sdk/python/venv
