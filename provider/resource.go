@@ -283,6 +283,7 @@ var moduleMap = map[string]string{
 	"managed_application": azureManagedApplication,
 	"managed_lustre":      azureManagedLustre,
 	"management":          azureManagement,
+	"resource_management": azureManagement,
 	"maps":                azureMaps,
 	"marketplace":         azureMarketPlace,
 	"media_services":      azureMediaServices,
