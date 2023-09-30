@@ -105,6 +105,8 @@ type ServiceAzureBot struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Azure Bot Service endpoint.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The Icon Url of the Azure Bot Service.
+	IconUrl pulumi.StringPtrOutput `pulumi:"iconUrl"`
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -193,6 +195,8 @@ type serviceAzureBotState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Azure Bot Service endpoint.
 	Endpoint *string `pulumi:"endpoint"`
+	// The Icon Url of the Azure Bot Service.
+	IconUrl *string `pulumi:"iconUrl"`
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -232,6 +236,8 @@ type ServiceAzureBotState struct {
 	DisplayName pulumi.StringPtrInput
 	// The Azure Bot Service endpoint.
 	Endpoint pulumi.StringPtrInput
+	// The Icon Url of the Azure Bot Service.
+	IconUrl pulumi.StringPtrInput
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -275,6 +281,8 @@ type serviceAzureBotArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Azure Bot Service endpoint.
 	Endpoint *string `pulumi:"endpoint"`
+	// The Icon Url of the Azure Bot Service.
+	IconUrl *string `pulumi:"iconUrl"`
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -315,6 +323,8 @@ type ServiceAzureBotArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The Azure Bot Service endpoint.
 	Endpoint pulumi.StringPtrInput
+	// The Icon Url of the Azure Bot Service.
+	IconUrl pulumi.StringPtrInput
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -477,6 +487,11 @@ func (o ServiceAzureBotOutput) DisplayName() pulumi.StringOutput {
 // The Azure Bot Service endpoint.
 func (o ServiceAzureBotOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Icon Url of the Azure Bot Service.
+func (o ServiceAzureBotOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.IconUrl }).(pulumi.StringPtrOutput)
 }
 
 // Is local authentication enabled? Defaults to `true`.

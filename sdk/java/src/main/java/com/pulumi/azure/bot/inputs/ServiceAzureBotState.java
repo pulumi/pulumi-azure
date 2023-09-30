@@ -94,6 +94,21 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The Icon Url of the Azure Bot Service.
+     * 
+     */
+    @Import(name="iconUrl")
+    private @Nullable Output<String> iconUrl;
+
+    /**
+     * @return The Icon Url of the Azure Bot Service.
+     * 
+     */
+    public Optional<Output<String>> iconUrl() {
+        return Optional.ofNullable(this.iconUrl);
+    }
+
+    /**
      * Is local authentication enabled? Defaults to `true`.
      * 
      */
@@ -296,6 +311,7 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
         this.developerAppInsightsKey = $.developerAppInsightsKey;
         this.displayName = $.displayName;
         this.endpoint = $.endpoint;
+        this.iconUrl = $.iconUrl;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.luisAppIds = $.luisAppIds;
@@ -432,6 +448,27 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param iconUrl The Icon Url of the Azure Bot Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iconUrl(@Nullable Output<String> iconUrl) {
+            $.iconUrl = iconUrl;
+            return this;
+        }
+
+        /**
+         * @param iconUrl The Icon Url of the Azure Bot Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iconUrl(String iconUrl) {
+            return iconUrl(Output.of(iconUrl));
         }
 
         /**

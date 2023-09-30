@@ -34174,6 +34174,8 @@ type GetSharedImageVersionTargetRegion struct {
 	// The name of the Image Version.
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+	//
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
@@ -34196,6 +34198,8 @@ type GetSharedImageVersionTargetRegionArgs struct {
 	// The name of the Image Version.
 	//
 	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+	//
+	// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
@@ -34275,6 +34279,8 @@ func (o GetSharedImageVersionTargetRegionOutput) ToOutput(ctx context.Context) p
 // The name of the Image Version.
 //
 // > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+//
+// > **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
 func (o GetSharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }

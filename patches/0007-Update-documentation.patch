@@ -1,4 +1,4 @@
-From 44e20f07f84489490879efa7cd24292845a0675d Mon Sep 17 00:00:00 2001
+From ff1706c3f81fbebda5835207ff18cd334ac1de9d Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:39 -0700
 Subject: [PATCH 7/9] Update-documentation
@@ -167,7 +167,7 @@ Subject: [PATCH 7/9] Update-documentation
  create mode 100644 website/docs/r/connection_monitor.html.markdown
 
 diff --git a/website/docs/d/function_app_host_keys.html.markdown b/website/docs/d/function_app_host_keys.html.markdown
-index 2f257bbaca..9b1088a716 100644
+index 82b531a834..f2d2619e69 100644
 --- a/website/docs/d/function_app_host_keys.html.markdown
 +++ b/website/docs/d/function_app_host_keys.html.markdown
 @@ -19,8 +19,6 @@ data "azurerm_function_app_host_keys" "example" {
@@ -1133,7 +1133,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index db1d29cc78..1fde4f0a90 100644
+index 6ef1889f9c..254d3ede9b 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -14,7 +14,7 @@ Manages as an Azure Container Group instance.
@@ -1145,7 +1145,7 @@ index db1d29cc78..1fde4f0a90 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -271,7 +271,7 @@ A `volume` block supports:
+@@ -273,7 +273,7 @@ A `volume` block supports:
  
  ~> **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
  
@@ -1169,7 +1169,7 @@ index c45421c25f..5ea881d4cc 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index c6c3ad1164..f12b1a5e90 100644
+index 0a8103bbb3..bc39ecc65c 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1803,10 +1803,10 @@ index bf47c3b7ca..373f58d791 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index f8b4ac51ac..50922a310a 100644
+index db4288ac0c..df8bfec14a 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
-@@ -158,6 +158,10 @@ The following arguments are supported:
+@@ -161,6 +161,10 @@ The following arguments are supported:
  
  * `network_rule_set` - (Optional) A `network_rule_set` block as defined below.
  
@@ -1817,7 +1817,7 @@ index f8b4ac51ac..50922a310a 100644
  * `route` - (Optional) A `route` block as defined below.
  
  * `enrichment` - (Optional) A `enrichment` block as defined below.
-@@ -246,6 +250,26 @@ A `ip_rule` block supports the following:
+@@ -249,6 +253,26 @@ A `ip_rule` block supports the following:
  
  ---
  
@@ -1957,7 +1957,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 7fa6d0abc6..9216dba04d 100644
+index 351e187b8b..018c6ef0c6 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2238,7 +2238,7 @@ index 8cd3a53f29..7349e0e1e2 100644
 --> **NOTE:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 diff --git a/website/docs/r/managed_disk.html.markdown b/website/docs/r/managed_disk.html.markdown
-index 0bc0732669..7e0aed1684 100644
+index ab6e0c8a22..59d329aa24 100644
 --- a/website/docs/r/managed_disk.html.markdown
 +++ b/website/docs/r/managed_disk.html.markdown
 @@ -82,7 +82,7 @@ The following arguments are supported:
@@ -2286,10 +2286,10 @@ index d598d0034e..c039d43a56 100644
    }
  }
 diff --git a/website/docs/r/monitor_diagnostic_setting.html.markdown b/website/docs/r/monitor_diagnostic_setting.html.markdown
-index 493de7b692..476f4a2a2f 100644
+index 03f2f27deb..f48028f10c 100644
 --- a/website/docs/r/monitor_diagnostic_setting.html.markdown
 +++ b/website/docs/r/monitor_diagnostic_setting.html.markdown
-@@ -185,4 +185,4 @@ Diagnostic Settings can be imported using the `resource id`, e.g.
+@@ -198,4 +198,4 @@ Diagnostic Settings can be imported using the `resource id`, e.g.
  terraform import azurerm_monitor_diagnostic_setting.example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
  ```
  
@@ -2558,7 +2558,7 @@ index 0cea957b79..afd6bbc42f 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index 39761e9e1c..a976d5b21e 100644
+index b1bb4fc69f..1debba50a2 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2570,7 +2570,7 @@ index 39761e9e1c..a976d5b21e 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -139,7 +139,7 @@ redis_configuration {
+@@ -142,7 +142,7 @@ redis_configuration {
  * `rdb_backup_max_snapshot_count` - (Optional) The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
  * `rdb_storage_connection_string` - (Optional) The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
  
@@ -2849,7 +2849,7 @@ index bbd64dfc55..70ddcc49c8 100644
  }
  
 diff --git a/website/docs/r/shared_image_version.html.markdown b/website/docs/r/shared_image_version.html.markdown
-index e357935c61..a0b15a4745 100644
+index b96f061661..d1ac9bfc03 100644
 --- a/website/docs/r/shared_image_version.html.markdown
 +++ b/website/docs/r/shared_image_version.html.markdown
 @@ -69,7 +69,7 @@ The following arguments are supported:
@@ -3274,5 +3274,5 @@ index 6d9df3047f..dd33432003 100644
  
  A `gallery_application` block supports the following:
 -- 
-2.39.1
+2.39.3 (Apple Git-145)
 

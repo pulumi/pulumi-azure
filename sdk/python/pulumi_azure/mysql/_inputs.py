@@ -228,15 +228,19 @@ class FlexibleServerMaintenanceWindowArgs:
 class FlexibleServerStorageArgs:
     def __init__(__self__, *,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+                 io_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  size_gb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] auto_grow_enabled: Should Storage Auto Grow be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] io_scaling_enabled: Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
         :param pulumi.Input[int] iops: The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
         :param pulumi.Input[int] size_gb: The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
         """
         if auto_grow_enabled is not None:
             pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+        if io_scaling_enabled is not None:
+            pulumi.set(__self__, "io_scaling_enabled", io_scaling_enabled)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if size_gb is not None:
@@ -253,6 +257,18 @@ class FlexibleServerStorageArgs:
     @auto_grow_enabled.setter
     def auto_grow_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_grow_enabled", value)
+
+    @property
+    @pulumi.getter(name="ioScalingEnabled")
+    def io_scaling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+        """
+        return pulumi.get(self, "io_scaling_enabled")
+
+    @io_scaling_enabled.setter
+    def io_scaling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "io_scaling_enabled", value)
 
     @property
     @pulumi.getter

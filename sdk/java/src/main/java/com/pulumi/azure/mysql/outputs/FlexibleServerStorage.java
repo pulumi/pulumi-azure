@@ -18,6 +18,11 @@ public final class FlexibleServerStorage {
      */
     private @Nullable Boolean autoGrowEnabled;
     /**
+     * @return Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean ioScalingEnabled;
+    /**
      * @return The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
      * 
      */
@@ -35,6 +40,13 @@ public final class FlexibleServerStorage {
      */
     public Optional<Boolean> autoGrowEnabled() {
         return Optional.ofNullable(this.autoGrowEnabled);
+    }
+    /**
+     * @return Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> ioScalingEnabled() {
+        return Optional.ofNullable(this.ioScalingEnabled);
     }
     /**
      * @return The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
@@ -61,12 +73,14 @@ public final class FlexibleServerStorage {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoGrowEnabled;
+        private @Nullable Boolean ioScalingEnabled;
         private @Nullable Integer iops;
         private @Nullable Integer sizeGb;
         public Builder() {}
         public Builder(FlexibleServerStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoGrowEnabled = defaults.autoGrowEnabled;
+    	      this.ioScalingEnabled = defaults.ioScalingEnabled;
     	      this.iops = defaults.iops;
     	      this.sizeGb = defaults.sizeGb;
         }
@@ -74,6 +88,11 @@ public final class FlexibleServerStorage {
         @CustomType.Setter
         public Builder autoGrowEnabled(@Nullable Boolean autoGrowEnabled) {
             this.autoGrowEnabled = autoGrowEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ioScalingEnabled(@Nullable Boolean ioScalingEnabled) {
+            this.ioScalingEnabled = ioScalingEnabled;
             return this;
         }
         @CustomType.Setter
@@ -89,6 +108,7 @@ public final class FlexibleServerStorage {
         public FlexibleServerStorage build() {
             final var o = new FlexibleServerStorage();
             o.autoGrowEnabled = autoGrowEnabled;
+            o.ioScalingEnabled = ioScalingEnabled;
             o.iops = iops;
             o.sizeGb = sizeGb;
             return o;

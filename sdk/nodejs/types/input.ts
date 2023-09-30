@@ -22072,7 +22072,7 @@ export namespace containerapp {
          */
         customDomain?: pulumi.Input<inputs.containerapp.AppIngressCustomDomain>;
         /**
-         * Is this an external Ingress.
+         * Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
          */
         externalEnabled?: pulumi.Input<boolean>;
         /**
@@ -24302,7 +24302,7 @@ export namespace containerservice {
          */
         networkPluginMode?: pulumi.Input<string>;
         /**
-         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
          *
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          */
@@ -42290,6 +42290,10 @@ export namespace mysql {
          */
         autoGrowEnabled?: pulumi.Input<boolean>;
         /**
+         * Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+         */
+        ioScalingEnabled?: pulumi.Input<boolean>;
+        /**
          * The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
          */
         iops?: pulumi.Input<number>;
@@ -44009,7 +44013,9 @@ export namespace network {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
          */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
         /**
          * Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
          */
@@ -44209,6 +44215,10 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         /**
+         * The description which should be used for this rule.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * The destination IP address (including CIDR).
          */
         destinationAddress?: pulumi.Input<string>;
@@ -44268,6 +44278,10 @@ export namespace network {
     }
 
     export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+        /**
+         * The description which should be used for this rule.
+         */
+        description?: pulumi.Input<string>;
         /**
          * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          */
@@ -47496,7 +47510,7 @@ export namespace securitycenter {
         /**
          * Key/Value pairs that are required for some extensions.
          *
-         * > **NOTE:** If an extension is not defined, it will not be enabled. Use `ignoreChanges` on the `extension` field if you want to use the default extensions.
+         * > **NOTE:** If an extension is not defined, it will not be enabled.
          *
          * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
          */

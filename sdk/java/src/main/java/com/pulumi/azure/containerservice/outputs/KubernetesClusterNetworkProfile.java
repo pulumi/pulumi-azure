@@ -89,7 +89,7 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String networkPluginMode;
     /**
-     * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+     * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
@@ -219,7 +219,7 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.networkPluginMode);
     }
     /**
-     * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+     * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 

@@ -10759,6 +10759,8 @@ func (o FirewallPolicyExplicitProxyPtrOutput) PacFilePort() pulumi.IntPtrOutput 
 type FirewallPolicyIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
 	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -10777,6 +10779,8 @@ type FirewallPolicyIdentityInput interface {
 type FirewallPolicyIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10881,6 +10885,14 @@ func (o FirewallPolicyIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+func (o FirewallPolicyIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallPolicyIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
 func (o FirewallPolicyIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -10924,6 +10936,24 @@ func (o FirewallPolicyIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput 
 		}
 		return v.IdentityIds
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FirewallPolicyIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
@@ -12480,6 +12510,8 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) Index(i p
 }
 
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
+	// The description which should be used for this rule.
+	Description *string `pulumi:"description"`
 	// The destination IP address (including CIDR).
 	DestinationAddress *string `pulumi:"destinationAddress"`
 	// Specifies a list of destination ports.
@@ -12514,6 +12546,8 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput interface {
 }
 
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
+	// The description which should be used for this rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The destination IP address (including CIDR).
 	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
 	// Specifies a list of destination ports.
@@ -12603,6 +12637,11 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) ToOutput(c
 	return pulumix.Output[FirewallPolicyRuleCollectionGroupNatRuleCollectionRule]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The description which should be used for this rule.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The destination IP address (including CIDR).
@@ -12829,6 +12868,8 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) Index
 }
 
 type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
+	// The description which should be used for this rule.
+	Description *string `pulumi:"description"`
 	// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
@@ -12859,6 +12900,8 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput interface {
 }
 
 type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
+	// The description which should be used for this rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
@@ -12944,6 +12987,11 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) ToOutp
 	return pulumix.Output[FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The description which should be used for this rule.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of destination IP addresses (including CIDR, IP range and `*`).

@@ -35,6 +35,11 @@ export const getConfigurationStore: typeof import("./getConfigurationStore").get
 export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
 
+export { LicationLoadBalancerArgs, LicationLoadBalancerState } from "./licationLoadBalancer";
+export type LicationLoadBalancer = import("./licationLoadBalancer").LicationLoadBalancer;
+export const LicationLoadBalancer: typeof import("./licationLoadBalancer").LicationLoadBalancer = null as any;
+utilities.lazyLoad(exports, ["LicationLoadBalancer"], () => require("./licationLoadBalancer"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -46,6 +51,8 @@ const _module = {
                 return new ConfigurationKey(name, <any>undefined, { urn })
             case "azure:appconfiguration/configurationStore:ConfigurationStore":
                 return new ConfigurationStore(name, <any>undefined, { urn })
+            case "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer":
+                return new LicationLoadBalancer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -54,3 +61,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationFeature", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationKey", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationStore", _module)
+pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancer", _module)

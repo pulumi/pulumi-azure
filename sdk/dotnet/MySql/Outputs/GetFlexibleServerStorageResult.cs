@@ -18,6 +18,10 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly bool AutoGrowEnabled;
         /// <summary>
+        /// Should IOPS be scaled automatically?
+        /// </summary>
+        public readonly bool IoScalingEnabled;
+        /// <summary>
         /// The storage IOPS of the MySQL Flexible Server.
         /// </summary>
         public readonly int Iops;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.MySql.Outputs
         private GetFlexibleServerStorageResult(
             bool autoGrowEnabled,
 
+            bool ioScalingEnabled,
+
             int iops,
 
             int sizeGb)
         {
             AutoGrowEnabled = autoGrowEnabled;
+            IoScalingEnabled = ioScalingEnabled;
             Iops = iops;
             SizeGb = sizeGb;
         }

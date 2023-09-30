@@ -71,6 +71,8 @@ type AnalyticsWorkspace struct {
 	//
 	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
+	// The ID of the Data Collection Rule to use for this workspace.
+	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -155,6 +157,8 @@ type analyticsWorkspaceState struct {
 	//
 	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// The ID of the Data Collection Rule to use for this workspace.
+	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -202,6 +206,8 @@ type AnalyticsWorkspaceState struct {
 	//
 	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb pulumi.Float64PtrInput
+	// The ID of the Data Collection Rule to use for this workspace.
+	DataCollectionRuleId pulumi.StringPtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -253,6 +259,8 @@ type analyticsWorkspaceArgs struct {
 	//
 	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// The ID of the Data Collection Rule to use for this workspace.
+	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -295,6 +303,8 @@ type AnalyticsWorkspaceArgs struct {
 	//
 	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb pulumi.Float64PtrInput
+	// The ID of the Data Collection Rule to use for this workspace.
+	DataCollectionRuleId pulumi.StringPtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -453,6 +463,11 @@ func (o AnalyticsWorkspaceOutput) CmkForQueryForced() pulumi.BoolPtrOutput {
 // > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 func (o AnalyticsWorkspaceOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.Float64PtrOutput { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
+}
+
+// The ID of the Data Collection Rule to use for this workspace.
+func (o AnalyticsWorkspaceOutput) DataCollectionRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringPtrOutput { return v.DataCollectionRuleId }).(pulumi.StringPtrOutput)
 }
 
 // Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

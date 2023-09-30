@@ -173,7 +173,7 @@ class AppIngressArgs:
                > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         :param pulumi.Input[bool] allow_insecure_connections: Should this ingress allow insecure connections?
         :param pulumi.Input['AppIngressCustomDomainArgs'] custom_domain: One or more `custom_domain` block as detailed below.
-        :param pulumi.Input[bool] external_enabled: Is this an external Ingress.
+        :param pulumi.Input[bool] external_enabled: Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         :param pulumi.Input[str] fqdn: The FQDN of the ingress.
         :param pulumi.Input[str] transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
@@ -244,7 +244,7 @@ class AppIngressArgs:
     @pulumi.getter(name="externalEnabled")
     def external_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this an external Ingress.
+        Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         """
         return pulumi.get(self, "external_enabled")
 

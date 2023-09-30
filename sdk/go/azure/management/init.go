@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupTemplateDeployment{}
 	case "azure:management/lock:Lock":
 		r = &Lock{}
+	case "azure:management/privateLink:PrivateLink":
+		r = &PrivateLink{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"management/lock",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"management/privateLink",
 		&module{version},
 	)
 }

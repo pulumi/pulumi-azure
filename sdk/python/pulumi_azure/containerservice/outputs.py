@@ -6178,7 +6178,7 @@ class KubernetesClusterNetworkProfile(dict):
         :param str network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
                
                > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
-        :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+        :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
         :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
@@ -6328,7 +6328,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[str]:
         """
-        Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+        Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 
         > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
         """

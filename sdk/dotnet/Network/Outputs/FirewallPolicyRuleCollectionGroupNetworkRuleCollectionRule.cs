@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule
     {
         /// <summary>
+        /// The description which should be used for this rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(
+            string? description,
+
             ImmutableArray<string> destinationAddresses,
 
             ImmutableArray<string> destinationFqdns,
@@ -64,6 +70,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> sourceIpGroups)
         {
+            Description = description;
             DestinationAddresses = destinationAddresses;
             DestinationFqdns = destinationFqdns;
             DestinationIpGroups = destinationIpGroups;

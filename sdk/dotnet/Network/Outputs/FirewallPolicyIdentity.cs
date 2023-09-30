@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Network.Outputs
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
+        public readonly string? PrincipalId;
+        public readonly string? TenantId;
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
         /// </summary>
@@ -26,9 +28,15 @@ namespace Pulumi.Azure.Network.Outputs
         private FirewallPolicyIdentity(
             ImmutableArray<string> identityIds,
 
+            string? principalId,
+
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
+            PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

@@ -140,8 +140,10 @@ export class CassandraDatacenter extends pulumi.CustomResource {
     public readonly nodeCount!: pulumi.Output<number | undefined>;
     /**
      * Determines the selected sku.
+     *
+     * > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
-    public readonly skuName!: pulumi.Output<string | undefined>;
+    public readonly skuName!: pulumi.Output<string>;
 
     /**
      * Create a CassandraDatacenter resource with the given unique name, arguments, and options.
@@ -244,6 +246,8 @@ export interface CassandraDatacenterState {
     nodeCount?: pulumi.Input<number>;
     /**
      * Determines the selected sku.
+     *
+     * > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
     skuName?: pulumi.Input<string>;
 }
@@ -298,6 +302,8 @@ export interface CassandraDatacenterArgs {
     nodeCount?: pulumi.Input<number>;
     /**
      * Determines the selected sku.
+     *
+     * > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
     skuName?: pulumi.Input<string>;
 }

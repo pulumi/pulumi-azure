@@ -1,4 +1,4 @@
-From aa6aaaf5b79e8bc9327fda5eca941c03862c0f6d Mon Sep 17 00:00:00 2001
+From 2187881a28dd31f8e77e225638abe8d0fa41c61a Mon Sep 17 00:00:00 2001
 From: aq17 <aqiu@pulumi.com>
 Date: Thu, 25 May 2023 10:33:38 -0700
 Subject: [PATCH 4/9] fixup-Shared-features
@@ -22,5 +22,5 @@ index 926f57f880..815f6e3006 100644
 +	return strings.EqualFold(old, new)
 +}
 -- 
-2.39.1
+2.39.3 (Apple Git-145)
 

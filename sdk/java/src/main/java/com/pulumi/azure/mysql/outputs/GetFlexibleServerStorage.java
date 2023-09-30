@@ -16,6 +16,11 @@ public final class GetFlexibleServerStorage {
      */
     private Boolean autoGrowEnabled;
     /**
+     * @return Should IOPS be scaled automatically?
+     * 
+     */
+    private Boolean ioScalingEnabled;
+    /**
      * @return The storage IOPS of the MySQL Flexible Server.
      * 
      */
@@ -33,6 +38,13 @@ public final class GetFlexibleServerStorage {
      */
     public Boolean autoGrowEnabled() {
         return this.autoGrowEnabled;
+    }
+    /**
+     * @return Should IOPS be scaled automatically?
+     * 
+     */
+    public Boolean ioScalingEnabled() {
+        return this.ioScalingEnabled;
     }
     /**
      * @return The storage IOPS of the MySQL Flexible Server.
@@ -59,12 +71,14 @@ public final class GetFlexibleServerStorage {
     @CustomType.Builder
     public static final class Builder {
         private Boolean autoGrowEnabled;
+        private Boolean ioScalingEnabled;
         private Integer iops;
         private Integer sizeGb;
         public Builder() {}
         public Builder(GetFlexibleServerStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoGrowEnabled = defaults.autoGrowEnabled;
+    	      this.ioScalingEnabled = defaults.ioScalingEnabled;
     	      this.iops = defaults.iops;
     	      this.sizeGb = defaults.sizeGb;
         }
@@ -72,6 +86,11 @@ public final class GetFlexibleServerStorage {
         @CustomType.Setter
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
             this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ioScalingEnabled(Boolean ioScalingEnabled) {
+            this.ioScalingEnabled = Objects.requireNonNull(ioScalingEnabled);
             return this;
         }
         @CustomType.Setter
@@ -87,6 +106,7 @@ public final class GetFlexibleServerStorage {
         public GetFlexibleServerStorage build() {
             final var o = new GetFlexibleServerStorage();
             o.autoGrowEnabled = autoGrowEnabled;
+            o.ioScalingEnabled = ioScalingEnabled;
             o.iops = iops;
             o.sizeGb = sizeGb;
             return o;

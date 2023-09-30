@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description which should be used for this rule.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The destination IP address (including CIDR).
         /// </summary>
         [Input("destinationAddress")]

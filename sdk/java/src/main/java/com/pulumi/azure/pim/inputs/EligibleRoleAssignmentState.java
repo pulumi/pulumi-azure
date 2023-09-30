@@ -48,14 +48,16 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * The type of principal.
+     * *
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The type of principal.
+     * *
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -195,7 +197,8 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalType The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param principalType The type of principal.
+         * *
          * 
          * @return builder
          * 
@@ -206,7 +209,8 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalType The type of principal. Changing this forces a new Pim Eligible Role Assignment to be created.
+         * @param principalType The type of principal.
+         * *
          * 
          * @return builder
          * 
