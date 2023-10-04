@@ -1,0 +1,32 @@
+provider: azure
+lint: false
+major-version: 5
+parallel: 1
+timeout: 90
+generate-nightly-test-workflow: true
+providerVersion: github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion
+env:
+  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  ARM_ENVIRONMENT: "public"
+  ARM_LOCATION: "westus2"
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  PULUMI_MISSING_DOCS_ERROR: true
+upstream-provider-repo: terraform-provider-azurerm
+makeTemplate: bridged
+plugins:
+  - name: random
+    version: "4.8.2"
+  - name: azuread
+    version: "5.33.0"
+  - name: time
+    version: "0.0.15"
+  - name: local
+    version: "0.0.1"
+team: ecosystem
+goBuildParallelism: 2
+javaGenVersion: "v0.8.0"
+runner:
+  buildSdk: pulumi-ubuntu-8core
+  publish: pulumi-ubuntu-8core
