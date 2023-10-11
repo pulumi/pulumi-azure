@@ -12,7 +12,7 @@ JAVA_GEN := pulumi-java-gen
 TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
-PULUMI_CONVERT := 0
+PULUMI_CONVERT := 1
 
 development: install_plugins provider build_sdks install_sdks
 
@@ -99,6 +99,8 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install resource azuread 5.33.0
 	.pulumi/bin/pulumi plugin install resource time 0.0.15
 	.pulumi/bin/pulumi plugin install resource local 0.0.1
+	.pulumi/bin/pulumi plugin install resource std 1.4.0
+	.pulumi/bin/pulumi plugin install converter terraform 1.0.11
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml

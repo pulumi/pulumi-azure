@@ -12,6 +12,18 @@ env:
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   PULUMI_MISSING_DOCS_ERROR: true
+  # Would rather fail the build to force listing dependencies manually under plugins: than
+  # auto-install a floating dependency which may influence example generation and cause
+  # non-deterministic builds later on.
+  #
+  # Unfortunately this does not work yet because of e2e tests (example-based tests). Need to find a
+  # way to scope this env var so that it does not configure tests.
+  #
+  #     TestAccFrontdoor: no resource plugin 'pulumi-resource-random' found in the workspace at version v4.15.1 or on your $PATH
+  #     Test_sql/e2e: Error: error resolving type of resource random: internal error loading package "random": no resource plugin
+  #         'pulumi-resource-random' found in the workspace or on your $PATH
+  #
+  # PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION: true
 upstream-provider-repo: terraform-provider-azurerm
 makeTemplate: bridged
 plugins:
@@ -23,6 +35,11 @@ plugins:
     version: "0.0.15"
   - name: local
     version: "0.0.1"
+  - name: std
+    version: "1.4.0"
+  - name: terraform
+    kind: converter
+    version: "1.0.11"
 goBuildParallelism: 2
 actions:
   preTest:
@@ -34,3 +51,4 @@ actions:
     - name: Run provider tests
       run: |
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+pulumiConvert: 1
