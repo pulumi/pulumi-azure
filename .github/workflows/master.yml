@@ -135,7 +135,7 @@ jobs:
       COVERAGE_OUTPUT_DIR: ${{ secrets.COVERAGE_OUTPUT_DIR }}
     name: generate_coverage_data
     needs: prerequisites
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -184,7 +184,7 @@ jobs:
         aws s3 cp "${{ env.COVERAGE_OUTPUT_DIR }}/summary.json" "${s3FullURI}" --acl bucket-owner-full-control
   prerequisites:
     name: prerequisites
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
