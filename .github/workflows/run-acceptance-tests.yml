@@ -137,7 +137,7 @@ jobs:
   comment-notification:
     if: github.event_name == 'repository_dispatch'
     name: comment-notification
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - id: run-url
       name: Create URL to the run output
@@ -258,7 +258,7 @@ jobs:
       ! cancelled()
     needs:
     - test
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Workflow is not a success
       if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')

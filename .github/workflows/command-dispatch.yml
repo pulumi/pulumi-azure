@@ -36,7 +36,7 @@ env:
 jobs:
   command-dispatch-for-testing:
     name: command-dispatch-for-testing
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3

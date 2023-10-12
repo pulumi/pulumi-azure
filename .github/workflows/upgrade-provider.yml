@@ -7,7 +7,7 @@ jobs:
   upgrade_provider:
     if: ${{ contains(github.event.issue.title, 'Upgrade terraform-provider-') || github.event_name == 'workflow_dispatch' }}
     name: upgrade-provider
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Call upgrade provider action
       uses: pulumi/pulumi-upgrade-provider-action@v0.0.8

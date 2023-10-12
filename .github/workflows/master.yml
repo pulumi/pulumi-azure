@@ -135,7 +135,7 @@ jobs:
       COVERAGE_OUTPUT_DIR: ${{ secrets.COVERAGE_OUTPUT_DIR }}
     name: generate_coverage_data
     needs: prerequisites
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
@@ -306,7 +306,7 @@ jobs:
   publish_sdk:
     name: publish_sdk
     needs: publish
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Publish SDKs
       uses: pulumi/pulumi-package-publisher@v0.0.12
@@ -325,7 +325,7 @@ jobs:
   tag_release_if_labeled_needs_release:
     name: Tag release if labeled as needs-release
     needs: publish_sdk
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: check if this commit needs release
       uses: pulumi/action-release-by-pr-label@main

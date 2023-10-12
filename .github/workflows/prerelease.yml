@@ -252,7 +252,7 @@ jobs:
   publish_sdk:
     name: publish_sdk
     needs: publish
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     steps:
     - name: Publish SDKs
       uses: pulumi/pulumi-package-publisher@v0.0.12
