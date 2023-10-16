@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -91,9 +91,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-               
-               > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -131,88 +129,179 @@ class KubernetesClusterNodePoolArgs:
                > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
-        pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
-        pulumi.set(__self__, "vm_size", vm_size)
+        KubernetesClusterNodePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kubernetes_cluster_id=kubernetes_cluster_id,
+            vm_size=vm_size,
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            custom_ca_trust_enabled=custom_ca_trust_enabled,
+            enable_auto_scaling=enable_auto_scaling,
+            enable_host_encryption=enable_host_encryption,
+            enable_node_public_ip=enable_node_public_ip,
+            eviction_policy=eviction_policy,
+            fips_enabled=fips_enabled,
+            host_group_id=host_group_id,
+            kubelet_config=kubelet_config,
+            kubelet_disk_type=kubelet_disk_type,
+            linux_os_config=linux_os_config,
+            max_count=max_count,
+            max_pods=max_pods,
+            message_of_the_day=message_of_the_day,
+            min_count=min_count,
+            mode=mode,
+            name=name,
+            node_count=node_count,
+            node_labels=node_labels,
+            node_network_profile=node_network_profile,
+            node_public_ip_prefix_id=node_public_ip_prefix_id,
+            node_taints=node_taints,
+            orchestrator_version=orchestrator_version,
+            os_disk_size_gb=os_disk_size_gb,
+            os_disk_type=os_disk_type,
+            os_sku=os_sku,
+            os_type=os_type,
+            pod_subnet_id=pod_subnet_id,
+            priority=priority,
+            proximity_placement_group_id=proximity_placement_group_id,
+            scale_down_mode=scale_down_mode,
+            snapshot_id=snapshot_id,
+            spot_max_price=spot_max_price,
+            tags=tags,
+            ultra_ssd_enabled=ultra_ssd_enabled,
+            upgrade_settings=upgrade_settings,
+            vnet_subnet_id=vnet_subnet_id,
+            windows_profile=windows_profile,
+            workload_runtime=workload_runtime,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kubernetes_cluster_id: pulumi.Input[str],
+             vm_size: pulumi.Input[str],
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
+             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+             enable_host_encryption: Optional[pulumi.Input[bool]] = None,
+             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             fips_enabled: Optional[pulumi.Input[bool]] = None,
+             host_group_id: Optional[pulumi.Input[str]] = None,
+             kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
+             linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             max_pods: Optional[pulumi.Input[int]] = None,
+             message_of_the_day: Optional[pulumi.Input[str]] = None,
+             min_count: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             orchestrator_version: Optional[pulumi.Input[str]] = None,
+             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+             os_disk_type: Optional[pulumi.Input[str]] = None,
+             os_sku: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             pod_subnet_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             scale_down_mode: Optional[pulumi.Input[str]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             spot_max_price: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
+             upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+             windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
+             workload_runtime: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kubernetes_cluster_id", kubernetes_cluster_id)
+        _setter("vm_size", vm_size)
         if capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if custom_ca_trust_enabled is not None:
-            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
+            _setter("custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+            _setter("enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
-            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
+            _setter("enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if fips_enabled is not None:
-            pulumi.set(__self__, "fips_enabled", fips_enabled)
+            _setter("fips_enabled", fips_enabled)
         if host_group_id is not None:
-            pulumi.set(__self__, "host_group_id", host_group_id)
+            _setter("host_group_id", host_group_id)
         if kubelet_config is not None:
-            pulumi.set(__self__, "kubelet_config", kubelet_config)
+            _setter("kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
-            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
+            _setter("kubelet_disk_type", kubelet_disk_type)
         if linux_os_config is not None:
-            pulumi.set(__self__, "linux_os_config", linux_os_config)
+            _setter("linux_os_config", linux_os_config)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if message_of_the_day is not None:
-            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
+            _setter("message_of_the_day", message_of_the_day)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_network_profile is not None:
-            pulumi.set(__self__, "node_network_profile", node_network_profile)
+            _setter("node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
-            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
+            _setter("node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if orchestrator_version is not None:
-            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+            _setter("orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+            _setter("os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
-            pulumi.set(__self__, "os_disk_type", os_disk_type)
+            _setter("os_disk_type", os_disk_type)
         if os_sku is not None:
-            pulumi.set(__self__, "os_sku", os_sku)
+            _setter("os_sku", os_sku)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if pod_subnet_id is not None:
-            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
+            _setter("pod_subnet_id", pod_subnet_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
-            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+            _setter("scale_down_mode", scale_down_mode)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if spot_max_price is not None:
-            pulumi.set(__self__, "spot_max_price", spot_max_price)
+            _setter("spot_max_price", spot_max_price)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ultra_ssd_enabled is not None:
-            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
+            _setter("ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+            _setter("vnet_subnet_id", vnet_subnet_id)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
         if workload_runtime is not None:
-            pulumi.set(__self__, "workload_runtime", workload_runtime)
+            _setter("workload_runtime", workload_runtime)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -458,9 +547,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-
-        > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         """
         return pulumi.get(self, "node_count")
 
@@ -824,9 +911,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-               
-               > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -865,90 +950,181 @@ class _KubernetesClusterNodePoolState:
                > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
+        _KubernetesClusterNodePoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            custom_ca_trust_enabled=custom_ca_trust_enabled,
+            enable_auto_scaling=enable_auto_scaling,
+            enable_host_encryption=enable_host_encryption,
+            enable_node_public_ip=enable_node_public_ip,
+            eviction_policy=eviction_policy,
+            fips_enabled=fips_enabled,
+            host_group_id=host_group_id,
+            kubelet_config=kubelet_config,
+            kubelet_disk_type=kubelet_disk_type,
+            kubernetes_cluster_id=kubernetes_cluster_id,
+            linux_os_config=linux_os_config,
+            max_count=max_count,
+            max_pods=max_pods,
+            message_of_the_day=message_of_the_day,
+            min_count=min_count,
+            mode=mode,
+            name=name,
+            node_count=node_count,
+            node_labels=node_labels,
+            node_network_profile=node_network_profile,
+            node_public_ip_prefix_id=node_public_ip_prefix_id,
+            node_taints=node_taints,
+            orchestrator_version=orchestrator_version,
+            os_disk_size_gb=os_disk_size_gb,
+            os_disk_type=os_disk_type,
+            os_sku=os_sku,
+            os_type=os_type,
+            pod_subnet_id=pod_subnet_id,
+            priority=priority,
+            proximity_placement_group_id=proximity_placement_group_id,
+            scale_down_mode=scale_down_mode,
+            snapshot_id=snapshot_id,
+            spot_max_price=spot_max_price,
+            tags=tags,
+            ultra_ssd_enabled=ultra_ssd_enabled,
+            upgrade_settings=upgrade_settings,
+            vm_size=vm_size,
+            vnet_subnet_id=vnet_subnet_id,
+            windows_profile=windows_profile,
+            workload_runtime=workload_runtime,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
+             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+             enable_host_encryption: Optional[pulumi.Input[bool]] = None,
+             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             fips_enabled: Optional[pulumi.Input[bool]] = None,
+             host_group_id: Optional[pulumi.Input[str]] = None,
+             kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             max_pods: Optional[pulumi.Input[int]] = None,
+             message_of_the_day: Optional[pulumi.Input[str]] = None,
+             min_count: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             orchestrator_version: Optional[pulumi.Input[str]] = None,
+             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+             os_disk_type: Optional[pulumi.Input[str]] = None,
+             os_sku: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             pod_subnet_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             scale_down_mode: Optional[pulumi.Input[str]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             spot_max_price: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
+             upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+             windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
+             workload_runtime: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if custom_ca_trust_enabled is not None:
-            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
+            _setter("custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+            _setter("enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
-            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
+            _setter("enable_host_encryption", enable_host_encryption)
         if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+            _setter("enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if fips_enabled is not None:
-            pulumi.set(__self__, "fips_enabled", fips_enabled)
+            _setter("fips_enabled", fips_enabled)
         if host_group_id is not None:
-            pulumi.set(__self__, "host_group_id", host_group_id)
+            _setter("host_group_id", host_group_id)
         if kubelet_config is not None:
-            pulumi.set(__self__, "kubelet_config", kubelet_config)
+            _setter("kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
-            pulumi.set(__self__, "kubelet_disk_type", kubelet_disk_type)
+            _setter("kubelet_disk_type", kubelet_disk_type)
         if kubernetes_cluster_id is not None:
-            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         if linux_os_config is not None:
-            pulumi.set(__self__, "linux_os_config", linux_os_config)
+            _setter("linux_os_config", linux_os_config)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if message_of_the_day is not None:
-            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
+            _setter("message_of_the_day", message_of_the_day)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_network_profile is not None:
-            pulumi.set(__self__, "node_network_profile", node_network_profile)
+            _setter("node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
-            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
+            _setter("node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if orchestrator_version is not None:
-            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+            _setter("orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+            _setter("os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
-            pulumi.set(__self__, "os_disk_type", os_disk_type)
+            _setter("os_disk_type", os_disk_type)
         if os_sku is not None:
-            pulumi.set(__self__, "os_sku", os_sku)
+            _setter("os_sku", os_sku)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if pod_subnet_id is not None:
-            pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
+            _setter("pod_subnet_id", pod_subnet_id)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
-            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+            _setter("scale_down_mode", scale_down_mode)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if spot_max_price is not None:
-            pulumi.set(__self__, "spot_max_price", spot_max_price)
+            _setter("spot_max_price", spot_max_price)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ultra_ssd_enabled is not None:
-            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
+            _setter("ultra_ssd_enabled", ultra_ssd_enabled)
         if upgrade_settings is not None:
-            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+            _setter("upgrade_settings", upgrade_settings)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if vnet_subnet_id is not None:
-            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+            _setter("vnet_subnet_id", vnet_subnet_id)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
         if workload_runtime is not None:
-            pulumi.set(__self__, "workload_runtime", workload_runtime)
+            _setter("workload_runtime", workload_runtime)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -1182,9 +1358,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-
-        > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         """
         return pulumi.get(self, "node_count")
 
@@ -1607,9 +1781,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-               
-               > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -1708,6 +1880,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KubernetesClusterNodePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1772,11 +1948,21 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["host_group_id"] = host_group_id
+            if kubelet_config is not None and not isinstance(kubelet_config, KubernetesClusterNodePoolKubeletConfigArgs):
+                kubelet_config = kubelet_config or {}
+                def _setter(key, value):
+                    kubelet_config[key] = value
+                KubernetesClusterNodePoolKubeletConfigArgs._configure(_setter, **kubelet_config)
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
             __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
+            if linux_os_config is not None and not isinstance(linux_os_config, KubernetesClusterNodePoolLinuxOsConfigArgs):
+                linux_os_config = linux_os_config or {}
+                def _setter(key, value):
+                    linux_os_config[key] = value
+                KubernetesClusterNodePoolLinuxOsConfigArgs._configure(_setter, **linux_os_config)
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
@@ -1786,6 +1972,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_labels"] = node_labels
+            if node_network_profile is not None and not isinstance(node_network_profile, KubernetesClusterNodePoolNodeNetworkProfileArgs):
+                node_network_profile = node_network_profile or {}
+                def _setter(key, value):
+                    node_network_profile[key] = value
+                KubernetesClusterNodePoolNodeNetworkProfileArgs._configure(_setter, **node_network_profile)
             __props__.__dict__["node_network_profile"] = node_network_profile
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
@@ -1802,11 +1993,21 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
+            if upgrade_settings is not None and not isinstance(upgrade_settings, KubernetesClusterNodePoolUpgradeSettingsArgs):
+                upgrade_settings = upgrade_settings or {}
+                def _setter(key, value):
+                    upgrade_settings[key] = value
+                KubernetesClusterNodePoolUpgradeSettingsArgs._configure(_setter, **upgrade_settings)
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            if windows_profile is not None and not isinstance(windows_profile, KubernetesClusterNodePoolWindowsProfileArgs):
+                windows_profile = windows_profile or {}
+                def _setter(key, value):
+                    windows_profile[key] = value
+                KubernetesClusterNodePoolWindowsProfileArgs._configure(_setter, **windows_profile)
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["zones"] = zones
@@ -1899,9 +2100,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
-        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-               
-               > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -2148,9 +2347,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> pulumi.Output[int]:
         """
-        The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
-
-        > **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         """
         return pulumi.get(self, "node_count")
 

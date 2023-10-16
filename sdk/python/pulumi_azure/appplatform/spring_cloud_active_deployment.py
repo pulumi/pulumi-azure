@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudActiveDeploymentArgs', 'SpringCloudActiveDeployment']
@@ -21,8 +21,19 @@ class SpringCloudActiveDeploymentArgs:
         :param pulumi.Input[str] deployment_name: Specifies the name of Spring Cloud Deployment which is going to be active.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "deployment_name", deployment_name)
-        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+        SpringCloudActiveDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_name=deployment_name,
+            spring_cloud_app_id=spring_cloud_app_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_name: pulumi.Input[str],
+             spring_cloud_app_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_name", deployment_name)
+        _setter("spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="deploymentName")
@@ -59,10 +70,21 @@ class _SpringCloudActiveDeploymentState:
         :param pulumi.Input[str] deployment_name: Specifies the name of Spring Cloud Deployment which is going to be active.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
+        _SpringCloudActiveDeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_name=deployment_name,
+            spring_cloud_app_id=spring_cloud_app_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
+            _setter("deployment_name", deployment_name)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="deploymentName")
@@ -206,6 +228,10 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudActiveDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

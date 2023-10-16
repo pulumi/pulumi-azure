@@ -70,6 +70,9 @@ namespace Pulumi.Azure.Automation
         [Output("dscServerEndpoint")]
         public Output<string> DscServerEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Output("encryptions")]
         public Output<ImmutableArray<Outputs.AccountEncryption>> Encryptions { get; private set; } = null!;
 
@@ -183,6 +186,10 @@ namespace Pulumi.Azure.Automation
     {
         [Input("encryptions")]
         private InputList<Inputs.AccountEncryptionArgs>? _encryptions;
+
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.AccountEncryptionArgs> Encryptions
         {
             get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionArgs>());
@@ -291,6 +298,10 @@ namespace Pulumi.Azure.Automation
 
         [Input("encryptions")]
         private InputList<Inputs.AccountEncryptionGetArgs>? _encryptions;
+
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         public InputList<Inputs.AccountEncryptionGetArgs> Encryptions
         {
             get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionGetArgs>());

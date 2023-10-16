@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,12 +27,25 @@ class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
         :param pulumi.Input[int] frontend_port: The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
         :param pulumi.Input[str] inbound_nat_rule_name: The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
         """
+        BackendAddressPoolAddressInboundNatRulePortMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_port=frontend_port,
+            inbound_nat_rule_name=inbound_nat_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             frontend_port: Optional[pulumi.Input[int]] = None,
+             inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
         if inbound_nat_rule_name is not None:
-            pulumi.set(__self__, "inbound_nat_rule_name", inbound_nat_rule_name)
+            _setter("inbound_nat_rule_name", inbound_nat_rule_name)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -84,10 +97,25 @@ class BackendAddressPoolTunnelInterfaceArgs:
         :param pulumi.Input[str] protocol: The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
         :param pulumi.Input[str] type: The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
         """
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "type", type)
+        BackendAddressPoolTunnelInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+            port=port,
+            protocol=protocol,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: pulumi.Input[int],
+             port: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identifier", identifier)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -171,31 +199,64 @@ class LoadBalancerFrontendIpConfigurationArgs:
                
                > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         """
-        pulumi.set(__self__, "name", name)
+        LoadBalancerFrontendIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            gateway_load_balancer_frontend_ip_configuration_id=gateway_load_balancer_frontend_ip_configuration_id,
+            id=id,
+            inbound_nat_rules=inbound_nat_rules,
+            load_balancer_rules=load_balancer_rules,
+            outbound_rules=outbound_rules,
+            private_ip_address=private_ip_address,
+            private_ip_address_allocation=private_ip_address_allocation,
+            private_ip_address_version=private_ip_address_version,
+            public_ip_address_id=public_ip_address_id,
+            public_ip_prefix_id=public_ip_prefix_id,
+            subnet_id=subnet_id,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_address_allocation: Optional[pulumi.Input[str]] = None,
+             private_ip_address_version: Optional[pulumi.Input[str]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if gateway_load_balancer_frontend_ip_configuration_id is not None:
-            pulumi.set(__self__, "gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
+            _setter("gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if inbound_nat_rules is not None:
-            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+            _setter("inbound_nat_rules", inbound_nat_rules)
         if load_balancer_rules is not None:
-            pulumi.set(__self__, "load_balancer_rules", load_balancer_rules)
+            _setter("load_balancer_rules", load_balancer_rules)
         if outbound_rules is not None:
-            pulumi.set(__self__, "outbound_rules", outbound_rules)
+            _setter("outbound_rules", outbound_rules)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_address_allocation is not None:
-            pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
+            _setter("private_ip_address_allocation", private_ip_address_allocation)
         if private_ip_address_version is not None:
-            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+            _setter("private_ip_address_version", private_ip_address_version)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if public_ip_prefix_id is not None:
-            pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+            _setter("public_ip_prefix_id", public_ip_prefix_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -365,9 +426,20 @@ class OutboundRuleFrontendIpConfigurationArgs:
         :param pulumi.Input[str] name: The name of the Frontend IP Configuration.
         :param pulumi.Input[str] id: The ID of the Load Balancer Outbound Rule.
         """
-        pulumi.set(__self__, "name", name)
+        OutboundRuleFrontendIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

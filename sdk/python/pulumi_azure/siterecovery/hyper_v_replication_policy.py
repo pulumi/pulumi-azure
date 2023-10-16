@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HyperVReplicationPolicyArgs', 'HyperVReplicationPolicy']
@@ -26,12 +26,29 @@ class HyperVReplicationPolicyArgs:
         :param pulumi.Input[int] replication_interval_in_seconds: Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
-        pulumi.set(__self__, "recovery_point_retention_in_hours", recovery_point_retention_in_hours)
-        pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
-        pulumi.set(__self__, "replication_interval_in_seconds", replication_interval_in_seconds)
+        HyperVReplicationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            recovery_point_retention_in_hours=recovery_point_retention_in_hours,
+            recovery_vault_id=recovery_vault_id,
+            replication_interval_in_seconds=replication_interval_in_seconds,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_consistent_snapshot_frequency_in_hours: pulumi.Input[int],
+             recovery_point_retention_in_hours: pulumi.Input[int],
+             recovery_vault_id: pulumi.Input[str],
+             replication_interval_in_seconds: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+        _setter("recovery_point_retention_in_hours", recovery_point_retention_in_hours)
+        _setter("recovery_vault_id", recovery_vault_id)
+        _setter("replication_interval_in_seconds", replication_interval_in_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
@@ -106,16 +123,33 @@ class _HyperVReplicationPolicyState:
         :param pulumi.Input[int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
         :param pulumi.Input[int] replication_interval_in_seconds: Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         """
+        _HyperVReplicationPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            name=name,
+            recovery_point_retention_in_hours=recovery_point_retention_in_hours,
+            recovery_vault_id=recovery_vault_id,
+            replication_interval_in_seconds=replication_interval_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recovery_point_retention_in_hours: Optional[pulumi.Input[int]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             replication_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_point_retention_in_hours is not None:
-            pulumi.set(__self__, "recovery_point_retention_in_hours", recovery_point_retention_in_hours)
+            _setter("recovery_point_retention_in_hours", recovery_point_retention_in_hours)
         if recovery_vault_id is not None:
-            pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+            _setter("recovery_vault_id", recovery_vault_id)
         if replication_interval_in_seconds is not None:
-            pulumi.set(__self__, "replication_interval_in_seconds", replication_interval_in_seconds)
+            _setter("replication_interval_in_seconds", replication_interval_in_seconds)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
@@ -267,6 +301,10 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HyperVReplicationPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

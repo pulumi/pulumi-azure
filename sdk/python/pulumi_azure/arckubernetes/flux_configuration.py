@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,46 @@ class FluxConfigurationArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "kustomizations", kustomizations)
-        pulumi.set(__self__, "namespace", namespace)
+        FluxConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            kustomizations=kustomizations,
+            namespace=namespace,
+            blob_storage=blob_storage,
+            bucket=bucket,
+            continuous_reconciliation_enabled=continuous_reconciliation_enabled,
+            git_repository=git_repository,
+            name=name,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: pulumi.Input[str],
+             kustomizations: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]],
+             namespace: pulumi.Input[str],
+             blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']] = None,
+             bucket: Optional[pulumi.Input['FluxConfigurationBucketArgs']] = None,
+             continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
+             git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_id", cluster_id)
+        _setter("kustomizations", kustomizations)
+        _setter("namespace", namespace)
         if blob_storage is not None:
-            pulumi.set(__self__, "blob_storage", blob_storage)
+            _setter("blob_storage", blob_storage)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if continuous_reconciliation_enabled is not None:
-            pulumi.set(__self__, "continuous_reconciliation_enabled", continuous_reconciliation_enabled)
+            _setter("continuous_reconciliation_enabled", continuous_reconciliation_enabled)
         if git_repository is not None:
-            pulumi.set(__self__, "git_repository", git_repository)
+            _setter("git_repository", git_repository)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -186,24 +211,49 @@ class _FluxConfigurationState:
         :param pulumi.Input[str] namespace: Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
         """
+        _FluxConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_storage=blob_storage,
+            bucket=bucket,
+            cluster_id=cluster_id,
+            continuous_reconciliation_enabled=continuous_reconciliation_enabled,
+            git_repository=git_repository,
+            kustomizations=kustomizations,
+            name=name,
+            namespace=namespace,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']] = None,
+             bucket: Optional[pulumi.Input['FluxConfigurationBucketArgs']] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
+             git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']] = None,
+             kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if blob_storage is not None:
-            pulumi.set(__self__, "blob_storage", blob_storage)
+            _setter("blob_storage", blob_storage)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if continuous_reconciliation_enabled is not None:
-            pulumi.set(__self__, "continuous_reconciliation_enabled", continuous_reconciliation_enabled)
+            _setter("continuous_reconciliation_enabled", continuous_reconciliation_enabled)
         if git_repository is not None:
-            pulumi.set(__self__, "git_repository", git_repository)
+            _setter("git_repository", git_repository)
         if kustomizations is not None:
-            pulumi.set(__self__, "kustomizations", kustomizations)
+            _setter("kustomizations", kustomizations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="blobStorage")
@@ -449,6 +499,10 @@ class FluxConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FluxConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -472,12 +526,27 @@ class FluxConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluxConfigurationArgs.__new__(FluxConfigurationArgs)
 
+            if blob_storage is not None and not isinstance(blob_storage, FluxConfigurationBlobStorageArgs):
+                blob_storage = blob_storage or {}
+                def _setter(key, value):
+                    blob_storage[key] = value
+                FluxConfigurationBlobStorageArgs._configure(_setter, **blob_storage)
             __props__.__dict__["blob_storage"] = blob_storage
+            if bucket is not None and not isinstance(bucket, FluxConfigurationBucketArgs):
+                bucket = bucket or {}
+                def _setter(key, value):
+                    bucket[key] = value
+                FluxConfigurationBucketArgs._configure(_setter, **bucket)
             __props__.__dict__["bucket"] = bucket
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["continuous_reconciliation_enabled"] = continuous_reconciliation_enabled
+            if git_repository is not None and not isinstance(git_repository, FluxConfigurationGitRepositoryArgs):
+                git_repository = git_repository or {}
+                def _setter(key, value):
+                    git_repository[key] = value
+                FluxConfigurationGitRepositoryArgs._configure(_setter, **git_repository)
             __props__.__dict__["git_repository"] = git_repository
             if kustomizations is None and not opts.urn:
                 raise TypeError("Missing required property 'kustomizations'")

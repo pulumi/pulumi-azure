@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -46,12 +46,25 @@ class IoTHubCloudToDeviceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]] feedbacks: A `feedback` block as defined below.
         :param pulumi.Input[int] max_delivery_count: The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
         """
+        IoTHubCloudToDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_ttl=default_ttl,
+            feedbacks=feedbacks,
+            max_delivery_count=max_delivery_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_ttl: Optional[pulumi.Input[str]] = None,
+             feedbacks: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if feedbacks is not None:
-            pulumi.set(__self__, "feedbacks", feedbacks)
+            _setter("feedbacks", feedbacks)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
 
     @property
     @pulumi.getter(name="defaultTtl")
@@ -101,12 +114,25 @@ class IoTHubCloudToDeviceFeedbackArgs:
         :param pulumi.Input[int] max_delivery_count: The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
         :param pulumi.Input[str] time_to_live: The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         """
+        IoTHubCloudToDeviceFeedbackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lock_duration=lock_duration,
+            max_delivery_count=max_delivery_count,
+            time_to_live=time_to_live,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lock_duration: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             time_to_live: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lock_duration is not None:
-            pulumi.set(__self__, "lock_duration", lock_duration)
+            _setter("lock_duration", lock_duration)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if time_to_live is not None:
-            pulumi.set(__self__, "time_to_live", time_to_live)
+            _setter("time_to_live", time_to_live)
 
     @property
     @pulumi.getter(name="lockDuration")
@@ -180,30 +206,63 @@ class IoTHubEndpointArgs:
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[str] resource_group_name: The resource group in which the endpoint will be created.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        IoTHubEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            authentication_type=authentication_type,
+            batch_frequency_in_seconds=batch_frequency_in_seconds,
+            connection_string=connection_string,
+            container_name=container_name,
+            encoding=encoding,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            file_name_format=file_name_format,
+            identity_id=identity_id,
+            max_chunk_size_in_bytes=max_chunk_size_in_bytes,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             encoding: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             entity_path: Optional[pulumi.Input[str]] = None,
+             file_name_format: Optional[pulumi.Input[str]] = None,
+             identity_id: Optional[pulumi.Input[str]] = None,
+             max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if batch_frequency_in_seconds is not None:
-            pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
+            _setter("batch_frequency_in_seconds", batch_frequency_in_seconds)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if file_name_format is not None:
-            pulumi.set(__self__, "file_name_format", file_name_format)
+            _setter("file_name_format", file_name_format)
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if max_chunk_size_in_bytes is not None:
-            pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
+            _setter("max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -377,9 +436,22 @@ class IoTHubEnrichmentArgs:
         :param pulumi.Input[str] key: The key of the enrichment.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
-        pulumi.set(__self__, "endpoint_names", endpoint_names)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        IoTHubEnrichmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_names=endpoint_names,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_names", endpoint_names)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="endpointNames")
@@ -431,14 +503,29 @@ class IoTHubFallbackRouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
         """
+        IoTHubFallbackRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            enabled=enabled,
+            endpoint_names=endpoint_names,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if endpoint_names is not None:
-            pulumi.set(__self__, "endpoint_names", endpoint_names)
+            _setter("endpoint_names", endpoint_names)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -516,22 +603,47 @@ class IoTHubFileUploadArgs:
         :param pulumi.Input[bool] notifications: Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
         :param pulumi.Input[str] sas_ttl: The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "container_name", container_name)
+        IoTHubFileUploadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            container_name=container_name,
+            authentication_type=authentication_type,
+            default_ttl=default_ttl,
+            identity_id=identity_id,
+            lock_duration=lock_duration,
+            max_delivery_count=max_delivery_count,
+            notifications=notifications,
+            sas_ttl=sas_ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: pulumi.Input[str],
+             container_name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             default_ttl: Optional[pulumi.Input[str]] = None,
+             identity_id: Optional[pulumi.Input[str]] = None,
+             lock_duration: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             notifications: Optional[pulumi.Input[bool]] = None,
+             sas_ttl: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("container_name", container_name)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if lock_duration is not None:
-            pulumi.set(__self__, "lock_duration", lock_duration)
+            _setter("lock_duration", lock_duration)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if sas_ttl is not None:
-            pulumi.set(__self__, "sas_ttl", sas_ttl)
+            _setter("sas_ttl", sas_ttl)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -661,13 +773,28 @@ class IoTHubIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        IoTHubIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -731,12 +858,25 @@ class IoTHubNetworkRuleSetArgs:
         :param pulumi.Input[str] default_action: Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
+        IoTHubNetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_to_builtin_eventhub_endpoint=apply_to_builtin_eventhub_endpoint,
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_to_builtin_eventhub_endpoint: Optional[pulumi.Input[bool]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if apply_to_builtin_eventhub_endpoint is not None:
-            pulumi.set(__self__, "apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
+            _setter("apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="applyToBuiltinEventhubEndpoint")
@@ -786,10 +926,23 @@ class IoTHubNetworkRuleSetIpRuleArgs:
         :param pulumi.Input[str] name: The name of the ip rule.
         :param pulumi.Input[str] action: The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
         """
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        pulumi.set(__self__, "name", name)
+        IoTHubNetworkRuleSetIpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_mask=ip_mask,
+            name=name,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_mask: pulumi.Input[str],
+             name: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_mask", ip_mask)
+        _setter("name", name)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -843,12 +996,29 @@ class IoTHubRouteArgs:
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "endpoint_names", endpoint_names)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "source", source)
+        IoTHubRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            endpoint_names=endpoint_names,
+            name=name,
+            source=source,
+            condition=condition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             source: pulumi.Input[str],
+             condition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("endpoint_names", endpoint_names)
+        _setter("name", name)
+        _setter("source", source)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
 
     @property
     @pulumi.getter
@@ -924,14 +1094,29 @@ class IoTHubSharedAccessPolicyArgs:
         :param pulumi.Input[str] primary_key: The primary key.
         :param pulumi.Input[str] secondary_key: The secondary key.
         """
+        IoTHubSharedAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            permissions=permissions,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="keyName")
@@ -993,8 +1178,19 @@ class IoTHubSkuArgs:
                > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
         :param pulumi.Input[str] name: The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
+        IoTHubSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input[int],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1038,13 +1234,28 @@ class IotHubDeviceUpdateAccountIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
         """
-        pulumi.set(__self__, "type", type)
+        IotHubDeviceUpdateAccountIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1106,8 +1317,19 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
         :param pulumi.Input[str] connection_string: Connection String of the Diagnostic Storage Account.
         :param pulumi.Input[str] id: Resource ID of the Diagnostic Storage Account.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "id", id)
+        IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: pulumi.Input[str],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("id", id)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -1147,11 +1369,26 @@ class IotHubDpsIpFilterRuleArgs:
         :param pulumi.Input[str] name: The name of the filter.
         :param pulumi.Input[str] target: Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        pulumi.set(__self__, "name", name)
+        IotHubDpsIpFilterRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            ip_mask=ip_mask,
+            name=name,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             ip_mask: pulumi.Input[str],
+             name: pulumi.Input[str],
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("ip_mask", ip_mask)
+        _setter("name", name)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -1217,14 +1454,31 @@ class IotHubDpsLinkedHubArgs:
         :param pulumi.Input[bool] apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
         :param pulumi.Input[str] hostname: The IoT Hub hostname.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "location", location)
+        IotHubDpsLinkedHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            location=location,
+            allocation_weight=allocation_weight,
+            apply_allocation_policy=apply_allocation_policy,
+            hostname=hostname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: pulumi.Input[str],
+             location: pulumi.Input[str],
+             allocation_weight: Optional[pulumi.Input[int]] = None,
+             apply_allocation_policy: Optional[pulumi.Input[bool]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("location", location)
         if allocation_weight is not None:
-            pulumi.set(__self__, "allocation_weight", allocation_weight)
+            _setter("allocation_weight", allocation_weight)
         if apply_allocation_policy is not None:
-            pulumi.set(__self__, "apply_allocation_policy", apply_allocation_policy)
+            _setter("apply_allocation_policy", apply_allocation_policy)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -1296,8 +1550,19 @@ class IotHubDpsSkuArgs:
         :param pulumi.Input[int] capacity: The number of provisioned IoT Device Provisioning Service units.
         :param pulumi.Input[str] name: The name of the sku. Currently can only be set to `S1`.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
+        IotHubDpsSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input[int],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1337,14 +1602,29 @@ class SecurityDeviceGroupAllowRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_users_not_alloweds: Specifies which local user is not allowed to login in current device group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] processes_not_alloweds: Specifies which process is not allowed to be executed in current device group.
         """
+        SecurityDeviceGroupAllowRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_from_ips_not_alloweds=connection_from_ips_not_alloweds,
+            connection_to_ips_not_alloweds=connection_to_ips_not_alloweds,
+            local_users_not_alloweds=local_users_not_alloweds,
+            processes_not_alloweds=processes_not_alloweds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_from_ips_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_to_ips_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             local_users_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             processes_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_from_ips_not_alloweds is not None:
-            pulumi.set(__self__, "connection_from_ips_not_alloweds", connection_from_ips_not_alloweds)
+            _setter("connection_from_ips_not_alloweds", connection_from_ips_not_alloweds)
         if connection_to_ips_not_alloweds is not None:
-            pulumi.set(__self__, "connection_to_ips_not_alloweds", connection_to_ips_not_alloweds)
+            _setter("connection_to_ips_not_alloweds", connection_to_ips_not_alloweds)
         if local_users_not_alloweds is not None:
-            pulumi.set(__self__, "local_users_not_alloweds", local_users_not_alloweds)
+            _setter("local_users_not_alloweds", local_users_not_alloweds)
         if processes_not_alloweds is not None:
-            pulumi.set(__self__, "processes_not_alloweds", processes_not_alloweds)
+            _setter("processes_not_alloweds", processes_not_alloweds)
 
     @property
     @pulumi.getter(name="connectionFromIpsNotAlloweds")
@@ -1408,10 +1688,25 @@ class SecurityDeviceGroupRangeRuleArgs:
         :param pulumi.Input[int] min: The minimum threshold in the given time window.
         :param pulumi.Input[str] type: The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "max", max)
-        pulumi.set(__self__, "min", min)
-        pulumi.set(__self__, "type", type)
+        SecurityDeviceGroupRangeRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            max=max,
+            min=min,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: pulumi.Input[str],
+             max: pulumi.Input[int],
+             min: pulumi.Input[int],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("duration", duration)
+        _setter("max", max)
+        _setter("min", min)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1471,8 +1766,19 @@ class SecuritySolutionAdditionalWorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_types: A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
         :param pulumi.Input[str] workspace_id: The resource ID of the Log Analytics Workspace.
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        SecuritySolutionAdditionalWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_types", data_types)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -1536,38 +1842,77 @@ class SecuritySolutionRecommendationsEnabledArgs:
         :param pulumi.Input[bool] shared_credentials: Is any credentials shared among devices? Defaults to `true`.
         :param pulumi.Input[bool] vulnerable_tls_cipher_suite: Does TLS cipher suite need to be updated? Defaults to `true`.
         """
+        SecuritySolutionRecommendationsEnabledArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acr_authentication=acr_authentication,
+            agent_send_unutilized_msg=agent_send_unutilized_msg,
+            baseline=baseline,
+            edge_hub_mem_optimize=edge_hub_mem_optimize,
+            edge_logging_option=edge_logging_option,
+            inconsistent_module_settings=inconsistent_module_settings,
+            install_agent=install_agent,
+            ip_filter_deny_all=ip_filter_deny_all,
+            ip_filter_permissive_rule=ip_filter_permissive_rule,
+            open_ports=open_ports,
+            permissive_firewall_policy=permissive_firewall_policy,
+            permissive_input_firewall_rules=permissive_input_firewall_rules,
+            permissive_output_firewall_rules=permissive_output_firewall_rules,
+            privileged_docker_options=privileged_docker_options,
+            shared_credentials=shared_credentials,
+            vulnerable_tls_cipher_suite=vulnerable_tls_cipher_suite,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acr_authentication: Optional[pulumi.Input[bool]] = None,
+             agent_send_unutilized_msg: Optional[pulumi.Input[bool]] = None,
+             baseline: Optional[pulumi.Input[bool]] = None,
+             edge_hub_mem_optimize: Optional[pulumi.Input[bool]] = None,
+             edge_logging_option: Optional[pulumi.Input[bool]] = None,
+             inconsistent_module_settings: Optional[pulumi.Input[bool]] = None,
+             install_agent: Optional[pulumi.Input[bool]] = None,
+             ip_filter_deny_all: Optional[pulumi.Input[bool]] = None,
+             ip_filter_permissive_rule: Optional[pulumi.Input[bool]] = None,
+             open_ports: Optional[pulumi.Input[bool]] = None,
+             permissive_firewall_policy: Optional[pulumi.Input[bool]] = None,
+             permissive_input_firewall_rules: Optional[pulumi.Input[bool]] = None,
+             permissive_output_firewall_rules: Optional[pulumi.Input[bool]] = None,
+             privileged_docker_options: Optional[pulumi.Input[bool]] = None,
+             shared_credentials: Optional[pulumi.Input[bool]] = None,
+             vulnerable_tls_cipher_suite: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acr_authentication is not None:
-            pulumi.set(__self__, "acr_authentication", acr_authentication)
+            _setter("acr_authentication", acr_authentication)
         if agent_send_unutilized_msg is not None:
-            pulumi.set(__self__, "agent_send_unutilized_msg", agent_send_unutilized_msg)
+            _setter("agent_send_unutilized_msg", agent_send_unutilized_msg)
         if baseline is not None:
-            pulumi.set(__self__, "baseline", baseline)
+            _setter("baseline", baseline)
         if edge_hub_mem_optimize is not None:
-            pulumi.set(__self__, "edge_hub_mem_optimize", edge_hub_mem_optimize)
+            _setter("edge_hub_mem_optimize", edge_hub_mem_optimize)
         if edge_logging_option is not None:
-            pulumi.set(__self__, "edge_logging_option", edge_logging_option)
+            _setter("edge_logging_option", edge_logging_option)
         if inconsistent_module_settings is not None:
-            pulumi.set(__self__, "inconsistent_module_settings", inconsistent_module_settings)
+            _setter("inconsistent_module_settings", inconsistent_module_settings)
         if install_agent is not None:
-            pulumi.set(__self__, "install_agent", install_agent)
+            _setter("install_agent", install_agent)
         if ip_filter_deny_all is not None:
-            pulumi.set(__self__, "ip_filter_deny_all", ip_filter_deny_all)
+            _setter("ip_filter_deny_all", ip_filter_deny_all)
         if ip_filter_permissive_rule is not None:
-            pulumi.set(__self__, "ip_filter_permissive_rule", ip_filter_permissive_rule)
+            _setter("ip_filter_permissive_rule", ip_filter_permissive_rule)
         if open_ports is not None:
-            pulumi.set(__self__, "open_ports", open_ports)
+            _setter("open_ports", open_ports)
         if permissive_firewall_policy is not None:
-            pulumi.set(__self__, "permissive_firewall_policy", permissive_firewall_policy)
+            _setter("permissive_firewall_policy", permissive_firewall_policy)
         if permissive_input_firewall_rules is not None:
-            pulumi.set(__self__, "permissive_input_firewall_rules", permissive_input_firewall_rules)
+            _setter("permissive_input_firewall_rules", permissive_input_firewall_rules)
         if permissive_output_firewall_rules is not None:
-            pulumi.set(__self__, "permissive_output_firewall_rules", permissive_output_firewall_rules)
+            _setter("permissive_output_firewall_rules", permissive_output_firewall_rules)
         if privileged_docker_options is not None:
-            pulumi.set(__self__, "privileged_docker_options", privileged_docker_options)
+            _setter("privileged_docker_options", privileged_docker_options)
         if shared_credentials is not None:
-            pulumi.set(__self__, "shared_credentials", shared_credentials)
+            _setter("shared_credentials", shared_credentials)
         if vulnerable_tls_cipher_suite is not None:
-            pulumi.set(__self__, "vulnerable_tls_cipher_suite", vulnerable_tls_cipher_suite)
+            _setter("vulnerable_tls_cipher_suite", vulnerable_tls_cipher_suite)
 
     @property
     @pulumi.getter(name="acrAuthentication")
@@ -1771,8 +2116,19 @@ class TimeSeriesInsightsGen2EnvironmentStorageArgs:
         :param pulumi.Input[str] key: Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
         :param pulumi.Input[str] name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
+        TimeSeriesInsightsGen2EnvironmentStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1808,8 +2164,19 @@ class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:
         :param pulumi.Input[str] name: The name of the key property. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TimeSeriesInsightsReferenceDataSetKeyPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter

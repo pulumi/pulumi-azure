@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityProviderAadb2cArgs', 'IdentityProviderAadb2c']
@@ -39,19 +39,48 @@ class IdentityProviderAadb2cArgs:
         :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
         :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
         """
-        pulumi.set(__self__, "allowed_tenant", allowed_tenant)
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "authority", authority)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "signin_policy", signin_policy)
-        pulumi.set(__self__, "signin_tenant", signin_tenant)
-        pulumi.set(__self__, "signup_policy", signup_policy)
+        IdentityProviderAadb2cArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_tenant=allowed_tenant,
+            api_management_name=api_management_name,
+            authority=authority,
+            client_id=client_id,
+            client_secret=client_secret,
+            resource_group_name=resource_group_name,
+            signin_policy=signin_policy,
+            signin_tenant=signin_tenant,
+            signup_policy=signup_policy,
+            password_reset_policy=password_reset_policy,
+            profile_editing_policy=profile_editing_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_tenant: pulumi.Input[str],
+             api_management_name: pulumi.Input[str],
+             authority: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             signin_policy: pulumi.Input[str],
+             signin_tenant: pulumi.Input[str],
+             signup_policy: pulumi.Input[str],
+             password_reset_policy: Optional[pulumi.Input[str]] = None,
+             profile_editing_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_tenant", allowed_tenant)
+        _setter("api_management_name", api_management_name)
+        _setter("authority", authority)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("resource_group_name", resource_group_name)
+        _setter("signin_policy", signin_policy)
+        _setter("signin_tenant", signin_tenant)
+        _setter("signup_policy", signup_policy)
         if password_reset_policy is not None:
-            pulumi.set(__self__, "password_reset_policy", password_reset_policy)
+            _setter("password_reset_policy", password_reset_policy)
         if profile_editing_policy is not None:
-            pulumi.set(__self__, "profile_editing_policy", profile_editing_policy)
+            _setter("profile_editing_policy", profile_editing_policy)
 
     @property
     @pulumi.getter(name="allowedTenant")
@@ -214,28 +243,57 @@ class _IdentityProviderAadb2cState:
         :param pulumi.Input[str] signin_tenant: The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         :param pulumi.Input[str] signup_policy: Signup Policy Name.
         """
+        _IdentityProviderAadb2cState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_tenant=allowed_tenant,
+            api_management_name=api_management_name,
+            authority=authority,
+            client_id=client_id,
+            client_secret=client_secret,
+            password_reset_policy=password_reset_policy,
+            profile_editing_policy=profile_editing_policy,
+            resource_group_name=resource_group_name,
+            signin_policy=signin_policy,
+            signin_tenant=signin_tenant,
+            signup_policy=signup_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_tenant: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             password_reset_policy: Optional[pulumi.Input[str]] = None,
+             profile_editing_policy: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             signin_policy: Optional[pulumi.Input[str]] = None,
+             signin_tenant: Optional[pulumi.Input[str]] = None,
+             signup_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_tenant is not None:
-            pulumi.set(__self__, "allowed_tenant", allowed_tenant)
+            _setter("allowed_tenant", allowed_tenant)
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if password_reset_policy is not None:
-            pulumi.set(__self__, "password_reset_policy", password_reset_policy)
+            _setter("password_reset_policy", password_reset_policy)
         if profile_editing_policy is not None:
-            pulumi.set(__self__, "profile_editing_policy", profile_editing_policy)
+            _setter("profile_editing_policy", profile_editing_policy)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if signin_policy is not None:
-            pulumi.set(__self__, "signin_policy", signin_policy)
+            _setter("signin_policy", signin_policy)
         if signin_tenant is not None:
-            pulumi.set(__self__, "signin_tenant", signin_tenant)
+            _setter("signin_tenant", signin_tenant)
         if signup_policy is not None:
-            pulumi.set(__self__, "signup_policy", signup_policy)
+            _setter("signup_policy", signup_policy)
 
     @property
     @pulumi.getter(name="allowedTenant")
@@ -501,6 +559,10 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderAadb2cArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

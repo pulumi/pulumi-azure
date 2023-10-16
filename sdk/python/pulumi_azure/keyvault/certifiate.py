@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,32 @@ class CertifiateArgs:
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        CertifiateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            certificate=certificate,
+            certificate_policy=certificate_policy,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: pulumi.Input[str],
+             certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
+             certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_id", key_vault_id)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_policy is not None:
-            pulumi.set(__self__, "certificate_policy", certificate_policy)
+            _setter("certificate_policy", certificate_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -142,36 +159,73 @@ class _CertifiateState:
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Certificate.
         :param pulumi.Input[str] versionless_secret_id: The Base ID of the Key Vault Secret.
         """
+        _CertifiateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            certificate_attributes=certificate_attributes,
+            certificate_data=certificate_data,
+            certificate_data_base64=certificate_data_base64,
+            certificate_policy=certificate_policy,
+            key_vault_id=key_vault_id,
+            name=name,
+            resource_manager_id=resource_manager_id,
+            resource_manager_versionless_id=resource_manager_versionless_id,
+            secret_id=secret_id,
+            tags=tags,
+            thumbprint=thumbprint,
+            version=version,
+            versionless_id=versionless_id,
+            versionless_secret_id=versionless_secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
+             certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]] = None,
+             certificate_data: Optional[pulumi.Input[str]] = None,
+             certificate_data_base64: Optional[pulumi.Input[str]] = None,
+             certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_manager_id: Optional[pulumi.Input[str]] = None,
+             resource_manager_versionless_id: Optional[pulumi.Input[str]] = None,
+             secret_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             versionless_id: Optional[pulumi.Input[str]] = None,
+             versionless_secret_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_attributes is not None:
-            pulumi.set(__self__, "certificate_attributes", certificate_attributes)
+            _setter("certificate_attributes", certificate_attributes)
         if certificate_data is not None:
-            pulumi.set(__self__, "certificate_data", certificate_data)
+            _setter("certificate_data", certificate_data)
         if certificate_data_base64 is not None:
-            pulumi.set(__self__, "certificate_data_base64", certificate_data_base64)
+            _setter("certificate_data_base64", certificate_data_base64)
         if certificate_policy is not None:
-            pulumi.set(__self__, "certificate_policy", certificate_policy)
+            _setter("certificate_policy", certificate_policy)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_manager_id is not None:
-            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+            _setter("resource_manager_id", resource_manager_id)
         if resource_manager_versionless_id is not None:
-            pulumi.set(__self__, "resource_manager_versionless_id", resource_manager_versionless_id)
+            _setter("resource_manager_versionless_id", resource_manager_versionless_id)
         if secret_id is not None:
-            pulumi.set(__self__, "secret_id", secret_id)
+            _setter("secret_id", secret_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if versionless_id is not None:
-            pulumi.set(__self__, "versionless_id", versionless_id)
+            _setter("versionless_id", versionless_id)
         if versionless_secret_id is not None:
-            pulumi.set(__self__, "versionless_secret_id", versionless_secret_id)
+            _setter("versionless_secret_id", versionless_secret_id)
 
     @property
     @pulumi.getter
@@ -782,6 +836,10 @@ class Certifiate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertifiateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -802,7 +860,17 @@ class Certifiate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertifiateArgs.__new__(CertifiateArgs)
 
+            if certificate is not None and not isinstance(certificate, CertifiateCertificateArgs):
+                certificate = certificate or {}
+                def _setter(key, value):
+                    certificate[key] = value
+                CertifiateCertificateArgs._configure(_setter, **certificate)
             __props__.__dict__["certificate"] = certificate
+            if certificate_policy is not None and not isinstance(certificate_policy, CertifiateCertificatePolicyArgs):
+                certificate_policy = certificate_policy or {}
+                def _setter(key, value):
+                    certificate_policy[key] = value
+                CertifiateCertificatePolicyArgs._configure(_setter, **certificate_policy)
             __props__.__dict__["certificate_policy"] = certificate_policy
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")

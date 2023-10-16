@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -61,18 +61,37 @@ class AttachedDatabaseConfigurationSharing(dict):
         :param Sequence[str] tables_to_excludes: List of tables to exclude from the follower database.
         :param Sequence[str] tables_to_includes: List of tables to include in the follower database.
         """
+        AttachedDatabaseConfigurationSharing._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_tables_to_excludes=external_tables_to_excludes,
+            external_tables_to_includes=external_tables_to_includes,
+            materialized_views_to_excludes=materialized_views_to_excludes,
+            materialized_views_to_includes=materialized_views_to_includes,
+            tables_to_excludes=tables_to_excludes,
+            tables_to_includes=tables_to_includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_tables_to_excludes: Optional[Sequence[str]] = None,
+             external_tables_to_includes: Optional[Sequence[str]] = None,
+             materialized_views_to_excludes: Optional[Sequence[str]] = None,
+             materialized_views_to_includes: Optional[Sequence[str]] = None,
+             tables_to_excludes: Optional[Sequence[str]] = None,
+             tables_to_includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if external_tables_to_excludes is not None:
-            pulumi.set(__self__, "external_tables_to_excludes", external_tables_to_excludes)
+            _setter("external_tables_to_excludes", external_tables_to_excludes)
         if external_tables_to_includes is not None:
-            pulumi.set(__self__, "external_tables_to_includes", external_tables_to_includes)
+            _setter("external_tables_to_includes", external_tables_to_includes)
         if materialized_views_to_excludes is not None:
-            pulumi.set(__self__, "materialized_views_to_excludes", materialized_views_to_excludes)
+            _setter("materialized_views_to_excludes", materialized_views_to_excludes)
         if materialized_views_to_includes is not None:
-            pulumi.set(__self__, "materialized_views_to_includes", materialized_views_to_includes)
+            _setter("materialized_views_to_includes", materialized_views_to_includes)
         if tables_to_excludes is not None:
-            pulumi.set(__self__, "tables_to_excludes", tables_to_excludes)
+            _setter("tables_to_excludes", tables_to_excludes)
         if tables_to_includes is not None:
-            pulumi.set(__self__, "tables_to_includes", tables_to_includes)
+            _setter("tables_to_includes", tables_to_includes)
 
     @property
     @pulumi.getter(name="externalTablesToExcludes")
@@ -159,13 +178,28 @@ class ClusterIdentity(dict):
         :param str principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        ClusterIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -230,8 +264,19 @@ class ClusterOptimizedAutoScale(dict):
         :param int maximum_instances: The maximum number of allowed instances. Must between `0` and `1000`.
         :param int minimum_instances: The minimum number of allowed instances. Must between `0` and `1000`.
         """
-        pulumi.set(__self__, "maximum_instances", maximum_instances)
-        pulumi.set(__self__, "minimum_instances", minimum_instances)
+        ClusterOptimizedAutoScale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_instances=maximum_instances,
+            minimum_instances=minimum_instances,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_instances: int,
+             minimum_instances: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_instances", maximum_instances)
+        _setter("minimum_instances", minimum_instances)
 
     @property
     @pulumi.getter(name="maximumInstances")
@@ -262,9 +307,20 @@ class ClusterSku(dict):
                > **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
                > **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
-        pulumi.set(__self__, "name", name)
+        ClusterSku._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -318,9 +374,22 @@ class ClusterVirtualNetworkConfiguration(dict):
         :param str engine_public_ip_id: Engine service's public IP address resource id.
         :param str subnet_id: The subnet resource id.
         """
-        pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
-        pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ClusterVirtualNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_management_public_ip_id=data_management_public_ip_id,
+            engine_public_ip_id=engine_public_ip_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_management_public_ip_id: str,
+             engine_public_ip_id: str,
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_management_public_ip_id", data_management_public_ip_id)
+        _setter("engine_public_ip_id", engine_public_ip_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")

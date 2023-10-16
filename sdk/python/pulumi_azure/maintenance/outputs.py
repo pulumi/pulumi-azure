@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -33,12 +33,25 @@ class ConfigurationInstallPatches(dict):
         :param str reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
         :param Sequence['ConfigurationInstallPatchesWindowArgs'] windows: A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
+        ConfigurationInstallPatches._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linuxes=linuxes,
+            reboot=reboot,
+            windows=windows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linuxes: Optional[Sequence['outputs.ConfigurationInstallPatchesLinux']] = None,
+             reboot: Optional[str] = None,
+             windows: Optional[Sequence['outputs.ConfigurationInstallPatchesWindow']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if linuxes is not None:
-            pulumi.set(__self__, "linuxes", linuxes)
+            _setter("linuxes", linuxes)
         if reboot is not None:
-            pulumi.set(__self__, "reboot", reboot)
+            _setter("reboot", reboot)
         if windows is not None:
-            pulumi.set(__self__, "windows", windows)
+            _setter("windows", windows)
 
     @property
     @pulumi.getter
@@ -97,12 +110,25 @@ class ConfigurationInstallPatchesLinux(dict):
         :param Sequence[str] package_names_mask_to_excludes: List of package names to be excluded from patching.
         :param Sequence[str] package_names_mask_to_includes: List of package names to be included for patching.
         """
+        ConfigurationInstallPatchesLinux._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_includes=classifications_to_includes,
+            package_names_mask_to_excludes=package_names_mask_to_excludes,
+            package_names_mask_to_includes=package_names_mask_to_includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_includes: Optional[Sequence[str]] = None,
+             package_names_mask_to_excludes: Optional[Sequence[str]] = None,
+             package_names_mask_to_includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if classifications_to_includes is not None:
-            pulumi.set(__self__, "classifications_to_includes", classifications_to_includes)
+            _setter("classifications_to_includes", classifications_to_includes)
         if package_names_mask_to_excludes is not None:
-            pulumi.set(__self__, "package_names_mask_to_excludes", package_names_mask_to_excludes)
+            _setter("package_names_mask_to_excludes", package_names_mask_to_excludes)
         if package_names_mask_to_includes is not None:
-            pulumi.set(__self__, "package_names_mask_to_includes", package_names_mask_to_includes)
+            _setter("package_names_mask_to_includes", package_names_mask_to_includes)
 
     @property
     @pulumi.getter(name="classificationsToIncludes")
@@ -161,12 +187,25 @@ class ConfigurationInstallPatchesWindow(dict):
         :param Sequence[str] kb_numbers_to_excludes: List of KB numbers to be excluded from patching.
         :param Sequence[str] kb_numbers_to_includes: List of KB numbers to be included for patching.
         """
+        ConfigurationInstallPatchesWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_includes=classifications_to_includes,
+            kb_numbers_to_excludes=kb_numbers_to_excludes,
+            kb_numbers_to_includes=kb_numbers_to_includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_includes: Optional[Sequence[str]] = None,
+             kb_numbers_to_excludes: Optional[Sequence[str]] = None,
+             kb_numbers_to_includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if classifications_to_includes is not None:
-            pulumi.set(__self__, "classifications_to_includes", classifications_to_includes)
+            _setter("classifications_to_includes", classifications_to_includes)
         if kb_numbers_to_excludes is not None:
-            pulumi.set(__self__, "kb_numbers_to_excludes", kb_numbers_to_excludes)
+            _setter("kb_numbers_to_excludes", kb_numbers_to_excludes)
         if kb_numbers_to_includes is not None:
-            pulumi.set(__self__, "kb_numbers_to_includes", kb_numbers_to_includes)
+            _setter("kb_numbers_to_includes", kb_numbers_to_includes)
 
     @property
     @pulumi.getter(name="classificationsToIncludes")
@@ -231,14 +270,31 @@ class ConfigurationWindow(dict):
         :param str expiration_date_time: Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
         :param str recur_every: The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
         """
-        pulumi.set(__self__, "start_date_time", start_date_time)
-        pulumi.set(__self__, "time_zone", time_zone)
+        ConfigurationWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_date_time=start_date_time,
+            time_zone=time_zone,
+            duration=duration,
+            expiration_date_time=expiration_date_time,
+            recur_every=recur_every,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_date_time: str,
+             time_zone: str,
+             duration: Optional[str] = None,
+             expiration_date_time: Optional[str] = None,
+             recur_every: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("start_date_time", start_date_time)
+        _setter("time_zone", time_zone)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if expiration_date_time is not None:
-            pulumi.set(__self__, "expiration_date_time", expiration_date_time)
+            _setter("expiration_date_time", expiration_date_time)
         if recur_every is not None:
-            pulumi.set(__self__, "recur_every", recur_every)
+            _setter("recur_every", recur_every)
 
     @property
     @pulumi.getter(name="startDateTime")
@@ -292,9 +348,22 @@ class GetConfigurationInstallPatchResult(dict):
         :param str reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         :param Sequence['GetConfigurationInstallPatchWindowArgs'] windows: A `windows` block as defined below.
         """
-        pulumi.set(__self__, "linuxes", linuxes)
-        pulumi.set(__self__, "reboot", reboot)
-        pulumi.set(__self__, "windows", windows)
+        GetConfigurationInstallPatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linuxes=linuxes,
+            reboot=reboot,
+            windows=windows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linuxes: Sequence['outputs.GetConfigurationInstallPatchLinuxResult'],
+             reboot: str,
+             windows: Sequence['outputs.GetConfigurationInstallPatchWindowResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linuxes", linuxes)
+        _setter("reboot", reboot)
+        _setter("windows", windows)
 
     @property
     @pulumi.getter
@@ -332,9 +401,22 @@ class GetConfigurationInstallPatchLinuxResult(dict):
         :param Sequence[str] package_names_mask_to_excludes: List of package names to be excluded from patching.
         :param Sequence[str] package_names_mask_to_includes: List of package names to be included for patching.
         """
-        pulumi.set(__self__, "classifications_to_includes", classifications_to_includes)
-        pulumi.set(__self__, "package_names_mask_to_excludes", package_names_mask_to_excludes)
-        pulumi.set(__self__, "package_names_mask_to_includes", package_names_mask_to_includes)
+        GetConfigurationInstallPatchLinuxResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_includes=classifications_to_includes,
+            package_names_mask_to_excludes=package_names_mask_to_excludes,
+            package_names_mask_to_includes=package_names_mask_to_includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_includes: Sequence[str],
+             package_names_mask_to_excludes: Sequence[str],
+             package_names_mask_to_includes: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classifications_to_includes", classifications_to_includes)
+        _setter("package_names_mask_to_excludes", package_names_mask_to_excludes)
+        _setter("package_names_mask_to_includes", package_names_mask_to_includes)
 
     @property
     @pulumi.getter(name="classificationsToIncludes")
@@ -372,9 +454,22 @@ class GetConfigurationInstallPatchWindowResult(dict):
         :param Sequence[str] kb_numbers_to_excludes: List of KB numbers to be excluded from patching.
         :param Sequence[str] kb_numbers_to_includes: List of KB numbers to be included for patching.
         """
-        pulumi.set(__self__, "classifications_to_includes", classifications_to_includes)
-        pulumi.set(__self__, "kb_numbers_to_excludes", kb_numbers_to_excludes)
-        pulumi.set(__self__, "kb_numbers_to_includes", kb_numbers_to_includes)
+        GetConfigurationInstallPatchWindowResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classifications_to_includes=classifications_to_includes,
+            kb_numbers_to_excludes=kb_numbers_to_excludes,
+            kb_numbers_to_includes=kb_numbers_to_includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classifications_to_includes: Sequence[str],
+             kb_numbers_to_excludes: Sequence[str],
+             kb_numbers_to_includes: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classifications_to_includes", classifications_to_includes)
+        _setter("kb_numbers_to_excludes", kb_numbers_to_excludes)
+        _setter("kb_numbers_to_includes", kb_numbers_to_includes)
 
     @property
     @pulumi.getter(name="classificationsToIncludes")
@@ -416,11 +511,28 @@ class GetConfigurationWindowResult(dict):
         :param str start_date_time: Effective start date of the maintenance window.
         :param str time_zone: The time zone for the maintenance window.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "expiration_date_time", expiration_date_time)
-        pulumi.set(__self__, "recur_every", recur_every)
-        pulumi.set(__self__, "start_date_time", start_date_time)
-        pulumi.set(__self__, "time_zone", time_zone)
+        GetConfigurationWindowResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            expiration_date_time=expiration_date_time,
+            recur_every=recur_every,
+            start_date_time=start_date_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: str,
+             expiration_date_time: str,
+             recur_every: str,
+             start_date_time: str,
+             time_zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("duration", duration)
+        _setter("expiration_date_time", expiration_date_time)
+        _setter("recur_every", recur_every)
+        _setter("start_date_time", start_date_time)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -484,14 +596,37 @@ class GetPublicConfigurationsConfigResult(dict):
         :param str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
         :param str time_zone: The time zone for the maintenance window.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "maintenance_scope", maintenance_scope)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "recur_every", recur_every)
-        pulumi.set(__self__, "time_zone", time_zone)
+        GetPublicConfigurationsConfigResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            duration=duration,
+            id=id,
+            location=location,
+            maintenance_scope=maintenance_scope,
+            name=name,
+            recur_every=recur_every,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             duration: str,
+             id: str,
+             location: str,
+             maintenance_scope: str,
+             name: str,
+             recur_every: str,
+             time_zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("duration", duration)
+        _setter("id", id)
+        _setter("location", location)
+        _setter("maintenance_scope", maintenance_scope)
+        _setter("name", name)
+        _setter("recur_every", recur_every)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter

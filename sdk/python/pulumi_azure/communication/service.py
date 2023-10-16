@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceArgs', 'Service']
@@ -25,13 +25,28 @@ class ServiceArgs:
         :param pulumi.Input[str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Communication Service.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_location=data_location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             data_location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,22 +119,45 @@ class _ServiceState:
         :param pulumi.Input[str] secondary_key: The secondary key of the Communication Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Communication Service.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_location=data_location,
+            name=name,
+            primary_connection_string=primary_connection_string,
+            primary_key=primary_key,
+            resource_group_name=resource_group_name,
+            secondary_connection_string=secondary_connection_string,
+            secondary_key=secondary_key,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -297,6 +335,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

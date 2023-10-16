@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,28 +45,59 @@ class ConnectedRegistryArgs:
         :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
-        pulumi.set(__self__, "container_registry_id", container_registry_id)
-        pulumi.set(__self__, "sync_token_id", sync_token_id)
+        ConnectedRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_id=container_registry_id,
+            sync_token_id=sync_token_id,
+            audit_log_enabled=audit_log_enabled,
+            client_token_ids=client_token_ids,
+            log_level=log_level,
+            mode=mode,
+            name=name,
+            notifications=notifications,
+            parent_registry_id=parent_registry_id,
+            sync_message_ttl=sync_message_ttl,
+            sync_schedule=sync_schedule,
+            sync_window=sync_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_id: pulumi.Input[str],
+             sync_token_id: pulumi.Input[str],
+             audit_log_enabled: Optional[pulumi.Input[bool]] = None,
+             client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             log_level: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedRegistryNotificationArgs']]]] = None,
+             parent_registry_id: Optional[pulumi.Input[str]] = None,
+             sync_message_ttl: Optional[pulumi.Input[str]] = None,
+             sync_schedule: Optional[pulumi.Input[str]] = None,
+             sync_window: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_registry_id", container_registry_id)
+        _setter("sync_token_id", sync_token_id)
         if audit_log_enabled is not None:
-            pulumi.set(__self__, "audit_log_enabled", audit_log_enabled)
+            _setter("audit_log_enabled", audit_log_enabled)
         if client_token_ids is not None:
-            pulumi.set(__self__, "client_token_ids", client_token_ids)
+            _setter("client_token_ids", client_token_ids)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if parent_registry_id is not None:
-            pulumi.set(__self__, "parent_registry_id", parent_registry_id)
+            _setter("parent_registry_id", parent_registry_id)
         if sync_message_ttl is not None:
-            pulumi.set(__self__, "sync_message_ttl", sync_message_ttl)
+            _setter("sync_message_ttl", sync_message_ttl)
         if sync_schedule is not None:
-            pulumi.set(__self__, "sync_schedule", sync_schedule)
+            _setter("sync_schedule", sync_schedule)
         if sync_window is not None:
-            pulumi.set(__self__, "sync_window", sync_window)
+            _setter("sync_window", sync_window)
 
     @property
     @pulumi.getter(name="containerRegistryId")
@@ -247,30 +278,61 @@ class _ConnectedRegistryState:
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
+        _ConnectedRegistryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_log_enabled=audit_log_enabled,
+            client_token_ids=client_token_ids,
+            container_registry_id=container_registry_id,
+            log_level=log_level,
+            mode=mode,
+            name=name,
+            notifications=notifications,
+            parent_registry_id=parent_registry_id,
+            sync_message_ttl=sync_message_ttl,
+            sync_schedule=sync_schedule,
+            sync_token_id=sync_token_id,
+            sync_window=sync_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_log_enabled: Optional[pulumi.Input[bool]] = None,
+             client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             container_registry_id: Optional[pulumi.Input[str]] = None,
+             log_level: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectedRegistryNotificationArgs']]]] = None,
+             parent_registry_id: Optional[pulumi.Input[str]] = None,
+             sync_message_ttl: Optional[pulumi.Input[str]] = None,
+             sync_schedule: Optional[pulumi.Input[str]] = None,
+             sync_token_id: Optional[pulumi.Input[str]] = None,
+             sync_window: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if audit_log_enabled is not None:
-            pulumi.set(__self__, "audit_log_enabled", audit_log_enabled)
+            _setter("audit_log_enabled", audit_log_enabled)
         if client_token_ids is not None:
-            pulumi.set(__self__, "client_token_ids", client_token_ids)
+            _setter("client_token_ids", client_token_ids)
         if container_registry_id is not None:
-            pulumi.set(__self__, "container_registry_id", container_registry_id)
+            _setter("container_registry_id", container_registry_id)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if parent_registry_id is not None:
-            pulumi.set(__self__, "parent_registry_id", parent_registry_id)
+            _setter("parent_registry_id", parent_registry_id)
         if sync_message_ttl is not None:
-            pulumi.set(__self__, "sync_message_ttl", sync_message_ttl)
+            _setter("sync_message_ttl", sync_message_ttl)
         if sync_schedule is not None:
-            pulumi.set(__self__, "sync_schedule", sync_schedule)
+            _setter("sync_schedule", sync_schedule)
         if sync_token_id is not None:
-            pulumi.set(__self__, "sync_token_id", sync_token_id)
+            _setter("sync_token_id", sync_token_id)
         if sync_window is not None:
-            pulumi.set(__self__, "sync_window", sync_window)
+            _setter("sync_window", sync_window)
 
     @property
     @pulumi.getter(name="auditLogEnabled")
@@ -562,6 +624,10 @@ class ConnectedRegistry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectedRegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

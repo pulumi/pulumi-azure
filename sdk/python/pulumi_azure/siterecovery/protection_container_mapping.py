@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,16 +35,39 @@ class ProtectionContainerMappingArgs:
         :param pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs'] automatic_update: a `automatic_update` block defined as below.
         :param pulumi.Input[str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
-        pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
-        pulumi.set(__self__, "recovery_source_protection_container_name", recovery_source_protection_container_name)
-        pulumi.set(__self__, "recovery_target_protection_container_id", recovery_target_protection_container_id)
-        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProtectionContainerMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recovery_fabric_name=recovery_fabric_name,
+            recovery_replication_policy_id=recovery_replication_policy_id,
+            recovery_source_protection_container_name=recovery_source_protection_container_name,
+            recovery_target_protection_container_id=recovery_target_protection_container_id,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            automatic_update=automatic_update,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recovery_fabric_name: pulumi.Input[str],
+             recovery_replication_policy_id: pulumi.Input[str],
+             recovery_source_protection_container_name: pulumi.Input[str],
+             recovery_target_protection_container_id: pulumi.Input[str],
+             recovery_vault_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             automatic_update: Optional[pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recovery_fabric_name", recovery_fabric_name)
+        _setter("recovery_replication_policy_id", recovery_replication_policy_id)
+        _setter("recovery_source_protection_container_name", recovery_source_protection_container_name)
+        _setter("recovery_target_protection_container_id", recovery_target_protection_container_id)
+        _setter("recovery_vault_name", recovery_vault_name)
+        _setter("resource_group_name", resource_group_name)
         if automatic_update is not None:
-            pulumi.set(__self__, "automatic_update", automatic_update)
+            _setter("automatic_update", automatic_update)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="recoveryFabricName")
@@ -165,22 +188,45 @@ class _ProtectionContainerMappingState:
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
+        _ProtectionContainerMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_update=automatic_update,
+            name=name,
+            recovery_fabric_name=recovery_fabric_name,
+            recovery_replication_policy_id=recovery_replication_policy_id,
+            recovery_source_protection_container_name=recovery_source_protection_container_name,
+            recovery_target_protection_container_id=recovery_target_protection_container_id,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_update: Optional[pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_source_protection_container_name: Optional[pulumi.Input[str]] = None,
+             recovery_target_protection_container_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automatic_update is not None:
-            pulumi.set(__self__, "automatic_update", automatic_update)
+            _setter("automatic_update", automatic_update)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_fabric_name is not None:
-            pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
+            _setter("recovery_fabric_name", recovery_fabric_name)
         if recovery_replication_policy_id is not None:
-            pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
+            _setter("recovery_replication_policy_id", recovery_replication_policy_id)
         if recovery_source_protection_container_name is not None:
-            pulumi.set(__self__, "recovery_source_protection_container_name", recovery_source_protection_container_name)
+            _setter("recovery_source_protection_container_name", recovery_source_protection_container_name)
         if recovery_target_protection_container_id is not None:
-            pulumi.set(__self__, "recovery_target_protection_container_id", recovery_target_protection_container_id)
+            _setter("recovery_target_protection_container_id", recovery_target_protection_container_id)
         if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+            _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="automaticUpdate")
@@ -426,6 +472,10 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectionContainerMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -448,6 +498,11 @@ class ProtectionContainerMapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProtectionContainerMappingArgs.__new__(ProtectionContainerMappingArgs)
 
+            if automatic_update is not None and not isinstance(automatic_update, ProtectionContainerMappingAutomaticUpdateArgs):
+                automatic_update = automatic_update or {}
+                def _setter(key, value):
+                    automatic_update[key] = value
+                ProtectionContainerMappingAutomaticUpdateArgs._configure(_setter, **automatic_update)
             __props__.__dict__["automatic_update"] = automatic_update
             __props__.__dict__["name"] = name
             if recovery_fabric_name is None and not opts.urn:

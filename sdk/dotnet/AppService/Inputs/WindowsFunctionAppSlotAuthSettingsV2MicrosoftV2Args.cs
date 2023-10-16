@@ -16,12 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _allowedAudiences;
 
         /// <summary>
-        /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-        /// 
-        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
-        /// 
-        /// 
-        /// 
+        /// an `allowed_audiences` block as detailed below.
         /// 
         /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
         /// </summary>
@@ -32,28 +27,13 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The OpenID Connect Client ID for the Apple web application.
+        /// The ID of the Client to use to authenticate with Azure Active Directory.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for Apple Login.
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         /// </summary>
         [Input("clientSecretSettingName", required: true)]
         public Input<string> ClientSecretSettingName { get; set; } = null!;
@@ -62,9 +42,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// A list of Login Scopes provided by this Authentication Provider.
-        /// 
-        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
         /// </summary>
         public InputList<string> LoginScopes
         {

@@ -36,9 +36,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// A list of Login Scopes provided by this Authentication Provider.
-        /// 
-        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
         /// </summary>
         public InputList<string> LoginScopes
         {

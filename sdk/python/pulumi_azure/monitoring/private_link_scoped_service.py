@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrivateLinkScopedServiceArgs', 'PrivateLinkScopedService']
@@ -25,11 +25,26 @@ class PrivateLinkScopedServiceArgs:
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "linked_resource_id", linked_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_name", scope_name)
+        PrivateLinkScopedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_resource_id=linked_resource_id,
+            resource_group_name=resource_group_name,
+            scope_name=scope_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_resource_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             scope_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_resource_id", linked_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope_name", scope_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="linkedResourceId")
@@ -94,14 +109,29 @@ class _PrivateLinkScopedServiceState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         """
+        _PrivateLinkScopedServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_resource_id=linked_resource_id,
+            name=name,
+            resource_group_name=resource_group_name,
+            scope_name=scope_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if linked_resource_id is not None:
-            pulumi.set(__self__, "linked_resource_id", linked_resource_id)
+            _setter("linked_resource_id", linked_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scope_name is not None:
-            pulumi.set(__self__, "scope_name", scope_name)
+            _setter("scope_name", scope_name)
 
     @property
     @pulumi.getter(name="linkedResourceId")
@@ -243,6 +273,10 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkScopedServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

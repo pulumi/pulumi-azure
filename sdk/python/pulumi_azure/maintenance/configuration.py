@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,51 @@ class ConfigurationArgs:
         :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
         :param pulumi.Input['ConfigurationWindowArgs'] window: A `window` block as defined below.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope", scope)
+        ConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            scope=scope,
+            in_guest_user_patch_mode=in_guest_user_patch_mode,
+            install_patches=install_patches,
+            location=location,
+            name=name,
+            properties=properties,
+            tags=tags,
+            visibility=visibility,
+            window=window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+             install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope", scope)
         if in_guest_user_patch_mode is not None:
-            pulumi.set(__self__, "in_guest_user_patch_mode", in_guest_user_patch_mode)
+            _setter("in_guest_user_patch_mode", in_guest_user_patch_mode)
         if install_patches is not None:
-            pulumi.set(__self__, "install_patches", install_patches)
+            _setter("install_patches", install_patches)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if window is not None:
-            pulumi.set(__self__, "window", window)
+            _setter("window", window)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -211,26 +238,53 @@ class _ConfigurationState:
         :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
         :param pulumi.Input['ConfigurationWindowArgs'] window: A `window` block as defined below.
         """
+        _ConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_guest_user_patch_mode=in_guest_user_patch_mode,
+            install_patches=install_patches,
+            location=location,
+            name=name,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            scope=scope,
+            tags=tags,
+            visibility=visibility,
+            window=window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
+             install_patches: Optional[pulumi.Input['ConfigurationInstallPatchesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if in_guest_user_patch_mode is not None:
-            pulumi.set(__self__, "in_guest_user_patch_mode", in_guest_user_patch_mode)
+            _setter("in_guest_user_patch_mode", in_guest_user_patch_mode)
         if install_patches is not None:
-            pulumi.set(__self__, "install_patches", install_patches)
+            _setter("install_patches", install_patches)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if window is not None:
-            pulumi.set(__self__, "window", window)
+            _setter("window", window)
 
     @property
     @pulumi.getter(name="inGuestUserPatchMode")
@@ -456,6 +510,10 @@ class Configuration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -481,6 +539,11 @@ class Configuration(pulumi.CustomResource):
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
             __props__.__dict__["in_guest_user_patch_mode"] = in_guest_user_patch_mode
+            if install_patches is not None and not isinstance(install_patches, ConfigurationInstallPatchesArgs):
+                install_patches = install_patches or {}
+                def _setter(key, value):
+                    install_patches[key] = value
+                ConfigurationInstallPatchesArgs._configure(_setter, **install_patches)
             __props__.__dict__["install_patches"] = install_patches
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -493,6 +556,11 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility"] = visibility
+            if window is not None and not isinstance(window, ConfigurationWindowArgs):
+                window = window or {}
+                def _setter(key, value):
+                    window[key] = value
+                ConfigurationWindowArgs._configure(_setter, **window)
             __props__.__dict__["window"] = window
         super(Configuration, __self__).__init__(
             'azure:maintenance/configuration:Configuration',

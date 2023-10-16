@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,13 +52,28 @@ class MonitorPlan(dict):
         :param str plan_id: Specifies the plan id published by NewRelic. The only possible value is `newrelic-pay-as-you-go-free-live`. Defaults to `newrelic-pay-as-you-go-free-live`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param str usage_type: Specifies the usage type. Possible values are `COMMITTED` and `PAYG`. Defaults to `PAYG`. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
-        pulumi.set(__self__, "effective_date", effective_date)
+        MonitorPlan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_date=effective_date,
+            billing_cycle=billing_cycle,
+            plan_id=plan_id,
+            usage_type=usage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_date: str,
+             billing_cycle: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             usage_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("effective_date", effective_date)
         if billing_cycle is not None:
-            pulumi.set(__self__, "billing_cycle", billing_cycle)
+            _setter("billing_cycle", billing_cycle)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
         if usage_type is not None:
-            pulumi.set(__self__, "usage_type", usage_type)
+            _setter("usage_type", usage_type)
 
     @property
     @pulumi.getter(name="effectiveDate")
@@ -127,10 +142,25 @@ class MonitorUser(dict):
         :param str last_name: Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param str phone_number: Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        MonitorUser._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: str,
+             first_name: str,
+             last_name: str,
+             phone_number: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("first_name", first_name)
+        _setter("last_name", last_name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter
@@ -176,9 +206,22 @@ class TagRuleLogTagFilter(dict):
         :param str name: Specifies the name (also known as the key) of the tag.
         :param str value: Specifies the value of the tag.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TagRuleLogTagFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -216,9 +259,22 @@ class TagRuleMetricTagFilter(dict):
         :param str name: Specifies the name (also known as the key) of the tag.
         :param str value: Specifies the value of the tag.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TagRuleMetricTagFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter

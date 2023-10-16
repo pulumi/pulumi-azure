@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,40 +57,83 @@ class IoTHubArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        IoTHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            cloud_to_device=cloud_to_device,
+            endpoints=endpoints,
+            enrichments=enrichments,
+            event_hub_partition_count=event_hub_partition_count,
+            event_hub_retention_in_days=event_hub_retention_in_days,
+            fallback_route=fallback_route,
+            file_upload=file_upload,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            min_tls_version=min_tls_version,
+            name=name,
+            network_rule_sets=network_rule_sets,
+            public_network_access_enabled=public_network_access_enabled,
+            routes=routes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input['IoTHubSkuArgs'],
+             cloud_to_device: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
+             enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
+             event_hub_partition_count: Optional[pulumi.Input[int]] = None,
+             event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
+             fallback_route: Optional[pulumi.Input['IoTHubFallbackRouteArgs']] = None,
+             file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
+             identity: Optional[pulumi.Input['IoTHubIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             min_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if cloud_to_device is not None:
-            pulumi.set(__self__, "cloud_to_device", cloud_to_device)
+            _setter("cloud_to_device", cloud_to_device)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if enrichments is not None:
-            pulumi.set(__self__, "enrichments", enrichments)
+            _setter("enrichments", enrichments)
         if event_hub_partition_count is not None:
-            pulumi.set(__self__, "event_hub_partition_count", event_hub_partition_count)
+            _setter("event_hub_partition_count", event_hub_partition_count)
         if event_hub_retention_in_days is not None:
-            pulumi.set(__self__, "event_hub_retention_in_days", event_hub_retention_in_days)
+            _setter("event_hub_retention_in_days", event_hub_retention_in_days)
         if fallback_route is not None:
-            pulumi.set(__self__, "fallback_route", fallback_route)
+            _setter("fallback_route", fallback_route)
         if file_upload is not None:
-            pulumi.set(__self__, "file_upload", file_upload)
+            _setter("file_upload", file_upload)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rule_sets is not None:
-            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
+            _setter("network_rule_sets", network_rule_sets)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -371,58 +414,117 @@ class _IoTHubState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         """
+        _IoTHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_to_device=cloud_to_device,
+            endpoints=endpoints,
+            enrichments=enrichments,
+            event_hub_events_endpoint=event_hub_events_endpoint,
+            event_hub_events_namespace=event_hub_events_namespace,
+            event_hub_events_path=event_hub_events_path,
+            event_hub_operations_endpoint=event_hub_operations_endpoint,
+            event_hub_operations_path=event_hub_operations_path,
+            event_hub_partition_count=event_hub_partition_count,
+            event_hub_retention_in_days=event_hub_retention_in_days,
+            fallback_route=fallback_route,
+            file_upload=file_upload,
+            hostname=hostname,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            min_tls_version=min_tls_version,
+            name=name,
+            network_rule_sets=network_rule_sets,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            routes=routes,
+            shared_access_policies=shared_access_policies,
+            sku=sku,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_to_device: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
+             enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
+             event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
+             event_hub_events_namespace: Optional[pulumi.Input[str]] = None,
+             event_hub_events_path: Optional[pulumi.Input[str]] = None,
+             event_hub_operations_endpoint: Optional[pulumi.Input[str]] = None,
+             event_hub_operations_path: Optional[pulumi.Input[str]] = None,
+             event_hub_partition_count: Optional[pulumi.Input[int]] = None,
+             event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
+             fallback_route: Optional[pulumi.Input['IoTHubFallbackRouteArgs']] = None,
+             file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IoTHubIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             min_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]] = None,
+             shared_access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]]] = None,
+             sku: Optional[pulumi.Input['IoTHubSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_to_device is not None:
-            pulumi.set(__self__, "cloud_to_device", cloud_to_device)
+            _setter("cloud_to_device", cloud_to_device)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if enrichments is not None:
-            pulumi.set(__self__, "enrichments", enrichments)
+            _setter("enrichments", enrichments)
         if event_hub_events_endpoint is not None:
-            pulumi.set(__self__, "event_hub_events_endpoint", event_hub_events_endpoint)
+            _setter("event_hub_events_endpoint", event_hub_events_endpoint)
         if event_hub_events_namespace is not None:
-            pulumi.set(__self__, "event_hub_events_namespace", event_hub_events_namespace)
+            _setter("event_hub_events_namespace", event_hub_events_namespace)
         if event_hub_events_path is not None:
-            pulumi.set(__self__, "event_hub_events_path", event_hub_events_path)
+            _setter("event_hub_events_path", event_hub_events_path)
         if event_hub_operations_endpoint is not None:
-            pulumi.set(__self__, "event_hub_operations_endpoint", event_hub_operations_endpoint)
+            _setter("event_hub_operations_endpoint", event_hub_operations_endpoint)
         if event_hub_operations_path is not None:
-            pulumi.set(__self__, "event_hub_operations_path", event_hub_operations_path)
+            _setter("event_hub_operations_path", event_hub_operations_path)
         if event_hub_partition_count is not None:
-            pulumi.set(__self__, "event_hub_partition_count", event_hub_partition_count)
+            _setter("event_hub_partition_count", event_hub_partition_count)
         if event_hub_retention_in_days is not None:
-            pulumi.set(__self__, "event_hub_retention_in_days", event_hub_retention_in_days)
+            _setter("event_hub_retention_in_days", event_hub_retention_in_days)
         if fallback_route is not None:
-            pulumi.set(__self__, "fallback_route", fallback_route)
+            _setter("fallback_route", fallback_route)
         if file_upload is not None:
-            pulumi.set(__self__, "file_upload", file_upload)
+            _setter("file_upload", file_upload)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rule_sets is not None:
-            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
+            _setter("network_rule_sets", network_rule_sets)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if shared_access_policies is not None:
-            pulumi.set(__self__, "shared_access_policies", shared_access_policies)
+            _setter("shared_access_policies", shared_access_policies)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="cloudToDevice")
@@ -1028,6 +1130,10 @@ class IoTHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IoTHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1060,13 +1166,33 @@ class IoTHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IoTHubArgs.__new__(IoTHubArgs)
 
+            if cloud_to_device is not None and not isinstance(cloud_to_device, IoTHubCloudToDeviceArgs):
+                cloud_to_device = cloud_to_device or {}
+                def _setter(key, value):
+                    cloud_to_device[key] = value
+                IoTHubCloudToDeviceArgs._configure(_setter, **cloud_to_device)
             __props__.__dict__["cloud_to_device"] = cloud_to_device
             __props__.__dict__["endpoints"] = endpoints
             __props__.__dict__["enrichments"] = enrichments
             __props__.__dict__["event_hub_partition_count"] = event_hub_partition_count
             __props__.__dict__["event_hub_retention_in_days"] = event_hub_retention_in_days
+            if fallback_route is not None and not isinstance(fallback_route, IoTHubFallbackRouteArgs):
+                fallback_route = fallback_route or {}
+                def _setter(key, value):
+                    fallback_route[key] = value
+                IoTHubFallbackRouteArgs._configure(_setter, **fallback_route)
             __props__.__dict__["fallback_route"] = fallback_route
+            if file_upload is not None and not isinstance(file_upload, IoTHubFileUploadArgs):
+                file_upload = file_upload or {}
+                def _setter(key, value):
+                    file_upload[key] = value
+                IoTHubFileUploadArgs._configure(_setter, **file_upload)
             __props__.__dict__["file_upload"] = file_upload
+            if identity is not None and not isinstance(identity, IoTHubIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                IoTHubIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
@@ -1078,6 +1204,11 @@ class IoTHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routes"] = routes
+            if sku is not None and not isinstance(sku, IoTHubSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                IoTHubSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

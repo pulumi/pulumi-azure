@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,10 +30,25 @@ class ContactProfileLink(dict):
         :param str name: Name of the link.
         :param str polarization: Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
         """
-        pulumi.set(__self__, "channels", channels)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
+        ContactProfileLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channels=channels,
+            direction=direction,
+            name=name,
+            polarization=polarization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channels: Sequence['outputs.ContactProfileLinkChannel'],
+             direction: str,
+             name: str,
+             polarization: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("channels", channels)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("polarization", polarization)
 
     @property
     @pulumi.getter
@@ -110,14 +125,33 @@ class ContactProfileLinkChannel(dict):
         :param str demodulation_configuration: Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         :param str modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
-        pulumi.set(__self__, "bandwidth_mhz", bandwidth_mhz)
-        pulumi.set(__self__, "center_frequency_mhz", center_frequency_mhz)
-        pulumi.set(__self__, "end_points", end_points)
-        pulumi.set(__self__, "name", name)
+        ContactProfileLinkChannel._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_mhz=bandwidth_mhz,
+            center_frequency_mhz=center_frequency_mhz,
+            end_points=end_points,
+            name=name,
+            demodulation_configuration=demodulation_configuration,
+            modulation_configuration=modulation_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_mhz: float,
+             center_frequency_mhz: float,
+             end_points: Sequence['outputs.ContactProfileLinkChannelEndPoint'],
+             name: str,
+             demodulation_configuration: Optional[str] = None,
+             modulation_configuration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bandwidth_mhz", bandwidth_mhz)
+        _setter("center_frequency_mhz", center_frequency_mhz)
+        _setter("end_points", end_points)
+        _setter("name", name)
         if demodulation_configuration is not None:
-            pulumi.set(__self__, "demodulation_configuration", demodulation_configuration)
+            _setter("demodulation_configuration", demodulation_configuration)
         if modulation_configuration is not None:
-            pulumi.set(__self__, "modulation_configuration", modulation_configuration)
+            _setter("modulation_configuration", modulation_configuration)
 
     @property
     @pulumi.getter(name="bandwidthMhz")
@@ -200,11 +234,26 @@ class ContactProfileLinkChannelEndPoint(dict):
         :param str protocol: Protocol of an end point. Possible values are `TCP` and `UDP`.
         :param str ip_address: IP address of an end point.
         """
-        pulumi.set(__self__, "end_point_name", end_point_name)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        ContactProfileLinkChannelEndPoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_point_name=end_point_name,
+            port=port,
+            protocol=protocol,
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_point_name: str,
+             port: str,
+             protocol: str,
+             ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_point_name", end_point_name)
+        _setter("port", port)
+        _setter("protocol", protocol)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="endPointName")
@@ -273,11 +322,28 @@ class SpacecraftLink(dict):
         :param str name: Name of the link.
         :param str polarization: Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
         """
-        pulumi.set(__self__, "bandwidth_mhz", bandwidth_mhz)
-        pulumi.set(__self__, "center_frequency_mhz", center_frequency_mhz)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
+        SpacecraftLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_mhz=bandwidth_mhz,
+            center_frequency_mhz=center_frequency_mhz,
+            direction=direction,
+            name=name,
+            polarization=polarization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_mhz: float,
+             center_frequency_mhz: float,
+             direction: str,
+             name: str,
+             polarization: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bandwidth_mhz", bandwidth_mhz)
+        _setter("center_frequency_mhz", center_frequency_mhz)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("polarization", polarization)
 
     @property
     @pulumi.getter(name="bandwidthMhz")

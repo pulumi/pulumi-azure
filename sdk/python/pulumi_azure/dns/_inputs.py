@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,9 +28,22 @@ class CaaRecordRecordArgs:
         :param pulumi.Input[str] tag: A property tag, options are `issue`, `issuewild` and `iodef`.
         :param pulumi.Input[str] value: A property value such as a registrar domain.
         """
-        pulumi.set(__self__, "flags", flags)
-        pulumi.set(__self__, "tag", tag)
-        pulumi.set(__self__, "value", value)
+        CaaRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flags=flags,
+            tag=tag,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flags: pulumi.Input[int],
+             tag: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("flags", flags)
+        _setter("tag", tag)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -78,8 +91,19 @@ class MxRecordRecordArgs:
         :param pulumi.Input[str] exchange: The mail server responsible for the domain covered by the MX record.
         :param pulumi.Input[str] preference: String representing the "preference” value of the MX records. Records with lower preference value take priority.
         """
-        pulumi.set(__self__, "exchange", exchange)
-        pulumi.set(__self__, "preference", preference)
+        MxRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exchange=exchange,
+            preference=preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exchange: pulumi.Input[str],
+             preference: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exchange", exchange)
+        _setter("preference", preference)
 
     @property
     @pulumi.getter
@@ -119,10 +143,25 @@ class SrvRecordRecordArgs:
         :param pulumi.Input[str] target: FQDN of the service.
         :param pulumi.Input[int] weight: Weight of the SRV record.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "weight", weight)
+        SrvRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            priority=priority,
+            target=target,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: pulumi.Input[int],
+             priority: pulumi.Input[int],
+             target: pulumi.Input[str],
+             weight: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("priority", priority)
+        _setter("target", target)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -180,7 +219,16 @@ class TxtRecordRecordArgs:
         """
         :param pulumi.Input[str] value: The value of the record. Max length: 1024 characters
         """
-        pulumi.set(__self__, "value", value)
+        TxtRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -219,25 +267,52 @@ class ZoneSoaRecordArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
         :param pulumi.Input[int] ttl: The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
-        pulumi.set(__self__, "email", email)
+        ZoneSoaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            expire_time=expire_time,
+            fqdn=fqdn,
+            host_name=host_name,
+            minimum_ttl=minimum_ttl,
+            refresh_time=refresh_time,
+            retry_time=retry_time,
+            serial_number=serial_number,
+            tags=tags,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             expire_time: Optional[pulumi.Input[int]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             minimum_ttl: Optional[pulumi.Input[int]] = None,
+             refresh_time: Optional[pulumi.Input[int]] = None,
+             retry_time: Optional[pulumi.Input[int]] = None,
+             serial_number: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
         if expire_time is not None:
-            pulumi.set(__self__, "expire_time", expire_time)
+            _setter("expire_time", expire_time)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if minimum_ttl is not None:
-            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+            _setter("minimum_ttl", minimum_ttl)
         if refresh_time is not None:
-            pulumi.set(__self__, "refresh_time", refresh_time)
+            _setter("refresh_time", refresh_time)
         if retry_time is not None:
-            pulumi.set(__self__, "retry_time", retry_time)
+            _setter("retry_time", retry_time)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter

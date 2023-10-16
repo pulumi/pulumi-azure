@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContainerArgs', 'Container']
@@ -25,13 +25,28 @@ class ContainerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container. All metadata keys should be lowercase.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        ContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_name=storage_account_name,
+            container_access_type=container_access_type,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_name: pulumi.Input[str],
+             container_access_type: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_account_name", storage_account_name)
         if container_access_type is not None:
-            pulumi.set(__self__, "container_access_type", container_access_type)
+            _setter("container_access_type", container_access_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -102,20 +117,41 @@ class _ContainerState:
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Container.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         """
+        _ContainerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_access_type=container_access_type,
+            has_immutability_policy=has_immutability_policy,
+            has_legal_hold=has_legal_hold,
+            metadata=metadata,
+            name=name,
+            resource_manager_id=resource_manager_id,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_access_type: Optional[pulumi.Input[str]] = None,
+             has_immutability_policy: Optional[pulumi.Input[bool]] = None,
+             has_legal_hold: Optional[pulumi.Input[bool]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_manager_id: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_access_type is not None:
-            pulumi.set(__self__, "container_access_type", container_access_type)
+            _setter("container_access_type", container_access_type)
         if has_immutability_policy is not None:
-            pulumi.set(__self__, "has_immutability_policy", has_immutability_policy)
+            _setter("has_immutability_policy", has_immutability_policy)
         if has_legal_hold is not None:
-            pulumi.set(__self__, "has_legal_hold", has_legal_hold)
+            _setter("has_legal_hold", has_legal_hold)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_manager_id is not None:
-            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+            _setter("resource_manager_id", resource_manager_id)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="containerAccessType")
@@ -297,6 +333,10 @@ class Container(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ActiveDirectoryAdministratorArgs', 'ActiveDirectoryAdministrator']
@@ -29,13 +29,32 @@ class ActiveDirectoryAdministratorArgs:
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
         :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
         """
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ActiveDirectoryAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login=login,
+            object_id=object_id,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            tenant_id=tenant_id,
+            azuread_authentication_only=azuread_authentication_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server_name: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login", login)
+        _setter("object_id", object_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("tenant_id", tenant_id)
         if azuread_authentication_only is not None:
-            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
+            _setter("azuread_authentication_only", azuread_authentication_only)
 
     @property
     @pulumi.getter
@@ -128,18 +147,37 @@ class _ActiveDirectoryAdministratorState:
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
         """
+        _ActiveDirectoryAdministratorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azuread_authentication_only=azuread_authentication_only,
+            login=login,
+            object_id=object_id,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azuread_authentication_only is not None:
-            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
+            _setter("azuread_authentication_only", azuread_authentication_only)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="azureadAuthenticationOnly")
@@ -321,6 +359,10 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActiveDirectoryAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

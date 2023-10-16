@@ -171,9 +171,6 @@ namespace Pulumi.Azure.AppService
         [Output("logs")]
         public Output<Outputs.LinuxWebAppLogs?> Logs { get; private set; } = null!;
 
-        /// <summary>
-        /// The Site Credentials Username used for publishing.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -413,9 +410,6 @@ namespace Pulumi.Azure.AppService
         [Input("logs")]
         public Input<Inputs.LinuxWebAppLogsArgs>? Logs { get; set; }
 
-        /// <summary>
-        /// The Site Credentials Username used for publishing.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -628,9 +622,6 @@ namespace Pulumi.Azure.AppService
         [Input("logs")]
         public Input<Inputs.LinuxWebAppLogsGetArgs>? Logs { get; set; }
 
-        /// <summary>
-        /// The Site Credentials Username used for publishing.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

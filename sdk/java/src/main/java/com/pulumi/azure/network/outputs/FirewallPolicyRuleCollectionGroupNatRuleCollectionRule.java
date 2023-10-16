@@ -24,7 +24,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
      */
     private @Nullable String destinationAddress;
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     private @Nullable String destinationPorts;
@@ -82,7 +82,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         return Optional.ofNullable(this.destinationAddress);
     }
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     public Optional<String> destinationPorts() {

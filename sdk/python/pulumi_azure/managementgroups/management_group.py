@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagementGroupArgs', 'ManagementGroup']
@@ -27,14 +27,29 @@ class ManagementGroupArgs:
                
                > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
+        ManagementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            name=name,
+            parent_management_group_id=parent_management_group_id,
+            subscription_ids=subscription_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_management_group_id is not None:
-            pulumi.set(__self__, "parent_management_group_id", parent_management_group_id)
+            _setter("parent_management_group_id", parent_management_group_id)
         if subscription_ids is not None:
-            pulumi.set(__self__, "subscription_ids", subscription_ids)
+            _setter("subscription_ids", subscription_ids)
 
     @property
     @pulumi.getter(name="displayName")
@@ -103,14 +118,29 @@ class _ManagementGroupState:
                
                > **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
         """
+        _ManagementGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            name=name,
+            parent_management_group_id=parent_management_group_id,
+            subscription_ids=subscription_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_management_group_id is not None:
-            pulumi.set(__self__, "parent_management_group_id", parent_management_group_id)
+            _setter("parent_management_group_id", parent_management_group_id)
         if subscription_ids is not None:
-            pulumi.set(__self__, "subscription_ids", subscription_ids)
+            _setter("subscription_ids", subscription_ids)
 
     @property
     @pulumi.getter(name="displayName")
@@ -263,6 +293,10 @@ class ManagementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

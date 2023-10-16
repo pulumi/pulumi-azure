@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlexibleServerActiveDirectoryAdministratorArgs', 'FlexibleServerActiveDirectoryAdministrator']
@@ -22,11 +22,28 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
         """
         The set of arguments for constructing a FlexibleServerActiveDirectoryAdministrator resource.
         """
-        pulumi.set(__self__, "identity_id", identity_id)
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        FlexibleServerActiveDirectoryAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            login=login,
+            object_id=object_id,
+            server_id=server_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: pulumi.Input[str],
+             login: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             server_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_id", identity_id)
+        _setter("login", login)
+        _setter("object_id", object_id)
+        _setter("server_id", server_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="identityId")
@@ -85,16 +102,33 @@ class _FlexibleServerActiveDirectoryAdministratorState:
         """
         Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministrator resources.
         """
+        _FlexibleServerActiveDirectoryAdministratorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            login=login,
+            object_id=object_id,
+            server_id=server_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="identityId")
@@ -181,6 +215,10 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlexibleServerActiveDirectoryAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

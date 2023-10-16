@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -123,13 +123,28 @@ class DomainIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        DomainIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -194,9 +209,20 @@ class DomainInboundIpRule(dict):
         :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
-        pulumi.set(__self__, "ip_mask", ip_mask)
+        DomainInboundIpRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_mask=ip_mask,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_mask: str,
+             action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_mask", ip_mask)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -245,12 +271,25 @@ class DomainInputMappingDefaultValues(dict):
         :param str event_type: Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str subject: Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
+        DomainInputMappingDefaultValues._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_version=data_version,
+            event_type=event_type,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_version: Optional[str] = None,
+             event_type: Optional[str] = None,
+             subject: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_version is not None:
-            pulumi.set(__self__, "data_version", data_version)
+            _setter("data_version", data_version)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -315,18 +354,37 @@ class DomainInputMappingFields(dict):
         :param str subject: Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str topic: Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
+        DomainInputMappingFields._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_version=data_version,
+            event_time=event_time,
+            event_type=event_type,
+            id=id,
+            subject=subject,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_version: Optional[str] = None,
+             event_time: Optional[str] = None,
+             event_type: Optional[str] = None,
+             id: Optional[str] = None,
+             subject: Optional[str] = None,
+             topic: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_version is not None:
-            pulumi.set(__self__, "data_version", data_version)
+            _setter("data_version", data_version)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -475,44 +533,89 @@ class EventSubscriptionAdvancedFilter(dict):
         :param Sequence['EventSubscriptionAdvancedFilterStringNotEndsWithArgs'] string_not_ends_withs: Compares a value of an event using multiple string values.
         :param Sequence['EventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
         """
+        EventSubscriptionAdvancedFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bool_equals=bool_equals,
+            is_not_nulls=is_not_nulls,
+            is_null_or_undefineds=is_null_or_undefineds,
+            number_greater_than_or_equals=number_greater_than_or_equals,
+            number_greater_thans=number_greater_thans,
+            number_in_ranges=number_in_ranges,
+            number_ins=number_ins,
+            number_less_than_or_equals=number_less_than_or_equals,
+            number_less_thans=number_less_thans,
+            number_not_in_ranges=number_not_in_ranges,
+            number_not_ins=number_not_ins,
+            string_begins_withs=string_begins_withs,
+            string_contains=string_contains,
+            string_ends_withs=string_ends_withs,
+            string_ins=string_ins,
+            string_not_begins_withs=string_not_begins_withs,
+            string_not_contains=string_not_contains,
+            string_not_ends_withs=string_not_ends_withs,
+            string_not_ins=string_not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bool_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterBoolEqual']] = None,
+             is_not_nulls: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterIsNotNull']] = None,
+             is_null_or_undefineds: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterIsNullOrUndefined']] = None,
+             number_greater_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
+             number_greater_thans: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThan']] = None,
+             number_in_ranges: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberInRange']] = None,
+             number_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberIn']] = None,
+             number_less_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual']] = None,
+             number_less_thans: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThan']] = None,
+             number_not_in_ranges: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberNotInRange']] = None,
+             number_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberNotIn']] = None,
+             string_begins_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringBeginsWith']] = None,
+             string_contains: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringContain']] = None,
+             string_ends_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringEndsWith']] = None,
+             string_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringIn']] = None,
+             string_not_begins_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotBeginsWith']] = None,
+             string_not_contains: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotContain']] = None,
+             string_not_ends_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotEndsWith']] = None,
+             string_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotIn']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bool_equals is not None:
-            pulumi.set(__self__, "bool_equals", bool_equals)
+            _setter("bool_equals", bool_equals)
         if is_not_nulls is not None:
-            pulumi.set(__self__, "is_not_nulls", is_not_nulls)
+            _setter("is_not_nulls", is_not_nulls)
         if is_null_or_undefineds is not None:
-            pulumi.set(__self__, "is_null_or_undefineds", is_null_or_undefineds)
+            _setter("is_null_or_undefineds", is_null_or_undefineds)
         if number_greater_than_or_equals is not None:
-            pulumi.set(__self__, "number_greater_than_or_equals", number_greater_than_or_equals)
+            _setter("number_greater_than_or_equals", number_greater_than_or_equals)
         if number_greater_thans is not None:
-            pulumi.set(__self__, "number_greater_thans", number_greater_thans)
+            _setter("number_greater_thans", number_greater_thans)
         if number_in_ranges is not None:
-            pulumi.set(__self__, "number_in_ranges", number_in_ranges)
+            _setter("number_in_ranges", number_in_ranges)
         if number_ins is not None:
-            pulumi.set(__self__, "number_ins", number_ins)
+            _setter("number_ins", number_ins)
         if number_less_than_or_equals is not None:
-            pulumi.set(__self__, "number_less_than_or_equals", number_less_than_or_equals)
+            _setter("number_less_than_or_equals", number_less_than_or_equals)
         if number_less_thans is not None:
-            pulumi.set(__self__, "number_less_thans", number_less_thans)
+            _setter("number_less_thans", number_less_thans)
         if number_not_in_ranges is not None:
-            pulumi.set(__self__, "number_not_in_ranges", number_not_in_ranges)
+            _setter("number_not_in_ranges", number_not_in_ranges)
         if number_not_ins is not None:
-            pulumi.set(__self__, "number_not_ins", number_not_ins)
+            _setter("number_not_ins", number_not_ins)
         if string_begins_withs is not None:
-            pulumi.set(__self__, "string_begins_withs", string_begins_withs)
+            _setter("string_begins_withs", string_begins_withs)
         if string_contains is not None:
-            pulumi.set(__self__, "string_contains", string_contains)
+            _setter("string_contains", string_contains)
         if string_ends_withs is not None:
-            pulumi.set(__self__, "string_ends_withs", string_ends_withs)
+            _setter("string_ends_withs", string_ends_withs)
         if string_ins is not None:
-            pulumi.set(__self__, "string_ins", string_ins)
+            _setter("string_ins", string_ins)
         if string_not_begins_withs is not None:
-            pulumi.set(__self__, "string_not_begins_withs", string_not_begins_withs)
+            _setter("string_not_begins_withs", string_not_begins_withs)
         if string_not_contains is not None:
-            pulumi.set(__self__, "string_not_contains", string_not_contains)
+            _setter("string_not_contains", string_not_contains)
         if string_not_ends_withs is not None:
-            pulumi.set(__self__, "string_not_ends_withs", string_not_ends_withs)
+            _setter("string_not_ends_withs", string_not_ends_withs)
         if string_not_ins is not None:
-            pulumi.set(__self__, "string_not_ins", string_not_ins)
+            _setter("string_not_ins", string_not_ins)
 
     @property
     @pulumi.getter(name="boolEquals")
@@ -680,8 +783,19 @@ class EventSubscriptionAdvancedFilterBoolEqual(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventSubscriptionAdvancedFilterBoolEqual._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -709,7 +823,16 @@ class EventSubscriptionAdvancedFilterIsNotNull(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         """
-        pulumi.set(__self__, "key", key)
+        EventSubscriptionAdvancedFilterIsNotNull._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -727,7 +850,16 @@ class EventSubscriptionAdvancedFilterIsNullOrUndefined(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         """
-        pulumi.set(__self__, "key", key)
+        EventSubscriptionAdvancedFilterIsNullOrUndefined._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -749,8 +881,19 @@ class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventSubscriptionAdvancedFilterNumberGreaterThan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -782,8 +925,19 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -815,8 +969,19 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterNumberIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -848,8 +1013,19 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterNumberInRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[Sequence[float]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -881,8 +1057,19 @@ class EventSubscriptionAdvancedFilterNumberLessThan(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventSubscriptionAdvancedFilterNumberLessThan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -914,8 +1101,19 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventSubscriptionAdvancedFilterNumberLessThanOrEqual._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -947,8 +1145,19 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterNumberNotIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -980,8 +1189,19 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterNumberNotInRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[Sequence[float]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1013,8 +1233,19 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringBeginsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1046,8 +1277,19 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringContain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1079,8 +1321,19 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringEndsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1112,8 +1365,19 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1145,8 +1409,19 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringNotBeginsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1178,8 +1453,19 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringNotContain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1211,8 +1497,19 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringNotEndsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1244,8 +1541,19 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventSubscriptionAdvancedFilterStringNotIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1298,11 +1606,24 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        pulumi.set(__self__, "function_id", function_id)
+        EventSubscriptionAzureFunctionEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_id=function_id,
+            max_events_per_batch=max_events_per_batch,
+            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_id: str,
+             max_events_per_batch: Optional[int] = None,
+             preferred_batch_size_in_kilobytes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_id", function_id)
         if max_events_per_batch is not None:
-            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+            _setter("max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is not None:
-            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter(name="functionId")
@@ -1355,9 +1676,20 @@ class EventSubscriptionDeadLetterIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
-        pulumi.set(__self__, "type", type)
+        EventSubscriptionDeadLetterIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -1402,9 +1734,20 @@ class EventSubscriptionDeliveryIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
-        pulumi.set(__self__, "type", type)
+        EventSubscriptionDeliveryIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -1457,14 +1800,31 @@ class EventSubscriptionDeliveryProperty(dict):
         :param str source_field: If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
         :param str value: If the `type` is `Static`, then provide the value to use
         """
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "type", type)
+        EventSubscriptionDeliveryProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_name=header_name,
+            type=type,
+            secret=secret,
+            source_field=source_field,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_name: str,
+             type: str,
+             secret: Optional[bool] = None,
+             source_field: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_name", header_name)
+        _setter("type", type)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if source_field is not None:
-            pulumi.set(__self__, "source_field", source_field)
+            _setter("source_field", source_field)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="headerName")
@@ -1535,8 +1895,19 @@ class EventSubscriptionRetryPolicy(dict):
         :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         :param int max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
-        pulumi.set(__self__, "event_time_to_live", event_time_to_live)
-        pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
+        EventSubscriptionRetryPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_time_to_live=event_time_to_live,
+            max_delivery_attempts=max_delivery_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_time_to_live: int,
+             max_delivery_attempts: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_time_to_live", event_time_to_live)
+        _setter("max_delivery_attempts", max_delivery_attempts)
 
     @property
     @pulumi.getter(name="eventTimeToLive")
@@ -1583,8 +1954,19 @@ class EventSubscriptionStorageBlobDeadLetterDestination(dict):
         :param str storage_account_id: Specifies the id of the storage account id where the storage blob is located.
         :param str storage_blob_container_name: Specifies the name of the Storage blob container that is the destination of the deadletter events.
         """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_blob_container_name", storage_blob_container_name)
+        EventSubscriptionStorageBlobDeadLetterDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_id=storage_account_id,
+            storage_blob_container_name=storage_blob_container_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_id: str,
+             storage_blob_container_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_blob_container_name", storage_blob_container_name)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -1635,10 +2017,23 @@ class EventSubscriptionStorageQueueEndpoint(dict):
         :param str storage_account_id: Specifies the id of the storage account id where the storage queue is located.
         :param int queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
         """
-        pulumi.set(__self__, "queue_name", queue_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        EventSubscriptionStorageQueueEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_name=queue_name,
+            storage_account_id=storage_account_id,
+            queue_message_time_to_live_in_seconds=queue_message_time_to_live_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_name: str,
+             storage_account_id: str,
+             queue_message_time_to_live_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("queue_name", queue_name)
+        _setter("storage_account_id", storage_account_id)
         if queue_message_time_to_live_in_seconds is not None:
-            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
+            _setter("queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
 
     @property
     @pulumi.getter(name="queueName")
@@ -1697,12 +2092,25 @@ class EventSubscriptionSubjectFilter(dict):
         :param str subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
         :param str subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
         """
+        EventSubscriptionSubjectFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            case_sensitive=case_sensitive,
+            subject_begins_with=subject_begins_with,
+            subject_ends_with=subject_ends_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             case_sensitive: Optional[bool] = None,
+             subject_begins_with: Optional[str] = None,
+             subject_ends_with: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if case_sensitive is not None:
-            pulumi.set(__self__, "case_sensitive", case_sensitive)
+            _setter("case_sensitive", case_sensitive)
         if subject_begins_with is not None:
-            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+            _setter("subject_begins_with", subject_begins_with)
         if subject_ends_with is not None:
-            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+            _setter("subject_ends_with", subject_ends_with)
 
     @property
     @pulumi.getter(name="caseSensitive")
@@ -1771,17 +2179,36 @@ class EventSubscriptionWebhookEndpoint(dict):
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        pulumi.set(__self__, "url", url)
+        EventSubscriptionWebhookEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            active_directory_app_id_or_uri=active_directory_app_id_or_uri,
+            active_directory_tenant_id=active_directory_tenant_id,
+            base_url=base_url,
+            max_events_per_batch=max_events_per_batch,
+            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: str,
+             active_directory_app_id_or_uri: Optional[str] = None,
+             active_directory_tenant_id: Optional[str] = None,
+             base_url: Optional[str] = None,
+             max_events_per_batch: Optional[int] = None,
+             preferred_batch_size_in_kilobytes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("url", url)
         if active_directory_app_id_or_uri is not None:
-            pulumi.set(__self__, "active_directory_app_id_or_uri", active_directory_app_id_or_uri)
+            _setter("active_directory_app_id_or_uri", active_directory_app_id_or_uri)
         if active_directory_tenant_id is not None:
-            pulumi.set(__self__, "active_directory_tenant_id", active_directory_tenant_id)
+            _setter("active_directory_tenant_id", active_directory_tenant_id)
         if base_url is not None:
-            pulumi.set(__self__, "base_url", base_url)
+            _setter("base_url", base_url)
         if max_events_per_batch is not None:
-            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+            _setter("max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is not None:
-            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter
@@ -1930,44 +2357,89 @@ class SystemTopicEventSubscriptionAdvancedFilter(dict):
         :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs'] string_not_ends_withs: Compares a value of an event using multiple string values.
         :param Sequence['SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
         """
+        SystemTopicEventSubscriptionAdvancedFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bool_equals=bool_equals,
+            is_not_nulls=is_not_nulls,
+            is_null_or_undefineds=is_null_or_undefineds,
+            number_greater_than_or_equals=number_greater_than_or_equals,
+            number_greater_thans=number_greater_thans,
+            number_in_ranges=number_in_ranges,
+            number_ins=number_ins,
+            number_less_than_or_equals=number_less_than_or_equals,
+            number_less_thans=number_less_thans,
+            number_not_in_ranges=number_not_in_ranges,
+            number_not_ins=number_not_ins,
+            string_begins_withs=string_begins_withs,
+            string_contains=string_contains,
+            string_ends_withs=string_ends_withs,
+            string_ins=string_ins,
+            string_not_begins_withs=string_not_begins_withs,
+            string_not_contains=string_not_contains,
+            string_not_ends_withs=string_not_ends_withs,
+            string_not_ins=string_not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bool_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterBoolEqual']] = None,
+             is_not_nulls: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterIsNotNull']] = None,
+             is_null_or_undefineds: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined']] = None,
+             number_greater_than_or_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
+             number_greater_thans: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan']] = None,
+             number_in_ranges: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberInRange']] = None,
+             number_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberIn']] = None,
+             number_less_than_or_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual']] = None,
+             number_less_thans: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberLessThan']] = None,
+             number_not_in_ranges: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange']] = None,
+             number_not_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberNotIn']] = None,
+             string_begins_withs: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith']] = None,
+             string_contains: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringContain']] = None,
+             string_ends_withs: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringEndsWith']] = None,
+             string_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringIn']] = None,
+             string_not_begins_withs: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith']] = None,
+             string_not_contains: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringNotContain']] = None,
+             string_not_ends_withs: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith']] = None,
+             string_not_ins: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterStringNotIn']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bool_equals is not None:
-            pulumi.set(__self__, "bool_equals", bool_equals)
+            _setter("bool_equals", bool_equals)
         if is_not_nulls is not None:
-            pulumi.set(__self__, "is_not_nulls", is_not_nulls)
+            _setter("is_not_nulls", is_not_nulls)
         if is_null_or_undefineds is not None:
-            pulumi.set(__self__, "is_null_or_undefineds", is_null_or_undefineds)
+            _setter("is_null_or_undefineds", is_null_or_undefineds)
         if number_greater_than_or_equals is not None:
-            pulumi.set(__self__, "number_greater_than_or_equals", number_greater_than_or_equals)
+            _setter("number_greater_than_or_equals", number_greater_than_or_equals)
         if number_greater_thans is not None:
-            pulumi.set(__self__, "number_greater_thans", number_greater_thans)
+            _setter("number_greater_thans", number_greater_thans)
         if number_in_ranges is not None:
-            pulumi.set(__self__, "number_in_ranges", number_in_ranges)
+            _setter("number_in_ranges", number_in_ranges)
         if number_ins is not None:
-            pulumi.set(__self__, "number_ins", number_ins)
+            _setter("number_ins", number_ins)
         if number_less_than_or_equals is not None:
-            pulumi.set(__self__, "number_less_than_or_equals", number_less_than_or_equals)
+            _setter("number_less_than_or_equals", number_less_than_or_equals)
         if number_less_thans is not None:
-            pulumi.set(__self__, "number_less_thans", number_less_thans)
+            _setter("number_less_thans", number_less_thans)
         if number_not_in_ranges is not None:
-            pulumi.set(__self__, "number_not_in_ranges", number_not_in_ranges)
+            _setter("number_not_in_ranges", number_not_in_ranges)
         if number_not_ins is not None:
-            pulumi.set(__self__, "number_not_ins", number_not_ins)
+            _setter("number_not_ins", number_not_ins)
         if string_begins_withs is not None:
-            pulumi.set(__self__, "string_begins_withs", string_begins_withs)
+            _setter("string_begins_withs", string_begins_withs)
         if string_contains is not None:
-            pulumi.set(__self__, "string_contains", string_contains)
+            _setter("string_contains", string_contains)
         if string_ends_withs is not None:
-            pulumi.set(__self__, "string_ends_withs", string_ends_withs)
+            _setter("string_ends_withs", string_ends_withs)
         if string_ins is not None:
-            pulumi.set(__self__, "string_ins", string_ins)
+            _setter("string_ins", string_ins)
         if string_not_begins_withs is not None:
-            pulumi.set(__self__, "string_not_begins_withs", string_not_begins_withs)
+            _setter("string_not_begins_withs", string_not_begins_withs)
         if string_not_contains is not None:
-            pulumi.set(__self__, "string_not_contains", string_not_contains)
+            _setter("string_not_contains", string_not_contains)
         if string_not_ends_withs is not None:
-            pulumi.set(__self__, "string_not_ends_withs", string_not_ends_withs)
+            _setter("string_not_ends_withs", string_not_ends_withs)
         if string_not_ins is not None:
-            pulumi.set(__self__, "string_not_ins", string_not_ins)
+            _setter("string_not_ins", string_not_ins)
 
     @property
     @pulumi.getter(name="boolEquals")
@@ -2135,8 +2607,19 @@ class SystemTopicEventSubscriptionAdvancedFilterBoolEqual(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SystemTopicEventSubscriptionAdvancedFilterBoolEqual._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2164,7 +2647,16 @@ class SystemTopicEventSubscriptionAdvancedFilterIsNotNull(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         """
-        pulumi.set(__self__, "key", key)
+        SystemTopicEventSubscriptionAdvancedFilterIsNotNull._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -2182,7 +2674,16 @@ class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined(dict):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         """
-        pulumi.set(__self__, "key", key)
+        SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -2204,8 +2705,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2237,8 +2749,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2270,8 +2793,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterNumberIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2303,8 +2837,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRange(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterNumberInRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[Sequence[float]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2336,8 +2881,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThan(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SystemTopicEventSubscriptionAdvancedFilterNumberLessThan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2369,8 +2925,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
                
                OR
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2402,8 +2969,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterNumberNotIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2435,8 +3013,19 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[Sequence[float]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2468,8 +3057,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2501,8 +3101,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContain(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringContain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2534,8 +3145,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringEndsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2567,8 +3189,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2600,8 +3233,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2633,8 +3277,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContain(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringNotContain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2666,8 +3321,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2699,8 +3365,19 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotIn(dict):
                
                > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        SystemTopicEventSubscriptionAdvancedFilterStringNotIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2753,11 +3430,24 @@ class SystemTopicEventSubscriptionAzureFunctionEndpoint(dict):
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        pulumi.set(__self__, "function_id", function_id)
+        SystemTopicEventSubscriptionAzureFunctionEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_id=function_id,
+            max_events_per_batch=max_events_per_batch,
+            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_id: str,
+             max_events_per_batch: Optional[int] = None,
+             preferred_batch_size_in_kilobytes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_id", function_id)
         if max_events_per_batch is not None:
-            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+            _setter("max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is not None:
-            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter(name="functionId")
@@ -2810,9 +3500,20 @@ class SystemTopicEventSubscriptionDeadLetterIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
-        pulumi.set(__self__, "type", type)
+        SystemTopicEventSubscriptionDeadLetterIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -2857,9 +3558,20 @@ class SystemTopicEventSubscriptionDeliveryIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
-        pulumi.set(__self__, "type", type)
+        SystemTopicEventSubscriptionDeliveryIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -2912,14 +3624,31 @@ class SystemTopicEventSubscriptionDeliveryProperty(dict):
         :param str source_field: If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
         :param str value: If the `type` is `Static`, then provide the value to use.
         """
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "type", type)
+        SystemTopicEventSubscriptionDeliveryProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_name=header_name,
+            type=type,
+            secret=secret,
+            source_field=source_field,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_name: str,
+             type: str,
+             secret: Optional[bool] = None,
+             source_field: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header_name", header_name)
+        _setter("type", type)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if source_field is not None:
-            pulumi.set(__self__, "source_field", source_field)
+            _setter("source_field", source_field)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="headerName")
@@ -2990,8 +3719,19 @@ class SystemTopicEventSubscriptionRetryPolicy(dict):
         :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         :param int max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
-        pulumi.set(__self__, "event_time_to_live", event_time_to_live)
-        pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
+        SystemTopicEventSubscriptionRetryPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_time_to_live=event_time_to_live,
+            max_delivery_attempts=max_delivery_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_time_to_live: int,
+             max_delivery_attempts: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_time_to_live", event_time_to_live)
+        _setter("max_delivery_attempts", max_delivery_attempts)
 
     @property
     @pulumi.getter(name="eventTimeToLive")
@@ -3038,8 +3778,19 @@ class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination(dict):
         :param str storage_account_id: Specifies the id of the storage account id where the storage blob is located.
         :param str storage_blob_container_name: Specifies the name of the Storage blob container that is the destination of the deadletter events.
         """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_blob_container_name", storage_blob_container_name)
+        SystemTopicEventSubscriptionStorageBlobDeadLetterDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_id=storage_account_id,
+            storage_blob_container_name=storage_blob_container_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_id: str,
+             storage_blob_container_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_blob_container_name", storage_blob_container_name)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -3090,10 +3841,23 @@ class SystemTopicEventSubscriptionStorageQueueEndpoint(dict):
         :param str storage_account_id: Specifies the id of the storage account id where the storage queue is located.
         :param int queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
         """
-        pulumi.set(__self__, "queue_name", queue_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        SystemTopicEventSubscriptionStorageQueueEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_name=queue_name,
+            storage_account_id=storage_account_id,
+            queue_message_time_to_live_in_seconds=queue_message_time_to_live_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_name: str,
+             storage_account_id: str,
+             queue_message_time_to_live_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("queue_name", queue_name)
+        _setter("storage_account_id", storage_account_id)
         if queue_message_time_to_live_in_seconds is not None:
-            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
+            _setter("queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
 
     @property
     @pulumi.getter(name="queueName")
@@ -3152,12 +3916,25 @@ class SystemTopicEventSubscriptionSubjectFilter(dict):
         :param str subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
         :param str subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
         """
+        SystemTopicEventSubscriptionSubjectFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            case_sensitive=case_sensitive,
+            subject_begins_with=subject_begins_with,
+            subject_ends_with=subject_ends_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             case_sensitive: Optional[bool] = None,
+             subject_begins_with: Optional[str] = None,
+             subject_ends_with: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if case_sensitive is not None:
-            pulumi.set(__self__, "case_sensitive", case_sensitive)
+            _setter("case_sensitive", case_sensitive)
         if subject_begins_with is not None:
-            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+            _setter("subject_begins_with", subject_begins_with)
         if subject_ends_with is not None:
-            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+            _setter("subject_ends_with", subject_ends_with)
 
     @property
     @pulumi.getter(name="caseSensitive")
@@ -3226,17 +4003,36 @@ class SystemTopicEventSubscriptionWebhookEndpoint(dict):
         :param int max_events_per_batch: Maximum number of events per batch.
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
-        pulumi.set(__self__, "url", url)
+        SystemTopicEventSubscriptionWebhookEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            active_directory_app_id_or_uri=active_directory_app_id_or_uri,
+            active_directory_tenant_id=active_directory_tenant_id,
+            base_url=base_url,
+            max_events_per_batch=max_events_per_batch,
+            preferred_batch_size_in_kilobytes=preferred_batch_size_in_kilobytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: str,
+             active_directory_app_id_or_uri: Optional[str] = None,
+             active_directory_tenant_id: Optional[str] = None,
+             base_url: Optional[str] = None,
+             max_events_per_batch: Optional[int] = None,
+             preferred_batch_size_in_kilobytes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("url", url)
         if active_directory_app_id_or_uri is not None:
-            pulumi.set(__self__, "active_directory_app_id_or_uri", active_directory_app_id_or_uri)
+            _setter("active_directory_app_id_or_uri", active_directory_app_id_or_uri)
         if active_directory_tenant_id is not None:
-            pulumi.set(__self__, "active_directory_tenant_id", active_directory_tenant_id)
+            _setter("active_directory_tenant_id", active_directory_tenant_id)
         if base_url is not None:
-            pulumi.set(__self__, "base_url", base_url)
+            _setter("base_url", base_url)
         if max_events_per_batch is not None:
-            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+            _setter("max_events_per_batch", max_events_per_batch)
         if preferred_batch_size_in_kilobytes is not None:
-            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+            _setter("preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
 
     @property
     @pulumi.getter
@@ -3325,13 +4121,28 @@ class SystemTopicIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        SystemTopicIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -3408,13 +4219,28 @@ class TopicIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        TopicIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -3479,9 +4305,20 @@ class TopicInboundIpRule(dict):
         :param str ip_mask: The IP mask (CIDR) to match on.
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         """
-        pulumi.set(__self__, "ip_mask", ip_mask)
+        TopicInboundIpRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_mask=ip_mask,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_mask: str,
+             action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_mask", ip_mask)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -3530,12 +4367,25 @@ class TopicInputMappingDefaultValues(dict):
         :param str event_type: Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str subject: Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
+        TopicInputMappingDefaultValues._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_version=data_version,
+            event_type=event_type,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_version: Optional[str] = None,
+             event_type: Optional[str] = None,
+             subject: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_version is not None:
-            pulumi.set(__self__, "data_version", data_version)
+            _setter("data_version", data_version)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -3600,18 +4450,37 @@ class TopicInputMappingFields(dict):
         :param str subject: Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         :param str topic: Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
+        TopicInputMappingFields._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_version=data_version,
+            event_time=event_time,
+            event_type=event_type,
+            id=id,
+            subject=subject,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_version: Optional[str] = None,
+             event_time: Optional[str] = None,
+             event_type: Optional[str] = None,
+             id: Optional[str] = None,
+             subject: Optional[str] = None,
+             topic: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_version is not None:
-            pulumi.set(__self__, "data_version", data_version)
+            _setter("data_version", data_version)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -3675,10 +4544,25 @@ class GetDomainIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity.
         :param str type: The type of Managed Service Identity that is configured on this EventGrid Domain.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetDomainIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -3722,8 +4606,19 @@ class GetDomainInboundIpRuleResult(dict):
         :param str action: The action to take when the rule is matched. Possible values are `Allow`.
         :param str ip_mask: The IP mask (CIDR) to match on.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "ip_mask", ip_mask)
+        GetDomainInboundIpRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             ip_mask: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter
@@ -3753,9 +4648,22 @@ class GetDomainInputMappingDefaultValueResult(dict):
         :param str event_type: Specifies the default event type of the EventGrid Event associated with the domain.
         :param str subject: Specifies the default subject of the EventGrid Event associated with the domain.
         """
-        pulumi.set(__self__, "data_version", data_version)
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "subject", subject)
+        GetDomainInputMappingDefaultValueResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_version=data_version,
+            event_type=event_type,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_version: str,
+             event_type: str,
+             subject: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_version", data_version)
+        _setter("event_type", event_type)
+        _setter("subject", subject)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -3799,12 +4707,31 @@ class GetDomainInputMappingFieldResult(dict):
         :param str subject: Specifies the default subject of the EventGrid Event associated with the domain.
         :param str topic: Specifies the topic of the EventGrid Event associated with the domain.
         """
-        pulumi.set(__self__, "data_version", data_version)
-        pulumi.set(__self__, "event_time", event_time)
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "topic", topic)
+        GetDomainInputMappingFieldResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_version=data_version,
+            event_time=event_time,
+            event_type=event_type,
+            id=id,
+            subject=subject,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_version: str,
+             event_time: str,
+             event_type: str,
+             id: str,
+             subject: str,
+             topic: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_version", data_version)
+        _setter("event_time", event_time)
+        _setter("event_type", event_type)
+        _setter("id", id)
+        _setter("subject", subject)
+        _setter("topic", topic)
 
     @property
     @pulumi.getter(name="dataVersion")
@@ -3868,10 +4795,25 @@ class GetSystemTopicIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         :param str type: The type of Managed Service Identity that is configured on this Event Grid System Topic.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetSystemTopicIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")

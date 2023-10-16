@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,52 @@ class OutputEventHubArgs:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
         """
-        pulumi.set(__self__, "eventhub_name", eventhub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialization", serialization)
-        pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        OutputEventHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_name=eventhub_name,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            servicebus_namespace=servicebus_namespace,
+            stream_analytics_job_name=stream_analytics_job_name,
+            authentication_mode=authentication_mode,
+            name=name,
+            partition_key=partition_key,
+            property_columns=property_columns,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             serialization: pulumi.Input['OutputEventHubSerializationArgs'],
+             servicebus_namespace: pulumi.Input[str],
+             stream_analytics_job_name: pulumi.Input[str],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("eventhub_name", eventhub_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialization", serialization)
+        _setter("servicebus_namespace", servicebus_namespace)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if property_columns is not None:
-            pulumi.set(__self__, "property_columns", property_columns)
+            _setter("property_columns", property_columns)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -220,28 +249,57 @@ class _OutputEventHubState:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
+        _OutputEventHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_mode=authentication_mode,
+            eventhub_name=eventhub_name,
+            name=name,
+            partition_key=partition_key,
+            property_columns=property_columns,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            servicebus_namespace=servicebus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['OutputEventHubSerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if eventhub_name is not None:
-            pulumi.set(__self__, "eventhub_name", eventhub_name)
+            _setter("eventhub_name", eventhub_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if property_columns is not None:
-            pulumi.set(__self__, "property_columns", property_columns)
+            _setter("property_columns", property_columns)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if servicebus_namespace is not None:
-            pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
+            _setter("servicebus_namespace", servicebus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -507,6 +565,10 @@ class OutputEventHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputEventHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -542,6 +604,11 @@ class OutputEventHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if serialization is not None and not isinstance(serialization, OutputEventHubSerializationArgs):
+                serialization = serialization or {}
+                def _setter(key, value):
+                    serialization[key] = value
+                OutputEventHubSerializationArgs._configure(_setter, **serialization)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

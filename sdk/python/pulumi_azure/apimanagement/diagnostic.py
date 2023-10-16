@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,30 +47,65 @@ class DiagnosticArgs:
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
-        pulumi.set(__self__, "api_management_logger_id", api_management_logger_id)
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DiagnosticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_logger_id=api_management_logger_id,
+            api_management_name=api_management_name,
+            identifier=identifier,
+            resource_group_name=resource_group_name,
+            always_log_errors=always_log_errors,
+            backend_request=backend_request,
+            backend_response=backend_response,
+            frontend_request=frontend_request,
+            frontend_response=frontend_response,
+            http_correlation_protocol=http_correlation_protocol,
+            log_client_ip=log_client_ip,
+            operation_name_format=operation_name_format,
+            sampling_percentage=sampling_percentage,
+            verbosity=verbosity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_logger_id: pulumi.Input[str],
+             api_management_name: pulumi.Input[str],
+             identifier: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             always_log_errors: Optional[pulumi.Input[bool]] = None,
+             backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
+             backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
+             frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
+             frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
+             http_correlation_protocol: Optional[pulumi.Input[str]] = None,
+             log_client_ip: Optional[pulumi.Input[bool]] = None,
+             operation_name_format: Optional[pulumi.Input[str]] = None,
+             sampling_percentage: Optional[pulumi.Input[float]] = None,
+             verbosity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_logger_id", api_management_logger_id)
+        _setter("api_management_name", api_management_name)
+        _setter("identifier", identifier)
+        _setter("resource_group_name", resource_group_name)
         if always_log_errors is not None:
-            pulumi.set(__self__, "always_log_errors", always_log_errors)
+            _setter("always_log_errors", always_log_errors)
         if backend_request is not None:
-            pulumi.set(__self__, "backend_request", backend_request)
+            _setter("backend_request", backend_request)
         if backend_response is not None:
-            pulumi.set(__self__, "backend_response", backend_response)
+            _setter("backend_response", backend_response)
         if frontend_request is not None:
-            pulumi.set(__self__, "frontend_request", frontend_request)
+            _setter("frontend_request", frontend_request)
         if frontend_response is not None:
-            pulumi.set(__self__, "frontend_response", frontend_response)
+            _setter("frontend_response", frontend_response)
         if http_correlation_protocol is not None:
-            pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
+            _setter("http_correlation_protocol", http_correlation_protocol)
         if log_client_ip is not None:
-            pulumi.set(__self__, "log_client_ip", log_client_ip)
+            _setter("log_client_ip", log_client_ip)
         if operation_name_format is not None:
-            pulumi.set(__self__, "operation_name_format", operation_name_format)
+            _setter("operation_name_format", operation_name_format)
         if sampling_percentage is not None:
-            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+            _setter("sampling_percentage", sampling_percentage)
         if verbosity is not None:
-            pulumi.set(__self__, "verbosity", verbosity)
+            _setter("verbosity", verbosity)
 
     @property
     @pulumi.getter(name="apiManagementLoggerId")
@@ -275,34 +310,69 @@ class _DiagnosticState:
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
+        _DiagnosticState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_log_errors=always_log_errors,
+            api_management_logger_id=api_management_logger_id,
+            api_management_name=api_management_name,
+            backend_request=backend_request,
+            backend_response=backend_response,
+            frontend_request=frontend_request,
+            frontend_response=frontend_response,
+            http_correlation_protocol=http_correlation_protocol,
+            identifier=identifier,
+            log_client_ip=log_client_ip,
+            operation_name_format=operation_name_format,
+            resource_group_name=resource_group_name,
+            sampling_percentage=sampling_percentage,
+            verbosity=verbosity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_log_errors: Optional[pulumi.Input[bool]] = None,
+             api_management_logger_id: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
+             backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
+             frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
+             frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
+             http_correlation_protocol: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             log_client_ip: Optional[pulumi.Input[bool]] = None,
+             operation_name_format: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sampling_percentage: Optional[pulumi.Input[float]] = None,
+             verbosity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if always_log_errors is not None:
-            pulumi.set(__self__, "always_log_errors", always_log_errors)
+            _setter("always_log_errors", always_log_errors)
         if api_management_logger_id is not None:
-            pulumi.set(__self__, "api_management_logger_id", api_management_logger_id)
+            _setter("api_management_logger_id", api_management_logger_id)
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if backend_request is not None:
-            pulumi.set(__self__, "backend_request", backend_request)
+            _setter("backend_request", backend_request)
         if backend_response is not None:
-            pulumi.set(__self__, "backend_response", backend_response)
+            _setter("backend_response", backend_response)
         if frontend_request is not None:
-            pulumi.set(__self__, "frontend_request", frontend_request)
+            _setter("frontend_request", frontend_request)
         if frontend_response is not None:
-            pulumi.set(__self__, "frontend_response", frontend_response)
+            _setter("frontend_response", frontend_response)
         if http_correlation_protocol is not None:
-            pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
+            _setter("http_correlation_protocol", http_correlation_protocol)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if log_client_ip is not None:
-            pulumi.set(__self__, "log_client_ip", log_client_ip)
+            _setter("log_client_ip", log_client_ip)
         if operation_name_format is not None:
-            pulumi.set(__self__, "operation_name_format", operation_name_format)
+            _setter("operation_name_format", operation_name_format)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sampling_percentage is not None:
-            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+            _setter("sampling_percentage", sampling_percentage)
         if verbosity is not None:
-            pulumi.set(__self__, "verbosity", verbosity)
+            _setter("verbosity", verbosity)
 
     @property
     @pulumi.getter(name="alwaysLogErrors")
@@ -682,6 +752,10 @@ class Diagnostic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiagnosticArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -717,9 +791,29 @@ class Diagnostic(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
+            if backend_request is not None and not isinstance(backend_request, DiagnosticBackendRequestArgs):
+                backend_request = backend_request or {}
+                def _setter(key, value):
+                    backend_request[key] = value
+                DiagnosticBackendRequestArgs._configure(_setter, **backend_request)
             __props__.__dict__["backend_request"] = backend_request
+            if backend_response is not None and not isinstance(backend_response, DiagnosticBackendResponseArgs):
+                backend_response = backend_response or {}
+                def _setter(key, value):
+                    backend_response[key] = value
+                DiagnosticBackendResponseArgs._configure(_setter, **backend_response)
             __props__.__dict__["backend_response"] = backend_response
+            if frontend_request is not None and not isinstance(frontend_request, DiagnosticFrontendRequestArgs):
+                frontend_request = frontend_request or {}
+                def _setter(key, value):
+                    frontend_request[key] = value
+                DiagnosticFrontendRequestArgs._configure(_setter, **frontend_request)
             __props__.__dict__["frontend_request"] = frontend_request
+            if frontend_response is not None and not isinstance(frontend_response, DiagnosticFrontendResponseArgs):
+                frontend_response = frontend_response or {}
+                def _setter(key, value):
+                    frontend_response[key] = value
+                DiagnosticFrontendResponseArgs._configure(_setter, **frontend_response)
             __props__.__dict__["frontend_response"] = frontend_response
             __props__.__dict__["http_correlation_protocol"] = http_correlation_protocol
             if identifier is None and not opts.urn:

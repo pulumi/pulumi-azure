@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReferenceInputMssqlArgs', 'ReferenceInputMssql']
@@ -41,22 +41,53 @@ class ReferenceInputMssqlArgs:
         :param pulumi.Input[str] refresh_interval_duration: The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] table: The name of the table in the Azure SQL database.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "full_snapshot_query", full_snapshot_query)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "refresh_type", refresh_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
-        pulumi.set(__self__, "username", username)
+        ReferenceInputMssqlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            full_snapshot_query=full_snapshot_query,
+            password=password,
+            refresh_type=refresh_type,
+            resource_group_name=resource_group_name,
+            server=server,
+            stream_analytics_job_name=stream_analytics_job_name,
+            username=username,
+            delta_snapshot_query=delta_snapshot_query,
+            name=name,
+            refresh_interval_duration=refresh_interval_duration,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: pulumi.Input[str],
+             full_snapshot_query: pulumi.Input[str],
+             password: pulumi.Input[str],
+             refresh_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             server: pulumi.Input[str],
+             stream_analytics_job_name: pulumi.Input[str],
+             username: pulumi.Input[str],
+             delta_snapshot_query: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             refresh_interval_duration: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("full_snapshot_query", full_snapshot_query)
+        _setter("password", password)
+        _setter("refresh_type", refresh_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server", server)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        _setter("username", username)
         if delta_snapshot_query is not None:
-            pulumi.set(__self__, "delta_snapshot_query", delta_snapshot_query)
+            _setter("delta_snapshot_query", delta_snapshot_query)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if refresh_interval_duration is not None:
-            pulumi.set(__self__, "refresh_interval_duration", refresh_interval_duration)
+            _setter("refresh_interval_duration", refresh_interval_duration)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
 
     @property
     @pulumi.getter
@@ -233,30 +264,61 @@ class _ReferenceInputMssqlState:
         :param pulumi.Input[str] table: The name of the table in the Azure SQL database.
         :param pulumi.Input[str] username: The username to connect to the MS SQL database.
         """
+        _ReferenceInputMssqlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            delta_snapshot_query=delta_snapshot_query,
+            full_snapshot_query=full_snapshot_query,
+            name=name,
+            password=password,
+            refresh_interval_duration=refresh_interval_duration,
+            refresh_type=refresh_type,
+            resource_group_name=resource_group_name,
+            server=server,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             delta_snapshot_query: Optional[pulumi.Input[str]] = None,
+             full_snapshot_query: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             refresh_interval_duration: Optional[pulumi.Input[str]] = None,
+             refresh_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if delta_snapshot_query is not None:
-            pulumi.set(__self__, "delta_snapshot_query", delta_snapshot_query)
+            _setter("delta_snapshot_query", delta_snapshot_query)
         if full_snapshot_query is not None:
-            pulumi.set(__self__, "full_snapshot_query", full_snapshot_query)
+            _setter("full_snapshot_query", full_snapshot_query)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if refresh_interval_duration is not None:
-            pulumi.set(__self__, "refresh_interval_duration", refresh_interval_duration)
+            _setter("refresh_interval_duration", refresh_interval_duration)
         if refresh_type is not None:
-            pulumi.set(__self__, "refresh_type", refresh_type)
+            _setter("refresh_type", refresh_type)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -536,6 +598,10 @@ class ReferenceInputMssql(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReferenceInputMssqlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -99,11 +99,24 @@ class AppDapr(dict):
         :param int app_port: The port which the application is listening on. This is the same as the `ingress` port.
         :param str app_protocol: The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
         """
-        pulumi.set(__self__, "app_id", app_id)
+        AppDapr._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            app_port=app_port,
+            app_protocol=app_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: str,
+             app_port: Optional[int] = None,
+             app_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
         if app_port is not None:
-            pulumi.set(__self__, "app_port", app_port)
+            _setter("app_port", app_port)
         if app_protocol is not None:
-            pulumi.set(__self__, "app_protocol", app_protocol)
+            _setter("app_protocol", app_protocol)
 
     @property
     @pulumi.getter(name="appId")
@@ -162,13 +175,28 @@ class AppIdentity(dict):
         :param str type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
-        pulumi.set(__self__, "type", type)
+        AppIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -243,18 +271,39 @@ class AppIngress(dict):
         :param str fqdn: The FQDN of the ingress.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "target_port", target_port)
-        pulumi.set(__self__, "traffic_weights", traffic_weights)
+        AppIngress._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_port=target_port,
+            traffic_weights=traffic_weights,
+            allow_insecure_connections=allow_insecure_connections,
+            custom_domain=custom_domain,
+            external_enabled=external_enabled,
+            fqdn=fqdn,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_port: int,
+             traffic_weights: Sequence['outputs.AppIngressTrafficWeight'],
+             allow_insecure_connections: Optional[bool] = None,
+             custom_domain: Optional['outputs.AppIngressCustomDomain'] = None,
+             external_enabled: Optional[bool] = None,
+             fqdn: Optional[str] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_port", target_port)
+        _setter("traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
-            pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
+            _setter("allow_insecure_connections", allow_insecure_connections)
         if custom_domain is not None:
-            pulumi.set(__self__, "custom_domain", custom_domain)
+            _setter("custom_domain", custom_domain)
         if external_enabled is not None:
-            pulumi.set(__self__, "external_enabled", external_enabled)
+            _setter("external_enabled", external_enabled)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if transport is not None:
-            pulumi.set(__self__, "transport", transport)
+            _setter("transport", transport)
 
     @property
     @pulumi.getter(name="targetPort")
@@ -345,10 +394,23 @@ class AppIngressCustomDomain(dict):
         :param str name: The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
         :param str certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
         """
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "name", name)
+        AppIngressCustomDomain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_id=certificate_id,
+            name=name,
+            certificate_binding_type=certificate_binding_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_id: str,
+             name: str,
+             certificate_binding_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_id", certificate_id)
+        _setter("name", name)
         if certificate_binding_type is not None:
-            pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
+            _setter("certificate_binding_type", certificate_binding_type)
 
     @property
     @pulumi.getter(name="certificateId")
@@ -409,13 +471,28 @@ class AppIngressTrafficWeight(dict):
         :param bool latest_revision: This traffic Weight relates to the latest stable Container Revision.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         """
-        pulumi.set(__self__, "percentage", percentage)
+        AppIngressTrafficWeight._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percentage=percentage,
+            label=label,
+            latest_revision=latest_revision,
+            revision_suffix=revision_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percentage: int,
+             label: Optional[str] = None,
+             latest_revision: Optional[bool] = None,
+             revision_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("percentage", percentage)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if latest_revision is not None:
-            pulumi.set(__self__, "latest_revision", latest_revision)
+            _setter("latest_revision", latest_revision)
         if revision_suffix is not None:
-            pulumi.set(__self__, "revision_suffix", revision_suffix)
+            _setter("revision_suffix", revision_suffix)
 
     @property
     @pulumi.getter
@@ -484,13 +561,28 @@ class AppRegistry(dict):
         :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
         :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
-        pulumi.set(__self__, "server", server)
+        AppRegistry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server=server,
+            identity=identity,
+            password_secret_name=password_secret_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server: str,
+             identity: Optional[str] = None,
+             password_secret_name: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server", server)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if password_secret_name is not None:
-            pulumi.set(__self__, "password_secret_name", password_secret_name)
+            _setter("password_secret_name", password_secret_name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -538,8 +630,19 @@ class AppSecret(dict):
                
                !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -612,23 +715,48 @@ class AppTemplate(dict):
         :param Sequence['AppTemplateTcpScaleRuleArgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
-        pulumi.set(__self__, "containers", containers)
+        AppTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers=containers,
+            azure_queue_scale_rules=azure_queue_scale_rules,
+            custom_scale_rules=custom_scale_rules,
+            http_scale_rules=http_scale_rules,
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            revision_suffix=revision_suffix,
+            tcp_scale_rules=tcp_scale_rules,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers: Sequence['outputs.AppTemplateContainer'],
+             azure_queue_scale_rules: Optional[Sequence['outputs.AppTemplateAzureQueueScaleRule']] = None,
+             custom_scale_rules: Optional[Sequence['outputs.AppTemplateCustomScaleRule']] = None,
+             http_scale_rules: Optional[Sequence['outputs.AppTemplateHttpScaleRule']] = None,
+             max_replicas: Optional[int] = None,
+             min_replicas: Optional[int] = None,
+             revision_suffix: Optional[str] = None,
+             tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
+             volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("containers", containers)
         if azure_queue_scale_rules is not None:
-            pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
+            _setter("azure_queue_scale_rules", azure_queue_scale_rules)
         if custom_scale_rules is not None:
-            pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
+            _setter("custom_scale_rules", custom_scale_rules)
         if http_scale_rules is not None:
-            pulumi.set(__self__, "http_scale_rules", http_scale_rules)
+            _setter("http_scale_rules", http_scale_rules)
         if max_replicas is not None:
-            pulumi.set(__self__, "max_replicas", max_replicas)
+            _setter("max_replicas", max_replicas)
         if min_replicas is not None:
-            pulumi.set(__self__, "min_replicas", min_replicas)
+            _setter("min_replicas", min_replicas)
         if revision_suffix is not None:
-            pulumi.set(__self__, "revision_suffix", revision_suffix)
+            _setter("revision_suffix", revision_suffix)
         if tcp_scale_rules is not None:
-            pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
+            _setter("tcp_scale_rules", tcp_scale_rules)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter
@@ -735,10 +863,25 @@ class AppTemplateAzureQueueScaleRule(dict):
         :param int queue_length: The value of the length of the queue to trigger scaling actions.
         :param str queue_name: The name of the Azure Queue
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "queue_length", queue_length)
-        pulumi.set(__self__, "queue_name", queue_name)
+        AppTemplateAzureQueueScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            name=name,
+            queue_length=queue_length,
+            queue_name=queue_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Sequence['outputs.AppTemplateAzureQueueScaleRuleAuthentication'],
+             name: str,
+             queue_length: int,
+             queue_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentications", authentications)
+        _setter("name", name)
+        _setter("queue_length", queue_length)
+        _setter("queue_name", queue_name)
 
     @property
     @pulumi.getter
@@ -801,8 +944,19 @@ class AppTemplateAzureQueueScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        AppTemplateAzureQueueScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -881,26 +1035,57 @@ class AppTemplateContainer(dict):
         :param Sequence['AppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
         :param Sequence['AppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "memory", memory)
-        pulumi.set(__self__, "name", name)
+        AppTemplateContainer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            image=image,
+            memory=memory,
+            name=name,
+            args=args,
+            commands=commands,
+            envs=envs,
+            ephemeral_storage=ephemeral_storage,
+            liveness_probes=liveness_probes,
+            readiness_probes=readiness_probes,
+            startup_probes=startup_probes,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: float,
+             image: str,
+             memory: str,
+             name: str,
+             args: Optional[Sequence[str]] = None,
+             commands: Optional[Sequence[str]] = None,
+             envs: Optional[Sequence['outputs.AppTemplateContainerEnv']] = None,
+             ephemeral_storage: Optional[str] = None,
+             liveness_probes: Optional[Sequence['outputs.AppTemplateContainerLivenessProbe']] = None,
+             readiness_probes: Optional[Sequence['outputs.AppTemplateContainerReadinessProbe']] = None,
+             startup_probes: Optional[Sequence['outputs.AppTemplateContainerStartupProbe']] = None,
+             volume_mounts: Optional[Sequence['outputs.AppTemplateContainerVolumeMount']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cpu", cpu)
+        _setter("image", image)
+        _setter("memory", memory)
+        _setter("name", name)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if envs is not None:
-            pulumi.set(__self__, "envs", envs)
+            _setter("envs", envs)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if liveness_probes is not None:
-            pulumi.set(__self__, "liveness_probes", liveness_probes)
+            _setter("liveness_probes", liveness_probes)
         if readiness_probes is not None:
-            pulumi.set(__self__, "readiness_probes", readiness_probes)
+            _setter("readiness_probes", readiness_probes)
         if startup_probes is not None:
-            pulumi.set(__self__, "startup_probes", startup_probes)
+            _setter("startup_probes", startup_probes)
         if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+            _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -1035,11 +1220,24 @@ class AppTemplateContainerEnv(dict):
                
                > **NOTE:** This value is ignored if `secret_name` is used
         """
-        pulumi.set(__self__, "name", name)
+        AppTemplateContainerEnv._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_name=secret_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secret_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1116,24 +1314,51 @@ class AppTemplateContainerLivenessProbe(dict):
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "transport", transport)
+        AppTemplateContainerLivenessProbe._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            transport=transport,
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            initial_delay=initial_delay,
+            interval_seconds=interval_seconds,
+            path=path,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             transport: str,
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.AppTemplateContainerLivenessProbeHeader']] = None,
+             host: Optional[str] = None,
+             initial_delay: Optional[int] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             termination_grace_period_seconds: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("transport", transport)
         if failure_count_threshold is not None:
-            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+            _setter("failure_count_threshold", failure_count_threshold)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if initial_delay is not None:
-            pulumi.set(__self__, "initial_delay", initial_delay)
+            _setter("initial_delay", initial_delay)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+            _setter("termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1225,8 +1450,19 @@ class AppTemplateContainerLivenessProbeHeader(dict):
         :param str name: The HTTP Header Name.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppTemplateContainerLivenessProbeHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1289,22 +1525,47 @@ class AppTemplateContainerReadinessProbe(dict):
         :param int success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "transport", transport)
+        AppTemplateContainerReadinessProbe._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            transport=transport,
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            success_count_threshold=success_count_threshold,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             transport: str,
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.AppTemplateContainerReadinessProbeHeader']] = None,
+             host: Optional[str] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             success_count_threshold: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("transport", transport)
         if failure_count_threshold is not None:
-            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+            _setter("failure_count_threshold", failure_count_threshold)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if success_count_threshold is not None:
-            pulumi.set(__self__, "success_count_threshold", success_count_threshold)
+            _setter("success_count_threshold", success_count_threshold)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1388,8 +1649,19 @@ class AppTemplateContainerReadinessProbeHeader(dict):
         :param str name: The HTTP Header Name.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppTemplateContainerReadinessProbeHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1452,22 +1724,47 @@ class AppTemplateContainerStartupProbe(dict):
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "transport", transport)
+        AppTemplateContainerStartupProbe._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            transport=transport,
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             transport: str,
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.AppTemplateContainerStartupProbeHeader']] = None,
+             host: Optional[str] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             termination_grace_period_seconds: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("transport", transport)
         if failure_count_threshold is not None:
-            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+            _setter("failure_count_threshold", failure_count_threshold)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+            _setter("termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1551,8 +1848,19 @@ class AppTemplateContainerStartupProbeHeader(dict):
         :param str name: The HTTP Header Name.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppTemplateContainerStartupProbeHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1580,8 +1888,19 @@ class AppTemplateContainerVolumeMount(dict):
         :param str name: The name of the Volume to be mounted in the container.
         :param str path: The path in the container at which to mount this volume.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
+        AppTemplateContainerVolumeMount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1630,11 +1949,26 @@ class AppTemplateCustomScaleRule(dict):
         :param str name: The name of the Scaling Rule
         :param Sequence['AppTemplateCustomScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
-        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "name", name)
+        AppTemplateCustomScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_rule_type=custom_rule_type,
+            metadata=metadata,
+            name=name,
+            authentications=authentications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_rule_type: str,
+             metadata: Mapping[str, str],
+             name: str,
+             authentications: Optional[Sequence['outputs.AppTemplateCustomScaleRuleAuthentication']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_rule_type", custom_rule_type)
+        _setter("metadata", metadata)
+        _setter("name", name)
         if authentications is not None:
-            pulumi.set(__self__, "authentications", authentications)
+            _setter("authentications", authentications)
 
     @property
     @pulumi.getter(name="customRuleType")
@@ -1697,8 +2031,19 @@ class AppTemplateCustomScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        AppTemplateCustomScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1745,10 +2090,23 @@ class AppTemplateHttpScaleRule(dict):
         :param str name: The name of the Scaling Rule
         :param Sequence['AppTemplateHttpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        AppTemplateHttpScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            concurrent_requests=concurrent_requests,
+            name=name,
+            authentications=authentications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             concurrent_requests: str,
+             name: str,
+             authentications: Optional[Sequence['outputs.AppTemplateHttpScaleRuleAuthentication']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
         if authentications is not None:
-            pulumi.set(__self__, "authentications", authentications)
+            _setter("authentications", authentications)
 
     @property
     @pulumi.getter(name="concurrentRequests")
@@ -1803,9 +2161,20 @@ class AppTemplateHttpScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        AppTemplateHttpScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
         if trigger_parameter is not None:
-            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+            _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1852,10 +2221,23 @@ class AppTemplateTcpScaleRule(dict):
         :param str name: The name of the Scaling Rule
         :param Sequence['AppTemplateTcpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        AppTemplateTcpScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            concurrent_requests=concurrent_requests,
+            name=name,
+            authentications=authentications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             concurrent_requests: str,
+             name: str,
+             authentications: Optional[Sequence['outputs.AppTemplateTcpScaleRuleAuthentication']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
         if authentications is not None:
-            pulumi.set(__self__, "authentications", authentications)
+            _setter("authentications", authentications)
 
     @property
     @pulumi.getter(name="concurrentRequests")
@@ -1910,9 +2292,20 @@ class AppTemplateTcpScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        AppTemplateTcpScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
         if trigger_parameter is not None:
-            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+            _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1961,11 +2354,24 @@ class AppTemplateVolume(dict):
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """
-        pulumi.set(__self__, "name", name)
+        AppTemplateVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            storage_name=storage_name,
+            storage_type=storage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             storage_name: Optional[str] = None,
+             storage_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if storage_name is not None:
-            pulumi.set(__self__, "storage_name", storage_name)
+            _setter("storage_name", storage_name)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
 
     @property
     @pulumi.getter
@@ -2020,11 +2426,24 @@ class EnvironmentDaprComponentMetadata(dict):
         :param str secret_name: The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
         :param str value: The value for this metadata configuration item.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentDaprComponentMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_name=secret_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secret_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2060,8 +2479,19 @@ class EnvironmentDaprComponentSecret(dict):
         :param str name: The Secret name.
         :param str value: The value for this secret.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        EnvironmentDaprComponentSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2091,9 +2521,22 @@ class GetAppDaprResult(dict):
         :param int app_port: The port which the application is listening on. This is the same as the `ingress` port.
         :param str app_protocol: The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_port", app_port)
-        pulumi.set(__self__, "app_protocol", app_protocol)
+        GetAppDaprResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            app_port=app_port,
+            app_protocol=app_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: str,
+             app_port: int,
+             app_protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_id", app_id)
+        _setter("app_port", app_port)
+        _setter("app_protocol", app_protocol)
 
     @property
     @pulumi.getter(name="appId")
@@ -2131,10 +2574,25 @@ class GetAppIdentityResult(dict):
         :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetAppIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -2182,13 +2640,34 @@ class GetAppIngressResult(dict):
         :param Sequence['GetAppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
-        pulumi.set(__self__, "custom_domains", custom_domains)
-        pulumi.set(__self__, "external_enabled", external_enabled)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "target_port", target_port)
-        pulumi.set(__self__, "traffic_weights", traffic_weights)
-        pulumi.set(__self__, "transport", transport)
+        GetAppIngressResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_insecure_connections=allow_insecure_connections,
+            custom_domains=custom_domains,
+            external_enabled=external_enabled,
+            fqdn=fqdn,
+            target_port=target_port,
+            traffic_weights=traffic_weights,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_insecure_connections: bool,
+             custom_domains: Sequence['outputs.GetAppIngressCustomDomainResult'],
+             external_enabled: bool,
+             fqdn: str,
+             target_port: int,
+             traffic_weights: Sequence['outputs.GetAppIngressTrafficWeightResult'],
+             transport: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_insecure_connections", allow_insecure_connections)
+        _setter("custom_domains", custom_domains)
+        _setter("external_enabled", external_enabled)
+        _setter("fqdn", fqdn)
+        _setter("target_port", target_port)
+        _setter("traffic_weights", traffic_weights)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="allowInsecureConnections")
@@ -2258,9 +2737,22 @@ class GetAppIngressCustomDomainResult(dict):
         :param str certificate_id: The ID of the Container App Environment Certificate.
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "name", name)
+        GetAppIngressCustomDomainResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_binding_type=certificate_binding_type,
+            certificate_id=certificate_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_binding_type: str,
+             certificate_id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_binding_type", certificate_binding_type)
+        _setter("certificate_id", certificate_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="certificateBindingType")
@@ -2300,10 +2792,25 @@ class GetAppIngressTrafficWeightResult(dict):
         :param int percentage: The percentage of traffic which should be sent this revision.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "latest_revision", latest_revision)
-        pulumi.set(__self__, "percentage", percentage)
-        pulumi.set(__self__, "revision_suffix", revision_suffix)
+        GetAppIngressTrafficWeightResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            latest_revision=latest_revision,
+            percentage=percentage,
+            revision_suffix=revision_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: str,
+             latest_revision: bool,
+             percentage: int,
+             revision_suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
+        _setter("latest_revision", latest_revision)
+        _setter("percentage", percentage)
+        _setter("revision_suffix", revision_suffix)
 
     @property
     @pulumi.getter
@@ -2351,10 +2858,25 @@ class GetAppRegistryResult(dict):
         :param str server: The hostname for the Container Registry.
         :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "password_secret_name", password_secret_name)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        GetAppRegistryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            password_secret_name=password_secret_name,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: str,
+             password_secret_name: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity", identity)
+        _setter("password_secret_name", password_secret_name)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2398,8 +2920,19 @@ class GetAppSecretResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppSecretResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2437,16 +2970,41 @@ class GetAppTemplateResult(dict):
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
-        pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
-        pulumi.set(__self__, "containers", containers)
-        pulumi.set(__self__, "http_scale_rules", http_scale_rules)
-        pulumi.set(__self__, "max_replicas", max_replicas)
-        pulumi.set(__self__, "min_replicas", min_replicas)
-        pulumi.set(__self__, "revision_suffix", revision_suffix)
-        pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
-        pulumi.set(__self__, "volumes", volumes)
+        GetAppTemplateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_queue_scale_rules=azure_queue_scale_rules,
+            containers=containers,
+            http_scale_rules=http_scale_rules,
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            revision_suffix=revision_suffix,
+            tcp_scale_rules=tcp_scale_rules,
+            volumes=volumes,
+            custom_scale_rules=custom_scale_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_queue_scale_rules: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult'],
+             containers: Sequence['outputs.GetAppTemplateContainerResult'],
+             http_scale_rules: Sequence['outputs.GetAppTemplateHttpScaleRuleResult'],
+             max_replicas: int,
+             min_replicas: int,
+             revision_suffix: str,
+             tcp_scale_rules: Sequence['outputs.GetAppTemplateTcpScaleRuleResult'],
+             volumes: Sequence['outputs.GetAppTemplateVolumeResult'],
+             custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("azure_queue_scale_rules", azure_queue_scale_rules)
+        _setter("containers", containers)
+        _setter("http_scale_rules", http_scale_rules)
+        _setter("max_replicas", max_replicas)
+        _setter("min_replicas", min_replicas)
+        _setter("revision_suffix", revision_suffix)
+        _setter("tcp_scale_rules", tcp_scale_rules)
+        _setter("volumes", volumes)
         if custom_scale_rules is not None:
-            pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
+            _setter("custom_scale_rules", custom_scale_rules)
 
     @property
     @pulumi.getter(name="azureQueueScaleRules")
@@ -2519,10 +3077,25 @@ class GetAppTemplateAzureQueueScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "queue_length", queue_length)
-        pulumi.set(__self__, "queue_name", queue_name)
+        GetAppTemplateAzureQueueScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            name=name,
+            queue_length=queue_length,
+            queue_name=queue_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleAuthenticationResult'],
+             name: str,
+             queue_length: int,
+             queue_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentications", authentications)
+        _setter("name", name)
+        _setter("queue_length", queue_length)
+        _setter("queue_name", queue_name)
 
     @property
     @pulumi.getter
@@ -2556,8 +3129,19 @@ class GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateAzureQueueScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -2602,18 +3186,49 @@ class GetAppTemplateContainerResult(dict):
         :param Sequence['GetAppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
         :param Sequence['GetAppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
         """
-        pulumi.set(__self__, "args", args)
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "envs", envs)
-        pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "liveness_probes", liveness_probes)
-        pulumi.set(__self__, "memory", memory)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "readiness_probes", readiness_probes)
-        pulumi.set(__self__, "startup_probes", startup_probes)
-        pulumi.set(__self__, "volume_mounts", volume_mounts)
+        GetAppTemplateContainerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            args=args,
+            commands=commands,
+            cpu=cpu,
+            envs=envs,
+            ephemeral_storage=ephemeral_storage,
+            image=image,
+            liveness_probes=liveness_probes,
+            memory=memory,
+            name=name,
+            readiness_probes=readiness_probes,
+            startup_probes=startup_probes,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             args: Sequence[str],
+             commands: Sequence[str],
+             cpu: float,
+             envs: Sequence['outputs.GetAppTemplateContainerEnvResult'],
+             ephemeral_storage: str,
+             image: str,
+             liveness_probes: Sequence['outputs.GetAppTemplateContainerLivenessProbeResult'],
+             memory: str,
+             name: str,
+             readiness_probes: Sequence['outputs.GetAppTemplateContainerReadinessProbeResult'],
+             startup_probes: Sequence['outputs.GetAppTemplateContainerStartupProbeResult'],
+             volume_mounts: Sequence['outputs.GetAppTemplateContainerVolumeMountResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("args", args)
+        _setter("commands", commands)
+        _setter("cpu", cpu)
+        _setter("envs", envs)
+        _setter("ephemeral_storage", ephemeral_storage)
+        _setter("image", image)
+        _setter("liveness_probes", liveness_probes)
+        _setter("memory", memory)
+        _setter("name", name)
+        _setter("readiness_probes", readiness_probes)
+        _setter("startup_probes", startup_probes)
+        _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -2723,9 +3338,22 @@ class GetAppTemplateContainerEnvResult(dict):
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerEnvResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_name=secret_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secret_name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("secret_name", secret_name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2777,16 +3405,43 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "initial_delay", initial_delay)
-        pulumi.set(__self__, "interval_seconds", interval_seconds)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "transport", transport)
+        GetAppTemplateContainerLivenessProbeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            initial_delay=initial_delay,
+            interval_seconds=interval_seconds,
+            path=path,
+            port=port,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count_threshold: int,
+             headers: Sequence['outputs.GetAppTemplateContainerLivenessProbeHeaderResult'],
+             host: str,
+             initial_delay: int,
+             interval_seconds: int,
+             path: str,
+             port: int,
+             termination_grace_period_seconds: int,
+             timeout: int,
+             transport: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_count_threshold", failure_count_threshold)
+        _setter("headers", headers)
+        _setter("host", host)
+        _setter("initial_delay", initial_delay)
+        _setter("interval_seconds", interval_seconds)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("termination_grace_period_seconds", termination_grace_period_seconds)
+        _setter("timeout", timeout)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="failureCountThreshold")
@@ -2878,8 +3533,19 @@ class GetAppTemplateContainerLivenessProbeHeaderResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerLivenessProbeHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2921,15 +3587,40 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "interval_seconds", interval_seconds)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "success_count_threshold", success_count_threshold)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "transport", transport)
+        GetAppTemplateContainerReadinessProbeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            port=port,
+            success_count_threshold=success_count_threshold,
+            timeout=timeout,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count_threshold: int,
+             headers: Sequence['outputs.GetAppTemplateContainerReadinessProbeHeaderResult'],
+             host: str,
+             interval_seconds: int,
+             path: str,
+             port: int,
+             success_count_threshold: int,
+             timeout: int,
+             transport: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_count_threshold", failure_count_threshold)
+        _setter("headers", headers)
+        _setter("host", host)
+        _setter("interval_seconds", interval_seconds)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("success_count_threshold", success_count_threshold)
+        _setter("timeout", timeout)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="failureCountThreshold")
@@ -3013,8 +3704,19 @@ class GetAppTemplateContainerReadinessProbeHeaderResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerReadinessProbeHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3056,15 +3758,40 @@ class GetAppTemplateContainerStartupProbeResult(dict):
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "interval_seconds", interval_seconds)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "transport", transport)
+        GetAppTemplateContainerStartupProbeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            port=port,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count_threshold: int,
+             headers: Sequence['outputs.GetAppTemplateContainerStartupProbeHeaderResult'],
+             host: str,
+             interval_seconds: int,
+             path: str,
+             port: int,
+             termination_grace_period_seconds: int,
+             timeout: int,
+             transport: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_count_threshold", failure_count_threshold)
+        _setter("headers", headers)
+        _setter("host", host)
+        _setter("interval_seconds", interval_seconds)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("termination_grace_period_seconds", termination_grace_period_seconds)
+        _setter("timeout", timeout)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="failureCountThreshold")
@@ -3148,8 +3875,19 @@ class GetAppTemplateContainerStartupProbeHeaderResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerStartupProbeHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3177,8 +3915,19 @@ class GetAppTemplateContainerVolumeMountResult(dict):
         :param str name: The name of the Container App.
         :param str path: The path in the container at which to mount this volume.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
+        GetAppTemplateContainerVolumeMountResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -3207,10 +3956,25 @@ class GetAppTemplateCustomScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "name", name)
+        GetAppTemplateCustomScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            custom_rule_type=custom_rule_type,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Sequence['outputs.GetAppTemplateCustomScaleRuleAuthenticationResult'],
+             custom_rule_type: str,
+             metadata: Mapping[str, str],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentications", authentications)
+        _setter("custom_rule_type", custom_rule_type)
+        _setter("metadata", metadata)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3244,8 +4008,19 @@ class GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateCustomScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -3270,9 +4045,22 @@ class GetAppTemplateHttpScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        GetAppTemplateHttpScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            concurrent_requests=concurrent_requests,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Sequence['outputs.GetAppTemplateHttpScaleRuleAuthenticationResult'],
+             concurrent_requests: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentications", authentications)
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3301,8 +4089,19 @@ class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateHttpScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -3327,9 +4126,22 @@ class GetAppTemplateTcpScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        GetAppTemplateTcpScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            concurrent_requests=concurrent_requests,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Sequence['outputs.GetAppTemplateTcpScaleRuleAuthenticationResult'],
+             concurrent_requests: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentications", authentications)
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3358,8 +4170,19 @@ class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateTcpScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             trigger_parameter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -3386,9 +4209,22 @@ class GetAppTemplateVolumeResult(dict):
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "storage_name", storage_name)
-        pulumi.set(__self__, "storage_type", storage_type)
+        GetAppTemplateVolumeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            storage_name=storage_name,
+            storage_type=storage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             storage_name: str,
+             storage_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("storage_name", storage_name)
+        _setter("storage_type", storage_type)
 
     @property
     @pulumi.getter

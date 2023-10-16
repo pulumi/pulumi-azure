@@ -15,17 +15,9 @@ public final class LinuxWebAppSiteCredentialArgs extends com.pulumi.resources.Re
 
     public static final LinuxWebAppSiteCredentialArgs Empty = new LinuxWebAppSiteCredentialArgs();
 
-    /**
-     * The Site Credentials Username used for publishing.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,23 +62,11 @@ public final class LinuxWebAppSiteCredentialArgs extends com.pulumi.resources.Re
             $ = new LinuxWebAppSiteCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The Site Credentials Username used for publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The Site Credentials Username used for publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class ChannelLineArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "line_channels", line_channels)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelLineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            line_channels=line_channels,
+            resource_group_name=resource_group_name,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: pulumi.Input[str],
+             line_channels: pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_name", bot_name)
+        _setter("line_channels", line_channels)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -96,14 +111,29 @@ class _ChannelLineState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         """
+        _ChannelLineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            line_channels=line_channels,
+            location=location,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if line_channels is not None:
-            pulumi.set(__self__, "line_channels", line_channels)
+            _setter("line_channels", line_channels)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="botName")
@@ -259,6 +289,10 @@ class ChannelLine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelLineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

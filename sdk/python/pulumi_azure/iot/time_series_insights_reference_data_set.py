@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class TimeSeriesInsightsReferenceDataSetArgs:
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "key_properties", key_properties)
-        pulumi.set(__self__, "time_series_insights_environment_id", time_series_insights_environment_id)
+        TimeSeriesInsightsReferenceDataSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_properties=key_properties,
+            time_series_insights_environment_id=time_series_insights_environment_id,
+            data_string_comparison_behavior=data_string_comparison_behavior,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_properties: pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]],
+             time_series_insights_environment_id: pulumi.Input[str],
+             data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_properties", key_properties)
+        _setter("time_series_insights_environment_id", time_series_insights_environment_id)
         if data_string_comparison_behavior is not None:
-            pulumi.set(__self__, "data_string_comparison_behavior", data_string_comparison_behavior)
+            _setter("data_string_comparison_behavior", data_string_comparison_behavior)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyProperties")
@@ -133,18 +152,37 @@ class _TimeSeriesInsightsReferenceDataSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
+        _TimeSeriesInsightsReferenceDataSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_string_comparison_behavior=data_string_comparison_behavior,
+            key_properties=key_properties,
+            location=location,
+            name=name,
+            tags=tags,
+            time_series_insights_environment_id=time_series_insights_environment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
+             key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_string_comparison_behavior is not None:
-            pulumi.set(__self__, "data_string_comparison_behavior", data_string_comparison_behavior)
+            _setter("data_string_comparison_behavior", data_string_comparison_behavior)
         if key_properties is not None:
-            pulumi.set(__self__, "key_properties", key_properties)
+            _setter("key_properties", key_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if time_series_insights_environment_id is not None:
-            pulumi.set(__self__, "time_series_insights_environment_id", time_series_insights_environment_id)
+            _setter("time_series_insights_environment_id", time_series_insights_environment_id)
 
     @property
     @pulumi.getter(name="dataStringComparisonBehavior")
@@ -320,6 +358,10 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TimeSeriesInsightsReferenceDataSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

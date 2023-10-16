@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,10 +26,25 @@ class GetMariaDbServerStorageProfileResult(dict):
         :param str geo_redundant_backup: Whether Geo-redundant is enabled or not for server backup.
         :param int storage_mb: The max storage allowed for a server.
         """
-        pulumi.set(__self__, "auto_grow", auto_grow)
-        pulumi.set(__self__, "backup_retention_days", backup_retention_days)
-        pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
-        pulumi.set(__self__, "storage_mb", storage_mb)
+        GetMariaDbServerStorageProfileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_grow=auto_grow,
+            backup_retention_days=backup_retention_days,
+            geo_redundant_backup=geo_redundant_backup,
+            storage_mb=storage_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_grow: str,
+             backup_retention_days: int,
+             geo_redundant_backup: str,
+             storage_mb: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_grow", auto_grow)
+        _setter("backup_retention_days", backup_retention_days)
+        _setter("geo_redundant_backup", geo_redundant_backup)
+        _setter("storage_mb", storage_mb)
 
     @property
     @pulumi.getter(name="autoGrow")

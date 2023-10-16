@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiConnectionArgs', 'ApiConnection']
@@ -28,16 +28,35 @@ class ApiConnectionArgs:
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
-        pulumi.set(__self__, "managed_api_id", managed_api_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApiConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_api_id=managed_api_id,
+            resource_group_name=resource_group_name,
+            display_name=display_name,
+            name=name,
+            parameter_values=parameter_values,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_api_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_api_id", managed_api_id)
+        _setter("resource_group_name", resource_group_name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="managedApiId")
@@ -126,18 +145,37 @@ class _ApiConnectionState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
+        _ApiConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            managed_api_id=managed_api_id,
+            name=name,
+            parameter_values=parameter_values,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             managed_api_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if managed_api_id is not None:
-            pulumi.set(__self__, "managed_api_id", managed_api_id)
+            _setter("managed_api_id", managed_api_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -317,6 +355,10 @@ class ApiConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

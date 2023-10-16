@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,40 @@ class SpringCloudApiPortalArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input['SpringCloudApiPortalSsoArgs'] sso: A `sso` block as defined below.
         """
-        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+        SpringCloudApiPortalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spring_cloud_service_id=spring_cloud_service_id,
+            gateway_ids=gateway_ids,
+            https_only_enabled=https_only_enabled,
+            instance_count=instance_count,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            sso=sso,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spring_cloud_service_id: pulumi.Input[str],
+             gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             https_only_enabled: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("spring_cloud_service_id", spring_cloud_service_id)
         if gateway_ids is not None:
-            pulumi.set(__self__, "gateway_ids", gateway_ids)
+            _setter("gateway_ids", gateway_ids)
         if https_only_enabled is not None:
-            pulumi.set(__self__, "https_only_enabled", https_only_enabled)
+            _setter("https_only_enabled", https_only_enabled)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if sso is not None:
-            pulumi.set(__self__, "sso", sso)
+            _setter("sso", sso)
 
     @property
     @pulumi.getter(name="springCloudServiceId")
@@ -154,22 +175,45 @@ class _SpringCloudApiPortalState:
         :param pulumi.Input['SpringCloudApiPortalSsoArgs'] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: TODO.
         """
+        _SpringCloudApiPortalState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_ids=gateway_ids,
+            https_only_enabled=https_only_enabled,
+            instance_count=instance_count,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            spring_cloud_service_id=spring_cloud_service_id,
+            sso=sso,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             https_only_enabled: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gateway_ids is not None:
-            pulumi.set(__self__, "gateway_ids", gateway_ids)
+            _setter("gateway_ids", gateway_ids)
         if https_only_enabled is not None:
-            pulumi.set(__self__, "https_only_enabled", https_only_enabled)
+            _setter("https_only_enabled", https_only_enabled)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if spring_cloud_service_id is not None:
-            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+            _setter("spring_cloud_service_id", spring_cloud_service_id)
         if sso is not None:
-            pulumi.set(__self__, "sso", sso)
+            _setter("sso", sso)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="gatewayIds")
@@ -385,6 +429,10 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudApiPortalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -414,6 +462,11 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
+            if sso is not None and not isinstance(sso, SpringCloudApiPortalSsoArgs):
+                sso = sso or {}
+                def _setter(key, value):
+                    sso[key] = value
+                SpringCloudApiPortalSsoArgs._configure(_setter, **sso)
             __props__.__dict__["sso"] = sso
             __props__.__dict__["url"] = None
         super(SpringCloudApiPortal, __self__).__init__(

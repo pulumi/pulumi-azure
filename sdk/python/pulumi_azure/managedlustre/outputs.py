@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -44,8 +44,19 @@ class FileSystemEncryptionKey(dict):
         :param str key_url: The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
         :param str source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
-        pulumi.set(__self__, "key_url", key_url)
-        pulumi.set(__self__, "source_vault_id", source_vault_id)
+        FileSystemEncryptionKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            source_vault_id=source_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: str,
+             source_vault_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_url", key_url)
+        _setter("source_vault_id", source_vault_id)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -98,10 +109,23 @@ class FileSystemHsmSetting(dict):
                
                > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
         """
-        pulumi.set(__self__, "container_id", container_id)
-        pulumi.set(__self__, "logging_container_id", logging_container_id)
+        FileSystemHsmSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_id=container_id,
+            logging_container_id=logging_container_id,
+            import_prefix=import_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_id: str,
+             logging_container_id: str,
+             import_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_id", container_id)
+        _setter("logging_container_id", logging_container_id)
         if import_prefix is not None:
-            pulumi.set(__self__, "import_prefix", import_prefix)
+            _setter("import_prefix", import_prefix)
 
     @property
     @pulumi.getter(name="containerId")
@@ -156,8 +180,19 @@ class FileSystemIdentity(dict):
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param str type: The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        FileSystemIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -203,8 +238,19 @@ class FileSystemMaintenanceWindow(dict):
         """
         :param str day_of_week: The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "time_of_day_in_utc", time_of_day_in_utc)
+        FileSystemMaintenanceWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            time_of_day_in_utc=time_of_day_in_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: str,
+             time_of_day_in_utc: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_week", day_of_week)
+        _setter("time_of_day_in_utc", time_of_day_in_utc)
 
     @property
     @pulumi.getter(name="dayOfWeek")

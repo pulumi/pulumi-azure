@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,25 +39,52 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Web Application Firewall Policy.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            custom_block_response_body=custom_block_response_body,
+            custom_block_response_status_code=custom_block_response_status_code,
+            custom_rules=custom_rules,
+            enabled=enabled,
+            managed_rules=managed_rules,
+            mode=mode,
+            name=name,
+            redirect_url=redirect_url,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             custom_block_response_body: Optional[pulumi.Input[str]] = None,
+             custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if custom_block_response_body is not None:
-            pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
+            _setter("custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
-            pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+            _setter("custom_block_response_status_code", custom_block_response_status_code)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -210,30 +237,61 @@ class _FirewallPolicyState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Web Application Firewall Policy.
         """
+        _FirewallPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_block_response_body=custom_block_response_body,
+            custom_block_response_status_code=custom_block_response_status_code,
+            custom_rules=custom_rules,
+            enabled=enabled,
+            frontend_endpoint_ids=frontend_endpoint_ids,
+            location=location,
+            managed_rules=managed_rules,
+            mode=mode,
+            name=name,
+            redirect_url=redirect_url,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_block_response_body: Optional[pulumi.Input[str]] = None,
+             custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_block_response_body is not None:
-            pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
+            _setter("custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
-            pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+            _setter("custom_block_response_status_code", custom_block_response_status_code)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frontend_endpoint_ids is not None:
-            pulumi.set(__self__, "frontend_endpoint_ids", frontend_endpoint_ids)
+            _setter("frontend_endpoint_ids", frontend_endpoint_ids)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="customBlockResponseBody")
@@ -655,6 +713,10 @@ class FirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

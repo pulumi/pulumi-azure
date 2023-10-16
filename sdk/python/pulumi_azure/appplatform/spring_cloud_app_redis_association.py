@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudAppRedisAssociationArgs', 'SpringCloudAppRedisAssociation']
@@ -27,13 +27,30 @@ class SpringCloudAppRedisAssociationArgs:
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ssl_enabled: Should SSL be used when connecting to Redis? Defaults to `true`.
         """
-        pulumi.set(__self__, "redis_access_key", redis_access_key)
-        pulumi.set(__self__, "redis_cache_id", redis_cache_id)
-        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+        SpringCloudAppRedisAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            redis_access_key=redis_access_key,
+            redis_cache_id=redis_cache_id,
+            spring_cloud_app_id=spring_cloud_app_id,
+            name=name,
+            ssl_enabled=ssl_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             redis_access_key: pulumi.Input[str],
+             redis_cache_id: pulumi.Input[str],
+             spring_cloud_app_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             ssl_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("redis_access_key", redis_access_key)
+        _setter("redis_cache_id", redis_cache_id)
+        _setter("spring_cloud_app_id", spring_cloud_app_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ssl_enabled is not None:
-            pulumi.set(__self__, "ssl_enabled", ssl_enabled)
+            _setter("ssl_enabled", ssl_enabled)
 
     @property
     @pulumi.getter(name="redisAccessKey")
@@ -112,16 +129,33 @@ class _SpringCloudAppRedisAssociationState:
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ssl_enabled: Should SSL be used when connecting to Redis? Defaults to `true`.
         """
+        _SpringCloudAppRedisAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            redis_access_key=redis_access_key,
+            redis_cache_id=redis_cache_id,
+            spring_cloud_app_id=spring_cloud_app_id,
+            ssl_enabled=ssl_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             redis_access_key: Optional[pulumi.Input[str]] = None,
+             redis_cache_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             ssl_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redis_access_key is not None:
-            pulumi.set(__self__, "redis_access_key", redis_access_key)
+            _setter("redis_access_key", redis_access_key)
         if redis_cache_id is not None:
-            pulumi.set(__self__, "redis_cache_id", redis_cache_id)
+            _setter("redis_cache_id", redis_cache_id)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
         if ssl_enabled is not None:
-            pulumi.set(__self__, "ssl_enabled", ssl_enabled)
+            _setter("ssl_enabled", ssl_enabled)
 
     @property
     @pulumi.getter
@@ -295,6 +329,10 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudAppRedisAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

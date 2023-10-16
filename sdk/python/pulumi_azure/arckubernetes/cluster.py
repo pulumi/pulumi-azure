@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class ClusterArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
         """
-        pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_public_key_certificate=agent_public_key_certificate,
+            identity=identity,
+            resource_group_name=resource_group_name,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_public_key_certificate: pulumi.Input[str],
+             identity: pulumi.Input['ClusterIdentityArgs'],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_public_key_certificate", agent_public_key_certificate)
+        _setter("identity", identity)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentPublicKeyCertificate")
@@ -146,32 +165,65 @@ class _ClusterState:
         :param pulumi.Input[int] total_core_count: Number of CPU cores present in the cluster resource.
         :param pulumi.Input[int] total_node_count: Number of nodes present in the cluster resource.
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_public_key_certificate=agent_public_key_certificate,
+            agent_version=agent_version,
+            distribution=distribution,
+            identity=identity,
+            infrastructure=infrastructure,
+            kubernetes_version=kubernetes_version,
+            location=location,
+            name=name,
+            offering=offering,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            total_core_count=total_core_count,
+            total_node_count=total_node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
+             agent_version: Optional[pulumi.Input[str]] = None,
+             distribution: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+             infrastructure: Optional[pulumi.Input[str]] = None,
+             kubernetes_version: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             offering: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             total_core_count: Optional[pulumi.Input[int]] = None,
+             total_node_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_public_key_certificate is not None:
-            pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
+            _setter("agent_public_key_certificate", agent_public_key_certificate)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if distribution is not None:
-            pulumi.set(__self__, "distribution", distribution)
+            _setter("distribution", distribution)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if infrastructure is not None:
-            pulumi.set(__self__, "infrastructure", infrastructure)
+            _setter("infrastructure", infrastructure)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if offering is not None:
-            pulumi.set(__self__, "offering", offering)
+            _setter("offering", offering)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if total_core_count is not None:
-            pulumi.set(__self__, "total_core_count", total_core_count)
+            _setter("total_core_count", total_core_count)
         if total_node_count is not None:
-            pulumi.set(__self__, "total_node_count", total_node_count)
+            _setter("total_node_count", total_node_count)
 
     @property
     @pulumi.getter(name="agentPublicKeyCertificate")
@@ -385,6 +437,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -408,6 +464,11 @@ class Cluster(pulumi.CustomResource):
             if agent_public_key_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_public_key_certificate'")
             __props__.__dict__["agent_public_key_certificate"] = agent_public_key_certificate
+            if identity is not None and not isinstance(identity, ClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ClusterIdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

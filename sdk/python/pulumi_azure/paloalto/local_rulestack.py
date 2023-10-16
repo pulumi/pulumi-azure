@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalRulestackArgs', 'LocalRulestack']
@@ -37,25 +37,52 @@ class LocalRulestackArgs:
         :param pulumi.Input[str] url_filtering_profile: The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] vulnerability_profile: The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LocalRulestackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            anti_spyware_profile=anti_spyware_profile,
+            anti_virus_profile=anti_virus_profile,
+            description=description,
+            dns_subscription=dns_subscription,
+            file_blocking_profile=file_blocking_profile,
+            location=location,
+            name=name,
+            url_filtering_profile=url_filtering_profile,
+            vulnerability_profile=vulnerability_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             anti_spyware_profile: Optional[pulumi.Input[str]] = None,
+             anti_virus_profile: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_subscription: Optional[pulumi.Input[str]] = None,
+             file_blocking_profile: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             url_filtering_profile: Optional[pulumi.Input[str]] = None,
+             vulnerability_profile: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if anti_spyware_profile is not None:
-            pulumi.set(__self__, "anti_spyware_profile", anti_spyware_profile)
+            _setter("anti_spyware_profile", anti_spyware_profile)
         if anti_virus_profile is not None:
-            pulumi.set(__self__, "anti_virus_profile", anti_virus_profile)
+            _setter("anti_virus_profile", anti_virus_profile)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_subscription is not None:
-            pulumi.set(__self__, "dns_subscription", dns_subscription)
+            _setter("dns_subscription", dns_subscription)
         if file_blocking_profile is not None:
-            pulumi.set(__self__, "file_blocking_profile", file_blocking_profile)
+            _setter("file_blocking_profile", file_blocking_profile)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if url_filtering_profile is not None:
-            pulumi.set(__self__, "url_filtering_profile", url_filtering_profile)
+            _setter("url_filtering_profile", url_filtering_profile)
         if vulnerability_profile is not None:
-            pulumi.set(__self__, "vulnerability_profile", vulnerability_profile)
+            _setter("vulnerability_profile", vulnerability_profile)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -204,26 +231,53 @@ class _LocalRulestackState:
         :param pulumi.Input[str] url_filtering_profile: The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] vulnerability_profile: The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
         """
+        _LocalRulestackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            anti_spyware_profile=anti_spyware_profile,
+            anti_virus_profile=anti_virus_profile,
+            description=description,
+            dns_subscription=dns_subscription,
+            file_blocking_profile=file_blocking_profile,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            url_filtering_profile=url_filtering_profile,
+            vulnerability_profile=vulnerability_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             anti_spyware_profile: Optional[pulumi.Input[str]] = None,
+             anti_virus_profile: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_subscription: Optional[pulumi.Input[str]] = None,
+             file_blocking_profile: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             url_filtering_profile: Optional[pulumi.Input[str]] = None,
+             vulnerability_profile: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if anti_spyware_profile is not None:
-            pulumi.set(__self__, "anti_spyware_profile", anti_spyware_profile)
+            _setter("anti_spyware_profile", anti_spyware_profile)
         if anti_virus_profile is not None:
-            pulumi.set(__self__, "anti_virus_profile", anti_virus_profile)
+            _setter("anti_virus_profile", anti_virus_profile)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_subscription is not None:
-            pulumi.set(__self__, "dns_subscription", dns_subscription)
+            _setter("dns_subscription", dns_subscription)
         if file_blocking_profile is not None:
-            pulumi.set(__self__, "file_blocking_profile", file_blocking_profile)
+            _setter("file_blocking_profile", file_blocking_profile)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if url_filtering_profile is not None:
-            pulumi.set(__self__, "url_filtering_profile", url_filtering_profile)
+            _setter("url_filtering_profile", url_filtering_profile)
         if vulnerability_profile is not None:
-            pulumi.set(__self__, "vulnerability_profile", vulnerability_profile)
+            _setter("vulnerability_profile", vulnerability_profile)
 
     @property
     @pulumi.getter(name="antiSpywareProfile")
@@ -437,6 +491,10 @@ class LocalRulestack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalRulestackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

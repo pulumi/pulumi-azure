@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatasetKustoDatabaseArgs', 'DatasetKustoDatabase']
@@ -23,10 +23,23 @@ class DatasetKustoDatabaseArgs:
         :param pulumi.Input[str] share_id: The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
         """
-        pulumi.set(__self__, "kusto_database_id", kusto_database_id)
-        pulumi.set(__self__, "share_id", share_id)
+        DatasetKustoDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kusto_database_id=kusto_database_id,
+            share_id=share_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kusto_database_id: pulumi.Input[str],
+             share_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kusto_database_id", kusto_database_id)
+        _setter("share_id", share_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="kustoDatabaseId")
@@ -81,16 +94,33 @@ class _DatasetKustoDatabaseState:
         :param pulumi.Input[str] name: The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
         :param pulumi.Input[str] share_id: The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
         """
+        _DatasetKustoDatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            kusto_cluster_location=kusto_cluster_location,
+            kusto_database_id=kusto_database_id,
+            name=name,
+            share_id=share_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_location: Optional[pulumi.Input[str]] = None,
+             kusto_database_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if kusto_cluster_location is not None:
-            pulumi.set(__self__, "kusto_cluster_location", kusto_cluster_location)
+            _setter("kusto_cluster_location", kusto_cluster_location)
         if kusto_database_id is not None:
-            pulumi.set(__self__, "kusto_database_id", kusto_database_id)
+            _setter("kusto_database_id", kusto_database_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if share_id is not None:
-            pulumi.set(__self__, "share_id", share_id)
+            _setter("share_id", share_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -280,6 +310,10 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetKustoDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

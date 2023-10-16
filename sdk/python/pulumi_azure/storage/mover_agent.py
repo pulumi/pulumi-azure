@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MoverAgentArgs', 'MoverAgent']
@@ -27,13 +27,30 @@ class MoverAgentArgs:
         :param pulumi.Input[str] description: Specifies a description for this Storage Mover Agent.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "arc_virtual_machine_id", arc_virtual_machine_id)
-        pulumi.set(__self__, "arc_virtual_machine_uuid", arc_virtual_machine_uuid)
-        pulumi.set(__self__, "storage_mover_id", storage_mover_id)
+        MoverAgentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_virtual_machine_id=arc_virtual_machine_id,
+            arc_virtual_machine_uuid=arc_virtual_machine_uuid,
+            storage_mover_id=storage_mover_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_virtual_machine_id: pulumi.Input[str],
+             arc_virtual_machine_uuid: pulumi.Input[str],
+             storage_mover_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arc_virtual_machine_id", arc_virtual_machine_id)
+        _setter("arc_virtual_machine_uuid", arc_virtual_machine_uuid)
+        _setter("storage_mover_id", storage_mover_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="arcVirtualMachineId")
@@ -112,16 +129,33 @@ class _MoverAgentState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_mover_id: Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
         """
+        _MoverAgentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_virtual_machine_id=arc_virtual_machine_id,
+            arc_virtual_machine_uuid=arc_virtual_machine_uuid,
+            description=description,
+            name=name,
+            storage_mover_id=storage_mover_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             arc_virtual_machine_uuid: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arc_virtual_machine_id is not None:
-            pulumi.set(__self__, "arc_virtual_machine_id", arc_virtual_machine_id)
+            _setter("arc_virtual_machine_id", arc_virtual_machine_id)
         if arc_virtual_machine_uuid is not None:
-            pulumi.set(__self__, "arc_virtual_machine_uuid", arc_virtual_machine_uuid)
+            _setter("arc_virtual_machine_uuid", arc_virtual_machine_uuid)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_mover_id is not None:
-            pulumi.set(__self__, "storage_mover_id", storage_mover_id)
+            _setter("storage_mover_id", storage_mover_id)
 
     @property
     @pulumi.getter(name="arcVirtualMachineId")
@@ -271,6 +305,10 @@ class MoverAgent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MoverAgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

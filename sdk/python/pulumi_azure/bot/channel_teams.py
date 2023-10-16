@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelTeamsArgs', 'ChannelTeams']
@@ -29,16 +29,35 @@ class ChannelTeamsArgs:
         :param pulumi.Input[bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelTeamsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            resource_group_name=resource_group_name,
+            calling_web_hook=calling_web_hook,
+            deployment_environment=deployment_environment,
+            enable_calling=enable_calling,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             calling_web_hook: Optional[pulumi.Input[str]] = None,
+             deployment_environment: Optional[pulumi.Input[str]] = None,
+             enable_calling: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_name", bot_name)
+        _setter("resource_group_name", resource_group_name)
         if calling_web_hook is not None:
-            pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+            _setter("calling_web_hook", calling_web_hook)
         if deployment_environment is not None:
-            pulumi.set(__self__, "deployment_environment", deployment_environment)
+            _setter("deployment_environment", deployment_environment)
         if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
+            _setter("enable_calling", enable_calling)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -131,18 +150,37 @@ class _ChannelTeamsState:
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
+        _ChannelTeamsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            calling_web_hook=calling_web_hook,
+            deployment_environment=deployment_environment,
+            enable_calling=enable_calling,
+            location=location,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             calling_web_hook: Optional[pulumi.Input[str]] = None,
+             deployment_environment: Optional[pulumi.Input[str]] = None,
+             enable_calling: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if calling_web_hook is not None:
-            pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+            _setter("calling_web_hook", calling_web_hook)
         if deployment_environment is not None:
-            pulumi.set(__self__, "deployment_environment", deployment_environment)
+            _setter("deployment_environment", deployment_environment)
         if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
+            _setter("enable_calling", enable_calling)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="botName")
@@ -318,6 +356,10 @@ class ChannelTeams(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelTeamsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

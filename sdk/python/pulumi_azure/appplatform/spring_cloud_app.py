@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,28 +43,59 @@ class SpringCloudAppArgs:
         :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        SpringCloudAppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            addon_json=addon_json,
+            custom_persistent_disks=custom_persistent_disks,
+            https_only=https_only,
+            identity=identity,
+            ingress_settings=ingress_settings,
+            is_public=is_public,
+            name=name,
+            persistent_disk=persistent_disk,
+            public_endpoint_enabled=public_endpoint_enabled,
+            tls_enabled=tls_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             addon_json: Optional[pulumi.Input[str]] = None,
+             custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
+             ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']] = None,
+             is_public: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
+             public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             tls_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if addon_json is not None:
-            pulumi.set(__self__, "addon_json", addon_json)
+            _setter("addon_json", addon_json)
         if custom_persistent_disks is not None:
-            pulumi.set(__self__, "custom_persistent_disks", custom_persistent_disks)
+            _setter("custom_persistent_disks", custom_persistent_disks)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if ingress_settings is not None:
-            pulumi.set(__self__, "ingress_settings", ingress_settings)
+            _setter("ingress_settings", ingress_settings)
         if is_public is not None:
-            pulumi.set(__self__, "is_public", is_public)
+            _setter("is_public", is_public)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if persistent_disk is not None:
-            pulumi.set(__self__, "persistent_disk", persistent_disk)
+            _setter("persistent_disk", persistent_disk)
         if public_endpoint_enabled is not None:
-            pulumi.set(__self__, "public_endpoint_enabled", public_endpoint_enabled)
+            _setter("public_endpoint_enabled", public_endpoint_enabled)
         if tls_enabled is not None:
-            pulumi.set(__self__, "tls_enabled", tls_enabled)
+            _setter("tls_enabled", tls_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -245,34 +276,69 @@ class _SpringCloudAppState:
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         :param pulumi.Input[str] url: The public endpoint of the Spring Cloud Application.
         """
+        _SpringCloudAppState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addon_json=addon_json,
+            custom_persistent_disks=custom_persistent_disks,
+            fqdn=fqdn,
+            https_only=https_only,
+            identity=identity,
+            ingress_settings=ingress_settings,
+            is_public=is_public,
+            name=name,
+            persistent_disk=persistent_disk,
+            public_endpoint_enabled=public_endpoint_enabled,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            tls_enabled=tls_enabled,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addon_json: Optional[pulumi.Input[str]] = None,
+             custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
+             ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']] = None,
+             is_public: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
+             public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             tls_enabled: Optional[pulumi.Input[bool]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if addon_json is not None:
-            pulumi.set(__self__, "addon_json", addon_json)
+            _setter("addon_json", addon_json)
         if custom_persistent_disks is not None:
-            pulumi.set(__self__, "custom_persistent_disks", custom_persistent_disks)
+            _setter("custom_persistent_disks", custom_persistent_disks)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if ingress_settings is not None:
-            pulumi.set(__self__, "ingress_settings", ingress_settings)
+            _setter("ingress_settings", ingress_settings)
         if is_public is not None:
-            pulumi.set(__self__, "is_public", is_public)
+            _setter("is_public", is_public)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if persistent_disk is not None:
-            pulumi.set(__self__, "persistent_disk", persistent_disk)
+            _setter("persistent_disk", persistent_disk)
         if public_endpoint_enabled is not None:
-            pulumi.set(__self__, "public_endpoint_enabled", public_endpoint_enabled)
+            _setter("public_endpoint_enabled", public_endpoint_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if tls_enabled is not None:
-            pulumi.set(__self__, "tls_enabled", tls_enabled)
+            _setter("tls_enabled", tls_enabled)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="addonJson")
@@ -550,6 +616,10 @@ class SpringCloudApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -579,10 +649,25 @@ class SpringCloudApp(pulumi.CustomResource):
             __props__.__dict__["addon_json"] = addon_json
             __props__.__dict__["custom_persistent_disks"] = custom_persistent_disks
             __props__.__dict__["https_only"] = https_only
+            if identity is not None and not isinstance(identity, SpringCloudAppIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                SpringCloudAppIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if ingress_settings is not None and not isinstance(ingress_settings, SpringCloudAppIngressSettingsArgs):
+                ingress_settings = ingress_settings or {}
+                def _setter(key, value):
+                    ingress_settings[key] = value
+                SpringCloudAppIngressSettingsArgs._configure(_setter, **ingress_settings)
             __props__.__dict__["ingress_settings"] = ingress_settings
             __props__.__dict__["is_public"] = is_public
             __props__.__dict__["name"] = name
+            if persistent_disk is not None and not isinstance(persistent_disk, SpringCloudAppPersistentDiskArgs):
+                persistent_disk = persistent_disk or {}
+                def _setter(key, value):
+                    persistent_disk[key] = value
+                SpringCloudAppPersistentDiskArgs._configure(_setter, **persistent_disk)
             __props__.__dict__["persistent_disk"] = persistent_disk
             __props__.__dict__["public_endpoint_enabled"] = public_endpoint_enabled
             if resource_group_name is None and not opts.urn:

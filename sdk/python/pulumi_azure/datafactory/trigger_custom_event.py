@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,24 +43,53 @@ class TriggerCustomEventArgs:
                
                > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "eventgrid_topic_id", eventgrid_topic_id)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "pipelines", pipelines)
+        TriggerCustomEventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            eventgrid_topic_id=eventgrid_topic_id,
+            events=events,
+            pipelines=pipelines,
+            activated=activated,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            name=name,
+            subject_begins_with=subject_begins_with,
+            subject_ends_with=subject_ends_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: pulumi.Input[str],
+             eventgrid_topic_id: pulumi.Input[str],
+             events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]],
+             activated: Optional[pulumi.Input[bool]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subject_begins_with: Optional[pulumi.Input[str]] = None,
+             subject_ends_with: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_factory_id", data_factory_id)
+        _setter("eventgrid_topic_id", eventgrid_topic_id)
+        _setter("events", events)
+        _setter("pipelines", pipelines)
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subject_begins_with is not None:
-            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+            _setter("subject_begins_with", subject_begins_with)
         if subject_ends_with is not None:
-            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+            _setter("subject_ends_with", subject_ends_with)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -227,28 +256,57 @@ class _TriggerCustomEventState:
                
                > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
+        _TriggerCustomEventState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activated=activated,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            data_factory_id=data_factory_id,
+            description=description,
+            eventgrid_topic_id=eventgrid_topic_id,
+            events=events,
+            name=name,
+            pipelines=pipelines,
+            subject_begins_with=subject_begins_with,
+            subject_ends_with=subject_ends_with,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activated: Optional[pulumi.Input[bool]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_id: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]]] = None,
+             subject_begins_with: Optional[pulumi.Input[str]] = None,
+             subject_ends_with: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if eventgrid_topic_id is not None:
-            pulumi.set(__self__, "eventgrid_topic_id", eventgrid_topic_id)
+            _setter("eventgrid_topic_id", eventgrid_topic_id)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
+            _setter("pipelines", pipelines)
         if subject_begins_with is not None:
-            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+            _setter("subject_begins_with", subject_begins_with)
         if subject_ends_with is not None:
-            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+            _setter("subject_ends_with", subject_ends_with)
 
     @property
     @pulumi.getter
@@ -538,6 +596,10 @@ class TriggerCustomEvent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerCustomEventArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

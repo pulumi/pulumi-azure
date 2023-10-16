@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class SecurityDeviceGroupArgs:
         :param pulumi.Input[str] name: Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]] range_rules: One or more `range_rule` blocks as defined below.
         """
-        pulumi.set(__self__, "iothub_id", iothub_id)
+        SecurityDeviceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iothub_id=iothub_id,
+            allow_rule=allow_rule,
+            name=name,
+            range_rules=range_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iothub_id: pulumi.Input[str],
+             allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iothub_id", iothub_id)
         if allow_rule is not None:
-            pulumi.set(__self__, "allow_rule", allow_rule)
+            _setter("allow_rule", allow_rule)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if range_rules is not None:
-            pulumi.set(__self__, "range_rules", range_rules)
+            _setter("range_rules", range_rules)
 
     @property
     @pulumi.getter(name="iothubId")
@@ -98,14 +113,29 @@ class _SecurityDeviceGroupState:
         :param pulumi.Input[str] name: Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]] range_rules: One or more `range_rule` blocks as defined below.
         """
+        _SecurityDeviceGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_rule=allow_rule,
+            iothub_id=iothub_id,
+            name=name,
+            range_rules=range_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_rule is not None:
-            pulumi.set(__self__, "allow_rule", allow_rule)
+            _setter("allow_rule", allow_rule)
         if iothub_id is not None:
-            pulumi.set(__self__, "iothub_id", iothub_id)
+            _setter("iothub_id", iothub_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if range_rules is not None:
-            pulumi.set(__self__, "range_rules", range_rules)
+            _setter("range_rules", range_rules)
 
     @property
     @pulumi.getter(name="allowRule")
@@ -277,6 +307,10 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityDeviceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,6 +329,11 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityDeviceGroupArgs.__new__(SecurityDeviceGroupArgs)
 
+            if allow_rule is not None and not isinstance(allow_rule, SecurityDeviceGroupAllowRuleArgs):
+                allow_rule = allow_rule or {}
+                def _setter(key, value):
+                    allow_rule[key] = value
+                SecurityDeviceGroupAllowRuleArgs._configure(_setter, **allow_rule)
             __props__.__dict__["allow_rule"] = allow_rule
             if iothub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_id'")

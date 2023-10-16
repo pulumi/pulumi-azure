@@ -14,14 +14,14 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args e
     public static final WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args Empty = new WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args();
 
     /**
-     * The OpenID Connect Client ID for the Apple web application.
+     * The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     public Output<String> clientId() {
@@ -53,7 +53,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args e
         }
 
         /**
-         * @param clientId The OpenID Connect Client ID for the Apple web application.
+         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args e
         }
 
         /**
-         * @param clientId The OpenID Connect Client ID for the Apple web application.
+         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
          * 
          * @return builder
          * 

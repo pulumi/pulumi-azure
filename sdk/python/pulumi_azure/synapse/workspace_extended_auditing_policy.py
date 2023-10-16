@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceExtendedAuditingPolicyArgs', 'WorkspaceExtendedAuditingPolicy']
@@ -29,17 +29,36 @@ class WorkspaceExtendedAuditingPolicyArgs:
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        WorkspaceExtendedAuditingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            synapse_workspace_id=synapse_workspace_id,
+            log_monitoring_enabled=log_monitoring_enabled,
+            retention_in_days=retention_in_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_access_key_is_secondary=storage_account_access_key_is_secondary,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             synapse_workspace_id: pulumi.Input[str],
+             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("synapse_workspace_id", synapse_workspace_id)
         if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+            _setter("log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+            _setter("storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -132,18 +151,37 @@ class _WorkspaceExtendedAuditingPolicyState:
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
         """
+        _WorkspaceExtendedAuditingPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_monitoring_enabled=log_monitoring_enabled,
+            retention_in_days=retention_in_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_access_key_is_secondary=storage_account_access_key_is_secondary,
+            storage_endpoint=storage_endpoint,
+            synapse_workspace_id=synapse_workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+            _setter("log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+            _setter("storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter(name="logMonitoringEnabled")
@@ -349,6 +387,10 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceExtendedAuditingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

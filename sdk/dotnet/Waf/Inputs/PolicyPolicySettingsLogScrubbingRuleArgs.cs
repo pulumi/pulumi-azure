@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<string> MatchVariable { get; set; } = null!;
 
         /// <summary>
-        /// Describes field of the matchVariable collection
+        /// Describes field of the matchVariable collection.
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }

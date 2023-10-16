@@ -34,16 +34,12 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
      * 
      * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
-     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-     * 
      */
     @Import(name="isDefault", required=true)
     private Output<Boolean> isDefault;
 
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
      * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
@@ -139,8 +135,6 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
          * 
          * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
          * 
-         * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-         * 
          * @return builder
          * 
          */
@@ -151,8 +145,6 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
 
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
          * 
          * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
          * 

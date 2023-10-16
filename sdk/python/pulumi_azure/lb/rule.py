@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RuleArgs', 'Rule']
@@ -45,27 +45,60 @@ class RuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
-        pulumi.set(__self__, "frontend_port", frontend_port)
-        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
-        pulumi.set(__self__, "protocol", protocol)
+        RuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_ip_configuration_name=frontend_ip_configuration_name,
+            frontend_port=frontend_port,
+            loadbalancer_id=loadbalancer_id,
+            protocol=protocol,
+            backend_address_pool_ids=backend_address_pool_ids,
+            disable_outbound_snat=disable_outbound_snat,
+            enable_floating_ip=enable_floating_ip,
+            enable_tcp_reset=enable_tcp_reset,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            load_distribution=load_distribution,
+            name=name,
+            probe_id=probe_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: pulumi.Input[int],
+             frontend_ip_configuration_name: pulumi.Input[str],
+             frontend_port: pulumi.Input[int],
+             loadbalancer_id: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
+             enable_floating_ip: Optional[pulumi.Input[bool]] = None,
+             enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             load_distribution: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             probe_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
+        _setter("frontend_port", frontend_port)
+        _setter("loadbalancer_id", loadbalancer_id)
+        _setter("protocol", protocol)
         if backend_address_pool_ids is not None:
-            pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
+            _setter("backend_address_pool_ids", backend_address_pool_ids)
         if disable_outbound_snat is not None:
-            pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
+            _setter("disable_outbound_snat", disable_outbound_snat)
         if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
+            _setter("enable_floating_ip", enable_floating_ip)
         if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+            _setter("enable_tcp_reset", enable_tcp_reset)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if load_distribution is not None:
-            pulumi.set(__self__, "load_distribution", load_distribution)
+            _setter("load_distribution", load_distribution)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if probe_id is not None:
-            pulumi.set(__self__, "probe_id", probe_id)
+            _setter("probe_id", probe_id)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -261,34 +294,69 @@ class _RuleState:
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
+        _RuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_address_pool_ids=backend_address_pool_ids,
+            backend_port=backend_port,
+            disable_outbound_snat=disable_outbound_snat,
+            enable_floating_ip=enable_floating_ip,
+            enable_tcp_reset=enable_tcp_reset,
+            frontend_ip_configuration_id=frontend_ip_configuration_id,
+            frontend_ip_configuration_name=frontend_ip_configuration_name,
+            frontend_port=frontend_port,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            load_distribution=load_distribution,
+            loadbalancer_id=loadbalancer_id,
+            name=name,
+            probe_id=probe_id,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backend_port: Optional[pulumi.Input[int]] = None,
+             disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
+             enable_floating_ip: Optional[pulumi.Input[bool]] = None,
+             enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+             frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
+             frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             frontend_port: Optional[pulumi.Input[int]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             load_distribution: Optional[pulumi.Input[str]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             probe_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_address_pool_ids is not None:
-            pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
+            _setter("backend_address_pool_ids", backend_address_pool_ids)
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if disable_outbound_snat is not None:
-            pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
+            _setter("disable_outbound_snat", disable_outbound_snat)
         if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
+            _setter("enable_floating_ip", enable_floating_ip)
         if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+            _setter("enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configuration_id is not None:
-            pulumi.set(__self__, "frontend_ip_configuration_id", frontend_ip_configuration_id)
+            _setter("frontend_ip_configuration_id", frontend_ip_configuration_id)
         if frontend_ip_configuration_name is not None:
-            pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
+            _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if load_distribution is not None:
-            pulumi.set(__self__, "load_distribution", load_distribution)
+            _setter("load_distribution", load_distribution)
         if loadbalancer_id is not None:
-            pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+            _setter("loadbalancer_id", loadbalancer_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if probe_id is not None:
-            pulumi.set(__self__, "probe_id", probe_id)
+            _setter("probe_id", probe_id)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="backendAddressPoolIds")
@@ -589,6 +657,10 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

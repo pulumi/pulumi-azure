@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceArgs', 'Namespace']
@@ -27,14 +27,31 @@ class NamespaceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        NamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -123,26 +140,53 @@ class _NamespaceState:
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _NamespaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            metric_id=metric_id,
+            name=name,
+            primary_connection_string=primary_connection_string,
+            primary_key=primary_key,
+            resource_group_name=resource_group_name,
+            secondary_connection_string=secondary_connection_string,
+            secondary_key=secondary_key,
+            sku_name=sku_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             metric_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metric_id is not None:
-            pulumi.set(__self__, "metric_id", metric_id)
+            _setter("metric_id", metric_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -354,6 +398,10 @@ class Namespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

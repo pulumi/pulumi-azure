@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProductArgs', 'Product']
@@ -41,21 +41,48 @@ class ProductArgs:
                > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "published", published)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProductArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            display_name=display_name,
+            product_id=product_id,
+            published=published,
+            resource_group_name=resource_group_name,
+            approval_required=approval_required,
+            description=description,
+            subscription_required=subscription_required,
+            subscriptions_limit=subscriptions_limit,
+            terms=terms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             product_id: pulumi.Input[str],
+             published: pulumi.Input[bool],
+             resource_group_name: pulumi.Input[str],
+             approval_required: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             subscription_required: Optional[pulumi.Input[bool]] = None,
+             subscriptions_limit: Optional[pulumi.Input[int]] = None,
+             terms: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_name", api_management_name)
+        _setter("display_name", display_name)
+        _setter("product_id", product_id)
+        _setter("published", published)
+        _setter("resource_group_name", resource_group_name)
         if approval_required is not None:
-            pulumi.set(__self__, "approval_required", approval_required)
+            _setter("approval_required", approval_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if subscription_required is not None:
-            pulumi.set(__self__, "subscription_required", subscription_required)
+            _setter("subscription_required", subscription_required)
         if subscriptions_limit is not None:
-            pulumi.set(__self__, "subscriptions_limit", subscriptions_limit)
+            _setter("subscriptions_limit", subscriptions_limit)
         if terms is not None:
-            pulumi.set(__self__, "terms", terms)
+            _setter("terms", terms)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -212,26 +239,53 @@ class _ProductState:
                > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
+        _ProductState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            approval_required=approval_required,
+            description=description,
+            display_name=display_name,
+            product_id=product_id,
+            published=published,
+            resource_group_name=resource_group_name,
+            subscription_required=subscription_required,
+            subscriptions_limit=subscriptions_limit,
+            terms=terms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             approval_required: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             published: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_required: Optional[pulumi.Input[bool]] = None,
+             subscriptions_limit: Optional[pulumi.Input[int]] = None,
+             terms: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if approval_required is not None:
-            pulumi.set(__self__, "approval_required", approval_required)
+            _setter("approval_required", approval_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if published is not None:
-            pulumi.set(__self__, "published", published)
+            _setter("published", published)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subscription_required is not None:
-            pulumi.set(__self__, "subscription_required", subscription_required)
+            _setter("subscription_required", subscription_required)
         if subscriptions_limit is not None:
-            pulumi.set(__self__, "subscriptions_limit", subscriptions_limit)
+            _setter("subscriptions_limit", subscriptions_limit)
         if terms is not None:
-            pulumi.set(__self__, "terms", terms)
+            _setter("terms", terms)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -475,6 +529,10 @@ class Product(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

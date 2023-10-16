@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SourceControlTokenArgs', 'SourceControlToken']
@@ -25,10 +25,23 @@ class SourceControlTokenArgs:
                
                > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         """
-        pulumi.set(__self__, "token", token)
-        pulumi.set(__self__, "type", type)
+        SourceControlTokenArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+            type=type,
+            token_secret=token_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: pulumi.Input[str],
+             type: pulumi.Input[str],
+             token_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("token", token)
+        _setter("type", type)
         if token_secret is not None:
-            pulumi.set(__self__, "token_secret", token_secret)
+            _setter("token_secret", token_secret)
 
     @property
     @pulumi.getter
@@ -83,12 +96,25 @@ class _SourceControlTokenState:
                > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
         :param pulumi.Input[str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         """
+        _SourceControlTokenState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+            token_secret=token_secret,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[pulumi.Input[str]] = None,
+             token_secret: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
         if token_secret is not None:
-            pulumi.set(__self__, "token_secret", token_secret)
+            _setter("token_secret", token_secret)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -202,6 +228,10 @@ class SourceControlToken(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlTokenArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

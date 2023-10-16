@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,61 +89,124 @@ class DatabaseArgs:
                > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
-        pulumi.set(__self__, "server_id", server_id)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_id=server_id,
+            auto_pause_delay_in_minutes=auto_pause_delay_in_minutes,
+            collation=collation,
+            create_mode=create_mode,
+            creation_source_database_id=creation_source_database_id,
+            elastic_pool_id=elastic_pool_id,
+            geo_backup_enabled=geo_backup_enabled,
+            import_=import_,
+            ledger_enabled=ledger_enabled,
+            license_type=license_type,
+            long_term_retention_policy=long_term_retention_policy,
+            maintenance_configuration_name=maintenance_configuration_name,
+            max_size_gb=max_size_gb,
+            min_capacity=min_capacity,
+            name=name,
+            read_replica_count=read_replica_count,
+            read_scale=read_scale,
+            recover_database_id=recover_database_id,
+            restore_dropped_database_id=restore_dropped_database_id,
+            restore_point_in_time=restore_point_in_time,
+            sample_name=sample_name,
+            short_term_retention_policy=short_term_retention_policy,
+            sku_name=sku_name,
+            storage_account_type=storage_account_type,
+            tags=tags,
+            threat_detection_policy=threat_detection_policy,
+            transparent_data_encryption_enabled=transparent_data_encryption_enabled,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_id: pulumi.Input[str],
+             auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[str]] = None,
+             creation_source_database_id: Optional[pulumi.Input[str]] = None,
+             elastic_pool_id: Optional[pulumi.Input[str]] = None,
+             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+             import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
+             ledger_enabled: Optional[pulumi.Input[bool]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
+             max_size_gb: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             read_replica_count: Optional[pulumi.Input[int]] = None,
+             read_scale: Optional[pulumi.Input[bool]] = None,
+             recover_database_id: Optional[pulumi.Input[str]] = None,
+             restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             sample_name: Optional[pulumi.Input[str]] = None,
+             short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+             transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_id", server_id)
         if auto_pause_delay_in_minutes is not None:
-            pulumi.set(__self__, "auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
+            _setter("auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if creation_source_database_id is not None:
-            pulumi.set(__self__, "creation_source_database_id", creation_source_database_id)
+            _setter("creation_source_database_id", creation_source_database_id)
         if elastic_pool_id is not None:
-            pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+            _setter("elastic_pool_id", elastic_pool_id)
         if geo_backup_enabled is not None:
-            pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+            _setter("geo_backup_enabled", geo_backup_enabled)
         if import_ is not None:
-            pulumi.set(__self__, "import_", import_)
+            _setter("import_", import_)
         if ledger_enabled is not None:
-            pulumi.set(__self__, "ledger_enabled", ledger_enabled)
+            _setter("ledger_enabled", ledger_enabled)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if long_term_retention_policy is not None:
-            pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
+            _setter("long_term_retention_policy", long_term_retention_policy)
         if maintenance_configuration_name is not None:
-            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
+            _setter("maintenance_configuration_name", maintenance_configuration_name)
         if max_size_gb is not None:
-            pulumi.set(__self__, "max_size_gb", max_size_gb)
+            _setter("max_size_gb", max_size_gb)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if read_replica_count is not None:
-            pulumi.set(__self__, "read_replica_count", read_replica_count)
+            _setter("read_replica_count", read_replica_count)
         if read_scale is not None:
-            pulumi.set(__self__, "read_scale", read_scale)
+            _setter("read_scale", read_scale)
         if recover_database_id is not None:
-            pulumi.set(__self__, "recover_database_id", recover_database_id)
+            _setter("recover_database_id", recover_database_id)
         if restore_dropped_database_id is not None:
-            pulumi.set(__self__, "restore_dropped_database_id", restore_dropped_database_id)
+            _setter("restore_dropped_database_id", restore_dropped_database_id)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
-            pulumi.set(__self__, "sample_name", sample_name)
+            _setter("sample_name", sample_name)
         if short_term_retention_policy is not None:
-            pulumi.set(__self__, "short_term_retention_policy", short_term_retention_policy)
+            _setter("short_term_retention_policy", short_term_retention_policy)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_detection_policy is not None:
-            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
+            _setter("threat_detection_policy", threat_detection_policy)
         if transparent_data_encryption_enabled is not None:
-            pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
+            _setter("transparent_data_encryption_enabled", transparent_data_encryption_enabled)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="serverId")
@@ -572,62 +635,125 @@ class _DatabaseState:
                > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
+        _DatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_pause_delay_in_minutes=auto_pause_delay_in_minutes,
+            collation=collation,
+            create_mode=create_mode,
+            creation_source_database_id=creation_source_database_id,
+            elastic_pool_id=elastic_pool_id,
+            geo_backup_enabled=geo_backup_enabled,
+            import_=import_,
+            ledger_enabled=ledger_enabled,
+            license_type=license_type,
+            long_term_retention_policy=long_term_retention_policy,
+            maintenance_configuration_name=maintenance_configuration_name,
+            max_size_gb=max_size_gb,
+            min_capacity=min_capacity,
+            name=name,
+            read_replica_count=read_replica_count,
+            read_scale=read_scale,
+            recover_database_id=recover_database_id,
+            restore_dropped_database_id=restore_dropped_database_id,
+            restore_point_in_time=restore_point_in_time,
+            sample_name=sample_name,
+            server_id=server_id,
+            short_term_retention_policy=short_term_retention_policy,
+            sku_name=sku_name,
+            storage_account_type=storage_account_type,
+            tags=tags,
+            threat_detection_policy=threat_detection_policy,
+            transparent_data_encryption_enabled=transparent_data_encryption_enabled,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[str]] = None,
+             creation_source_database_id: Optional[pulumi.Input[str]] = None,
+             elastic_pool_id: Optional[pulumi.Input[str]] = None,
+             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+             import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
+             ledger_enabled: Optional[pulumi.Input[bool]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
+             max_size_gb: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             read_replica_count: Optional[pulumi.Input[int]] = None,
+             read_scale: Optional[pulumi.Input[bool]] = None,
+             recover_database_id: Optional[pulumi.Input[str]] = None,
+             restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             sample_name: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+             transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_pause_delay_in_minutes is not None:
-            pulumi.set(__self__, "auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
+            _setter("auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if creation_source_database_id is not None:
-            pulumi.set(__self__, "creation_source_database_id", creation_source_database_id)
+            _setter("creation_source_database_id", creation_source_database_id)
         if elastic_pool_id is not None:
-            pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+            _setter("elastic_pool_id", elastic_pool_id)
         if geo_backup_enabled is not None:
-            pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+            _setter("geo_backup_enabled", geo_backup_enabled)
         if import_ is not None:
-            pulumi.set(__self__, "import_", import_)
+            _setter("import_", import_)
         if ledger_enabled is not None:
-            pulumi.set(__self__, "ledger_enabled", ledger_enabled)
+            _setter("ledger_enabled", ledger_enabled)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if long_term_retention_policy is not None:
-            pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
+            _setter("long_term_retention_policy", long_term_retention_policy)
         if maintenance_configuration_name is not None:
-            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
+            _setter("maintenance_configuration_name", maintenance_configuration_name)
         if max_size_gb is not None:
-            pulumi.set(__self__, "max_size_gb", max_size_gb)
+            _setter("max_size_gb", max_size_gb)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if read_replica_count is not None:
-            pulumi.set(__self__, "read_replica_count", read_replica_count)
+            _setter("read_replica_count", read_replica_count)
         if read_scale is not None:
-            pulumi.set(__self__, "read_scale", read_scale)
+            _setter("read_scale", read_scale)
         if recover_database_id is not None:
-            pulumi.set(__self__, "recover_database_id", recover_database_id)
+            _setter("recover_database_id", recover_database_id)
         if restore_dropped_database_id is not None:
-            pulumi.set(__self__, "restore_dropped_database_id", restore_dropped_database_id)
+            _setter("restore_dropped_database_id", restore_dropped_database_id)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
-            pulumi.set(__self__, "sample_name", sample_name)
+            _setter("sample_name", sample_name)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if short_term_retention_policy is not None:
-            pulumi.set(__self__, "short_term_retention_policy", short_term_retention_policy)
+            _setter("short_term_retention_policy", short_term_retention_policy)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_detection_policy is not None:
-            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
+            _setter("threat_detection_policy", threat_detection_policy)
         if transparent_data_encryption_enabled is not None:
-            pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
+            _setter("transparent_data_encryption_enabled", transparent_data_encryption_enabled)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="autoPauseDelayInMinutes")
@@ -1159,6 +1285,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1207,9 +1337,19 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["creation_source_database_id"] = creation_source_database_id
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+            if import_ is not None and not isinstance(import_, DatabaseImportArgs):
+                import_ = import_ or {}
+                def _setter(key, value):
+                    import_[key] = value
+                DatabaseImportArgs._configure(_setter, **import_)
             __props__.__dict__["import_"] = import_
             __props__.__dict__["ledger_enabled"] = ledger_enabled
             __props__.__dict__["license_type"] = license_type
+            if long_term_retention_policy is not None and not isinstance(long_term_retention_policy, DatabaseLongTermRetentionPolicyArgs):
+                long_term_retention_policy = long_term_retention_policy or {}
+                def _setter(key, value):
+                    long_term_retention_policy[key] = value
+                DatabaseLongTermRetentionPolicyArgs._configure(_setter, **long_term_retention_policy)
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
             __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
             __props__.__dict__["max_size_gb"] = max_size_gb
@@ -1224,10 +1364,20 @@ class Database(pulumi.CustomResource):
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
+            if short_term_retention_policy is not None and not isinstance(short_term_retention_policy, DatabaseShortTermRetentionPolicyArgs):
+                short_term_retention_policy = short_term_retention_policy or {}
+                def _setter(key, value):
+                    short_term_retention_policy[key] = value
+                DatabaseShortTermRetentionPolicyArgs._configure(_setter, **short_term_retention_policy)
             __props__.__dict__["short_term_retention_policy"] = short_term_retention_policy
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["tags"] = tags
+            if threat_detection_policy is not None and not isinstance(threat_detection_policy, DatabaseThreatDetectionPolicyArgs):
+                threat_detection_policy = threat_detection_policy or {}
+                def _setter(key, value):
+                    threat_detection_policy[key] = value
+                DatabaseThreatDetectionPolicyArgs._configure(_setter, **threat_detection_policy)
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             __props__.__dict__["transparent_data_encryption_enabled"] = transparent_data_encryption_enabled
             __props__.__dict__["zone_redundant"] = zone_redundant

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkedServiceArgs', 'LinkedService']
@@ -27,12 +27,27 @@ class LinkedServiceArgs:
                
                > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        LinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_id=workspace_id,
+            read_access_id=read_access_id,
+            write_access_id=write_access_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             read_access_id: Optional[pulumi.Input[str]] = None,
+             write_access_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_id", workspace_id)
         if read_access_id is not None:
-            pulumi.set(__self__, "read_access_id", read_access_id)
+            _setter("read_access_id", read_access_id)
         if write_access_id is not None:
-            pulumi.set(__self__, "write_access_id", write_access_id)
+            _setter("write_access_id", write_access_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,16 +118,33 @@ class _LinkedServiceState:
                
                > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
         """
+        _LinkedServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            read_access_id=read_access_id,
+            resource_group_name=resource_group_name,
+            workspace_id=workspace_id,
+            write_access_id=write_access_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             read_access_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             write_access_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if read_access_id is not None:
-            pulumi.set(__self__, "read_access_id", read_access_id)
+            _setter("read_access_id", read_access_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
         if write_access_id is not None:
-            pulumi.set(__self__, "write_access_id", write_access_id)
+            _setter("write_access_id", write_access_id)
 
     @property
     @pulumi.getter
@@ -284,6 +316,10 @@ class LinkedService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

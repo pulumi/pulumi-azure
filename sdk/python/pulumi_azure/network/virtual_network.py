@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,28 +49,59 @@ class VirtualNetworkArgs:
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "address_spaces", address_spaces)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_spaces=address_spaces,
+            resource_group_name=resource_group_name,
+            bgp_community=bgp_community,
+            ddos_protection_plan=ddos_protection_plan,
+            dns_servers=dns_servers,
+            edge_zone=edge_zone,
+            encryption=encryption,
+            flow_timeout_in_minutes=flow_timeout_in_minutes,
+            location=location,
+            name=name,
+            subnets=subnets,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_spaces: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: pulumi.Input[str],
+             bgp_community: Optional[pulumi.Input[str]] = None,
+             ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
+             flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_spaces", address_spaces)
+        _setter("resource_group_name", resource_group_name)
         if bgp_community is not None:
-            pulumi.set(__self__, "bgp_community", bgp_community)
+            _setter("bgp_community", bgp_community)
         if ddos_protection_plan is not None:
-            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+            _setter("ddos_protection_plan", ddos_protection_plan)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if flow_timeout_in_minutes is not None:
-            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
+            _setter("flow_timeout_in_minutes", flow_timeout_in_minutes)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressSpaces")
@@ -261,32 +292,65 @@ class _VirtualNetworkState:
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _VirtualNetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_spaces=address_spaces,
+            bgp_community=bgp_community,
+            ddos_protection_plan=ddos_protection_plan,
+            dns_servers=dns_servers,
+            edge_zone=edge_zone,
+            encryption=encryption,
+            flow_timeout_in_minutes=flow_timeout_in_minutes,
+            guid=guid,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            subnets=subnets,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             bgp_community: Optional[pulumi.Input[str]] = None,
+             ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
+             flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_spaces is not None:
-            pulumi.set(__self__, "address_spaces", address_spaces)
+            _setter("address_spaces", address_spaces)
         if bgp_community is not None:
-            pulumi.set(__self__, "bgp_community", bgp_community)
+            _setter("bgp_community", bgp_community)
         if ddos_protection_plan is not None:
-            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+            _setter("ddos_protection_plan", ddos_protection_plan)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if flow_timeout_in_minutes is not None:
-            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
+            _setter("flow_timeout_in_minutes", flow_timeout_in_minutes)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressSpaces")
@@ -610,6 +674,10 @@ class VirtualNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -640,9 +708,19 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_spaces'")
             __props__.__dict__["address_spaces"] = address_spaces
             __props__.__dict__["bgp_community"] = bgp_community
+            if ddos_protection_plan is not None and not isinstance(ddos_protection_plan, VirtualNetworkDdosProtectionPlanArgs):
+                ddos_protection_plan = ddos_protection_plan or {}
+                def _setter(key, value):
+                    ddos_protection_plan[key] = value
+                VirtualNetworkDdosProtectionPlanArgs._configure(_setter, **ddos_protection_plan)
             __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["edge_zone"] = edge_zone
+            if encryption is not None and not isinstance(encryption, VirtualNetworkEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                VirtualNetworkEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["location"] = location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,16 +37,41 @@ class StreamInputIotHubArgs:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
-        pulumi.set(__self__, "iothub_namespace", iothub_namespace)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialization", serialization)
-        pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
-        pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        StreamInputIotHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            iothub_namespace=iothub_namespace,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             eventhub_consumer_group_name: pulumi.Input[str],
+             iothub_namespace: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             serialization: pulumi.Input['StreamInputIotHubSerializationArgs'],
+             shared_access_policy_key: pulumi.Input[str],
+             shared_access_policy_name: pulumi.Input[str],
+             stream_analytics_job_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
+        _setter("iothub_namespace", iothub_namespace)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialization", serialization)
+        _setter("shared_access_policy_key", shared_access_policy_key)
+        _setter("shared_access_policy_name", shared_access_policy_name)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -181,24 +206,49 @@ class _StreamInputIotHubState:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
+        _StreamInputIotHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            iothub_namespace=iothub_namespace,
+            name=name,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             iothub_namespace: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputIotHubSerializationArgs']] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if iothub_namespace is not None:
-            pulumi.set(__self__, "iothub_namespace", iothub_namespace)
+            _setter("iothub_namespace", iothub_namespace)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
 
     @property
     @pulumi.getter
@@ -434,6 +484,10 @@ class StreamInputIotHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamInputIotHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -470,6 +524,11 @@ class StreamInputIotHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if serialization is not None and not isinstance(serialization, StreamInputIotHubSerializationArgs):
+                serialization = serialization or {}
+                def _setter(key, value):
+                    serialization[key] = value
+                StreamInputIotHubSerializationArgs._configure(_setter, **serialization)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

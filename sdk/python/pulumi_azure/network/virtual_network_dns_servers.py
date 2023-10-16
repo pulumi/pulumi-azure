@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualNetworkDnsServersArgs', 'VirtualNetworkDnsServers']
@@ -21,9 +21,20 @@ class VirtualNetworkDnsServersArgs:
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
         """
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        VirtualNetworkDnsServersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_id=virtual_network_id,
+            dns_servers=dns_servers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_id: pulumi.Input[str],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_network_id", virtual_network_id)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
 
     @property
     @pulumi.getter(name="virtualNetworkId")
@@ -60,10 +71,21 @@ class _VirtualNetworkDnsServersState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
+        _VirtualNetworkDnsServersState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_servers=dns_servers,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -185,6 +207,10 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkDnsServersArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

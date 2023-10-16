@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -55,12 +55,27 @@ class VaultEncryption(dict):
                !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         :param str user_assigned_identity_id: Specifies the user assigned identity ID to be used.
         """
-        pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
-        pulumi.set(__self__, "key_id", key_id)
+        VaultEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            key_id=key_id,
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infrastructure_encryption_enabled: bool,
+             key_id: str,
+             use_system_assigned_identity: Optional[bool] = None,
+             user_assigned_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+        _setter("key_id", key_id)
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -135,13 +150,28 @@ class VaultIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        VaultIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -206,10 +236,21 @@ class VaultMonitoring(dict):
         :param bool alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
         :param bool alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         """
+        VaultMonitoring._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alerts_for_all_job_failures_enabled=alerts_for_all_job_failures_enabled,
+            alerts_for_critical_operation_failures_enabled=alerts_for_critical_operation_failures_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alerts_for_all_job_failures_enabled: Optional[bool] = None,
+             alerts_for_critical_operation_failures_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alerts_for_all_job_failures_enabled is not None:
-            pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
+            _setter("alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
         if alerts_for_critical_operation_failures_enabled is not None:
-            pulumi.set(__self__, "alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
+            _setter("alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
 
     @property
     @pulumi.getter(name="alertsForAllJobFailuresEnabled")

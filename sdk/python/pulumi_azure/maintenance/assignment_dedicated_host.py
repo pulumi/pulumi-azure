@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssignmentDedicatedHostArgs', 'AssignmentDedicatedHost']
@@ -23,10 +23,23 @@ class AssignmentDedicatedHostArgs:
         :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
-        pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+        AssignmentDedicatedHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dedicated_host_id=dedicated_host_id,
+            maintenance_configuration_id=maintenance_configuration_id,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dedicated_host_id: pulumi.Input[str],
+             maintenance_configuration_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dedicated_host_id", dedicated_host_id)
+        _setter("maintenance_configuration_id", maintenance_configuration_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="dedicatedHostId")
@@ -77,12 +90,25 @@ class _AssignmentDedicatedHostState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         """
+        _AssignmentDedicatedHostState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dedicated_host_id=dedicated_host_id,
+            location=location,
+            maintenance_configuration_id=maintenance_configuration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dedicated_host_id is not None:
-            pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+            _setter("dedicated_host_id", dedicated_host_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
 
     @property
     @pulumi.getter(name="dedicatedHostId")
@@ -226,6 +252,10 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssignmentDedicatedHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

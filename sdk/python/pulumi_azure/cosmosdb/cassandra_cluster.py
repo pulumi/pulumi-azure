@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,31 +49,66 @@ class CassandraClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
-        pulumi.set(__self__, "default_admin_password", default_admin_password)
-        pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CassandraClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_admin_password=default_admin_password,
+            delegated_management_subnet_id=delegated_management_subnet_id,
+            resource_group_name=resource_group_name,
+            authentication_method=authentication_method,
+            client_certificate_pems=client_certificate_pems,
+            external_gossip_certificate_pems=external_gossip_certificate_pems,
+            external_seed_node_ip_addresses=external_seed_node_ip_addresses,
+            hours_between_backups=hours_between_backups,
+            identity=identity,
+            location=location,
+            name=name,
+            repair_enabled=repair_enabled,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_admin_password: pulumi.Input[str],
+             delegated_management_subnet_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authentication_method: Optional[pulumi.Input[str]] = None,
+             client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hours_between_backups: Optional[pulumi.Input[int]] = None,
+             identity: Optional[pulumi.Input['CassandraClusterIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             repair_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_admin_password", default_admin_password)
+        _setter("delegated_management_subnet_id", delegated_management_subnet_id)
+        _setter("resource_group_name", resource_group_name)
         if authentication_method is not None:
-            pulumi.set(__self__, "authentication_method", authentication_method)
+            _setter("authentication_method", authentication_method)
         if client_certificate_pems is not None:
-            pulumi.set(__self__, "client_certificate_pems", client_certificate_pems)
+            _setter("client_certificate_pems", client_certificate_pems)
         if external_gossip_certificate_pems is not None:
-            pulumi.set(__self__, "external_gossip_certificate_pems", external_gossip_certificate_pems)
+            _setter("external_gossip_certificate_pems", external_gossip_certificate_pems)
         if external_seed_node_ip_addresses is not None:
-            pulumi.set(__self__, "external_seed_node_ip_addresses", external_seed_node_ip_addresses)
+            _setter("external_seed_node_ip_addresses", external_seed_node_ip_addresses)
         if hours_between_backups is not None:
-            pulumi.set(__self__, "hours_between_backups", hours_between_backups)
+            _setter("hours_between_backups", hours_between_backups)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repair_enabled is not None:
-            pulumi.set(__self__, "repair_enabled", repair_enabled)
+            _setter("repair_enabled", repair_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="defaultAdminPassword")
@@ -282,34 +317,69 @@ class _CassandraClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
+        _CassandraClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_method=authentication_method,
+            client_certificate_pems=client_certificate_pems,
+            default_admin_password=default_admin_password,
+            delegated_management_subnet_id=delegated_management_subnet_id,
+            external_gossip_certificate_pems=external_gossip_certificate_pems,
+            external_seed_node_ip_addresses=external_seed_node_ip_addresses,
+            hours_between_backups=hours_between_backups,
+            identity=identity,
+            location=location,
+            name=name,
+            repair_enabled=repair_enabled,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_method: Optional[pulumi.Input[str]] = None,
+             client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_admin_password: Optional[pulumi.Input[str]] = None,
+             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
+             external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hours_between_backups: Optional[pulumi.Input[int]] = None,
+             identity: Optional[pulumi.Input['CassandraClusterIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             repair_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_method is not None:
-            pulumi.set(__self__, "authentication_method", authentication_method)
+            _setter("authentication_method", authentication_method)
         if client_certificate_pems is not None:
-            pulumi.set(__self__, "client_certificate_pems", client_certificate_pems)
+            _setter("client_certificate_pems", client_certificate_pems)
         if default_admin_password is not None:
-            pulumi.set(__self__, "default_admin_password", default_admin_password)
+            _setter("default_admin_password", default_admin_password)
         if delegated_management_subnet_id is not None:
-            pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
+            _setter("delegated_management_subnet_id", delegated_management_subnet_id)
         if external_gossip_certificate_pems is not None:
-            pulumi.set(__self__, "external_gossip_certificate_pems", external_gossip_certificate_pems)
+            _setter("external_gossip_certificate_pems", external_gossip_certificate_pems)
         if external_seed_node_ip_addresses is not None:
-            pulumi.set(__self__, "external_seed_node_ip_addresses", external_seed_node_ip_addresses)
+            _setter("external_seed_node_ip_addresses", external_seed_node_ip_addresses)
         if hours_between_backups is not None:
-            pulumi.set(__self__, "hours_between_backups", hours_between_backups)
+            _setter("hours_between_backups", hours_between_backups)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repair_enabled is not None:
-            pulumi.set(__self__, "repair_enabled", repair_enabled)
+            _setter("repair_enabled", repair_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="authenticationMethod")
@@ -629,6 +699,10 @@ class CassandraCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CassandraClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -668,6 +742,11 @@ class CassandraCluster(pulumi.CustomResource):
             __props__.__dict__["external_gossip_certificate_pems"] = external_gossip_certificate_pems
             __props__.__dict__["external_seed_node_ip_addresses"] = external_seed_node_ip_addresses
             __props__.__dict__["hours_between_backups"] = hours_between_backups
+            if identity is not None and not isinstance(identity, CassandraClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                CassandraClusterIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -67,8 +67,19 @@ class CustomProviderActionArgs:
         :param pulumi.Input[str] endpoint: Specifies the endpoint of the action.
         :param pulumi.Input[str] name: Specifies the name of the action.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
+        CustomProviderActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -106,10 +117,23 @@ class CustomProviderResourceTypeArgs:
         :param pulumi.Input[str] name: Specifies the name of the route definition.
         :param pulumi.Input[str] routing_type: The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
+        CustomProviderResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            routing_type=routing_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             name: pulumi.Input[str],
+             routing_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("name", name)
         if routing_type is not None:
-            pulumi.set(__self__, "routing_type", routing_type)
+            _setter("routing_type", routing_type)
 
     @property
     @pulumi.getter
@@ -155,7 +179,16 @@ class CustomProviderValidationArgs:
         """
         :param pulumi.Input[str] specification: The endpoint where the validation specification is located.
         """
-        pulumi.set(__self__, "specification", specification)
+        CustomProviderValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            specification=specification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             specification: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("specification", specification)
 
     @property
     @pulumi.getter
@@ -177,8 +210,17 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
         """
         :param pulumi.Input[str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
+        ResourceDeploymentScriptAzureCliContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_group_name=container_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
+            _setter("container_group_name", container_group_name)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -204,11 +246,24 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
         :param pulumi.Input[str] secure_value: Specifies the value of the secure environment variable.
         :param pulumi.Input[str] value: Specifies the value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceDeploymentScriptAzureCliEnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             secure_value: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -256,8 +311,19 @@ class ResourceDeploymentScriptAzureCliIdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        ResourceDeploymentScriptAzureCliIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -293,8 +359,19 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
         :param pulumi.Input[str] key: Specifies the storage account access key.
         :param pulumi.Input[str] name: Specifies the storage account name.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
+        ResourceDeploymentScriptAzureCliStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -328,8 +405,17 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
         """
         :param pulumi.Input[str] container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
         """
+        ResourceDeploymentScriptPowerShellContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_group_name=container_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
+            _setter("container_group_name", container_group_name)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -355,11 +441,24 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
         :param pulumi.Input[str] secure_value: Specifies the value of the secure environment variable.
         :param pulumi.Input[str] value: Specifies the value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceDeploymentScriptPowerShellEnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             secure_value: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -407,8 +506,19 @@ class ResourceDeploymentScriptPowerShellIdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        ResourceDeploymentScriptPowerShellIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -444,8 +554,19 @@ class ResourceDeploymentScriptPowerShellStorageAccountArgs:
         :param pulumi.Input[str] key: Specifies the storage account access key.
         :param pulumi.Input[str] name: Specifies the storage account name.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
+        ResourceDeploymentScriptPowerShellStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -481,8 +602,19 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
         :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         :param pulumi.Input[str] type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
-        pulumi.set(__self__, "time_frame", time_frame)
-        pulumi.set(__self__, "type", type)
+        ResourceGroupCostManagementExportExportDataOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_frame=time_frame,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_frame: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_frame", time_frame)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="timeFrame")
@@ -520,8 +652,19 @@ class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
                
                > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
-        pulumi.set(__self__, "container_id", container_id)
-        pulumi.set(__self__, "root_folder_path", root_folder_path)
+        ResourceGroupCostManagementExportExportDataStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_id=container_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_id: pulumi.Input[str],
+             root_folder_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_id", container_id)
+        _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter(name="containerId")
@@ -563,12 +706,27 @@ class ResourceGroupCostManagementViewDatasetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]] groupings: One or more `grouping` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
-        pulumi.set(__self__, "aggregations", aggregations)
-        pulumi.set(__self__, "granularity", granularity)
+        ResourceGroupCostManagementViewDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregations=aggregations,
+            granularity=granularity,
+            groupings=groupings,
+            sortings=sortings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]],
+             granularity: pulumi.Input[str],
+             groupings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]] = None,
+             sortings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregations", aggregations)
+        _setter("granularity", granularity)
         if groupings is not None:
-            pulumi.set(__self__, "groupings", groupings)
+            _setter("groupings", groupings)
         if sortings is not None:
-            pulumi.set(__self__, "sortings", sortings)
+            _setter("sortings", sortings)
 
     @property
     @pulumi.getter
@@ -628,8 +786,19 @@ class ResourceGroupCostManagementViewDatasetAggregationArgs:
         :param pulumi.Input[str] column_name: The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[str] name: The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "name", name)
+        ResourceGroupCostManagementViewDatasetAggregationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -665,8 +834,19 @@ class ResourceGroupCostManagementViewDatasetGroupingArgs:
         :param pulumi.Input[str] name: The name of the column to group.
         :param pulumi.Input[str] type: The type of the column. Possible values are `Dimension` and `TagKey`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ResourceGroupCostManagementViewDatasetGroupingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -702,8 +882,19 @@ class ResourceGroupCostManagementViewDatasetSortingArgs:
         :param pulumi.Input[str] direction: Direction of sort. Possible values are `Ascending` and `Descending`.
         :param pulumi.Input[str] name: The name of the column to sort.
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
+        ResourceGroupCostManagementViewDatasetSortingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("direction", direction)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -737,7 +928,16 @@ class ResourceGroupCostManagementViewKpiArgs:
         """
         :param pulumi.Input[str] type: KPI type. Possible values are `Budget` and `Forecast`.
         """
-        pulumi.set(__self__, "type", type)
+        ResourceGroupCostManagementViewKpiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -761,8 +961,19 @@ class ResourceGroupCostManagementViewPivotArgs:
         :param pulumi.Input[str] name: The name of the column which should be used for this sub-view in the Cost Analysis UI.
         :param pulumi.Input[str] type: The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ResourceGroupCostManagementViewPivotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -804,13 +1015,28 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Resource Group.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Resource Group.
         """
-        pulumi.set(__self__, "type", type)
+        ResourceGroupPolicyAssignmentIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -872,9 +1098,20 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
         :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
-        pulumi.set(__self__, "content", content)
+        ResourceGroupPolicyAssignmentNonComplianceMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -910,9 +1147,20 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
         """
-        pulumi.set(__self__, "value", value)
+        ResourceGroupPolicyAssignmentOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -950,12 +1198,25 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
         :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
+        ResourceGroupPolicyAssignmentOverrideSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ins=ins,
+            kind=kind,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter
@@ -1003,9 +1264,20 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
-        pulumi.set(__self__, "selectors", selectors)
+        ResourceGroupPolicyAssignmentResourceSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selectors=selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selectors", selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1043,11 +1315,24 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
-        pulumi.set(__self__, "kind", kind)
+        ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            ins=ins,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter
@@ -1101,13 +1386,28 @@ class ResourcePolicyAssignmentIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Resource.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Resource.
         """
-        pulumi.set(__self__, "type", type)
+        ResourcePolicyAssignmentIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1169,9 +1469,20 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
         :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
-        pulumi.set(__self__, "content", content)
+        ResourcePolicyAssignmentNonComplianceMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -1207,9 +1518,20 @@ class ResourcePolicyAssignmentOverrideArgs:
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
         """
-        pulumi.set(__self__, "value", value)
+        ResourcePolicyAssignmentOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -1247,12 +1569,25 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
         :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
+        ResourcePolicyAssignmentOverrideSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ins=ins,
+            kind=kind,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter
@@ -1300,9 +1635,20 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
-        pulumi.set(__self__, "selectors", selectors)
+        ResourcePolicyAssignmentResourceSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selectors=selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selectors", selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1340,11 +1686,24 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
-        pulumi.set(__self__, "kind", kind)
+        ResourcePolicyAssignmentResourceSelectorSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            ins=ins,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter
@@ -1389,18 +1748,25 @@ class ResourceProviderRegistrationFeatureArgs:
                  name: pulumi.Input[str],
                  registered: pulumi.Input[bool]):
         """
-        :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] registered: Should this feature be Registered or Unregistered?
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "registered", registered)
+        ResourceProviderRegistrationFeatureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            registered=registered,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             registered: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("registered", registered)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1429,8 +1795,19 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
         :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         :param pulumi.Input[str] type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
-        pulumi.set(__self__, "time_frame", time_frame)
-        pulumi.set(__self__, "type", type)
+        SubscriptionCostManagementExportExportDataOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_frame=time_frame,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_frame: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_frame", time_frame)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="timeFrame")
@@ -1468,8 +1845,19 @@ class SubscriptionCostManagementExportExportDataStorageLocationArgs:
                
                > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
-        pulumi.set(__self__, "container_id", container_id)
-        pulumi.set(__self__, "root_folder_path", root_folder_path)
+        SubscriptionCostManagementExportExportDataStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_id=container_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_id: pulumi.Input[str],
+             root_folder_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_id", container_id)
+        _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter(name="containerId")
@@ -1511,12 +1899,27 @@ class SubscriptionCostManagementViewDatasetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]] groupings: One or more `grouping` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
-        pulumi.set(__self__, "aggregations", aggregations)
-        pulumi.set(__self__, "granularity", granularity)
+        SubscriptionCostManagementViewDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregations=aggregations,
+            granularity=granularity,
+            groupings=groupings,
+            sortings=sortings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]],
+             granularity: pulumi.Input[str],
+             groupings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]] = None,
+             sortings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregations", aggregations)
+        _setter("granularity", granularity)
         if groupings is not None:
-            pulumi.set(__self__, "groupings", groupings)
+            _setter("groupings", groupings)
         if sortings is not None:
-            pulumi.set(__self__, "sortings", sortings)
+            _setter("sortings", sortings)
 
     @property
     @pulumi.getter
@@ -1576,8 +1979,19 @@ class SubscriptionCostManagementViewDatasetAggregationArgs:
         :param pulumi.Input[str] column_name: The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[str] name: The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "name", name)
+        SubscriptionCostManagementViewDatasetAggregationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -1613,8 +2027,19 @@ class SubscriptionCostManagementViewDatasetGroupingArgs:
         :param pulumi.Input[str] name: The name of the column to group.
         :param pulumi.Input[str] type: The type of the column. Possible values are `Dimension` and `TagKey`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        SubscriptionCostManagementViewDatasetGroupingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1650,8 +2075,19 @@ class SubscriptionCostManagementViewDatasetSortingArgs:
         :param pulumi.Input[str] direction: Direction of sort. Possible values are `Ascending` and `Descending`.
         :param pulumi.Input[str] name: The name of the column to sort.
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
+        SubscriptionCostManagementViewDatasetSortingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("direction", direction)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1685,7 +2121,16 @@ class SubscriptionCostManagementViewKpiArgs:
         """
         :param pulumi.Input[str] type: KPI type. Possible values are `Budget` and `Forecast`.
         """
-        pulumi.set(__self__, "type", type)
+        SubscriptionCostManagementViewKpiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1709,8 +2154,19 @@ class SubscriptionCostManagementViewPivotArgs:
         :param pulumi.Input[str] name: The name of the column which should be used for this sub-view in the Cost Analysis UI.
         :param pulumi.Input[str] type: The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        SubscriptionCostManagementViewPivotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1752,13 +2208,28 @@ class SubscriptionPolicyAssignmentIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Subscription.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Subscription.
         """
-        pulumi.set(__self__, "type", type)
+        SubscriptionPolicyAssignmentIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1820,9 +2291,20 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
         :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
-        pulumi.set(__self__, "content", content)
+        SubscriptionPolicyAssignmentNonComplianceMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -1858,9 +2340,20 @@ class SubscriptionPolicyAssignmentOverrideArgs:
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
         """
-        pulumi.set(__self__, "value", value)
+        SubscriptionPolicyAssignmentOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -1898,12 +2391,25 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
         :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
+        SubscriptionPolicyAssignmentOverrideSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ins=ins,
+            kind=kind,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter
@@ -1951,9 +2457,20 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
-        pulumi.set(__self__, "selectors", selectors)
+        SubscriptionPolicyAssignmentResourceSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selectors=selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("selectors", selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1991,11 +2508,24 @@ class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
-        pulumi.set(__self__, "kind", kind)
+        SubscriptionPolicyAssignmentResourceSelectorSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            ins=ins,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: pulumi.Input[str],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kind", kind)
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter

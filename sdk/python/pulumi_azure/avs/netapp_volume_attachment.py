@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetappVolumeAttachmentArgs', 'NetappVolumeAttachment']
@@ -25,10 +25,23 @@ class NetappVolumeAttachmentArgs:
                > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
         """
-        pulumi.set(__self__, "netapp_volume_id", netapp_volume_id)
-        pulumi.set(__self__, "vmware_cluster_id", vmware_cluster_id)
+        NetappVolumeAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            netapp_volume_id=netapp_volume_id,
+            vmware_cluster_id=vmware_cluster_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             netapp_volume_id: pulumi.Input[str],
+             vmware_cluster_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("netapp_volume_id", netapp_volume_id)
+        _setter("vmware_cluster_id", vmware_cluster_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="netappVolumeId")
@@ -83,12 +96,25 @@ class _NetappVolumeAttachmentState:
                
                > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
         """
+        _NetappVolumeAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            netapp_volume_id=netapp_volume_id,
+            vmware_cluster_id=vmware_cluster_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             netapp_volume_id: Optional[pulumi.Input[str]] = None,
+             vmware_cluster_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if netapp_volume_id is not None:
-            pulumi.set(__self__, "netapp_volume_id", netapp_volume_id)
+            _setter("netapp_volume_id", netapp_volume_id)
         if vmware_cluster_id is not None:
-            pulumi.set(__self__, "vmware_cluster_id", vmware_cluster_id)
+            _setter("vmware_cluster_id", vmware_cluster_id)
 
     @property
     @pulumi.getter
@@ -184,6 +210,10 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetappVolumeAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

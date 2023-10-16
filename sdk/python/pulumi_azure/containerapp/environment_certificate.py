@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnvironmentCertificateArgs', 'EnvironmentCertificate']
@@ -27,13 +27,30 @@ class EnvironmentCertificateArgs:
         :param pulumi.Input[str] name: The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "certificate_blob_base64", certificate_blob_base64)
-        pulumi.set(__self__, "certificate_password", certificate_password)
-        pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
+        EnvironmentCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_blob_base64=certificate_blob_base64,
+            certificate_password=certificate_password,
+            container_app_environment_id=container_app_environment_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_blob_base64: pulumi.Input[str],
+             certificate_password: pulumi.Input[str],
+             container_app_environment_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_blob_base64", certificate_blob_base64)
+        _setter("certificate_password", certificate_password)
+        _setter("container_app_environment_id", container_app_environment_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="certificateBlobBase64")
@@ -122,26 +139,53 @@ class _EnvironmentCertificateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The Thumbprint of the Certificate.
         """
+        _EnvironmentCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_blob_base64=certificate_blob_base64,
+            certificate_password=certificate_password,
+            container_app_environment_id=container_app_environment_id,
+            expiration_date=expiration_date,
+            issue_date=issue_date,
+            issuer=issuer,
+            name=name,
+            subject_name=subject_name,
+            tags=tags,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_blob_base64: Optional[pulumi.Input[str]] = None,
+             certificate_password: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             issue_date: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subject_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_blob_base64 is not None:
-            pulumi.set(__self__, "certificate_blob_base64", certificate_blob_base64)
+            _setter("certificate_blob_base64", certificate_blob_base64)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if container_app_environment_id is not None:
-            pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
+            _setter("container_app_environment_id", container_app_environment_id)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if issue_date is not None:
-            pulumi.set(__self__, "issue_date", issue_date)
+            _setter("issue_date", issue_date)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subject_name is not None:
-            pulumi.set(__self__, "subject_name", subject_name)
+            _setter("subject_name", subject_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="certificateBlobBase64")
@@ -321,6 +365,10 @@ class EnvironmentCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

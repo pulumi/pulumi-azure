@@ -47,14 +47,14 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
     }
 
     /**
-     * Describes field of the matchVariable collection
+     * Describes field of the matchVariable collection.
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return Describes field of the matchVariable collection
+     * @return Describes field of the matchVariable collection.
      * 
      */
     public Optional<Output<String>> selector() {
@@ -146,7 +146,7 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param selector Describes field of the matchVariable collection
+         * @param selector Describes field of the matchVariable collection.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param selector Describes field of the matchVariable collection
+         * @param selector Describes field of the matchVariable collection.
          * 
          * @return builder
          * 

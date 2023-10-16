@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,52 @@ class NetworkManagerAdminRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "admin_rule_collection_id", admin_rule_collection_id)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
+        NetworkManagerAdminRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            admin_rule_collection_id=admin_rule_collection_id,
+            direction=direction,
+            priority=priority,
+            protocol=protocol,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            name=name,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             admin_rule_collection_id: pulumi.Input[str],
+             direction: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleDestinationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("admin_rule_collection_id", admin_rule_collection_id)
+        _setter("direction", direction)
+        _setter("priority", priority)
+        _setter("protocol", protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter
@@ -220,28 +249,57 @@ class _NetworkManagerAdminRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
+        _NetworkManagerAdminRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            admin_rule_collection_id=admin_rule_collection_id,
+            description=description,
+            destination_port_ranges=destination_port_ranges,
+            destinations=destinations,
+            direction=direction,
+            name=name,
+            priority=priority,
+            protocol=protocol,
+            source_port_ranges=source_port_ranges,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             admin_rule_collection_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleDestinationArgs']]]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if admin_rule_collection_id is not None:
-            pulumi.set(__self__, "admin_rule_collection_id", admin_rule_collection_id)
+            _setter("admin_rule_collection_id", admin_rule_collection_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter
@@ -549,6 +607,10 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkManagerAdminRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

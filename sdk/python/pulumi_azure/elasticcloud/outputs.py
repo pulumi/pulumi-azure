@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -53,14 +53,29 @@ class ElasticsearchLogs(dict):
         :param bool send_azuread_logs: Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         :param bool send_subscription_logs: Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         """
+        ElasticsearchLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_activity_logs=send_activity_logs,
+            send_azuread_logs=send_azuread_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[Sequence['outputs.ElasticsearchLogsFilteringTag']] = None,
+             send_activity_logs: Optional[bool] = None,
+             send_azuread_logs: Optional[bool] = None,
+             send_subscription_logs: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_azuread_logs is not None:
-            pulumi.set(__self__, "send_azuread_logs", send_azuread_logs)
+            _setter("send_azuread_logs", send_azuread_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -106,9 +121,22 @@ class ElasticsearchLogsFilteringTag(dict):
         :param str name: Specifies the name (key) of the Tag which should be filtered.
         :param str value: Specifies the value of the Tag which should be filtered.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ElasticsearchLogsFilteringTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -148,10 +176,25 @@ class GetElasticsearchLogResult(dict):
         :param bool send_azuread_logs: Should the AzureAD Logs should be sent to the Elasticsearch cluster?
         :param bool send_subscription_logs: Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
         """
-        pulumi.set(__self__, "filtering_tags", filtering_tags)
-        pulumi.set(__self__, "send_activity_logs", send_activity_logs)
-        pulumi.set(__self__, "send_azuread_logs", send_azuread_logs)
-        pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+        GetElasticsearchLogResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_activity_logs=send_activity_logs,
+            send_azuread_logs=send_azuread_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Sequence['outputs.GetElasticsearchLogFilteringTagResult'],
+             send_activity_logs: bool,
+             send_azuread_logs: bool,
+             send_subscription_logs: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filtering_tags", filtering_tags)
+        _setter("send_activity_logs", send_activity_logs)
+        _setter("send_azuread_logs", send_azuread_logs)
+        _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -197,9 +240,22 @@ class GetElasticsearchLogFilteringTagResult(dict):
         :param str name: The name of the Elasticsearch resource.
         :param str value: The value of the Tag which should be filtered.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetElasticsearchLogFilteringTagResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter

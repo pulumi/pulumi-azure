@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class DefinitionArgs:
         :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         :param pulumi.Input['DefinitionPlanArgs'] plan: A `plan` block as defined below.
         """
-        pulumi.set(__self__, "authorizations", authorizations)
-        pulumi.set(__self__, "managing_tenant_id", managing_tenant_id)
-        pulumi.set(__self__, "scope", scope)
+        DefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizations=authorizations,
+            managing_tenant_id=managing_tenant_id,
+            scope=scope,
+            description=description,
+            eligible_authorizations=eligible_authorizations,
+            lighthouse_definition_id=lighthouse_definition_id,
+            name=name,
+            plan=plan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizations: pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]],
+             managing_tenant_id: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]] = None,
+             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorizations", authorizations)
+        _setter("managing_tenant_id", managing_tenant_id)
+        _setter("scope", scope)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if eligible_authorizations is not None:
-            pulumi.set(__self__, "eligible_authorizations", eligible_authorizations)
+            _setter("eligible_authorizations", eligible_authorizations)
         if lighthouse_definition_id is not None:
-            pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
+            _setter("lighthouse_definition_id", lighthouse_definition_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
 
     @property
     @pulumi.getter
@@ -168,22 +191,45 @@ class _DefinitionState:
         :param pulumi.Input['DefinitionPlanArgs'] plan: A `plan` block as defined below.
         :param pulumi.Input[str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
         """
+        _DefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizations=authorizations,
+            description=description,
+            eligible_authorizations=eligible_authorizations,
+            lighthouse_definition_id=lighthouse_definition_id,
+            managing_tenant_id=managing_tenant_id,
+            name=name,
+            plan=plan,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]] = None,
+             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+             managing_tenant_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if eligible_authorizations is not None:
-            pulumi.set(__self__, "eligible_authorizations", eligible_authorizations)
+            _setter("eligible_authorizations", eligible_authorizations)
         if lighthouse_definition_id is not None:
-            pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
+            _setter("lighthouse_definition_id", lighthouse_definition_id)
         if managing_tenant_id is not None:
-            pulumi.set(__self__, "managing_tenant_id", managing_tenant_id)
+            _setter("managing_tenant_id", managing_tenant_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -381,6 +427,10 @@ class Definition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -413,6 +463,11 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managing_tenant_id'")
             __props__.__dict__["managing_tenant_id"] = managing_tenant_id
             __props__.__dict__["name"] = name
+            if plan is not None and not isinstance(plan, DefinitionPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                DefinitionPlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

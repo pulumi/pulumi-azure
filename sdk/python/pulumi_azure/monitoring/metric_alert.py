@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,36 +61,75 @@ class MetricAlertArgs:
                > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scopes", scopes)
+        MetricAlertArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            actions=actions,
+            application_insights_web_test_location_availability_criteria=application_insights_web_test_location_availability_criteria,
+            auto_mitigate=auto_mitigate,
+            criterias=criterias,
+            description=description,
+            dynamic_criteria=dynamic_criteria,
+            enabled=enabled,
+            frequency=frequency,
+            name=name,
+            severity=severity,
+            tags=tags,
+            target_resource_location=target_resource_location,
+            target_resource_type=target_resource_type,
+            window_size=window_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+             application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
+             auto_mitigate: Optional[pulumi.Input[bool]] = None,
+             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_location: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             window_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("scopes", scopes)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if application_insights_web_test_location_availability_criteria is not None:
-            pulumi.set(__self__, "application_insights_web_test_location_availability_criteria", application_insights_web_test_location_availability_criteria)
+            _setter("application_insights_web_test_location_availability_criteria", application_insights_web_test_location_availability_criteria)
         if auto_mitigate is not None:
-            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+            _setter("auto_mitigate", auto_mitigate)
         if criterias is not None:
-            pulumi.set(__self__, "criterias", criterias)
+            _setter("criterias", criterias)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dynamic_criteria is not None:
-            pulumi.set(__self__, "dynamic_criteria", dynamic_criteria)
+            _setter("dynamic_criteria", dynamic_criteria)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_location is not None:
-            pulumi.set(__self__, "target_resource_location", target_resource_location)
+            _setter("target_resource_location", target_resource_location)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
         if window_size is not None:
-            pulumi.set(__self__, "window_size", window_size)
+            _setter("window_size", window_size)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -343,38 +382,77 @@ class _MetricAlertState:
                > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
+        _MetricAlertState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            application_insights_web_test_location_availability_criteria=application_insights_web_test_location_availability_criteria,
+            auto_mitigate=auto_mitigate,
+            criterias=criterias,
+            description=description,
+            dynamic_criteria=dynamic_criteria,
+            enabled=enabled,
+            frequency=frequency,
+            name=name,
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            severity=severity,
+            tags=tags,
+            target_resource_location=target_resource_location,
+            target_resource_type=target_resource_type,
+            window_size=window_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+             application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
+             auto_mitigate: Optional[pulumi.Input[bool]] = None,
+             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_location: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             window_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if application_insights_web_test_location_availability_criteria is not None:
-            pulumi.set(__self__, "application_insights_web_test_location_availability_criteria", application_insights_web_test_location_availability_criteria)
+            _setter("application_insights_web_test_location_availability_criteria", application_insights_web_test_location_availability_criteria)
         if auto_mitigate is not None:
-            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+            _setter("auto_mitigate", auto_mitigate)
         if criterias is not None:
-            pulumi.set(__self__, "criterias", criterias)
+            _setter("criterias", criterias)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dynamic_criteria is not None:
-            pulumi.set(__self__, "dynamic_criteria", dynamic_criteria)
+            _setter("dynamic_criteria", dynamic_criteria)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_location is not None:
-            pulumi.set(__self__, "target_resource_location", target_resource_location)
+            _setter("target_resource_location", target_resource_location)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
         if window_size is not None:
-            pulumi.set(__self__, "window_size", window_size)
+            _setter("window_size", window_size)
 
     @property
     @pulumi.getter
@@ -748,6 +826,10 @@ class MetricAlert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricAlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -779,10 +861,20 @@ class MetricAlert(pulumi.CustomResource):
             __props__ = MetricAlertArgs.__new__(MetricAlertArgs)
 
             __props__.__dict__["actions"] = actions
+            if application_insights_web_test_location_availability_criteria is not None and not isinstance(application_insights_web_test_location_availability_criteria, MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs):
+                application_insights_web_test_location_availability_criteria = application_insights_web_test_location_availability_criteria or {}
+                def _setter(key, value):
+                    application_insights_web_test_location_availability_criteria[key] = value
+                MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs._configure(_setter, **application_insights_web_test_location_availability_criteria)
             __props__.__dict__["application_insights_web_test_location_availability_criteria"] = application_insights_web_test_location_availability_criteria
             __props__.__dict__["auto_mitigate"] = auto_mitigate
             __props__.__dict__["criterias"] = criterias
             __props__.__dict__["description"] = description
+            if dynamic_criteria is not None and not isinstance(dynamic_criteria, MetricAlertDynamicCriteriaArgs):
+                dynamic_criteria = dynamic_criteria or {}
+                def _setter(key, value):
+                    dynamic_criteria[key] = value
+                MetricAlertDynamicCriteriaArgs._configure(_setter, **dynamic_criteria)
             __props__.__dict__["dynamic_criteria"] = dynamic_criteria
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["frequency"] = frequency

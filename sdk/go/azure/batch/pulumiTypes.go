@@ -4934,15 +4934,13 @@ func (o PoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) PoolStartTas
 }
 
 type PoolStartTaskContainerRegistry struct {
-	// The password to log into the registry server. Changing this forces a new resource to be created.
+	// The password to use for authentication against the CIFS file system.
 	Password *string `pulumi:"password"`
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
-	// An identity reference from pool's user assigned managed identity list.
-	//
-	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
-	// The username to be used by the Batch pool start task.
+	// The user to use for authentication against the CIFS file system.
 	UserName *string `pulumi:"userName"`
 }
 
@@ -4958,15 +4956,13 @@ type PoolStartTaskContainerRegistryInput interface {
 }
 
 type PoolStartTaskContainerRegistryArgs struct {
-	// The password to log into the registry server. Changing this forces a new resource to be created.
+	// The password to use for authentication against the CIFS file system.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
-	// An identity reference from pool's user assigned managed identity list.
-	//
-	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
-	// The username to be used by the Batch pool start task.
+	// The user to use for authentication against the CIFS file system.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
@@ -5039,7 +5035,7 @@ func (o PoolStartTaskContainerRegistryOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// The password to log into the registry server. Changing this forces a new resource to be created.
+// The password to use for authentication against the CIFS file system.
 func (o PoolStartTaskContainerRegistryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -5049,14 +5045,12 @@ func (o PoolStartTaskContainerRegistryOutput) RegistryServer() pulumi.StringOutp
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
 
-// An identity reference from pool's user assigned managed identity list.
-//
-// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
+// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 func (o PoolStartTaskContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
-// The username to be used by the Batch pool start task.
+// The user to use for authentication against the CIFS file system.
 func (o PoolStartTaskContainerRegistryOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }

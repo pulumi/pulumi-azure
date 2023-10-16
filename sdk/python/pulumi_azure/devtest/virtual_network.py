@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class VirtualNetworkArgs:
         :param pulumi.Input['VirtualNetworkSubnetArgs'] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            name=name,
+            subnet=subnet,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="labName")
@@ -135,20 +154,41 @@ class _VirtualNetworkState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Virtual Network.
         """
+        _VirtualNetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            lab_name=lab_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            subnet=subnet,
+            tags=tags,
+            unique_identifier=unique_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if lab_name is not None:
-            pulumi.set(__self__, "lab_name", lab_name)
+            _setter("lab_name", lab_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+            _setter("unique_identifier", unique_identifier)
 
     @property
     @pulumi.getter
@@ -338,6 +378,10 @@ class VirtualNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -366,6 +410,11 @@ class VirtualNetwork(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if subnet is not None and not isinstance(subnet, VirtualNetworkSubnetArgs):
+                subnet = subnet or {}
+                def _setter(key, value):
+                    subnet[key] = value
+                VirtualNetworkSubnetArgs._configure(_setter, **subnet)
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
             __props__.__dict__["unique_identifier"] = None

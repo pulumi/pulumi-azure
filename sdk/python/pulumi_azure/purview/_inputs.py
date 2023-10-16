@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,13 +29,28 @@ class AccountIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -99,12 +114,25 @@ class AccountManagedResourceArgs:
         :param pulumi.Input[str] resource_group_id: The ID of the managed resource group.
         :param pulumi.Input[str] storage_account_id: The ID of the managed storage account.
         """
+        AccountManagedResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_namespace_id=event_hub_namespace_id,
+            resource_group_id=resource_group_id,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_namespace_id: Optional[pulumi.Input[str]] = None,
+             resource_group_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_hub_namespace_id is not None:
-            pulumi.set(__self__, "event_hub_namespace_id", event_hub_namespace_id)
+            _setter("event_hub_namespace_id", event_hub_namespace_id)
         if resource_group_id is not None:
-            pulumi.set(__self__, "resource_group_id", resource_group_id)
+            _setter("resource_group_id", resource_group_id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="eventHubNamespaceId")

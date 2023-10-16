@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OutputCosmosdbArgs', 'OutputCosmosdb']
@@ -31,16 +31,37 @@ class OutputCosmosdbArgs:
         :param pulumi.Input[str] name: The name of the Stream Analytics Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "cosmosdb_account_key", cosmosdb_account_key)
-        pulumi.set(__self__, "cosmosdb_sql_database_id", cosmosdb_sql_database_id)
-        pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
+        OutputCosmosdbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            cosmosdb_account_key=cosmosdb_account_key,
+            cosmosdb_sql_database_id=cosmosdb_sql_database_id,
+            stream_analytics_job_id=stream_analytics_job_id,
+            document_id=document_id,
+            name=name,
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             cosmosdb_account_key: pulumi.Input[str],
+             cosmosdb_sql_database_id: pulumi.Input[str],
+             stream_analytics_job_id: pulumi.Input[str],
+             document_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
+        _setter("cosmosdb_account_key", cosmosdb_account_key)
+        _setter("cosmosdb_sql_database_id", cosmosdb_sql_database_id)
+        _setter("stream_analytics_job_id", stream_analytics_job_id)
         if document_id is not None:
-            pulumi.set(__self__, "document_id", document_id)
+            _setter("document_id", document_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter(name="containerName")
@@ -147,20 +168,41 @@ class _OutputCosmosdbState:
         :param pulumi.Input[str] partition_key: The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
+        _OutputCosmosdbState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            cosmosdb_account_key=cosmosdb_account_key,
+            cosmosdb_sql_database_id=cosmosdb_sql_database_id,
+            document_id=document_id,
+            name=name,
+            partition_key=partition_key,
+            stream_analytics_job_id=stream_analytics_job_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_account_key: Optional[pulumi.Input[str]] = None,
+             cosmosdb_sql_database_id: Optional[pulumi.Input[str]] = None,
+             document_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if cosmosdb_account_key is not None:
-            pulumi.set(__self__, "cosmosdb_account_key", cosmosdb_account_key)
+            _setter("cosmosdb_account_key", cosmosdb_account_key)
         if cosmosdb_sql_database_id is not None:
-            pulumi.set(__self__, "cosmosdb_sql_database_id", cosmosdb_sql_database_id)
+            _setter("cosmosdb_sql_database_id", cosmosdb_sql_database_id)
         if document_id is not None:
-            pulumi.set(__self__, "document_id", document_id)
+            _setter("document_id", document_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if stream_analytics_job_id is not None:
-            pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
+            _setter("stream_analytics_job_id", stream_analytics_job_id)
 
     @property
     @pulumi.getter(name="containerName")
@@ -388,6 +430,10 @@ class OutputCosmosdb(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputCosmosdbArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

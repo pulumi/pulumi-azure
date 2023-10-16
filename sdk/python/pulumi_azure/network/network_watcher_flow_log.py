@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,22 +41,51 @@ class NetworkWatcherFlowLogArgs:
         :param pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs'] traffic_analytics: A `traffic_analytics` block as documented below.
         :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "network_security_group_id", network_security_group_id)
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "retention_policy", retention_policy)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        NetworkWatcherFlowLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            network_security_group_id=network_security_group_id,
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            retention_policy=retention_policy,
+            storage_account_id=storage_account_id,
+            location=location,
+            name=name,
+            tags=tags,
+            traffic_analytics=traffic_analytics,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             network_security_group_id: pulumi.Input[str],
+             network_watcher_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             retention_policy: pulumi.Input['NetworkWatcherFlowLogRetentionPolicyArgs'],
+             storage_account_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_analytics: Optional[pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs']] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("network_security_group_id", network_security_group_id)
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("retention_policy", retention_policy)
+        _setter("storage_account_id", storage_account_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_analytics is not None:
-            pulumi.set(__self__, "traffic_analytics", traffic_analytics)
+            _setter("traffic_analytics", traffic_analytics)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -219,28 +248,57 @@ class _NetworkWatcherFlowLogState:
         :param pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs'] traffic_analytics: A `traffic_analytics` block as documented below.
         :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
         """
+        _NetworkWatcherFlowLogState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            location=location,
+            name=name,
+            network_security_group_id=network_security_group_id,
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            retention_policy=retention_policy,
+            storage_account_id=storage_account_id,
+            tags=tags,
+            traffic_analytics=traffic_analytics,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['NetworkWatcherFlowLogRetentionPolicyArgs']] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_analytics: Optional[pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs']] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_security_group_id is not None:
-            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+            _setter("network_security_group_id", network_security_group_id)
         if network_watcher_name is not None:
-            pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+            _setter("network_watcher_name", network_watcher_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_analytics is not None:
-            pulumi.set(__self__, "traffic_analytics", traffic_analytics)
+            _setter("traffic_analytics", traffic_analytics)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -526,6 +584,10 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkWatcherFlowLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -565,6 +627,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if retention_policy is not None and not isinstance(retention_policy, NetworkWatcherFlowLogRetentionPolicyArgs):
+                retention_policy = retention_policy or {}
+                def _setter(key, value):
+                    retention_policy[key] = value
+                NetworkWatcherFlowLogRetentionPolicyArgs._configure(_setter, **retention_policy)
             if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")
             __props__.__dict__["retention_policy"] = retention_policy
@@ -572,6 +639,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
+            if traffic_analytics is not None and not isinstance(traffic_analytics, NetworkWatcherFlowLogTrafficAnalyticsArgs):
+                traffic_analytics = traffic_analytics or {}
+                def _setter(key, value):
+                    traffic_analytics[key] = value
+                NetworkWatcherFlowLogTrafficAnalyticsArgs._configure(_setter, **traffic_analytics)
             __props__.__dict__["traffic_analytics"] = traffic_analytics
             __props__.__dict__["version"] = version
         super(NetworkWatcherFlowLog, __self__).__init__(

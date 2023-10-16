@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataConnectorThreatIntelligenceTaxiiArgs', 'DataConnectorThreatIntelligenceTaxii']
@@ -39,22 +39,49 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         :param pulumi.Input[str] user_name: The user name for the TAXII server.
         """
-        pulumi.set(__self__, "api_root_url", api_root_url)
-        pulumi.set(__self__, "collection_id", collection_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        DataConnectorThreatIntelligenceTaxiiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_root_url=api_root_url,
+            collection_id=collection_id,
+            display_name=display_name,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            lookback_date=lookback_date,
+            name=name,
+            password=password,
+            polling_frequency=polling_frequency,
+            tenant_id=tenant_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_root_url: pulumi.Input[str],
+             collection_id: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             log_analytics_workspace_id: pulumi.Input[str],
+             lookback_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             polling_frequency: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_root_url", api_root_url)
+        _setter("collection_id", collection_id)
+        _setter("display_name", display_name)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if lookback_date is not None:
-            pulumi.set(__self__, "lookback_date", lookback_date)
+            _setter("lookback_date", lookback_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if polling_frequency is not None:
-            pulumi.set(__self__, "polling_frequency", polling_frequency)
+            _setter("polling_frequency", polling_frequency)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="apiRootUrl")
@@ -207,26 +234,53 @@ class _DataConnectorThreatIntelligenceTaxiiState:
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         :param pulumi.Input[str] user_name: The user name for the TAXII server.
         """
+        _DataConnectorThreatIntelligenceTaxiiState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_root_url=api_root_url,
+            collection_id=collection_id,
+            display_name=display_name,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            lookback_date=lookback_date,
+            name=name,
+            password=password,
+            polling_frequency=polling_frequency,
+            tenant_id=tenant_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_root_url: Optional[pulumi.Input[str]] = None,
+             collection_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             lookback_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             polling_frequency: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_root_url is not None:
-            pulumi.set(__self__, "api_root_url", api_root_url)
+            _setter("api_root_url", api_root_url)
         if collection_id is not None:
-            pulumi.set(__self__, "collection_id", collection_id)
+            _setter("collection_id", collection_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if lookback_date is not None:
-            pulumi.set(__self__, "lookback_date", lookback_date)
+            _setter("lookback_date", lookback_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if polling_frequency is not None:
-            pulumi.set(__self__, "polling_frequency", polling_frequency)
+            _setter("polling_frequency", polling_frequency)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="apiRootUrl")
@@ -458,6 +512,10 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataConnectorThreatIntelligenceTaxiiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

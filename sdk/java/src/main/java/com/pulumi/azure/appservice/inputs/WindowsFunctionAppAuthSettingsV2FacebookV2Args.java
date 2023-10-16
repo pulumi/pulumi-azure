@@ -66,18 +66,14 @@ public final class WindowsFunctionAppAuthSettingsV2FacebookV2Args extends com.pu
     }
 
     /**
-     * A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -179,9 +175,7 @@ public final class WindowsFunctionAppAuthSettingsV2FacebookV2Args extends com.pu
         }
 
         /**
-         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
-         * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
          * 
          * @return builder
          * 
@@ -192,9 +186,7 @@ public final class WindowsFunctionAppAuthSettingsV2FacebookV2Args extends com.pu
         }
 
         /**
-         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
-         * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
          * 
          * @return builder
          * 
@@ -204,9 +196,7 @@ public final class WindowsFunctionAppAuthSettingsV2FacebookV2Args extends com.pu
         }
 
         /**
-         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
-         * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
          * 
          * @return builder
          * 

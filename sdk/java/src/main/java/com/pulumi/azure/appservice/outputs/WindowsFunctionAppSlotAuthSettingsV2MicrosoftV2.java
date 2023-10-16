@@ -12,47 +12,31 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return an `allowed_audiences` block as detailed below.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     private String clientId;
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     private String clientSecretSettingName;
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     private @Nullable List<String> loginScopes;
 
     private WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2() {}
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return an `allowed_audiences` block as detailed below.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -61,33 +45,21 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
     }
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public String clientSecretSettingName() {
         return this.clientSecretSettingName;
     }
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     public List<String> loginScopes() {

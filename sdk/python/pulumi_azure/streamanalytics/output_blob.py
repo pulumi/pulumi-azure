@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,24 +45,57 @@ class OutputBlobArgs:
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         """
-        pulumi.set(__self__, "date_format", date_format)
-        pulumi.set(__self__, "path_pattern", path_pattern)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialization", serialization)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
-        pulumi.set(__self__, "time_format", time_format)
+        OutputBlobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_format=date_format,
+            path_pattern=path_pattern,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            storage_account_name=storage_account_name,
+            storage_container_name=storage_container_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            time_format=time_format,
+            authentication_mode=authentication_mode,
+            batch_max_wait_time=batch_max_wait_time,
+            batch_min_rows=batch_min_rows,
+            name=name,
+            storage_account_key=storage_account_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_format: pulumi.Input[str],
+             path_pattern: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             serialization: pulumi.Input['OutputBlobSerializationArgs'],
+             storage_account_name: pulumi.Input[str],
+             storage_container_name: pulumi.Input[str],
+             stream_analytics_job_name: pulumi.Input[str],
+             time_format: pulumi.Input[str],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             batch_max_wait_time: Optional[pulumi.Input[str]] = None,
+             batch_min_rows: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("date_format", date_format)
+        _setter("path_pattern", path_pattern)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialization", serialization)
+        _setter("storage_account_name", storage_account_name)
+        _setter("storage_container_name", storage_container_name)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        _setter("time_format", time_format)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if batch_max_wait_time is not None:
-            pulumi.set(__self__, "batch_max_wait_time", batch_max_wait_time)
+            _setter("batch_max_wait_time", batch_max_wait_time)
         if batch_min_rows is not None:
-            pulumi.set(__self__, "batch_min_rows", batch_min_rows)
+            _setter("batch_min_rows", batch_min_rows)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -253,32 +286,65 @@ class _OutputBlobState:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         """
+        _OutputBlobState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_mode=authentication_mode,
+            batch_max_wait_time=batch_max_wait_time,
+            batch_min_rows=batch_min_rows,
+            date_format=date_format,
+            name=name,
+            path_pattern=path_pattern,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+            storage_container_name=storage_container_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            time_format=time_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             batch_max_wait_time: Optional[pulumi.Input[str]] = None,
+             batch_min_rows: Optional[pulumi.Input[int]] = None,
+             date_format: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['OutputBlobSerializationArgs']] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if batch_max_wait_time is not None:
-            pulumi.set(__self__, "batch_max_wait_time", batch_max_wait_time)
+            _setter("batch_max_wait_time", batch_max_wait_time)
         if batch_min_rows is not None:
-            pulumi.set(__self__, "batch_min_rows", batch_min_rows)
+            _setter("batch_min_rows", batch_min_rows)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path_pattern is not None:
-            pulumi.set(__self__, "path_pattern", path_pattern)
+            _setter("path_pattern", path_pattern)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_container_name is not None:
-            pulumi.set(__self__, "storage_container_name", storage_container_name)
+            _setter("storage_container_name", storage_container_name)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -576,6 +642,10 @@ class OutputBlob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputBlobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -616,6 +686,11 @@ class OutputBlob(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if serialization is not None and not isinstance(serialization, OutputBlobSerializationArgs):
+                serialization = serialization or {}
+                def _setter(key, value):
+                    serialization[key] = value
+                OutputBlobSerializationArgs._configure(_setter, **serialization)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

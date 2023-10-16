@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualHubRouteTableRouteInitArgs', 'VirtualHubRouteTableRoute']
@@ -29,14 +29,33 @@ class VirtualHubRouteTableRouteInitArgs:
         :param pulumi.Input[str] name: The name which should be used for this route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] next_hop_type: The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
         """
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "destinations_type", destinations_type)
-        pulumi.set(__self__, "next_hop", next_hop)
-        pulumi.set(__self__, "route_table_id", route_table_id)
+        VirtualHubRouteTableRouteInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destinations=destinations,
+            destinations_type=destinations_type,
+            next_hop=next_hop,
+            route_table_id=route_table_id,
+            name=name,
+            next_hop_type=next_hop_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
+             destinations_type: pulumi.Input[str],
+             next_hop: pulumi.Input[str],
+             route_table_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destinations", destinations)
+        _setter("destinations_type", destinations_type)
+        _setter("next_hop", next_hop)
+        _setter("route_table_id", route_table_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_type is not None:
-            pulumi.set(__self__, "next_hop_type", next_hop_type)
+            _setter("next_hop_type", next_hop_type)
 
     @property
     @pulumi.getter
@@ -129,18 +148,37 @@ class _VirtualHubRouteTableRouteState:
         :param pulumi.Input[str] next_hop_type: The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
         :param pulumi.Input[str] route_table_id: The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created.
         """
+        _VirtualHubRouteTableRouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destinations=destinations,
+            destinations_type=destinations_type,
+            name=name,
+            next_hop=next_hop,
+            next_hop_type=next_hop_type,
+            route_table_id=route_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destinations_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop: Optional[pulumi.Input[str]] = None,
+             next_hop_type: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if destinations_type is not None:
-            pulumi.set(__self__, "destinations_type", destinations_type)
+            _setter("destinations_type", destinations_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop is not None:
-            pulumi.set(__self__, "next_hop", next_hop)
+            _setter("next_hop", next_hop)
         if next_hop_type is not None:
-            pulumi.set(__self__, "next_hop_type", next_hop_type)
+            _setter("next_hop_type", next_hop_type)
         if route_table_id is not None:
-            pulumi.set(__self__, "route_table_id", route_table_id)
+            _setter("route_table_id", route_table_id)
 
     @property
     @pulumi.getter
@@ -370,6 +408,10 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubRouteTableRouteInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

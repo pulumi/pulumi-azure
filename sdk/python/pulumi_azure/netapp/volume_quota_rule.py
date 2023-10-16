@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VolumeQuotaRuleArgs', 'VolumeQuotaRule']
@@ -33,15 +33,34 @@ class VolumeQuotaRuleArgs:
                
                > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
-        pulumi.set(__self__, "quota_size_in_kib", quota_size_in_kib)
-        pulumi.set(__self__, "quota_type", quota_type)
-        pulumi.set(__self__, "volume_id", volume_id)
+        VolumeQuotaRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quota_size_in_kib=quota_size_in_kib,
+            quota_type=quota_type,
+            volume_id=volume_id,
+            location=location,
+            name=name,
+            quota_target=quota_target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quota_size_in_kib: pulumi.Input[int],
+             quota_type: pulumi.Input[str],
+             volume_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota_target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("quota_size_in_kib", quota_size_in_kib)
+        _setter("quota_type", quota_type)
+        _setter("volume_id", volume_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota_target is not None:
-            pulumi.set(__self__, "quota_target", quota_target)
+            _setter("quota_target", quota_target)
 
     @property
     @pulumi.getter(name="quotaSizeInKib")
@@ -142,18 +161,37 @@ class _VolumeQuotaRuleState:
         :param pulumi.Input[str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
         :param pulumi.Input[str] volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to.
         """
+        _VolumeQuotaRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+            quota_size_in_kib=quota_size_in_kib,
+            quota_target=quota_target,
+            quota_type=quota_type,
+            volume_id=volume_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota_size_in_kib: Optional[pulumi.Input[int]] = None,
+             quota_target: Optional[pulumi.Input[str]] = None,
+             quota_type: Optional[pulumi.Input[str]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota_size_in_kib is not None:
-            pulumi.set(__self__, "quota_size_in_kib", quota_size_in_kib)
+            _setter("quota_size_in_kib", quota_size_in_kib)
         if quota_target is not None:
-            pulumi.set(__self__, "quota_target", quota_target)
+            _setter("quota_target", quota_target)
         if quota_type is not None:
-            pulumi.set(__self__, "quota_type", quota_type)
+            _setter("quota_type", quota_type)
         if volume_id is not None:
-            pulumi.set(__self__, "volume_id", volume_id)
+            _setter("volume_id", volume_id)
 
     @property
     @pulumi.getter
@@ -439,6 +477,10 @@ class VolumeQuotaRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeQuotaRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

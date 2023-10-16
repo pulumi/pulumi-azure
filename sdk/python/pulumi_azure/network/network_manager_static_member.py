@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkManagerStaticMemberArgs', 'NetworkManagerStaticMember']
@@ -23,10 +23,23 @@ class NetworkManagerStaticMemberArgs:
         :param pulumi.Input[str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
-        pulumi.set(__self__, "network_group_id", network_group_id)
-        pulumi.set(__self__, "target_virtual_network_id", target_virtual_network_id)
+        NetworkManagerStaticMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_group_id=network_group_id,
+            target_virtual_network_id=target_virtual_network_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_group_id: pulumi.Input[str],
+             target_virtual_network_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_group_id", network_group_id)
+        _setter("target_virtual_network_id", target_virtual_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="networkGroupId")
@@ -79,14 +92,29 @@ class _NetworkManagerStaticMemberState:
         :param pulumi.Input[str] region: The region of the Network Manager Static Member.
         :param pulumi.Input[str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
         """
+        _NetworkManagerStaticMemberState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            network_group_id=network_group_id,
+            region=region,
+            target_virtual_network_id=target_virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             network_group_id: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             target_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_group_id is not None:
-            pulumi.set(__self__, "network_group_id", network_group_id)
+            _setter("network_group_id", network_group_id)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if target_virtual_network_id is not None:
-            pulumi.set(__self__, "target_virtual_network_id", target_virtual_network_id)
+            _setter("target_virtual_network_id", target_virtual_network_id)
 
     @property
     @pulumi.getter
@@ -252,6 +280,10 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkManagerStaticMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

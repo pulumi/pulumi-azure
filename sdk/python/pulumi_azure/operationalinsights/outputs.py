@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,12 +42,27 @@ class AnalyticsSolutionPlan(dict):
         :param str publisher: The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
         :param str promotion_code: A promotion code to be used with the solution. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        AnalyticsSolutionPlan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            product=product,
+            publisher=publisher,
+            name=name,
+            promotion_code=promotion_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             product: str,
+             publisher: str,
+             name: Optional[str] = None,
+             promotion_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("product", product)
+        _setter("publisher", publisher)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
 
     @property
     @pulumi.getter

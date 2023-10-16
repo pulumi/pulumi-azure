@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,13 +35,28 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
         :param pulumi.Input[int] time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        GlobalVMShutdownScheduleNotificationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            email=email,
+            time_in_minutes=time_in_minutes,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             email: Optional[pulumi.Input[str]] = None,
+             time_in_minutes: Optional[pulumi.Input[int]] = None,
+             webhook_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if time_in_minutes is not None:
-            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
+            _setter("time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter
@@ -105,10 +120,25 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
         :param pulumi.Input[str] sku: The SKU of the Gallery Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The Version of the Gallery Image. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "version", version)
+        LinuxVirtualMachineGalleryImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             sku: pulumi.Input[str],
+             version: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("publisher", publisher)
+        _setter("sku", sku)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -170,10 +200,23 @@ class LinuxVirtualMachineInboundNatRuleArgs:
         :param pulumi.Input[str] protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param pulumi.Input[int] frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "protocol", protocol)
+        LinuxVirtualMachineInboundNatRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            protocol=protocol,
+            frontend_port=frontend_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             frontend_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("protocol", protocol)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -219,7 +262,16 @@ class ScheduleDailyRecurrenceArgs:
         """
         :param pulumi.Input[str] time: The time each day when the schedule takes effect.
         """
-        pulumi.set(__self__, "time", time)
+        ScheduleDailyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time", time)
 
     @property
     @pulumi.getter
@@ -241,7 +293,16 @@ class ScheduleHourlyRecurrenceArgs:
         """
         :param pulumi.Input[int] minute: Minutes of the hour the schedule will run.
         """
-        pulumi.set(__self__, "minute", minute)
+        ScheduleHourlyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minute=minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minute: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("minute", minute)
 
     @property
     @pulumi.getter
@@ -267,12 +328,25 @@ class ScheduleNotificationSettingsArgs:
         :param pulumi.Input[int] time_in_minutes: Time in minutes before event at which notification will be sent.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent.
         """
+        ScheduleNotificationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            time_in_minutes=time_in_minutes,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             time_in_minutes: Optional[pulumi.Input[int]] = None,
+             webhook_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if time_in_minutes is not None:
-            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
+            _setter("time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter
@@ -320,9 +394,20 @@ class ScheduleWeeklyRecurrenceArgs:
         :param pulumi.Input[str] time: The time when the schedule takes effect.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
-        pulumi.set(__self__, "time", time)
+        ScheduleWeeklyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time=time,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time: pulumi.Input[str],
+             week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time", time)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter
@@ -360,12 +445,25 @@ class VirtualNetworkSubnetArgs:
         :param pulumi.Input[str] use_in_virtual_machine_creation: Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
         :param pulumi.Input[str] use_public_ip_address: Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
         """
+        VirtualNetworkSubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            use_in_virtual_machine_creation=use_in_virtual_machine_creation,
+            use_public_ip_address=use_public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             use_in_virtual_machine_creation: Optional[pulumi.Input[str]] = None,
+             use_public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if use_in_virtual_machine_creation is not None:
-            pulumi.set(__self__, "use_in_virtual_machine_creation", use_in_virtual_machine_creation)
+            _setter("use_in_virtual_machine_creation", use_in_virtual_machine_creation)
         if use_public_ip_address is not None:
-            pulumi.set(__self__, "use_public_ip_address", use_public_ip_address)
+            _setter("use_public_ip_address", use_public_ip_address)
 
     @property
     @pulumi.getter
@@ -417,10 +515,25 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
         :param pulumi.Input[str] sku: The SKU of the Gallery Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The Version of the Gallery Image. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "version", version)
+        WindowsVirtualMachineGalleryImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             sku: pulumi.Input[str],
+             version: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("publisher", publisher)
+        _setter("sku", sku)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -482,10 +595,23 @@ class WindowsVirtualMachineInboundNatRuleArgs:
         :param pulumi.Input[str] protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param pulumi.Input[int] frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "protocol", protocol)
+        WindowsVirtualMachineInboundNatRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            protocol=protocol,
+            frontend_port=frontend_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             frontend_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("protocol", protocol)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
 
     @property
     @pulumi.getter(name="backendPort")

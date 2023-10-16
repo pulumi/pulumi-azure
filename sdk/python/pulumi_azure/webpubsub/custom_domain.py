@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomDomainArgs', 'CustomDomain']
@@ -27,11 +27,26 @@ class CustomDomainArgs:
         :param pulumi.Input[str] web_pubsub_id: Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "web_pubsub_custom_certificate_id", web_pubsub_custom_certificate_id)
-        pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
+        CustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            web_pubsub_custom_certificate_id=web_pubsub_custom_certificate_id,
+            web_pubsub_id=web_pubsub_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             web_pubsub_custom_certificate_id: pulumi.Input[str],
+             web_pubsub_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("web_pubsub_custom_certificate_id", web_pubsub_custom_certificate_id)
+        _setter("web_pubsub_id", web_pubsub_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -100,14 +115,29 @@ class _CustomDomainState:
         :param pulumi.Input[str] web_pubsub_custom_certificate_id: Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
         """
+        _CustomDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            name=name,
+            web_pubsub_custom_certificate_id=web_pubsub_custom_certificate_id,
+            web_pubsub_id=web_pubsub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             web_pubsub_custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if web_pubsub_custom_certificate_id is not None:
-            pulumi.set(__self__, "web_pubsub_custom_certificate_id", web_pubsub_custom_certificate_id)
+            _setter("web_pubsub_custom_certificate_id", web_pubsub_custom_certificate_id)
         if web_pubsub_id is not None:
-            pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
+            _setter("web_pubsub_id", web_pubsub_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -217,6 +247,10 @@ class CustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,48 @@ class SpringCloudGatewayRouteConfigArgs:
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?
         """
-        pulumi.set(__self__, "spring_cloud_gateway_id", spring_cloud_gateway_id)
+        SpringCloudGatewayRouteConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spring_cloud_gateway_id=spring_cloud_gateway_id,
+            filters=filters,
+            name=name,
+            open_api=open_api,
+            predicates=predicates,
+            protocol=protocol,
+            routes=routes,
+            spring_cloud_app_id=spring_cloud_app_id,
+            sso_validation_enabled=sso_validation_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spring_cloud_gateway_id: pulumi.Input[str],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
+             predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_api is not None:
-            pulumi.set(__self__, "open_api", open_api)
+            _setter("open_api", open_api)
         if predicates is not None:
-            pulumi.set(__self__, "predicates", predicates)
+            _setter("predicates", predicates)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
         if sso_validation_enabled is not None:
-            pulumi.set(__self__, "sso_validation_enabled", sso_validation_enabled)
+            _setter("sso_validation_enabled", sso_validation_enabled)
 
     @property
     @pulumi.getter(name="springCloudGatewayId")
@@ -194,24 +219,49 @@ class _SpringCloudGatewayRouteConfigState:
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?
         """
+        _SpringCloudGatewayRouteConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            name=name,
+            open_api=open_api,
+            predicates=predicates,
+            protocol=protocol,
+            routes=routes,
+            spring_cloud_app_id=spring_cloud_app_id,
+            spring_cloud_gateway_id=spring_cloud_gateway_id,
+            sso_validation_enabled=sso_validation_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
+             predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
+             sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_api is not None:
-            pulumi.set(__self__, "open_api", open_api)
+            _setter("open_api", open_api)
         if predicates is not None:
-            pulumi.set(__self__, "predicates", predicates)
+            _setter("predicates", predicates)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
         if spring_cloud_gateway_id is not None:
-            pulumi.set(__self__, "spring_cloud_gateway_id", spring_cloud_gateway_id)
+            _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
         if sso_validation_enabled is not None:
-            pulumi.set(__self__, "sso_validation_enabled", sso_validation_enabled)
+            _setter("sso_validation_enabled", sso_validation_enabled)
 
     @property
     @pulumi.getter
@@ -471,6 +521,10 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudGatewayRouteConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -496,6 +550,11 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
 
             __props__.__dict__["filters"] = filters
             __props__.__dict__["name"] = name
+            if open_api is not None and not isinstance(open_api, SpringCloudGatewayRouteConfigOpenApiArgs):
+                open_api = open_api or {}
+                def _setter(key, value):
+                    open_api[key] = value
+                SpringCloudGatewayRouteConfigOpenApiArgs._configure(_setter, **open_api)
             __props__.__dict__["open_api"] = open_api
             __props__.__dict__["predicates"] = predicates
             __props__.__dict__["protocol"] = protocol

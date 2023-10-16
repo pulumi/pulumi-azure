@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,39 +53,80 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] threat_intelligence_mode: The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
         :param pulumi.Input['FirewallPolicyTlsCertificateArgs'] tls_certificate: A `tls_certificate` block as defined below.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            auto_learn_private_ranges_enabled=auto_learn_private_ranges_enabled,
+            base_policy_id=base_policy_id,
+            dns=dns,
+            explicit_proxy=explicit_proxy,
+            identity=identity,
+            insights=insights,
+            intrusion_detection=intrusion_detection,
+            location=location,
+            name=name,
+            private_ip_ranges=private_ip_ranges,
+            sku=sku,
+            sql_redirect_allowed=sql_redirect_allowed,
+            tags=tags,
+            threat_intelligence_allowlist=threat_intelligence_allowlist,
+            threat_intelligence_mode=threat_intelligence_mode,
+            tls_certificate=tls_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             auto_learn_private_ranges_enabled: Optional[pulumi.Input[bool]] = None,
+             base_policy_id: Optional[pulumi.Input[str]] = None,
+             dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
+             explicit_proxy: Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']] = None,
+             identity: Optional[pulumi.Input['FirewallPolicyIdentityArgs']] = None,
+             insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
+             intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             sql_redirect_allowed: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intelligence_allowlist: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
+             threat_intelligence_mode: Optional[pulumi.Input[str]] = None,
+             tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if auto_learn_private_ranges_enabled is not None:
-            pulumi.set(__self__, "auto_learn_private_ranges_enabled", auto_learn_private_ranges_enabled)
+            _setter("auto_learn_private_ranges_enabled", auto_learn_private_ranges_enabled)
         if base_policy_id is not None:
-            pulumi.set(__self__, "base_policy_id", base_policy_id)
+            _setter("base_policy_id", base_policy_id)
         if dns is not None:
-            pulumi.set(__self__, "dns", dns)
+            _setter("dns", dns)
         if explicit_proxy is not None:
-            pulumi.set(__self__, "explicit_proxy", explicit_proxy)
+            _setter("explicit_proxy", explicit_proxy)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if insights is not None:
-            pulumi.set(__self__, "insights", insights)
+            _setter("insights", insights)
         if intrusion_detection is not None:
-            pulumi.set(__self__, "intrusion_detection", intrusion_detection)
+            _setter("intrusion_detection", intrusion_detection)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_ranges is not None:
-            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
+            _setter("private_ip_ranges", private_ip_ranges)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if sql_redirect_allowed is not None:
-            pulumi.set(__self__, "sql_redirect_allowed", sql_redirect_allowed)
+            _setter("sql_redirect_allowed", sql_redirect_allowed)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intelligence_allowlist is not None:
-            pulumi.set(__self__, "threat_intelligence_allowlist", threat_intelligence_allowlist)
+            _setter("threat_intelligence_allowlist", threat_intelligence_allowlist)
         if threat_intelligence_mode is not None:
-            pulumi.set(__self__, "threat_intelligence_mode", threat_intelligence_mode)
+            _setter("threat_intelligence_mode", threat_intelligence_mode)
         if tls_certificate is not None:
-            pulumi.set(__self__, "tls_certificate", tls_certificate)
+            _setter("tls_certificate", tls_certificate)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -338,46 +379,93 @@ class _FirewallPolicyState:
         :param pulumi.Input[str] threat_intelligence_mode: The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
         :param pulumi.Input['FirewallPolicyTlsCertificateArgs'] tls_certificate: A `tls_certificate` block as defined below.
         """
+        _FirewallPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_learn_private_ranges_enabled=auto_learn_private_ranges_enabled,
+            base_policy_id=base_policy_id,
+            child_policies=child_policies,
+            dns=dns,
+            explicit_proxy=explicit_proxy,
+            firewalls=firewalls,
+            identity=identity,
+            insights=insights,
+            intrusion_detection=intrusion_detection,
+            location=location,
+            name=name,
+            private_ip_ranges=private_ip_ranges,
+            resource_group_name=resource_group_name,
+            rule_collection_groups=rule_collection_groups,
+            sku=sku,
+            sql_redirect_allowed=sql_redirect_allowed,
+            tags=tags,
+            threat_intelligence_allowlist=threat_intelligence_allowlist,
+            threat_intelligence_mode=threat_intelligence_mode,
+            tls_certificate=tls_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_learn_private_ranges_enabled: Optional[pulumi.Input[bool]] = None,
+             base_policy_id: Optional[pulumi.Input[str]] = None,
+             child_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
+             explicit_proxy: Optional[pulumi.Input['FirewallPolicyExplicitProxyArgs']] = None,
+             firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             identity: Optional[pulumi.Input['FirewallPolicyIdentityArgs']] = None,
+             insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
+             intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rule_collection_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             sql_redirect_allowed: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intelligence_allowlist: Optional[pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs']] = None,
+             threat_intelligence_mode: Optional[pulumi.Input[str]] = None,
+             tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_learn_private_ranges_enabled is not None:
-            pulumi.set(__self__, "auto_learn_private_ranges_enabled", auto_learn_private_ranges_enabled)
+            _setter("auto_learn_private_ranges_enabled", auto_learn_private_ranges_enabled)
         if base_policy_id is not None:
-            pulumi.set(__self__, "base_policy_id", base_policy_id)
+            _setter("base_policy_id", base_policy_id)
         if child_policies is not None:
-            pulumi.set(__self__, "child_policies", child_policies)
+            _setter("child_policies", child_policies)
         if dns is not None:
-            pulumi.set(__self__, "dns", dns)
+            _setter("dns", dns)
         if explicit_proxy is not None:
-            pulumi.set(__self__, "explicit_proxy", explicit_proxy)
+            _setter("explicit_proxy", explicit_proxy)
         if firewalls is not None:
-            pulumi.set(__self__, "firewalls", firewalls)
+            _setter("firewalls", firewalls)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if insights is not None:
-            pulumi.set(__self__, "insights", insights)
+            _setter("insights", insights)
         if intrusion_detection is not None:
-            pulumi.set(__self__, "intrusion_detection", intrusion_detection)
+            _setter("intrusion_detection", intrusion_detection)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_ranges is not None:
-            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
+            _setter("private_ip_ranges", private_ip_ranges)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if rule_collection_groups is not None:
-            pulumi.set(__self__, "rule_collection_groups", rule_collection_groups)
+            _setter("rule_collection_groups", rule_collection_groups)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if sql_redirect_allowed is not None:
-            pulumi.set(__self__, "sql_redirect_allowed", sql_redirect_allowed)
+            _setter("sql_redirect_allowed", sql_redirect_allowed)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intelligence_allowlist is not None:
-            pulumi.set(__self__, "threat_intelligence_allowlist", threat_intelligence_allowlist)
+            _setter("threat_intelligence_allowlist", threat_intelligence_allowlist)
         if threat_intelligence_mode is not None:
-            pulumi.set(__self__, "threat_intelligence_mode", threat_intelligence_mode)
+            _setter("threat_intelligence_mode", threat_intelligence_mode)
         if tls_certificate is not None:
-            pulumi.set(__self__, "tls_certificate", tls_certificate)
+            _setter("tls_certificate", tls_certificate)
 
     @property
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
@@ -725,6 +813,10 @@ class FirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -758,10 +850,35 @@ class FirewallPolicy(pulumi.CustomResource):
 
             __props__.__dict__["auto_learn_private_ranges_enabled"] = auto_learn_private_ranges_enabled
             __props__.__dict__["base_policy_id"] = base_policy_id
+            if dns is not None and not isinstance(dns, FirewallPolicyDnsArgs):
+                dns = dns or {}
+                def _setter(key, value):
+                    dns[key] = value
+                FirewallPolicyDnsArgs._configure(_setter, **dns)
             __props__.__dict__["dns"] = dns
+            if explicit_proxy is not None and not isinstance(explicit_proxy, FirewallPolicyExplicitProxyArgs):
+                explicit_proxy = explicit_proxy or {}
+                def _setter(key, value):
+                    explicit_proxy[key] = value
+                FirewallPolicyExplicitProxyArgs._configure(_setter, **explicit_proxy)
             __props__.__dict__["explicit_proxy"] = explicit_proxy
+            if identity is not None and not isinstance(identity, FirewallPolicyIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                FirewallPolicyIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if insights is not None and not isinstance(insights, FirewallPolicyInsightsArgs):
+                insights = insights or {}
+                def _setter(key, value):
+                    insights[key] = value
+                FirewallPolicyInsightsArgs._configure(_setter, **insights)
             __props__.__dict__["insights"] = insights
+            if intrusion_detection is not None and not isinstance(intrusion_detection, FirewallPolicyIntrusionDetectionArgs):
+                intrusion_detection = intrusion_detection or {}
+                def _setter(key, value):
+                    intrusion_detection[key] = value
+                FirewallPolicyIntrusionDetectionArgs._configure(_setter, **intrusion_detection)
             __props__.__dict__["intrusion_detection"] = intrusion_detection
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -772,8 +889,18 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sql_redirect_allowed"] = sql_redirect_allowed
             __props__.__dict__["tags"] = tags
+            if threat_intelligence_allowlist is not None and not isinstance(threat_intelligence_allowlist, FirewallPolicyThreatIntelligenceAllowlistArgs):
+                threat_intelligence_allowlist = threat_intelligence_allowlist or {}
+                def _setter(key, value):
+                    threat_intelligence_allowlist[key] = value
+                FirewallPolicyThreatIntelligenceAllowlistArgs._configure(_setter, **threat_intelligence_allowlist)
             __props__.__dict__["threat_intelligence_allowlist"] = threat_intelligence_allowlist
             __props__.__dict__["threat_intelligence_mode"] = threat_intelligence_mode
+            if tls_certificate is not None and not isinstance(tls_certificate, FirewallPolicyTlsCertificateArgs):
+                tls_certificate = tls_certificate or {}
+                def _setter(key, value):
+                    tls_certificate[key] = value
+                FirewallPolicyTlsCertificateArgs._configure(_setter, **tls_certificate)
             __props__.__dict__["tls_certificate"] = tls_certificate
             __props__.__dict__["child_policies"] = None
             __props__.__dict__["firewalls"] = None

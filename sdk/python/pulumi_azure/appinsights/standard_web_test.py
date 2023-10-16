@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,28 +47,61 @@ class StandardWebTestArgs:
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         :param pulumi.Input['StandardWebTestValidationRulesArgs'] validation_rules: A `validation_rules` block as defined below.
         """
-        pulumi.set(__self__, "application_insights_id", application_insights_id)
-        pulumi.set(__self__, "geo_locations", geo_locations)
-        pulumi.set(__self__, "request", request)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StandardWebTestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_insights_id=application_insights_id,
+            geo_locations=geo_locations,
+            request=request,
+            resource_group_name=resource_group_name,
+            description=description,
+            enabled=enabled,
+            frequency=frequency,
+            location=location,
+            name=name,
+            retry_enabled=retry_enabled,
+            tags=tags,
+            timeout=timeout,
+            validation_rules=validation_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_insights_id: pulumi.Input[str],
+             geo_locations: pulumi.Input[Sequence[pulumi.Input[str]]],
+             request: pulumi.Input['StandardWebTestRequestArgs'],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frequency: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retry_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_insights_id", application_insights_id)
+        _setter("geo_locations", geo_locations)
+        _setter("request", request)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retry_enabled is not None:
-            pulumi.set(__self__, "retry_enabled", retry_enabled)
+            _setter("retry_enabled", retry_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if validation_rules is not None:
-            pulumi.set(__self__, "validation_rules", validation_rules)
+            _setter("validation_rules", validation_rules)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -265,34 +298,69 @@ class _StandardWebTestState:
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         :param pulumi.Input['StandardWebTestValidationRulesArgs'] validation_rules: A `validation_rules` block as defined below.
         """
+        _StandardWebTestState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_insights_id=application_insights_id,
+            description=description,
+            enabled=enabled,
+            frequency=frequency,
+            geo_locations=geo_locations,
+            location=location,
+            name=name,
+            request=request,
+            resource_group_name=resource_group_name,
+            retry_enabled=retry_enabled,
+            synthetic_monitor_id=synthetic_monitor_id,
+            tags=tags,
+            timeout=timeout,
+            validation_rules=validation_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frequency: Optional[pulumi.Input[int]] = None,
+             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['StandardWebTestRequestArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retry_enabled: Optional[pulumi.Input[bool]] = None,
+             synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_insights_id is not None:
-            pulumi.set(__self__, "application_insights_id", application_insights_id)
+            _setter("application_insights_id", application_insights_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if geo_locations is not None:
-            pulumi.set(__self__, "geo_locations", geo_locations)
+            _setter("geo_locations", geo_locations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retry_enabled is not None:
-            pulumi.set(__self__, "retry_enabled", retry_enabled)
+            _setter("retry_enabled", retry_enabled)
         if synthetic_monitor_id is not None:
-            pulumi.set(__self__, "synthetic_monitor_id", synthetic_monitor_id)
+            _setter("synthetic_monitor_id", synthetic_monitor_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if validation_rules is not None:
-            pulumi.set(__self__, "validation_rules", validation_rules)
+            _setter("validation_rules", validation_rules)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -582,6 +650,10 @@ class StandardWebTest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StandardWebTestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -620,6 +692,11 @@ class StandardWebTest(pulumi.CustomResource):
             __props__.__dict__["geo_locations"] = geo_locations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if request is not None and not isinstance(request, StandardWebTestRequestArgs):
+                request = request or {}
+                def _setter(key, value):
+                    request[key] = value
+                StandardWebTestRequestArgs._configure(_setter, **request)
             if request is None and not opts.urn:
                 raise TypeError("Missing required property 'request'")
             __props__.__dict__["request"] = request
@@ -629,6 +706,11 @@ class StandardWebTest(pulumi.CustomResource):
             __props__.__dict__["retry_enabled"] = retry_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
+            if validation_rules is not None and not isinstance(validation_rules, StandardWebTestValidationRulesArgs):
+                validation_rules = validation_rules or {}
+                def _setter(key, value):
+                    validation_rules[key] = value
+                StandardWebTestValidationRulesArgs._configure(_setter, **validation_rules)
             __props__.__dict__["validation_rules"] = validation_rules
             __props__.__dict__["synthetic_monitor_id"] = None
         super(StandardWebTest, __self__).__init__(

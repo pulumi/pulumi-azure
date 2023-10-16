@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
@@ -27,12 +27,29 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] start_ip: The lowest IP address included in the range
         :param pulumi.Input[str] name: The name of the Firewall Rule. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "end_ip", end_ip)
-        pulumi.set(__self__, "redis_cache_name", redis_cache_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start_ip", start_ip)
+        FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip=end_ip,
+            redis_cache_name=redis_cache_name,
+            resource_group_name=resource_group_name,
+            start_ip=start_ip,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip: pulumi.Input[str],
+             redis_cache_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             start_ip: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_ip", end_ip)
+        _setter("redis_cache_name", redis_cache_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("start_ip", start_ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="endIp")
@@ -111,16 +128,33 @@ class _FirewallRuleState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip: The lowest IP address included in the range
         """
+        _FirewallRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip=end_ip,
+            name=name,
+            redis_cache_name=redis_cache_name,
+            resource_group_name=resource_group_name,
+            start_ip=start_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redis_cache_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             start_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end_ip is not None:
-            pulumi.set(__self__, "end_ip", end_ip)
+            _setter("end_ip", end_ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redis_cache_name is not None:
-            pulumi.set(__self__, "redis_cache_name", redis_cache_name)
+            _setter("redis_cache_name", redis_cache_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if start_ip is not None:
-            pulumi.set(__self__, "start_ip", start_ip)
+            _setter("start_ip", start_ip)
 
     @property
     @pulumi.getter(name="endIp")
@@ -304,6 +338,10 @@ class FirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

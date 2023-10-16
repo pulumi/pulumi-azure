@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class ResourceProviderRegistrationFeature {
-    /**
-     * @return The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-     * 
-     */
     private String name;
     /**
      * @return Should this feature be Registered or Unregistered?
@@ -22,10 +18,6 @@ public final class ResourceProviderRegistrationFeature {
     private Boolean registered;
 
     private ResourceProviderRegistrationFeature() {}
-    /**
-     * @return The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-     * 
-     */
     public String name() {
         return this.name;
     }

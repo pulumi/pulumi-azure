@@ -31,31 +31,12 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string ClientId;
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
         /// The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         /// </summary>
         public readonly string? IssuerEndpoint;
-        /// <summary>
-        /// The Site Credentials Username used for publishing.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The name of the claim that contains the users name.

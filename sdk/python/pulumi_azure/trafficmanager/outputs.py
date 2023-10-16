@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -42,8 +42,19 @@ class ProfileDnsConfig(dict):
         :param str relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
         :param int ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
         """
-        pulumi.set(__self__, "relative_name", relative_name)
-        pulumi.set(__self__, "ttl", ttl)
+        ProfileDnsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            relative_name=relative_name,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             relative_name: str,
+             ttl: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("relative_name", relative_name)
+        _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="relativeName")
@@ -108,20 +119,43 @@ class ProfileMonitorConfig(dict):
         :param int timeout_in_seconds: The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
         :param int tolerated_number_of_failures: The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        ProfileMonitorConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+            custom_headers=custom_headers,
+            expected_status_code_ranges=expected_status_code_ranges,
+            interval_in_seconds=interval_in_seconds,
+            path=path,
+            timeout_in_seconds=timeout_in_seconds,
+            tolerated_number_of_failures=tolerated_number_of_failures,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             custom_headers: Optional[Sequence['outputs.ProfileMonitorConfigCustomHeader']] = None,
+             expected_status_code_ranges: Optional[Sequence[str]] = None,
+             interval_in_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             timeout_in_seconds: Optional[int] = None,
+             tolerated_number_of_failures: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if expected_status_code_ranges is not None:
-            pulumi.set(__self__, "expected_status_code_ranges", expected_status_code_ranges)
+            _setter("expected_status_code_ranges", expected_status_code_ranges)
         if interval_in_seconds is not None:
-            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+            _setter("interval_in_seconds", interval_in_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if tolerated_number_of_failures is not None:
-            pulumi.set(__self__, "tolerated_number_of_failures", tolerated_number_of_failures)
+            _setter("tolerated_number_of_failures", tolerated_number_of_failures)
 
     @property
     @pulumi.getter
@@ -197,8 +231,19 @@ class ProfileMonitorConfigCustomHeader(dict):
         :param str name: The name of the custom header.
         :param str value: The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ProfileMonitorConfigCustomHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter

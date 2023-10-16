@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HciClusterArgs', 'HciCluster']
@@ -33,18 +33,39 @@ class HciClusterArgs:
                
                > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HciClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            resource_group_name=resource_group_name,
+            automanage_configuration_id=automanage_configuration_id,
+            location=location,
+            name=name,
+            tags=tags,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             automanage_configuration_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("resource_group_name", resource_group_name)
         if automanage_configuration_id is not None:
-            pulumi.set(__self__, "automanage_configuration_id", automanage_configuration_id)
+            _setter("automanage_configuration_id", automanage_configuration_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -155,20 +176,41 @@ class _HciClusterState:
                
                > **NOTE** If unspecified the Tenant ID of the Provider will be used.
         """
+        _HciClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automanage_configuration_id=automanage_configuration_id,
+            client_id=client_id,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automanage_configuration_id: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automanage_configuration_id is not None:
-            pulumi.set(__self__, "automanage_configuration_id", automanage_configuration_id)
+            _setter("automanage_configuration_id", automanage_configuration_id)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="automanageConfigurationId")
@@ -354,6 +396,10 @@ class HciCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HciClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

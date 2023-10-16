@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
@@ -27,10 +27,25 @@ class LinkedStorageAccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
-        pulumi.set(__self__, "data_source_type", data_source_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_ids", storage_account_ids)
-        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        LinkedStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_type=data_source_type,
+            resource_group_name=resource_group_name,
+            storage_account_ids=storage_account_ids,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             workspace_resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source_type", data_source_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_ids", storage_account_ids)
+        _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="dataSourceType")
@@ -99,14 +114,29 @@ class _LinkedStorageAccountState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
+        _LinkedStorageAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_type=data_source_type,
+            resource_group_name=resource_group_name,
+            storage_account_ids=storage_account_ids,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_source_type is not None:
-            pulumi.set(__self__, "data_source_type", data_source_type)
+            _setter("data_source_type", data_source_type)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_account_ids is not None:
-            pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+            _setter("storage_account_ids", storage_account_ids)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="dataSourceType")
@@ -262,6 +292,10 @@ class LinkedStorageAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedStorageAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

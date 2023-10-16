@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,36 @@ class SharedImageGalleryArgs:
         :param pulumi.Input['SharedImageGallerySharingArgs'] sharing: A `sharing` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image Gallery.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SharedImageGalleryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            description=description,
+            location=location,
+            name=name,
+            sharing=sharing,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sharing: Optional[pulumi.Input['SharedImageGallerySharingArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sharing is not None:
-            pulumi.set(__self__, "sharing", sharing)
+            _setter("sharing", sharing)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -136,20 +155,41 @@ class _SharedImageGalleryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image Gallery.
         :param pulumi.Input[str] unique_name: The Unique Name for this Shared Image Gallery.
         """
+        _SharedImageGalleryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            sharing=sharing,
+            tags=tags,
+            unique_name=unique_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sharing: Optional[pulumi.Input['SharedImageGallerySharingArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sharing is not None:
-            pulumi.set(__self__, "sharing", sharing)
+            _setter("sharing", sharing)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unique_name is not None:
-            pulumi.set(__self__, "unique_name", unique_name)
+            _setter("unique_name", unique_name)
 
     @property
     @pulumi.getter
@@ -329,6 +369,10 @@ class SharedImageGallery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedImageGalleryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -355,6 +399,11 @@ class SharedImageGallery(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sharing is not None and not isinstance(sharing, SharedImageGallerySharingArgs):
+                sharing = sharing or {}
+                def _setter(key, value):
+                    sharing[key] = value
+                SharedImageGallerySharingArgs._configure(_setter, **sharing)
             __props__.__dict__["sharing"] = sharing
             __props__.__dict__["tags"] = tags
             __props__.__dict__["unique_name"] = None

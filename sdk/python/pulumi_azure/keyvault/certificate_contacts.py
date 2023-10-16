@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class CertificateContactsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "contacts", contacts)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        CertificateContactsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contacts=contacts,
+            key_vault_id=key_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contacts: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]],
+             key_vault_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contacts", contacts)
+        _setter("key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter
@@ -61,10 +72,21 @@ class _CertificateContactsState:
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
+        _CertificateContactsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contacts=contacts,
+            key_vault_id=key_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if contacts is not None:
-            pulumi.set(__self__, "contacts", contacts)
+            _setter("contacts", contacts)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter
@@ -220,6 +242,10 @@ class CertificateContacts(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateContactsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

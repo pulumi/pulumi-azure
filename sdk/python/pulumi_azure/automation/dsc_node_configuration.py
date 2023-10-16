@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DscNodeConfigurationArgs', 'DscNodeConfiguration']
@@ -25,11 +25,26 @@ class DscNodeConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "content_embedded", content_embedded)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DscNodeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            content_embedded=content_embedded,
+            resource_group_name=resource_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             content_embedded: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("content_embedded", content_embedded)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -95,16 +110,33 @@ class _DscNodeConfigurationState:
         :param pulumi.Input[str] name: Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
         """
+        _DscNodeConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            configuration_name=configuration_name,
+            content_embedded=content_embedded,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             content_embedded: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
+            _setter("automation_account_name", automation_account_name)
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if content_embedded is not None:
-            pulumi.set(__self__, "content_embedded", content_embedded)
+            _setter("content_embedded", content_embedded)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -307,6 +339,10 @@ class DscNodeConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DscNodeConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

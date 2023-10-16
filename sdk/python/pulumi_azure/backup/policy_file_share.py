@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,20 +39,45 @@ class PolicyFileShareArgs:
                
                > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
-        pulumi.set(__self__, "backup", backup)
-        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "retention_daily", retention_daily)
+        PolicyFileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup=backup,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            retention_daily=retention_daily,
+            name=name,
+            retention_monthly=retention_monthly,
+            retention_weekly=retention_weekly,
+            retention_yearly=retention_yearly,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup: pulumi.Input['PolicyFileShareBackupArgs'],
+             recovery_vault_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             retention_daily: pulumi.Input['PolicyFileShareRetentionDailyArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
+             retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
+             retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backup", backup)
+        _setter("recovery_vault_name", recovery_vault_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("retention_daily", retention_daily)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retention_monthly is not None:
-            pulumi.set(__self__, "retention_monthly", retention_monthly)
+            _setter("retention_monthly", retention_monthly)
         if retention_weekly is not None:
-            pulumi.set(__self__, "retention_weekly", retention_weekly)
+            _setter("retention_weekly", retention_weekly)
         if retention_yearly is not None:
-            pulumi.set(__self__, "retention_yearly", retention_yearly)
+            _setter("retention_yearly", retention_yearly)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -191,24 +216,49 @@ class _PolicyFileShareState:
                
                > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
+        _PolicyFileShareState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup=backup,
+            name=name,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            retention_daily=retention_daily,
+            retention_monthly=retention_monthly,
+            retention_weekly=retention_weekly,
+            retention_yearly=retention_yearly,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup: Optional[pulumi.Input['PolicyFileShareBackupArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_daily: Optional[pulumi.Input['PolicyFileShareRetentionDailyArgs']] = None,
+             retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
+             retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
+             retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+            _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_daily is not None:
-            pulumi.set(__self__, "retention_daily", retention_daily)
+            _setter("retention_daily", retention_daily)
         if retention_monthly is not None:
-            pulumi.set(__self__, "retention_monthly", retention_monthly)
+            _setter("retention_monthly", retention_monthly)
         if retention_weekly is not None:
-            pulumi.set(__self__, "retention_weekly", retention_weekly)
+            _setter("retention_weekly", retention_weekly)
         if retention_yearly is not None:
-            pulumi.set(__self__, "retention_yearly", retention_yearly)
+            _setter("retention_yearly", retention_yearly)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -488,6 +538,10 @@ class PolicyFileShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyFileShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -511,6 +565,11 @@ class PolicyFileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyFileShareArgs.__new__(PolicyFileShareArgs)
 
+            if backup is not None and not isinstance(backup, PolicyFileShareBackupArgs):
+                backup = backup or {}
+                def _setter(key, value):
+                    backup[key] = value
+                PolicyFileShareBackupArgs._configure(_setter, **backup)
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__.__dict__["backup"] = backup
@@ -521,11 +580,31 @@ class PolicyFileShare(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if retention_daily is not None and not isinstance(retention_daily, PolicyFileShareRetentionDailyArgs):
+                retention_daily = retention_daily or {}
+                def _setter(key, value):
+                    retention_daily[key] = value
+                PolicyFileShareRetentionDailyArgs._configure(_setter, **retention_daily)
             if retention_daily is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_daily'")
             __props__.__dict__["retention_daily"] = retention_daily
+            if retention_monthly is not None and not isinstance(retention_monthly, PolicyFileShareRetentionMonthlyArgs):
+                retention_monthly = retention_monthly or {}
+                def _setter(key, value):
+                    retention_monthly[key] = value
+                PolicyFileShareRetentionMonthlyArgs._configure(_setter, **retention_monthly)
             __props__.__dict__["retention_monthly"] = retention_monthly
+            if retention_weekly is not None and not isinstance(retention_weekly, PolicyFileShareRetentionWeeklyArgs):
+                retention_weekly = retention_weekly or {}
+                def _setter(key, value):
+                    retention_weekly[key] = value
+                PolicyFileShareRetentionWeeklyArgs._configure(_setter, **retention_weekly)
             __props__.__dict__["retention_weekly"] = retention_weekly
+            if retention_yearly is not None and not isinstance(retention_yearly, PolicyFileShareRetentionYearlyArgs):
+                retention_yearly = retention_yearly or {}
+                def _setter(key, value):
+                    retention_yearly[key] = value
+                PolicyFileShareRetentionYearlyArgs._configure(_setter, **retention_yearly)
             __props__.__dict__["retention_yearly"] = retention_yearly
             __props__.__dict__["timezone"] = timezone
         super(PolicyFileShare, __self__).__init__(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkDataNetworkArgs', 'NetworkDataNetwork']
@@ -27,15 +27,32 @@ class NetworkDataNetworkArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Data Network.
         """
-        pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+        NetworkDataNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_network_id=mobile_network_id,
+            description=description,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_network_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mobile_network_id", mobile_network_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkId")
@@ -114,16 +131,33 @@ class _NetworkDataNetworkState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Data Network.
         """
+        _NetworkDataNetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            location=location,
+            mobile_network_id=mobile_network_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network_id is not None:
-            pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+            _setter("mobile_network_id", mobile_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -285,6 +319,10 @@ class NetworkDataNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkDataNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

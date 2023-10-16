@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -53,14 +53,31 @@ class ServicesCommunicationsGatewayServiceLocation(dict):
                
                !> **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "operator_addresses", operator_addresses)
+        ServicesCommunicationsGatewayServiceLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            operator_addresses=operator_addresses,
+            allowed_media_source_address_prefixes=allowed_media_source_address_prefixes,
+            allowed_signaling_source_address_prefixes=allowed_signaling_source_address_prefixes,
+            esrp_addresses=esrp_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: str,
+             operator_addresses: Sequence[str],
+             allowed_media_source_address_prefixes: Optional[Sequence[str]] = None,
+             allowed_signaling_source_address_prefixes: Optional[Sequence[str]] = None,
+             esrp_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("operator_addresses", operator_addresses)
         if allowed_media_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
+            _setter("allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
         if allowed_signaling_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
+            _setter("allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
         if esrp_addresses is not None:
-            pulumi.set(__self__, "esrp_addresses", esrp_addresses)
+            _setter("esrp_addresses", esrp_addresses)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class AlertRuleFusionArgs:
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
-        pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        AlertRuleFusionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_rule_template_guid=alert_rule_template_guid,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            enabled=enabled,
+            name=name,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_rule_template_guid: pulumi.Input[str],
+             log_analytics_workspace_id: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alert_rule_template_guid", alert_rule_template_guid)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter(name="alertRuleTemplateGuid")
@@ -115,16 +132,33 @@ class _AlertRuleFusionState:
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
+        _AlertRuleFusionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_rule_template_guid=alert_rule_template_guid,
+            enabled=enabled,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_rule_template_guid is not None:
-            pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+            _setter("alert_rule_template_guid", alert_rule_template_guid)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
 
     @property
     @pulumi.getter(name="alertRuleTemplateGuid")
@@ -296,6 +330,10 @@ class AlertRuleFusion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertRuleFusionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

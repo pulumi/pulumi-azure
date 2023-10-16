@@ -122,9 +122,7 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
     }
 
     /**
-     * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
-     * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
      * 
      * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
      * 
@@ -133,9 +131,7 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
     private @Nullable Output<String> defaultProvider;
 
     /**
-     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
-     * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
      * 
      * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
      * 
@@ -329,14 +325,14 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
     }
 
     /**
-     * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+     * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     @Import(name="runtimeVersion")
     private @Nullable Output<String> runtimeVersion;
 
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     public Optional<Output<String>> runtimeVersion() {
@@ -559,9 +555,7 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
         }
 
         /**
-         * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
-         * 
-         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
          * 
          * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
          * 
@@ -574,9 +568,7 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
         }
 
         /**
-         * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
-         * 
-         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
          * 
          * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
          * 
@@ -856,7 +848,7 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
         }
 
         /**
-         * @param runtimeVersion The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * @param runtimeVersion The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          * 
          * @return builder
          * 
@@ -867,7 +859,7 @@ public final class LinuxWebAppSlotAuthSettingsV2Args extends com.pulumi.resource
         }
 
         /**
-         * @param runtimeVersion The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         * @param runtimeVersion The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
          * 
          * @return builder
          * 

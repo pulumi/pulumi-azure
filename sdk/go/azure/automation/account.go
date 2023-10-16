@@ -70,8 +70,9 @@ type Account struct {
 	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
 	DscSecondaryAccessKey pulumi.StringOutput `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
-	DscServerEndpoint pulumi.StringOutput          `pulumi:"dscServerEndpoint"`
-	Encryptions       AccountEncryptionArrayOutput `pulumi:"encryptions"`
+	DscServerEndpoint pulumi.StringOutput `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayOutput `pulumi:"encryptions"`
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl pulumi.StringOutput `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
@@ -139,8 +140,9 @@ type accountState struct {
 	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
 	DscSecondaryAccessKey *string `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
-	DscServerEndpoint *string             `pulumi:"dscServerEndpoint"`
-	Encryptions       []AccountEncryption `pulumi:"encryptions"`
+	DscServerEndpoint *string `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl *string `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
@@ -169,7 +171,8 @@ type AccountState struct {
 	DscSecondaryAccessKey pulumi.StringPtrInput
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint pulumi.StringPtrInput
-	Encryptions       AccountEncryptionArrayInput
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayInput
 	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
 	HybridServiceUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -196,6 +199,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `encryption` block as defined below.
 	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -217,6 +221,7 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `encryption` block as defined below.
 	Encryptions AccountEncryptionArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -362,6 +367,7 @@ func (o AccountOutput) DscServerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DscServerEndpoint }).(pulumi.StringOutput)
 }
 
+// An `encryption` block as defined below.
 func (o AccountOutput) Encryptions() AccountEncryptionArrayOutput {
 	return o.ApplyT(func(v *Account) AccountEncryptionArrayOutput { return v.Encryptions }).(AccountEncryptionArrayOutput)
 }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TableEntityArgs', 'TableEntity']
@@ -27,11 +27,28 @@ class TableEntityArgs:
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "entity", entity)
-        pulumi.set(__self__, "partition_key", partition_key)
-        pulumi.set(__self__, "row_key", row_key)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "table_name", table_name)
+        TableEntityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity=entity,
+            partition_key=partition_key,
+            row_key=row_key,
+            storage_account_name=storage_account_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             partition_key: pulumi.Input[str],
+             row_key: pulumi.Input[str],
+             storage_account_name: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entity", entity)
+        _setter("partition_key", partition_key)
+        _setter("row_key", row_key)
+        _setter("storage_account_name", storage_account_name)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter
@@ -110,16 +127,33 @@ class _TableEntityState:
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
+        _TableEntityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity=entity,
+            partition_key=partition_key,
+            row_key=row_key,
+            storage_account_name=storage_account_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             row_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if entity is not None:
-            pulumi.set(__self__, "entity", entity)
+            _setter("entity", entity)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if row_key is not None:
-            pulumi.set(__self__, "row_key", row_key)
+            _setter("row_key", row_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter
@@ -285,6 +319,10 @@ class TableEntity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableEntityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

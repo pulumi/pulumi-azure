@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceNatRuleAssociationArgs', 'NetworkInterfaceNatRuleAssociation']
@@ -23,9 +23,22 @@ class NetworkInterfaceNatRuleAssociationArgs:
         :param pulumi.Input[str] nat_rule_id: The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
-        pulumi.set(__self__, "nat_rule_id", nat_rule_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        NetworkInterfaceNatRuleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configuration_name=ip_configuration_name,
+            nat_rule_id=nat_rule_id,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configuration_name: pulumi.Input[str],
+             nat_rule_id: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_configuration_name", ip_configuration_name)
+        _setter("nat_rule_id", nat_rule_id)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="ipConfigurationName")
@@ -76,12 +89,25 @@ class _NetworkInterfaceNatRuleAssociationState:
         :param pulumi.Input[str] nat_rule_id: The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
+        _NetworkInterfaceNatRuleAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configuration_name=ip_configuration_name,
+            nat_rule_id=nat_rule_id,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             nat_rule_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_configuration_name is not None:
-            pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
+            _setter("ip_configuration_name", ip_configuration_name)
         if nat_rule_id is not None:
-            pulumi.set(__self__, "nat_rule_id", nat_rule_id)
+            _setter("nat_rule_id", nat_rule_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="ipConfigurationName")
@@ -267,6 +293,10 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceNatRuleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

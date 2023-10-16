@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -166,8 +166,19 @@ class AadDiagnosticSettingEnabledLogArgs:
         :param pulumi.Input[str] category: The log category for the Azure Active Directory Diagnostic.
         :param pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "retention_policy", retention_policy)
+        AadDiagnosticSettingEnabledLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            retention_policy=retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             retention_policy: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -203,10 +214,21 @@ class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled? Defaults to `false`.
         """
+        AadDiagnosticSettingEnabledLogRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -244,10 +266,23 @@ class AadDiagnosticSettingLogArgs:
         :param pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "retention_policy", retention_policy)
+        AadDiagnosticSettingLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            retention_policy=retention_policy,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             retention_policy: pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs'],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("retention_policy", retention_policy)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -295,10 +330,21 @@ class AadDiagnosticSettingLogRetentionPolicyArgs:
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled? Defaults to `false`.
         """
+        AadDiagnosticSettingLogRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -336,10 +382,23 @@ class ActionGroupArmRoleReceiverArgs:
         :param pulumi.Input[str] role_id: The arm role id.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_id", role_id)
+        ActionGroupArmRoleReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            role_id=role_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             role_id: pulumi.Input[str],
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("role_id", role_id)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter
@@ -397,14 +456,35 @@ class ActionGroupAutomationRunbookReceiverArgs:
         :param pulumi.Input[str] webhook_resource_id: The resource id for webhook linked to this runbook.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
-        pulumi.set(__self__, "automation_account_id", automation_account_id)
-        pulumi.set(__self__, "is_global_runbook", is_global_runbook)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "runbook_name", runbook_name)
-        pulumi.set(__self__, "service_uri", service_uri)
-        pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
+        ActionGroupAutomationRunbookReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_id=automation_account_id,
+            is_global_runbook=is_global_runbook,
+            name=name,
+            runbook_name=runbook_name,
+            service_uri=service_uri,
+            webhook_resource_id=webhook_resource_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_id: pulumi.Input[str],
+             is_global_runbook: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             runbook_name: pulumi.Input[str],
+             service_uri: pulumi.Input[str],
+             webhook_resource_id: pulumi.Input[str],
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_id", automation_account_id)
+        _setter("is_global_runbook", is_global_runbook)
+        _setter("name", name)
+        _setter("runbook_name", runbook_name)
+        _setter("service_uri", service_uri)
+        _setter("webhook_resource_id", webhook_resource_id)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -500,8 +580,19 @@ class ActionGroupAzureAppPushReceiverArgs:
         :param pulumi.Input[str] email_address: The email address of the user signed into the mobile app who will receive push notifications from this receiver.
         :param pulumi.Input[str] name: The name of the Azure app push receiver.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
+        ActionGroupAzureAppPushReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -543,12 +634,29 @@ class ActionGroupAzureFunctionReceiverArgs:
         :param pulumi.Input[str] name: The name of the Azure Function receiver.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
-        pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "http_trigger_url", http_trigger_url)
-        pulumi.set(__self__, "name", name)
+        ActionGroupAzureFunctionReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_app_resource_id=function_app_resource_id,
+            function_name=function_name,
+            http_trigger_url=http_trigger_url,
+            name=name,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_app_resource_id: pulumi.Input[str],
+             function_name: pulumi.Input[str],
+             http_trigger_url: pulumi.Input[str],
+             name: pulumi.Input[str],
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_app_resource_id", function_app_resource_id)
+        _setter("function_name", function_name)
+        _setter("http_trigger_url", http_trigger_url)
+        _setter("name", name)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="functionAppResourceId")
@@ -622,10 +730,23 @@ class ActionGroupEmailReceiverArgs:
         :param pulumi.Input[str] name: The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "name", name)
+        ActionGroupEmailReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: pulumi.Input[str],
+             name: pulumi.Input[str],
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
+        _setter("name", name)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -685,22 +806,43 @@ class ActionGroupEventHubReceiverArgs:
         :param pulumi.Input[str] tenant_id: The Tenant ID for the subscription containing this Event Hub.
         :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "name", name)
+        ActionGroupEventHubReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            event_hub_id=event_hub_id,
+            event_hub_name=event_hub_name,
+            event_hub_namespace=event_hub_namespace,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             event_hub_id: Optional[pulumi.Input[str]] = None,
+             event_hub_name: Optional[pulumi.Input[str]] = None,
+             event_hub_namespace: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if event_hub_id is not None:
             warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
             pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
         if event_hub_id is not None:
-            pulumi.set(__self__, "event_hub_id", event_hub_id)
+            _setter("event_hub_id", event_hub_id)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if event_hub_namespace is not None:
-            pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
+            _setter("event_hub_namespace", event_hub_namespace)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter
@@ -809,11 +951,28 @@ class ActionGroupItsmReceiverArgs:
         :param pulumi.Input[str] ticket_configuration: A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
         :param pulumi.Input[str] workspace_id: The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
         """
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "ticket_configuration", ticket_configuration)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        ActionGroupItsmReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_id=connection_id,
+            name=name,
+            region=region,
+            ticket_configuration=ticket_configuration,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             region: pulumi.Input[str],
+             ticket_configuration: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_id", connection_id)
+        _setter("name", name)
+        _setter("region", region)
+        _setter("ticket_configuration", ticket_configuration)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -891,11 +1050,26 @@ class ActionGroupLogicAppReceiverArgs:
         :param pulumi.Input[str] resource_id: The Azure resource ID of the logic app.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
-        pulumi.set(__self__, "callback_url", callback_url)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ActionGroupLogicAppReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            callback_url=callback_url,
+            name=name,
+            resource_id=resource_id,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             callback_url: pulumi.Input[str],
+             name: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("callback_url", callback_url)
+        _setter("name", name)
+        _setter("resource_id", resource_id)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="callbackUrl")
@@ -957,9 +1131,22 @@ class ActionGroupSmsReceiverArgs:
         :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[str] phone_number: The phone number of the SMS receiver.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        ActionGroupSmsReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: pulumi.Input[str],
+             name: pulumi.Input[str],
+             phone_number: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_code", country_code)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -1009,9 +1196,22 @@ class ActionGroupVoiceReceiverArgs:
         :param pulumi.Input[str] name: The name of the voice receiver.
         :param pulumi.Input[str] phone_number: The phone number of the voice receiver.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        ActionGroupVoiceReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: pulumi.Input[str],
+             name: pulumi.Input[str],
+             phone_number: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_code", country_code)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -1065,12 +1265,27 @@ class ActionGroupWebhookReceiverArgs:
                > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_uri", service_uri)
+        ActionGroupWebhookReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            service_uri=service_uri,
+            aad_auth=aad_auth,
+            use_common_alert_schema=use_common_alert_schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             service_uri: pulumi.Input[str],
+             aad_auth: Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']] = None,
+             use_common_alert_schema: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("service_uri", service_uri)
         if aad_auth is not None:
-            pulumi.set(__self__, "aad_auth", aad_auth)
+            _setter("aad_auth", aad_auth)
         if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+            _setter("use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter
@@ -1134,11 +1349,24 @@ class ActionGroupWebhookReceiverAadAuthArgs:
         :param pulumi.Input[str] identifier_uri: The identifier URI for AAD auth.
         :param pulumi.Input[str] tenant_id: The tenant id for AAD auth.
         """
-        pulumi.set(__self__, "object_id", object_id)
+        ActionGroupWebhookReceiverAadAuthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            identifier_uri=identifier_uri,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: pulumi.Input[str],
+             identifier_uri: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_id", object_id)
         if identifier_uri is not None:
-            pulumi.set(__self__, "identifier_uri", identifier_uri)
+            _setter("identifier_uri", identifier_uri)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -1196,20 +1424,41 @@ class ActionRuleActionGroupConditionArgs:
         :param pulumi.Input['ActionRuleActionGroupConditionSeverityArgs'] severity: A `severity` block as defined below.
         :param pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
         """
+        ActionRuleActionGroupConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_context=alert_context,
+            alert_rule_id=alert_rule_id,
+            description=description,
+            monitor=monitor,
+            monitor_service=monitor_service,
+            severity=severity,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_context: Optional[pulumi.Input['ActionRuleActionGroupConditionAlertContextArgs']] = None,
+             alert_rule_id: Optional[pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgs']] = None,
+             description: Optional[pulumi.Input['ActionRuleActionGroupConditionDescriptionArgs']] = None,
+             monitor: Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorArgs']] = None,
+             monitor_service: Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgs']] = None,
+             severity: Optional[pulumi.Input['ActionRuleActionGroupConditionSeverityArgs']] = None,
+             target_resource_type: Optional[pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
+            _setter("alert_context", alert_context)
         if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+            _setter("alert_rule_id", alert_rule_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
+            _setter("monitor_service", monitor_service)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="alertContext")
@@ -1305,8 +1554,19 @@ class ActionRuleActionGroupConditionAlertContextArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionAlertContextArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1342,8 +1602,19 @@ class ActionRuleActionGroupConditionAlertRuleIdArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionAlertRuleIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1379,8 +1650,19 @@ class ActionRuleActionGroupConditionDescriptionArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1416,8 +1698,19 @@ class ActionRuleActionGroupConditionMonitorArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1453,8 +1746,19 @@ class ActionRuleActionGroupConditionMonitorServiceArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionMonitorServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1490,8 +1794,19 @@ class ActionRuleActionGroupConditionSeverityArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionSeverityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1527,8 +1842,19 @@ class ActionRuleActionGroupConditionTargetResourceTypeArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleActionGroupConditionTargetResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1564,8 +1890,19 @@ class ActionRuleActionGroupScopeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: A list of resource IDs of the given scope type which will be the target of action rule.
         :param pulumi.Input[str] type: Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
         """
-        pulumi.set(__self__, "resource_ids", resource_ids)
-        pulumi.set(__self__, "type", type)
+        ActionRuleActionGroupScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_ids=resource_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_ids", resource_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceIds")
@@ -1611,20 +1948,41 @@ class ActionRuleSuppressionConditionArgs:
         :param pulumi.Input['ActionRuleSuppressionConditionSeverityArgs'] severity: A `severity` block as defined below.
         :param pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
         """
+        ActionRuleSuppressionConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_context=alert_context,
+            alert_rule_id=alert_rule_id,
+            description=description,
+            monitor=monitor,
+            monitor_service=monitor_service,
+            severity=severity,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_context: Optional[pulumi.Input['ActionRuleSuppressionConditionAlertContextArgs']] = None,
+             alert_rule_id: Optional[pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgs']] = None,
+             description: Optional[pulumi.Input['ActionRuleSuppressionConditionDescriptionArgs']] = None,
+             monitor: Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorArgs']] = None,
+             monitor_service: Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgs']] = None,
+             severity: Optional[pulumi.Input['ActionRuleSuppressionConditionSeverityArgs']] = None,
+             target_resource_type: Optional[pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
+            _setter("alert_context", alert_context)
         if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+            _setter("alert_rule_id", alert_rule_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
+            _setter("monitor_service", monitor_service)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="alertContext")
@@ -1720,8 +2078,19 @@ class ActionRuleSuppressionConditionAlertContextArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionAlertContextArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1757,8 +2126,19 @@ class ActionRuleSuppressionConditionAlertRuleIdArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionAlertRuleIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1794,8 +2174,19 @@ class ActionRuleSuppressionConditionDescriptionArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1831,8 +2222,19 @@ class ActionRuleSuppressionConditionMonitorArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1868,8 +2270,19 @@ class ActionRuleSuppressionConditionMonitorServiceArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionMonitorServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1905,8 +2318,19 @@ class ActionRuleSuppressionConditionSeverityArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionSeverityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1942,8 +2366,19 @@ class ActionRuleSuppressionConditionTargetResourceTypeArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ActionRuleSuppressionConditionTargetResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1979,8 +2414,19 @@ class ActionRuleSuppressionScopeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: A list of resource IDs of the given scope type which will be the target of action rule.
         :param pulumi.Input[str] type: Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
         """
-        pulumi.set(__self__, "resource_ids", resource_ids)
-        pulumi.set(__self__, "type", type)
+        ActionRuleSuppressionScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_ids=resource_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_ids", resource_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceIds")
@@ -2016,9 +2462,20 @@ class ActionRuleSuppressionSuppressionArgs:
         :param pulumi.Input[str] recurrence_type: Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
         :param pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs'] schedule: A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
         """
-        pulumi.set(__self__, "recurrence_type", recurrence_type)
+        ActionRuleSuppressionSuppressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence_type=recurrence_type,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence_type: pulumi.Input[str],
+             schedule: Optional[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recurrence_type", recurrence_type)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter(name="recurrenceType")
@@ -2058,12 +2515,27 @@ class ActionRuleSuppressionSuppressionScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] recurrence_monthlies: specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] recurrence_weeklies: specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
-        pulumi.set(__self__, "end_date_utc", end_date_utc)
-        pulumi.set(__self__, "start_date_utc", start_date_utc)
+        ActionRuleSuppressionSuppressionScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date_utc=end_date_utc,
+            start_date_utc=start_date_utc,
+            recurrence_monthlies=recurrence_monthlies,
+            recurrence_weeklies=recurrence_weeklies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date_utc: pulumi.Input[str],
+             start_date_utc: pulumi.Input[str],
+             recurrence_monthlies: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             recurrence_weeklies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_date_utc", end_date_utc)
+        _setter("start_date_utc", start_date_utc)
         if recurrence_monthlies is not None:
-            pulumi.set(__self__, "recurrence_monthlies", recurrence_monthlies)
+            _setter("recurrence_monthlies", recurrence_monthlies)
         if recurrence_weeklies is not None:
-            pulumi.set(__self__, "recurrence_weeklies", recurrence_weeklies)
+            _setter("recurrence_weeklies", recurrence_weeklies)
 
     @property
     @pulumi.getter(name="endDateUtc")
@@ -2123,9 +2595,20 @@ class ActivityLogAlertActionArgs:
         :param pulumi.Input[str] action_group_id: The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webhook_properties: The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
         """
-        pulumi.set(__self__, "action_group_id", action_group_id)
+        ActivityLogAlertActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            webhook_properties=webhook_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: pulumi.Input[str],
+             webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_group_id", action_group_id)
         if webhook_properties is not None:
-            pulumi.set(__self__, "webhook_properties", webhook_properties)
+            _setter("webhook_properties", webhook_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -2215,49 +2698,100 @@ class ActivityLogAlertCriteriaArgs:
                
                > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
         """
-        pulumi.set(__self__, "category", category)
+        ActivityLogAlertCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            caller=caller,
+            level=level,
+            levels=levels,
+            operation_name=operation_name,
+            recommendation_category=recommendation_category,
+            recommendation_impact=recommendation_impact,
+            recommendation_type=recommendation_type,
+            resource_group=resource_group,
+            resource_groups=resource_groups,
+            resource_healths=resource_healths,
+            resource_id=resource_id,
+            resource_ids=resource_ids,
+            resource_provider=resource_provider,
+            resource_providers=resource_providers,
+            resource_type=resource_type,
+            resource_types=resource_types,
+            service_healths=service_healths,
+            status=status,
+            statuses=statuses,
+            sub_status=sub_status,
+            sub_statuses=sub_statuses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             caller: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[str]] = None,
+             levels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             operation_name: Optional[pulumi.Input[str]] = None,
+             recommendation_category: Optional[pulumi.Input[str]] = None,
+             recommendation_impact: Optional[pulumi.Input[str]] = None,
+             recommendation_type: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_provider: Optional[pulumi.Input[str]] = None,
+             resource_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sub_status: Optional[pulumi.Input[str]] = None,
+             sub_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
         if caller is not None:
-            pulumi.set(__self__, "caller", caller)
+            _setter("caller", caller)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if levels is not None:
-            pulumi.set(__self__, "levels", levels)
+            _setter("levels", levels)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if recommendation_category is not None:
-            pulumi.set(__self__, "recommendation_category", recommendation_category)
+            _setter("recommendation_category", recommendation_category)
         if recommendation_impact is not None:
-            pulumi.set(__self__, "recommendation_impact", recommendation_impact)
+            _setter("recommendation_impact", recommendation_impact)
         if recommendation_type is not None:
-            pulumi.set(__self__, "recommendation_type", recommendation_type)
+            _setter("recommendation_type", recommendation_type)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
         if resource_healths is not None:
-            pulumi.set(__self__, "resource_healths", resource_healths)
+            _setter("resource_healths", resource_healths)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_ids is not None:
-            pulumi.set(__self__, "resource_ids", resource_ids)
+            _setter("resource_ids", resource_ids)
         if resource_provider is not None:
-            pulumi.set(__self__, "resource_provider", resource_provider)
+            _setter("resource_provider", resource_provider)
         if resource_providers is not None:
-            pulumi.set(__self__, "resource_providers", resource_providers)
+            _setter("resource_providers", resource_providers)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
+            _setter("resource_types", resource_types)
         if service_healths is not None:
-            pulumi.set(__self__, "service_healths", service_healths)
+            _setter("service_healths", service_healths)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
         if sub_status is not None:
-            pulumi.set(__self__, "sub_status", sub_status)
+            _setter("sub_status", sub_status)
         if sub_statuses is not None:
-            pulumi.set(__self__, "sub_statuses", sub_statuses)
+            _setter("sub_statuses", sub_statuses)
 
     @property
     @pulumi.getter
@@ -2549,12 +3083,25 @@ class ActivityLogAlertCriteriaResourceHealthArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] previouses: The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reasons: The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
         """
+        ActivityLogAlertCriteriaResourceHealthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            currents=currents,
+            previouses=previouses,
+            reasons=reasons,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             currents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             previouses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if currents is not None:
-            pulumi.set(__self__, "currents", currents)
+            _setter("currents", currents)
         if previouses is not None:
-            pulumi.set(__self__, "previouses", previouses)
+            _setter("previouses", previouses)
         if reasons is not None:
-            pulumi.set(__self__, "reasons", reasons)
+            _setter("reasons", reasons)
 
     @property
     @pulumi.getter
@@ -2604,12 +3151,25 @@ class ActivityLogAlertCriteriaServiceHealthArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Locations this alert will monitor. For example, `West Europe`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
         """
+        ActivityLogAlertCriteriaServiceHealthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+            locations=locations,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter
@@ -2677,28 +3237,57 @@ class AlertProcessingRuleActionGroupConditionArgs:
                
                > **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
         """
+        AlertProcessingRuleActionGroupConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_context=alert_context,
+            alert_rule_id=alert_rule_id,
+            alert_rule_name=alert_rule_name,
+            description=description,
+            monitor_condition=monitor_condition,
+            monitor_service=monitor_service,
+            severity=severity,
+            signal_type=signal_type,
+            target_resource=target_resource,
+            target_resource_group=target_resource_group,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_context: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertContextArgs']] = None,
+             alert_rule_id: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleIdArgs']] = None,
+             alert_rule_name: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleNameArgs']] = None,
+             description: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionDescriptionArgs']] = None,
+             monitor_condition: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorConditionArgs']] = None,
+             monitor_service: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorServiceArgs']] = None,
+             severity: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSeverityArgs']] = None,
+             signal_type: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSignalTypeArgs']] = None,
+             target_resource: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgs']] = None,
+             target_resource_group: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs']] = None,
+             target_resource_type: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
+            _setter("alert_context", alert_context)
         if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+            _setter("alert_rule_id", alert_rule_id)
         if alert_rule_name is not None:
-            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
+            _setter("alert_rule_name", alert_rule_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if monitor_condition is not None:
-            pulumi.set(__self__, "monitor_condition", monitor_condition)
+            _setter("monitor_condition", monitor_condition)
         if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
+            _setter("monitor_service", monitor_service)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if signal_type is not None:
-            pulumi.set(__self__, "signal_type", signal_type)
+            _setter("signal_type", signal_type)
         if target_resource is not None:
-            pulumi.set(__self__, "target_resource", target_resource)
+            _setter("target_resource", target_resource)
         if target_resource_group is not None:
-            pulumi.set(__self__, "target_resource_group", target_resource_group)
+            _setter("target_resource_group", target_resource_group)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="alertContext")
@@ -2844,8 +3433,19 @@ class AlertProcessingRuleActionGroupConditionAlertContextArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionAlertContextArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2881,8 +3481,19 @@ class AlertProcessingRuleActionGroupConditionAlertRuleIdArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionAlertRuleIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2918,8 +3529,19 @@ class AlertProcessingRuleActionGroupConditionAlertRuleNameArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionAlertRuleNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2955,8 +3577,19 @@ class AlertProcessingRuleActionGroupConditionDescriptionArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2992,8 +3625,19 @@ class AlertProcessingRuleActionGroupConditionMonitorConditionArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionMonitorConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3029,8 +3673,19 @@ class AlertProcessingRuleActionGroupConditionMonitorServiceArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionMonitorServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3066,8 +3721,19 @@ class AlertProcessingRuleActionGroupConditionSeverityArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionSeverityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3103,8 +3769,19 @@ class AlertProcessingRuleActionGroupConditionSignalTypeArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionSignalTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3140,8 +3817,19 @@ class AlertProcessingRuleActionGroupConditionTargetResourceArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource IDs.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionTargetResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3177,8 +3865,19 @@ class AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource group IDs.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3214,8 +3913,19 @@ class AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3255,14 +3965,29 @@ class AlertProcessingRuleActionGroupScheduleArgs:
         :param pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
         :param pulumi.Input[str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
         """
+        AlertProcessingRuleActionGroupScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_from=effective_from,
+            effective_until=effective_until,
+            recurrence=recurrence,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_from: Optional[pulumi.Input[str]] = None,
+             effective_until: Optional[pulumi.Input[str]] = None,
+             recurrence: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs']] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if effective_from is not None:
-            pulumi.set(__self__, "effective_from", effective_from)
+            _setter("effective_from", effective_from)
         if effective_until is not None:
-            pulumi.set(__self__, "effective_until", effective_until)
+            _setter("effective_until", effective_until)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="effectiveFrom")
@@ -3324,12 +4049,25 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]] monthlies: One or more `monthly` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]] weeklies: One or more `weekly` blocks as defined below.
         """
+        AlertProcessingRuleActionGroupScheduleRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dailies=dailies,
+            monthlies=monthlies,
+            weeklies=weeklies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dailies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs']]]] = None,
+             monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]]] = None,
+             weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dailies is not None:
-            pulumi.set(__self__, "dailies", dailies)
+            _setter("dailies", dailies)
         if monthlies is not None:
-            pulumi.set(__self__, "monthlies", monthlies)
+            _setter("monthlies", monthlies)
         if weeklies is not None:
-            pulumi.set(__self__, "weeklies", weeklies)
+            _setter("weeklies", weeklies)
 
     @property
     @pulumi.getter
@@ -3377,8 +4115,19 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs:
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "start_time", start_time)
+        AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: pulumi.Input[str],
+             start_time: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_time", end_time)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -3416,11 +4165,24 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs:
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
-        pulumi.set(__self__, "days_of_months", days_of_months)
+        AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_months=days_of_months,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days_of_months", days_of_months)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfMonths")
@@ -3470,11 +4232,24 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
-        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_weeks=days_of_weeks,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days_of_weeks", days_of_weeks)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfWeeks")
@@ -3540,28 +4315,57 @@ class AlertProcessingRuleSuppressionConditionArgs:
         :param pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs'] target_resource_group: A `target_resource_group` block as defined below.
         :param pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
         """
+        AlertProcessingRuleSuppressionConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_context=alert_context,
+            alert_rule_id=alert_rule_id,
+            alert_rule_name=alert_rule_name,
+            description=description,
+            monitor_condition=monitor_condition,
+            monitor_service=monitor_service,
+            severity=severity,
+            signal_type=signal_type,
+            target_resource=target_resource,
+            target_resource_group=target_resource_group,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_context: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertContextArgs']] = None,
+             alert_rule_id: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleIdArgs']] = None,
+             alert_rule_name: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleNameArgs']] = None,
+             description: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionDescriptionArgs']] = None,
+             monitor_condition: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorConditionArgs']] = None,
+             monitor_service: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorServiceArgs']] = None,
+             severity: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSeverityArgs']] = None,
+             signal_type: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSignalTypeArgs']] = None,
+             target_resource: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceArgs']] = None,
+             target_resource_group: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs']] = None,
+             target_resource_type: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
+            _setter("alert_context", alert_context)
         if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+            _setter("alert_rule_id", alert_rule_id)
         if alert_rule_name is not None:
-            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
+            _setter("alert_rule_name", alert_rule_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if monitor_condition is not None:
-            pulumi.set(__self__, "monitor_condition", monitor_condition)
+            _setter("monitor_condition", monitor_condition)
         if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
+            _setter("monitor_service", monitor_service)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if signal_type is not None:
-            pulumi.set(__self__, "signal_type", signal_type)
+            _setter("signal_type", signal_type)
         if target_resource is not None:
-            pulumi.set(__self__, "target_resource", target_resource)
+            _setter("target_resource", target_resource)
         if target_resource_group is not None:
-            pulumi.set(__self__, "target_resource_group", target_resource_group)
+            _setter("target_resource_group", target_resource_group)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="alertContext")
@@ -3705,8 +4509,19 @@ class AlertProcessingRuleSuppressionConditionAlertContextArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionAlertContextArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3742,8 +4557,19 @@ class AlertProcessingRuleSuppressionConditionAlertRuleIdArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionAlertRuleIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3779,8 +4605,19 @@ class AlertProcessingRuleSuppressionConditionAlertRuleNameArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionAlertRuleNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3816,8 +4653,19 @@ class AlertProcessingRuleSuppressionConditionDescriptionArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3853,8 +4701,19 @@ class AlertProcessingRuleSuppressionConditionMonitorConditionArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionMonitorConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3890,8 +4749,19 @@ class AlertProcessingRuleSuppressionConditionMonitorServiceArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionMonitorServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3927,8 +4797,19 @@ class AlertProcessingRuleSuppressionConditionSeverityArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionSeverityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3964,8 +4845,19 @@ class AlertProcessingRuleSuppressionConditionSignalTypeArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionSignalTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -4001,8 +4893,19 @@ class AlertProcessingRuleSuppressionConditionTargetResourceArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource IDs.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionTargetResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -4038,8 +4941,19 @@ class AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource group IDs.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -4075,8 +4989,19 @@ class AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs:
         :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -4116,14 +5041,29 @@ class AlertProcessingRuleSuppressionScheduleArgs:
         :param pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
         :param pulumi.Input[str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
         """
+        AlertProcessingRuleSuppressionScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_from=effective_from,
+            effective_until=effective_until,
+            recurrence=recurrence,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_from: Optional[pulumi.Input[str]] = None,
+             effective_until: Optional[pulumi.Input[str]] = None,
+             recurrence: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs']] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if effective_from is not None:
-            pulumi.set(__self__, "effective_from", effective_from)
+            _setter("effective_from", effective_from)
         if effective_until is not None:
-            pulumi.set(__self__, "effective_until", effective_until)
+            _setter("effective_until", effective_until)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="effectiveFrom")
@@ -4185,12 +5125,25 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]] monthlies: One or more `monthly` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]] weeklies: One or more `weekly` blocks as defined below.
         """
+        AlertProcessingRuleSuppressionScheduleRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dailies=dailies,
+            monthlies=monthlies,
+            weeklies=weeklies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dailies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs']]]] = None,
+             monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]]] = None,
+             weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dailies is not None:
-            pulumi.set(__self__, "dailies", dailies)
+            _setter("dailies", dailies)
         if monthlies is not None:
-            pulumi.set(__self__, "monthlies", monthlies)
+            _setter("monthlies", monthlies)
         if weeklies is not None:
-            pulumi.set(__self__, "weeklies", weeklies)
+            _setter("weeklies", weeklies)
 
     @property
     @pulumi.getter
@@ -4238,8 +5191,19 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs:
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "start_time", start_time)
+        AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: pulumi.Input[str],
+             start_time: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_time", end_time)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -4277,11 +5241,24 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs:
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
-        pulumi.set(__self__, "days_of_months", days_of_months)
+        AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_months=days_of_months,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days_of_months", days_of_months)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfMonths")
@@ -4331,11 +5308,24 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
         :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
         :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
         """
-        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_weeks=days_of_weeks,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days_of_weeks", days_of_weeks)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfWeeks")
@@ -4399,25 +5389,52 @@ class AlertPrometheusRuleGroupRuleArgs:
         :param pulumi.Input[str] record: Specifies the recorded metrics name.
         :param pulumi.Input[int] severity: Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
         """
-        pulumi.set(__self__, "expression", expression)
+        AlertPrometheusRuleGroupRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            actions=actions,
+            alert=alert,
+            alert_resolution=alert_resolution,
+            annotations=annotations,
+            enabled=enabled,
+            for_=for_,
+            labels=labels,
+            record=record,
+            severity=severity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgs']]]] = None,
+             alert: Optional[pulumi.Input[str]] = None,
+             alert_resolution: Optional[pulumi.Input['AlertPrometheusRuleGroupRuleAlertResolutionArgs']] = None,
+             annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             for_: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             record: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if alert is not None:
-            pulumi.set(__self__, "alert", alert)
+            _setter("alert", alert)
         if alert_resolution is not None:
-            pulumi.set(__self__, "alert_resolution", alert_resolution)
+            _setter("alert_resolution", alert_resolution)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if for_ is not None:
-            pulumi.set(__self__, "for_", for_)
+            _setter("for_", for_)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if record is not None:
-            pulumi.set(__self__, "record", record)
+            _setter("record", record)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
 
     @property
     @pulumi.getter
@@ -4551,9 +5568,20 @@ class AlertPrometheusRuleGroupRuleActionArgs:
                
                > **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
         """
-        pulumi.set(__self__, "action_group_id", action_group_id)
+        AlertPrometheusRuleGroupRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            action_properties=action_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: pulumi.Input[str],
+             action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_group_id", action_group_id)
         if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
+            _setter("action_properties", action_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -4591,10 +5619,21 @@ class AlertPrometheusRuleGroupRuleAlertResolutionArgs:
         :param pulumi.Input[bool] auto_resolved: Is the alert auto-resolution? Possible values are `true` and `false`.
         :param pulumi.Input[str] time_to_resolve: Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
         """
+        AlertPrometheusRuleGroupRuleAlertResolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_resolved=auto_resolved,
+            time_to_resolve=time_to_resolve,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_resolved: Optional[pulumi.Input[bool]] = None,
+             time_to_resolve: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_resolved is not None:
-            pulumi.set(__self__, "auto_resolved", auto_resolved)
+            _setter("auto_resolved", auto_resolved)
         if time_to_resolve is not None:
-            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+            _setter("time_to_resolve", time_to_resolve)
 
     @property
     @pulumi.getter(name="autoResolved")
@@ -4630,10 +5669,21 @@ class AutoscaleSettingNotificationArgs:
         :param pulumi.Input['AutoscaleSettingNotificationEmailArgs'] email: A `email` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingNotificationWebhookArgs']]] webhooks: One or more `webhook` blocks as defined below.
         """
+        AutoscaleSettingNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            webhooks=webhooks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input['AutoscaleSettingNotificationEmailArgs']] = None,
+             webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingNotificationWebhookArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if webhooks is not None:
-            pulumi.set(__self__, "webhooks", webhooks)
+            _setter("webhooks", webhooks)
 
     @property
     @pulumi.getter
@@ -4671,12 +5721,25 @@ class AutoscaleSettingNotificationEmailArgs:
         :param pulumi.Input[bool] send_to_subscription_administrator: Should email notifications be sent to the subscription administrator? Defaults to `false`.
         :param pulumi.Input[bool] send_to_subscription_co_administrator: Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
         """
+        AutoscaleSettingNotificationEmailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_emails=custom_emails,
+            send_to_subscription_administrator=send_to_subscription_administrator,
+            send_to_subscription_co_administrator=send_to_subscription_co_administrator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             send_to_subscription_administrator: Optional[pulumi.Input[bool]] = None,
+             send_to_subscription_co_administrator: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_emails is not None:
-            pulumi.set(__self__, "custom_emails", custom_emails)
+            _setter("custom_emails", custom_emails)
         if send_to_subscription_administrator is not None:
-            pulumi.set(__self__, "send_to_subscription_administrator", send_to_subscription_administrator)
+            _setter("send_to_subscription_administrator", send_to_subscription_administrator)
         if send_to_subscription_co_administrator is not None:
-            pulumi.set(__self__, "send_to_subscription_co_administrator", send_to_subscription_co_administrator)
+            _setter("send_to_subscription_co_administrator", send_to_subscription_co_administrator)
 
     @property
     @pulumi.getter(name="customEmails")
@@ -4724,9 +5787,20 @@ class AutoscaleSettingNotificationWebhookArgs:
         :param pulumi.Input[str] service_uri: The HTTPS URI which should receive scale notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A map of settings.
         """
-        pulumi.set(__self__, "service_uri", service_uri)
+        AutoscaleSettingNotificationWebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_uri=service_uri,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_uri: pulumi.Input[str],
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("service_uri", service_uri)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="serviceUri")
@@ -4762,9 +5836,20 @@ class AutoscaleSettingPredictiveArgs:
         :param pulumi.Input[str] scale_mode: Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
         :param pulumi.Input[str] look_ahead_time: Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
         """
-        pulumi.set(__self__, "scale_mode", scale_mode)
+        AutoscaleSettingPredictiveArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scale_mode=scale_mode,
+            look_ahead_time=look_ahead_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scale_mode: pulumi.Input[str],
+             look_ahead_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("scale_mode", scale_mode)
         if look_ahead_time is not None:
-            pulumi.set(__self__, "look_ahead_time", look_ahead_time)
+            _setter("look_ahead_time", look_ahead_time)
 
     @property
     @pulumi.getter(name="scaleMode")
@@ -4806,14 +5891,31 @@ class AutoscaleSettingProfileArgs:
         :param pulumi.Input['AutoscaleSettingProfileRecurrenceArgs'] recurrence: A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleArgs']]] rules: One or more (up to 10) `rule` blocks as defined below.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
+        AutoscaleSettingProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            fixed_date=fixed_date,
+            recurrence=recurrence,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input['AutoscaleSettingProfileCapacityArgs'],
+             name: pulumi.Input[str],
+             fixed_date: Optional[pulumi.Input['AutoscaleSettingProfileFixedDateArgs']] = None,
+             recurrence: Optional[pulumi.Input['AutoscaleSettingProfileRecurrenceArgs']] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
         if fixed_date is not None:
-            pulumi.set(__self__, "fixed_date", fixed_date)
+            _setter("fixed_date", fixed_date)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -4889,9 +5991,22 @@ class AutoscaleSettingProfileCapacityArgs:
                > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         :param pulumi.Input[int] minimum: The minimum number of instances for this resource. Valid values are between `0` and `1000`.
         """
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "maximum", maximum)
-        pulumi.set(__self__, "minimum", minimum)
+        AutoscaleSettingProfileCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            maximum=maximum,
+            minimum=minimum,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: pulumi.Input[int],
+             maximum: pulumi.Input[int],
+             minimum: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default", default)
+        _setter("maximum", maximum)
+        _setter("minimum", minimum)
 
     @property
     @pulumi.getter
@@ -4943,10 +6058,23 @@ class AutoscaleSettingProfileFixedDateArgs:
         :param pulumi.Input[str] start: Specifies the start date for the profile, formatted as an RFC3339 date string.
         :param pulumi.Input[str] timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        AutoscaleSettingProfileFixedDateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: pulumi.Input[str],
+             start: pulumi.Input[str],
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -4998,11 +6126,26 @@ class AutoscaleSettingProfileRecurrenceArgs:
         :param pulumi.Input[int] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
         :param pulumi.Input[str] timezone: The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
+        AutoscaleSettingProfileRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            hours=hours,
+            minutes=minutes,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: pulumi.Input[Sequence[pulumi.Input[str]]],
+             hours: pulumi.Input[int],
+             minutes: pulumi.Input[int],
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("hours", hours)
+        _setter("minutes", minutes)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -5062,8 +6205,19 @@ class AutoscaleSettingProfileRuleArgs:
         :param pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerArgs'] metric_trigger: A `metric_trigger` block as defined below.
         :param pulumi.Input['AutoscaleSettingProfileRuleScaleActionArgs'] scale_action: A `scale_action` block as defined below.
         """
-        pulumi.set(__self__, "metric_trigger", metric_trigger)
-        pulumi.set(__self__, "scale_action", scale_action)
+        AutoscaleSettingProfileRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_trigger=metric_trigger,
+            scale_action=scale_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_trigger: pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerArgs'],
+             scale_action: pulumi.Input['AutoscaleSettingProfileRuleScaleActionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_trigger", metric_trigger)
+        _setter("scale_action", scale_action)
 
     @property
     @pulumi.getter(name="metricTrigger")
@@ -5119,20 +6273,49 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
         :param pulumi.Input[bool] divide_by_instance_count: Whether to enable metric divide by instance count.
         :param pulumi.Input[str] metric_namespace: The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_resource_id", metric_resource_id)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "statistic", statistic)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
-        pulumi.set(__self__, "time_grain", time_grain)
-        pulumi.set(__self__, "time_window", time_window)
+        AutoscaleSettingProfileRuleMetricTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_resource_id=metric_resource_id,
+            operator=operator,
+            statistic=statistic,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+            time_grain=time_grain,
+            time_window=time_window,
+            dimensions=dimensions,
+            divide_by_instance_count=divide_by_instance_count,
+            metric_namespace=metric_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: pulumi.Input[str],
+             metric_resource_id: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             statistic: pulumi.Input[str],
+             threshold: pulumi.Input[float],
+             time_aggregation: pulumi.Input[str],
+             time_grain: pulumi.Input[str],
+             time_window: pulumi.Input[str],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs']]]] = None,
+             divide_by_instance_count: Optional[pulumi.Input[bool]] = None,
+             metric_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_name", metric_name)
+        _setter("metric_resource_id", metric_resource_id)
+        _setter("operator", operator)
+        _setter("statistic", statistic)
+        _setter("threshold", threshold)
+        _setter("time_aggregation", time_aggregation)
+        _setter("time_grain", time_grain)
+        _setter("time_window", time_window)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if divide_by_instance_count is not None:
-            pulumi.set(__self__, "divide_by_instance_count", divide_by_instance_count)
+            _setter("divide_by_instance_count", divide_by_instance_count)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
 
     @property
     @pulumi.getter(name="metricName")
@@ -5280,9 +6463,22 @@ class AutoscaleSettingProfileRuleMetricTriggerDimensionArgs:
         :param pulumi.Input[str] operator: The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of dimension values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        AutoscaleSettingProfileRuleMetricTriggerDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -5334,10 +6530,25 @@ class AutoscaleSettingProfileRuleScaleActionArgs:
         :param pulumi.Input[str] type: The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
         :param pulumi.Input[int] value: The number of instances involved in the scaling action.
         """
-        pulumi.set(__self__, "cooldown", cooldown)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        AutoscaleSettingProfileRuleScaleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cooldown=cooldown,
+            direction=direction,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cooldown: pulumi.Input[str],
+             direction: pulumi.Input[str],
+             type: pulumi.Input[str],
+             value: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cooldown", cooldown)
+        _setter("direction", direction)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -5403,14 +6614,31 @@ class DataCollectionRuleDataFlowArgs:
         :param pulumi.Input[str] output_stream: The output stream of the transform. Only required if the data flow changes data to a different stream.
         :param pulumi.Input[str] transform_kql: The KQL query to transform stream data.
         """
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataFlowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destinations=destinations,
+            streams=streams,
+            built_in_transform=built_in_transform,
+            output_stream=output_stream,
+            transform_kql=transform_kql,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             built_in_transform: Optional[pulumi.Input[str]] = None,
+             output_stream: Optional[pulumi.Input[str]] = None,
+             transform_kql: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destinations", destinations)
+        _setter("streams", streams)
         if built_in_transform is not None:
-            pulumi.set(__self__, "built_in_transform", built_in_transform)
+            _setter("built_in_transform", built_in_transform)
         if output_stream is not None:
-            pulumi.set(__self__, "output_stream", output_stream)
+            _setter("output_stream", output_stream)
         if transform_kql is not None:
-            pulumi.set(__self__, "transform_kql", transform_kql)
+            _setter("transform_kql", transform_kql)
 
     @property
     @pulumi.getter
@@ -5498,26 +6726,53 @@ class DataCollectionRuleDataSourcesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]] windows_event_logs: One or more `windows_event_log` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsFirewallLogArgs']]] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
         """
+        DataCollectionRuleDataSourcesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_import=data_import,
+            extensions=extensions,
+            iis_logs=iis_logs,
+            log_files=log_files,
+            performance_counters=performance_counters,
+            platform_telemetries=platform_telemetries,
+            prometheus_forwarders=prometheus_forwarders,
+            syslogs=syslogs,
+            windows_event_logs=windows_event_logs,
+            windows_firewall_logs=windows_firewall_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_import: Optional[pulumi.Input['DataCollectionRuleDataSourcesDataImportArgs']] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgs']]]] = None,
+             iis_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesIisLogArgs']]]] = None,
+             log_files: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesLogFileArgs']]]] = None,
+             performance_counters: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgs']]]] = None,
+             platform_telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPlatformTelemetryArgs']]]] = None,
+             prometheus_forwarders: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderArgs']]]] = None,
+             syslogs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgs']]]] = None,
+             windows_event_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]]] = None,
+             windows_firewall_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsFirewallLogArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_import is not None:
-            pulumi.set(__self__, "data_import", data_import)
+            _setter("data_import", data_import)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if iis_logs is not None:
-            pulumi.set(__self__, "iis_logs", iis_logs)
+            _setter("iis_logs", iis_logs)
         if log_files is not None:
-            pulumi.set(__self__, "log_files", log_files)
+            _setter("log_files", log_files)
         if performance_counters is not None:
-            pulumi.set(__self__, "performance_counters", performance_counters)
+            _setter("performance_counters", performance_counters)
         if platform_telemetries is not None:
-            pulumi.set(__self__, "platform_telemetries", platform_telemetries)
+            _setter("platform_telemetries", platform_telemetries)
         if prometheus_forwarders is not None:
-            pulumi.set(__self__, "prometheus_forwarders", prometheus_forwarders)
+            _setter("prometheus_forwarders", prometheus_forwarders)
         if syslogs is not None:
-            pulumi.set(__self__, "syslogs", syslogs)
+            _setter("syslogs", syslogs)
         if windows_event_logs is not None:
-            pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+            _setter("windows_event_logs", windows_event_logs)
         if windows_firewall_logs is not None:
-            pulumi.set(__self__, "windows_firewall_logs", windows_firewall_logs)
+            _setter("windows_firewall_logs", windows_firewall_logs)
 
     @property
     @pulumi.getter(name="dataImport")
@@ -5647,7 +6902,16 @@ class DataCollectionRuleDataSourcesDataImportArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs']]] event_hub_data_sources: An `event_hub_data_source` block as defined below.
         """
-        pulumi.set(__self__, "event_hub_data_sources", event_hub_data_sources)
+        DataCollectionRuleDataSourcesDataImportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_data_sources=event_hub_data_sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_data_sources: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_hub_data_sources", event_hub_data_sources)
 
     @property
     @pulumi.getter(name="eventHubDataSources")
@@ -5673,10 +6937,23 @@ class DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs:
         :param pulumi.Input[str] stream: The stream to collect from Event Hub. Possible value should be a custom stream name.
         :param pulumi.Input[str] consumer_group: The Event Hub consumer group name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "stream", stream)
+        DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            stream=stream,
+            consumer_group=consumer_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             stream: pulumi.Input[str],
+             consumer_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("stream", stream)
         if consumer_group is not None:
-            pulumi.set(__self__, "consumer_group", consumer_group)
+            _setter("consumer_group", consumer_group)
 
     @property
     @pulumi.getter
@@ -5730,13 +7007,30 @@ class DataCollectionRuleDataSourcesExtensionArgs:
         :param pulumi.Input[str] extension_json: A JSON String which specifies the extension setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] input_data_sources: Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
         """
-        pulumi.set(__self__, "extension_name", extension_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_name=extension_name,
+            name=name,
+            streams=streams,
+            extension_json=extension_json,
+            input_data_sources=input_data_sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             extension_json: Optional[pulumi.Input[str]] = None,
+             input_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extension_name", extension_name)
+        _setter("name", name)
+        _setter("streams", streams)
         if extension_json is not None:
-            pulumi.set(__self__, "extension_json", extension_json)
+            _setter("extension_json", extension_json)
         if input_data_sources is not None:
-            pulumi.set(__self__, "input_data_sources", input_data_sources)
+            _setter("input_data_sources", input_data_sources)
 
     @property
     @pulumi.getter(name="extensionName")
@@ -5810,10 +7104,23 @@ class DataCollectionRuleDataSourcesIisLogArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-W3CIISLog`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_directories: Specifies a list of absolute paths where the log files are located.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesIisLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            streams=streams,
+            log_directories=log_directories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             log_directories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("streams", streams)
         if log_directories is not None:
-            pulumi.set(__self__, "log_directories", log_directories)
+            _setter("log_directories", log_directories)
 
     @property
     @pulumi.getter
@@ -5867,12 +7174,29 @@ class DataCollectionRuleDataSourcesLogFileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
         :param pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsArgs'] settings: A `settings` block as defined below.
         """
-        pulumi.set(__self__, "file_patterns", file_patterns)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesLogFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_patterns=file_patterns,
+            format=format,
+            name=name,
+            streams=streams,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             format: pulumi.Input[str],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             settings: Optional[pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("file_patterns", file_patterns)
+        _setter("format", format)
+        _setter("name", name)
+        _setter("streams", streams)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter(name="filePatterns")
@@ -5942,7 +7266,16 @@ class DataCollectionRuleDataSourcesLogFileSettingsArgs:
         """
         :param pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsTextArgs'] text: A `text` block as defined below.
         """
-        pulumi.set(__self__, "text", text)
+        DataCollectionRuleDataSourcesLogFileSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text: pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsTextArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text", text)
 
     @property
     @pulumi.getter
@@ -5964,7 +7297,16 @@ class DataCollectionRuleDataSourcesLogFileSettingsTextArgs:
         """
         :param pulumi.Input[str] record_start_timestamp_format: The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
         """
-        pulumi.set(__self__, "record_start_timestamp_format", record_start_timestamp_format)
+        DataCollectionRuleDataSourcesLogFileSettingsTextArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            record_start_timestamp_format=record_start_timestamp_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             record_start_timestamp_format: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("record_start_timestamp_format", record_start_timestamp_format)
 
     @property
     @pulumi.getter(name="recordStartTimestampFormat")
@@ -5992,10 +7334,25 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
         :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
-        pulumi.set(__self__, "counter_specifiers", counter_specifiers)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesPerformanceCounterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            counter_specifiers=counter_specifiers,
+            name=name,
+            sampling_frequency_in_seconds=sampling_frequency_in_seconds,
+            streams=streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             counter_specifiers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             sampling_frequency_in_seconds: pulumi.Input[int],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("counter_specifiers", counter_specifiers)
+        _setter("name", name)
+        _setter("sampling_frequency_in_seconds", sampling_frequency_in_seconds)
+        _setter("streams", streams)
 
     @property
     @pulumi.getter(name="counterSpecifiers")
@@ -6055,8 +7412,19 @@ class DataCollectionRuleDataSourcesPlatformTelemetryArgs:
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft.Cache/redis:Metrics-Group-All`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesPlatformTelemetryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            streams=streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("streams", streams)
 
     @property
     @pulumi.getter
@@ -6094,10 +7462,23 @@ class DataCollectionRuleDataSourcesPrometheusForwarderArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs']]] label_include_filters: One or more `label_include_filter` blocks as defined above.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesPrometheusForwarderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            streams=streams,
+            label_include_filters=label_include_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             label_include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("streams", streams)
         if label_include_filters is not None:
-            pulumi.set(__self__, "label_include_filters", label_include_filters)
+            _setter("label_include_filters", label_include_filters)
 
     @property
     @pulumi.getter
@@ -6145,8 +7526,19 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs:
         :param pulumi.Input[str] label: The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
         :param pulumi.Input[str] value: The value of the filter.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "value", value)
+        DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -6188,11 +7580,26 @@ class DataCollectionRuleDataSourcesSyslogArgs:
                
                > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
-        pulumi.set(__self__, "facility_names", facility_names)
-        pulumi.set(__self__, "log_levels", log_levels)
-        pulumi.set(__self__, "name", name)
+        DataCollectionRuleDataSourcesSyslogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            facility_names=facility_names,
+            log_levels=log_levels,
+            name=name,
+            streams=streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             facility_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             log_levels: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             streams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("facility_names", facility_names)
+        _setter("log_levels", log_levels)
+        _setter("name", name)
         if streams is not None:
-            pulumi.set(__self__, "streams", streams)
+            _setter("streams", streams)
 
     @property
     @pulumi.getter(name="facilityNames")
@@ -6256,9 +7663,22 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
-        pulumi.set(__self__, "x_path_queries", x_path_queries)
+        DataCollectionRuleDataSourcesWindowsEventLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            streams=streams,
+            x_path_queries=x_path_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("streams", streams)
+        _setter("x_path_queries", x_path_queries)
 
     @property
     @pulumi.getter
@@ -6306,8 +7726,19 @@ class DataCollectionRuleDataSourcesWindowsFirewallLogArgs:
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        DataCollectionRuleDataSourcesWindowsFirewallLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            streams=streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("streams", streams)
 
     @property
     @pulumi.getter
@@ -6359,22 +7790,45 @@ class DataCollectionRuleDestinationsArgs:
                
                > **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
         """
+        DataCollectionRuleDestinationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_monitor_metrics=azure_monitor_metrics,
+            event_hub=event_hub,
+            event_hub_direct=event_hub_direct,
+            log_analytics=log_analytics,
+            monitor_accounts=monitor_accounts,
+            storage_blob_directs=storage_blob_directs,
+            storage_blobs=storage_blobs,
+            storage_table_directs=storage_table_directs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_monitor_metrics: Optional[pulumi.Input['DataCollectionRuleDestinationsAzureMonitorMetricsArgs']] = None,
+             event_hub: Optional[pulumi.Input['DataCollectionRuleDestinationsEventHubArgs']] = None,
+             event_hub_direct: Optional[pulumi.Input['DataCollectionRuleDestinationsEventHubDirectArgs']] = None,
+             log_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgs']]]] = None,
+             monitor_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsMonitorAccountArgs']]]] = None,
+             storage_blob_directs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobDirectArgs']]]] = None,
+             storage_blobs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobArgs']]]] = None,
+             storage_table_directs: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageTableDirectArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_monitor_metrics is not None:
-            pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+            _setter("azure_monitor_metrics", azure_monitor_metrics)
         if event_hub is not None:
-            pulumi.set(__self__, "event_hub", event_hub)
+            _setter("event_hub", event_hub)
         if event_hub_direct is not None:
-            pulumi.set(__self__, "event_hub_direct", event_hub_direct)
+            _setter("event_hub_direct", event_hub_direct)
         if log_analytics is not None:
-            pulumi.set(__self__, "log_analytics", log_analytics)
+            _setter("log_analytics", log_analytics)
         if monitor_accounts is not None:
-            pulumi.set(__self__, "monitor_accounts", monitor_accounts)
+            _setter("monitor_accounts", monitor_accounts)
         if storage_blob_directs is not None:
-            pulumi.set(__self__, "storage_blob_directs", storage_blob_directs)
+            _setter("storage_blob_directs", storage_blob_directs)
         if storage_blobs is not None:
-            pulumi.set(__self__, "storage_blobs", storage_blobs)
+            _setter("storage_blobs", storage_blobs)
         if storage_table_directs is not None:
-            pulumi.set(__self__, "storage_table_directs", storage_table_directs)
+            _setter("storage_table_directs", storage_table_directs)
 
     @property
     @pulumi.getter(name="azureMonitorMetrics")
@@ -6484,7 +7938,16 @@ class DataCollectionRuleDestinationsAzureMonitorMetricsArgs:
         """
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         """
-        pulumi.set(__self__, "name", name)
+        DataCollectionRuleDestinationsAzureMonitorMetricsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -6508,8 +7971,19 @@ class DataCollectionRuleDestinationsEventHubArgs:
         :param pulumi.Input[str] event_hub_id: The resource ID of the Event Hub.
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         """
-        pulumi.set(__self__, "event_hub_id", event_hub_id)
-        pulumi.set(__self__, "name", name)
+        DataCollectionRuleDestinationsEventHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_id=event_hub_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_hub_id", event_hub_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="eventHubId")
@@ -6545,8 +8019,19 @@ class DataCollectionRuleDestinationsEventHubDirectArgs:
         :param pulumi.Input[str] event_hub_id: The resource ID of the Event Hub.
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         """
-        pulumi.set(__self__, "event_hub_id", event_hub_id)
-        pulumi.set(__self__, "name", name)
+        DataCollectionRuleDestinationsEventHubDirectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_id=event_hub_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_hub_id", event_hub_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="eventHubId")
@@ -6582,8 +8067,19 @@ class DataCollectionRuleDestinationsLogAnalyticArgs:
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         :param pulumi.Input[str] workspace_resource_id: The ID of a Log Analytic Workspace resource.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        DataCollectionRuleDestinationsLogAnalyticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             workspace_resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
@@ -6619,8 +8115,19 @@ class DataCollectionRuleDestinationsMonitorAccountArgs:
         :param pulumi.Input[str] monitor_account_id: The resource ID of the Monitor Account.
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         """
-        pulumi.set(__self__, "monitor_account_id", monitor_account_id)
-        pulumi.set(__self__, "name", name)
+        DataCollectionRuleDestinationsMonitorAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_account_id=monitor_account_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_account_id: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitor_account_id", monitor_account_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="monitorAccountId")
@@ -6658,9 +8165,22 @@ class DataCollectionRuleDestinationsStorageBlobArgs:
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         :param pulumi.Input[str] storage_account_id: The resource ID of the Storage Account.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        DataCollectionRuleDestinationsStorageBlobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            name=name,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             storage_account_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
+        _setter("name", name)
+        _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="containerName")
@@ -6710,9 +8230,22 @@ class DataCollectionRuleDestinationsStorageBlobDirectArgs:
         :param pulumi.Input[str] name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         :param pulumi.Input[str] storage_account_id: The resource ID of the Storage Account.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        DataCollectionRuleDestinationsStorageBlobDirectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            name=name,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             storage_account_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_name", container_name)
+        _setter("name", name)
+        _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="containerName")
@@ -6762,9 +8295,22 @@ class DataCollectionRuleDestinationsStorageTableDirectArgs:
         :param pulumi.Input[str] storage_account_id: The resource ID of the Storage Account.
         :param pulumi.Input[str] table_name: The Storage Table name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "table_name", table_name)
+        DataCollectionRuleDestinationsStorageTableDirectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            storage_account_id=storage_account_id,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             storage_account_id: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("storage_account_id", storage_account_id)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter
@@ -6818,13 +8364,28 @@ class DataCollectionRuleIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        DataCollectionRuleIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -6886,8 +8447,19 @@ class DataCollectionRuleStreamDeclarationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationColumnArgs']]] columns: One or more `column` blocks as defined above.
         :param pulumi.Input[str] stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
         """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "stream_name", stream_name)
+        DataCollectionRuleStreamDeclarationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            stream_name=stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationColumnArgs']]],
+             stream_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("stream_name", stream_name)
 
     @property
     @pulumi.getter
@@ -6923,8 +8495,19 @@ class DataCollectionRuleStreamDeclarationColumnArgs:
         :param pulumi.Input[str] name: The name of the column.
         :param pulumi.Input[str] type: The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DataCollectionRuleStreamDeclarationColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -6970,15 +8553,28 @@ class DiagnosticSettingEnabledLogArgs:
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
+        DiagnosticSettingEnabledLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            category_group=category_group,
+            retention_policy=retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             category_group: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
+            _setter("category_group", category_group)
         if retention_policy is not None:
             warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
             pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -7040,9 +8636,20 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        DiagnosticSettingEnabledLogRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -7093,17 +8700,32 @@ class DiagnosticSettingLogArgs:
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
+        DiagnosticSettingLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            category_group=category_group,
+            enabled=enabled,
+            retention_policy=retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             category_group: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             retention_policy: Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
+            _setter("category_group", category_group)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_policy is not None:
             warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
             pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -7177,9 +8799,20 @@ class DiagnosticSettingLogRetentionPolicyArgs:
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        DiagnosticSettingLogRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -7224,14 +8857,27 @@ class DiagnosticSettingMetricArgs:
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
-        pulumi.set(__self__, "category", category)
+        DiagnosticSettingMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            enabled=enabled,
+            retention_policy=retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             retention_policy: Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_policy is not None:
             warnings.warn("""`retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
             pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `azurerm_storage_management_policy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -7289,9 +8935,20 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        DiagnosticSettingMetricRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -7330,9 +8987,20 @@ class LogProfileRetentionPolicyArgs:
         :param pulumi.Input[bool] enabled: A boolean value to indicate whether the retention policy is enabled.
         :param pulumi.Input[int] days: The number of days for the retention policy. Defaults to `0`.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        LogProfileRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -7372,11 +9040,26 @@ class LogzMonitorPlanArgs:
         :param pulumi.Input[str] usage_type: Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] plan_id: Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
         """
-        pulumi.set(__self__, "billing_cycle", billing_cycle)
-        pulumi.set(__self__, "effective_date", effective_date)
-        pulumi.set(__self__, "usage_type", usage_type)
+        LogzMonitorPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_cycle=billing_cycle,
+            effective_date=effective_date,
+            usage_type=usage_type,
+            plan_id=plan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_cycle: pulumi.Input[str],
+             effective_date: pulumi.Input[str],
+             usage_type: pulumi.Input[str],
+             plan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("billing_cycle", billing_cycle)
+        _setter("effective_date", effective_date)
+        _setter("usage_type", usage_type)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
 
     @property
     @pulumi.getter(name="billingCycle")
@@ -7442,10 +9125,25 @@ class LogzMonitorUserArgs:
         :param pulumi.Input[str] last_name: Last Name of the user. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        LogzMonitorUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             first_name: pulumi.Input[str],
+             last_name: pulumi.Input[str],
+             phone_number: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("first_name", first_name)
+        _setter("last_name", last_name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter
@@ -7509,10 +9207,23 @@ class LogzSubAccountTagRuleTagFilterArgs:
         :param pulumi.Input[str] name: The name of the tag to match.
         :param pulumi.Input[str] value: The value of the tag to match.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
+        LogzSubAccountTagRuleTagFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             name: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7566,10 +9277,25 @@ class LogzSubAccountUserArgs:
         :param pulumi.Input[str] last_name: Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        LogzSubAccountUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             first_name: pulumi.Input[str],
+             last_name: pulumi.Input[str],
+             phone_number: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
+        _setter("first_name", first_name)
+        _setter("last_name", last_name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter
@@ -7633,10 +9359,23 @@ class LogzTagRuleTagFilterArgs:
         :param pulumi.Input[str] name: The name of this `tag_filter`.
         :param pulumi.Input[str] value: The value of this `tag_filter`.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
+        LogzTagRuleTagFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             name: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7684,9 +9423,20 @@ class MetricAlertActionArgs:
         :param pulumi.Input[str] action_group_id: The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webhook_properties: The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
         """
-        pulumi.set(__self__, "action_group_id", action_group_id)
+        MetricAlertActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            webhook_properties=webhook_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: pulumi.Input[str],
+             webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_group_id", action_group_id)
         if webhook_properties is not None:
-            pulumi.set(__self__, "webhook_properties", webhook_properties)
+            _setter("webhook_properties", webhook_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -7724,9 +9474,22 @@ class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs:
         :param pulumi.Input[int] failed_location_count: The number of failed locations.
         :param pulumi.Input[str] web_test_id: The ID of the Application Insights Web Test.
         """
-        pulumi.set(__self__, "component_id", component_id)
-        pulumi.set(__self__, "failed_location_count", failed_location_count)
-        pulumi.set(__self__, "web_test_id", web_test_id)
+        MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_id=component_id,
+            failed_location_count=failed_location_count,
+            web_test_id=web_test_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_id: pulumi.Input[str],
+             failed_location_count: pulumi.Input[int],
+             web_test_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("component_id", component_id)
+        _setter("failed_location_count", failed_location_count)
+        _setter("web_test_id", web_test_id)
 
     @property
     @pulumi.getter(name="componentId")
@@ -7784,15 +9547,36 @@ class MetricAlertCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below.
         :param pulumi.Input[bool] skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
         """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_namespace", metric_namespace)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        MetricAlertCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            operator=operator,
+            threshold=threshold,
+            dimensions=dimensions,
+            skip_metric_validation=skip_metric_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: pulumi.Input[str],
+             metric_name: pulumi.Input[str],
+             metric_namespace: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             threshold: pulumi.Input[float],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]]] = None,
+             skip_metric_validation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregation", aggregation)
+        _setter("metric_name", metric_name)
+        _setter("metric_namespace", metric_namespace)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if skip_metric_validation is not None:
-            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
+            _setter("skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter
@@ -7890,9 +9674,22 @@ class MetricAlertCriteriaDimensionArgs:
         :param pulumi.Input[str] operator: The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The list of dimension values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        MetricAlertCriteriaDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -7956,21 +9753,48 @@ class MetricAlertDynamicCriteriaArgs:
         :param pulumi.Input[str] ignore_data_before: The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
         :param pulumi.Input[bool] skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
         """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_namespace", metric_namespace)
-        pulumi.set(__self__, "operator", operator)
+        MetricAlertDynamicCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            alert_sensitivity=alert_sensitivity,
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            operator=operator,
+            dimensions=dimensions,
+            evaluation_failure_count=evaluation_failure_count,
+            evaluation_total_count=evaluation_total_count,
+            ignore_data_before=ignore_data_before,
+            skip_metric_validation=skip_metric_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: pulumi.Input[str],
+             alert_sensitivity: pulumi.Input[str],
+             metric_name: pulumi.Input[str],
+             metric_namespace: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertDynamicCriteriaDimensionArgs']]]] = None,
+             evaluation_failure_count: Optional[pulumi.Input[int]] = None,
+             evaluation_total_count: Optional[pulumi.Input[int]] = None,
+             ignore_data_before: Optional[pulumi.Input[str]] = None,
+             skip_metric_validation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aggregation", aggregation)
+        _setter("alert_sensitivity", alert_sensitivity)
+        _setter("metric_name", metric_name)
+        _setter("metric_namespace", metric_namespace)
+        _setter("operator", operator)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if evaluation_failure_count is not None:
-            pulumi.set(__self__, "evaluation_failure_count", evaluation_failure_count)
+            _setter("evaluation_failure_count", evaluation_failure_count)
         if evaluation_total_count is not None:
-            pulumi.set(__self__, "evaluation_total_count", evaluation_total_count)
+            _setter("evaluation_total_count", evaluation_total_count)
         if ignore_data_before is not None:
-            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+            _setter("ignore_data_before", ignore_data_before)
         if skip_metric_validation is not None:
-            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
+            _setter("skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter
@@ -8104,9 +9928,22 @@ class MetricAlertDynamicCriteriaDimensionArgs:
         :param pulumi.Input[str] operator: The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The list of dimension values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        MetricAlertDynamicCriteriaDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -8156,11 +9993,24 @@ class ScheduledQueryRulesAlertActionArgs:
         :param pulumi.Input[str] custom_webhook_payload: Custom payload to be sent for all webhook payloads in alerting action.
         :param pulumi.Input[str] email_subject: Custom subject override for all email ids in Azure action group.
         """
-        pulumi.set(__self__, "action_groups", action_groups)
+        ScheduledQueryRulesAlertActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+            custom_webhook_payload=custom_webhook_payload,
+            email_subject=email_subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+             custom_webhook_payload: Optional[pulumi.Input[str]] = None,
+             email_subject: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_groups", action_groups)
         if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+            _setter("custom_webhook_payload", custom_webhook_payload)
         if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
+            _setter("email_subject", email_subject)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -8210,10 +10060,23 @@ class ScheduledQueryRulesAlertTriggerArgs:
         :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
         :param pulumi.Input['ScheduledQueryRulesAlertTriggerMetricTriggerArgs'] metric_trigger: A `metric_trigger` block as defined above. Trigger condition for metric query rule.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        ScheduledQueryRulesAlertTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            threshold=threshold,
+            metric_trigger=metric_trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             threshold: pulumi.Input[float],
+             metric_trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerMetricTriggerArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if metric_trigger is not None:
-            pulumi.set(__self__, "metric_trigger", metric_trigger)
+            _setter("metric_trigger", metric_trigger)
 
     @property
     @pulumi.getter
@@ -8265,11 +10128,26 @@ class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
         :param pulumi.Input[float] threshold: The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
         :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column.
         """
-        pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        ScheduledQueryRulesAlertTriggerMetricTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_trigger_type=metric_trigger_type,
+            operator=operator,
+            threshold=threshold,
+            metric_column=metric_column,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_trigger_type: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             threshold: pulumi.Input[float],
+             metric_column: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metric_trigger_type", metric_trigger_type)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if metric_column is not None:
-            pulumi.set(__self__, "metric_column", metric_column)
+            _setter("metric_column", metric_column)
 
     @property
     @pulumi.getter(name="metricTriggerType")
@@ -8329,10 +10207,21 @@ class ScheduledQueryRulesAlertV2ActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: List of Action Group resource IDs to invoke when the alert fires.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Specifies the properties of an alert payload.
         """
+        ScheduledQueryRulesAlertV2ActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_groups is not None:
-            pulumi.set(__self__, "action_groups", action_groups)
+            _setter("action_groups", action_groups)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -8382,18 +10271,41 @@ class ScheduledQueryRulesAlertV2CriteriaArgs:
                > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
         :param pulumi.Input[str] resource_id_column: Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
         """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation_method", time_aggregation_method)
+        ScheduledQueryRulesAlertV2CriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator=operator,
+            query=query,
+            threshold=threshold,
+            time_aggregation_method=time_aggregation_method,
+            dimensions=dimensions,
+            failing_periods=failing_periods,
+            metric_measure_column=metric_measure_column,
+            resource_id_column=resource_id_column,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator: pulumi.Input[str],
+             query: pulumi.Input[str],
+             threshold: pulumi.Input[float],
+             time_aggregation_method: pulumi.Input[str],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]]] = None,
+             failing_periods: Optional[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs']] = None,
+             metric_measure_column: Optional[pulumi.Input[str]] = None,
+             resource_id_column: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("operator", operator)
+        _setter("query", query)
+        _setter("threshold", threshold)
+        _setter("time_aggregation_method", time_aggregation_method)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if failing_periods is not None:
-            pulumi.set(__self__, "failing_periods", failing_periods)
+            _setter("failing_periods", failing_periods)
         if metric_measure_column is not None:
-            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+            _setter("metric_measure_column", metric_measure_column)
         if resource_id_column is not None:
-            pulumi.set(__self__, "resource_id_column", resource_id_column)
+            _setter("resource_id_column", resource_id_column)
 
     @property
     @pulumi.getter
@@ -8505,9 +10417,22 @@ class ScheduledQueryRulesAlertV2CriteriaDimensionArgs:
         :param pulumi.Input[str] operator: Operator for dimension values. Possible values are `Exclude`,and `Include`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values. Use a wildcard `*` to collect all.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ScheduledQueryRulesAlertV2CriteriaDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             operator: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -8559,8 +10484,19 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs:
                
                > **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
         """
-        pulumi.set(__self__, "minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
-        pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+        ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minimum_failing_periods_to_trigger_alert=minimum_failing_periods_to_trigger_alert,
+            number_of_evaluation_periods=number_of_evaluation_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minimum_failing_periods_to_trigger_alert: pulumi.Input[int],
+             number_of_evaluation_periods: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
+        _setter("number_of_evaluation_periods", number_of_evaluation_periods)
 
     @property
     @pulumi.getter(name="minimumFailingPeriodsToTriggerAlert")
@@ -8600,8 +10536,19 @@ class ScheduledQueryRulesLogCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesLogCriteriaDimensionArgs']]] dimensions: A `dimension` block as defined below.
         :param pulumi.Input[str] metric_name: Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
-        pulumi.set(__self__, "dimensions", dimensions)
-        pulumi.set(__self__, "metric_name", metric_name)
+        ScheduledQueryRulesLogCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            metric_name=metric_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesLogCriteriaDimensionArgs']]],
+             metric_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dimensions", dimensions)
+        _setter("metric_name", metric_name)
 
     @property
     @pulumi.getter
@@ -8639,10 +10586,23 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values.
         :param pulumi.Input[str] operator: Operator for dimension values, - 'Include'.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        ScheduledQueryRulesLogCriteriaDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+            operator=operator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             operator: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
 
     @property
     @pulumi.getter
@@ -8692,11 +10652,24 @@ class SmartDetectorAlertRuleActionGroupArgs:
         :param pulumi.Input[str] email_subject: Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
         :param pulumi.Input[str] webhook_payload: A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
         """
-        pulumi.set(__self__, "ids", ids)
+        SmartDetectorAlertRuleActionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ids=ids,
+            email_subject=email_subject,
+            webhook_payload=webhook_payload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             email_subject: Optional[pulumi.Input[str]] = None,
+             webhook_payload: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ids", ids)
         if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
+            _setter("email_subject", email_subject)
         if webhook_payload is not None:
-            pulumi.set(__self__, "webhook_payload", webhook_payload)
+            _setter("webhook_payload", webhook_payload)
 
     @property
     @pulumi.getter

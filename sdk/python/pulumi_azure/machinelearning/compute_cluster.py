@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,30 +47,65 @@ class ComputeClusterArgs:
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
-        pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
-        pulumi.set(__self__, "scale_settings", scale_settings)
-        pulumi.set(__self__, "vm_priority", vm_priority)
-        pulumi.set(__self__, "vm_size", vm_size)
+        ComputeClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_learning_workspace_id=machine_learning_workspace_id,
+            scale_settings=scale_settings,
+            vm_priority=vm_priority,
+            vm_size=vm_size,
+            description=description,
+            identity=identity,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            name=name,
+            node_public_ip_enabled=node_public_ip_enabled,
+            ssh=ssh,
+            ssh_public_access_enabled=ssh_public_access_enabled,
+            subnet_resource_id=subnet_resource_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_learning_workspace_id: pulumi.Input[str],
+             scale_settings: pulumi.Input['ComputeClusterScaleSettingsArgs'],
+             vm_priority: pulumi.Input[str],
+             vm_size: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ComputeClusterIdentityArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
+             ssh: Optional[pulumi.Input['ComputeClusterSshArgs']] = None,
+             ssh_public_access_enabled: Optional[pulumi.Input[bool]] = None,
+             subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("machine_learning_workspace_id", machine_learning_workspace_id)
+        _setter("scale_settings", scale_settings)
+        _setter("vm_priority", vm_priority)
+        _setter("vm_size", vm_size)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_public_ip_enabled is not None:
-            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
+            _setter("node_public_ip_enabled", node_public_ip_enabled)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
         if ssh_public_access_enabled is not None:
-            pulumi.set(__self__, "ssh_public_access_enabled", ssh_public_access_enabled)
+            _setter("ssh_public_access_enabled", ssh_public_access_enabled)
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="machineLearningWorkspaceId")
@@ -275,34 +310,69 @@ class _ComputeClusterState:
         :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         :param pulumi.Input[str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
+        _ComputeClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            identity=identity,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            machine_learning_workspace_id=machine_learning_workspace_id,
+            name=name,
+            node_public_ip_enabled=node_public_ip_enabled,
+            scale_settings=scale_settings,
+            ssh=ssh,
+            ssh_public_access_enabled=ssh_public_access_enabled,
+            subnet_resource_id=subnet_resource_id,
+            tags=tags,
+            vm_priority=vm_priority,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ComputeClusterIdentityArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
+             scale_settings: Optional[pulumi.Input['ComputeClusterScaleSettingsArgs']] = None,
+             ssh: Optional[pulumi.Input['ComputeClusterSshArgs']] = None,
+             ssh_public_access_enabled: Optional[pulumi.Input[bool]] = None,
+             subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm_priority: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if machine_learning_workspace_id is not None:
-            pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
+            _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_public_ip_enabled is not None:
-            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
+            _setter("node_public_ip_enabled", node_public_ip_enabled)
         if scale_settings is not None:
-            pulumi.set(__self__, "scale_settings", scale_settings)
+            _setter("scale_settings", scale_settings)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
         if ssh_public_access_enabled is not None:
-            pulumi.set(__self__, "ssh_public_access_enabled", ssh_public_access_enabled)
+            _setter("ssh_public_access_enabled", ssh_public_access_enabled)
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm_priority is not None:
-            pulumi.set(__self__, "vm_priority", vm_priority)
+            _setter("vm_priority", vm_priority)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter
@@ -670,6 +740,10 @@ class ComputeCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComputeClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -699,6 +773,11 @@ class ComputeCluster(pulumi.CustomResource):
             __props__ = ComputeClusterArgs.__new__(ComputeClusterArgs)
 
             __props__.__dict__["description"] = description
+            if identity is not None and not isinstance(identity, ComputeClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ComputeClusterIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
@@ -707,9 +786,19 @@ class ComputeCluster(pulumi.CustomResource):
             __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
             __props__.__dict__["name"] = name
             __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
+            if scale_settings is not None and not isinstance(scale_settings, ComputeClusterScaleSettingsArgs):
+                scale_settings = scale_settings or {}
+                def _setter(key, value):
+                    scale_settings[key] = value
+                ComputeClusterScaleSettingsArgs._configure(_setter, **scale_settings)
             if scale_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_settings'")
             __props__.__dict__["scale_settings"] = scale_settings
+            if ssh is not None and not isinstance(ssh, ComputeClusterSshArgs):
+                ssh = ssh or {}
+                def _setter(key, value):
+                    ssh[key] = value
+                ComputeClusterSshArgs._configure(_setter, **ssh)
             __props__.__dict__["ssh"] = ssh
             __props__.__dict__["ssh_public_access_enabled"] = ssh_public_access_enabled
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id

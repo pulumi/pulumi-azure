@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -103,9 +103,20 @@ class AccountAzureFilesAuthentication(dict):
         :param str directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         :param 'AccountAzureFilesAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
-        pulumi.set(__self__, "directory_type", directory_type)
+        AccountAzureFilesAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_type=directory_type,
+            active_directory=active_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_type: str,
+             active_directory: Optional['outputs.AccountAzureFilesAuthenticationActiveDirectory'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("directory_type", directory_type)
         if active_directory is not None:
-            pulumi.set(__self__, "active_directory", active_directory)
+            _setter("active_directory", active_directory)
 
     @property
     @pulumi.getter(name="directoryType")
@@ -168,16 +179,35 @@ class AccountAzureFilesAuthenticationActiveDirectory(dict):
         :param str netbios_domain_name: Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
         :param str storage_sid: Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
         """
-        pulumi.set(__self__, "domain_guid", domain_guid)
-        pulumi.set(__self__, "domain_name", domain_name)
+        AccountAzureFilesAuthenticationActiveDirectory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_guid=domain_guid,
+            domain_name=domain_name,
+            domain_sid=domain_sid,
+            forest_name=forest_name,
+            netbios_domain_name=netbios_domain_name,
+            storage_sid=storage_sid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_guid: str,
+             domain_name: str,
+             domain_sid: Optional[str] = None,
+             forest_name: Optional[str] = None,
+             netbios_domain_name: Optional[str] = None,
+             storage_sid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_guid", domain_guid)
+        _setter("domain_name", domain_name)
         if domain_sid is not None:
-            pulumi.set(__self__, "domain_sid", domain_sid)
+            _setter("domain_sid", domain_sid)
         if forest_name is not None:
-            pulumi.set(__self__, "forest_name", forest_name)
+            _setter("forest_name", forest_name)
         if netbios_domain_name is not None:
-            pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+            _setter("netbios_domain_name", netbios_domain_name)
         if storage_sid is not None:
-            pulumi.set(__self__, "storage_sid", storage_sid)
+            _setter("storage_sid", storage_sid)
 
     @property
     @pulumi.getter(name="domainGuid")
@@ -294,24 +324,49 @@ class AccountBlobProperties(dict):
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
+        AccountBlobProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_feed_enabled=change_feed_enabled,
+            change_feed_retention_in_days=change_feed_retention_in_days,
+            container_delete_retention_policy=container_delete_retention_policy,
+            cors_rules=cors_rules,
+            default_service_version=default_service_version,
+            delete_retention_policy=delete_retention_policy,
+            last_access_time_enabled=last_access_time_enabled,
+            restore_policy=restore_policy,
+            versioning_enabled=versioning_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_feed_enabled: Optional[bool] = None,
+             change_feed_retention_in_days: Optional[int] = None,
+             container_delete_retention_policy: Optional['outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy'] = None,
+             cors_rules: Optional[Sequence['outputs.AccountBlobPropertiesCorsRule']] = None,
+             default_service_version: Optional[str] = None,
+             delete_retention_policy: Optional['outputs.AccountBlobPropertiesDeleteRetentionPolicy'] = None,
+             last_access_time_enabled: Optional[bool] = None,
+             restore_policy: Optional['outputs.AccountBlobPropertiesRestorePolicy'] = None,
+             versioning_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if change_feed_enabled is not None:
-            pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
+            _setter("change_feed_enabled", change_feed_enabled)
         if change_feed_retention_in_days is not None:
-            pulumi.set(__self__, "change_feed_retention_in_days", change_feed_retention_in_days)
+            _setter("change_feed_retention_in_days", change_feed_retention_in_days)
         if container_delete_retention_policy is not None:
-            pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
+            _setter("container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if default_service_version is not None:
-            pulumi.set(__self__, "default_service_version", default_service_version)
+            _setter("default_service_version", default_service_version)
         if delete_retention_policy is not None:
-            pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
+            _setter("delete_retention_policy", delete_retention_policy)
         if last_access_time_enabled is not None:
-            pulumi.set(__self__, "last_access_time_enabled", last_access_time_enabled)
+            _setter("last_access_time_enabled", last_access_time_enabled)
         if restore_policy is not None:
-            pulumi.set(__self__, "restore_policy", restore_policy)
+            _setter("restore_policy", restore_policy)
         if versioning_enabled is not None:
-            pulumi.set(__self__, "versioning_enabled", versioning_enabled)
+            _setter("versioning_enabled", versioning_enabled)
 
     @property
     @pulumi.getter(name="changeFeedEnabled")
@@ -403,8 +458,17 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
         """
         :param int days: Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
         """
+        AccountBlobPropertiesContainerDeleteRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -456,11 +520,28 @@ class AccountBlobPropertiesCorsRule(dict):
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
         :param int max_age_in_seconds: The number of seconds the client should cache a preflight response.
         """
-        pulumi.set(__self__, "allowed_headers", allowed_headers)
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
-        pulumi.set(__self__, "exposed_headers", exposed_headers)
-        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+        AccountBlobPropertiesCorsRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            allowed_origins=allowed_origins,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_headers: Sequence[str],
+             allowed_methods: Sequence[str],
+             allowed_origins: Sequence[str],
+             exposed_headers: Sequence[str],
+             max_age_in_seconds: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_headers", allowed_headers)
+        _setter("allowed_methods", allowed_methods)
+        _setter("allowed_origins", allowed_origins)
+        _setter("exposed_headers", exposed_headers)
+        _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -511,8 +592,17 @@ class AccountBlobPropertiesDeleteRetentionPolicy(dict):
         """
         :param int days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
         """
+        AccountBlobPropertiesDeleteRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -530,7 +620,16 @@ class AccountBlobPropertiesRestorePolicy(dict):
         """
         :param int days: Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
         """
-        pulumi.set(__self__, "days", days)
+        AccountBlobPropertiesRestorePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
 
     @property
     @pulumi.getter
@@ -567,9 +666,20 @@ class AccountCustomDomain(dict):
         :param str name: The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         :param bool use_subdomain: Should the Custom Domain Name be validated by using indirect CNAME validation?
         """
-        pulumi.set(__self__, "name", name)
+        AccountCustomDomain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            use_subdomain=use_subdomain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             use_subdomain: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if use_subdomain is not None:
-            pulumi.set(__self__, "use_subdomain", use_subdomain)
+            _setter("use_subdomain", use_subdomain)
 
     @property
     @pulumi.getter
@@ -618,8 +728,19 @@ class AccountCustomerManagedKey(dict):
                
                > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+        AccountCustomerManagedKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_id=key_vault_key_id,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_id: str,
+             user_assigned_identity_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_key_id", key_vault_key_id)
+        _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -678,13 +799,28 @@ class AccountIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -753,9 +889,22 @@ class AccountImmutabilityPolicy(dict):
         :param int period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param str state: Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
         """
-        pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
-        pulumi.set(__self__, "period_since_creation_in_days", period_since_creation_in_days)
-        pulumi.set(__self__, "state", state)
+        AccountImmutabilityPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_protected_append_writes=allow_protected_append_writes,
+            period_since_creation_in_days=period_since_creation_in_days,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_protected_append_writes: bool,
+             period_since_creation_in_days: int,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_protected_append_writes", allow_protected_append_writes)
+        _setter("period_since_creation_in_days", period_since_creation_in_days)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="allowProtectedAppendWrites")
@@ -828,15 +977,32 @@ class AccountNetworkRules(dict):
                > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         :param Sequence[str] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
-        pulumi.set(__self__, "default_action", default_action)
+        AccountNetworkRules._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            bypasses=bypasses,
+            ip_rules=ip_rules,
+            private_link_accesses=private_link_accesses,
+            virtual_network_subnet_ids=virtual_network_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: str,
+             bypasses: Optional[Sequence[str]] = None,
+             ip_rules: Optional[Sequence[str]] = None,
+             private_link_accesses: Optional[Sequence['outputs.AccountNetworkRulesPrivateLinkAccess']] = None,
+             virtual_network_subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_action", default_action)
         if bypasses is not None:
-            pulumi.set(__self__, "bypasses", bypasses)
+            _setter("bypasses", bypasses)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if private_link_accesses is not None:
-            pulumi.set(__self__, "private_link_accesses", private_link_accesses)
+            _setter("private_link_accesses", private_link_accesses)
         if virtual_network_subnet_ids is not None:
-            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+            _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -915,9 +1081,20 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
         :param str endpoint_resource_id: The resource id of the resource access rule to be granted access.
         :param str endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
-        pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
+        AccountNetworkRulesPrivateLinkAccess._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_resource_id=endpoint_resource_id,
+            endpoint_tenant_id=endpoint_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_resource_id: str,
+             endpoint_tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_resource_id", endpoint_resource_id)
         if endpoint_tenant_id is not None:
-            pulumi.set(__self__, "endpoint_tenant_id", endpoint_tenant_id)
+            _setter("endpoint_tenant_id", endpoint_tenant_id)
 
     @property
     @pulumi.getter(name="endpointResourceId")
@@ -964,9 +1141,20 @@ class AccountNetworkRulesPrivateLinkAccessRule(dict):
         :param str endpoint_resource_id: The resource id of the resource access rule to be granted access.
         :param str endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
-        pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
+        AccountNetworkRulesPrivateLinkAccessRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_resource_id=endpoint_resource_id,
+            endpoint_tenant_id=endpoint_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_resource_id: str,
+             endpoint_tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_resource_id", endpoint_resource_id)
         if endpoint_tenant_id is not None:
-            pulumi.set(__self__, "endpoint_tenant_id", endpoint_tenant_id)
+            _setter("endpoint_tenant_id", endpoint_tenant_id)
 
     @property
     @pulumi.getter(name="endpointResourceId")
@@ -1019,14 +1207,29 @@ class AccountQueueProperties(dict):
         :param 'AccountQueuePropertiesLoggingArgs' logging: A `logging` block as defined below.
         :param 'AccountQueuePropertiesMinuteMetricsArgs' minute_metrics: A `minute_metrics` block as defined below.
         """
+        AccountQueueProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors_rules=cors_rules,
+            hour_metrics=hour_metrics,
+            logging=logging,
+            minute_metrics=minute_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors_rules: Optional[Sequence['outputs.AccountQueuePropertiesCorsRule']] = None,
+             hour_metrics: Optional['outputs.AccountQueuePropertiesHourMetrics'] = None,
+             logging: Optional['outputs.AccountQueuePropertiesLogging'] = None,
+             minute_metrics: Optional['outputs.AccountQueuePropertiesMinuteMetrics'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if hour_metrics is not None:
-            pulumi.set(__self__, "hour_metrics", hour_metrics)
+            _setter("hour_metrics", hour_metrics)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if minute_metrics is not None:
-            pulumi.set(__self__, "minute_metrics", minute_metrics)
+            _setter("minute_metrics", minute_metrics)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -1102,11 +1305,28 @@ class AccountQueuePropertiesCorsRule(dict):
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
         :param int max_age_in_seconds: The number of seconds the client should cache a preflight response.
         """
-        pulumi.set(__self__, "allowed_headers", allowed_headers)
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
-        pulumi.set(__self__, "exposed_headers", exposed_headers)
-        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+        AccountQueuePropertiesCorsRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            allowed_origins=allowed_origins,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_headers: Sequence[str],
+             allowed_methods: Sequence[str],
+             allowed_origins: Sequence[str],
+             exposed_headers: Sequence[str],
+             max_age_in_seconds: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_headers", allowed_headers)
+        _setter("allowed_methods", allowed_methods)
+        _setter("allowed_origins", allowed_origins)
+        _setter("exposed_headers", exposed_headers)
+        _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -1182,12 +1402,27 @@ class AccountQueuePropertiesHourMetrics(dict):
         :param bool include_apis: Indicates whether metrics should generate summary statistics for called API operations.
         :param int retention_policy_days: Specifies the number of days that logs will be retained.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "version", version)
+        AccountQueuePropertiesHourMetrics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            version=version,
+            include_apis=include_apis,
+            retention_policy_days=retention_policy_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             version: str,
+             include_apis: Optional[bool] = None,
+             retention_policy_days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("version", version)
         if include_apis is not None:
-            pulumi.set(__self__, "include_apis", include_apis)
+            _setter("include_apis", include_apis)
         if retention_policy_days is not None:
-            pulumi.set(__self__, "retention_policy_days", retention_policy_days)
+            _setter("retention_policy_days", retention_policy_days)
 
     @property
     @pulumi.getter
@@ -1254,12 +1489,29 @@ class AccountQueuePropertiesLogging(dict):
         :param bool write: Indicates whether all write requests should be logged.
         :param int retention_policy_days: Specifies the number of days that logs will be retained.
         """
-        pulumi.set(__self__, "delete", delete)
-        pulumi.set(__self__, "read", read)
-        pulumi.set(__self__, "version", version)
-        pulumi.set(__self__, "write", write)
+        AccountQueuePropertiesLogging._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete=delete,
+            read=read,
+            version=version,
+            write=write,
+            retention_policy_days=retention_policy_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete: bool,
+             read: bool,
+             version: str,
+             write: bool,
+             retention_policy_days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delete", delete)
+        _setter("read", read)
+        _setter("version", version)
+        _setter("write", write)
         if retention_policy_days is not None:
-            pulumi.set(__self__, "retention_policy_days", retention_policy_days)
+            _setter("retention_policy_days", retention_policy_days)
 
     @property
     @pulumi.getter
@@ -1334,12 +1586,27 @@ class AccountQueuePropertiesMinuteMetrics(dict):
         :param bool include_apis: Indicates whether metrics should generate summary statistics for called API operations.
         :param int retention_policy_days: Specifies the number of days that logs will be retained.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "version", version)
+        AccountQueuePropertiesMinuteMetrics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            version=version,
+            include_apis=include_apis,
+            retention_policy_days=retention_policy_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             version: str,
+             include_apis: Optional[bool] = None,
+             retention_policy_days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("version", version)
         if include_apis is not None:
-            pulumi.set(__self__, "include_apis", include_apis)
+            _setter("include_apis", include_apis)
         if retention_policy_days is not None:
-            pulumi.set(__self__, "retention_policy_days", retention_policy_days)
+            _setter("retention_policy_days", retention_policy_days)
 
     @property
     @pulumi.getter
@@ -1404,12 +1671,25 @@ class AccountRouting(dict):
         :param bool publish_internet_endpoints: Should internet routing storage endpoints be published? Defaults to `false`.
         :param bool publish_microsoft_endpoints: Should Microsoft routing storage endpoints be published? Defaults to `false`.
         """
+        AccountRouting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            choice=choice,
+            publish_internet_endpoints=publish_internet_endpoints,
+            publish_microsoft_endpoints=publish_microsoft_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             choice: Optional[str] = None,
+             publish_internet_endpoints: Optional[bool] = None,
+             publish_microsoft_endpoints: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if choice is not None:
-            pulumi.set(__self__, "choice", choice)
+            _setter("choice", choice)
         if publish_internet_endpoints is not None:
-            pulumi.set(__self__, "publish_internet_endpoints", publish_internet_endpoints)
+            _setter("publish_internet_endpoints", publish_internet_endpoints)
         if publish_microsoft_endpoints is not None:
-            pulumi.set(__self__, "publish_microsoft_endpoints", publish_microsoft_endpoints)
+            _setter("publish_microsoft_endpoints", publish_microsoft_endpoints)
 
     @property
     @pulumi.getter
@@ -1464,9 +1744,20 @@ class AccountSasPolicy(dict):
         :param str expiration_period: The SAS expiration period in format of `DD.HH:MM:SS`.
         :param str expiration_action: The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
         """
-        pulumi.set(__self__, "expiration_period", expiration_period)
+        AccountSasPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_period=expiration_period,
+            expiration_action=expiration_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_period: str,
+             expiration_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expiration_period", expiration_period)
         if expiration_action is not None:
-            pulumi.set(__self__, "expiration_action", expiration_action)
+            _setter("expiration_action", expiration_action)
 
     @property
     @pulumi.getter(name="expirationPeriod")
@@ -1515,12 +1806,25 @@ class AccountShareProperties(dict):
         :param 'AccountSharePropertiesRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
         :param 'AccountSharePropertiesSmbArgs' smb: A `smb` block as defined below.
         """
+        AccountShareProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cors_rules=cors_rules,
+            retention_policy=retention_policy,
+            smb=smb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cors_rules: Optional[Sequence['outputs.AccountSharePropertiesCorsRule']] = None,
+             retention_policy: Optional['outputs.AccountSharePropertiesRetentionPolicy'] = None,
+             smb: Optional['outputs.AccountSharePropertiesSmb'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if smb is not None:
-            pulumi.set(__self__, "smb", smb)
+            _setter("smb", smb)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -1588,11 +1892,28 @@ class AccountSharePropertiesCorsRule(dict):
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
         :param int max_age_in_seconds: The number of seconds the client should cache a preflight response.
         """
-        pulumi.set(__self__, "allowed_headers", allowed_headers)
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
-        pulumi.set(__self__, "exposed_headers", exposed_headers)
-        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+        AccountSharePropertiesCorsRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            allowed_origins=allowed_origins,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_headers: Sequence[str],
+             allowed_methods: Sequence[str],
+             allowed_origins: Sequence[str],
+             exposed_headers: Sequence[str],
+             max_age_in_seconds: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_headers", allowed_headers)
+        _setter("allowed_methods", allowed_methods)
+        _setter("allowed_origins", allowed_origins)
+        _setter("exposed_headers", exposed_headers)
+        _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -1643,8 +1964,17 @@ class AccountSharePropertiesRetentionPolicy(dict):
         """
         :param int days: Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
         """
+        AccountSharePropertiesRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
 
     @property
     @pulumi.getter
@@ -1693,16 +2023,33 @@ class AccountSharePropertiesSmb(dict):
         :param bool multichannel_enabled: Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
         :param Sequence[str] versions: A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         """
+        AccountSharePropertiesSmb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_types=authentication_types,
+            channel_encryption_types=channel_encryption_types,
+            kerberos_ticket_encryption_types=kerberos_ticket_encryption_types,
+            multichannel_enabled=multichannel_enabled,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_types: Optional[Sequence[str]] = None,
+             channel_encryption_types: Optional[Sequence[str]] = None,
+             kerberos_ticket_encryption_types: Optional[Sequence[str]] = None,
+             multichannel_enabled: Optional[bool] = None,
+             versions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_types is not None:
-            pulumi.set(__self__, "authentication_types", authentication_types)
+            _setter("authentication_types", authentication_types)
         if channel_encryption_types is not None:
-            pulumi.set(__self__, "channel_encryption_types", channel_encryption_types)
+            _setter("channel_encryption_types", channel_encryption_types)
         if kerberos_ticket_encryption_types is not None:
-            pulumi.set(__self__, "kerberos_ticket_encryption_types", kerberos_ticket_encryption_types)
+            _setter("kerberos_ticket_encryption_types", kerberos_ticket_encryption_types)
         if multichannel_enabled is not None:
-            pulumi.set(__self__, "multichannel_enabled", multichannel_enabled)
+            _setter("multichannel_enabled", multichannel_enabled)
         if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+            _setter("versions", versions)
 
     @property
     @pulumi.getter(name="authenticationTypes")
@@ -1773,10 +2120,21 @@ class AccountStaticWebsite(dict):
         :param str error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         :param str index_document: The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
+        AccountStaticWebsite._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error404_document=error404_document,
+            index_document=index_document,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error404_document: Optional[str] = None,
+             index_document: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error404_document is not None:
-            pulumi.set(__self__, "error404_document", error404_document)
+            _setter("error404_document", error404_document)
         if index_document is not None:
-            pulumi.set(__self__, "index_document", index_document)
+            _setter("index_document", index_document)
 
     @property
     @pulumi.getter(name="error404Document")
@@ -1833,14 +2191,35 @@ class BlobInventoryPolicyRule(dict):
         :param str storage_container_name: The storage container name to store the blob inventory files for this rule.
         :param 'BlobInventoryPolicyRuleFilterArgs' filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         """
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "schema_fields", schema_fields)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
+        BlobInventoryPolicyRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            name=name,
+            schedule=schedule,
+            schema_fields=schema_fields,
+            scope=scope,
+            storage_container_name=storage_container_name,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: str,
+             name: str,
+             schedule: str,
+             schema_fields: Sequence[str],
+             scope: str,
+             storage_container_name: str,
+             filter: Optional['outputs.BlobInventoryPolicyRuleFilter'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("format", format)
+        _setter("name", name)
+        _setter("schedule", schedule)
+        _setter("schema_fields", schema_fields)
+        _setter("scope", scope)
+        _setter("storage_container_name", storage_container_name)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -1951,17 +2330,36 @@ class BlobInventoryPolicyRuleFilter(dict):
                > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         :param Sequence[str] prefix_matches: A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
-        pulumi.set(__self__, "blob_types", blob_types)
+        BlobInventoryPolicyRuleFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_types=blob_types,
+            exclude_prefixes=exclude_prefixes,
+            include_blob_versions=include_blob_versions,
+            include_deleted=include_deleted,
+            include_snapshots=include_snapshots,
+            prefix_matches=prefix_matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_types: Sequence[str],
+             exclude_prefixes: Optional[Sequence[str]] = None,
+             include_blob_versions: Optional[bool] = None,
+             include_deleted: Optional[bool] = None,
+             include_snapshots: Optional[bool] = None,
+             prefix_matches: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_types", blob_types)
         if exclude_prefixes is not None:
-            pulumi.set(__self__, "exclude_prefixes", exclude_prefixes)
+            _setter("exclude_prefixes", exclude_prefixes)
         if include_blob_versions is not None:
-            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+            _setter("include_blob_versions", include_blob_versions)
         if include_deleted is not None:
-            pulumi.set(__self__, "include_deleted", include_deleted)
+            _setter("include_deleted", include_deleted)
         if include_snapshots is not None:
-            pulumi.set(__self__, "include_snapshots", include_snapshots)
+            _setter("include_snapshots", include_snapshots)
         if prefix_matches is not None:
-            pulumi.set(__self__, "prefix_matches", prefix_matches)
+            _setter("prefix_matches", prefix_matches)
 
     @property
     @pulumi.getter(name="blobTypes")
@@ -2035,12 +2433,27 @@ class DataLakeGen2FilesystemAce(dict):
         :param str id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         :param str scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "type", type)
+        DataLakeGen2FilesystemAce._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            type=type,
+            id=id,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: str,
+             type: str,
+             id: Optional[str] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("permissions", permissions)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -2089,12 +2502,27 @@ class DataLakeGen2PathAce(dict):
         :param str id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         :param str scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "type", type)
+        DataLakeGen2PathAce._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            type=type,
+            id=id,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: str,
+             type: str,
+             id: Optional[str] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("permissions", permissions)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -2154,9 +2582,22 @@ class LocalUserPermissionScope(dict):
         :param str resource_name: The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
         :param str service: The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "service", service)
+        LocalUserPermissionScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            resource_name=resource_name,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: 'outputs.LocalUserPermissionScopePermissions',
+             resource_name: str,
+             service: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("permissions", permissions)
+        _setter("resource_name", resource_name)
+        _setter("service", service)
 
     @property
     @pulumi.getter
@@ -2198,16 +2639,33 @@ class LocalUserPermissionScopePermissions(dict):
         :param bool read: Specifies if the Local User has the read permission for this scope. Defaults to `false`.
         :param bool write: Specifies if the Local User has the write permission for this scope. Defaults to `false`.
         """
+        LocalUserPermissionScopePermissions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+            list=list,
+            read=read,
+            write=write,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[bool] = None,
+             delete: Optional[bool] = None,
+             list: Optional[bool] = None,
+             read: Optional[bool] = None,
+             write: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if list is not None:
-            pulumi.set(__self__, "list", list)
+            _setter("list", list)
         if read is not None:
-            pulumi.set(__self__, "read", read)
+            _setter("read", read)
         if write is not None:
-            pulumi.set(__self__, "write", write)
+            _setter("write", write)
 
     @property
     @pulumi.getter
@@ -2259,9 +2717,20 @@ class LocalUserSshAuthorizedKey(dict):
         :param str key: The public key value of this SSH authorized key.
         :param str description: The description of this SSH authorized key.
         """
-        pulumi.set(__self__, "key", key)
+        LocalUserSshAuthorizedKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -2293,10 +2762,25 @@ class ManagementPolicyRule(dict):
         :param 'ManagementPolicyRuleFiltersArgs' filters: A `filters` block as documented below.
         :param str name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "filters", filters)
-        pulumi.set(__self__, "name", name)
+        ManagementPolicyRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            enabled=enabled,
+            filters=filters,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: 'outputs.ManagementPolicyRuleActions',
+             enabled: bool,
+             filters: 'outputs.ManagementPolicyRuleFilters',
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("enabled", enabled)
+        _setter("filters", filters)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2359,12 +2843,25 @@ class ManagementPolicyRuleActions(dict):
         :param 'ManagementPolicyRuleActionsSnapshotArgs' snapshot: A `snapshot` block as documented below.
         :param 'ManagementPolicyRuleActionsVersionArgs' version: A `version` block as documented below.
         """
+        ManagementPolicyRuleActions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_blob=base_blob,
+            snapshot=snapshot,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_blob: Optional['outputs.ManagementPolicyRuleActionsBaseBlob'] = None,
+             snapshot: Optional['outputs.ManagementPolicyRuleActionsSnapshot'] = None,
+             version: Optional['outputs.ManagementPolicyRuleActionsVersion'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_blob is not None:
-            pulumi.set(__self__, "base_blob", base_blob)
+            _setter("base_blob", base_blob)
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="baseBlob")
@@ -2465,28 +2962,57 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
         :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
         """
+        ManagementPolicyRuleActionsBaseBlob._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_tier_to_hot_from_cool_enabled=auto_tier_to_hot_from_cool_enabled,
+            delete_after_days_since_creation_greater_than=delete_after_days_since_creation_greater_than,
+            delete_after_days_since_last_access_time_greater_than=delete_after_days_since_last_access_time_greater_than,
+            delete_after_days_since_modification_greater_than=delete_after_days_since_modification_greater_than,
+            tier_to_archive_after_days_since_creation_greater_than=tier_to_archive_after_days_since_creation_greater_than,
+            tier_to_archive_after_days_since_last_access_time_greater_than=tier_to_archive_after_days_since_last_access_time_greater_than,
+            tier_to_archive_after_days_since_last_tier_change_greater_than=tier_to_archive_after_days_since_last_tier_change_greater_than,
+            tier_to_archive_after_days_since_modification_greater_than=tier_to_archive_after_days_since_modification_greater_than,
+            tier_to_cool_after_days_since_creation_greater_than=tier_to_cool_after_days_since_creation_greater_than,
+            tier_to_cool_after_days_since_last_access_time_greater_than=tier_to_cool_after_days_since_last_access_time_greater_than,
+            tier_to_cool_after_days_since_modification_greater_than=tier_to_cool_after_days_since_modification_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_tier_to_hot_from_cool_enabled: Optional[bool] = None,
+             delete_after_days_since_creation_greater_than: Optional[int] = None,
+             delete_after_days_since_last_access_time_greater_than: Optional[int] = None,
+             delete_after_days_since_modification_greater_than: Optional[int] = None,
+             tier_to_archive_after_days_since_creation_greater_than: Optional[int] = None,
+             tier_to_archive_after_days_since_last_access_time_greater_than: Optional[int] = None,
+             tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[int] = None,
+             tier_to_archive_after_days_since_modification_greater_than: Optional[int] = None,
+             tier_to_cool_after_days_since_creation_greater_than: Optional[int] = None,
+             tier_to_cool_after_days_since_last_access_time_greater_than: Optional[int] = None,
+             tier_to_cool_after_days_since_modification_greater_than: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_tier_to_hot_from_cool_enabled is not None:
-            pulumi.set(__self__, "auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
+            _setter("auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
         if delete_after_days_since_creation_greater_than is not None:
-            pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+            _setter("delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
         if delete_after_days_since_last_access_time_greater_than is not None:
-            pulumi.set(__self__, "delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
+            _setter("delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
         if delete_after_days_since_modification_greater_than is not None:
-            pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
+            _setter("delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
         if tier_to_archive_after_days_since_creation_greater_than is not None:
-            pulumi.set(__self__, "tier_to_archive_after_days_since_creation_greater_than", tier_to_archive_after_days_since_creation_greater_than)
+            _setter("tier_to_archive_after_days_since_creation_greater_than", tier_to_archive_after_days_since_creation_greater_than)
         if tier_to_archive_after_days_since_last_access_time_greater_than is not None:
-            pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
+            _setter("tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
         if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
-            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
+            _setter("tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
         if tier_to_archive_after_days_since_modification_greater_than is not None:
-            pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
+            _setter("tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
         if tier_to_cool_after_days_since_creation_greater_than is not None:
-            pulumi.set(__self__, "tier_to_cool_after_days_since_creation_greater_than", tier_to_cool_after_days_since_creation_greater_than)
+            _setter("tier_to_cool_after_days_since_creation_greater_than", tier_to_cool_after_days_since_creation_greater_than)
         if tier_to_cool_after_days_since_last_access_time_greater_than is not None:
-            pulumi.set(__self__, "tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
+            _setter("tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
         if tier_to_cool_after_days_since_modification_greater_than is not None:
-            pulumi.set(__self__, "tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
+            _setter("tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
 
     @property
     @pulumi.getter(name="autoTierToHotFromCoolEnabled")
@@ -2623,14 +3149,29 @@ class ManagementPolicyRuleActionsSnapshot(dict):
         :param int delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
         :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         """
+        ManagementPolicyRuleActionsSnapshot._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_tier_to_archive_after_days_since_creation=change_tier_to_archive_after_days_since_creation,
+            change_tier_to_cool_after_days_since_creation=change_tier_to_cool_after_days_since_creation,
+            delete_after_days_since_creation_greater_than=delete_after_days_since_creation_greater_than,
+            tier_to_archive_after_days_since_last_tier_change_greater_than=tier_to_archive_after_days_since_last_tier_change_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_tier_to_archive_after_days_since_creation: Optional[int] = None,
+             change_tier_to_cool_after_days_since_creation: Optional[int] = None,
+             delete_after_days_since_creation_greater_than: Optional[int] = None,
+             tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if change_tier_to_archive_after_days_since_creation is not None:
-            pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
+            _setter("change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
         if change_tier_to_cool_after_days_since_creation is not None:
-            pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
+            _setter("change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation_greater_than is not None:
-            pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+            _setter("delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
         if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
-            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
+            _setter("tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -2701,14 +3242,29 @@ class ManagementPolicyRuleActionsVersion(dict):
         :param int delete_after_days_since_creation: The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
         :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         """
+        ManagementPolicyRuleActionsVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_tier_to_archive_after_days_since_creation=change_tier_to_archive_after_days_since_creation,
+            change_tier_to_cool_after_days_since_creation=change_tier_to_cool_after_days_since_creation,
+            delete_after_days_since_creation=delete_after_days_since_creation,
+            tier_to_archive_after_days_since_last_tier_change_greater_than=tier_to_archive_after_days_since_last_tier_change_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_tier_to_archive_after_days_since_creation: Optional[int] = None,
+             change_tier_to_cool_after_days_since_creation: Optional[int] = None,
+             delete_after_days_since_creation: Optional[int] = None,
+             tier_to_archive_after_days_since_last_tier_change_greater_than: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if change_tier_to_archive_after_days_since_creation is not None:
-            pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
+            _setter("change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
         if change_tier_to_cool_after_days_since_creation is not None:
-            pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
+            _setter("change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation is not None:
-            pulumi.set(__self__, "delete_after_days_since_creation", delete_after_days_since_creation)
+            _setter("delete_after_days_since_creation", delete_after_days_since_creation)
         if tier_to_archive_after_days_since_last_tier_change_greater_than is not None:
-            pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
+            _setter("tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -2777,11 +3333,24 @@ class ManagementPolicyRuleFilters(dict):
                > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
-        pulumi.set(__self__, "blob_types", blob_types)
+        ManagementPolicyRuleFilters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_types=blob_types,
+            match_blob_index_tags=match_blob_index_tags,
+            prefix_matches=prefix_matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_types: Sequence[str],
+             match_blob_index_tags: Optional[Sequence['outputs.ManagementPolicyRuleFiltersMatchBlobIndexTag']] = None,
+             prefix_matches: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_types", blob_types)
         if match_blob_index_tags is not None:
-            pulumi.set(__self__, "match_blob_index_tags", match_blob_index_tags)
+            _setter("match_blob_index_tags", match_blob_index_tags)
         if prefix_matches is not None:
-            pulumi.set(__self__, "prefix_matches", prefix_matches)
+            _setter("prefix_matches", prefix_matches)
 
     @property
     @pulumi.getter(name="blobTypes")
@@ -2821,10 +3390,23 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTag(dict):
         :param str value: The filter tag value used for tag based filtering for blob objects.
         :param str operation: The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ManagementPolicyRuleFiltersMatchBlobIndexTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            operation=operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             operation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
 
     @property
     @pulumi.getter
@@ -2888,14 +3470,31 @@ class ObjectReplicationRule(dict):
         :param str copy_blobs_created_after: The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
         :param Sequence[str] filter_out_blobs_with_prefixes: Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
         """
-        pulumi.set(__self__, "destination_container_name", destination_container_name)
-        pulumi.set(__self__, "source_container_name", source_container_name)
+        ObjectReplicationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_container_name=destination_container_name,
+            source_container_name=source_container_name,
+            copy_blobs_created_after=copy_blobs_created_after,
+            filter_out_blobs_with_prefixes=filter_out_blobs_with_prefixes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_container_name: str,
+             source_container_name: str,
+             copy_blobs_created_after: Optional[str] = None,
+             filter_out_blobs_with_prefixes: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_container_name", destination_container_name)
+        _setter("source_container_name", source_container_name)
         if copy_blobs_created_after is not None:
-            pulumi.set(__self__, "copy_blobs_created_after", copy_blobs_created_after)
+            _setter("copy_blobs_created_after", copy_blobs_created_after)
         if filter_out_blobs_with_prefixes is not None:
-            pulumi.set(__self__, "filter_out_blobs_with_prefixes", filter_out_blobs_with_prefixes)
+            _setter("filter_out_blobs_with_prefixes", filter_out_blobs_with_prefixes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="destinationContainerName")
@@ -2961,9 +3560,20 @@ class ShareAcl(dict):
         :param str id: The ID which should be used for this Shared Identifier.
         :param Sequence['ShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
         """
-        pulumi.set(__self__, "id", id)
+        ShareAcl._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            access_policies=access_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             access_policies: Optional[Sequence['outputs.ShareAclAccessPolicy']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
 
     @property
     @pulumi.getter
@@ -2995,11 +3605,24 @@ class ShareAclAccessPolicy(dict):
         :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
-        pulumi.set(__self__, "permissions", permissions)
+        ShareAclAccessPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            expiry=expiry,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: str,
+             expiry: Optional[str] = None,
+             start: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("permissions", permissions)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter
@@ -3054,9 +3677,20 @@ class TableAcl(dict):
         :param str id: The ID which should be used for this Shared Identifier.
         :param Sequence['TableAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
         """
-        pulumi.set(__self__, "id", id)
+        TableAcl._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            access_policies=access_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             access_policies: Optional[Sequence['outputs.TableAclAccessPolicy']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
 
     @property
     @pulumi.getter
@@ -3086,9 +3720,22 @@ class TableAclAccessPolicy(dict):
         :param str permissions: The permissions which should associated with this Shared Identifier.
         :param str start: The ISO8061 UTC time at which this Access Policy should be valid from.
         """
-        pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "start", start)
+        TableAclAccessPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry=expiry,
+            permissions=permissions,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry: str,
+             permissions: str,
+             start: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expiry", expiry)
+        _setter("permissions", permissions)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -3124,8 +3771,19 @@ class GetAccountAzureFilesAuthenticationResult(dict):
         :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directories: An `active_directory` block as documented below.
         :param str directory_type: The directory service used for this Storage Account.
         """
-        pulumi.set(__self__, "active_directories", active_directories)
-        pulumi.set(__self__, "directory_type", directory_type)
+        GetAccountAzureFilesAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directories=active_directories,
+            directory_type=directory_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directories: Sequence['outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult'],
+             directory_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("active_directories", active_directories)
+        _setter("directory_type", directory_type)
 
     @property
     @pulumi.getter(name="activeDirectories")
@@ -3161,12 +3819,31 @@ class GetAccountAzureFilesAuthenticationActiveDirectoryResult(dict):
         :param str netbios_domain_name: The NetBIOS domain name.
         :param str storage_sid: The security identifier for Azure Storage.
         """
-        pulumi.set(__self__, "domain_guid", domain_guid)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_sid", domain_sid)
-        pulumi.set(__self__, "forest_name", forest_name)
-        pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
-        pulumi.set(__self__, "storage_sid", storage_sid)
+        GetAccountAzureFilesAuthenticationActiveDirectoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_guid=domain_guid,
+            domain_name=domain_name,
+            domain_sid=domain_sid,
+            forest_name=forest_name,
+            netbios_domain_name=netbios_domain_name,
+            storage_sid=storage_sid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_guid: str,
+             domain_name: str,
+             domain_sid: str,
+             forest_name: str,
+             netbios_domain_name: str,
+             storage_sid: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_guid", domain_guid)
+        _setter("domain_name", domain_name)
+        _setter("domain_sid", domain_sid)
+        _setter("forest_name", forest_name)
+        _setter("netbios_domain_name", netbios_domain_name)
+        _setter("storage_sid", storage_sid)
 
     @property
     @pulumi.getter(name="domainGuid")
@@ -3237,12 +3914,31 @@ class GetAccountBlobContainerSASPermissionsResult(dict):
         :param bool read: Should Read permissions be enabled for this SAS?
         :param bool write: Should Write permissions be enabled for this SAS?
         """
-        pulumi.set(__self__, "add", add)
-        pulumi.set(__self__, "create", create)
-        pulumi.set(__self__, "delete", delete)
-        pulumi.set(__self__, "list", list)
-        pulumi.set(__self__, "read", read)
-        pulumi.set(__self__, "write", write)
+        GetAccountBlobContainerSASPermissionsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add=add,
+            create=create,
+            delete=delete,
+            list=list,
+            read=read,
+            write=write,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add: bool,
+             create: bool,
+             delete: bool,
+             list: bool,
+             read: bool,
+             write: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("add", add)
+        _setter("create", create)
+        _setter("delete", delete)
+        _setter("list", list)
+        _setter("read", read)
+        _setter("write", write)
 
     @property
     @pulumi.getter
@@ -3303,7 +3999,16 @@ class GetAccountCustomDomainResult(dict):
         """
         :param str name: Specifies the name of the Storage Account
         """
-        pulumi.set(__self__, "name", name)
+        GetAccountCustomDomainResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3327,10 +4032,25 @@ class GetAccountIdentityResult(dict):
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         :param str type: The type of Managed Service Identity that is configured on this Storage Account
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetAccountIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -3393,16 +4113,43 @@ class GetAccountSASPermissionsResult(dict):
         :param bool update: Should Update permissions be enabled for this SAS?
         :param bool write: Should Write permissions be enabled for this SAS?
         """
-        pulumi.set(__self__, "add", add)
-        pulumi.set(__self__, "create", create)
-        pulumi.set(__self__, "delete", delete)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "list", list)
-        pulumi.set(__self__, "process", process)
-        pulumi.set(__self__, "read", read)
-        pulumi.set(__self__, "tag", tag)
-        pulumi.set(__self__, "update", update)
-        pulumi.set(__self__, "write", write)
+        GetAccountSASPermissionsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add=add,
+            create=create,
+            delete=delete,
+            filter=filter,
+            list=list,
+            process=process,
+            read=read,
+            tag=tag,
+            update=update,
+            write=write,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add: bool,
+             create: bool,
+             delete: bool,
+             filter: bool,
+             list: bool,
+             process: bool,
+             read: bool,
+             tag: bool,
+             update: bool,
+             write: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("add", add)
+        _setter("create", create)
+        _setter("delete", delete)
+        _setter("filter", filter)
+        _setter("list", list)
+        _setter("process", process)
+        _setter("read", read)
+        _setter("tag", tag)
+        _setter("update", update)
+        _setter("write", write)
 
     @property
     @pulumi.getter
@@ -3499,9 +4246,22 @@ class GetAccountSASResourceTypesResult(dict):
         :param bool object: Should permission be granted only to a specific object?
         :param bool service: Should permission be granted to the entire service?
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "object", object)
-        pulumi.set(__self__, "service", service)
+        GetAccountSASResourceTypesResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            object=object,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: bool,
+             object: bool,
+             service: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
+        _setter("object", object)
+        _setter("service", service)
 
     @property
     @pulumi.getter
@@ -3541,10 +4301,25 @@ class GetAccountSASServicesResult(dict):
         :param bool queue: Should permission be granted to `queue` services within this storage account?
         :param bool table: Should permission be granted to `table` services within this storage account?
         """
-        pulumi.set(__self__, "blob", blob)
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "queue", queue)
-        pulumi.set(__self__, "table", table)
+        GetAccountSASServicesResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob=blob,
+            file=file,
+            queue=queue,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob: bool,
+             file: bool,
+             queue: bool,
+             table: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob", blob)
+        _setter("file", file)
+        _setter("queue", queue)
+        _setter("table", table)
 
     @property
     @pulumi.getter
@@ -3592,10 +4367,25 @@ class GetPolicyRuleResult(dict):
         :param Sequence['GetPolicyRuleFilterArgs'] filters: A `filter` block as documented below.
         :param str name: The filter tag name used for tag based filtering for blob objects.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "filters", filters)
-        pulumi.set(__self__, "name", name)
+        GetPolicyRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            enabled=enabled,
+            filters=filters,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetPolicyRuleActionResult'],
+             enabled: bool,
+             filters: Sequence['outputs.GetPolicyRuleFilterResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("enabled", enabled)
+        _setter("filters", filters)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3641,9 +4431,22 @@ class GetPolicyRuleActionResult(dict):
         :param Sequence['GetPolicyRuleActionSnapshotArgs'] snapshots: A `snapshot` block as documented below.
         :param Sequence['GetPolicyRuleActionVersionArgs'] versions: A `version` block as documented below.
         """
-        pulumi.set(__self__, "base_blobs", base_blobs)
-        pulumi.set(__self__, "snapshots", snapshots)
-        pulumi.set(__self__, "versions", versions)
+        GetPolicyRuleActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_blobs=base_blobs,
+            snapshots=snapshots,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_blobs: Sequence['outputs.GetPolicyRuleActionBaseBlobResult'],
+             snapshots: Sequence['outputs.GetPolicyRuleActionSnapshotResult'],
+             versions: Sequence['outputs.GetPolicyRuleActionVersionResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_blobs", base_blobs)
+        _setter("snapshots", snapshots)
+        _setter("versions", versions)
 
     @property
     @pulumi.getter(name="baseBlobs")
@@ -3697,17 +4500,46 @@ class GetPolicyRuleActionBaseBlobResult(dict):
         :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
         """
-        pulumi.set(__self__, "auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
-        pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
-        pulumi.set(__self__, "delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
-        pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
-        pulumi.set(__self__, "tier_to_archive_after_days_since_creation_greater_than", tier_to_archive_after_days_since_creation_greater_than)
-        pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
-        pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
-        pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
-        pulumi.set(__self__, "tier_to_cool_after_days_since_creation_greater_than", tier_to_cool_after_days_since_creation_greater_than)
-        pulumi.set(__self__, "tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
-        pulumi.set(__self__, "tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
+        GetPolicyRuleActionBaseBlobResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_tier_to_hot_from_cool_enabled=auto_tier_to_hot_from_cool_enabled,
+            delete_after_days_since_creation_greater_than=delete_after_days_since_creation_greater_than,
+            delete_after_days_since_last_access_time_greater_than=delete_after_days_since_last_access_time_greater_than,
+            delete_after_days_since_modification_greater_than=delete_after_days_since_modification_greater_than,
+            tier_to_archive_after_days_since_creation_greater_than=tier_to_archive_after_days_since_creation_greater_than,
+            tier_to_archive_after_days_since_last_access_time_greater_than=tier_to_archive_after_days_since_last_access_time_greater_than,
+            tier_to_archive_after_days_since_last_tier_change_greater_than=tier_to_archive_after_days_since_last_tier_change_greater_than,
+            tier_to_archive_after_days_since_modification_greater_than=tier_to_archive_after_days_since_modification_greater_than,
+            tier_to_cool_after_days_since_creation_greater_than=tier_to_cool_after_days_since_creation_greater_than,
+            tier_to_cool_after_days_since_last_access_time_greater_than=tier_to_cool_after_days_since_last_access_time_greater_than,
+            tier_to_cool_after_days_since_modification_greater_than=tier_to_cool_after_days_since_modification_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_tier_to_hot_from_cool_enabled: bool,
+             delete_after_days_since_creation_greater_than: int,
+             delete_after_days_since_last_access_time_greater_than: int,
+             delete_after_days_since_modification_greater_than: int,
+             tier_to_archive_after_days_since_creation_greater_than: int,
+             tier_to_archive_after_days_since_last_access_time_greater_than: int,
+             tier_to_archive_after_days_since_last_tier_change_greater_than: int,
+             tier_to_archive_after_days_since_modification_greater_than: int,
+             tier_to_cool_after_days_since_creation_greater_than: int,
+             tier_to_cool_after_days_since_last_access_time_greater_than: int,
+             tier_to_cool_after_days_since_modification_greater_than: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
+        _setter("delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+        _setter("delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
+        _setter("delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
+        _setter("tier_to_archive_after_days_since_creation_greater_than", tier_to_archive_after_days_since_creation_greater_than)
+        _setter("tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
+        _setter("tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
+        _setter("tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
+        _setter("tier_to_cool_after_days_since_creation_greater_than", tier_to_cool_after_days_since_creation_greater_than)
+        _setter("tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
+        _setter("tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
 
     @property
     @pulumi.getter(name="autoTierToHotFromCoolEnabled")
@@ -3811,10 +4643,25 @@ class GetPolicyRuleActionSnapshotResult(dict):
         :param int delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob snapshot.
         :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archived.
         """
-        pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
-        pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
-        pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
-        pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
+        GetPolicyRuleActionSnapshotResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_tier_to_archive_after_days_since_creation=change_tier_to_archive_after_days_since_creation,
+            change_tier_to_cool_after_days_since_creation=change_tier_to_cool_after_days_since_creation,
+            delete_after_days_since_creation_greater_than=delete_after_days_since_creation_greater_than,
+            tier_to_archive_after_days_since_last_tier_change_greater_than=tier_to_archive_after_days_since_last_tier_change_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_tier_to_archive_after_days_since_creation: int,
+             change_tier_to_cool_after_days_since_creation: int,
+             delete_after_days_since_creation_greater_than: int,
+             tier_to_archive_after_days_since_last_tier_change_greater_than: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
+        _setter("change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
+        _setter("delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+        _setter("tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -3862,10 +4709,25 @@ class GetPolicyRuleActionVersionResult(dict):
         :param int delete_after_days_since_creation: The age in days after creation to delete the blob version.
         :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archived.
         """
-        pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
-        pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
-        pulumi.set(__self__, "delete_after_days_since_creation", delete_after_days_since_creation)
-        pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
+        GetPolicyRuleActionVersionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_tier_to_archive_after_days_since_creation=change_tier_to_archive_after_days_since_creation,
+            change_tier_to_cool_after_days_since_creation=change_tier_to_cool_after_days_since_creation,
+            delete_after_days_since_creation=delete_after_days_since_creation,
+            tier_to_archive_after_days_since_last_tier_change_greater_than=tier_to_archive_after_days_since_last_tier_change_greater_than,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_tier_to_archive_after_days_since_creation: int,
+             change_tier_to_cool_after_days_since_creation: int,
+             delete_after_days_since_creation: int,
+             tier_to_archive_after_days_since_last_tier_change_greater_than: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
+        _setter("change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
+        _setter("delete_after_days_since_creation", delete_after_days_since_creation)
+        _setter("tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
 
     @property
     @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
@@ -3911,9 +4773,22 @@ class GetPolicyRuleFilterResult(dict):
         :param Sequence['GetPolicyRuleFilterMatchBlobIndexTagArgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
-        pulumi.set(__self__, "blob_types", blob_types)
-        pulumi.set(__self__, "match_blob_index_tags", match_blob_index_tags)
-        pulumi.set(__self__, "prefix_matches", prefix_matches)
+        GetPolicyRuleFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_types=blob_types,
+            match_blob_index_tags=match_blob_index_tags,
+            prefix_matches=prefix_matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_types: Sequence[str],
+             match_blob_index_tags: Sequence['outputs.GetPolicyRuleFilterMatchBlobIndexTagResult'],
+             prefix_matches: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_types", blob_types)
+        _setter("match_blob_index_tags", match_blob_index_tags)
+        _setter("prefix_matches", prefix_matches)
 
     @property
     @pulumi.getter(name="blobTypes")
@@ -3951,9 +4826,22 @@ class GetPolicyRuleFilterMatchBlobIndexTagResult(dict):
         :param str operation: The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
         :param str value: The filter tag value used for tag based filtering for blob objects.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "value", value)
+        GetPolicyRuleFilterMatchBlobIndexTagResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operation=operation,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             operation: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("operation", operation)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3989,8 +4877,19 @@ class GetShareAclResult(dict):
         :param Sequence['GetShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
         :param str id: The ID which should be used for this Shared Identifier.
         """
-        pulumi.set(__self__, "access_policies", access_policies)
-        pulumi.set(__self__, "id", id)
+        GetShareAclResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Sequence['outputs.GetShareAclAccessPolicyResult'],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_policies", access_policies)
+        _setter("id", id)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -4020,9 +4919,22 @@ class GetShareAclAccessPolicyResult(dict):
         :param str permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
         :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
-        pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "start", start)
+        GetShareAclAccessPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry=expiry,
+            permissions=permissions,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry: str,
+             permissions: str,
+             start: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expiry", expiry)
+        _setter("permissions", permissions)
+        _setter("start", start)
 
     @property
     @pulumi.getter

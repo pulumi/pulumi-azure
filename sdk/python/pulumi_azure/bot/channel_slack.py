@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelSlackArgs', 'ChannelSlack']
@@ -33,17 +33,40 @@ class ChannelSlackArgs:
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] signing_secret: The Signing Secret that will be used to sign the requests.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "verification_token", verification_token)
+        ChannelSlackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            client_id=client_id,
+            client_secret=client_secret,
+            resource_group_name=resource_group_name,
+            verification_token=verification_token,
+            landing_page_url=landing_page_url,
+            location=location,
+            signing_secret=signing_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             verification_token: pulumi.Input[str],
+             landing_page_url: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             signing_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_name", bot_name)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("resource_group_name", resource_group_name)
+        _setter("verification_token", verification_token)
         if landing_page_url is not None:
-            pulumi.set(__self__, "landing_page_url", landing_page_url)
+            _setter("landing_page_url", landing_page_url)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if signing_secret is not None:
-            pulumi.set(__self__, "signing_secret", signing_secret)
+            _setter("signing_secret", signing_secret)
 
     @property
     @pulumi.getter(name="botName")
@@ -164,22 +187,45 @@ class _ChannelSlackState:
         :param pulumi.Input[str] signing_secret: The Signing Secret that will be used to sign the requests.
         :param pulumi.Input[str] verification_token: The Verification Token that will be used to authenticate with Slack.
         """
+        _ChannelSlackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            client_id=client_id,
+            client_secret=client_secret,
+            landing_page_url=landing_page_url,
+            location=location,
+            resource_group_name=resource_group_name,
+            signing_secret=signing_secret,
+            verification_token=verification_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             landing_page_url: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             signing_secret: Optional[pulumi.Input[str]] = None,
+             verification_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if landing_page_url is not None:
-            pulumi.set(__self__, "landing_page_url", landing_page_url)
+            _setter("landing_page_url", landing_page_url)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if signing_secret is not None:
-            pulumi.set(__self__, "signing_secret", signing_secret)
+            _setter("signing_secret", signing_secret)
         if verification_token is not None:
-            pulumi.set(__self__, "verification_token", verification_token)
+            _setter("verification_token", verification_token)
 
     @property
     @pulumi.getter(name="botName")
@@ -389,6 +435,10 @@ class ChannelSlack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelSlackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

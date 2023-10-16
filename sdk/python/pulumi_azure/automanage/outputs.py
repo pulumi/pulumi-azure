@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -65,18 +65,37 @@ class ConfigurationAntimalware(dict):
         :param int scheduled_scan_time_in_minutes: The time of the scheduled scan in minutes. Possible values are `0` to `1439` where `0` is 12:00 AM and `1439` is 11:59 PM.
         :param str scheduled_scan_type: The type of the scheduled scan. Possible values are `Quick` and `Full`. Defaults to `Quick`.
         """
+        ConfigurationAntimalware._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exclusions=exclusions,
+            real_time_protection_enabled=real_time_protection_enabled,
+            scheduled_scan_day=scheduled_scan_day,
+            scheduled_scan_enabled=scheduled_scan_enabled,
+            scheduled_scan_time_in_minutes=scheduled_scan_time_in_minutes,
+            scheduled_scan_type=scheduled_scan_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exclusions: Optional['outputs.ConfigurationAntimalwareExclusions'] = None,
+             real_time_protection_enabled: Optional[bool] = None,
+             scheduled_scan_day: Optional[int] = None,
+             scheduled_scan_enabled: Optional[bool] = None,
+             scheduled_scan_time_in_minutes: Optional[int] = None,
+             scheduled_scan_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if real_time_protection_enabled is not None:
-            pulumi.set(__self__, "real_time_protection_enabled", real_time_protection_enabled)
+            _setter("real_time_protection_enabled", real_time_protection_enabled)
         if scheduled_scan_day is not None:
-            pulumi.set(__self__, "scheduled_scan_day", scheduled_scan_day)
+            _setter("scheduled_scan_day", scheduled_scan_day)
         if scheduled_scan_enabled is not None:
-            pulumi.set(__self__, "scheduled_scan_enabled", scheduled_scan_enabled)
+            _setter("scheduled_scan_enabled", scheduled_scan_enabled)
         if scheduled_scan_time_in_minutes is not None:
-            pulumi.set(__self__, "scheduled_scan_time_in_minutes", scheduled_scan_time_in_minutes)
+            _setter("scheduled_scan_time_in_minutes", scheduled_scan_time_in_minutes)
         if scheduled_scan_type is not None:
-            pulumi.set(__self__, "scheduled_scan_type", scheduled_scan_type)
+            _setter("scheduled_scan_type", scheduled_scan_type)
 
     @property
     @pulumi.getter
@@ -138,12 +157,25 @@ class ConfigurationAntimalwareExclusions(dict):
         :param str paths: The paths to exclude from the antimalware scan, separated by `;`. For example `C:\\\\Windows\\\\Temp;D:\\\\Temp`.
         :param str processes: The processes to exclude from the antimalware scan, separated by `;`. For example `svchost.exe;notepad.exe`.
         """
+        ConfigurationAntimalwareExclusions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extensions=extensions,
+            paths=paths,
+            processes=processes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extensions: Optional[str] = None,
+             paths: Optional[str] = None,
+             processes: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if paths is not None:
-            pulumi.set(__self__, "paths", paths)
+            _setter("paths", paths)
         if processes is not None:
-            pulumi.set(__self__, "processes", processes)
+            _setter("processes", processes)
 
     @property
     @pulumi.getter
@@ -194,8 +226,17 @@ class ConfigurationAzureSecurityBaseline(dict):
         """
         :param str assignment_type: The assignment type of the azure security baseline. Possible values are `ApplyAndAutoCorrect`, `ApplyAndMonitor`, `Audit` and `DeployAndAutoCorrect`. Defaults to `ApplyAndAutoCorrect`.
         """
+        ConfigurationAzureSecurityBaseline._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_type=assignment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -246,16 +287,33 @@ class ConfigurationBackup(dict):
         :param 'ConfigurationBackupSchedulePolicyArgs' schedule_policy: A `schedule_policy` block as defined below.
         :param str time_zone: The timezone of the backup policy. Defaults to `UTC`.
         """
+        ConfigurationBackup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instant_rp_retention_range_in_days=instant_rp_retention_range_in_days,
+            policy_name=policy_name,
+            retention_policy=retention_policy,
+            schedule_policy=schedule_policy,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instant_rp_retention_range_in_days: Optional[int] = None,
+             policy_name: Optional[str] = None,
+             retention_policy: Optional['outputs.ConfigurationBackupRetentionPolicy'] = None,
+             schedule_policy: Optional['outputs.ConfigurationBackupSchedulePolicy'] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instant_rp_retention_range_in_days is not None:
-            pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
+            _setter("instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if schedule_policy is not None:
-            pulumi.set(__self__, "schedule_policy", schedule_policy)
+            _setter("schedule_policy", schedule_policy)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="instantRpRetentionRangeInDays")
@@ -330,12 +388,25 @@ class ConfigurationBackupRetentionPolicy(dict):
         :param str retention_policy_type: The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
         :param 'ConfigurationBackupRetentionPolicyWeeklyScheduleArgs' weekly_schedule: A `weekly_schedule` block as defined below.
         """
+        ConfigurationBackupRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            daily_schedule=daily_schedule,
+            retention_policy_type=retention_policy_type,
+            weekly_schedule=weekly_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             daily_schedule: Optional['outputs.ConfigurationBackupRetentionPolicyDailySchedule'] = None,
+             retention_policy_type: Optional[str] = None,
+             weekly_schedule: Optional['outputs.ConfigurationBackupRetentionPolicyWeeklySchedule'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if daily_schedule is not None:
-            pulumi.set(__self__, "daily_schedule", daily_schedule)
+            _setter("daily_schedule", daily_schedule)
         if retention_policy_type is not None:
-            pulumi.set(__self__, "retention_policy_type", retention_policy_type)
+            _setter("retention_policy_type", retention_policy_type)
         if weekly_schedule is not None:
-            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+            _setter("weekly_schedule", weekly_schedule)
 
     @property
     @pulumi.getter(name="dailySchedule")
@@ -390,10 +461,21 @@ class ConfigurationBackupRetentionPolicyDailySchedule(dict):
         :param 'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs' retention_duration: A `retention_duration` block as defined below.
         :param Sequence[str] retention_times: The retention times of the backup policy.
         """
+        ConfigurationBackupRetentionPolicyDailySchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_duration=retention_duration,
+            retention_times=retention_times,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_duration: Optional['outputs.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration'] = None,
+             retention_times: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if retention_duration is not None:
-            pulumi.set(__self__, "retention_duration", retention_duration)
+            _setter("retention_duration", retention_duration)
         if retention_times is not None:
-            pulumi.set(__self__, "retention_times", retention_times)
+            _setter("retention_times", retention_times)
 
     @property
     @pulumi.getter(name="retentionDuration")
@@ -438,10 +520,21 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration(dict):
         :param int count: The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
         :param str duration_type: The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
         """
+        ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            duration_type=duration_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[int] = None,
+             duration_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if duration_type is not None:
-            pulumi.set(__self__, "duration_type", duration_type)
+            _setter("duration_type", duration_type)
 
     @property
     @pulumi.getter
@@ -488,10 +581,21 @@ class ConfigurationBackupRetentionPolicyWeeklySchedule(dict):
         :param 'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs' retention_duration: A `retention_duration` block as defined below.
         :param Sequence[str] retention_times: The retention times of the backup policy.
         """
+        ConfigurationBackupRetentionPolicyWeeklySchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_duration=retention_duration,
+            retention_times=retention_times,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_duration: Optional['outputs.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration'] = None,
+             retention_times: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if retention_duration is not None:
-            pulumi.set(__self__, "retention_duration", retention_duration)
+            _setter("retention_duration", retention_duration)
         if retention_times is not None:
-            pulumi.set(__self__, "retention_times", retention_times)
+            _setter("retention_times", retention_times)
 
     @property
     @pulumi.getter(name="retentionDuration")
@@ -536,10 +640,21 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration(dict):
         :param int count: The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
         :param str duration_type: The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
         """
+        ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            duration_type=duration_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[int] = None,
+             duration_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if duration_type is not None:
-            pulumi.set(__self__, "duration_type", duration_type)
+            _setter("duration_type", duration_type)
 
     @property
     @pulumi.getter
@@ -594,14 +709,29 @@ class ConfigurationBackupSchedulePolicy(dict):
         :param str schedule_run_frequency: The schedule run frequency of the backup policy. Possible values are `Daily` and `Weekly`. Defaults to `Daily`.
         :param Sequence[str] schedule_run_times: The schedule run times of the backup policy.
         """
+        ConfigurationBackupSchedulePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_policy_type=schedule_policy_type,
+            schedule_run_days=schedule_run_days,
+            schedule_run_frequency=schedule_run_frequency,
+            schedule_run_times=schedule_run_times,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_policy_type: Optional[str] = None,
+             schedule_run_days: Optional[Sequence[str]] = None,
+             schedule_run_frequency: Optional[str] = None,
+             schedule_run_times: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if schedule_policy_type is not None:
-            pulumi.set(__self__, "schedule_policy_type", schedule_policy_type)
+            _setter("schedule_policy_type", schedule_policy_type)
         if schedule_run_days is not None:
-            pulumi.set(__self__, "schedule_run_days", schedule_run_days)
+            _setter("schedule_run_days", schedule_run_days)
         if schedule_run_frequency is not None:
-            pulumi.set(__self__, "schedule_run_frequency", schedule_run_frequency)
+            _setter("schedule_run_frequency", schedule_run_frequency)
         if schedule_run_times is not None:
-            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+            _setter("schedule_run_times", schedule_run_times)
 
     @property
     @pulumi.getter(name="schedulePolicyType")

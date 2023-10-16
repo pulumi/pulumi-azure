@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class TokenPasswordArgs:
         :param pulumi.Input['TokenPasswordPassword1Args'] password1: One `password` block as defined below.
         :param pulumi.Input['TokenPasswordPassword2Args'] password2: One `password` block as defined below.
         """
-        pulumi.set(__self__, "container_registry_token_id", container_registry_token_id)
-        pulumi.set(__self__, "password1", password1)
+        TokenPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_token_id=container_registry_token_id,
+            password1=password1,
+            password2=password2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_token_id: pulumi.Input[str],
+             password1: pulumi.Input['TokenPasswordPassword1Args'],
+             password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_registry_token_id", container_registry_token_id)
+        _setter("password1", password1)
         if password2 is not None:
-            pulumi.set(__self__, "password2", password2)
+            _setter("password2", password2)
 
     @property
     @pulumi.getter(name="containerRegistryTokenId")
@@ -79,12 +92,25 @@ class _TokenPasswordState:
         :param pulumi.Input['TokenPasswordPassword1Args'] password1: One `password` block as defined below.
         :param pulumi.Input['TokenPasswordPassword2Args'] password2: One `password` block as defined below.
         """
+        _TokenPasswordState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_token_id=container_registry_token_id,
+            password1=password1,
+            password2=password2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_token_id: Optional[pulumi.Input[str]] = None,
+             password1: Optional[pulumi.Input['TokenPasswordPassword1Args']] = None,
+             password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_registry_token_id is not None:
-            pulumi.set(__self__, "container_registry_token_id", container_registry_token_id)
+            _setter("container_registry_token_id", container_registry_token_id)
         if password1 is not None:
-            pulumi.set(__self__, "password1", password1)
+            _setter("password1", password1)
         if password2 is not None:
-            pulumi.set(__self__, "password2", password2)
+            _setter("password2", password2)
 
     @property
     @pulumi.getter(name="containerRegistryTokenId")
@@ -176,6 +202,10 @@ class TokenPassword(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TokenPasswordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,9 +226,19 @@ class TokenPassword(pulumi.CustomResource):
             if container_registry_token_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_token_id'")
             __props__.__dict__["container_registry_token_id"] = container_registry_token_id
+            if password1 is not None and not isinstance(password1, TokenPasswordPassword1Args):
+                password1 = password1 or {}
+                def _setter(key, value):
+                    password1[key] = value
+                TokenPasswordPassword1Args._configure(_setter, **password1)
             if password1 is None and not opts.urn:
                 raise TypeError("Missing required property 'password1'")
             __props__.__dict__["password1"] = password1
+            if password2 is not None and not isinstance(password2, TokenPasswordPassword2Args):
+                password2 = password2 or {}
+                def _setter(key, value):
+                    password2[key] = value
+                TokenPasswordPassword2Args._configure(_setter, **password2)
             __props__.__dict__["password2"] = password2
         super(TokenPassword, __self__).__init__(
             'azure:containerservice/tokenPassword:TokenPassword',

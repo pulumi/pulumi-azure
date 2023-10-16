@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,32 @@ class FirewallNetworkRuleCollectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rules", rules)
+        FirewallNetworkRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            azure_firewall_name=azure_firewall_name,
+            priority=priority,
+            resource_group_name=resource_group_name,
+            rules=rules,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             azure_firewall_name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             resource_group_name: pulumi.Input[str],
+             rules: pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("azure_firewall_name", azure_firewall_name)
+        _setter("priority", priority)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rules", rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -130,18 +149,37 @@ class _FirewallNetworkRuleCollectionState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
         """
+        _FirewallNetworkRuleCollectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            azure_firewall_name=azure_firewall_name,
+            name=name,
+            priority=priority,
+            resource_group_name=resource_group_name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             azure_firewall_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNetworkRuleCollectionRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if azure_firewall_name is not None:
-            pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
+            _setter("azure_firewall_name", azure_firewall_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -375,6 +413,10 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallNetworkRuleCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

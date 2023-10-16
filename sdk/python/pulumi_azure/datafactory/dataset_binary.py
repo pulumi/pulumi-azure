@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,28 +45,59 @@ class DatasetBinaryArgs:
                The following supported locations for a Binary Dataset. One of these should be specified:
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        DatasetBinaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            linked_service_name=linked_service_name,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            azure_blob_storage_location=azure_blob_storage_location,
+            compression=compression,
+            description=description,
+            folder=folder,
+            http_server_location=http_server_location,
+            name=name,
+            parameters=parameters,
+            sftp_server_location=sftp_server_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: pulumi.Input[str],
+             linked_service_name: pulumi.Input[str],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             azure_blob_storage_location: Optional[pulumi.Input['DatasetBinaryAzureBlobStorageLocationArgs']] = None,
+             compression: Optional[pulumi.Input['DatasetBinaryCompressionArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             http_server_location: Optional[pulumi.Input['DatasetBinaryHttpServerLocationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sftp_server_location: Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_factory_id", data_factory_id)
+        _setter("linked_service_name", linked_service_name)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if azure_blob_storage_location is not None:
-            pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
+            _setter("azure_blob_storage_location", azure_blob_storage_location)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if http_server_location is not None:
-            pulumi.set(__self__, "http_server_location", http_server_location)
+            _setter("http_server_location", http_server_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if sftp_server_location is not None:
-            pulumi.set(__self__, "sftp_server_location", sftp_server_location)
+            _setter("sftp_server_location", sftp_server_location)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -247,30 +278,61 @@ class _DatasetBinaryState:
                The following supported locations for a Binary Dataset. One of these should be specified:
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
         """
+        _DatasetBinaryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            azure_blob_storage_location=azure_blob_storage_location,
+            compression=compression,
+            data_factory_id=data_factory_id,
+            description=description,
+            folder=folder,
+            http_server_location=http_server_location,
+            linked_service_name=linked_service_name,
+            name=name,
+            parameters=parameters,
+            sftp_server_location=sftp_server_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             azure_blob_storage_location: Optional[pulumi.Input['DatasetBinaryAzureBlobStorageLocationArgs']] = None,
+             compression: Optional[pulumi.Input['DatasetBinaryCompressionArgs']] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             http_server_location: Optional[pulumi.Input['DatasetBinaryHttpServerLocationArgs']] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sftp_server_location: Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if azure_blob_storage_location is not None:
-            pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
+            _setter("azure_blob_storage_location", azure_blob_storage_location)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if http_server_location is not None:
-            pulumi.set(__self__, "http_server_location", http_server_location)
+            _setter("http_server_location", http_server_location)
         if linked_service_name is not None:
-            pulumi.set(__self__, "linked_service_name", linked_service_name)
+            _setter("linked_service_name", linked_service_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if sftp_server_location is not None:
-            pulumi.set(__self__, "sftp_server_location", sftp_server_location)
+            _setter("sftp_server_location", sftp_server_location)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -544,6 +606,10 @@ class DatasetBinary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetBinaryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -572,19 +638,39 @@ class DatasetBinary(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
+            if azure_blob_storage_location is not None and not isinstance(azure_blob_storage_location, DatasetBinaryAzureBlobStorageLocationArgs):
+                azure_blob_storage_location = azure_blob_storage_location or {}
+                def _setter(key, value):
+                    azure_blob_storage_location[key] = value
+                DatasetBinaryAzureBlobStorageLocationArgs._configure(_setter, **azure_blob_storage_location)
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
+            if compression is not None and not isinstance(compression, DatasetBinaryCompressionArgs):
+                compression = compression or {}
+                def _setter(key, value):
+                    compression[key] = value
+                DatasetBinaryCompressionArgs._configure(_setter, **compression)
             __props__.__dict__["compression"] = compression
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
+            if http_server_location is not None and not isinstance(http_server_location, DatasetBinaryHttpServerLocationArgs):
+                http_server_location = http_server_location or {}
+                def _setter(key, value):
+                    http_server_location[key] = value
+                DatasetBinaryHttpServerLocationArgs._configure(_setter, **http_server_location)
             __props__.__dict__["http_server_location"] = http_server_location
             if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")
             __props__.__dict__["linked_service_name"] = linked_service_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+            if sftp_server_location is not None and not isinstance(sftp_server_location, DatasetBinarySftpServerLocationArgs):
+                sftp_server_location = sftp_server_location or {}
+                def _setter(key, value):
+                    sftp_server_location[key] = value
+                DatasetBinarySftpServerLocationArgs._configure(_setter, **sftp_server_location)
             __props__.__dict__["sftp_server_location"] = sftp_server_location
         super(DatasetBinary, __self__).__init__(
             'azure:datafactory/datasetBinary:DatasetBinary',

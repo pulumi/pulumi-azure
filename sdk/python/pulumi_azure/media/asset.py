@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssetArgs', 'Asset']
@@ -31,18 +31,39 @@ class AssetArgs:
         :param pulumi.Input[str] name: The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created.
         :param pulumi.Input[str] storage_account_name: The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
         """
-        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AssetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_services_account_name=media_services_account_name,
+            resource_group_name=resource_group_name,
+            alternate_id=alternate_id,
+            container=container,
+            description=description,
+            name=name,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_services_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             alternate_id: Optional[pulumi.Input[str]] = None,
+             container: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("media_services_account_name", media_services_account_name)
+        _setter("resource_group_name", resource_group_name)
         if alternate_id is not None:
-            pulumi.set(__self__, "alternate_id", alternate_id)
+            _setter("alternate_id", alternate_id)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -149,20 +170,41 @@ class _AssetState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created.
         :param pulumi.Input[str] storage_account_name: The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
         """
+        _AssetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternate_id=alternate_id,
+            container=container,
+            description=description,
+            media_services_account_name=media_services_account_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternate_id: Optional[pulumi.Input[str]] = None,
+             container: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alternate_id is not None:
-            pulumi.set(__self__, "alternate_id", alternate_id)
+            _setter("alternate_id", alternate_id)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if media_services_account_name is not None:
-            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+            _setter("media_services_account_name", media_services_account_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="alternateId")
@@ -360,6 +402,10 @@ class Asset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

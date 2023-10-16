@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,43 @@ class StreamingPolicyArgs:
         :param pulumi.Input[str] name: The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs'] no_encryption_enabled_protocols: A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
-        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StreamingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_services_account_name=media_services_account_name,
+            resource_group_name=resource_group_name,
+            common_encryption_cbcs=common_encryption_cbcs,
+            common_encryption_cenc=common_encryption_cenc,
+            default_content_key_policy_name=default_content_key_policy_name,
+            envelope_encryption=envelope_encryption,
+            name=name,
+            no_encryption_enabled_protocols=no_encryption_enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_services_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             common_encryption_cbcs: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs']] = None,
+             common_encryption_cenc: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencArgs']] = None,
+             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+             envelope_encryption: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             no_encryption_enabled_protocols: Optional[pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("media_services_account_name", media_services_account_name)
+        _setter("resource_group_name", resource_group_name)
         if common_encryption_cbcs is not None:
-            pulumi.set(__self__, "common_encryption_cbcs", common_encryption_cbcs)
+            _setter("common_encryption_cbcs", common_encryption_cbcs)
         if common_encryption_cenc is not None:
-            pulumi.set(__self__, "common_encryption_cenc", common_encryption_cenc)
+            _setter("common_encryption_cenc", common_encryption_cenc)
         if default_content_key_policy_name is not None:
-            pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+            _setter("default_content_key_policy_name", default_content_key_policy_name)
         if envelope_encryption is not None:
-            pulumi.set(__self__, "envelope_encryption", envelope_encryption)
+            _setter("envelope_encryption", envelope_encryption)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if no_encryption_enabled_protocols is not None:
-            pulumi.set(__self__, "no_encryption_enabled_protocols", no_encryption_enabled_protocols)
+            _setter("no_encryption_enabled_protocols", no_encryption_enabled_protocols)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -169,22 +192,45 @@ class _StreamingPolicyState:
         :param pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs'] no_encryption_enabled_protocols: A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Policy should exist. Changing this forces a new Streaming Policy to be created.
         """
+        _StreamingPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_encryption_cbcs=common_encryption_cbcs,
+            common_encryption_cenc=common_encryption_cenc,
+            default_content_key_policy_name=default_content_key_policy_name,
+            envelope_encryption=envelope_encryption,
+            media_services_account_name=media_services_account_name,
+            name=name,
+            no_encryption_enabled_protocols=no_encryption_enabled_protocols,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_encryption_cbcs: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsArgs']] = None,
+             common_encryption_cenc: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencArgs']] = None,
+             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+             envelope_encryption: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             no_encryption_enabled_protocols: Optional[pulumi.Input['StreamingPolicyNoEncryptionEnabledProtocolsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if common_encryption_cbcs is not None:
-            pulumi.set(__self__, "common_encryption_cbcs", common_encryption_cbcs)
+            _setter("common_encryption_cbcs", common_encryption_cbcs)
         if common_encryption_cenc is not None:
-            pulumi.set(__self__, "common_encryption_cenc", common_encryption_cenc)
+            _setter("common_encryption_cenc", common_encryption_cenc)
         if default_content_key_policy_name is not None:
-            pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+            _setter("default_content_key_policy_name", default_content_key_policy_name)
         if envelope_encryption is not None:
-            pulumi.set(__self__, "envelope_encryption", envelope_encryption)
+            _setter("envelope_encryption", envelope_encryption)
         if media_services_account_name is not None:
-            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+            _setter("media_services_account_name", media_services_account_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if no_encryption_enabled_protocols is not None:
-            pulumi.set(__self__, "no_encryption_enabled_protocols", no_encryption_enabled_protocols)
+            _setter("no_encryption_enabled_protocols", no_encryption_enabled_protocols)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="commonEncryptionCbcs")
@@ -494,6 +540,10 @@ class StreamingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -516,14 +566,34 @@ class StreamingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingPolicyArgs.__new__(StreamingPolicyArgs)
 
+            if common_encryption_cbcs is not None and not isinstance(common_encryption_cbcs, StreamingPolicyCommonEncryptionCbcsArgs):
+                common_encryption_cbcs = common_encryption_cbcs or {}
+                def _setter(key, value):
+                    common_encryption_cbcs[key] = value
+                StreamingPolicyCommonEncryptionCbcsArgs._configure(_setter, **common_encryption_cbcs)
             __props__.__dict__["common_encryption_cbcs"] = common_encryption_cbcs
+            if common_encryption_cenc is not None and not isinstance(common_encryption_cenc, StreamingPolicyCommonEncryptionCencArgs):
+                common_encryption_cenc = common_encryption_cenc or {}
+                def _setter(key, value):
+                    common_encryption_cenc[key] = value
+                StreamingPolicyCommonEncryptionCencArgs._configure(_setter, **common_encryption_cenc)
             __props__.__dict__["common_encryption_cenc"] = common_encryption_cenc
             __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
+            if envelope_encryption is not None and not isinstance(envelope_encryption, StreamingPolicyEnvelopeEncryptionArgs):
+                envelope_encryption = envelope_encryption or {}
+                def _setter(key, value):
+                    envelope_encryption[key] = value
+                StreamingPolicyEnvelopeEncryptionArgs._configure(_setter, **envelope_encryption)
             __props__.__dict__["envelope_encryption"] = envelope_encryption
             if media_services_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'media_services_account_name'")
             __props__.__dict__["media_services_account_name"] = media_services_account_name
             __props__.__dict__["name"] = name
+            if no_encryption_enabled_protocols is not None and not isinstance(no_encryption_enabled_protocols, StreamingPolicyNoEncryptionEnabledProtocolsArgs):
+                no_encryption_enabled_protocols = no_encryption_enabled_protocols or {}
+                def _setter(key, value):
+                    no_encryption_enabled_protocols[key] = value
+                StreamingPolicyNoEncryptionEnabledProtocolsArgs._configure(_setter, **no_encryption_enabled_protocols)
             __props__.__dict__["no_encryption_enabled_protocols"] = no_encryption_enabled_protocols
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,38 @@ class ScheduleArgs:
         :param pulumi.Input['ScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         """
-        pulumi.set(__self__, "lab_id", lab_id)
-        pulumi.set(__self__, "stop_time", stop_time)
-        pulumi.set(__self__, "time_zone", time_zone)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_id=lab_id,
+            stop_time=stop_time,
+            time_zone=time_zone,
+            name=name,
+            notes=notes,
+            recurrence=recurrence,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_id: pulumi.Input[str],
+             stop_time: pulumi.Input[str],
+             time_zone: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_id", lab_id)
+        _setter("stop_time", stop_time)
+        _setter("time_zone", time_zone)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="labId")
@@ -150,20 +171,41 @@ class _ScheduleState:
         :param pulumi.Input[str] stop_time: When Lab User Virtual Machines will be stopped in RFC-3339 format.
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.
         """
+        _ScheduleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_id=lab_id,
+            name=name,
+            notes=notes,
+            recurrence=recurrence,
+            start_time=start_time,
+            stop_time=stop_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             stop_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lab_id is not None:
-            pulumi.set(__self__, "lab_id", lab_id)
+            _setter("lab_id", lab_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if stop_time is not None:
-            pulumi.set(__self__, "stop_time", stop_time)
+            _setter("stop_time", stop_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="labId")
@@ -383,6 +425,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -409,6 +455,11 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["lab_id"] = lab_id
             __props__.__dict__["name"] = name
             __props__.__dict__["notes"] = notes
+            if recurrence is not None and not isinstance(recurrence, ScheduleRecurrenceArgs):
+                recurrence = recurrence or {}
+                def _setter(key, value):
+                    recurrence[key] = value
+                ScheduleRecurrenceArgs._configure(_setter, **recurrence)
             __props__.__dict__["recurrence"] = recurrence
             __props__.__dict__["start_time"] = start_time
             if stop_time is None and not opts.urn:

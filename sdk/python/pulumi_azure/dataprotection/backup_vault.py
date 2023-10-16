@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,38 @@ class BackupVaultArgs:
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
-        pulumi.set(__self__, "datastore_type", datastore_type)
-        pulumi.set(__self__, "redundancy", redundancy)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BackupVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_type=datastore_type,
+            redundancy=redundancy,
+            resource_group_name=resource_group_name,
+            identity=identity,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_type: pulumi.Input[str],
+             redundancy: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("datastore_type", datastore_type)
+        _setter("redundancy", redundancy)
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datastoreType")
@@ -150,20 +171,41 @@ class _BackupVaultState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
+        _BackupVaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_type=datastore_type,
+            identity=identity,
+            location=location,
+            name=name,
+            redundancy=redundancy,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_type: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redundancy: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datastore_type is not None:
-            pulumi.set(__self__, "datastore_type", datastore_type)
+            _setter("datastore_type", datastore_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redundancy is not None:
-            pulumi.set(__self__, "redundancy", redundancy)
+            _setter("redundancy", redundancy)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datastoreType")
@@ -339,6 +381,10 @@ class BackupVault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupVaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -363,6 +409,11 @@ class BackupVault(pulumi.CustomResource):
             if datastore_type is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type'")
             __props__.__dict__["datastore_type"] = datastore_type
+            if identity is not None and not isinstance(identity, BackupVaultIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                BackupVaultIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

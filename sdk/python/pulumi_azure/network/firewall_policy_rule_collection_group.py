@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,35 @@ class FirewallPolicyRuleCollectionGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]] nat_rule_collections: One or more `nat_rule_collection` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]] network_rule_collections: One or more `network_rule_collection` blocks as defined below.
         """
-        pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
-        pulumi.set(__self__, "priority", priority)
+        FirewallPolicyRuleCollectionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_policy_id=firewall_policy_id,
+            priority=priority,
+            application_rule_collections=application_rule_collections,
+            name=name,
+            nat_rule_collections=nat_rule_collections,
+            network_rule_collections=network_rule_collections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_policy_id: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
+             network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("firewall_policy_id", firewall_policy_id)
+        _setter("priority", priority)
         if application_rule_collections is not None:
-            pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+            _setter("application_rule_collections", application_rule_collections)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nat_rule_collections is not None:
-            pulumi.set(__self__, "nat_rule_collections", nat_rule_collections)
+            _setter("nat_rule_collections", nat_rule_collections)
         if network_rule_collections is not None:
-            pulumi.set(__self__, "network_rule_collections", network_rule_collections)
+            _setter("network_rule_collections", network_rule_collections)
 
     @property
     @pulumi.getter(name="firewallPolicyId")
@@ -133,18 +152,37 @@ class _FirewallPolicyRuleCollectionGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]] network_rule_collections: One or more `network_rule_collection` blocks as defined below.
         :param pulumi.Input[int] priority: The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
         """
+        _FirewallPolicyRuleCollectionGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_rule_collections=application_rule_collections,
+            firewall_policy_id=firewall_policy_id,
+            name=name,
+            nat_rule_collections=nat_rule_collections,
+            network_rule_collections=network_rule_collections,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] = None,
+             firewall_policy_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
+             network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_rule_collections is not None:
-            pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+            _setter("application_rule_collections", application_rule_collections)
         if firewall_policy_id is not None:
-            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+            _setter("firewall_policy_id", firewall_policy_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nat_rule_collections is not None:
-            pulumi.set(__self__, "nat_rule_collections", nat_rule_collections)
+            _setter("nat_rule_collections", nat_rule_collections)
         if network_rule_collections is not None:
-            pulumi.set(__self__, "network_rule_collections", network_rule_collections)
+            _setter("network_rule_collections", network_rule_collections)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter(name="applicationRuleCollections")
@@ -278,6 +316,10 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyRuleCollectionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

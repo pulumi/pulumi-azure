@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,51 @@ class LinkedServiceAzureFunctionArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "url", url)
+        LinkedServiceAzureFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            url=url,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            integration_runtime_name=integration_runtime_name,
+            key=key,
+            key_vault_key=key_vault_key,
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: pulumi.Input[str],
+             url: pulumi.Input[str],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             key_vault_key: Optional[pulumi.Input['LinkedServiceAzureFunctionKeyVaultKeyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_factory_id", data_factory_id)
+        _setter("url", url)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if key_vault_key is not None:
-            pulumi.set(__self__, "key_vault_key", key_vault_key)
+            _setter("key_vault_key", key_vault_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -211,26 +238,53 @@ class _LinkedServiceAzureFunctionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] url: The url of the Azure Function.
         """
+        _LinkedServiceAzureFunctionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            data_factory_id=data_factory_id,
+            description=description,
+            integration_runtime_name=integration_runtime_name,
+            key=key,
+            key_vault_key=key_vault_key,
+            name=name,
+            parameters=parameters,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             key_vault_key: Optional[pulumi.Input['LinkedServiceAzureFunctionKeyVaultKeyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if key_vault_key is not None:
-            pulumi.set(__self__, "key_vault_key", key_vault_key)
+            _setter("key_vault_key", key_vault_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -460,6 +514,10 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceAzureFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -492,6 +550,11 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["key"] = None if key is None else pulumi.Output.secret(key)
+            if key_vault_key is not None and not isinstance(key_vault_key, LinkedServiceAzureFunctionKeyVaultKeyArgs):
+                key_vault_key = key_vault_key or {}
+                def _setter(key, value):
+                    key_vault_key[key] = value
+                LinkedServiceAzureFunctionKeyVaultKeyArgs._configure(_setter, **key_vault_key)
             __props__.__dict__["key_vault_key"] = key_vault_key
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

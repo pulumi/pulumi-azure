@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataConnectorMicrosoftThreatIntelligenceArgs', 'DataConnectorMicrosoftThreatIntelligence']
@@ -35,18 +35,35 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        DataConnectorMicrosoftThreatIntelligenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            bing_safety_phishing_url_lookback_date=bing_safety_phishing_url_lookback_date,
+            microsoft_emerging_threat_feed_lookback_date=microsoft_emerging_threat_feed_lookback_date,
+            name=name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: pulumi.Input[str],
+             bing_safety_phishing_url_lookback_date: Optional[pulumi.Input[str]] = None,
+             microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if bing_safety_phishing_url_lookback_date is not None:
             warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
         if bing_safety_phishing_url_lookback_date is not None:
-            pulumi.set(__self__, "bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
+            _setter("bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
         if microsoft_emerging_threat_feed_lookback_date is not None:
-            pulumi.set(__self__, "microsoft_emerging_threat_feed_lookback_date", microsoft_emerging_threat_feed_lookback_date)
+            _setter("microsoft_emerging_threat_feed_lookback_date", microsoft_emerging_threat_feed_lookback_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -144,19 +161,36 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
                
                > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
+        _DataConnectorMicrosoftThreatIntelligenceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bing_safety_phishing_url_lookback_date=bing_safety_phishing_url_lookback_date,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            microsoft_emerging_threat_feed_lookback_date=microsoft_emerging_threat_feed_lookback_date,
+            name=name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bing_safety_phishing_url_lookback_date: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bing_safety_phishing_url_lookback_date is not None:
             warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
         if bing_safety_phishing_url_lookback_date is not None:
-            pulumi.set(__self__, "bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
+            _setter("bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if microsoft_emerging_threat_feed_lookback_date is not None:
-            pulumi.set(__self__, "microsoft_emerging_threat_feed_lookback_date", microsoft_emerging_threat_feed_lookback_date)
+            _setter("microsoft_emerging_threat_feed_lookback_date", microsoft_emerging_threat_feed_lookback_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="bingSafetyPhishingUrlLookbackDate")
@@ -329,6 +363,10 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataConnectorMicrosoftThreatIntelligenceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -348,9 +386,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataConnectorMicrosoftThreatIntelligenceArgs.__new__(DataConnectorMicrosoftThreatIntelligenceArgs)
 
-            if bing_safety_phishing_url_lookback_date is not None and not opts.urn:
-                warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-                pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["bing_safety_phishing_url_lookback_date"] = bing_safety_phishing_url_lookback_date
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

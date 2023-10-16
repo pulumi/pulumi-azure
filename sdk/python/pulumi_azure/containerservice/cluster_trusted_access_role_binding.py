@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterTrustedAccessRoleBindingArgs', 'ClusterTrustedAccessRoleBinding']
@@ -25,11 +25,26 @@ class ClusterTrustedAccessRoleBindingArgs:
         :param pulumi.Input[str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
-        pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
-        pulumi.set(__self__, "roles", roles)
-        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        ClusterTrustedAccessRoleBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kubernetes_cluster_id=kubernetes_cluster_id,
+            roles=roles,
+            source_resource_id=source_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kubernetes_cluster_id: pulumi.Input[str],
+             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+             source_resource_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kubernetes_cluster_id", kubernetes_cluster_id)
+        _setter("roles", roles)
+        _setter("source_resource_id", source_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -94,14 +109,29 @@ class _ClusterTrustedAccessRoleBindingState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to bind, each item is a resource type qualified role name.
         :param pulumi.Input[str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         """
+        _ClusterTrustedAccessRoleBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kubernetes_cluster_id=kubernetes_cluster_id,
+            name=name,
+            roles=roles,
+            source_resource_id=source_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kubernetes_cluster_id is not None:
-            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+            _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if source_resource_id is not None:
-            pulumi.set(__self__, "source_resource_id", source_resource_id)
+            _setter("source_resource_id", source_resource_id)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -329,6 +359,10 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterTrustedAccessRoleBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

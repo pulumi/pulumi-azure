@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,26 +43,57 @@ class StreamingLocatorArgs:
         :param pulumi.Input[str] start_time: The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] streaming_locator_id: The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+        StreamingLocatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            media_services_account_name=media_services_account_name,
+            resource_group_name=resource_group_name,
+            streaming_policy_name=streaming_policy_name,
+            alternative_media_id=alternative_media_id,
+            content_keys=content_keys,
+            default_content_key_policy_name=default_content_key_policy_name,
+            end_time=end_time,
+            filter_names=filter_names,
+            name=name,
+            start_time=start_time,
+            streaming_locator_id=streaming_locator_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: pulumi.Input[str],
+             media_services_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             streaming_policy_name: pulumi.Input[str],
+             alternative_media_id: Optional[pulumi.Input[str]] = None,
+             content_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]] = None,
+             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             streaming_locator_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asset_name", asset_name)
+        _setter("media_services_account_name", media_services_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("streaming_policy_name", streaming_policy_name)
         if alternative_media_id is not None:
-            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+            _setter("alternative_media_id", alternative_media_id)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if default_content_key_policy_name is not None:
-            pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+            _setter("default_content_key_policy_name", default_content_key_policy_name)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if filter_names is not None:
-            pulumi.set(__self__, "filter_names", filter_names)
+            _setter("filter_names", filter_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if streaming_locator_id is not None:
-            pulumi.set(__self__, "streaming_locator_id", streaming_locator_id)
+            _setter("streaming_locator_id", streaming_locator_id)
 
     @property
     @pulumi.getter(name="assetName")
@@ -239,30 +270,61 @@ class _StreamingLocatorState:
         :param pulumi.Input[str] streaming_locator_id: The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
         :param pulumi.Input[str] streaming_policy_name: Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: `Predefined_DownloadOnly`, `Predefined_ClearStreamingOnly`, `Predefined_DownloadAndClearStreaming`, `Predefined_ClearKey`, `Predefined_MultiDrmCencStreaming` and `Predefined_MultiDrmStreaming`. Changing this forces a new Streaming Locator to be created.
         """
+        _StreamingLocatorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternative_media_id=alternative_media_id,
+            asset_name=asset_name,
+            content_keys=content_keys,
+            default_content_key_policy_name=default_content_key_policy_name,
+            end_time=end_time,
+            filter_names=filter_names,
+            media_services_account_name=media_services_account_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            start_time=start_time,
+            streaming_locator_id=streaming_locator_id,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternative_media_id: Optional[pulumi.Input[str]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             content_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingLocatorContentKeyArgs']]]] = None,
+             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             filter_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             streaming_locator_id: Optional[pulumi.Input[str]] = None,
+             streaming_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alternative_media_id is not None:
-            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+            _setter("alternative_media_id", alternative_media_id)
         if asset_name is not None:
-            pulumi.set(__self__, "asset_name", asset_name)
+            _setter("asset_name", asset_name)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if default_content_key_policy_name is not None:
-            pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+            _setter("default_content_key_policy_name", default_content_key_policy_name)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if filter_names is not None:
-            pulumi.set(__self__, "filter_names", filter_names)
+            _setter("filter_names", filter_names)
         if media_services_account_name is not None:
-            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+            _setter("media_services_account_name", media_services_account_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if streaming_locator_id is not None:
-            pulumi.set(__self__, "streaming_locator_id", streaming_locator_id)
+            _setter("streaming_locator_id", streaming_locator_id)
         if streaming_policy_name is not None:
-            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+            _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="alternativeMediaId")
@@ -548,6 +610,10 @@ class StreamingLocator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamingLocatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

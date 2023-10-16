@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -90,7 +90,16 @@ class AccountAnalyticalStorage(dict):
         """
         :param str schema_type: The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
         """
-        pulumi.set(__self__, "schema_type", schema_type)
+        AccountAnalyticalStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_type=schema_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema_type", schema_type)
 
     @property
     @pulumi.getter(name="schemaType")
@@ -135,13 +144,28 @@ class AccountBackup(dict):
         :param int retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
         :param str storage_redundancy: The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
         """
-        pulumi.set(__self__, "type", type)
+        AccountBackup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            interval_in_minutes=interval_in_minutes,
+            retention_in_hours=retention_in_hours,
+            storage_redundancy=storage_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             interval_in_minutes: Optional[int] = None,
+             retention_in_hours: Optional[int] = None,
+             storage_redundancy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if interval_in_minutes is not None:
-            pulumi.set(__self__, "interval_in_minutes", interval_in_minutes)
+            _setter("interval_in_minutes", interval_in_minutes)
         if retention_in_hours is not None:
-            pulumi.set(__self__, "retention_in_hours", retention_in_hours)
+            _setter("retention_in_hours", retention_in_hours)
         if storage_redundancy is not None:
-            pulumi.set(__self__, "storage_redundancy", storage_redundancy)
+            _setter("storage_redundancy", storage_redundancy)
 
     @property
     @pulumi.getter
@@ -183,7 +207,16 @@ class AccountCapability(dict):
         """
         :param str name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
+        AccountCapability._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -218,7 +251,16 @@ class AccountCapacity(dict):
         """
         :param int total_throughput_limit: The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
         """
-        pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+        AccountCapacity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            total_throughput_limit=total_throughput_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             total_throughput_limit: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("total_throughput_limit", total_throughput_limit)
 
     @property
     @pulumi.getter(name="totalThroughputLimit")
@@ -263,11 +305,24 @@ class AccountConsistencyPolicy(dict):
                
                > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
         """
-        pulumi.set(__self__, "consistency_level", consistency_level)
+        AccountConsistencyPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consistency_level=consistency_level,
+            max_interval_in_seconds=max_interval_in_seconds,
+            max_staleness_prefix=max_staleness_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consistency_level: str,
+             max_interval_in_seconds: Optional[int] = None,
+             max_staleness_prefix: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consistency_level", consistency_level)
         if max_interval_in_seconds is not None:
-            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
+            _setter("max_interval_in_seconds", max_interval_in_seconds)
         if max_staleness_prefix is not None:
-            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+            _setter("max_staleness_prefix", max_staleness_prefix)
 
     @property
     @pulumi.getter(name="consistencyLevel")
@@ -336,12 +391,29 @@ class AccountCorsRule(dict):
         :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
         :param int max_age_in_seconds: The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
         """
-        pulumi.set(__self__, "allowed_headers", allowed_headers)
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
-        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        AccountCorsRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            allowed_origins=allowed_origins,
+            exposed_headers=exposed_headers,
+            max_age_in_seconds=max_age_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_headers: Sequence[str],
+             allowed_methods: Sequence[str],
+             allowed_origins: Sequence[str],
+             exposed_headers: Sequence[str],
+             max_age_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_headers", allowed_headers)
+        _setter("allowed_methods", allowed_methods)
+        _setter("allowed_origins", allowed_origins)
+        _setter("exposed_headers", exposed_headers)
         if max_age_in_seconds is not None:
-            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+            _setter("max_age_in_seconds", max_age_in_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -416,12 +488,27 @@ class AccountGeoLocation(dict):
         :param str id: The ID of the virtual network subnet.
         :param bool zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
-        pulumi.set(__self__, "failover_priority", failover_priority)
-        pulumi.set(__self__, "location", location)
+        AccountGeoLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_priority=failover_priority,
+            location=location,
+            id=id,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_priority: int,
+             location: str,
+             id: Optional[str] = None,
+             zone_redundant: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failover_priority", failover_priority)
+        _setter("location", location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -490,13 +577,28 @@ class AccountIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -563,10 +665,23 @@ class AccountRestore(dict):
                > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
         :param Sequence['AccountRestoreDatabaseArgs'] databases: A `database` block as defined below. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
-        pulumi.set(__self__, "source_cosmosdb_account_id", source_cosmosdb_account_id)
+        AccountRestore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            restore_timestamp_in_utc=restore_timestamp_in_utc,
+            source_cosmosdb_account_id=source_cosmosdb_account_id,
+            databases=databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             restore_timestamp_in_utc: str,
+             source_cosmosdb_account_id: str,
+             databases: Optional[Sequence['outputs.AccountRestoreDatabase']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
+        _setter("source_cosmosdb_account_id", source_cosmosdb_account_id)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
 
     @property
     @pulumi.getter(name="restoreTimestampInUtc")
@@ -621,9 +736,20 @@ class AccountRestoreDatabase(dict):
         :param str name: The database name for the restore request. Changing this forces a new resource to be created.
         :param Sequence[str] collection_names: A list of the collection names for the restore request. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
+        AccountRestoreDatabase._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            collection_names=collection_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             collection_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if collection_names is not None:
-            pulumi.set(__self__, "collection_names", collection_names)
+            _setter("collection_names", collection_names)
 
     @property
     @pulumi.getter
@@ -668,9 +794,20 @@ class AccountVirtualNetworkRule(dict):
         :param str id: The ID of the virtual network subnet.
         :param bool ignore_missing_vnet_service_endpoint: If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
         """
-        pulumi.set(__self__, "id", id)
+        AccountVirtualNetworkRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             ignore_missing_vnet_service_endpoint: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter
@@ -717,11 +854,24 @@ class CassandraClusterIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
         """
-        pulumi.set(__self__, "type", type)
+        CassandraClusterIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -766,8 +916,17 @@ class CassandraKeyspaceAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        CassandraKeyspaceAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -802,8 +961,17 @@ class CassandraTableAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        CassandraTableAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -844,10 +1012,23 @@ class CassandraTableSchema(dict):
         :param Sequence['CassandraTableSchemaPartitionKeyArgs'] partition_keys: One or more `partition_key` blocks as defined below.
         :param Sequence['CassandraTableSchemaClusterKeyArgs'] cluster_keys: One or more `cluster_key` blocks as defined below.
         """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "partition_keys", partition_keys)
+        CassandraTableSchema._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            partition_keys=partition_keys,
+            cluster_keys=cluster_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence['outputs.CassandraTableSchemaColumn'],
+             partition_keys: Sequence['outputs.CassandraTableSchemaPartitionKey'],
+             cluster_keys: Optional[Sequence['outputs.CassandraTableSchemaClusterKey']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("partition_keys", partition_keys)
         if cluster_keys is not None:
-            pulumi.set(__self__, "cluster_keys", cluster_keys)
+            _setter("cluster_keys", cluster_keys)
 
     @property
     @pulumi.getter
@@ -900,8 +1081,19 @@ class CassandraTableSchemaClusterKey(dict):
         :param str name: Name of the cluster key to be created.
         :param str order_by: Order of the key. Currently supported values are `Asc` and `Desc`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "order_by", order_by)
+        CassandraTableSchemaClusterKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order_by=order_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             order_by: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("order_by", order_by)
 
     @property
     @pulumi.getter
@@ -929,8 +1121,19 @@ class CassandraTableSchemaColumn(dict):
         :param str name: Name of the column to be created.
         :param str type: Type of the column to be created.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        CassandraTableSchemaColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -956,7 +1159,16 @@ class CassandraTableSchemaPartitionKey(dict):
         """
         :param str name: Name of the column to partition by.
         """
-        pulumi.set(__self__, "name", name)
+        CassandraTableSchemaPartitionKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -991,8 +1203,17 @@ class GremlinDatabaseAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        GremlinDatabaseAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -1027,8 +1248,17 @@ class GremlinGraphAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        GremlinGraphAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -1069,11 +1299,24 @@ class GremlinGraphConflictResolutionPolicy(dict):
         :param str conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
         :param str conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
         """
-        pulumi.set(__self__, "mode", mode)
+        GremlinGraphConflictResolutionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            conflict_resolution_path=conflict_resolution_path,
+            conflict_resolution_procedure=conflict_resolution_procedure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             conflict_resolution_path: Optional[str] = None,
+             conflict_resolution_procedure: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if conflict_resolution_path is not None:
-            pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
+            _setter("conflict_resolution_path", conflict_resolution_path)
         if conflict_resolution_procedure is not None:
-            pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+            _setter("conflict_resolution_procedure", conflict_resolution_procedure)
 
     @property
     @pulumi.getter
@@ -1142,17 +1385,36 @@ class GremlinGraphIndexPolicy(dict):
         :param Sequence[str] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         :param Sequence['GremlinGraphIndexPolicySpatialIndexArgs'] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
-        pulumi.set(__self__, "indexing_mode", indexing_mode)
+        GremlinGraphIndexPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            indexing_mode=indexing_mode,
+            automatic=automatic,
+            composite_indices=composite_indices,
+            excluded_paths=excluded_paths,
+            included_paths=included_paths,
+            spatial_indices=spatial_indices,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             indexing_mode: str,
+             automatic: Optional[bool] = None,
+             composite_indices: Optional[Sequence['outputs.GremlinGraphIndexPolicyCompositeIndex']] = None,
+             excluded_paths: Optional[Sequence[str]] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             spatial_indices: Optional[Sequence['outputs.GremlinGraphIndexPolicySpatialIndex']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("indexing_mode", indexing_mode)
         if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+            _setter("automatic", automatic)
         if composite_indices is not None:
-            pulumi.set(__self__, "composite_indices", composite_indices)
+            _setter("composite_indices", composite_indices)
         if excluded_paths is not None:
-            pulumi.set(__self__, "excluded_paths", excluded_paths)
+            _setter("excluded_paths", excluded_paths)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
         if spatial_indices is not None:
-            pulumi.set(__self__, "spatial_indices", spatial_indices)
+            _setter("spatial_indices", spatial_indices)
 
     @property
     @pulumi.getter(name="indexingMode")
@@ -1210,7 +1472,16 @@ class GremlinGraphIndexPolicyCompositeIndex(dict):
         """
         :param Sequence['GremlinGraphIndexPolicyCompositeIndexIndexArgs'] indices: One or more `index` blocks as defined below.
         """
-        pulumi.set(__self__, "indices", indices)
+        GremlinGraphIndexPolicyCompositeIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            indices=indices,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             indices: Sequence['outputs.GremlinGraphIndexPolicyCompositeIndexIndex'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("indices", indices)
 
     @property
     @pulumi.getter
@@ -1230,8 +1501,19 @@ class GremlinGraphIndexPolicyCompositeIndexIndex(dict):
         :param str order: Order of the index. Possible values are `Ascending` or `Descending`.
         :param str path: Path for which the indexing behaviour applies to.
         """
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "path", path)
+        GremlinGraphIndexPolicyCompositeIndexIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: str,
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("order", order)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1258,9 +1540,20 @@ class GremlinGraphIndexPolicySpatialIndex(dict):
         """
         :param str path: Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
         """
-        pulumi.set(__self__, "path", path)
+        GremlinGraphIndexPolicySpatialIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            types=types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if types is not None:
-            pulumi.set(__self__, "types", types)
+            _setter("types", types)
 
     @property
     @pulumi.getter
@@ -1283,7 +1576,16 @@ class GremlinGraphUniqueKey(dict):
         """
         :param Sequence[str] paths: A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "paths", paths)
+        GremlinGraphUniqueKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            paths=paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             paths: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("paths", paths)
 
     @property
     @pulumi.getter
@@ -1318,8 +1620,17 @@ class MongoCollectionAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        MongoCollectionAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -1341,9 +1652,20 @@ class MongoCollectionIndex(dict):
                
                > **Note:** An index with an "_id" key must be specified.
         """
-        pulumi.set(__self__, "keys", keys)
+        MongoCollectionIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keys=keys,
+            unique=unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keys: Sequence[str],
+             unique: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("keys", keys)
         if unique is not None:
-            pulumi.set(__self__, "unique", unique)
+            _setter("unique", unique)
 
     @property
     @pulumi.getter
@@ -1375,10 +1697,21 @@ class MongoCollectionSystemIndex(dict):
                
                > **Note:** An index with an "_id" key must be specified.
         """
+        MongoCollectionSystemIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keys=keys,
+            unique=unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keys: Optional[Sequence[str]] = None,
+             unique: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if unique is not None:
-            pulumi.set(__self__, "unique", unique)
+            _setter("unique", unique)
 
     @property
     @pulumi.getter
@@ -1423,8 +1756,17 @@ class MongoDatabaseAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        MongoDatabaseAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -1444,8 +1786,19 @@ class MongoRoleDefinitionPrivilege(dict):
         :param Sequence[str] actions: A list of actions that are allowed.
         :param 'MongoRoleDefinitionPrivilegeResourceArgs' resource: A `resource` block as defined below.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "resource", resource)
+        MongoRoleDefinitionPrivilege._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             resource: 'outputs.MongoRoleDefinitionPrivilegeResource',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("resource", resource)
 
     @property
     @pulumi.getter
@@ -1492,10 +1845,21 @@ class MongoRoleDefinitionPrivilegeResource(dict):
         :param str collection_name: The name of the Mongo DB Collection that the Role Definition is applied.
         :param str db_name: The name of the Mongo DB that the Role Definition is applied.
         """
+        MongoRoleDefinitionPrivilegeResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_name=collection_name,
+            db_name=db_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_name: Optional[str] = None,
+             db_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if collection_name is not None:
-            pulumi.set(__self__, "collection_name", collection_name)
+            _setter("collection_name", collection_name)
         if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
+            _setter("db_name", db_name)
 
     @property
     @pulumi.getter(name="collectionName")
@@ -1546,12 +1910,25 @@ class PostgresqlClusterMaintenanceWindow(dict):
         :param int start_hour: The start hour for maintenance window. Defaults to `0`.
         :param int start_minute: The start minute for maintenance window. Defaults to `0`.
         """
+        PostgresqlClusterMaintenanceWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -1602,8 +1979,17 @@ class SqlContainerAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        SqlContainerAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -1644,11 +2030,24 @@ class SqlContainerConflictResolutionPolicy(dict):
         :param str conflict_resolution_path: The conflict resolution path in the case of `LastWriterWins` mode.
         :param str conflict_resolution_procedure: The procedure to resolve conflicts in the case of `Custom` mode.
         """
-        pulumi.set(__self__, "mode", mode)
+        SqlContainerConflictResolutionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            conflict_resolution_path=conflict_resolution_path,
+            conflict_resolution_procedure=conflict_resolution_procedure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             conflict_resolution_path: Optional[str] = None,
+             conflict_resolution_procedure: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if conflict_resolution_path is not None:
-            pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
+            _setter("conflict_resolution_path", conflict_resolution_path)
         if conflict_resolution_procedure is not None:
-            pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+            _setter("conflict_resolution_procedure", conflict_resolution_procedure)
 
     @property
     @pulumi.getter
@@ -1715,16 +2114,33 @@ class SqlContainerIndexingPolicy(dict):
         :param str indexing_mode: Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
         :param Sequence['SqlContainerIndexingPolicySpatialIndexArgs'] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
+        SqlContainerIndexingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            composite_indices=composite_indices,
+            excluded_paths=excluded_paths,
+            included_paths=included_paths,
+            indexing_mode=indexing_mode,
+            spatial_indices=spatial_indices,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             composite_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicyCompositeIndex']] = None,
+             excluded_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyExcludedPath']] = None,
+             included_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyIncludedPath']] = None,
+             indexing_mode: Optional[str] = None,
+             spatial_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicySpatialIndex']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if composite_indices is not None:
-            pulumi.set(__self__, "composite_indices", composite_indices)
+            _setter("composite_indices", composite_indices)
         if excluded_paths is not None:
-            pulumi.set(__self__, "excluded_paths", excluded_paths)
+            _setter("excluded_paths", excluded_paths)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
         if indexing_mode is not None:
-            pulumi.set(__self__, "indexing_mode", indexing_mode)
+            _setter("indexing_mode", indexing_mode)
         if spatial_indices is not None:
-            pulumi.set(__self__, "spatial_indices", spatial_indices)
+            _setter("spatial_indices", spatial_indices)
 
     @property
     @pulumi.getter(name="compositeIndices")
@@ -1774,7 +2190,16 @@ class SqlContainerIndexingPolicyCompositeIndex(dict):
         """
         :param Sequence['SqlContainerIndexingPolicyCompositeIndexIndexArgs'] indices: One or more `index` blocks as defined below.
         """
-        pulumi.set(__self__, "indices", indices)
+        SqlContainerIndexingPolicyCompositeIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            indices=indices,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             indices: Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("indices", indices)
 
     @property
     @pulumi.getter
@@ -1794,8 +2219,19 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
         :param str order: Order of the index. Possible values are `Ascending` or `Descending`.
         :param str path: Path for which the indexing behaviour applies to.
         """
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "path", path)
+        SqlContainerIndexingPolicyCompositeIndexIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: str,
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("order", order)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1821,7 +2257,16 @@ class SqlContainerIndexingPolicyExcludedPath(dict):
         """
         :param str path: Path that is excluded from indexing.
         """
-        pulumi.set(__self__, "path", path)
+        SqlContainerIndexingPolicyExcludedPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1839,7 +2284,16 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
         """
         :param str path: Path for which the indexing behaviour applies to.
         """
-        pulumi.set(__self__, "path", path)
+        SqlContainerIndexingPolicyIncludedPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1859,9 +2313,20 @@ class SqlContainerIndexingPolicySpatialIndex(dict):
         :param str path: Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
         :param Sequence[str] types: A set of spatial types of the path.
         """
-        pulumi.set(__self__, "path", path)
+        SqlContainerIndexingPolicySpatialIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            types=types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if types is not None:
-            pulumi.set(__self__, "types", types)
+            _setter("types", types)
 
     @property
     @pulumi.getter
@@ -1887,7 +2352,16 @@ class SqlContainerUniqueKey(dict):
         """
         :param Sequence[str] paths: A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "paths", paths)
+        SqlContainerUniqueKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            paths=paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             paths: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("paths", paths)
 
     @property
     @pulumi.getter
@@ -1922,8 +2396,17 @@ class SqlDatabaseAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        SqlDatabaseAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -1958,7 +2441,16 @@ class SqlRoleDefinitionPermission(dict):
         """
         :param Sequence[str] data_actions: A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
         """
-        pulumi.set(__self__, "data_actions", data_actions)
+        SqlRoleDefinitionPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_actions=data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_actions: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_actions", data_actions)
 
     @property
     @pulumi.getter(name="dataActions")
@@ -1993,8 +2485,17 @@ class TableAutoscaleSettings(dict):
         """
         :param int max_throughput: The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
+        TableAutoscaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_throughput is not None:
-            pulumi.set(__self__, "max_throughput", max_throughput)
+            _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -2012,7 +2513,16 @@ class GetAccountCapabilityResult(dict):
         """
         :param str name: Specifies the name of the CosmosDB Account.
         """
-        pulumi.set(__self__, "name", name)
+        GetAccountCapabilityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2034,9 +2544,22 @@ class GetAccountConsistencyPolicyResult(dict):
         :param int max_interval_in_seconds: The amount of staleness (in seconds) tolerated when the consistency level is Bounded Staleness.
         :param int max_staleness_prefix: The number of stale requests tolerated when the consistency level is Bounded Staleness.
         """
-        pulumi.set(__self__, "consistency_level", consistency_level)
-        pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
-        pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+        GetAccountConsistencyPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consistency_level=consistency_level,
+            max_interval_in_seconds=max_interval_in_seconds,
+            max_staleness_prefix=max_staleness_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consistency_level: str,
+             max_interval_in_seconds: int,
+             max_staleness_prefix: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consistency_level", consistency_level)
+        _setter("max_interval_in_seconds", max_interval_in_seconds)
+        _setter("max_staleness_prefix", max_staleness_prefix)
 
     @property
     @pulumi.getter(name="consistencyLevel")
@@ -2073,9 +2596,22 @@ class GetAccountGeoLocationResult(dict):
         :param str id: The ID of the virtual network subnet.
         :param str location: The name of the Azure region hosting replicated data.
         """
-        pulumi.set(__self__, "failover_priority", failover_priority)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
+        GetAccountGeoLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_priority=failover_priority,
+            id=id,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_priority: int,
+             id: str,
+             location: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failover_priority", failover_priority)
+        _setter("id", id)
+        _setter("location", location)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -2106,7 +2642,16 @@ class GetAccountVirtualNetworkRuleResult(dict):
         """
         :param str id: The ID of the virtual network subnet.
         """
-        pulumi.set(__self__, "id", id)
+        GetAccountVirtualNetworkRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2132,11 +2677,28 @@ class GetRestorableDatabaseAccountsAccountResult(dict):
         :param str id: The ID of the Cosmos DB Restorable Database Account.
         :param Sequence['GetRestorableDatabaseAccountsAccountRestorableLocationArgs'] restorable_locations: One or more `restorable_locations` blocks as defined below.
         """
-        pulumi.set(__self__, "api_type", api_type)
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "deletion_time", deletion_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "restorable_locations", restorable_locations)
+        GetRestorableDatabaseAccountsAccountResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_type=api_type,
+            creation_time=creation_time,
+            deletion_time=deletion_time,
+            id=id,
+            restorable_locations=restorable_locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_type: str,
+             creation_time: str,
+             deletion_time: str,
+             id: str,
+             restorable_locations: Sequence['outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_type", api_type)
+        _setter("creation_time", creation_time)
+        _setter("deletion_time", deletion_time)
+        _setter("id", id)
+        _setter("restorable_locations", restorable_locations)
 
     @property
     @pulumi.getter(name="apiType")
@@ -2192,10 +2754,25 @@ class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
         :param str location: The location where the Cosmos DB Database Account.
         :param str regional_database_account_instance_id: The instance ID of the regional Cosmos DB Restorable Database Account.
         """
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "deletion_time", deletion_time)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "regional_database_account_instance_id", regional_database_account_instance_id)
+        GetRestorableDatabaseAccountsAccountRestorableLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time=creation_time,
+            deletion_time=deletion_time,
+            location=location,
+            regional_database_account_instance_id=regional_database_account_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time: str,
+             deletion_time: str,
+             location: str,
+             regional_database_account_instance_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("creation_time", creation_time)
+        _setter("deletion_time", deletion_time)
+        _setter("location", location)
+        _setter("regional_database_account_instance_id", regional_database_account_instance_id)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -2237,7 +2814,16 @@ class GetSqlDatabaseAutoscaleSettingResult(dict):
         """
         :param int max_throughput: The maximum throughput of the SQL database (RU/s).
         """
-        pulumi.set(__self__, "max_throughput", max_throughput)
+        GetSqlDatabaseAutoscaleSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_throughput=max_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_throughput: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
@@ -2255,7 +2841,16 @@ class GetSqlRoleDefinitionPermissionResult(dict):
         """
         :param Sequence[str] data_actions: A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
         """
-        pulumi.set(__self__, "data_actions", data_actions)
+        GetSqlRoleDefinitionPermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_actions=data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_actions: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_actions", data_actions)
 
     @property
     @pulumi.getter(name="dataActions")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SlotVirtualNetworkSwiftConnectionArgs', 'SlotVirtualNetworkSwiftConnection']
@@ -23,9 +23,22 @@ class SlotVirtualNetworkSwiftConnectionArgs:
         :param pulumi.Input[str] slot_name: The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
-        pulumi.set(__self__, "app_service_id", app_service_id)
-        pulumi.set(__self__, "slot_name", slot_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        SlotVirtualNetworkSwiftConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_id=app_service_id,
+            slot_name=slot_name,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_id: pulumi.Input[str],
+             slot_name: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_service_id", app_service_id)
+        _setter("slot_name", slot_name)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -76,12 +89,25 @@ class _SlotVirtualNetworkSwiftConnectionState:
         :param pulumi.Input[str] slot_name: The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
+        _SlotVirtualNetworkSwiftConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_id=app_service_id,
+            slot_name=slot_name,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             slot_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_id is not None:
-            pulumi.set(__self__, "app_service_id", app_service_id)
+            _setter("app_service_id", app_service_id)
         if slot_name is not None:
-            pulumi.set(__self__, "slot_name", slot_name)
+            _setter("slot_name", slot_name)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -261,6 +287,10 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SlotVirtualNetworkSwiftConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

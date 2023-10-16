@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class BackendAddressPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
-        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        BackendAddressPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            loadbalancer_id=loadbalancer_id,
+            name=name,
+            tunnel_interfaces=tunnel_interfaces,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             loadbalancer_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("loadbalancer_id", loadbalancer_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tunnel_interfaces is not None:
-            pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+            _setter("tunnel_interfaces", tunnel_interfaces)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="loadbalancerId")
@@ -106,22 +121,45 @@ class _BackendAddressPoolState:
         :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
+        _BackendAddressPoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_ip_configurations=backend_ip_configurations,
+            inbound_nat_rules=inbound_nat_rules,
+            load_balancing_rules=load_balancing_rules,
+            loadbalancer_id=loadbalancer_id,
+            name=name,
+            outbound_rules=outbound_rules,
+            tunnel_interfaces=tunnel_interfaces,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_ip_configurations is not None:
-            pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
+            _setter("backend_ip_configurations", backend_ip_configurations)
         if inbound_nat_rules is not None:
-            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+            _setter("inbound_nat_rules", inbound_nat_rules)
         if load_balancing_rules is not None:
-            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+            _setter("load_balancing_rules", load_balancing_rules)
         if loadbalancer_id is not None:
-            pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+            _setter("loadbalancer_id", loadbalancer_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_rules is not None:
-            pulumi.set(__self__, "outbound_rules", outbound_rules)
+            _setter("outbound_rules", outbound_rules)
         if tunnel_interfaces is not None:
-            pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+            _setter("tunnel_interfaces", tunnel_interfaces)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="backendIpConfigurations")
@@ -321,6 +359,10 @@ class BackendAddressPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackendAddressPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

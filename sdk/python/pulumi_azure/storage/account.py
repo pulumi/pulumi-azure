@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -112,75 +112,154 @@ class AccountArgs:
                > **NOTE:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "account_replication_type", account_replication_type)
-        pulumi.set(__self__, "account_tier", account_tier)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_replication_type=account_replication_type,
+            account_tier=account_tier,
+            resource_group_name=resource_group_name,
+            access_tier=access_tier,
+            account_kind=account_kind,
+            allow_nested_items_to_be_public=allow_nested_items_to_be_public,
+            allowed_copy_scope=allowed_copy_scope,
+            azure_files_authentication=azure_files_authentication,
+            blob_properties=blob_properties,
+            cross_tenant_replication_enabled=cross_tenant_replication_enabled,
+            custom_domain=custom_domain,
+            customer_managed_key=customer_managed_key,
+            default_to_oauth_authentication=default_to_oauth_authentication,
+            edge_zone=edge_zone,
+            enable_https_traffic_only=enable_https_traffic_only,
+            identity=identity,
+            immutability_policy=immutability_policy,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            is_hns_enabled=is_hns_enabled,
+            large_file_share_enabled=large_file_share_enabled,
+            location=location,
+            min_tls_version=min_tls_version,
+            name=name,
+            network_rules=network_rules,
+            nfsv3_enabled=nfsv3_enabled,
+            public_network_access_enabled=public_network_access_enabled,
+            queue_encryption_key_type=queue_encryption_key_type,
+            queue_properties=queue_properties,
+            routing=routing,
+            sas_policy=sas_policy,
+            sftp_enabled=sftp_enabled,
+            share_properties=share_properties,
+            shared_access_key_enabled=shared_access_key_enabled,
+            static_website=static_website,
+            table_encryption_key_type=table_encryption_key_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_replication_type: pulumi.Input[str],
+             account_tier: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             access_tier: Optional[pulumi.Input[str]] = None,
+             account_kind: Optional[pulumi.Input[str]] = None,
+             allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
+             allowed_copy_scope: Optional[pulumi.Input[str]] = None,
+             azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
+             blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
+             cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
+             custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
+             customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
+             default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+             immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+             large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             min_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
+             nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
+             queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
+             routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
+             sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
+             sftp_enabled: Optional[pulumi.Input[bool]] = None,
+             share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
+             shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
+             static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
+             table_encryption_key_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_replication_type", account_replication_type)
+        _setter("account_tier", account_tier)
+        _setter("resource_group_name", resource_group_name)
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if account_kind is not None:
-            pulumi.set(__self__, "account_kind", account_kind)
+            _setter("account_kind", account_kind)
         if allow_nested_items_to_be_public is not None:
-            pulumi.set(__self__, "allow_nested_items_to_be_public", allow_nested_items_to_be_public)
+            _setter("allow_nested_items_to_be_public", allow_nested_items_to_be_public)
         if allowed_copy_scope is not None:
-            pulumi.set(__self__, "allowed_copy_scope", allowed_copy_scope)
+            _setter("allowed_copy_scope", allowed_copy_scope)
         if azure_files_authentication is not None:
-            pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
+            _setter("azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
-            pulumi.set(__self__, "blob_properties", blob_properties)
+            _setter("blob_properties", blob_properties)
         if cross_tenant_replication_enabled is not None:
-            pulumi.set(__self__, "cross_tenant_replication_enabled", cross_tenant_replication_enabled)
+            _setter("cross_tenant_replication_enabled", cross_tenant_replication_enabled)
         if custom_domain is not None:
-            pulumi.set(__self__, "custom_domain", custom_domain)
+            _setter("custom_domain", custom_domain)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if default_to_oauth_authentication is not None:
-            pulumi.set(__self__, "default_to_oauth_authentication", default_to_oauth_authentication)
+            _setter("default_to_oauth_authentication", default_to_oauth_authentication)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
-            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+            _setter("enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if immutability_policy is not None:
-            pulumi.set(__self__, "immutability_policy", immutability_policy)
+            _setter("immutability_policy", immutability_policy)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if is_hns_enabled is not None:
-            pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+            _setter("is_hns_enabled", is_hns_enabled)
         if large_file_share_enabled is not None:
-            pulumi.set(__self__, "large_file_share_enabled", large_file_share_enabled)
+            _setter("large_file_share_enabled", large_file_share_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rules is not None:
-            pulumi.set(__self__, "network_rules", network_rules)
+            _setter("network_rules", network_rules)
         if nfsv3_enabled is not None:
-            pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
+            _setter("nfsv3_enabled", nfsv3_enabled)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
-            pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
+            _setter("queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
-            pulumi.set(__self__, "queue_properties", queue_properties)
+            _setter("queue_properties", queue_properties)
         if routing is not None:
-            pulumi.set(__self__, "routing", routing)
+            _setter("routing", routing)
         if sas_policy is not None:
-            pulumi.set(__self__, "sas_policy", sas_policy)
+            _setter("sas_policy", sas_policy)
         if sftp_enabled is not None:
-            pulumi.set(__self__, "sftp_enabled", sftp_enabled)
+            _setter("sftp_enabled", sftp_enabled)
         if share_properties is not None:
-            pulumi.set(__self__, "share_properties", share_properties)
+            _setter("share_properties", share_properties)
         if shared_access_key_enabled is not None:
-            pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
+            _setter("shared_access_key_enabled", shared_access_key_enabled)
         if static_website is not None:
-            pulumi.set(__self__, "static_website", static_website)
+            _setter("static_website", static_website)
         if table_encryption_key_type is not None:
-            pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
+            _setter("table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountReplicationType")
@@ -797,142 +876,285 @@ class _AccountState:
                > **NOTE:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _AccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_tier=access_tier,
+            account_kind=account_kind,
+            account_replication_type=account_replication_type,
+            account_tier=account_tier,
+            allow_nested_items_to_be_public=allow_nested_items_to_be_public,
+            allowed_copy_scope=allowed_copy_scope,
+            azure_files_authentication=azure_files_authentication,
+            blob_properties=blob_properties,
+            cross_tenant_replication_enabled=cross_tenant_replication_enabled,
+            custom_domain=custom_domain,
+            customer_managed_key=customer_managed_key,
+            default_to_oauth_authentication=default_to_oauth_authentication,
+            edge_zone=edge_zone,
+            enable_https_traffic_only=enable_https_traffic_only,
+            identity=identity,
+            immutability_policy=immutability_policy,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            is_hns_enabled=is_hns_enabled,
+            large_file_share_enabled=large_file_share_enabled,
+            location=location,
+            min_tls_version=min_tls_version,
+            name=name,
+            network_rules=network_rules,
+            nfsv3_enabled=nfsv3_enabled,
+            primary_access_key=primary_access_key,
+            primary_blob_connection_string=primary_blob_connection_string,
+            primary_blob_endpoint=primary_blob_endpoint,
+            primary_blob_host=primary_blob_host,
+            primary_connection_string=primary_connection_string,
+            primary_dfs_endpoint=primary_dfs_endpoint,
+            primary_dfs_host=primary_dfs_host,
+            primary_file_endpoint=primary_file_endpoint,
+            primary_file_host=primary_file_host,
+            primary_location=primary_location,
+            primary_queue_endpoint=primary_queue_endpoint,
+            primary_queue_host=primary_queue_host,
+            primary_table_endpoint=primary_table_endpoint,
+            primary_table_host=primary_table_host,
+            primary_web_endpoint=primary_web_endpoint,
+            primary_web_host=primary_web_host,
+            public_network_access_enabled=public_network_access_enabled,
+            queue_encryption_key_type=queue_encryption_key_type,
+            queue_properties=queue_properties,
+            resource_group_name=resource_group_name,
+            routing=routing,
+            sas_policy=sas_policy,
+            secondary_access_key=secondary_access_key,
+            secondary_blob_connection_string=secondary_blob_connection_string,
+            secondary_blob_endpoint=secondary_blob_endpoint,
+            secondary_blob_host=secondary_blob_host,
+            secondary_connection_string=secondary_connection_string,
+            secondary_dfs_endpoint=secondary_dfs_endpoint,
+            secondary_dfs_host=secondary_dfs_host,
+            secondary_file_endpoint=secondary_file_endpoint,
+            secondary_file_host=secondary_file_host,
+            secondary_location=secondary_location,
+            secondary_queue_endpoint=secondary_queue_endpoint,
+            secondary_queue_host=secondary_queue_host,
+            secondary_table_endpoint=secondary_table_endpoint,
+            secondary_table_host=secondary_table_host,
+            secondary_web_endpoint=secondary_web_endpoint,
+            secondary_web_host=secondary_web_host,
+            sftp_enabled=sftp_enabled,
+            share_properties=share_properties,
+            shared_access_key_enabled=shared_access_key_enabled,
+            static_website=static_website,
+            table_encryption_key_type=table_encryption_key_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_tier: Optional[pulumi.Input[str]] = None,
+             account_kind: Optional[pulumi.Input[str]] = None,
+             account_replication_type: Optional[pulumi.Input[str]] = None,
+             account_tier: Optional[pulumi.Input[str]] = None,
+             allow_nested_items_to_be_public: Optional[pulumi.Input[bool]] = None,
+             allowed_copy_scope: Optional[pulumi.Input[str]] = None,
+             azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
+             blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
+             cross_tenant_replication_enabled: Optional[pulumi.Input[bool]] = None,
+             custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
+             customer_managed_key: Optional[pulumi.Input['AccountCustomerManagedKeyArgs']] = None,
+             default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+             immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+             large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             min_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
+             nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+             primary_access_key: Optional[pulumi.Input[str]] = None,
+             primary_blob_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_blob_endpoint: Optional[pulumi.Input[str]] = None,
+             primary_blob_host: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_dfs_endpoint: Optional[pulumi.Input[str]] = None,
+             primary_dfs_host: Optional[pulumi.Input[str]] = None,
+             primary_file_endpoint: Optional[pulumi.Input[str]] = None,
+             primary_file_host: Optional[pulumi.Input[str]] = None,
+             primary_location: Optional[pulumi.Input[str]] = None,
+             primary_queue_endpoint: Optional[pulumi.Input[str]] = None,
+             primary_queue_host: Optional[pulumi.Input[str]] = None,
+             primary_table_endpoint: Optional[pulumi.Input[str]] = None,
+             primary_table_host: Optional[pulumi.Input[str]] = None,
+             primary_web_endpoint: Optional[pulumi.Input[str]] = None,
+             primary_web_host: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
+             queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
+             sas_policy: Optional[pulumi.Input['AccountSasPolicyArgs']] = None,
+             secondary_access_key: Optional[pulumi.Input[str]] = None,
+             secondary_blob_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_blob_endpoint: Optional[pulumi.Input[str]] = None,
+             secondary_blob_host: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_dfs_endpoint: Optional[pulumi.Input[str]] = None,
+             secondary_dfs_host: Optional[pulumi.Input[str]] = None,
+             secondary_file_endpoint: Optional[pulumi.Input[str]] = None,
+             secondary_file_host: Optional[pulumi.Input[str]] = None,
+             secondary_location: Optional[pulumi.Input[str]] = None,
+             secondary_queue_endpoint: Optional[pulumi.Input[str]] = None,
+             secondary_queue_host: Optional[pulumi.Input[str]] = None,
+             secondary_table_endpoint: Optional[pulumi.Input[str]] = None,
+             secondary_table_host: Optional[pulumi.Input[str]] = None,
+             secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
+             secondary_web_host: Optional[pulumi.Input[str]] = None,
+             sftp_enabled: Optional[pulumi.Input[bool]] = None,
+             share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
+             shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
+             static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
+             table_encryption_key_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if account_kind is not None:
-            pulumi.set(__self__, "account_kind", account_kind)
+            _setter("account_kind", account_kind)
         if account_replication_type is not None:
-            pulumi.set(__self__, "account_replication_type", account_replication_type)
+            _setter("account_replication_type", account_replication_type)
         if account_tier is not None:
-            pulumi.set(__self__, "account_tier", account_tier)
+            _setter("account_tier", account_tier)
         if allow_nested_items_to_be_public is not None:
-            pulumi.set(__self__, "allow_nested_items_to_be_public", allow_nested_items_to_be_public)
+            _setter("allow_nested_items_to_be_public", allow_nested_items_to_be_public)
         if allowed_copy_scope is not None:
-            pulumi.set(__self__, "allowed_copy_scope", allowed_copy_scope)
+            _setter("allowed_copy_scope", allowed_copy_scope)
         if azure_files_authentication is not None:
-            pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
+            _setter("azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
-            pulumi.set(__self__, "blob_properties", blob_properties)
+            _setter("blob_properties", blob_properties)
         if cross_tenant_replication_enabled is not None:
-            pulumi.set(__self__, "cross_tenant_replication_enabled", cross_tenant_replication_enabled)
+            _setter("cross_tenant_replication_enabled", cross_tenant_replication_enabled)
         if custom_domain is not None:
-            pulumi.set(__self__, "custom_domain", custom_domain)
+            _setter("custom_domain", custom_domain)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if default_to_oauth_authentication is not None:
-            pulumi.set(__self__, "default_to_oauth_authentication", default_to_oauth_authentication)
+            _setter("default_to_oauth_authentication", default_to_oauth_authentication)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
-            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+            _setter("enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if immutability_policy is not None:
-            pulumi.set(__self__, "immutability_policy", immutability_policy)
+            _setter("immutability_policy", immutability_policy)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if is_hns_enabled is not None:
-            pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+            _setter("is_hns_enabled", is_hns_enabled)
         if large_file_share_enabled is not None:
-            pulumi.set(__self__, "large_file_share_enabled", large_file_share_enabled)
+            _setter("large_file_share_enabled", large_file_share_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rules is not None:
-            pulumi.set(__self__, "network_rules", network_rules)
+            _setter("network_rules", network_rules)
         if nfsv3_enabled is not None:
-            pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
+            _setter("nfsv3_enabled", nfsv3_enabled)
         if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
+            _setter("primary_access_key", primary_access_key)
         if primary_blob_connection_string is not None:
-            pulumi.set(__self__, "primary_blob_connection_string", primary_blob_connection_string)
+            _setter("primary_blob_connection_string", primary_blob_connection_string)
         if primary_blob_endpoint is not None:
-            pulumi.set(__self__, "primary_blob_endpoint", primary_blob_endpoint)
+            _setter("primary_blob_endpoint", primary_blob_endpoint)
         if primary_blob_host is not None:
-            pulumi.set(__self__, "primary_blob_host", primary_blob_host)
+            _setter("primary_blob_host", primary_blob_host)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_dfs_endpoint is not None:
-            pulumi.set(__self__, "primary_dfs_endpoint", primary_dfs_endpoint)
+            _setter("primary_dfs_endpoint", primary_dfs_endpoint)
         if primary_dfs_host is not None:
-            pulumi.set(__self__, "primary_dfs_host", primary_dfs_host)
+            _setter("primary_dfs_host", primary_dfs_host)
         if primary_file_endpoint is not None:
-            pulumi.set(__self__, "primary_file_endpoint", primary_file_endpoint)
+            _setter("primary_file_endpoint", primary_file_endpoint)
         if primary_file_host is not None:
-            pulumi.set(__self__, "primary_file_host", primary_file_host)
+            _setter("primary_file_host", primary_file_host)
         if primary_location is not None:
-            pulumi.set(__self__, "primary_location", primary_location)
+            _setter("primary_location", primary_location)
         if primary_queue_endpoint is not None:
-            pulumi.set(__self__, "primary_queue_endpoint", primary_queue_endpoint)
+            _setter("primary_queue_endpoint", primary_queue_endpoint)
         if primary_queue_host is not None:
-            pulumi.set(__self__, "primary_queue_host", primary_queue_host)
+            _setter("primary_queue_host", primary_queue_host)
         if primary_table_endpoint is not None:
-            pulumi.set(__self__, "primary_table_endpoint", primary_table_endpoint)
+            _setter("primary_table_endpoint", primary_table_endpoint)
         if primary_table_host is not None:
-            pulumi.set(__self__, "primary_table_host", primary_table_host)
+            _setter("primary_table_host", primary_table_host)
         if primary_web_endpoint is not None:
-            pulumi.set(__self__, "primary_web_endpoint", primary_web_endpoint)
+            _setter("primary_web_endpoint", primary_web_endpoint)
         if primary_web_host is not None:
-            pulumi.set(__self__, "primary_web_host", primary_web_host)
+            _setter("primary_web_host", primary_web_host)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
-            pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
+            _setter("queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
-            pulumi.set(__self__, "queue_properties", queue_properties)
+            _setter("queue_properties", queue_properties)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routing is not None:
-            pulumi.set(__self__, "routing", routing)
+            _setter("routing", routing)
         if sas_policy is not None:
-            pulumi.set(__self__, "sas_policy", sas_policy)
+            _setter("sas_policy", sas_policy)
         if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+            _setter("secondary_access_key", secondary_access_key)
         if secondary_blob_connection_string is not None:
-            pulumi.set(__self__, "secondary_blob_connection_string", secondary_blob_connection_string)
+            _setter("secondary_blob_connection_string", secondary_blob_connection_string)
         if secondary_blob_endpoint is not None:
-            pulumi.set(__self__, "secondary_blob_endpoint", secondary_blob_endpoint)
+            _setter("secondary_blob_endpoint", secondary_blob_endpoint)
         if secondary_blob_host is not None:
-            pulumi.set(__self__, "secondary_blob_host", secondary_blob_host)
+            _setter("secondary_blob_host", secondary_blob_host)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_dfs_endpoint is not None:
-            pulumi.set(__self__, "secondary_dfs_endpoint", secondary_dfs_endpoint)
+            _setter("secondary_dfs_endpoint", secondary_dfs_endpoint)
         if secondary_dfs_host is not None:
-            pulumi.set(__self__, "secondary_dfs_host", secondary_dfs_host)
+            _setter("secondary_dfs_host", secondary_dfs_host)
         if secondary_file_endpoint is not None:
-            pulumi.set(__self__, "secondary_file_endpoint", secondary_file_endpoint)
+            _setter("secondary_file_endpoint", secondary_file_endpoint)
         if secondary_file_host is not None:
-            pulumi.set(__self__, "secondary_file_host", secondary_file_host)
+            _setter("secondary_file_host", secondary_file_host)
         if secondary_location is not None:
-            pulumi.set(__self__, "secondary_location", secondary_location)
+            _setter("secondary_location", secondary_location)
         if secondary_queue_endpoint is not None:
-            pulumi.set(__self__, "secondary_queue_endpoint", secondary_queue_endpoint)
+            _setter("secondary_queue_endpoint", secondary_queue_endpoint)
         if secondary_queue_host is not None:
-            pulumi.set(__self__, "secondary_queue_host", secondary_queue_host)
+            _setter("secondary_queue_host", secondary_queue_host)
         if secondary_table_endpoint is not None:
-            pulumi.set(__self__, "secondary_table_endpoint", secondary_table_endpoint)
+            _setter("secondary_table_endpoint", secondary_table_endpoint)
         if secondary_table_host is not None:
-            pulumi.set(__self__, "secondary_table_host", secondary_table_host)
+            _setter("secondary_table_host", secondary_table_host)
         if secondary_web_endpoint is not None:
-            pulumi.set(__self__, "secondary_web_endpoint", secondary_web_endpoint)
+            _setter("secondary_web_endpoint", secondary_web_endpoint)
         if secondary_web_host is not None:
-            pulumi.set(__self__, "secondary_web_host", secondary_web_host)
+            _setter("secondary_web_host", secondary_web_host)
         if sftp_enabled is not None:
-            pulumi.set(__self__, "sftp_enabled", sftp_enabled)
+            _setter("sftp_enabled", sftp_enabled)
         if share_properties is not None:
-            pulumi.set(__self__, "share_properties", share_properties)
+            _setter("share_properties", share_properties)
         if shared_access_key_enabled is not None:
-            pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
+            _setter("shared_access_key_enabled", shared_access_key_enabled)
         if static_website is not None:
-            pulumi.set(__self__, "static_website", static_website)
+            _setter("static_website", static_website)
         if table_encryption_key_type is not None:
-            pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
+            _setter("table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessTier")
@@ -2010,6 +2232,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2070,15 +2296,45 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["account_tier"] = account_tier
             __props__.__dict__["allow_nested_items_to_be_public"] = allow_nested_items_to_be_public
             __props__.__dict__["allowed_copy_scope"] = allowed_copy_scope
+            if azure_files_authentication is not None and not isinstance(azure_files_authentication, AccountAzureFilesAuthenticationArgs):
+                azure_files_authentication = azure_files_authentication or {}
+                def _setter(key, value):
+                    azure_files_authentication[key] = value
+                AccountAzureFilesAuthenticationArgs._configure(_setter, **azure_files_authentication)
             __props__.__dict__["azure_files_authentication"] = azure_files_authentication
+            if blob_properties is not None and not isinstance(blob_properties, AccountBlobPropertiesArgs):
+                blob_properties = blob_properties or {}
+                def _setter(key, value):
+                    blob_properties[key] = value
+                AccountBlobPropertiesArgs._configure(_setter, **blob_properties)
             __props__.__dict__["blob_properties"] = blob_properties
             __props__.__dict__["cross_tenant_replication_enabled"] = cross_tenant_replication_enabled
+            if custom_domain is not None and not isinstance(custom_domain, AccountCustomDomainArgs):
+                custom_domain = custom_domain or {}
+                def _setter(key, value):
+                    custom_domain[key] = value
+                AccountCustomDomainArgs._configure(_setter, **custom_domain)
             __props__.__dict__["custom_domain"] = custom_domain
+            if customer_managed_key is not None and not isinstance(customer_managed_key, AccountCustomerManagedKeyArgs):
+                customer_managed_key = customer_managed_key or {}
+                def _setter(key, value):
+                    customer_managed_key[key] = value
+                AccountCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["default_to_oauth_authentication"] = default_to_oauth_authentication
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
+            if identity is not None and not isinstance(identity, AccountIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                AccountIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if immutability_policy is not None and not isinstance(immutability_policy, AccountImmutabilityPolicyArgs):
+                immutability_policy = immutability_policy or {}
+                def _setter(key, value):
+                    immutability_policy[key] = value
+                AccountImmutabilityPolicyArgs._configure(_setter, **immutability_policy)
             __props__.__dict__["immutability_policy"] = immutability_policy
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["is_hns_enabled"] = is_hns_enabled
@@ -2086,19 +2342,49 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["min_tls_version"] = min_tls_version
             __props__.__dict__["name"] = name
+            if network_rules is not None and not isinstance(network_rules, AccountNetworkRulesArgs):
+                network_rules = network_rules or {}
+                def _setter(key, value):
+                    network_rules[key] = value
+                AccountNetworkRulesArgs._configure(_setter, **network_rules)
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
+            if queue_properties is not None and not isinstance(queue_properties, AccountQueuePropertiesArgs):
+                queue_properties = queue_properties or {}
+                def _setter(key, value):
+                    queue_properties[key] = value
+                AccountQueuePropertiesArgs._configure(_setter, **queue_properties)
             __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if routing is not None and not isinstance(routing, AccountRoutingArgs):
+                routing = routing or {}
+                def _setter(key, value):
+                    routing[key] = value
+                AccountRoutingArgs._configure(_setter, **routing)
             __props__.__dict__["routing"] = routing
+            if sas_policy is not None and not isinstance(sas_policy, AccountSasPolicyArgs):
+                sas_policy = sas_policy or {}
+                def _setter(key, value):
+                    sas_policy[key] = value
+                AccountSasPolicyArgs._configure(_setter, **sas_policy)
             __props__.__dict__["sas_policy"] = sas_policy
             __props__.__dict__["sftp_enabled"] = sftp_enabled
+            if share_properties is not None and not isinstance(share_properties, AccountSharePropertiesArgs):
+                share_properties = share_properties or {}
+                def _setter(key, value):
+                    share_properties[key] = value
+                AccountSharePropertiesArgs._configure(_setter, **share_properties)
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
+            if static_website is not None and not isinstance(static_website, AccountStaticWebsiteArgs):
+                static_website = static_website or {}
+                def _setter(key, value):
+                    static_website[key] = value
+                AccountStaticWebsiteArgs._configure(_setter, **static_website)
             __props__.__dict__["static_website"] = static_website
             __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
             __props__.__dict__["tags"] = tags

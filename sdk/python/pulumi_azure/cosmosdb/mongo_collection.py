@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,50 @@ class MongoCollectionArgs:
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MongoCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            analytical_storage_ttl=analytical_storage_ttl,
+            autoscale_settings=autoscale_settings,
+            default_ttl_seconds=default_ttl_seconds,
+            indices=indices,
+            name=name,
+            shard_key=shard_key,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+             autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
+             default_ttl_seconds: Optional[pulumi.Input[int]] = None,
+             indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             shard_key: Optional[pulumi.Input[str]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if default_ttl_seconds is not None:
-            pulumi.set(__self__, "default_ttl_seconds", default_ttl_seconds)
+            _setter("default_ttl_seconds", default_ttl_seconds)
         if indices is not None:
-            pulumi.set(__self__, "indices", indices)
+            _setter("indices", indices)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="accountName")
@@ -196,28 +223,57 @@ class _MongoCollectionState:
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]] system_indexes: One or more `system_indexes` blocks as defined below.
         """
+        _MongoCollectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            analytical_storage_ttl=analytical_storage_ttl,
+            autoscale_settings=autoscale_settings,
+            database_name=database_name,
+            default_ttl_seconds=default_ttl_seconds,
+            indices=indices,
+            name=name,
+            resource_group_name=resource_group_name,
+            shard_key=shard_key,
+            system_indexes=system_indexes,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+             autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             default_ttl_seconds: Optional[pulumi.Input[int]] = None,
+             indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             shard_key: Optional[pulumi.Input[str]] = None,
+             system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if default_ttl_seconds is not None:
-            pulumi.set(__self__, "default_ttl_seconds", default_ttl_seconds)
+            _setter("default_ttl_seconds", default_ttl_seconds)
         if indices is not None:
-            pulumi.set(__self__, "indices", indices)
+            _setter("indices", indices)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if system_indexes is not None:
-            pulumi.set(__self__, "system_indexes", system_indexes)
+            _setter("system_indexes", system_indexes)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="accountName")
@@ -459,6 +515,10 @@ class MongoCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -487,6 +547,11 @@ class MongoCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
+            if autoscale_settings is not None and not isinstance(autoscale_settings, MongoCollectionAutoscaleSettingsArgs):
+                autoscale_settings = autoscale_settings or {}
+                def _setter(key, value):
+                    autoscale_settings[key] = value
+                MongoCollectionAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

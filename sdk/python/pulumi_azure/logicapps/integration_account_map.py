@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationAccountMapArgs', 'IntegrationAccountMap']
@@ -29,14 +29,33 @@ class IntegrationAccountMapArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Map.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "map_type", map_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountMapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            integration_account_name=integration_account_name,
+            map_type=map_type,
+            resource_group_name=resource_group_name,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             integration_account_name: pulumi.Input[str],
+             map_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("integration_account_name", integration_account_name)
+        _setter("map_type", map_type)
+        _setter("resource_group_name", resource_group_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -129,18 +148,37 @@ class _IntegrationAccountMapState:
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
         """
+        _IntegrationAccountMapState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            integration_account_name=integration_account_name,
+            map_type=map_type,
+            metadata=metadata,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             map_type: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if integration_account_name is not None:
-            pulumi.set(__self__, "integration_account_name", integration_account_name)
+            _setter("integration_account_name", integration_account_name)
         if map_type is not None:
-            pulumi.set(__self__, "map_type", map_type)
+            _setter("map_type", map_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -310,6 +348,10 @@ class IntegrationAccountMap(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountMapArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

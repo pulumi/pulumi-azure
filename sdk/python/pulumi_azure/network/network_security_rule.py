@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkSecurityRuleArgs', 'NetworkSecurityRule']
@@ -53,36 +53,79 @@ class NetworkSecurityRuleArgs:
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "network_security_group_name", network_security_group_name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkSecurityRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            direction=direction,
+            network_security_group_name=network_security_group_name,
+            priority=priority,
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            description=description,
+            destination_address_prefix=destination_address_prefix,
+            destination_address_prefixes=destination_address_prefixes,
+            destination_application_security_group_ids=destination_application_security_group_ids,
+            destination_port_range=destination_port_range,
+            destination_port_ranges=destination_port_ranges,
+            name=name,
+            source_address_prefix=source_address_prefix,
+            source_address_prefixes=source_address_prefixes,
+            source_application_security_group_ids=source_application_security_group_ids,
+            source_port_range=source_port_range,
+            source_port_ranges=source_port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: pulumi.Input[str],
+             direction: pulumi.Input[str],
+             network_security_group_name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_address_prefix: Optional[pulumi.Input[str]] = None,
+             destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+             destination_port_range: Optional[pulumi.Input[str]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_address_prefix: Optional[pulumi.Input[str]] = None,
+             source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+             source_port_range: Optional[pulumi.Input[str]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access", access)
+        _setter("direction", direction)
+        _setter("network_security_group_name", network_security_group_name)
+        _setter("priority", priority)
+        _setter("protocol", protocol)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address_prefix is not None:
-            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+            _setter("destination_address_prefix", destination_address_prefix)
         if destination_address_prefixes is not None:
-            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+            _setter("destination_address_prefixes", destination_address_prefixes)
         if destination_application_security_group_ids is not None:
-            pulumi.set(__self__, "destination_application_security_group_ids", destination_application_security_group_ids)
+            _setter("destination_application_security_group_ids", destination_application_security_group_ids)
         if destination_port_range is not None:
-            pulumi.set(__self__, "destination_port_range", destination_port_range)
+            _setter("destination_port_range", destination_port_range)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_address_prefix is not None:
-            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+            _setter("source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
-            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+            _setter("source_address_prefixes", source_address_prefixes)
         if source_application_security_group_ids is not None:
-            pulumi.set(__self__, "source_application_security_group_ids", source_application_security_group_ids)
+            _setter("source_application_security_group_ids", source_application_security_group_ids)
         if source_port_range is not None:
-            pulumi.set(__self__, "source_port_range", source_port_range)
+            _setter("source_port_range", source_port_range)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -343,42 +386,85 @@ class _NetworkSecurityRuleState:
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
+        _NetworkSecurityRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            description=description,
+            destination_address_prefix=destination_address_prefix,
+            destination_address_prefixes=destination_address_prefixes,
+            destination_application_security_group_ids=destination_application_security_group_ids,
+            destination_port_range=destination_port_range,
+            destination_port_ranges=destination_port_ranges,
+            direction=direction,
+            name=name,
+            network_security_group_name=network_security_group_name,
+            priority=priority,
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            source_address_prefix=source_address_prefix,
+            source_address_prefixes=source_address_prefixes,
+            source_application_security_group_ids=source_application_security_group_ids,
+            source_port_range=source_port_range,
+            source_port_ranges=source_port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_address_prefix: Optional[pulumi.Input[str]] = None,
+             destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             destination_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+             destination_port_range: Optional[pulumi.Input[str]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_security_group_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_address_prefix: Optional[pulumi.Input[str]] = None,
+             source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+             source_port_range: Optional[pulumi.Input[str]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access is not None:
-            pulumi.set(__self__, "access", access)
+            _setter("access", access)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address_prefix is not None:
-            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+            _setter("destination_address_prefix", destination_address_prefix)
         if destination_address_prefixes is not None:
-            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+            _setter("destination_address_prefixes", destination_address_prefixes)
         if destination_application_security_group_ids is not None:
-            pulumi.set(__self__, "destination_application_security_group_ids", destination_application_security_group_ids)
+            _setter("destination_application_security_group_ids", destination_application_security_group_ids)
         if destination_port_range is not None:
-            pulumi.set(__self__, "destination_port_range", destination_port_range)
+            _setter("destination_port_range", destination_port_range)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_security_group_name is not None:
-            pulumi.set(__self__, "network_security_group_name", network_security_group_name)
+            _setter("network_security_group_name", network_security_group_name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if source_address_prefix is not None:
-            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+            _setter("source_address_prefix", source_address_prefix)
         if source_address_prefixes is not None:
-            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+            _setter("source_address_prefixes", source_address_prefixes)
         if source_application_security_group_ids is not None:
-            pulumi.set(__self__, "source_application_security_group_ids", source_application_security_group_ids)
+            _setter("source_application_security_group_ids", source_application_security_group_ids)
         if source_port_range is not None:
-            pulumi.set(__self__, "source_port_range", source_port_range)
+            _setter("source_port_range", source_port_range)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -734,6 +820,10 @@ class NetworkSecurityRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkSecurityRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

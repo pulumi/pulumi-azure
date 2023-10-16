@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2
     {
         /// <summary>
-        /// The OpenID Connect Client ID for the Apple web application.
+        /// The ID of the Client to use to authenticate with Azure Active Directory.
         /// </summary>
         public readonly string ClientId;
 

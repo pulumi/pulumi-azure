@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -29,16 +29,35 @@ class ApplicationArgs:
         :param pulumi.Input[str] display_name: The display name for the application.
         :param pulumi.Input[str] name: The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            allow_updates=allow_updates,
+            default_version=default_version,
+            display_name=display_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             allow_updates: Optional[pulumi.Input[bool]] = None,
+             default_version: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if allow_updates is not None:
-            pulumi.set(__self__, "allow_updates", allow_updates)
+            _setter("allow_updates", allow_updates)
         if default_version is not None:
-            pulumi.set(__self__, "default_version", default_version)
+            _setter("default_version", default_version)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -131,18 +150,37 @@ class _ApplicationState:
         :param pulumi.Input[str] name: The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            allow_updates=allow_updates,
+            default_version=default_version,
+            display_name=display_name,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             allow_updates: Optional[pulumi.Input[bool]] = None,
+             default_version: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if allow_updates is not None:
-            pulumi.set(__self__, "allow_updates", allow_updates)
+            _setter("allow_updates", allow_updates)
         if default_version is not None:
-            pulumi.set(__self__, "default_version", default_version)
+            _setter("default_version", default_version)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -322,6 +360,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

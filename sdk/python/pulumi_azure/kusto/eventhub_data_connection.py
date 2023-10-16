@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventhubDataConnectionArgs', 'EventhubDataConnection']
@@ -45,29 +45,64 @@ class EventhubDataConnectionArgs:
         :param pulumi.Input[str] name: The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "consumer_group", consumer_group)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "eventhub_id", eventhub_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EventhubDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            consumer_group=consumer_group,
+            database_name=database_name,
+            eventhub_id=eventhub_id,
+            resource_group_name=resource_group_name,
+            compression=compression,
+            data_format=data_format,
+            database_routing_type=database_routing_type,
+            event_system_properties=event_system_properties,
+            identity_id=identity_id,
+            location=location,
+            mapping_rule_name=mapping_rule_name,
+            name=name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             consumer_group: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             eventhub_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             compression: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             database_routing_type: Optional[pulumi.Input[str]] = None,
+             event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             identity_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("consumer_group", consumer_group)
+        _setter("database_name", database_name)
+        _setter("eventhub_id", eventhub_id)
+        _setter("resource_group_name", resource_group_name)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if database_routing_type is not None:
-            pulumi.set(__self__, "database_routing_type", database_routing_type)
+            _setter("database_routing_type", database_routing_type)
         if event_system_properties is not None:
-            pulumi.set(__self__, "event_system_properties", event_system_properties)
+            _setter("event_system_properties", event_system_properties)
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -272,34 +307,69 @@ class _EventhubDataConnectionState:
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
+        _EventhubDataConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            compression=compression,
+            consumer_group=consumer_group,
+            data_format=data_format,
+            database_name=database_name,
+            database_routing_type=database_routing_type,
+            event_system_properties=event_system_properties,
+            eventhub_id=eventhub_id,
+            identity_id=identity_id,
+            location=location,
+            mapping_rule_name=mapping_rule_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             consumer_group: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             database_routing_type: Optional[pulumi.Input[str]] = None,
+             event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             eventhub_id: Optional[pulumi.Input[str]] = None,
+             identity_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if consumer_group is not None:
-            pulumi.set(__self__, "consumer_group", consumer_group)
+            _setter("consumer_group", consumer_group)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if database_routing_type is not None:
-            pulumi.set(__self__, "database_routing_type", database_routing_type)
+            _setter("database_routing_type", database_routing_type)
         if event_system_properties is not None:
-            pulumi.set(__self__, "event_system_properties", event_system_properties)
+            _setter("event_system_properties", event_system_properties)
         if eventhub_id is not None:
-            pulumi.set(__self__, "eventhub_id", eventhub_id)
+            _setter("eventhub_id", eventhub_id)
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -637,6 +707,10 @@ class EventhubDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventhubDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,31 +49,68 @@ class TriggerTumblingWindowArgs:
         :param pulumi.Input['TriggerTumblingWindowRetryArgs'] retry: A `retry` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "pipeline", pipeline)
-        pulumi.set(__self__, "start_time", start_time)
+        TriggerTumblingWindowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            frequency=frequency,
+            interval=interval,
+            pipeline=pipeline,
+            start_time=start_time,
+            activated=activated,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            delay=delay,
+            description=description,
+            end_time=end_time,
+            max_concurrency=max_concurrency,
+            name=name,
+            retry=retry,
+            trigger_dependencies=trigger_dependencies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: pulumi.Input[str],
+             frequency: pulumi.Input[str],
+             interval: pulumi.Input[int],
+             pipeline: pulumi.Input['TriggerTumblingWindowPipelineArgs'],
+             start_time: pulumi.Input[str],
+             activated: Optional[pulumi.Input[bool]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             delay: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             max_concurrency: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
+             trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_factory_id", data_factory_id)
+        _setter("frequency", frequency)
+        _setter("interval", interval)
+        _setter("pipeline", pipeline)
+        _setter("start_time", start_time)
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if delay is not None:
-            pulumi.set(__self__, "delay", delay)
+            _setter("delay", delay)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retry is not None:
-            pulumi.set(__self__, "retry", retry)
+            _setter("retry", retry)
         if trigger_dependencies is not None:
-            pulumi.set(__self__, "trigger_dependencies", trigger_dependencies)
+            _setter("trigger_dependencies", trigger_dependencies)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -292,36 +329,73 @@ class _TriggerTumblingWindowState:
         :param pulumi.Input[str] start_time: Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
         """
+        _TriggerTumblingWindowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activated=activated,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            data_factory_id=data_factory_id,
+            delay=delay,
+            description=description,
+            end_time=end_time,
+            frequency=frequency,
+            interval=interval,
+            max_concurrency=max_concurrency,
+            name=name,
+            pipeline=pipeline,
+            retry=retry,
+            start_time=start_time,
+            trigger_dependencies=trigger_dependencies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activated: Optional[pulumi.Input[bool]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             delay: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             max_concurrency: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pipeline: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']] = None,
+             retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if delay is not None:
-            pulumi.set(__self__, "delay", delay)
+            _setter("delay", delay)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pipeline is not None:
-            pulumi.set(__self__, "pipeline", pipeline)
+            _setter("pipeline", pipeline)
         if retry is not None:
-            pulumi.set(__self__, "retry", retry)
+            _setter("retry", retry)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if trigger_dependencies is not None:
-            pulumi.set(__self__, "trigger_dependencies", trigger_dependencies)
+            _setter("trigger_dependencies", trigger_dependencies)
 
     @property
     @pulumi.getter
@@ -669,6 +743,10 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerTumblingWindowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -715,9 +793,19 @@ class TriggerTumblingWindow(pulumi.CustomResource):
             __props__.__dict__["interval"] = interval
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["name"] = name
+            if pipeline is not None and not isinstance(pipeline, TriggerTumblingWindowPipelineArgs):
+                pipeline = pipeline or {}
+                def _setter(key, value):
+                    pipeline[key] = value
+                TriggerTumblingWindowPipelineArgs._configure(_setter, **pipeline)
             if pipeline is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline'")
             __props__.__dict__["pipeline"] = pipeline
+            if retry is not None and not isinstance(retry, TriggerTumblingWindowRetryArgs):
+                retry = retry or {}
+                def _setter(key, value):
+                    retry[key] = value
+                TriggerTumblingWindowRetryArgs._configure(_setter, **retry)
             __props__.__dict__["retry"] = retry
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")

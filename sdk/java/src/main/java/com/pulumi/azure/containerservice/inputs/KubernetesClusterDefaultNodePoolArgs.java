@@ -261,9 +261,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -272,9 +270,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     private @Nullable Output<Integer> nodeCount;
 
     /**
-     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * @return The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -1026,9 +1022,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-         * 
-         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+         * @param nodeCount The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          * 
          * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
          * 
@@ -1041,9 +1035,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-         * 
-         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+         * @param nodeCount The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          * 
          * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
          * 

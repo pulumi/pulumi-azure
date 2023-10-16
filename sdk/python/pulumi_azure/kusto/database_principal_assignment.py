@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatabasePrincipalAssignmentArgs', 'DatabasePrincipalAssignment']
@@ -33,15 +33,38 @@ class DatabasePrincipalAssignmentArgs:
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        DatabasePrincipalAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            database_name=database_name,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            resource_group_name=resource_group_name,
+            role=role,
+            tenant_id=tenant_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             principal_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             role: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_name", cluster_name)
+        _setter("database_name", database_name)
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("role", role)
+        _setter("tenant_id", tenant_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -166,26 +189,53 @@ class _DatabasePrincipalAssignmentState:
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_name: The name of the tenant.
         """
+        _DatabasePrincipalAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            database_name=database_name,
+            name=name,
+            principal_id=principal_id,
+            principal_name=principal_name,
+            principal_type=principal_type,
+            resource_group_name=resource_group_name,
+            role=role,
+            tenant_id=tenant_id,
+            tenant_name=tenant_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_name is not None:
-            pulumi.set(__self__, "principal_name", principal_name)
+            _setter("principal_name", principal_name)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -433,6 +483,10 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabasePrincipalAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssignmentArgs', 'Assignment']
@@ -23,10 +23,23 @@ class AssignmentArgs:
         :param pulumi.Input[str] scope: The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
-        pulumi.set(__self__, "scope", scope)
+        AssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lighthouse_definition_id=lighthouse_definition_id,
+            scope=scope,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lighthouse_definition_id: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lighthouse_definition_id", lighthouse_definition_id)
+        _setter("scope", scope)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="lighthouseDefinitionId")
@@ -77,12 +90,25 @@ class _AssignmentState:
         :param pulumi.Input[str] name: A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
         """
+        _AssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lighthouse_definition_id=lighthouse_definition_id,
+            name=name,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if lighthouse_definition_id is not None:
-            pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
+            _setter("lighthouse_definition_id", lighthouse_definition_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="lighthouseDefinitionId")
@@ -198,6 +224,10 @@ class Assignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

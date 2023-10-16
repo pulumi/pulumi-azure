@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BgpConnectionArgs', 'BgpConnection']
@@ -27,13 +27,30 @@ class BgpConnectionArgs:
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_connection_id: The ID of virtual network connection.
         """
-        pulumi.set(__self__, "peer_asn", peer_asn)
-        pulumi.set(__self__, "peer_ip", peer_ip)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        BgpConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            peer_ip=peer_ip,
+            virtual_hub_id=virtual_hub_id,
+            name=name,
+            virtual_network_connection_id=virtual_network_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: pulumi.Input[int],
+             peer_ip: pulumi.Input[str],
+             virtual_hub_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("peer_asn", peer_asn)
+        _setter("peer_ip", peer_ip)
+        _setter("virtual_hub_id", virtual_hub_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if virtual_network_connection_id is not None:
-            pulumi.set(__self__, "virtual_network_connection_id", virtual_network_connection_id)
+            _setter("virtual_network_connection_id", virtual_network_connection_id)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -112,16 +129,33 @@ class _BgpConnectionState:
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_connection_id: The ID of virtual network connection.
         """
+        _BgpConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            peer_asn=peer_asn,
+            peer_ip=peer_ip,
+            virtual_hub_id=virtual_hub_id,
+            virtual_network_connection_id=virtual_network_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             peer_asn: Optional[pulumi.Input[int]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peer_ip is not None:
-            pulumi.set(__self__, "peer_ip", peer_ip)
+            _setter("peer_ip", peer_ip)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
         if virtual_network_connection_id is not None:
-            pulumi.set(__self__, "virtual_network_connection_id", virtual_network_connection_id)
+            _setter("virtual_network_connection_id", virtual_network_connection_id)
 
     @property
     @pulumi.getter
@@ -315,6 +349,10 @@ class BgpConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BgpConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

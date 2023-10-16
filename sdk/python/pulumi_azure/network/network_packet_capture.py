@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,20 +39,45 @@ class NetworkPacketCaptureArgs:
         :param pulumi.Input[int] maximum_capture_duration: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_location", storage_location)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        NetworkPacketCaptureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            storage_location=storage_location,
+            target_resource_id=target_resource_id,
+            filters=filters,
+            maximum_bytes_per_packet=maximum_bytes_per_packet,
+            maximum_bytes_per_session=maximum_bytes_per_session,
+            maximum_capture_duration=maximum_capture_duration,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_watcher_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_location: pulumi.Input['NetworkPacketCaptureStorageLocationArgs'],
+             target_resource_id: pulumi.Input[str],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]]] = None,
+             maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
+             maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
+             maximum_capture_duration: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_location", storage_location)
+        _setter("target_resource_id", target_resource_id)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if maximum_bytes_per_packet is not None:
-            pulumi.set(__self__, "maximum_bytes_per_packet", maximum_bytes_per_packet)
+            _setter("maximum_bytes_per_packet", maximum_bytes_per_packet)
         if maximum_bytes_per_session is not None:
-            pulumi.set(__self__, "maximum_bytes_per_session", maximum_bytes_per_session)
+            _setter("maximum_bytes_per_session", maximum_bytes_per_session)
         if maximum_capture_duration is not None:
-            pulumi.set(__self__, "maximum_capture_duration", maximum_capture_duration)
+            _setter("maximum_capture_duration", maximum_capture_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="networkWatcherName")
@@ -191,24 +216,49 @@ class _NetworkPacketCaptureState:
                
                > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
+        _NetworkPacketCaptureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            maximum_bytes_per_packet=maximum_bytes_per_packet,
+            maximum_bytes_per_session=maximum_bytes_per_session,
+            maximum_capture_duration=maximum_capture_duration,
+            name=name,
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            storage_location=storage_location,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]]] = None,
+             maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
+             maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
+             maximum_capture_duration: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['NetworkPacketCaptureStorageLocationArgs']] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if maximum_bytes_per_packet is not None:
-            pulumi.set(__self__, "maximum_bytes_per_packet", maximum_bytes_per_packet)
+            _setter("maximum_bytes_per_packet", maximum_bytes_per_packet)
         if maximum_bytes_per_session is not None:
-            pulumi.set(__self__, "maximum_bytes_per_session", maximum_bytes_per_session)
+            _setter("maximum_bytes_per_session", maximum_bytes_per_session)
         if maximum_capture_duration is not None:
-            pulumi.set(__self__, "maximum_capture_duration", maximum_capture_duration)
+            _setter("maximum_capture_duration", maximum_capture_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_watcher_name is not None:
-            pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+            _setter("network_watcher_name", network_watcher_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_location is not None:
-            pulumi.set(__self__, "storage_location", storage_location)
+            _setter("storage_location", storage_location)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -540,6 +590,10 @@ class NetworkPacketCapture(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkPacketCaptureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -574,6 +628,11 @@ class NetworkPacketCapture(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_location is not None and not isinstance(storage_location, NetworkPacketCaptureStorageLocationArgs):
+                storage_location = storage_location or {}
+                def _setter(key, value):
+                    storage_location[key] = value
+                NetworkPacketCaptureStorageLocationArgs._configure(_setter, **storage_location)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

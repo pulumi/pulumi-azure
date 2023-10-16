@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -45,8 +45,19 @@ class ConfigurationConfigFile(dict):
         :param str content: Specifies the base-64 encoded contents of this config file.
         :param str virtual_path: Specify the path of this config file.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "virtual_path", virtual_path)
+        ConfigurationConfigFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            virtual_path=virtual_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             virtual_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("virtual_path", virtual_path)
 
     @property
     @pulumi.getter
@@ -91,8 +102,19 @@ class ConfigurationProtectedFile(dict):
         :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param str virtual_path: Specify the path of this config file.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "virtual_path", virtual_path)
+        ConfigurationProtectedFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            virtual_path=virtual_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             virtual_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("virtual_path", virtual_path)
 
     @property
     @pulumi.getter
@@ -143,9 +165,22 @@ class DeploymentFrontendPrivate(dict):
         :param str ip_address: Specify the IP Address of this private IP.
         :param str subnet_id: Specify the SubNet Resource ID to this Nginx Deployment.
         """
-        pulumi.set(__self__, "allocation_method", allocation_method)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        DeploymentFrontendPrivate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_method=allocation_method,
+            ip_address=ip_address,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_method: str,
+             ip_address: str,
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allocation_method", allocation_method)
+        _setter("ip_address", ip_address)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -196,8 +231,17 @@ class DeploymentFrontendPublic(dict):
         """
         :param Sequence[str] ip_addresses: Specifies a list of Public IP Resouce ID to this Nginx Deployment.
         """
+        DeploymentFrontendPublic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="ipAddresses")
@@ -240,13 +284,28 @@ class DeploymentIdentity(dict):
         :param str type: Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
-        pulumi.set(__self__, "type", type)
+        DeploymentIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -301,10 +360,21 @@ class DeploymentLoggingStorageAccount(dict):
         :param str container_name: Specify the container name of Stoage Account for logging.
         :param str name: The account name of the StorageAccount for Nginx Logging.
         """
+        DeploymentLoggingStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="containerName")
@@ -347,7 +417,16 @@ class DeploymentNetworkInterface(dict):
         """
         :param str subnet_id: Specify The SubNet Resource ID to this Nginx Deployment.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        DeploymentNetworkInterface._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")

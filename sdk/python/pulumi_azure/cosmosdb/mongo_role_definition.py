@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,27 @@ class MongoRoleDefinitionArgs:
                > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
         :param pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]] privileges: A `privilege` block as defined below.
         """
-        pulumi.set(__self__, "cosmos_mongo_database_id", cosmos_mongo_database_id)
-        pulumi.set(__self__, "role_name", role_name)
+        MongoRoleDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmos_mongo_database_id=cosmos_mongo_database_id,
+            role_name=role_name,
+            inherited_role_names=inherited_role_names,
+            privileges=privileges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmos_mongo_database_id: pulumi.Input[str],
+             role_name: pulumi.Input[str],
+             inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
+        _setter("role_name", role_name)
         if inherited_role_names is not None:
-            pulumi.set(__self__, "inherited_role_names", inherited_role_names)
+            _setter("inherited_role_names", inherited_role_names)
         if privileges is not None:
-            pulumi.set(__self__, "privileges", privileges)
+            _setter("privileges", privileges)
 
     @property
     @pulumi.getter(name="cosmosMongoDatabaseId")
@@ -103,14 +118,29 @@ class _MongoRoleDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]] privileges: A `privilege` block as defined below.
         :param pulumi.Input[str] role_name: The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
         """
+        _MongoRoleDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmos_mongo_database_id=cosmos_mongo_database_id,
+            inherited_role_names=inherited_role_names,
+            privileges=privileges,
+            role_name=role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
+             inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cosmos_mongo_database_id is not None:
-            pulumi.set(__self__, "cosmos_mongo_database_id", cosmos_mongo_database_id)
+            _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
         if inherited_role_names is not None:
-            pulumi.set(__self__, "inherited_role_names", inherited_role_names)
+            _setter("inherited_role_names", inherited_role_names)
         if privileges is not None:
-            pulumi.set(__self__, "privileges", privileges)
+            _setter("privileges", privileges)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
 
     @property
     @pulumi.getter(name="cosmosMongoDatabaseId")
@@ -290,6 +320,10 @@ class MongoRoleDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoRoleDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

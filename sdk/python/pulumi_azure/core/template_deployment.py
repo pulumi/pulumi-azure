@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TemplateDeploymentArgs', 'TemplateDeployment']
@@ -31,16 +31,35 @@ class TemplateDeploymentArgs:
         :param pulumi.Input[str] parameters_body: Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
         :param pulumi.Input[str] template_body: Specifies the JSON definition for the template.
         """
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TemplateDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_mode=deployment_mode,
+            resource_group_name=resource_group_name,
+            name=name,
+            parameters=parameters,
+            parameters_body=parameters_body,
+            template_body=template_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_mode: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameters_body: Optional[pulumi.Input[str]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("deployment_mode", deployment_mode)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if parameters_body is not None:
-            pulumi.set(__self__, "parameters_body", parameters_body)
+            _setter("parameters_body", parameters_body)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -139,20 +158,41 @@ class _TemplateDeploymentState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] template_body: Specifies the JSON definition for the template.
         """
+        _TemplateDeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_mode=deployment_mode,
+            name=name,
+            outputs=outputs,
+            parameters=parameters,
+            parameters_body=parameters_body,
+            resource_group_name=resource_group_name,
+            template_body=template_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameters_body: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_mode is not None:
-            pulumi.set(__self__, "deployment_mode", deployment_mode)
+            _setter("deployment_mode", deployment_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if parameters_body is not None:
-            pulumi.set(__self__, "parameters_body", parameters_body)
+            _setter("parameters_body", parameters_body)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -448,6 +488,10 @@ class TemplateDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -57,17 +57,36 @@ class StandardWebTestRequest(dict):
         :param str http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
         :param bool parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
-        pulumi.set(__self__, "url", url)
+        StandardWebTestRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            body=body,
+            follow_redirects_enabled=follow_redirects_enabled,
+            headers=headers,
+            http_verb=http_verb,
+            parse_dependent_requests_enabled=parse_dependent_requests_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: str,
+             body: Optional[str] = None,
+             follow_redirects_enabled: Optional[bool] = None,
+             headers: Optional[Sequence['outputs.StandardWebTestRequestHeader']] = None,
+             http_verb: Optional[str] = None,
+             parse_dependent_requests_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("url", url)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if follow_redirects_enabled is not None:
-            pulumi.set(__self__, "follow_redirects_enabled", follow_redirects_enabled)
+            _setter("follow_redirects_enabled", follow_redirects_enabled)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if http_verb is not None:
-            pulumi.set(__self__, "http_verb", http_verb)
+            _setter("http_verb", http_verb)
         if parse_dependent_requests_enabled is not None:
-            pulumi.set(__self__, "parse_dependent_requests_enabled", parse_dependent_requests_enabled)
+            _setter("parse_dependent_requests_enabled", parse_dependent_requests_enabled)
 
     @property
     @pulumi.getter
@@ -127,8 +146,19 @@ class StandardWebTestRequestHeader(dict):
         :param str name: The name which should be used for a header in the request.
         :param str value: The value which should be used for a header in the request.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        StandardWebTestRequestHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -181,14 +211,29 @@ class StandardWebTestValidationRules(dict):
         :param int ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         :param bool ssl_check_enabled: Should the SSL check be enabled?
         """
+        StandardWebTestValidationRules._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            expected_status_code=expected_status_code,
+            ssl_cert_remaining_lifetime=ssl_cert_remaining_lifetime,
+            ssl_check_enabled=ssl_check_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional['outputs.StandardWebTestValidationRulesContent'] = None,
+             expected_status_code: Optional[int] = None,
+             ssl_cert_remaining_lifetime: Optional[int] = None,
+             ssl_check_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if expected_status_code is not None:
-            pulumi.set(__self__, "expected_status_code", expected_status_code)
+            _setter("expected_status_code", expected_status_code)
         if ssl_cert_remaining_lifetime is not None:
-            pulumi.set(__self__, "ssl_cert_remaining_lifetime", ssl_cert_remaining_lifetime)
+            _setter("ssl_cert_remaining_lifetime", ssl_cert_remaining_lifetime)
         if ssl_check_enabled is not None:
-            pulumi.set(__self__, "ssl_check_enabled", ssl_check_enabled)
+            _setter("ssl_check_enabled", ssl_check_enabled)
 
     @property
     @pulumi.getter
@@ -255,11 +300,24 @@ class StandardWebTestValidationRulesContent(dict):
         :param bool ignore_case: Ignore the casing in the `content_match` value.
         :param bool pass_if_text_found: If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
         """
-        pulumi.set(__self__, "content_match", content_match)
+        StandardWebTestValidationRulesContent._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_match=content_match,
+            ignore_case=ignore_case,
+            pass_if_text_found=pass_if_text_found,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_match: str,
+             ignore_case: Optional[bool] = None,
+             pass_if_text_found: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_match", content_match)
         if ignore_case is not None:
-            pulumi.set(__self__, "ignore_case", ignore_case)
+            _setter("ignore_case", ignore_case)
         if pass_if_text_found is not None:
-            pulumi.set(__self__, "pass_if_text_found", pass_if_text_found)
+            _setter("pass_if_text_found", pass_if_text_found)
 
     @property
     @pulumi.getter(name="contentMatch")
@@ -320,13 +378,28 @@ class WorkbookIdentity(dict):
         :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         """
-        pulumi.set(__self__, "type", type)
+        WorkbookIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -395,14 +468,31 @@ class WorkbookTemplateGallery(dict):
                
                > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "name", name)
+        WorkbookTemplateGallery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            name=name,
+            order=order,
+            resource_type=resource_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: str,
+             name: str,
+             order: Optional[int] = None,
+             resource_type: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("name", name)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

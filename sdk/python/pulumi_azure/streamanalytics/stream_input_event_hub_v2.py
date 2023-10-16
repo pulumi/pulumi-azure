@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,22 +39,49 @@ class StreamInputEventHubV2Args:
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
-        pulumi.set(__self__, "eventhub_name", eventhub_name)
-        pulumi.set(__self__, "serialization", serialization)
-        pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
-        pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
+        StreamInputEventHubV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_name=eventhub_name,
+            serialization=serialization,
+            servicebus_namespace=servicebus_namespace,
+            stream_analytics_job_id=stream_analytics_job_id,
+            authentication_mode=authentication_mode,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            name=name,
+            partition_key=partition_key,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_name: pulumi.Input[str],
+             serialization: pulumi.Input['StreamInputEventHubV2SerializationArgs'],
+             servicebus_namespace: pulumi.Input[str],
+             stream_analytics_job_id: pulumi.Input[str],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("eventhub_name", eventhub_name)
+        _setter("serialization", serialization)
+        _setter("servicebus_namespace", servicebus_namespace)
+        _setter("stream_analytics_job_id", stream_analytics_job_id)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -203,26 +230,53 @@ class _StreamInputEventHubV2State:
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_id: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
+        _StreamInputEventHubV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_mode=authentication_mode,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            eventhub_name=eventhub_name,
+            name=name,
+            partition_key=partition_key,
+            serialization=serialization,
+            servicebus_namespace=servicebus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+            stream_analytics_job_id=stream_analytics_job_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['StreamInputEventHubV2SerializationArgs']] = None,
+             servicebus_namespace: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if eventhub_name is not None:
-            pulumi.set(__self__, "eventhub_name", eventhub_name)
+            _setter("eventhub_name", eventhub_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if servicebus_namespace is not None:
-            pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
+            _setter("servicebus_namespace", servicebus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
         if stream_analytics_job_id is not None:
-            pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
+            _setter("stream_analytics_job_id", stream_analytics_job_id)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -488,6 +542,10 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamInputEventHubV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -519,6 +577,11 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["name"] = name
             __props__.__dict__["partition_key"] = partition_key
+            if serialization is not None and not isinstance(serialization, StreamInputEventHubV2SerializationArgs):
+                serialization = serialization or {}
+                def _setter(key, value):
+                    serialization[key] = value
+                StreamInputEventHubV2SerializationArgs._configure(_setter, **serialization)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

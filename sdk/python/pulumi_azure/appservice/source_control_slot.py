@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,44 @@ class SourceControlSlotArgs:
         :param pulumi.Input[bool] use_manual_integration: Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_mercurial: The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "slot_id", slot_id)
+        SourceControlSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            slot_id=slot_id,
+            branch=branch,
+            github_action_configuration=github_action_configuration,
+            repo_url=repo_url,
+            rollback_enabled=rollback_enabled,
+            use_local_git=use_local_git,
+            use_manual_integration=use_manual_integration,
+            use_mercurial=use_mercurial,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             slot_id: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             github_action_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationArgs']] = None,
+             repo_url: Optional[pulumi.Input[str]] = None,
+             rollback_enabled: Optional[pulumi.Input[bool]] = None,
+             use_local_git: Optional[pulumi.Input[bool]] = None,
+             use_manual_integration: Optional[pulumi.Input[bool]] = None,
+             use_mercurial: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("slot_id", slot_id)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if github_action_configuration is not None:
-            pulumi.set(__self__, "github_action_configuration", github_action_configuration)
+            _setter("github_action_configuration", github_action_configuration)
         if repo_url is not None:
-            pulumi.set(__self__, "repo_url", repo_url)
+            _setter("repo_url", repo_url)
         if rollback_enabled is not None:
-            pulumi.set(__self__, "rollback_enabled", rollback_enabled)
+            _setter("rollback_enabled", rollback_enabled)
         if use_local_git is not None:
-            pulumi.set(__self__, "use_local_git", use_local_git)
+            _setter("use_local_git", use_local_git)
         if use_manual_integration is not None:
-            pulumi.set(__self__, "use_manual_integration", use_manual_integration)
+            _setter("use_manual_integration", use_manual_integration)
         if use_mercurial is not None:
-            pulumi.set(__self__, "use_mercurial", use_mercurial)
+            _setter("use_mercurial", use_mercurial)
 
     @property
     @pulumi.getter(name="slotId")
@@ -180,26 +203,53 @@ class _SourceControlSlotState:
         :param pulumi.Input[bool] use_mercurial: The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] uses_github_action: Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
         """
+        _SourceControlSlotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            github_action_configuration=github_action_configuration,
+            repo_url=repo_url,
+            rollback_enabled=rollback_enabled,
+            scm_type=scm_type,
+            slot_id=slot_id,
+            use_local_git=use_local_git,
+            use_manual_integration=use_manual_integration,
+            use_mercurial=use_mercurial,
+            uses_github_action=uses_github_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             github_action_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationArgs']] = None,
+             repo_url: Optional[pulumi.Input[str]] = None,
+             rollback_enabled: Optional[pulumi.Input[bool]] = None,
+             scm_type: Optional[pulumi.Input[str]] = None,
+             slot_id: Optional[pulumi.Input[str]] = None,
+             use_local_git: Optional[pulumi.Input[bool]] = None,
+             use_manual_integration: Optional[pulumi.Input[bool]] = None,
+             use_mercurial: Optional[pulumi.Input[bool]] = None,
+             uses_github_action: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if github_action_configuration is not None:
-            pulumi.set(__self__, "github_action_configuration", github_action_configuration)
+            _setter("github_action_configuration", github_action_configuration)
         if repo_url is not None:
-            pulumi.set(__self__, "repo_url", repo_url)
+            _setter("repo_url", repo_url)
         if rollback_enabled is not None:
-            pulumi.set(__self__, "rollback_enabled", rollback_enabled)
+            _setter("rollback_enabled", rollback_enabled)
         if scm_type is not None:
-            pulumi.set(__self__, "scm_type", scm_type)
+            _setter("scm_type", scm_type)
         if slot_id is not None:
-            pulumi.set(__self__, "slot_id", slot_id)
+            _setter("slot_id", slot_id)
         if use_local_git is not None:
-            pulumi.set(__self__, "use_local_git", use_local_git)
+            _setter("use_local_git", use_local_git)
         if use_manual_integration is not None:
-            pulumi.set(__self__, "use_manual_integration", use_manual_integration)
+            _setter("use_manual_integration", use_manual_integration)
         if use_mercurial is not None:
-            pulumi.set(__self__, "use_mercurial", use_mercurial)
+            _setter("use_mercurial", use_mercurial)
         if uses_github_action is not None:
-            pulumi.set(__self__, "uses_github_action", uses_github_action)
+            _setter("uses_github_action", uses_github_action)
 
     @property
     @pulumi.getter
@@ -441,6 +491,10 @@ class SourceControlSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -464,6 +518,11 @@ class SourceControlSlot(pulumi.CustomResource):
             __props__ = SourceControlSlotArgs.__new__(SourceControlSlotArgs)
 
             __props__.__dict__["branch"] = branch
+            if github_action_configuration is not None and not isinstance(github_action_configuration, SourceControlSlotGithubActionConfigurationArgs):
+                github_action_configuration = github_action_configuration or {}
+                def _setter(key, value):
+                    github_action_configuration[key] = value
+                SourceControlSlotGithubActionConfigurationArgs._configure(_setter, **github_action_configuration)
             __props__.__dict__["github_action_configuration"] = github_action_configuration
             __props__.__dict__["repo_url"] = repo_url
             __props__.__dict__["rollback_enabled"] = rollback_enabled

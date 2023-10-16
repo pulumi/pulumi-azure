@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DiskPoolIscsiTargetLunArgs', 'DiskPoolIscsiTargetLun']
@@ -23,10 +23,23 @@ class DiskPoolIscsiTargetLunArgs:
         :param pulumi.Input[str] iscsi_target_id: The ID of the iSCSI Target. Changing this forces a new iSCSI Target LUN to be created.
         :param pulumi.Input[str] name: User defined name for iSCSI LUN. Supported characters include uppercase letters, lowercase letters, numbers, periods, underscores or hyphens. Name should end with an alphanumeric character. The length must be between `1` and `90`. Changing this forces a new iSCSI Target LUN to be created.
         """
-        pulumi.set(__self__, "disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
-        pulumi.set(__self__, "iscsi_target_id", iscsi_target_id)
+        DiskPoolIscsiTargetLunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_pool_managed_disk_attachment_id=disk_pool_managed_disk_attachment_id,
+            iscsi_target_id=iscsi_target_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_pool_managed_disk_attachment_id: pulumi.Input[str],
+             iscsi_target_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
+        _setter("iscsi_target_id", iscsi_target_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="diskPoolManagedDiskAttachmentId")
@@ -79,14 +92,29 @@ class _DiskPoolIscsiTargetLunState:
         :param pulumi.Input[int] lun: The Logical Unit Number of the iSCSI Target LUN.
         :param pulumi.Input[str] name: User defined name for iSCSI LUN. Supported characters include uppercase letters, lowercase letters, numbers, periods, underscores or hyphens. Name should end with an alphanumeric character. The length must be between `1` and `90`. Changing this forces a new iSCSI Target LUN to be created.
         """
+        _DiskPoolIscsiTargetLunState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_pool_managed_disk_attachment_id=disk_pool_managed_disk_attachment_id,
+            iscsi_target_id=iscsi_target_id,
+            lun=lun,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_pool_managed_disk_attachment_id: Optional[pulumi.Input[str]] = None,
+             iscsi_target_id: Optional[pulumi.Input[str]] = None,
+             lun: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disk_pool_managed_disk_attachment_id is not None:
-            pulumi.set(__self__, "disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
+            _setter("disk_pool_managed_disk_attachment_id", disk_pool_managed_disk_attachment_id)
         if iscsi_target_id is not None:
-            pulumi.set(__self__, "iscsi_target_id", iscsi_target_id)
+            _setter("iscsi_target_id", iscsi_target_id)
         if lun is not None:
-            pulumi.set(__self__, "lun", lun)
+            _setter("lun", lun)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="diskPoolManagedDiskAttachmentId")
@@ -318,6 +346,10 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskPoolIscsiTargetLunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

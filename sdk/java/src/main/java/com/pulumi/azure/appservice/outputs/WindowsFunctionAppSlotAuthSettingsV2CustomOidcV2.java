@@ -28,22 +28,12 @@ public final class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String clientCredentialMethod;
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     private String clientId;
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -101,24 +91,14 @@ public final class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.clientCredentialMethod);
     }
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

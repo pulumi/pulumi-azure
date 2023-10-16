@@ -48,14 +48,14 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
     }
 
     /**
-     * Specifies a list of destination ports.
+     * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     @Import(name="destinationPorts")
     private @Nullable Output<String> destinationPorts;
 
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     public Optional<Output<String>> destinationPorts() {
@@ -247,7 +247,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 

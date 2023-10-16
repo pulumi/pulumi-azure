@@ -20,22 +20,6 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName", required: true)]
         public Input<string> ClientSecretSettingName { get; set; } = null!;
@@ -44,9 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// A list of Login Scopes provided by this Authentication Provider.
-        /// 
-        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
         /// </summary>
         public InputList<string> LoginScopes
         {

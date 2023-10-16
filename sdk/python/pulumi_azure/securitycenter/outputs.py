@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,11 +30,24 @@ class AssessmentStatus(dict):
         :param str cause: Specifies the cause of the assessment status.
         :param str description: Specifies the human readable description of the assessment status.
         """
-        pulumi.set(__self__, "code", code)
+        AssessmentStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            cause=cause,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: str,
+             cause: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
         if cause is not None:
-            pulumi.set(__self__, "cause", cause)
+            _setter("cause", cause)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -95,12 +108,27 @@ class AutomationAction(dict):
         :param str connection_string: (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
         :param str trigger_url: (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
         """
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "type", type)
+        AutomationAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            type=type,
+            connection_string=connection_string,
+            trigger_url=trigger_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: str,
+             type: str,
+             connection_string: Optional[str] = None,
+             trigger_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_id", resource_id)
+        _setter("type", type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if trigger_url is not None:
-            pulumi.set(__self__, "trigger_url", trigger_url)
+            _setter("trigger_url", trigger_url)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -165,9 +193,20 @@ class AutomationSource(dict):
                
                > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
-        pulumi.set(__self__, "event_source", event_source)
+        AutomationSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_source=event_source,
+            rule_sets=rule_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_source: str,
+             rule_sets: Optional[Sequence['outputs.AutomationSourceRuleSet']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_source", event_source)
         if rule_sets is not None:
-            pulumi.set(__self__, "rule_sets", rule_sets)
+            _setter("rule_sets", rule_sets)
 
     @property
     @pulumi.getter(name="eventSource")
@@ -197,7 +236,16 @@ class AutomationSourceRuleSet(dict):
                
                > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
-        pulumi.set(__self__, "rules", rules)
+        AutomationSourceRuleSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Sequence['outputs.AutomationSourceRuleSetRule'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -246,10 +294,25 @@ class AutomationSourceRuleSetRule(dict):
                
                > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         """
-        pulumi.set(__self__, "expected_value", expected_value)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "property_path", property_path)
-        pulumi.set(__self__, "property_type", property_type)
+        AutomationSourceRuleSetRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expected_value=expected_value,
+            operator=operator,
+            property_path=property_path,
+            property_type=property_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expected_value: str,
+             operator: str,
+             property_path: str,
+             property_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expected_value", expected_value)
+        _setter("operator", operator)
+        _setter("property_path", property_path)
+        _setter("property_type", property_type)
 
     @property
     @pulumi.getter(name="expectedValue")
@@ -316,9 +379,20 @@ class SubscriptionPricingExtension(dict):
                
                > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
         """
-        pulumi.set(__self__, "name", name)
+        SubscriptionPricingExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_extension_properties=additional_extension_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             additional_extension_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if additional_extension_properties is not None:
-            pulumi.set(__self__, "additional_extension_properties", additional_extension_properties)
+            _setter("additional_extension_properties", additional_extension_properties)
 
     @property
     @pulumi.getter

@@ -14,17 +14,9 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
 
     public static final ResourceProviderRegistrationFeatureArgs Empty = new ResourceProviderRegistrationFeatureArgs();
 
-    /**
-     * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,23 +61,11 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
             $ = new ResourceProviderRegistrationFeatureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

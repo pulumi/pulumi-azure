@@ -115,9 +115,17 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> dscServerEndpoint() {
         return this.dscServerEndpoint;
     }
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Export(name="encryptions", refs={List.class,AccountEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountEncryption>> encryptions;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Output<Optional<List<AccountEncryption>>> encryptions() {
         return Codegen.optional(this.encryptions);
     }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -60,13 +60,28 @@ class ComputeClusterIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         """
-        pulumi.set(__self__, "type", type)
+        ComputeClusterIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -135,9 +150,22 @@ class ComputeClusterScaleSettings(dict):
         :param int min_node_count: Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param str scale_down_nodes_after_idle_duration: Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
-        pulumi.set(__self__, "max_node_count", max_node_count)
-        pulumi.set(__self__, "min_node_count", min_node_count)
-        pulumi.set(__self__, "scale_down_nodes_after_idle_duration", scale_down_nodes_after_idle_duration)
+        ComputeClusterScaleSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+            scale_down_nodes_after_idle_duration=scale_down_nodes_after_idle_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_node_count: int,
+             min_node_count: int,
+             scale_down_nodes_after_idle_duration: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_node_count", max_node_count)
+        _setter("min_node_count", min_node_count)
+        _setter("scale_down_nodes_after_idle_duration", scale_down_nodes_after_idle_duration)
 
     @property
     @pulumi.getter(name="maxNodeCount")
@@ -198,11 +226,24 @@ class ComputeClusterSsh(dict):
                
                > **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
         """
-        pulumi.set(__self__, "admin_username", admin_username)
+        ComputeClusterSsh._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            admin_password=admin_password,
+            key_value=key_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: str,
+             admin_password: Optional[str] = None,
+             key_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_username", admin_username)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if key_value is not None:
-            pulumi.set(__self__, "key_value", key_value)
+            _setter("key_value", key_value)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -259,10 +300,21 @@ class ComputeInstanceAssignToUser(dict):
         :param str object_id: User’s AAD Object Id.
         :param str tenant_id: User’s AAD Tenant Id.
         """
+        ComputeInstanceAssignToUser._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -317,13 +369,28 @@ class ComputeInstanceIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         :param str tenant_id: User’s AAD Tenant Id.
         """
-        pulumi.set(__self__, "type", type)
+        ComputeInstanceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -388,11 +455,24 @@ class ComputeInstanceSsh(dict):
         :param int port: Describes the port for connecting through SSH.
         :param str username: The admin username of this Machine Learning Compute Instance.
         """
-        pulumi.set(__self__, "public_key", public_key)
+        ComputeInstanceSsh._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_key=public_key,
+            port=port,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_key: str,
+             port: Optional[int] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("public_key", public_key)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="publicKey")
@@ -455,13 +535,28 @@ class InferenceClusterIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
         """
-        pulumi.set(__self__, "type", type)
+        InferenceClusterIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -532,16 +627,33 @@ class InferenceClusterSsl(dict):
         :param str leaf_domain_label: The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         :param bool overwrite_existing_domain: Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
+        InferenceClusterSsl._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            cname=cname,
+            key=key,
+            leaf_domain_label=leaf_domain_label,
+            overwrite_existing_domain=overwrite_existing_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[str] = None,
+             cname: Optional[str] = None,
+             key: Optional[str] = None,
+             leaf_domain_label: Optional[str] = None,
+             overwrite_existing_domain: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if leaf_domain_label is not None:
-            pulumi.set(__self__, "leaf_domain_label", leaf_domain_label)
+            _setter("leaf_domain_label", leaf_domain_label)
         if overwrite_existing_domain is not None:
-            pulumi.set(__self__, "overwrite_existing_domain", overwrite_existing_domain)
+            _setter("overwrite_existing_domain", overwrite_existing_domain)
 
     @property
     @pulumi.getter
@@ -620,13 +732,28 @@ class SynapseSparkIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         """
-        pulumi.set(__self__, "type", type)
+        SynapseSparkIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -697,10 +824,23 @@ class WorkspaceEncryption(dict):
                
                > **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        WorkspaceEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            key_vault_id=key_vault_id,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: str,
+             key_vault_id: str,
+             user_assigned_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_id", key_id)
+        _setter("key_vault_id", key_vault_id)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyId")
@@ -765,13 +905,28 @@ class WorkspaceIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        WorkspaceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -821,10 +976,25 @@ class GetWorkspaceIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Identity assigned to this Machine Learning Workspace.
         :param str type: The Type of Managed Identity assigned to this Machine Learning Workspace.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetWorkspaceIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")

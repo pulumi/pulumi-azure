@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HybridRunbookWorkerArgs', 'HybridRunbookWorker']
@@ -27,11 +27,28 @@ class HybridRunbookWorkerArgs:
         :param pulumi.Input[str] worker_group_name: The name of the HybridWorker Group. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_id: Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_resource_id", vm_resource_id)
-        pulumi.set(__self__, "worker_group_name", worker_group_name)
-        pulumi.set(__self__, "worker_id", worker_id)
+        HybridRunbookWorkerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            resource_group_name=resource_group_name,
+            vm_resource_id=vm_resource_id,
+            worker_group_name=worker_group_name,
+            worker_id=worker_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             vm_resource_id: pulumi.Input[str],
+             worker_group_name: pulumi.Input[str],
+             worker_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vm_resource_id", vm_resource_id)
+        _setter("worker_group_name", worker_group_name)
+        _setter("worker_id", worker_id)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -120,26 +137,53 @@ class _HybridRunbookWorkerState:
         :param pulumi.Input[str] worker_name: The name of HybridWorker.
         :param pulumi.Input[str] worker_type: The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
         """
+        _HybridRunbookWorkerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            ip=ip,
+            last_seen_date_time=last_seen_date_time,
+            registration_date_time=registration_date_time,
+            resource_group_name=resource_group_name,
+            vm_resource_id=vm_resource_id,
+            worker_group_name=worker_group_name,
+            worker_id=worker_id,
+            worker_name=worker_name,
+            worker_type=worker_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             ip: Optional[pulumi.Input[str]] = None,
+             last_seen_date_time: Optional[pulumi.Input[str]] = None,
+             registration_date_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vm_resource_id: Optional[pulumi.Input[str]] = None,
+             worker_group_name: Optional[pulumi.Input[str]] = None,
+             worker_id: Optional[pulumi.Input[str]] = None,
+             worker_name: Optional[pulumi.Input[str]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
+            _setter("automation_account_name", automation_account_name)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if last_seen_date_time is not None:
-            pulumi.set(__self__, "last_seen_date_time", last_seen_date_time)
+            _setter("last_seen_date_time", last_seen_date_time)
         if registration_date_time is not None:
-            pulumi.set(__self__, "registration_date_time", registration_date_time)
+            _setter("registration_date_time", registration_date_time)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+            _setter("vm_resource_id", vm_resource_id)
         if worker_group_name is not None:
-            pulumi.set(__self__, "worker_group_name", worker_group_name)
+            _setter("worker_group_name", worker_group_name)
         if worker_id is not None:
-            pulumi.set(__self__, "worker_id", worker_id)
+            _setter("worker_id", worker_id)
         if worker_name is not None:
-            pulumi.set(__self__, "worker_name", worker_name)
+            _setter("worker_name", worker_name)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -433,6 +477,10 @@ class HybridRunbookWorker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridRunbookWorkerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

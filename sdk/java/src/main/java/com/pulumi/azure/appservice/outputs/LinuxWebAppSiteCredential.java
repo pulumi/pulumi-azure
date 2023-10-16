@@ -11,10 +11,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LinuxWebAppSiteCredential {
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     private @Nullable String name;
     /**
      * @return The Site Credentials Password used for publishing.
@@ -23,10 +19,6 @@ public final class LinuxWebAppSiteCredential {
     private @Nullable String password;
 
     private LinuxWebAppSiteCredential() {}
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

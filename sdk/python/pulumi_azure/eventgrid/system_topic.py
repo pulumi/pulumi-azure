@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,17 +37,38 @@ class SystemTopicArgs:
         :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
-        pulumi.set(__self__, "topic_type", topic_type)
+        SystemTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            source_arm_resource_id=source_arm_resource_id,
+            topic_type=topic_type,
+            identity=identity,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             source_arm_resource_id: pulumi.Input[str],
+             topic_type: pulumi.Input[str],
+             identity: Optional[pulumi.Input['SystemTopicIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_arm_resource_id", source_arm_resource_id)
+        _setter("topic_type", topic_type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -164,22 +185,45 @@ class _SystemTopicState:
                
                > **NOTE:** You can use Azure CLI to get a full list of the available topic types: `az eventgrid topic-type  list --output json | grep -w id`
         """
+        _SystemTopicState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            location=location,
+            metric_arm_resource_id=metric_arm_resource_id,
+            name=name,
+            resource_group_name=resource_group_name,
+            source_arm_resource_id=source_arm_resource_id,
+            tags=tags,
+            topic_type=topic_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input['SystemTopicIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metric_arm_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_arm_resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             topic_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metric_arm_resource_id is not None:
-            pulumi.set(__self__, "metric_arm_resource_id", metric_arm_resource_id)
+            _setter("metric_arm_resource_id", metric_arm_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if source_arm_resource_id is not None:
-            pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+            _setter("source_arm_resource_id", source_arm_resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if topic_type is not None:
-            pulumi.set(__self__, "topic_type", topic_type)
+            _setter("topic_type", topic_type)
 
     @property
     @pulumi.getter
@@ -391,6 +435,10 @@ class SystemTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SystemTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -412,6 +460,11 @@ class SystemTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SystemTopicArgs.__new__(SystemTopicArgs)
 
+            if identity is not None and not isinstance(identity, SystemTopicIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                SystemTopicIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

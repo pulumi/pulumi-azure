@@ -19,12 +19,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly string? Certificate;
         /// <summary>
         /// The password for the certificate.
-        /// 
-        /// 
-        /// &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-        /// 
-        /// 
-        /// &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>
@@ -47,9 +41,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         /// 
         /// &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-        /// 
-        /// 
-        /// &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         /// </summary>
         public readonly string? KeyVaultId;
         /// <summary>

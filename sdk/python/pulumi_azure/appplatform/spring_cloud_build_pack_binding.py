@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class SpringCloudBuildPackBindingArgs:
         :param pulumi.Input['SpringCloudBuildPackBindingLaunchArgs'] launch: A `launch` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         """
-        pulumi.set(__self__, "spring_cloud_builder_id", spring_cloud_builder_id)
+        SpringCloudBuildPackBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spring_cloud_builder_id=spring_cloud_builder_id,
+            binding_type=binding_type,
+            launch=launch,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spring_cloud_builder_id: pulumi.Input[str],
+             binding_type: Optional[pulumi.Input[str]] = None,
+             launch: Optional[pulumi.Input['SpringCloudBuildPackBindingLaunchArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("spring_cloud_builder_id", spring_cloud_builder_id)
         if binding_type is not None:
-            pulumi.set(__self__, "binding_type", binding_type)
+            _setter("binding_type", binding_type)
         if launch is not None:
-            pulumi.set(__self__, "launch", launch)
+            _setter("launch", launch)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="springCloudBuilderId")
@@ -98,14 +113,29 @@ class _SpringCloudBuildPackBindingState:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         :param pulumi.Input[str] spring_cloud_builder_id: The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         """
+        _SpringCloudBuildPackBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            binding_type=binding_type,
+            launch=launch,
+            name=name,
+            spring_cloud_builder_id=spring_cloud_builder_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             binding_type: Optional[pulumi.Input[str]] = None,
+             launch: Optional[pulumi.Input['SpringCloudBuildPackBindingLaunchArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             spring_cloud_builder_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if binding_type is not None:
-            pulumi.set(__self__, "binding_type", binding_type)
+            _setter("binding_type", binding_type)
         if launch is not None:
-            pulumi.set(__self__, "launch", launch)
+            _setter("launch", launch)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if spring_cloud_builder_id is not None:
-            pulumi.set(__self__, "spring_cloud_builder_id", spring_cloud_builder_id)
+            _setter("spring_cloud_builder_id", spring_cloud_builder_id)
 
     @property
     @pulumi.getter(name="bindingType")
@@ -287,6 +317,10 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudBuildPackBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -306,6 +340,11 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             __props__ = SpringCloudBuildPackBindingArgs.__new__(SpringCloudBuildPackBindingArgs)
 
             __props__.__dict__["binding_type"] = binding_type
+            if launch is not None and not isinstance(launch, SpringCloudBuildPackBindingLaunchArgs):
+                launch = launch or {}
+                def _setter(key, value):
+                    launch[key] = value
+                SpringCloudBuildPackBindingLaunchArgs._configure(_setter, **launch)
             __props__.__dict__["launch"] = launch
             __props__.__dict__["name"] = name
             if spring_cloud_builder_id is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -44,11 +44,24 @@ class ApplicationIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        ApplicationIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -101,8 +114,19 @@ class ApplicationNetworkRuleSetIpRule(dict):
         :param str ip_mask: The IP address range in CIDR notation for the IP Rule.
         :param str name: The name of the IP Rule
         """
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        pulumi.set(__self__, "name", name)
+        ApplicationNetworkRuleSetIpRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_mask=ip_mask,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_mask: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_mask", ip_mask)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="ipMask")

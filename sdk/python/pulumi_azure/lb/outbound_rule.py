@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class OutboundRuleArgs:
         :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection Defaults to `4`.
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
-        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
-        pulumi.set(__self__, "protocol", protocol)
+        OutboundRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_address_pool_id=backend_address_pool_id,
+            loadbalancer_id=loadbalancer_id,
+            protocol=protocol,
+            allocated_outbound_ports=allocated_outbound_ports,
+            enable_tcp_reset=enable_tcp_reset,
+            frontend_ip_configurations=frontend_ip_configurations,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_address_pool_id: pulumi.Input[str],
+             loadbalancer_id: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
+             enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_address_pool_id", backend_address_pool_id)
+        _setter("loadbalancer_id", loadbalancer_id)
+        _setter("protocol", protocol)
         if allocated_outbound_ports is not None:
-            pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
+            _setter("allocated_outbound_ports", allocated_outbound_ports)
         if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+            _setter("enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+            _setter("frontend_ip_configurations", frontend_ip_configurations)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="backendAddressPoolId")
@@ -168,22 +191,45 @@ class _OutboundRuleState:
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         """
+        _OutboundRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocated_outbound_ports=allocated_outbound_ports,
+            backend_address_pool_id=backend_address_pool_id,
+            enable_tcp_reset=enable_tcp_reset,
+            frontend_ip_configurations=frontend_ip_configurations,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            loadbalancer_id=loadbalancer_id,
+            name=name,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allocated_outbound_ports is not None:
-            pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
+            _setter("allocated_outbound_ports", allocated_outbound_ports)
         if backend_address_pool_id is not None:
-            pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+            _setter("backend_address_pool_id", backend_address_pool_id)
         if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+            _setter("enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+            _setter("frontend_ip_configurations", frontend_ip_configurations)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if loadbalancer_id is not None:
-            pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+            _setter("loadbalancer_id", loadbalancer_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="allocatedOutboundPorts")
@@ -405,6 +451,10 @@ class OutboundRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutboundRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

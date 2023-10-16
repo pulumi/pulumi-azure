@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DiskPoolIscsiTargetArgs', 'DiskPoolIscsiTarget']
@@ -25,12 +25,27 @@ class DiskPoolIscsiTargetArgs:
         :param pulumi.Input[str] name: The name of the iSCSI Target. The name can only contain lowercase letters, numbers, periods, or hyphens, and length should between [5-223]. Changing this forces a new iSCSI Target to be created.
         :param pulumi.Input[str] target_iqn: ISCSI Target IQN (iSCSI Qualified Name); example: `iqn.2005-03.org.iscsi:server`. IQN should follow the format `iqn.yyyy-mm.<abc>.<pqr>[:xyz]`; supported characters include alphanumeric characters in lower case, hyphen, dot and colon, and the length should between `4` and `223`. Changing this forces a new iSCSI Target to be created.
         """
-        pulumi.set(__self__, "acl_mode", acl_mode)
-        pulumi.set(__self__, "disks_pool_id", disks_pool_id)
+        DiskPoolIscsiTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_mode=acl_mode,
+            disks_pool_id=disks_pool_id,
+            name=name,
+            target_iqn=target_iqn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_mode: pulumi.Input[str],
+             disks_pool_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             target_iqn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acl_mode", acl_mode)
+        _setter("disks_pool_id", disks_pool_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_iqn is not None:
-            pulumi.set(__self__, "target_iqn", target_iqn)
+            _setter("target_iqn", target_iqn)
 
     @property
     @pulumi.getter(name="aclMode")
@@ -99,18 +114,37 @@ class _DiskPoolIscsiTargetState:
         :param pulumi.Input[int] port: The port used by iSCSI Target portal group.
         :param pulumi.Input[str] target_iqn: ISCSI Target IQN (iSCSI Qualified Name); example: `iqn.2005-03.org.iscsi:server`. IQN should follow the format `iqn.yyyy-mm.<abc>.<pqr>[:xyz]`; supported characters include alphanumeric characters in lower case, hyphen, dot and colon, and the length should between `4` and `223`. Changing this forces a new iSCSI Target to be created.
         """
+        _DiskPoolIscsiTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_mode=acl_mode,
+            disks_pool_id=disks_pool_id,
+            endpoints=endpoints,
+            name=name,
+            port=port,
+            target_iqn=target_iqn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_mode: Optional[pulumi.Input[str]] = None,
+             disks_pool_id: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             target_iqn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acl_mode is not None:
-            pulumi.set(__self__, "acl_mode", acl_mode)
+            _setter("acl_mode", acl_mode)
         if disks_pool_id is not None:
-            pulumi.set(__self__, "disks_pool_id", disks_pool_id)
+            _setter("disks_pool_id", disks_pool_id)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if target_iqn is not None:
-            pulumi.set(__self__, "target_iqn", target_iqn)
+            _setter("target_iqn", target_iqn)
 
     @property
     @pulumi.getter(name="aclMode")
@@ -366,6 +400,10 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskPoolIscsiTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

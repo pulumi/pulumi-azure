@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? DestinationAddress { get; set; }
 
         /// <summary>
-        /// Specifies a list of destination ports.
+        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
         /// </summary>
         [Input("destinationPorts")]
         public Input<string>? DestinationPorts { get; set; }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class RulesEngineArgs:
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A `rule` block as defined below.
         """
-        pulumi.set(__self__, "frontdoor_name", frontdoor_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RulesEngineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frontdoor_name=frontdoor_name,
+            resource_group_name=resource_group_name,
+            enabled=enabled,
+            name=name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frontdoor_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("frontdoor_name", frontdoor_name)
+        _setter("resource_group_name", resource_group_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter(name="frontdoorName")
@@ -116,18 +133,37 @@ class _RulesEngineState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A `rule` block as defined below.
         """
+        _RulesEngineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            frontdoor_name=frontdoor_name,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frontdoor_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frontdoor_name is not None:
-            pulumi.set(__self__, "frontdoor_name", frontdoor_name)
+            _setter("frontdoor_name", frontdoor_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -426,6 +462,10 @@ class RulesEngine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RulesEngineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

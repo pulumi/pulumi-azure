@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -45,10 +45,21 @@ class ActiveRoleAssignmentSchedule(dict):
         :param 'ActiveRoleAssignmentScheduleExpirationArgs' expiration: A `expiration` block as defined above.
         :param str start_date_time: The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
         """
+        ActiveRoleAssignmentSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            start_date_time=start_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional['outputs.ActiveRoleAssignmentScheduleExpiration'] = None,
+             start_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
 
     @property
     @pulumi.getter
@@ -99,12 +110,25 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
         :param int duration_hours: The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
         :param str end_date_time: The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
         """
+        ActiveRoleAssignmentScheduleExpiration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration_days=duration_days,
+            duration_hours=duration_hours,
+            end_date_time=end_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration_days: Optional[int] = None,
+             duration_hours: Optional[int] = None,
+             end_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_days is not None:
-            pulumi.set(__self__, "duration_days", duration_days)
+            _setter("duration_days", duration_days)
         if duration_hours is not None:
-            pulumi.set(__self__, "duration_hours", duration_hours)
+            _setter("duration_hours", duration_hours)
         if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
+            _setter("end_date_time", end_date_time)
 
     @property
     @pulumi.getter(name="durationDays")
@@ -140,10 +164,21 @@ class ActiveRoleAssignmentTicket(dict):
         :param str number: The ticket number.
         :param str system: The ticket system.
         """
+        ActiveRoleAssignmentTicket._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number=number,
+            system=system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number: Optional[str] = None,
+             system: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if number is not None:
-            pulumi.set(__self__, "number", number)
+            _setter("number", number)
         if system is not None:
-            pulumi.set(__self__, "system", system)
+            _setter("system", system)
 
     @property
     @pulumi.getter
@@ -188,10 +223,21 @@ class EligibleRoleAssignmentSchedule(dict):
         :param 'EligibleRoleAssignmentScheduleExpirationArgs' expiration: A `expiration` block as defined above.
         :param str start_date_time: The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
         """
+        EligibleRoleAssignmentSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration=expiration,
+            start_date_time=start_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration: Optional['outputs.EligibleRoleAssignmentScheduleExpiration'] = None,
+             start_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
 
     @property
     @pulumi.getter
@@ -242,12 +288,25 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
         :param int duration_hours: The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
         :param str end_date_time: The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
         """
+        EligibleRoleAssignmentScheduleExpiration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration_days=duration_days,
+            duration_hours=duration_hours,
+            end_date_time=end_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration_days: Optional[int] = None,
+             duration_hours: Optional[int] = None,
+             end_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_days is not None:
-            pulumi.set(__self__, "duration_days", duration_days)
+            _setter("duration_days", duration_days)
         if duration_hours is not None:
-            pulumi.set(__self__, "duration_hours", duration_hours)
+            _setter("duration_hours", duration_hours)
         if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
+            _setter("end_date_time", end_date_time)
 
     @property
     @pulumi.getter(name="durationDays")
@@ -283,10 +342,21 @@ class EligibleRoleAssignmentTicket(dict):
         :param str number: The ticket number.
         :param str system: The ticket system.
         """
+        EligibleRoleAssignmentTicket._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number=number,
+            system=system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number: Optional[str] = None,
+             system: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if number is not None:
-            pulumi.set(__self__, "number", number)
+            _setter("number", number)
         if system is not None:
-            pulumi.set(__self__, "system", system)
+            _setter("system", system)
 
     @property
     @pulumi.getter

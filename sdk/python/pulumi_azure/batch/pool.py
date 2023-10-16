@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -81,59 +81,124 @@ class PoolArgs:
                
                > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_image_reference", storage_image_reference)
-        pulumi.set(__self__, "vm_size", vm_size)
+        PoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            node_agent_sku_id=node_agent_sku_id,
+            resource_group_name=resource_group_name,
+            storage_image_reference=storage_image_reference,
+            vm_size=vm_size,
+            auto_scale=auto_scale,
+            certificates=certificates,
+            container_configuration=container_configuration,
+            data_disks=data_disks,
+            disk_encryptions=disk_encryptions,
+            display_name=display_name,
+            extensions=extensions,
+            fixed_scale=fixed_scale,
+            identity=identity,
+            inter_node_communication=inter_node_communication,
+            license_type=license_type,
+            max_tasks_per_node=max_tasks_per_node,
+            metadata=metadata,
+            mounts=mounts,
+            name=name,
+            network_configuration=network_configuration,
+            node_placements=node_placements,
+            os_disk_placement=os_disk_placement,
+            start_task=start_task,
+            stop_pending_resize_operation=stop_pending_resize_operation,
+            target_node_communication_mode=target_node_communication_mode,
+            task_scheduling_policies=task_scheduling_policies,
+            user_accounts=user_accounts,
+            windows=windows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             node_agent_sku_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_image_reference: pulumi.Input['PoolStorageImageReferenceArgs'],
+             vm_size: pulumi.Input[str],
+             auto_scale: Optional[pulumi.Input['PoolAutoScaleArgs']] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
+             container_configuration: Optional[pulumi.Input['PoolContainerConfigurationArgs']] = None,
+             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]]] = None,
+             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['PoolExtensionArgs']]]] = None,
+             fixed_scale: Optional[pulumi.Input['PoolFixedScaleArgs']] = None,
+             identity: Optional[pulumi.Input['PoolIdentityArgs']] = None,
+             inter_node_communication: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             max_tasks_per_node: Optional[pulumi.Input[int]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['PoolNetworkConfigurationArgs']] = None,
+             node_placements: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]]] = None,
+             os_disk_placement: Optional[pulumi.Input[str]] = None,
+             start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
+             stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
+             target_node_communication_mode: Optional[pulumi.Input[str]] = None,
+             task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]] = None,
+             user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]] = None,
+             windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("node_agent_sku_id", node_agent_sku_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_image_reference", storage_image_reference)
+        _setter("vm_size", vm_size)
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if container_configuration is not None:
-            pulumi.set(__self__, "container_configuration", container_configuration)
+            _setter("container_configuration", container_configuration)
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if disk_encryptions is not None:
-            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
+            _setter("disk_encryptions", disk_encryptions)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if fixed_scale is not None:
-            pulumi.set(__self__, "fixed_scale", fixed_scale)
+            _setter("fixed_scale", fixed_scale)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inter_node_communication is not None:
-            pulumi.set(__self__, "inter_node_communication", inter_node_communication)
+            _setter("inter_node_communication", inter_node_communication)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if max_tasks_per_node is not None:
-            pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
+            _setter("max_tasks_per_node", max_tasks_per_node)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mounts is not None:
-            pulumi.set(__self__, "mounts", mounts)
+            _setter("mounts", mounts)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if node_placements is not None:
-            pulumi.set(__self__, "node_placements", node_placements)
+            _setter("node_placements", node_placements)
         if os_disk_placement is not None:
-            pulumi.set(__self__, "os_disk_placement", os_disk_placement)
+            _setter("os_disk_placement", os_disk_placement)
         if start_task is not None:
-            pulumi.set(__self__, "start_task", start_task)
+            _setter("start_task", start_task)
         if stop_pending_resize_operation is not None:
-            pulumi.set(__self__, "stop_pending_resize_operation", stop_pending_resize_operation)
+            _setter("stop_pending_resize_operation", stop_pending_resize_operation)
         if target_node_communication_mode is not None:
-            pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
+            _setter("target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policies is not None:
-            pulumi.set(__self__, "task_scheduling_policies", task_scheduling_policies)
+            _setter("task_scheduling_policies", task_scheduling_policies)
         if user_accounts is not None:
-            pulumi.set(__self__, "user_accounts", user_accounts)
+            _setter("user_accounts", user_accounts)
         if windows is not None:
-            pulumi.set(__self__, "windows", windows)
+            _setter("windows", windows)
 
     @property
     @pulumi.getter(name="accountName")
@@ -556,64 +621,129 @@ class _PoolState:
                
                > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
+        _PoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            auto_scale=auto_scale,
+            certificates=certificates,
+            container_configuration=container_configuration,
+            data_disks=data_disks,
+            disk_encryptions=disk_encryptions,
+            display_name=display_name,
+            extensions=extensions,
+            fixed_scale=fixed_scale,
+            identity=identity,
+            inter_node_communication=inter_node_communication,
+            license_type=license_type,
+            max_tasks_per_node=max_tasks_per_node,
+            metadata=metadata,
+            mounts=mounts,
+            name=name,
+            network_configuration=network_configuration,
+            node_agent_sku_id=node_agent_sku_id,
+            node_placements=node_placements,
+            os_disk_placement=os_disk_placement,
+            resource_group_name=resource_group_name,
+            start_task=start_task,
+            stop_pending_resize_operation=stop_pending_resize_operation,
+            storage_image_reference=storage_image_reference,
+            target_node_communication_mode=target_node_communication_mode,
+            task_scheduling_policies=task_scheduling_policies,
+            user_accounts=user_accounts,
+            vm_size=vm_size,
+            windows=windows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             auto_scale: Optional[pulumi.Input['PoolAutoScaleArgs']] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
+             container_configuration: Optional[pulumi.Input['PoolContainerConfigurationArgs']] = None,
+             data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]]] = None,
+             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['PoolExtensionArgs']]]] = None,
+             fixed_scale: Optional[pulumi.Input['PoolFixedScaleArgs']] = None,
+             identity: Optional[pulumi.Input['PoolIdentityArgs']] = None,
+             inter_node_communication: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             max_tasks_per_node: Optional[pulumi.Input[int]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['PoolNetworkConfigurationArgs']] = None,
+             node_agent_sku_id: Optional[pulumi.Input[str]] = None,
+             node_placements: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]]] = None,
+             os_disk_placement: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
+             stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
+             storage_image_reference: Optional[pulumi.Input['PoolStorageImageReferenceArgs']] = None,
+             target_node_communication_mode: Optional[pulumi.Input[str]] = None,
+             task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]] = None,
+             user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if container_configuration is not None:
-            pulumi.set(__self__, "container_configuration", container_configuration)
+            _setter("container_configuration", container_configuration)
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if disk_encryptions is not None:
-            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
+            _setter("disk_encryptions", disk_encryptions)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if fixed_scale is not None:
-            pulumi.set(__self__, "fixed_scale", fixed_scale)
+            _setter("fixed_scale", fixed_scale)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if inter_node_communication is not None:
-            pulumi.set(__self__, "inter_node_communication", inter_node_communication)
+            _setter("inter_node_communication", inter_node_communication)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if max_tasks_per_node is not None:
-            pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
+            _setter("max_tasks_per_node", max_tasks_per_node)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mounts is not None:
-            pulumi.set(__self__, "mounts", mounts)
+            _setter("mounts", mounts)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if node_agent_sku_id is not None:
-            pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
+            _setter("node_agent_sku_id", node_agent_sku_id)
         if node_placements is not None:
-            pulumi.set(__self__, "node_placements", node_placements)
+            _setter("node_placements", node_placements)
         if os_disk_placement is not None:
-            pulumi.set(__self__, "os_disk_placement", os_disk_placement)
+            _setter("os_disk_placement", os_disk_placement)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if start_task is not None:
-            pulumi.set(__self__, "start_task", start_task)
+            _setter("start_task", start_task)
         if stop_pending_resize_operation is not None:
-            pulumi.set(__self__, "stop_pending_resize_operation", stop_pending_resize_operation)
+            _setter("stop_pending_resize_operation", stop_pending_resize_operation)
         if storage_image_reference is not None:
-            pulumi.set(__self__, "storage_image_reference", storage_image_reference)
+            _setter("storage_image_reference", storage_image_reference)
         if target_node_communication_mode is not None:
-            pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
+            _setter("target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policies is not None:
-            pulumi.set(__self__, "task_scheduling_policies", task_scheduling_policies)
+            _setter("task_scheduling_policies", task_scheduling_policies)
         if user_accounts is not None:
-            pulumi.set(__self__, "user_accounts", user_accounts)
+            _setter("user_accounts", user_accounts)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if windows is not None:
-            pulumi.set(__self__, "windows", windows)
+            _setter("windows", windows)
 
     @property
     @pulumi.getter(name="accountName")
@@ -1235,6 +1365,10 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1281,14 +1415,34 @@ class Pool(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if auto_scale is not None and not isinstance(auto_scale, PoolAutoScaleArgs):
+                auto_scale = auto_scale or {}
+                def _setter(key, value):
+                    auto_scale[key] = value
+                PoolAutoScaleArgs._configure(_setter, **auto_scale)
             __props__.__dict__["auto_scale"] = auto_scale
             __props__.__dict__["certificates"] = certificates
+            if container_configuration is not None and not isinstance(container_configuration, PoolContainerConfigurationArgs):
+                container_configuration = container_configuration or {}
+                def _setter(key, value):
+                    container_configuration[key] = value
+                PoolContainerConfigurationArgs._configure(_setter, **container_configuration)
             __props__.__dict__["container_configuration"] = container_configuration
             __props__.__dict__["data_disks"] = data_disks
             __props__.__dict__["disk_encryptions"] = disk_encryptions
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["extensions"] = extensions
+            if fixed_scale is not None and not isinstance(fixed_scale, PoolFixedScaleArgs):
+                fixed_scale = fixed_scale or {}
+                def _setter(key, value):
+                    fixed_scale[key] = value
+                PoolFixedScaleArgs._configure(_setter, **fixed_scale)
             __props__.__dict__["fixed_scale"] = fixed_scale
+            if identity is not None and not isinstance(identity, PoolIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                PoolIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inter_node_communication"] = inter_node_communication
             __props__.__dict__["license_type"] = license_type
@@ -1296,6 +1450,11 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["mounts"] = mounts
             __props__.__dict__["name"] = name
+            if network_configuration is not None and not isinstance(network_configuration, PoolNetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                PoolNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             if node_agent_sku_id is None and not opts.urn:
                 raise TypeError("Missing required property 'node_agent_sku_id'")
@@ -1305,8 +1464,18 @@ class Pool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if start_task is not None and not isinstance(start_task, PoolStartTaskArgs):
+                start_task = start_task or {}
+                def _setter(key, value):
+                    start_task[key] = value
+                PoolStartTaskArgs._configure(_setter, **start_task)
             __props__.__dict__["start_task"] = start_task
             __props__.__dict__["stop_pending_resize_operation"] = stop_pending_resize_operation
+            if storage_image_reference is not None and not isinstance(storage_image_reference, PoolStorageImageReferenceArgs):
+                storage_image_reference = storage_image_reference or {}
+                def _setter(key, value):
+                    storage_image_reference[key] = value
+                PoolStorageImageReferenceArgs._configure(_setter, **storage_image_reference)
             if storage_image_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_image_reference'")
             __props__.__dict__["storage_image_reference"] = storage_image_reference

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AutoProvisioningArgs', 'AutoProvisioning']
@@ -19,7 +19,16 @@ class AutoProvisioningArgs:
         The set of arguments for constructing a AutoProvisioning resource.
         :param pulumi.Input[str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
-        pulumi.set(__self__, "auto_provision", auto_provision)
+        AutoProvisioningArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_provision=auto_provision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_provision: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_provision", auto_provision)
 
     @property
     @pulumi.getter(name="autoProvision")
@@ -42,8 +51,17 @@ class _AutoProvisioningState:
         Input properties used for looking up and filtering AutoProvisioning resources.
         :param pulumi.Input[str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
+        _AutoProvisioningState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_provision=auto_provision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_provision: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_provision is not None:
-            pulumi.set(__self__, "auto_provision", auto_provision)
+            _setter("auto_provision", auto_provision)
 
     @property
     @pulumi.getter(name="autoProvision")
@@ -129,6 +147,10 @@ class AutoProvisioning(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutoProvisioningArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

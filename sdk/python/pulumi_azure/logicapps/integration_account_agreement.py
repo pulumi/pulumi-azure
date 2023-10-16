@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,18 +39,45 @@ class IntegrationAccountAgreementArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Agreement.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "agreement_type", agreement_type)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "guest_identity", guest_identity)
-        pulumi.set(__self__, "guest_partner_name", guest_partner_name)
-        pulumi.set(__self__, "host_identity", host_identity)
-        pulumi.set(__self__, "host_partner_name", host_partner_name)
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreement_type=agreement_type,
+            content=content,
+            guest_identity=guest_identity,
+            guest_partner_name=guest_partner_name,
+            host_identity=host_identity,
+            host_partner_name=host_partner_name,
+            integration_account_name=integration_account_name,
+            resource_group_name=resource_group_name,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreement_type: pulumi.Input[str],
+             content: pulumi.Input[str],
+             guest_identity: pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'],
+             guest_partner_name: pulumi.Input[str],
+             host_identity: pulumi.Input['IntegrationAccountAgreementHostIdentityArgs'],
+             host_partner_name: pulumi.Input[str],
+             integration_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agreement_type", agreement_type)
+        _setter("content", content)
+        _setter("guest_identity", guest_identity)
+        _setter("guest_partner_name", guest_partner_name)
+        _setter("host_identity", host_identity)
+        _setter("host_partner_name", host_partner_name)
+        _setter("integration_account_name", integration_account_name)
+        _setter("resource_group_name", resource_group_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="agreementType")
@@ -199,26 +226,53 @@ class _IntegrationAccountAgreementState:
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
         """
+        _IntegrationAccountAgreementState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreement_type=agreement_type,
+            content=content,
+            guest_identity=guest_identity,
+            guest_partner_name=guest_partner_name,
+            host_identity=host_identity,
+            host_partner_name=host_partner_name,
+            integration_account_name=integration_account_name,
+            metadata=metadata,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreement_type: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             guest_identity: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']] = None,
+             guest_partner_name: Optional[pulumi.Input[str]] = None,
+             host_identity: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']] = None,
+             host_partner_name: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agreement_type is not None:
-            pulumi.set(__self__, "agreement_type", agreement_type)
+            _setter("agreement_type", agreement_type)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if guest_identity is not None:
-            pulumi.set(__self__, "guest_identity", guest_identity)
+            _setter("guest_identity", guest_identity)
         if guest_partner_name is not None:
-            pulumi.set(__self__, "guest_partner_name", guest_partner_name)
+            _setter("guest_partner_name", guest_partner_name)
         if host_identity is not None:
-            pulumi.set(__self__, "host_identity", host_identity)
+            _setter("host_identity", host_identity)
         if host_partner_name is not None:
-            pulumi.set(__self__, "host_partner_name", host_partner_name)
+            _setter("host_partner_name", host_partner_name)
         if integration_account_name is not None:
-            pulumi.set(__self__, "integration_account_name", integration_account_name)
+            _setter("integration_account_name", integration_account_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="agreementType")
@@ -492,6 +546,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountAgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -522,12 +580,22 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
+            if guest_identity is not None and not isinstance(guest_identity, IntegrationAccountAgreementGuestIdentityArgs):
+                guest_identity = guest_identity or {}
+                def _setter(key, value):
+                    guest_identity[key] = value
+                IntegrationAccountAgreementGuestIdentityArgs._configure(_setter, **guest_identity)
             if guest_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_identity'")
             __props__.__dict__["guest_identity"] = guest_identity
             if guest_partner_name is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_partner_name'")
             __props__.__dict__["guest_partner_name"] = guest_partner_name
+            if host_identity is not None and not isinstance(host_identity, IntegrationAccountAgreementHostIdentityArgs):
+                host_identity = host_identity or {}
+                def _setter(key, value):
+                    host_identity[key] = value
+                IntegrationAccountAgreementHostIdentityArgs._configure(_setter, **host_identity)
             if host_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'host_identity'")
             __props__.__dict__["host_identity"] = host_identity

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -45,14 +45,29 @@ class LabAutoShutdownArgs:
                
                > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         """
+        LabAutoShutdownArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disconnect_delay=disconnect_delay,
+            idle_delay=idle_delay,
+            no_connect_delay=no_connect_delay,
+            shutdown_on_idle=shutdown_on_idle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disconnect_delay: Optional[pulumi.Input[str]] = None,
+             idle_delay: Optional[pulumi.Input[str]] = None,
+             no_connect_delay: Optional[pulumi.Input[str]] = None,
+             shutdown_on_idle: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disconnect_delay is not None:
-            pulumi.set(__self__, "disconnect_delay", disconnect_delay)
+            _setter("disconnect_delay", disconnect_delay)
         if idle_delay is not None:
-            pulumi.set(__self__, "idle_delay", idle_delay)
+            _setter("idle_delay", idle_delay)
         if no_connect_delay is not None:
-            pulumi.set(__self__, "no_connect_delay", no_connect_delay)
+            _setter("no_connect_delay", no_connect_delay)
         if shutdown_on_idle is not None:
-            pulumi.set(__self__, "shutdown_on_idle", shutdown_on_idle)
+            _setter("shutdown_on_idle", shutdown_on_idle)
 
     @property
     @pulumi.getter(name="disconnectDelay")
@@ -122,10 +137,21 @@ class LabConnectionSettingArgs:
                
                > **NOTE:** This property is `None` when it isn't specified.
         """
+        LabConnectionSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_rdp_access=client_rdp_access,
+            client_ssh_access=client_ssh_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_rdp_access: Optional[pulumi.Input[str]] = None,
+             client_ssh_access: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_rdp_access is not None:
-            pulumi.set(__self__, "client_rdp_access", client_rdp_access)
+            _setter("client_rdp_access", client_rdp_access)
         if client_ssh_access is not None:
-            pulumi.set(__self__, "client_ssh_access", client_ssh_access)
+            _setter("client_ssh_access", client_ssh_access)
 
     @property
     @pulumi.getter(name="clientRdpAccess")
@@ -167,12 +193,25 @@ class LabNetworkArgs:
         :param pulumi.Input[str] public_ip_id: The resource ID of the Public IP for the network profile of the Lab Service Lab.
         :param pulumi.Input[str] subnet_id: The resource ID of the Subnet for the network profile of the Lab Service Lab.
         """
+        LabNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_id=load_balancer_id,
+            public_ip_id=public_ip_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_id: Optional[pulumi.Input[str]] = None,
+             public_ip_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if load_balancer_id is not None:
-            pulumi.set(__self__, "load_balancer_id", load_balancer_id)
+            _setter("load_balancer_id", load_balancer_id)
         if public_ip_id is not None:
-            pulumi.set(__self__, "public_ip_id", public_ip_id)
+            _setter("public_ip_id", public_ip_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -226,16 +265,33 @@ class LabRosterArgs:
         :param pulumi.Input[str] lti_context_id: The unique context identifier for the Lab Service Lab in the lms.
         :param pulumi.Input[str] lti_roster_endpoint: The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
         """
+        LabRosterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory_group_id=active_directory_group_id,
+            lms_instance=lms_instance,
+            lti_client_id=lti_client_id,
+            lti_context_id=lti_context_id,
+            lti_roster_endpoint=lti_roster_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory_group_id: Optional[pulumi.Input[str]] = None,
+             lms_instance: Optional[pulumi.Input[str]] = None,
+             lti_client_id: Optional[pulumi.Input[str]] = None,
+             lti_context_id: Optional[pulumi.Input[str]] = None,
+             lti_roster_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active_directory_group_id is not None:
-            pulumi.set(__self__, "active_directory_group_id", active_directory_group_id)
+            _setter("active_directory_group_id", active_directory_group_id)
         if lms_instance is not None:
-            pulumi.set(__self__, "lms_instance", lms_instance)
+            _setter("lms_instance", lms_instance)
         if lti_client_id is not None:
-            pulumi.set(__self__, "lti_client_id", lti_client_id)
+            _setter("lti_client_id", lti_client_id)
         if lti_context_id is not None:
-            pulumi.set(__self__, "lti_context_id", lti_context_id)
+            _setter("lti_context_id", lti_context_id)
         if lti_roster_endpoint is not None:
-            pulumi.set(__self__, "lti_roster_endpoint", lti_roster_endpoint)
+            _setter("lti_roster_endpoint", lti_roster_endpoint)
 
     @property
     @pulumi.getter(name="activeDirectoryGroupId")
@@ -307,9 +363,20 @@ class LabSecurityArgs:
         :param pulumi.Input[bool] open_access_enabled: Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
         :param pulumi.Input[str] registration_code: The registration code for the Lab Service Lab.
         """
-        pulumi.set(__self__, "open_access_enabled", open_access_enabled)
+        LabSecurityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            open_access_enabled=open_access_enabled,
+            registration_code=registration_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             open_access_enabled: pulumi.Input[bool],
+             registration_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("open_access_enabled", open_access_enabled)
         if registration_code is not None:
-            pulumi.set(__self__, "registration_code", registration_code)
+            _setter("registration_code", registration_code)
 
     @property
     @pulumi.getter(name="openAccessEnabled")
@@ -357,19 +424,42 @@ class LabVirtualMachineArgs:
         :param pulumi.Input[bool] shared_password_enabled: Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_quota: The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
         """
-        pulumi.set(__self__, "admin_user", admin_user)
-        pulumi.set(__self__, "image_reference", image_reference)
-        pulumi.set(__self__, "sku", sku)
+        LabVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user=admin_user,
+            image_reference=image_reference,
+            sku=sku,
+            additional_capability_gpu_drivers_installed=additional_capability_gpu_drivers_installed,
+            create_option=create_option,
+            non_admin_user=non_admin_user,
+            shared_password_enabled=shared_password_enabled,
+            usage_quota=usage_quota,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user: pulumi.Input['LabVirtualMachineAdminUserArgs'],
+             image_reference: pulumi.Input['LabVirtualMachineImageReferenceArgs'],
+             sku: pulumi.Input['LabVirtualMachineSkuArgs'],
+             additional_capability_gpu_drivers_installed: Optional[pulumi.Input[bool]] = None,
+             create_option: Optional[pulumi.Input[str]] = None,
+             non_admin_user: Optional[pulumi.Input['LabVirtualMachineNonAdminUserArgs']] = None,
+             shared_password_enabled: Optional[pulumi.Input[bool]] = None,
+             usage_quota: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_user", admin_user)
+        _setter("image_reference", image_reference)
+        _setter("sku", sku)
         if additional_capability_gpu_drivers_installed is not None:
-            pulumi.set(__self__, "additional_capability_gpu_drivers_installed", additional_capability_gpu_drivers_installed)
+            _setter("additional_capability_gpu_drivers_installed", additional_capability_gpu_drivers_installed)
         if create_option is not None:
-            pulumi.set(__self__, "create_option", create_option)
+            _setter("create_option", create_option)
         if non_admin_user is not None:
-            pulumi.set(__self__, "non_admin_user", non_admin_user)
+            _setter("non_admin_user", non_admin_user)
         if shared_password_enabled is not None:
-            pulumi.set(__self__, "shared_password_enabled", shared_password_enabled)
+            _setter("shared_password_enabled", shared_password_enabled)
         if usage_quota is not None:
-            pulumi.set(__self__, "usage_quota", usage_quota)
+            _setter("usage_quota", usage_quota)
 
     @property
     @pulumi.getter(name="adminUser")
@@ -477,8 +567,19 @@ class LabVirtualMachineAdminUserArgs:
         :param pulumi.Input[str] password: The password for the Lab user. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        LabVirtualMachineAdminUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -520,16 +621,33 @@ class LabVirtualMachineImageReferenceArgs:
         :param pulumi.Input[str] sku: The image SKU. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The image version specified on creation. Changing this forces a new resource to be created.
         """
+        LabVirtualMachineImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             offer: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -601,8 +719,19 @@ class LabVirtualMachineNonAdminUserArgs:
         :param pulumi.Input[str] password: The password for the user.
         :param pulumi.Input[str] username: The username to use when signing in to Lab Service Lab VMs.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        LabVirtualMachineNonAdminUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -640,8 +769,19 @@ class LabVirtualMachineSkuArgs:
                > **NOTE:** Once `active_directory_group_id` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignore_changes` to avoid the difference of tf plan.
         :param pulumi.Input[str] name: The name of the SKU. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
+        LabVirtualMachineSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input[int],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -683,12 +823,27 @@ class ScheduleRecurrenceArgs:
         :param pulumi.Input[int] interval: The interval to invoke the schedule on. Possible values are between `1` and `365`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "frequency", frequency)
+        ScheduleRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_date=expiration_date,
+            frequency=frequency,
+            interval=interval,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_date: pulumi.Input[str],
+             frequency: pulumi.Input[str],
+             interval: Optional[pulumi.Input[int]] = None,
+             week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expiration_date", expiration_date)
+        _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -754,14 +909,29 @@ class ServicePlanDefaultAutoShutdownArgs:
                
                > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         """
+        ServicePlanDefaultAutoShutdownArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disconnect_delay=disconnect_delay,
+            idle_delay=idle_delay,
+            no_connect_delay=no_connect_delay,
+            shutdown_on_idle=shutdown_on_idle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disconnect_delay: Optional[pulumi.Input[str]] = None,
+             idle_delay: Optional[pulumi.Input[str]] = None,
+             no_connect_delay: Optional[pulumi.Input[str]] = None,
+             shutdown_on_idle: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disconnect_delay is not None:
-            pulumi.set(__self__, "disconnect_delay", disconnect_delay)
+            _setter("disconnect_delay", disconnect_delay)
         if idle_delay is not None:
-            pulumi.set(__self__, "idle_delay", idle_delay)
+            _setter("idle_delay", idle_delay)
         if no_connect_delay is not None:
-            pulumi.set(__self__, "no_connect_delay", no_connect_delay)
+            _setter("no_connect_delay", no_connect_delay)
         if shutdown_on_idle is not None:
-            pulumi.set(__self__, "shutdown_on_idle", shutdown_on_idle)
+            _setter("shutdown_on_idle", shutdown_on_idle)
 
     @property
     @pulumi.getter(name="disconnectDelay")
@@ -835,14 +1005,29 @@ class ServicePlanDefaultConnectionArgs:
                
                > **NOTE:** This property is `None` when it isn't specified.
         """
+        ServicePlanDefaultConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_rdp_access=client_rdp_access,
+            client_ssh_access=client_ssh_access,
+            web_rdp_access=web_rdp_access,
+            web_ssh_access=web_ssh_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_rdp_access: Optional[pulumi.Input[str]] = None,
+             client_ssh_access: Optional[pulumi.Input[str]] = None,
+             web_rdp_access: Optional[pulumi.Input[str]] = None,
+             web_ssh_access: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_rdp_access is not None:
-            pulumi.set(__self__, "client_rdp_access", client_rdp_access)
+            _setter("client_rdp_access", client_rdp_access)
         if client_ssh_access is not None:
-            pulumi.set(__self__, "client_ssh_access", client_ssh_access)
+            _setter("client_ssh_access", client_ssh_access)
         if web_rdp_access is not None:
-            pulumi.set(__self__, "web_rdp_access", web_rdp_access)
+            _setter("web_rdp_access", web_rdp_access)
         if web_ssh_access is not None:
-            pulumi.set(__self__, "web_ssh_access", web_ssh_access)
+            _setter("web_ssh_access", web_ssh_access)
 
     @property
     @pulumi.getter(name="clientRdpAccess")
@@ -914,14 +1099,29 @@ class ServicePlanSupportArgs:
         :param pulumi.Input[str] phone: The phone number for the support contact.
         :param pulumi.Input[str] url: The web address for users of the Lab Service Plan.
         """
+        ServicePlanSupportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            instructions=instructions,
+            phone=phone,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             instructions: Optional[pulumi.Input[str]] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if instructions is not None:
-            pulumi.set(__self__, "instructions", instructions)
+            _setter("instructions", instructions)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter

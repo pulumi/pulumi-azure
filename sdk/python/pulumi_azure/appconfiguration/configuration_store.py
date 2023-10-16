@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,29 +51,60 @@ class ConfigurationStoreArgs:
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConfigurationStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            encryption=encryption,
+            identity=identity,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            name=name,
+            public_network_access=public_network_access,
+            purge_protection_enabled=purge_protection_enabled,
+            replicas=replicas,
+            sku=sku,
+            soft_delete_retention_days=soft_delete_retention_days,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purge_protection_enabled is not None:
-            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+            _setter("purge_protection_enabled", purge_protection_enabled)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if soft_delete_retention_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
+            _setter("soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -276,40 +307,81 @@ class _ConfigurationStoreState:
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _ConfigurationStoreState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption=encryption,
+            endpoint=endpoint,
+            identity=identity,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            name=name,
+            primary_read_keys=primary_read_keys,
+            primary_write_keys=primary_write_keys,
+            public_network_access=public_network_access,
+            purge_protection_enabled=purge_protection_enabled,
+            replicas=replicas,
+            resource_group_name=resource_group_name,
+            secondary_read_keys=secondary_read_keys,
+            secondary_write_keys=secondary_write_keys,
+            sku=sku,
+            soft_delete_retention_days=soft_delete_retention_days,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]] = None,
+             primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]] = None,
+             secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_read_keys is not None:
-            pulumi.set(__self__, "primary_read_keys", primary_read_keys)
+            _setter("primary_read_keys", primary_read_keys)
         if primary_write_keys is not None:
-            pulumi.set(__self__, "primary_write_keys", primary_write_keys)
+            _setter("primary_write_keys", primary_write_keys)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purge_protection_enabled is not None:
-            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+            _setter("purge_protection_enabled", purge_protection_enabled)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_read_keys is not None:
-            pulumi.set(__self__, "secondary_read_keys", secondary_read_keys)
+            _setter("secondary_read_keys", secondary_read_keys)
         if secondary_write_keys is not None:
-            pulumi.set(__self__, "secondary_write_keys", secondary_write_keys)
+            _setter("secondary_write_keys", secondary_write_keys)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if soft_delete_retention_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
+            _setter("soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -809,6 +881,10 @@ class ConfigurationStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -835,7 +911,17 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
+            if encryption is not None and not isinstance(encryption, ConfigurationStoreEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                ConfigurationStoreEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, ConfigurationStoreIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ConfigurationStoreIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location

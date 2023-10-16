@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlexibleServerDatabaseArgs', 'FlexibleServerDatabase']
@@ -25,13 +25,28 @@ class FlexibleServerDatabaseArgs:
         :param pulumi.Input[str] collation: Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         """
-        pulumi.set(__self__, "server_id", server_id)
+        FlexibleServerDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_id=server_id,
+            charset=charset,
+            collation=collation,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_id: pulumi.Input[str],
+             charset: Optional[pulumi.Input[str]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_id", server_id)
         if charset is not None:
-            pulumi.set(__self__, "charset", charset)
+            _setter("charset", charset)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="serverId")
@@ -96,14 +111,29 @@ class _FlexibleServerDatabaseState:
         :param pulumi.Input[str] name: The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         :param pulumi.Input[str] server_id: The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         """
+        _FlexibleServerDatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            charset=charset,
+            collation=collation,
+            name=name,
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             charset: Optional[pulumi.Input[str]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if charset is not None:
-            pulumi.set(__self__, "charset", charset)
+            _setter("charset", charset)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
 
     @property
     @pulumi.getter
@@ -251,6 +281,10 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlexibleServerDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

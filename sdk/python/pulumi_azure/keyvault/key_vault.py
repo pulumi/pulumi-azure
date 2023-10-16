@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,35 +59,74 @@ class KeyVaultArgs:
                > **Note:** This field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        KeyVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tenant_id=tenant_id,
+            access_policies=access_policies,
+            contacts=contacts,
+            enable_rbac_authorization=enable_rbac_authorization,
+            enabled_for_deployment=enabled_for_deployment,
+            enabled_for_disk_encryption=enabled_for_disk_encryption,
+            enabled_for_template_deployment=enabled_for_template_deployment,
+            location=location,
+            name=name,
+            network_acls=network_acls,
+            public_network_access_enabled=public_network_access_enabled,
+            purge_protection_enabled=purge_protection_enabled,
+            soft_delete_retention_days=soft_delete_retention_days,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku_name: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
+             contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
+             enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
+             enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+             enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+             enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
+        _setter("tenant_id", tenant_id)
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if contacts is not None:
-            pulumi.set(__self__, "contacts", contacts)
+            _setter("contacts", contacts)
         if enable_rbac_authorization is not None:
-            pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
+            _setter("enable_rbac_authorization", enable_rbac_authorization)
         if enabled_for_deployment is not None:
-            pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
+            _setter("enabled_for_deployment", enabled_for_deployment)
         if enabled_for_disk_encryption is not None:
-            pulumi.set(__self__, "enabled_for_disk_encryption", enabled_for_disk_encryption)
+            _setter("enabled_for_disk_encryption", enabled_for_disk_encryption)
         if enabled_for_template_deployment is not None:
-            pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
+            _setter("enabled_for_template_deployment", enabled_for_template_deployment)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
-            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+            _setter("purge_protection_enabled", purge_protection_enabled)
         if soft_delete_retention_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
+            _setter("soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -338,40 +377,81 @@ class _KeyVaultState:
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
         """
+        _KeyVaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+            contacts=contacts,
+            enable_rbac_authorization=enable_rbac_authorization,
+            enabled_for_deployment=enabled_for_deployment,
+            enabled_for_disk_encryption=enabled_for_disk_encryption,
+            enabled_for_template_deployment=enabled_for_template_deployment,
+            location=location,
+            name=name,
+            network_acls=network_acls,
+            public_network_access_enabled=public_network_access_enabled,
+            purge_protection_enabled=purge_protection_enabled,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            soft_delete_retention_days=soft_delete_retention_days,
+            tags=tags,
+            tenant_id=tenant_id,
+            vault_uri=vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
+             contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
+             enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
+             enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+             enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+             enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             vault_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if contacts is not None:
-            pulumi.set(__self__, "contacts", contacts)
+            _setter("contacts", contacts)
         if enable_rbac_authorization is not None:
-            pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
+            _setter("enable_rbac_authorization", enable_rbac_authorization)
         if enabled_for_deployment is not None:
-            pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
+            _setter("enabled_for_deployment", enabled_for_deployment)
         if enabled_for_disk_encryption is not None:
-            pulumi.set(__self__, "enabled_for_disk_encryption", enabled_for_disk_encryption)
+            _setter("enabled_for_disk_encryption", enabled_for_disk_encryption)
         if enabled_for_template_deployment is not None:
-            pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
+            _setter("enabled_for_template_deployment", enabled_for_template_deployment)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
-            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+            _setter("purge_protection_enabled", purge_protection_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if soft_delete_retention_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
+            _setter("soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if vault_uri is not None:
-            pulumi.set(__self__, "vault_uri", vault_uri)
+            _setter("vault_uri", vault_uri)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -735,6 +815,10 @@ class KeyVault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyVaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -773,6 +857,11 @@ class KeyVault(pulumi.CustomResource):
             __props__.__dict__["enabled_for_template_deployment"] = enabled_for_template_deployment
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if network_acls is not None and not isinstance(network_acls, KeyVaultNetworkAclsArgs):
+                network_acls = network_acls or {}
+                def _setter(key, value):
+                    network_acls[key] = value
+                KeyVaultNetworkAclsArgs._configure(_setter, **network_acls)
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled

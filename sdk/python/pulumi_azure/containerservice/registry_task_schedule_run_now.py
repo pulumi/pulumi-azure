@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryTaskScheduleRunNowArgs', 'RegistryTaskScheduleRunNow']
@@ -19,7 +19,16 @@ class RegistryTaskScheduleRunNowArgs:
         The set of arguments for constructing a RegistryTaskScheduleRunNow resource.
         :param pulumi.Input[str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
         """
-        pulumi.set(__self__, "container_registry_task_id", container_registry_task_id)
+        RegistryTaskScheduleRunNowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_task_id=container_registry_task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_task_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_registry_task_id", container_registry_task_id)
 
     @property
     @pulumi.getter(name="containerRegistryTaskId")
@@ -42,8 +51,17 @@ class _RegistryTaskScheduleRunNowState:
         Input properties used for looking up and filtering RegistryTaskScheduleRunNow resources.
         :param pulumi.Input[str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
         """
+        _RegistryTaskScheduleRunNowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_task_id=container_registry_task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_task_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_registry_task_id is not None:
-            pulumi.set(__self__, "container_registry_task_id", container_registry_task_id)
+            _setter("container_registry_task_id", container_registry_task_id)
 
     @property
     @pulumi.getter(name="containerRegistryTaskId")
@@ -141,6 +159,10 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryTaskScheduleRunNowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

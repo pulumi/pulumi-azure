@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class DeploymentArgs:
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "scale", scale)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_account_id=cognitive_account_id,
+            model=model,
+            scale=scale,
+            name=name,
+            rai_policy_name=rai_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_account_id: pulumi.Input[str],
+             model: pulumi.Input['DeploymentModelArgs'],
+             scale: pulumi.Input['DeploymentScaleArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             rai_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cognitive_account_id", cognitive_account_id)
+        _setter("model", model)
+        _setter("scale", scale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+            _setter("rai_policy_name", rai_policy_name)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -114,16 +131,33 @@ class _DeploymentState:
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
         """
+        _DeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_account_id=cognitive_account_id,
+            model=model,
+            name=name,
+            rai_policy_name=rai_policy_name,
+            scale=scale,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rai_policy_name: Optional[pulumi.Input[str]] = None,
+             scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cognitive_account_id is not None:
-            pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
+            _setter("cognitive_account_id", cognitive_account_id)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+            _setter("rai_policy_name", rai_policy_name)
         if scale is not None:
-            pulumi.set(__self__, "scale", scale)
+            _setter("scale", scale)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -291,6 +325,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -313,11 +351,21 @@ class Deployment(pulumi.CustomResource):
             if cognitive_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_account_id'")
             __props__.__dict__["cognitive_account_id"] = cognitive_account_id
+            if model is not None and not isinstance(model, DeploymentModelArgs):
+                model = model or {}
+                def _setter(key, value):
+                    model[key] = value
+                DeploymentModelArgs._configure(_setter, **model)
             if model is None and not opts.urn:
                 raise TypeError("Missing required property 'model'")
             __props__.__dict__["model"] = model
             __props__.__dict__["name"] = name
             __props__.__dict__["rai_policy_name"] = rai_policy_name
+            if scale is not None and not isinstance(scale, DeploymentScaleArgs):
+                scale = scale or {}
+                def _setter(key, value):
+                    scale[key] = value
+                DeploymentScaleArgs._configure(_setter, **scale)
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")
             __props__.__dict__["scale"] = scale

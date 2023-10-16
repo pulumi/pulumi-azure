@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,11 +33,24 @@ class ConfigurationFeatureTargetingFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]] groups: One or more blocks of type `groups` as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of users to target for this feature.
         """
-        pulumi.set(__self__, "default_rollout_percentage", default_rollout_percentage)
+        ConfigurationFeatureTargetingFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_rollout_percentage=default_rollout_percentage,
+            groups=groups,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_rollout_percentage: pulumi.Input[int],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_rollout_percentage", default_rollout_percentage)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="defaultRolloutPercentage")
@@ -85,8 +98,19 @@ class ConfigurationFeatureTargetingFilterGroupArgs:
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[int] rollout_percentage: Rollout percentage of the group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rollout_percentage", rollout_percentage)
+        ConfigurationFeatureTargetingFilterGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            rollout_percentage=rollout_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             rollout_percentage: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("rollout_percentage", rollout_percentage)
 
     @property
     @pulumi.getter
@@ -122,10 +146,21 @@ class ConfigurationFeatureTimewindowFilterArgs:
         :param pulumi.Input[str] end: The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         :param pulumi.Input[str] start: The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         """
+        ConfigurationFeatureTimewindowFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter
@@ -161,10 +196,21 @@ class ConfigurationStoreEncryptionArgs:
         :param pulumi.Input[str] identity_client_id: Specifies the client id of the identity which will be used to access key vault.
         :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the key vault key used to encrypt data.
         """
+        ConfigurationStoreEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_client_id=identity_client_id,
+            key_vault_key_identifier=key_vault_key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_client_id: Optional[pulumi.Input[str]] = None,
+             key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
         if key_vault_key_identifier is not None:
-            pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+            _setter("key_vault_key_identifier", key_vault_key_identifier)
 
     @property
     @pulumi.getter(name="identityClientId")
@@ -206,13 +252,28 @@ class ConfigurationStoreIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        ConfigurationStoreIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -276,12 +337,25 @@ class ConfigurationStorePrimaryReadKeyArgs:
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
+        ConfigurationStorePrimaryReadKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            id=id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -331,12 +405,25 @@ class ConfigurationStorePrimaryWriteKeyArgs:
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
+        ConfigurationStorePrimaryWriteKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            id=id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -388,12 +475,27 @@ class ConfigurationStoreReplicaArgs:
         :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input[str] id: The ID of the Access Key.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
+        ConfigurationStoreReplicaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+            endpoint=endpoint,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input[str],
+             name: pulumi.Input[str],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("name", name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -455,12 +557,25 @@ class ConfigurationStoreSecondaryReadKeyArgs:
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
+        ConfigurationStoreSecondaryReadKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            id=id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -510,12 +625,25 @@ class ConfigurationStoreSecondaryWriteKeyArgs:
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
+        ConfigurationStoreSecondaryWriteKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            id=id,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="connectionString")

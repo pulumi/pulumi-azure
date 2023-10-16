@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityProviderFacebookArgs', 'IdentityProviderFacebook']
@@ -25,10 +25,25 @@ class IdentityProviderFacebookArgs:
         :param pulumi.Input[str] app_secret: App Secret for Facebook.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_secret", app_secret)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IdentityProviderFacebookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            app_id=app_id,
+            app_secret=app_secret,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: pulumi.Input[str],
+             app_id: pulumi.Input[str],
+             app_secret: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_name", api_management_name)
+        _setter("app_id", app_id)
+        _setter("app_secret", app_secret)
+        _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -93,14 +108,29 @@ class _IdentityProviderFacebookState:
         :param pulumi.Input[str] app_secret: App Secret for Facebook.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
+        _IdentityProviderFacebookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            app_id=app_id,
+            app_secret=app_secret,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if app_secret is not None:
-            pulumi.set(__self__, "app_secret", app_secret)
+            _setter("app_secret", app_secret)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -246,6 +276,10 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderFacebookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

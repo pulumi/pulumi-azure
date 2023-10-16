@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -64,14 +64,35 @@ class DatabaseImportArgs:
         :param pulumi.Input[str] storage_uri: Specifies the blob URI of the .bacpac file.
         :param pulumi.Input[str] storage_account_id: The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "storage_key", storage_key)
-        pulumi.set(__self__, "storage_key_type", storage_key_type)
-        pulumi.set(__self__, "storage_uri", storage_uri)
+        DatabaseImportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            authentication_type=authentication_type,
+            storage_key=storage_key,
+            storage_key_type=storage_key_type,
+            storage_uri=storage_uri,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: pulumi.Input[str],
+             administrator_login_password: pulumi.Input[str],
+             authentication_type: pulumi.Input[str],
+             storage_key: pulumi.Input[str],
+             storage_key_type: pulumi.Input[str],
+             storage_uri: pulumi.Input[str],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("administrator_login", administrator_login)
+        _setter("administrator_login_password", administrator_login_password)
+        _setter("authentication_type", authentication_type)
+        _setter("storage_key", storage_key)
+        _setter("storage_key_type", storage_key_type)
+        _setter("storage_uri", storage_uri)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -171,14 +192,29 @@ class DatabaseLongTermRetentionPolicyArgs:
         :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
+        DatabaseLongTermRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monthly_retention=monthly_retention,
+            week_of_year=week_of_year,
+            weekly_retention=weekly_retention,
+            yearly_retention=yearly_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monthly_retention: Optional[pulumi.Input[str]] = None,
+             week_of_year: Optional[pulumi.Input[int]] = None,
+             weekly_retention: Optional[pulumi.Input[str]] = None,
+             yearly_retention: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if monthly_retention is not None:
-            pulumi.set(__self__, "monthly_retention", monthly_retention)
+            _setter("monthly_retention", monthly_retention)
         if week_of_year is not None:
-            pulumi.set(__self__, "week_of_year", week_of_year)
+            _setter("week_of_year", week_of_year)
         if weekly_retention is not None:
-            pulumi.set(__self__, "weekly_retention", weekly_retention)
+            _setter("weekly_retention", weekly_retention)
         if yearly_retention is not None:
-            pulumi.set(__self__, "yearly_retention", yearly_retention)
+            _setter("yearly_retention", yearly_retention)
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -238,9 +274,20 @@ class DatabaseShortTermRetentionPolicyArgs:
         :param pulumi.Input[int] retention_days: Point In Time Restore configuration. Value has to be between `7` and `35`.
         :param pulumi.Input[int] backup_interval_in_hours: The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
         """
-        pulumi.set(__self__, "retention_days", retention_days)
+        DatabaseShortTermRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_days=retention_days,
+            backup_interval_in_hours=backup_interval_in_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_days: pulumi.Input[int],
+             backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("retention_days", retention_days)
         if backup_interval_in_hours is not None:
-            pulumi.set(__self__, "backup_interval_in_hours", backup_interval_in_hours)
+            _setter("backup_interval_in_hours", backup_interval_in_hours)
 
     @property
     @pulumi.getter(name="retentionDays")
@@ -286,20 +333,41 @@ class DatabaseThreatDetectionPolicyArgs:
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
+        DatabaseThreatDetectionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            retention_days=retention_days,
+            state=state,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_account_admins: Optional[pulumi.Input[str]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -393,7 +461,16 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] results: A list representing a result of the baseline.
         """
-        pulumi.set(__self__, "results", results)
+        DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            results=results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             results: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("results", results)
 
     @property
     @pulumi.getter
@@ -417,8 +494,19 @@ class ElasticPoolPerDatabaseSettingsArgs:
         :param pulumi.Input[float] max_capacity: The maximum capacity any one database can consume.
         :param pulumi.Input[float] min_capacity: The minimum capacity all databases are guaranteed.
         """
-        pulumi.set(__self__, "max_capacity", max_capacity)
-        pulumi.set(__self__, "min_capacity", min_capacity)
+        ElasticPoolPerDatabaseSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: pulumi.Input[float],
+             min_capacity: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_capacity", max_capacity)
+        _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -458,11 +546,26 @@ class ElasticPoolSkuArgs:
         :param pulumi.Input[str] tier: The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
         :param pulumi.Input[str] family: The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        ElasticPoolSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            tier=tier,
+            family=family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: pulumi.Input[int],
+             name: pulumi.Input[str],
+             tier: pulumi.Input[str],
+             family: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("name", name)
+        _setter("tier", tier)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
 
     @property
     @pulumi.getter
@@ -524,11 +627,24 @@ class FailoverGroupPartnerServerArgs:
         :param pulumi.Input[str] location: The location of the partner server.
         :param pulumi.Input[str] role: The replication role of the partner server. Possible values include `Primary` or `Secondary`.
         """
-        pulumi.set(__self__, "id", id)
+        FailoverGroupPartnerServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -576,9 +692,20 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
         :param pulumi.Input[str] mode: The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[int] grace_minutes: The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
         """
-        pulumi.set(__self__, "mode", mode)
+        FailoverGroupReadWriteEndpointFailoverPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input[str],
+             grace_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -618,14 +745,29 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
         :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
+        ManagedDatabaseLongTermRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monthly_retention=monthly_retention,
+            week_of_year=week_of_year,
+            weekly_retention=weekly_retention,
+            yearly_retention=yearly_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monthly_retention: Optional[pulumi.Input[str]] = None,
+             week_of_year: Optional[pulumi.Input[int]] = None,
+             weekly_retention: Optional[pulumi.Input[str]] = None,
+             yearly_retention: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if monthly_retention is not None:
-            pulumi.set(__self__, "monthly_retention", monthly_retention)
+            _setter("monthly_retention", monthly_retention)
         if week_of_year is not None:
-            pulumi.set(__self__, "week_of_year", week_of_year)
+            _setter("week_of_year", week_of_year)
         if weekly_retention is not None:
-            pulumi.set(__self__, "weekly_retention", weekly_retention)
+            _setter("weekly_retention", weekly_retention)
         if yearly_retention is not None:
-            pulumi.set(__self__, "yearly_retention", yearly_retention)
+            _setter("yearly_retention", yearly_retention)
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -685,10 +827,21 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
         :param pulumi.Input[str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: The partner replication role of the Managed Instance Failover Group.
         """
+        ManagedInstanceFailoverGroupPartnerRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -724,9 +877,20 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
         :param pulumi.Input[str] mode: The failover mode. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
         """
-        pulumi.set(__self__, "mode", mode)
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input[str],
+             grace_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -768,13 +932,28 @@ class ManagedInstanceIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedInstanceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -838,12 +1017,25 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
+        ManagedInstanceVulnerabilityAssessmentRecurringScansArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins=email_subscription_admins,
+            emails=emails,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins: Optional[pulumi.Input[bool]] = None,
+             emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_subscription_admins is not None:
-            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+            _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdmins")
@@ -895,12 +1087,27 @@ class ServerAzureadAdministratorArgs:
         :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
-        pulumi.set(__self__, "login_username", login_username)
-        pulumi.set(__self__, "object_id", object_id)
+        ServerAzureadAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_username=login_username,
+            object_id=object_id,
+            azuread_authentication_only=azuread_authentication_only,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_username: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login_username", login_username)
+        _setter("object_id", object_id)
         if azuread_authentication_only is not None:
-            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
+            _setter("azuread_authentication_only", azuread_authentication_only)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="loginUsername")
@@ -968,13 +1175,28 @@ class ServerIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
-        pulumi.set(__self__, "type", type)
+        ServerIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1040,12 +1262,25 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param pulumi.Input[bool] enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
+        ServerVulnerabilityAssessmentRecurringScansArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins=email_subscription_admins,
+            emails=emails,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins: Optional[pulumi.Input[bool]] = None,
+             emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_subscription_admins is not None:
-            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+            _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdmins")
@@ -1095,12 +1330,25 @@ class VirtualMachineAssessmentArgs:
         :param pulumi.Input[bool] run_immediately: Should Assessment be run immediately? Defaults to `false`.
         :param pulumi.Input['VirtualMachineAssessmentScheduleArgs'] schedule: An `schedule` block as defined below.
         """
+        VirtualMachineAssessmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            run_immediately=run_immediately,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             run_immediately: Optional[pulumi.Input[bool]] = None,
+             schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if run_immediately is not None:
-            pulumi.set(__self__, "run_immediately", run_immediately)
+            _setter("run_immediately", run_immediately)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -1154,12 +1402,27 @@ class VirtualMachineAssessmentScheduleArgs:
                > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         :param pulumi.Input[int] weekly_interval: How many weeks between assessment runs. Valid values are between `1` and `6`.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "start_time", start_time)
+        VirtualMachineAssessmentScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_time=start_time,
+            monthly_occurrence=monthly_occurrence,
+            weekly_interval=weekly_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: pulumi.Input[str],
+             start_time: pulumi.Input[str],
+             monthly_occurrence: Optional[pulumi.Input[int]] = None,
+             weekly_interval: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_week", day_of_week)
+        _setter("start_time", start_time)
         if monthly_occurrence is not None:
-            pulumi.set(__self__, "monthly_occurrence", monthly_occurrence)
+            _setter("monthly_occurrence", monthly_occurrence)
         if weekly_interval is not None:
-            pulumi.set(__self__, "weekly_interval", weekly_interval)
+            _setter("weekly_interval", weekly_interval)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -1231,17 +1494,38 @@ class VirtualMachineAutoBackupArgs:
         :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs'] manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param pulumi.Input[bool] system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
-        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_blob_endpoint", storage_blob_endpoint)
+        VirtualMachineAutoBackupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_period_in_days=retention_period_in_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_blob_endpoint=storage_blob_endpoint,
+            encryption_enabled=encryption_enabled,
+            encryption_password=encryption_password,
+            manual_schedule=manual_schedule,
+            system_databases_backup_enabled=system_databases_backup_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_period_in_days: pulumi.Input[int],
+             storage_account_access_key: pulumi.Input[str],
+             storage_blob_endpoint: pulumi.Input[str],
+             encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption_password: Optional[pulumi.Input[str]] = None,
+             manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']] = None,
+             system_databases_backup_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("retention_period_in_days", retention_period_in_days)
+        _setter("storage_account_access_key", storage_account_access_key)
+        _setter("storage_blob_endpoint", storage_blob_endpoint)
         if encryption_enabled is not None:
-            pulumi.set(__self__, "encryption_enabled", encryption_enabled)
+            _setter("encryption_enabled", encryption_enabled)
         if encryption_password is not None:
-            pulumi.set(__self__, "encryption_password", encryption_password)
+            _setter("encryption_password", encryption_password)
         if manual_schedule is not None:
-            pulumi.set(__self__, "manual_schedule", manual_schedule)
+            _setter("manual_schedule", manual_schedule)
         if system_databases_backup_enabled is not None:
-            pulumi.set(__self__, "system_databases_backup_enabled", system_databases_backup_enabled)
+            _setter("system_databases_backup_enabled", system_databases_backup_enabled)
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
@@ -1345,12 +1629,29 @@ class VirtualMachineAutoBackupManualScheduleArgs:
                
                > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
         """
-        pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
-        pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
-        pulumi.set(__self__, "full_backup_window_in_hours", full_backup_window_in_hours)
-        pulumi.set(__self__, "log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
+        VirtualMachineAutoBackupManualScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            full_backup_frequency=full_backup_frequency,
+            full_backup_start_hour=full_backup_start_hour,
+            full_backup_window_in_hours=full_backup_window_in_hours,
+            log_backup_frequency_in_minutes=log_backup_frequency_in_minutes,
+            days_of_weeks=days_of_weeks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             full_backup_frequency: pulumi.Input[str],
+             full_backup_start_hour: pulumi.Input[int],
+             full_backup_window_in_hours: pulumi.Input[int],
+             log_backup_frequency_in_minutes: pulumi.Input[int],
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("full_backup_frequency", full_backup_frequency)
+        _setter("full_backup_start_hour", full_backup_start_hour)
+        _setter("full_backup_window_in_hours", full_backup_window_in_hours)
+        _setter("log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
         if days_of_weeks is not None:
-            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+            _setter("days_of_weeks", days_of_weeks)
 
     @property
     @pulumi.getter(name="fullBackupFrequency")
@@ -1426,9 +1727,22 @@ class VirtualMachineAutoPatchingArgs:
         :param pulumi.Input[int] maintenance_window_duration_in_minutes: The size of the Maintenance Window in minutes.
         :param pulumi.Input[int] maintenance_window_starting_hour: The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "maintenance_window_duration_in_minutes", maintenance_window_duration_in_minutes)
-        pulumi.set(__self__, "maintenance_window_starting_hour", maintenance_window_starting_hour)
+        VirtualMachineAutoPatchingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            maintenance_window_duration_in_minutes=maintenance_window_duration_in_minutes,
+            maintenance_window_starting_hour=maintenance_window_starting_hour,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: pulumi.Input[str],
+             maintenance_window_duration_in_minutes: pulumi.Input[int],
+             maintenance_window_starting_hour: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_week", day_of_week)
+        _setter("maintenance_window_duration_in_minutes", maintenance_window_duration_in_minutes)
+        _setter("maintenance_window_starting_hour", maintenance_window_starting_hour)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -1484,11 +1798,28 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
                
                > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
         """
-        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "probe_port", probe_port)
-        pulumi.set(__self__, "sql_virtual_machine_ids", sql_virtual_machine_ids)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_id=load_balancer_id,
+            private_ip_address=private_ip_address,
+            probe_port=probe_port,
+            sql_virtual_machine_ids=sql_virtual_machine_ids,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_id: pulumi.Input[str],
+             private_ip_address: pulumi.Input[str],
+             probe_port: pulumi.Input[int],
+             sql_virtual_machine_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("load_balancer_id", load_balancer_id)
+        _setter("private_ip_address", private_ip_address)
+        _setter("probe_port", probe_port)
+        _setter("sql_virtual_machine_ids", sql_virtual_machine_ids)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -1566,9 +1897,22 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
                
                > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
         """
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+            sql_virtual_machine_id=sql_virtual_machine_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: pulumi.Input[str],
+             sql_virtual_machine_id: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_ip_address", private_ip_address)
+        _setter("sql_virtual_machine_id", sql_virtual_machine_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -1624,11 +1968,28 @@ class VirtualMachineAvailabilityGroupListenerReplicaArgs:
         :param pulumi.Input[str] role: The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_id: The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "commit", commit)
-        pulumi.set(__self__, "failover_mode", failover_mode)
-        pulumi.set(__self__, "readable_secondary", readable_secondary)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
+        VirtualMachineAvailabilityGroupListenerReplicaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commit=commit,
+            failover_mode=failover_mode,
+            readable_secondary=readable_secondary,
+            role=role,
+            sql_virtual_machine_id=sql_virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commit: pulumi.Input[str],
+             failover_mode: pulumi.Input[str],
+             readable_secondary: pulumi.Input[str],
+             role: pulumi.Input[str],
+             sql_virtual_machine_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commit", commit)
+        _setter("failover_mode", failover_mode)
+        _setter("readable_secondary", readable_secondary)
+        _setter("role", role)
+        _setter("sql_virtual_machine_id", sql_virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -1712,20 +2073,43 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
         :param pulumi.Input[str] storage_account_primary_key: The primary key of the Storage Account.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cluster_subnet_type", cluster_subnet_type)
-        pulumi.set(__self__, "fqdn", fqdn)
+        VirtualMachineGroupWsfcDomainProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_subnet_type=cluster_subnet_type,
+            fqdn=fqdn,
+            cluster_bootstrap_account_name=cluster_bootstrap_account_name,
+            cluster_operator_account_name=cluster_operator_account_name,
+            organizational_unit_path=organizational_unit_path,
+            sql_service_account_name=sql_service_account_name,
+            storage_account_primary_key=storage_account_primary_key,
+            storage_account_url=storage_account_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_subnet_type: pulumi.Input[str],
+             fqdn: pulumi.Input[str],
+             cluster_bootstrap_account_name: Optional[pulumi.Input[str]] = None,
+             cluster_operator_account_name: Optional[pulumi.Input[str]] = None,
+             organizational_unit_path: Optional[pulumi.Input[str]] = None,
+             sql_service_account_name: Optional[pulumi.Input[str]] = None,
+             storage_account_primary_key: Optional[pulumi.Input[str]] = None,
+             storage_account_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_subnet_type", cluster_subnet_type)
+        _setter("fqdn", fqdn)
         if cluster_bootstrap_account_name is not None:
-            pulumi.set(__self__, "cluster_bootstrap_account_name", cluster_bootstrap_account_name)
+            _setter("cluster_bootstrap_account_name", cluster_bootstrap_account_name)
         if cluster_operator_account_name is not None:
-            pulumi.set(__self__, "cluster_operator_account_name", cluster_operator_account_name)
+            _setter("cluster_operator_account_name", cluster_operator_account_name)
         if organizational_unit_path is not None:
-            pulumi.set(__self__, "organizational_unit_path", organizational_unit_path)
+            _setter("organizational_unit_path", organizational_unit_path)
         if sql_service_account_name is not None:
-            pulumi.set(__self__, "sql_service_account_name", sql_service_account_name)
+            _setter("sql_service_account_name", sql_service_account_name)
         if storage_account_primary_key is not None:
-            pulumi.set(__self__, "storage_account_primary_key", storage_account_primary_key)
+            _setter("storage_account_primary_key", storage_account_primary_key)
         if storage_account_url is not None:
-            pulumi.set(__self__, "storage_account_url", storage_account_url)
+            _setter("storage_account_url", storage_account_url)
 
     @property
     @pulumi.getter(name="clusterSubnetType")
@@ -1837,10 +2221,25 @@ class VirtualMachineKeyVaultCredentialArgs:
         :param pulumi.Input[str] service_principal_name: The service principal name to access key vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_secret: The service principal name secret to access key vault. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "key_vault_url", key_vault_url)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_principal_name", service_principal_name)
-        pulumi.set(__self__, "service_principal_secret", service_principal_secret)
+        VirtualMachineKeyVaultCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_url=key_vault_url,
+            name=name,
+            service_principal_name=service_principal_name,
+            service_principal_secret=service_principal_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_url: pulumi.Input[str],
+             name: pulumi.Input[str],
+             service_principal_name: pulumi.Input[str],
+             service_principal_secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_url", key_vault_url)
+        _setter("name", name)
+        _setter("service_principal_name", service_principal_name)
+        _setter("service_principal_secret", service_principal_secret)
 
     @property
     @pulumi.getter(name="keyVaultUrl")
@@ -1912,20 +2311,41 @@ class VirtualMachineSqlInstanceArgs:
                
                > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
         """
+        VirtualMachineSqlInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adhoc_workloads_optimization_enabled=adhoc_workloads_optimization_enabled,
+            collation=collation,
+            instant_file_initialization_enabled=instant_file_initialization_enabled,
+            lock_pages_in_memory_enabled=lock_pages_in_memory_enabled,
+            max_dop=max_dop,
+            max_server_memory_mb=max_server_memory_mb,
+            min_server_memory_mb=min_server_memory_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adhoc_workloads_optimization_enabled: Optional[pulumi.Input[bool]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             instant_file_initialization_enabled: Optional[pulumi.Input[bool]] = None,
+             lock_pages_in_memory_enabled: Optional[pulumi.Input[bool]] = None,
+             max_dop: Optional[pulumi.Input[int]] = None,
+             max_server_memory_mb: Optional[pulumi.Input[int]] = None,
+             min_server_memory_mb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if adhoc_workloads_optimization_enabled is not None:
-            pulumi.set(__self__, "adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
+            _setter("adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if instant_file_initialization_enabled is not None:
-            pulumi.set(__self__, "instant_file_initialization_enabled", instant_file_initialization_enabled)
+            _setter("instant_file_initialization_enabled", instant_file_initialization_enabled)
         if lock_pages_in_memory_enabled is not None:
-            pulumi.set(__self__, "lock_pages_in_memory_enabled", lock_pages_in_memory_enabled)
+            _setter("lock_pages_in_memory_enabled", lock_pages_in_memory_enabled)
         if max_dop is not None:
-            pulumi.set(__self__, "max_dop", max_dop)
+            _setter("max_dop", max_dop)
         if max_server_memory_mb is not None:
-            pulumi.set(__self__, "max_server_memory_mb", max_server_memory_mb)
+            _setter("max_server_memory_mb", max_server_memory_mb)
         if min_server_memory_mb is not None:
-            pulumi.set(__self__, "min_server_memory_mb", min_server_memory_mb)
+            _setter("min_server_memory_mb", min_server_memory_mb)
 
     @property
     @pulumi.getter(name="adhocWorkloadsOptimizationEnabled")
@@ -2031,16 +2451,35 @@ class VirtualMachineStorageConfigurationArgs:
         :param pulumi.Input[bool] system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
         :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `temp_db_settings` as defined below.
         """
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "storage_workload_type", storage_workload_type)
+        VirtualMachineStorageConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_type=disk_type,
+            storage_workload_type=storage_workload_type,
+            data_settings=data_settings,
+            log_settings=log_settings,
+            system_db_on_data_disk_enabled=system_db_on_data_disk_enabled,
+            temp_db_settings=temp_db_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_type: pulumi.Input[str],
+             storage_workload_type: pulumi.Input[str],
+             data_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']] = None,
+             log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
+             system_db_on_data_disk_enabled: Optional[pulumi.Input[bool]] = None,
+             temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_type", disk_type)
+        _setter("storage_workload_type", storage_workload_type)
         if data_settings is not None:
-            pulumi.set(__self__, "data_settings", data_settings)
+            _setter("data_settings", data_settings)
         if log_settings is not None:
-            pulumi.set(__self__, "log_settings", log_settings)
+            _setter("log_settings", log_settings)
         if system_db_on_data_disk_enabled is not None:
-            pulumi.set(__self__, "system_db_on_data_disk_enabled", system_db_on_data_disk_enabled)
+            _setter("system_db_on_data_disk_enabled", system_db_on_data_disk_enabled)
         if temp_db_settings is not None:
-            pulumi.set(__self__, "temp_db_settings", temp_db_settings)
+            _setter("temp_db_settings", temp_db_settings)
 
     @property
     @pulumi.getter(name="diskType")
@@ -2124,8 +2563,19 @@ class VirtualMachineStorageConfigurationDataSettingsArgs:
         :param pulumi.Input[str] default_file_path: The SQL Server default path
         :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: A list of Logical Unit Numbers for the disks.
         """
-        pulumi.set(__self__, "default_file_path", default_file_path)
-        pulumi.set(__self__, "luns", luns)
+        VirtualMachineStorageConfigurationDataSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_file_path=default_file_path,
+            luns=luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_file_path: pulumi.Input[str],
+             luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_file_path", default_file_path)
+        _setter("luns", luns)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -2161,8 +2611,19 @@ class VirtualMachineStorageConfigurationLogSettingsArgs:
         :param pulumi.Input[str] default_file_path: The SQL Server default path
         :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: A list of Logical Unit Numbers for the disks.
         """
-        pulumi.set(__self__, "default_file_path", default_file_path)
-        pulumi.set(__self__, "luns", luns)
+        VirtualMachineStorageConfigurationLogSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_file_path=default_file_path,
+            luns=luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_file_path: pulumi.Input[str],
+             luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_file_path", default_file_path)
+        _setter("luns", luns)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -2208,18 +2669,39 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
         :param pulumi.Input[int] log_file_growth_mb: The SQL Server default file size - This value defaults to `512`
         :param pulumi.Input[int] log_file_size_mb: The SQL Server default file size - This value defaults to `256`
         """
-        pulumi.set(__self__, "default_file_path", default_file_path)
-        pulumi.set(__self__, "luns", luns)
+        VirtualMachineStorageConfigurationTempDbSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_file_path=default_file_path,
+            luns=luns,
+            data_file_count=data_file_count,
+            data_file_growth_in_mb=data_file_growth_in_mb,
+            data_file_size_mb=data_file_size_mb,
+            log_file_growth_mb=log_file_growth_mb,
+            log_file_size_mb=log_file_size_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_file_path: pulumi.Input[str],
+             luns: pulumi.Input[Sequence[pulumi.Input[int]]],
+             data_file_count: Optional[pulumi.Input[int]] = None,
+             data_file_growth_in_mb: Optional[pulumi.Input[int]] = None,
+             data_file_size_mb: Optional[pulumi.Input[int]] = None,
+             log_file_growth_mb: Optional[pulumi.Input[int]] = None,
+             log_file_size_mb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_file_path", default_file_path)
+        _setter("luns", luns)
         if data_file_count is not None:
-            pulumi.set(__self__, "data_file_count", data_file_count)
+            _setter("data_file_count", data_file_count)
         if data_file_growth_in_mb is not None:
-            pulumi.set(__self__, "data_file_growth_in_mb", data_file_growth_in_mb)
+            _setter("data_file_growth_in_mb", data_file_growth_in_mb)
         if data_file_size_mb is not None:
-            pulumi.set(__self__, "data_file_size_mb", data_file_size_mb)
+            _setter("data_file_size_mb", data_file_size_mb)
         if log_file_growth_mb is not None:
-            pulumi.set(__self__, "log_file_growth_mb", log_file_growth_mb)
+            _setter("log_file_growth_mb", log_file_growth_mb)
         if log_file_size_mb is not None:
-            pulumi.set(__self__, "log_file_size_mb", log_file_size_mb)
+            _setter("log_file_size_mb", log_file_size_mb)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -2317,9 +2799,22 @@ class VirtualMachineWsfcDomainCredentialArgs:
         :param pulumi.Input[str] cluster_operator_account_password: The account password used for operating cluster.
         :param pulumi.Input[str] sql_service_account_password: The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
         """
-        pulumi.set(__self__, "cluster_bootstrap_account_password", cluster_bootstrap_account_password)
-        pulumi.set(__self__, "cluster_operator_account_password", cluster_operator_account_password)
-        pulumi.set(__self__, "sql_service_account_password", sql_service_account_password)
+        VirtualMachineWsfcDomainCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_bootstrap_account_password=cluster_bootstrap_account_password,
+            cluster_operator_account_password=cluster_operator_account_password,
+            sql_service_account_password=sql_service_account_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_bootstrap_account_password: pulumi.Input[str],
+             cluster_operator_account_password: pulumi.Input[str],
+             sql_service_account_password: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_bootstrap_account_password", cluster_bootstrap_account_password)
+        _setter("cluster_operator_account_password", cluster_operator_account_password)
+        _setter("sql_service_account_password", sql_service_account_password)
 
     @property
     @pulumi.getter(name="clusterBootstrapAccountPassword")

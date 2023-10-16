@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VmwareReplicationPolicyAssociationArgs', 'VmwareReplicationPolicyAssociation']
@@ -26,10 +26,23 @@ class VmwareReplicationPolicyAssociationArgs:
         :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be
                created.
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+        VmwareReplicationPolicyAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            recovery_vault_id=recovery_vault_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: pulumi.Input[str],
+             recovery_vault_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_id", policy_id)
+        _setter("recovery_vault_id", recovery_vault_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="policyId")
@@ -86,12 +99,25 @@ class _VmwareReplicationPolicyAssociationState:
         :param pulumi.Input[str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
         """
+        _VmwareReplicationPolicyAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            policy_id=policy_id,
+            recovery_vault_id=recovery_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if recovery_vault_id is not None:
-            pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+            _setter("recovery_vault_id", recovery_vault_id)
 
     @property
     @pulumi.getter
@@ -229,6 +255,10 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VmwareReplicationPolicyAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

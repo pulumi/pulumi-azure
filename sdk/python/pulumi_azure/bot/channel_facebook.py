@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,32 @@ class ChannelFacebookArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "facebook_application_id", facebook_application_id)
-        pulumi.set(__self__, "facebook_application_secret", facebook_application_secret)
-        pulumi.set(__self__, "pages", pages)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelFacebookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            facebook_application_id=facebook_application_id,
+            facebook_application_secret=facebook_application_secret,
+            pages=pages,
+            resource_group_name=resource_group_name,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: pulumi.Input[str],
+             facebook_application_id: pulumi.Input[str],
+             facebook_application_secret: pulumi.Input[str],
+             pages: pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_name", bot_name)
+        _setter("facebook_application_id", facebook_application_id)
+        _setter("facebook_application_secret", facebook_application_secret)
+        _setter("pages", pages)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -130,18 +149,37 @@ class _ChannelFacebookState:
         :param pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]] pages: One or more `page` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
         """
+        _ChannelFacebookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            facebook_application_id=facebook_application_id,
+            facebook_application_secret=facebook_application_secret,
+            location=location,
+            pages=pages,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             facebook_application_id: Optional[pulumi.Input[str]] = None,
+             facebook_application_secret: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             pages: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if facebook_application_id is not None:
-            pulumi.set(__self__, "facebook_application_id", facebook_application_id)
+            _setter("facebook_application_id", facebook_application_id)
         if facebook_application_secret is not None:
-            pulumi.set(__self__, "facebook_application_secret", facebook_application_secret)
+            _setter("facebook_application_secret", facebook_application_secret)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if pages is not None:
-            pulumi.set(__self__, "pages", pages)
+            _setter("pages", pages)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="botName")
@@ -329,6 +367,10 @@ class ChannelFacebook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelFacebookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

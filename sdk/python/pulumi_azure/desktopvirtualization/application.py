@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -37,23 +37,50 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
         :param pulumi.Input[bool] show_in_portal: Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
-        pulumi.set(__self__, "application_group_id", application_group_id)
-        pulumi.set(__self__, "command_line_argument_policy", command_line_argument_policy)
-        pulumi.set(__self__, "path", path)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_id=application_group_id,
+            command_line_argument_policy=command_line_argument_policy,
+            path=path,
+            command_line_arguments=command_line_arguments,
+            description=description,
+            friendly_name=friendly_name,
+            icon_index=icon_index,
+            icon_path=icon_path,
+            name=name,
+            show_in_portal=show_in_portal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_id: pulumi.Input[str],
+             command_line_argument_policy: pulumi.Input[str],
+             path: pulumi.Input[str],
+             command_line_arguments: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             icon_index: Optional[pulumi.Input[int]] = None,
+             icon_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             show_in_portal: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_group_id", application_group_id)
+        _setter("command_line_argument_policy", command_line_argument_policy)
+        _setter("path", path)
         if command_line_arguments is not None:
-            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+            _setter("command_line_arguments", command_line_arguments)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if icon_index is not None:
-            pulumi.set(__self__, "icon_index", icon_index)
+            _setter("icon_index", icon_index)
         if icon_path is not None:
-            pulumi.set(__self__, "icon_path", icon_path)
+            _setter("icon_path", icon_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if show_in_portal is not None:
-            pulumi.set(__self__, "show_in_portal", show_in_portal)
+            _setter("show_in_portal", show_in_portal)
 
     @property
     @pulumi.getter(name="applicationGroupId")
@@ -202,26 +229,53 @@ class _ApplicationState:
         :param pulumi.Input[str] path: The file path location of the app on the Virtual Desktop OS.
         :param pulumi.Input[bool] show_in_portal: Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_id=application_group_id,
+            command_line_argument_policy=command_line_argument_policy,
+            command_line_arguments=command_line_arguments,
+            description=description,
+            friendly_name=friendly_name,
+            icon_index=icon_index,
+            icon_path=icon_path,
+            name=name,
+            path=path,
+            show_in_portal=show_in_portal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_id: Optional[pulumi.Input[str]] = None,
+             command_line_argument_policy: Optional[pulumi.Input[str]] = None,
+             command_line_arguments: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             icon_index: Optional[pulumi.Input[int]] = None,
+             icon_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             show_in_portal: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_group_id is not None:
-            pulumi.set(__self__, "application_group_id", application_group_id)
+            _setter("application_group_id", application_group_id)
         if command_line_argument_policy is not None:
-            pulumi.set(__self__, "command_line_argument_policy", command_line_argument_policy)
+            _setter("command_line_argument_policy", command_line_argument_policy)
         if command_line_arguments is not None:
-            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+            _setter("command_line_arguments", command_line_arguments)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if icon_index is not None:
-            pulumi.set(__self__, "icon_index", icon_index)
+            _setter("icon_index", icon_index)
         if icon_path is not None:
-            pulumi.set(__self__, "icon_path", icon_path)
+            _setter("icon_path", icon_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if show_in_portal is not None:
-            pulumi.set(__self__, "show_in_portal", show_in_portal)
+            _setter("show_in_portal", show_in_portal)
 
     @property
     @pulumi.getter(name="applicationGroupId")
@@ -485,6 +539,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

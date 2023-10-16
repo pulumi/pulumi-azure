@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class ZoneArgs:
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ZoneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            name=name,
+            soa_record=soa_record,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if soa_record is not None:
-            pulumi.set(__self__, "soa_record", soa_record)
+            _setter("soa_record", soa_record)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -104,20 +119,41 @@ class _ZoneState:
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _ZoneState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_number_of_record_sets=max_number_of_record_sets,
+            name=name,
+            name_servers=name_servers,
+            number_of_record_sets=number_of_record_sets,
+            resource_group_name=resource_group_name,
+            soa_record=soa_record,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_number_of_record_sets: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             number_of_record_sets: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_number_of_record_sets is not None:
-            pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
+            _setter("max_number_of_record_sets", max_number_of_record_sets)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_servers is not None:
-            pulumi.set(__self__, "name_servers", name_servers)
+            _setter("name_servers", name_servers)
         if number_of_record_sets is not None:
-            pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
+            _setter("number_of_record_sets", number_of_record_sets)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if soa_record is not None:
-            pulumi.set(__self__, "soa_record", soa_record)
+            _setter("soa_record", soa_record)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
@@ -279,6 +315,10 @@ class Zone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ZoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -301,6 +341,11 @@ class Zone(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if soa_record is not None and not isinstance(soa_record, ZoneSoaRecordArgs):
+                soa_record = soa_record or {}
+                def _setter(key, value):
+                    soa_record[key] = value
+                ZoneSoaRecordArgs._configure(_setter, **soa_record)
             __props__.__dict__["soa_record"] = soa_record
             __props__.__dict__["tags"] = tags
             __props__.__dict__["max_number_of_record_sets"] = None

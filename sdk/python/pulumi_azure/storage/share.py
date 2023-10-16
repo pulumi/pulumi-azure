@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,18 +41,39 @@ class ShareArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "quota", quota)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        ShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quota=quota,
+            storage_account_name=storage_account_name,
+            access_tier=access_tier,
+            acls=acls,
+            enabled_protocol=enabled_protocol,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quota: pulumi.Input[int],
+             storage_account_name: pulumi.Input[str],
+             access_tier: Optional[pulumi.Input[str]] = None,
+             acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
+             enabled_protocol: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("quota", quota)
+        _setter("storage_account_name", storage_account_name)
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if acls is not None:
-            pulumi.set(__self__, "acls", acls)
+            _setter("acls", acls)
         if enabled_protocol is not None:
-            pulumi.set(__self__, "enabled_protocol", enabled_protocol)
+            _setter("enabled_protocol", enabled_protocol)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -179,24 +200,49 @@ class _ShareState:
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
         """
+        _ShareState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_tier=access_tier,
+            acls=acls,
+            enabled_protocol=enabled_protocol,
+            metadata=metadata,
+            name=name,
+            quota=quota,
+            resource_manager_id=resource_manager_id,
+            storage_account_name=storage_account_name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_tier: Optional[pulumi.Input[str]] = None,
+             acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
+             enabled_protocol: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota: Optional[pulumi.Input[int]] = None,
+             resource_manager_id: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_tier is not None:
-            pulumi.set(__self__, "access_tier", access_tier)
+            _setter("access_tier", access_tier)
         if acls is not None:
-            pulumi.set(__self__, "acls", acls)
+            _setter("acls", acls)
         if enabled_protocol is not None:
-            pulumi.set(__self__, "enabled_protocol", enabled_protocol)
+            _setter("enabled_protocol", enabled_protocol)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if resource_manager_id is not None:
-            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+            _setter("resource_manager_id", resource_manager_id)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="accessTier")
@@ -438,6 +484,10 @@ class Share(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

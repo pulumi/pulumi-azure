@@ -4756,7 +4756,6 @@ func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pul
 }
 
 type ResourceProviderRegistrationFeature struct {
-	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Should this feature be Registered or Unregistered?
 	Registered bool `pulumi:"registered"`
@@ -4774,7 +4773,6 @@ type ResourceProviderRegistrationFeatureInput interface {
 }
 
 type ResourceProviderRegistrationFeatureArgs struct {
-	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Should this feature be Registered or Unregistered?
 	Registered pulumi.BoolInput `pulumi:"registered"`
@@ -4849,7 +4847,6 @@ func (o ResourceProviderRegistrationFeatureOutput) ToOutput(ctx context.Context)
 	}
 }
 
-// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 func (o ResourceProviderRegistrationFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceProviderRegistrationFeature) string { return v.Name }).(pulumi.StringOutput)
 }

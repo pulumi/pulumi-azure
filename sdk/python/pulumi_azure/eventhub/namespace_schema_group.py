@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceSchemaGroupArgs', 'NamespaceSchemaGroup']
@@ -25,11 +25,26 @@ class NamespaceSchemaGroupArgs:
         :param pulumi.Input[str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "namespace_id", namespace_id)
-        pulumi.set(__self__, "schema_compatibility", schema_compatibility)
-        pulumi.set(__self__, "schema_type", schema_type)
+        NamespaceSchemaGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_id=namespace_id,
+            schema_compatibility=schema_compatibility,
+            schema_type=schema_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_id: pulumi.Input[str],
+             schema_compatibility: pulumi.Input[str],
+             schema_type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_id", namespace_id)
+        _setter("schema_compatibility", schema_compatibility)
+        _setter("schema_type", schema_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="namespaceId")
@@ -94,14 +109,29 @@ class _NamespaceSchemaGroupState:
         :param pulumi.Input[str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown`. Changing this forces a new resource to be created.
         """
+        _NamespaceSchemaGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace_id=namespace_id,
+            schema_compatibility=schema_compatibility,
+            schema_type=schema_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             schema_compatibility: Optional[pulumi.Input[str]] = None,
+             schema_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
+            _setter("namespace_id", namespace_id)
         if schema_compatibility is not None:
-            pulumi.set(__self__, "schema_compatibility", schema_compatibility)
+            _setter("schema_compatibility", schema_compatibility)
         if schema_type is not None:
-            pulumi.set(__self__, "schema_type", schema_type)
+            _setter("schema_type", schema_type)
 
     @property
     @pulumi.getter
@@ -237,6 +267,10 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceSchemaGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
